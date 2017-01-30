@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cedula:</strong>
+  <%= @especialistum.cedula %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @especialistum.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @especialistum.apellido %>
+</p>
+
+<p>
+  <strong>Especialidad:</strong>
+  <%= @especialistum.especialidad %>
+</p>
+
+<p>
+  <strong>Fecha ingreso:</strong>
+  <%= @especialistum.fecha_ingreso %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @especialistum.sexo %>
+</p>
+
+<p>
+  <strong>Curriculum:</strong>
+  <%= @especialistum.curriculum %>
+</p>
+
+<p>
+  <strong>Edad:</strong>
+  <%= @especialistum.edad %>
+</p>
+
+<%= link_to 'Edit', edit_especialistum_path(@especialistum) %> |
+<%= link_to 'Back', especialista_path %>

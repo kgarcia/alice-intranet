@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Especialista</h1>
+<div class="ibox-content">
+  <table class="table table-striped table-bordered table-hover dataTables-example">
+    <thead>
+      <tr>
+        <th>Cedula</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Especialidad</th>
+        <th>Fecha ingreso</th>
+        <th>Sexo</th>
+        <th>Curriculum</th>
+        <th>Edad</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @especialista.each do |especialistum| %>
+        <tr class="gradeX">
+          <td><%= especialistum.cedula %></td>
+          <td><%= especialistum.nombre %></td>
+          <td><%= especialistum.apellido %></td>
+          <td><%= especialistum.especialidad %></td>
+          <td><%= especialistum.fecha_ingreso %></td>
+          <td><%= especialistum.sexo %></td>
+          <td><%= especialistum.curriculum %></td>
+          <td><%= especialistum.edad %></td>
+          <td><%= link_to 'Show', especialistum %></td>
+          <td><%= link_to 'Edit', edit_especialistum_path(especialistum) %></td>
+          <td><%= link_to 'Destroy', especialistum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+
+<%= link_to 'New Especialistum', new_especialistum_path %>
+
+
+
+
+<% content_for :javascript do %>
+
+<script type="text/javascript">
+
+
+$(function() {
+
+    $('.dataTables-example').DataTable({
+        pageLength: 25,
+        responsive: true,
+        dom: '<"html5buttons"B>lTfgitp',
+        buttons: [
+            { extend: 'copy'},
+            {extend: 'csv'},
+            {extend: 'excel', title: 'ExampleFile'},
+            {extend: 'pdf', title: 'ExampleFile'},
+
+            {extend: 'print',
+                customize: function (win){
+                    $(win.document.body).addClass('white-bg');
+                    $(win.document.body).css('font-size', '10px');
+
+                    $(win.document.body).find('table')
+                            .addClass('compact')
+                            .css('font-size', 'inherit');
+                }
+            }
+        ]
+
+    });
+
+
+});
+
+
+
+</script>
+
+<% end %>
