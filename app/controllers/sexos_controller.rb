@@ -69,6 +69,6 @@ class SexosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sexo_params
-      params.require(:sexo).permit(:descripcion)
+      params.require(:sexo).permit(:descripcion,:estatus)
     end
 end

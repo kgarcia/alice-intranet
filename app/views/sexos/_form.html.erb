@@ -1,23 +1,43 @@
-<%= form_for(@sexo) do |f| %>
-  <% if @sexo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sexo.errors.count, "error") %> prohibited this sexo from being saved:</h2>
 
-      <ul>
-      <% @sexo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="col-lg-6 col-lg-offset-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                      <h5>Sexo</h5>
+                </div>
+            </div>
+            <div class="ibox-content">
+                  <%= form_for @sexo, :html => {:class => 'form-horizontal'} do |f| %>
+                    <% if @sexo.errors.any? %>
+                      <div id="error_explanation">
+                        <h2><%= pluralize(@sexo.errors.count, "error") %> prohibited this sexo from being saved:</h2>
+
+                        <ul>
+                        <% @sexo.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+
+
+                     <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
+    
+                       <div class="col-lg-10"><%= f.text_field :descripcion , :class => "form-control"%> <span class="help-block m-b-none">Descripción </span>
+                       </div>
+
+                      </div>
+                     <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
+    
+                         <div class="col-lg-10"><%= f.text_field :estatus , :class => "form-control"%> <span class="help-block m-b-none">Estatus </span>
+                       </div>
+                    </div>
+                     <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <%= f.submit 'Guardar', :class => "btn btn-primary" %>
+                               
+                            </div>
+                        </div>
+                  <% end %>
+                    
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :descripcion %><br>
-    <%= f.text_field :descripcion %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-probando escribiendo en el formulario de sexo
