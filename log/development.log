@@ -24547,3 +24547,3036 @@ Completed 200 OK in 103ms (Views: 101.6ms | ActiveRecord: 0.4ms)
 
 
 Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:01:51 -0430
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-08 01:36:18 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (10.3ms)
+Completed 500 Internal Server Error in 573ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (couldn't find file 'bootstrap-tagsinput/bootstrap-tagsinput.js' with type 'application/javascript'
+Checked in these paths: 
+  /home/marco/workspace/aliceGIT/app/assets/images
+  /home/marco/workspace/aliceGIT/app/assets/javascripts
+  /home/marco/workspace/aliceGIT/app/assets/stylesheets
+  /home/marco/workspace/aliceGIT/vendor/assets/javascripts
+  /home/marco/workspace/aliceGIT/vendor/assets/stylesheets
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/font-awesome-rails-4.7.0.1/app/assets/fonts
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/font-awesome-rails-4.7.0.1/app/assets/stylesheets
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/turbolinks-source-5.0.0/lib/assets/javascripts
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/bootstrap-sass-3.3.7/assets/javascripts
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/bootstrap-sass-3.3.7/assets/fonts
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/bootstrap-sass-3.3.7/assets/images):
+     7:     <title>Alice | Administrador</title>
+     8: 
+     9:     <!-- Main css styles -->
+    10:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    11: 
+    12:     <!-- Main javascript files -->
+    13:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  app/assets/javascripts/cita.js:41
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__2949666650082976340_42825960'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-08 01:37:19 -0430
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+Completed 500 Internal Server Error in 211ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (couldn't find file 'typehead/bootstrap3-typeahead.min.js' with type 'application/javascript'
+Checked in these paths: 
+  /home/marco/workspace/aliceGIT/app/assets/images
+  /home/marco/workspace/aliceGIT/app/assets/javascripts
+  /home/marco/workspace/aliceGIT/app/assets/stylesheets
+  /home/marco/workspace/aliceGIT/vendor/assets/javascripts
+  /home/marco/workspace/aliceGIT/vendor/assets/stylesheets
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/coffee-rails-4.0.1/lib/assets/javascripts
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/font-awesome-rails-4.7.0.1/app/assets/fonts
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/font-awesome-rails-4.7.0.1/app/assets/stylesheets
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/turbolinks-source-5.0.0/lib/assets/javascripts
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/bootstrap-sass-3.3.7/assets/stylesheets
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/bootstrap-sass-3.3.7/assets/javascripts
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/bootstrap-sass-3.3.7/assets/fonts
+  /home/marco/.rvm/gems/ruby-2.3.3/gems/bootstrap-sass-3.3.7/assets/images):
+     7:     <title>Alice | Administrador</title>
+     8: 
+     9:     <!-- Main css styles -->
+    10:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    11: 
+    12:     <!-- Main javascript files -->
+    13:     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  app/assets/javascripts/cita.js:44
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__2949666650082976340_42825960'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (32.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-08 01:37:32 -0430
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_navigation.html.erb (7.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 663ms (Views: 662.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:33 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:34 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:34 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:34 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:37:34 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:37:34 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:37:34 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:37:34 -0430
+
+
+Started GET "/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2" for 127.0.0.1 at 2017-02-08 01:37:34 -0430
+
+
+Started GET "/especialidads" for 127.0.0.1 at 2017-02-08 01:37:51 -0430
+Processing by EspecialidadsController#index as HTML
+  [1m[35mEspecialidad Load (0.4ms)[0m  SELECT "especialidads".* FROM "especialidads"
+  Rendered especialidads/index.html.erb within layouts/application (17.9ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 163ms (Views: 156.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:37:51 -0430
+
+
+Started GET "/especialidads" for 127.0.0.1 at 2017-02-08 01:37:53 -0430
+Processing by EspecialidadsController#index as HTML
+  [1m[36mEspecialidad Load (0.2ms)[0m  [1mSELECT "especialidads".* FROM "especialidads"[0m
+  Rendered especialidads/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 111ms (Views: 110.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:37:54 -0430
+
+
+Started GET "/especialidads" for 127.0.0.1 at 2017-02-08 01:38:39 -0430
+Processing by EspecialidadsController#index as HTML
+  [1m[35mEspecialidad Load (0.3ms)[0m  SELECT "especialidads".* FROM "especialidads"
+  Rendered especialidads/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 110ms (Views: 108.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:38:40 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:38:41 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:38:41 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:38:41 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:38:41 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:44:35 -0430
+Processing by CitaController#index as HTML
+  [1m[36mCitum Load (0.2ms)[0m  [1mSELECT "cita".* FROM "cita"[0m
+  Rendered cita/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 184ms (Views: 180.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:44:36 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:45:46 -0430
+Processing by CitaController#index as HTML
+  [1m[35mCitum Load (0.2ms)[0m  SELECT "cita".* FROM "cita"
+  Rendered cita/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 104ms (Views: 102.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:45:46 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:45:46 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:45:46 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:45:46 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:46 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:46 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:46 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:46 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:45:47 -0430
+
+
+Started GET "/especialidads" for 127.0.0.1 at 2017-02-08 01:45:51 -0430
+Processing by EspecialidadsController#index as HTML
+  [1m[36mEspecialidad Load (0.3ms)[0m  [1mSELECT "especialidads".* FROM "especialidads"[0m
+  Rendered especialidads/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 100ms (Views: 99.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:45:52 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:47:06 -0430
+Processing by CitaController#index as HTML
+  [1m[35mCitum Load (0.3ms)[0m  SELECT "cita".* FROM "cita"
+  Rendered cita/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_topnavbar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 120ms (Views: 118.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:47:07 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+Processing by CitaController#index as HTML
+  [1m[36mCitum Load (0.3ms)[0m  [1mSELECT "cita".* FROM "cita"[0m
+  Rendered cita/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 113ms (Views: 112.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:47:09 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:47:10 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:47:10 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:47:10 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:47:10 -0430
+
+
+Started GET "/cita/new" for 127.0.0.1 at 2017-02-08 01:47:12 -0430
+Processing by CitaController#new as HTML
+  Rendered cita/_form.html.erb (13.6ms)
+  Rendered cita/new.html.erb within layouts/application (15.5ms)
+  Rendered layouts/_navigation.html.erb (4.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 150ms (Views: 141.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:47:14 -0430
+
+
+Started POST "/cita" for 127.0.0.1 at 2017-02-08 01:48:59 -0430
+Processing by CitaController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"STfHAwpGvk1jCL1c3FRz4sgXrti9FQ3YbU57z9vK0Wh4II0KrnzsAFqYRG0IDFFjMmDQekY+mj/f3hU3JYEG/A==", "citum"=>{"identificador"=>"PAC-00001", "nombre_doctor"=>"José Perez", "nombre_servicio"=>"INTERNISTA", "fecha_cita"=>"02/09/2017", "estatus_cita"=>"SOLICITADA"}, "commit"=>"Guardar"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "cita" ("identificador", "nombre_doctor", "nombre_servicio", "fecha_cita", "estatus_cita", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["identificador", "PAC-00001"], ["nombre_doctor", "José Perez"], ["nombre_servicio", "INTERNISTA"], ["fecha_cita", "2017-09-02"], ["estatus_cita", "SOLICITADA"], ["created_at", "2017-02-08 06:18:59.666366"], ["updated_at", "2017-02-08 06:18:59.666366"]]
+  [1m[35m (138.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/cita/1
+Completed 302 Found in 146ms (ActiveRecord: 139.1ms)
+
+
+Started GET "/cita/1" for 127.0.0.1 at 2017-02-08 01:48:59 -0430
+Processing by CitaController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCitum Load (0.3ms)[0m  [1mSELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered cita/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_topnavbar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 110ms (Views: 102.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:49:00 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:49:03 -0430
+Processing by CitaController#index as HTML
+  [1m[35mCitum Load (0.3ms)[0m  SELECT "cita".* FROM "cita"
+  Rendered cita/index.html.erb within layouts/application (48.6ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined local variable or method `especialidad' for #<#<Class:0x007f56ba4c3318>:0x007f56ba3877d8>
+Did you mean?  especialidad_url):
+    23:            <td><%= citum.estatus_cita.upcase %></td>
+    24:           <td><%= citum.fecha_cita %></td>
+    25:           <td><%= link_to '', edit_citum_path(citum), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+    26:           <%= link_to '', especialidad, method: :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+    27:         </tr>
+    28:       <% end %>
+    29:     </tbody>
+  app/views/cita/index.html.erb:26:in `block in _app_views_cita_index_html_erb___3619164546055267549_70005232683020'
+  app/views/cita/index.html.erb:19:in `_app_views_cita_index_html_erb___3619164546055267549_70005232683020'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (27.3ms)
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+Processing by CitaController#index as HTML
+  [1m[36mCitum Load (0.2ms)[0m  [1mSELECT "cita".* FROM "cita"[0m
+  Rendered cita/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_topnavbar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 107ms (Views: 105.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:07 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:50:08 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:50:08 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:50:08 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:50:08 -0430
+
+
+Started GET "/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2" for 127.0.0.1 at 2017-02-08 01:50:08 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:50:49 -0430
+Processing by CitaController#index as HTML
+  [1m[35mCitum Load (0.4ms)[0m  SELECT "cita".* FROM "cita"
+  Rendered cita/index.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 104ms (Views: 103.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:50:50 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:50:51 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:50:51 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:50:51 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:50:51 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+Processing by CitaController#index as HTML
+  [1m[36mCitum Load (0.3ms)[0m  [1mSELECT "cita".* FROM "cita"[0m
+  Rendered cita/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 136ms (Views: 134.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:27 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:51:28 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:51:28 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:51:28 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:51:28 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:51:49 -0430
+Processing by CitaController#index as HTML
+  [1m[35mCitum Load (0.3ms)[0m  SELECT "cita".* FROM "cita"
+  Rendered cita/index.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 137ms (Views: 136.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:51:49 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:51:49 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:51:49 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:51:49 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:51:50 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:51:51 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:51:51 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:51:51 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:51:51 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:52:28 -0430
+Processing by CitaController#index as HTML
+  [1m[36mCitum Load (0.3ms)[0m  [1mSELECT "cita".* FROM "cita"[0m
+  Rendered cita/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 113ms (Views: 112.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:52:28 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:52:28 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:28 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:52:28 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:52:28 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:52:29 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:52:30 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:52:30 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:52:30 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+Processing by CitaController#index as HTML
+  [1m[35mCitum Load (0.3ms)[0m  SELECT "cita".* FROM "cita"
+  Rendered cita/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 112ms (Views: 111.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:46 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:52:47 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:52:48 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:52:48 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:52:48 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:52:48 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:53:04 -0430
+Processing by CitaController#index as HTML
+  [1m[36mCitum Load (0.3ms)[0m  [1mSELECT "cita".* FROM "cita"[0m
+  Rendered cita/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 101ms (Views: 99.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:53:05 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:53:06 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:53:06 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:53:06 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:53:06 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+Processing by CitaController#index as HTML
+  [1m[35mCitum Load (0.2ms)[0m  SELECT "cita".* FROM "cita"
+  Rendered cita/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 108ms (Views: 107.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:54:35 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:54:36 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:54:36 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 01:54:36 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:54:36 -0430
+
+
+Started GET "/cita/new" for 127.0.0.1 at 2017-02-08 01:54:44 -0430
+Processing by CitaController#new as HTML
+  Rendered cita/_form.html.erb (1.4ms)
+  Rendered cita/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_topnavbar.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 126ms (Views: 125.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:54:46 -0430
+
+
+Started POST "/cita" for 127.0.0.1 at 2017-02-08 01:55:29 -0430
+Processing by CitaController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bpnssFYDcqDm7RCVfrAUM6OVNmKeQM9RGUm860TqRe5fjqa58jkg7d996aSq6DayWeJIwGVrWLar2dITuqGSeg==", "citum"=>{"identificador"=>"CIT-00002", "nombre_doctor"=>"Daniela Perez", "nombre_servicio"=>"TRAUMATOLOGIA", "fecha_cita"=>"02/20/2017", "estatus_cita"=>"SOLICITADA"}, "commit"=>"Guardar"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cita" ("identificador", "nombre_doctor", "nombre_servicio", "estatus_cita", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["identificador", "CIT-00002"], ["nombre_doctor", "Daniela Perez"], ["nombre_servicio", "TRAUMATOLOGIA"], ["estatus_cita", "SOLICITADA"], ["created_at", "2017-02-08 06:25:29.543735"], ["updated_at", "2017-02-08 06:25:29.543735"]]
+  [1m[36m (214.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/cita/2
+Completed 302 Found in 221ms (ActiveRecord: 214.9ms)
+
+
+Started GET "/cita/2" for 127.0.0.1 at 2017-02-08 01:55:29 -0430
+Processing by CitaController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCitum Load (0.2ms)[0m  SELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered cita/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 97ms (Views: 95.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:55:31 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:55:33 -0430
+Processing by CitaController#index as HTML
+  [1m[36mCitum Load (0.3ms)[0m  [1mSELECT "cita".* FROM "cita"[0m
+  Rendered cita/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 116ms (Views: 114.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:55:34 -0430
+
+
+Started GET "/cita/2/edit" for 127.0.0.1 at 2017-02-08 01:55:41 -0430
+Processing by CitaController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCitum Load (0.1ms)[0m  SELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered cita/_form.html.erb (1.3ms)
+  Rendered cita/edit.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_topnavbar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 113ms (Views: 111.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:55:42 -0430
+
+
+Started PATCH "/cita/2" for 127.0.0.1 at 2017-02-08 01:55:49 -0430
+Processing by CitaController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XzGnJUNjrq3KcsUZg42qPPKSPEfHoRMn4adEel7eBLBuJu0s51n84PPiPChX1Yi9COVC5TyKhMBTNyqCoJXTJA==", "citum"=>{"identificador"=>"CIT-00002", "nombre_doctor"=>"Daniela Perez", "nombre_servicio"=>"TRAUMATOLOGIA", "fecha_cita"=>"02/23/2017", "estatus_cita"=>"SOLICITADA"}, "commit"=>"Guardar", "id"=>"2"}
+  [1m[36mCitum Load (0.2ms)[0m  [1mSELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/cita/2
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/cita/2" for 127.0.0.1 at 2017-02-08 01:55:50 -0430
+Processing by CitaController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCitum Load (0.1ms)[0m  SELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered cita/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (4.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 118ms (Views: 116.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:55:51 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:56:39 -0430
+Processing by CitaController#index as HTML
+  [1m[36mCitum Load (0.2ms)[0m  [1mSELECT "cita".* FROM "cita"[0m
+  Rendered cita/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_topnavbar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 96ms (Views: 94.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:56:40 -0430
+
+
+Started GET "/cita/2/edit" for 127.0.0.1 at 2017-02-08 01:56:42 -0430
+Processing by CitaController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCitum Load (0.2ms)[0m  SELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered cita/_form.html.erb (1.8ms)
+  Rendered cita/edit.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_topnavbar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 111ms (Views: 109.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:56:44 -0430
+
+
+Started PATCH "/cita/2" for 127.0.0.1 at 2017-02-08 01:56:50 -0430
+Processing by CitaController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YdGsKeYeJZ80FXWF1s/WiSSpaZB1a5X4G0RGmrrGdO5QxuYgQiR30g2FjLQCl/QI3t4XMo5AAh+p1ChiRI2jeg==", "citum"=>{"identificador"=>"CIT-00002", "nombre_doctor"=>"Daniela Perez", "nombre_servicio"=>"TRAUMATOLOGIA", "fecha_cita"=>"02/09/2017", "estatus_cita"=>"SOLICITADA"}, "commit"=>"Guardar", "id"=>"2"}
+  [1m[36mCitum Load (0.2ms)[0m  [1mSELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "cita" SET "fecha_cita" = ?, "updated_at" = ? WHERE "cita"."id" = ?[0m  [["fecha_cita", "2017-09-02"], ["updated_at", "2017-02-08 06:26:50.482050"], ["id", 2]]
+  [1m[35m (220.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/cita/2
+Completed 302 Found in 230ms (ActiveRecord: 221.5ms)
+
+
+Started GET "/cita/2" for 127.0.0.1 at 2017-02-08 01:56:50 -0430
+Processing by CitaController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCitum Load (0.2ms)[0m  [1mSELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered cita/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 102ms (Views: 100.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:56:52 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:56:54 -0430
+Processing by CitaController#index as HTML
+  [1m[35mCitum Load (0.3ms)[0m  SELECT "cita".* FROM "cita"
+  Rendered cita/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 115ms (Views: 113.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:56:55 -0430
+
+
+Started GET "/cita/new" for 127.0.0.1 at 2017-02-08 01:56:59 -0430
+Processing by CitaController#new as HTML
+  Rendered cita/_form.html.erb (1.1ms)
+  Rendered cita/new.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_topnavbar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 99ms (Views: 98.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:57:02 -0430
+
+
+Started POST "/cita" for 127.0.0.1 at 2017-02-08 01:57:26 -0430
+Processing by CitaController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S2UclEpsZkldzD8K4Yr7xBOeQVyLi0BWl12442gTZCJ6clad7lY0BGRcxjs10tlF6ek//nCg17ElzdYblliztg==", "citum"=>{"identificador"=>"CIT-00003", "nombre_doctor"=>"Asbel Maestre", "nombre_servicio"=>"INTERNISTA", "fecha_cita"=>"02/10/2017", "estatus_cita"=>"SOLICITADA"}, "commit"=>"Guardar"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "cita" ("identificador", "nombre_doctor", "nombre_servicio", "fecha_cita", "estatus_cita", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["identificador", "CIT-00003"], ["nombre_doctor", "Asbel Maestre"], ["nombre_servicio", "INTERNISTA"], ["fecha_cita", "2017-10-02"], ["estatus_cita", "SOLICITADA"], ["created_at", "2017-02-08 06:27:26.008695"], ["updated_at", "2017-02-08 06:27:26.008695"]]
+  [1m[36m (251.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/cita/3
+Completed 302 Found in 258ms (ActiveRecord: 252.2ms)
+
+
+Started GET "/cita/3" for 127.0.0.1 at 2017-02-08 01:57:26 -0430
+Processing by CitaController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCitum Load (0.2ms)[0m  SELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered cita/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_topnavbar.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 112ms (Views: 110.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:57:27 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:57:29 -0430
+Processing by CitaController#index as HTML
+  [1m[36mCitum Load (0.2ms)[0m  [1mSELECT "cita".* FROM "cita"[0m
+  Rendered cita/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation.html.erb (6.7ms)
+  Rendered layouts/_topnavbar.html.erb (13.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 139ms (Views: 138.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:57:31 -0430
+
+
+Started GET "/cita/1/edit" for 127.0.0.1 at 2017-02-08 01:57:35 -0430
+Processing by CitaController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCitum Load (0.2ms)[0m  SELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered cita/_form.html.erb (2.1ms)
+  Rendered cita/edit.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 161ms (Views: 159.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:57:36 -0430
+
+
+Started PATCH "/cita/1" for 127.0.0.1 at 2017-02-08 01:57:41 -0430
+Processing by CitaController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IHi4kHGXbQ6t9H0Pn6ky+i3J/7gU3rKIdkcmAHe7+o4Rb/KZ1a0/Q5RkhD5L8RB7176BGu/1JW/E10j4ifAtGg==", "citum"=>{"identificador"=>"CIT-00001", "nombre_doctor"=>"José Perez", "nombre_servicio"=>"INTERNISTA", "fecha_cita"=>"2017-09-02", "estatus_cita"=>"SOLICITADA"}, "commit"=>"Guardar", "id"=>"1"}
+  [1m[36mCitum Load (0.1ms)[0m  [1mSELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "cita" SET "identificador" = ?, "updated_at" = ? WHERE "cita"."id" = ?[0m  [["identificador", "CIT-00001"], ["updated_at", "2017-02-08 06:27:41.865584"], ["id", 1]]
+  [1m[35m (254.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/cita/1
+Completed 302 Found in 260ms (ActiveRecord: 254.7ms)
+
+
+Started GET "/cita/1" for 127.0.0.1 at 2017-02-08 01:57:42 -0430
+Processing by CitaController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCitum Load (0.2ms)[0m  [1mSELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered cita/show.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_topnavbar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 101ms (Views: 99.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:57:45 -0430
+
+
+Started GET "/cita" for 127.0.0.1 at 2017-02-08 01:57:48 -0430
+Processing by CitaController#index as HTML
+  [1m[35mCitum Load (0.2ms)[0m  SELECT "cita".* FROM "cita"
+  Rendered cita/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation.html.erb (4.8ms)
+  Rendered layouts/_topnavbar.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 107ms (Views: 105.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:57:49 -0430
+
+
+Started GET "/cita/new" for 127.0.0.1 at 2017-02-08 01:58:32 -0430
+Processing by CitaController#new as HTML
+  Rendered cita/_form.html.erb (1.5ms)
+  Rendered cita/new.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 102ms (Views: 100.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:58:33 -0430
+
+
+Started GET "/cita/agenda_doctor" for 127.0.0.1 at 2017-02-08 01:59:50 -0430
+Processing by CitaController#show as HTML
+  Parameters: {"id"=>"agenda_doctor"}
+  [1m[36mCitum Load (0.2ms)[0m  [1mSELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1[0m  [["id", 0]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Citum with 'id'=agenda_doctor):
+  app/controllers/cita_controller.rb:67:in `set_citum'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.8ms)
+
+
+Started GET "/cita/agenda_doctor" for 127.0.0.1 at 2017-02-08 01:59:58 -0430
+Processing by CitaController#show as HTML
+  Parameters: {"id"=>"agenda_doctor"}
+  [1m[35mCitum Load (0.2ms)[0m  SELECT  "cita".* FROM "cita" WHERE "cita"."id" = ? LIMIT 1  [["id", 0]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+ActiveRecord::RecordNotFound (Couldn't find Citum with 'id'=agenda_doctor):
+  app/controllers/cita_controller.rb:67:in `set_citum'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (25.2ms)
+
+
+Started GET "/agenda_doctor" for 127.0.0.1 at 2017-02-08 02:00:05 -0430
+
+ActionController::RoutingError (No route matches [GET] "/agenda_doctor"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.3ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.3ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.4ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (48.1ms)
+
+
+Started GET "/agenda_doctor" for 127.0.0.1 at 2017-02-08 02:00:39 -0430
+
+ActionController::RoutingError (No route matches [GET] "/agenda_doctor"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (30.5ms)
+
+
+Started GET "/agenda_doctor" for 127.0.0.1 at 2017-02-08 02:00:41 -0430
+
+ActionController::RoutingError (No route matches [GET] "/agenda_doctor"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (30.5ms)
+
+
+Started GET "/agenda_doctor" for 127.0.0.1 at 2017-02-08 02:01:33 -0430
+
+ActionController::RoutingError (No route matches [GET] "/agenda_doctor"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (38.7ms)
+
+
+Started GET "/agenda_doctor" for 127.0.0.1 at 2017-02-08 02:01:34 -0430
+
+ActionController::RoutingError (No route matches [GET] "/agenda_doctor"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (29.9ms)
+
+
+Started GET "/agenda_doctor" for 127.0.0.1 at 2017-02-08 02:01:44 -0430
+
+ActionController::RoutingError (No route matches [GET] "/agenda_doctor"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.9ms)
+
+
+Started GET "/agenda_doctor" for 127.0.0.1 at 2017-02-08 02:02:03 -0430
+
+ActionController::RoutingError (No route matches [GET] "/agenda_doctor"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (45.2ms)
+
+
+Started GET "/home/agenda_doctor" for 127.0.0.1 at 2017-02-08 02:02:18 -0430
+
+ActionController::RoutingError (No route matches [GET] "/home/agenda_doctor"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (31.9ms)
+
+
+Started GET "/home/agenda_doctor" for 127.0.0.1 at 2017-02-08 02:02:23 -0430
+
+ActionController::RoutingError (No route matches [GET] "/home/agenda_doctor"):
+  actionpack (4.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.3) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.3) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.5) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.5) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.3) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.5) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.3) lib/rails/engine.rb:518:in `call'
+  railties (4.2.3) lib/rails/application.rb:165:in `call'
+  rack (1.6.5) lib/rack/lock.rb:17:in `call'
+  rack (1.6.5) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.5) lib/rack/handler/webrick.rb:88:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.3/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.6ms)
+
+
+Started GET "/home/agenda_doctor" for 127.0.0.1 at 2017-02-08 02:03:53 -0430
+Processing by HomeController#agenda_doctor as HTML
+  Rendered home/agenda_doctor.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 135ms (Views: 134.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 02:03:53 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 02:03:53 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 02:03:53 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 02:03:53 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:53 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:53 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:53 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:53 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 02:03:54 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 02:03:55 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 02:03:55 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 02:03:55 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 02:03:55 -0430
+
+
+Started GET "/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2" for 127.0.0.1 at 2017-02-08 02:03:55 -0430
+
+
+Started GET "/home/agenda_doctor" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+Processing by HomeController#agenda_doctor as HTML
+  Rendered home/agenda_doctor.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 113ms (Views: 112.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/style.self-4d63d58898fc589153fedd614fce9008c71fb6f6bb6d64a1c50481849fb0b2fe.css?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:01 -0430
+
+
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/iCheck/icheck.min.self-9f36bbf45d40064879b45027799fce4c617d7ceef312dfdd81a0a724754fb44a.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/jquery-ui/jquery-ui.min.self-5ff91a748d442282fa64c11d131250aecd1f9d4a82b4796943fb40c3423228d8.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/fullcalendar/moment.min.self-47f3f0f0f331b237c5584a60bfc321301c0d9a5651dd70c635af1e17be68d5bb.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/fullcalendar/fullcalendar.min.self-db993f13c708710eb1f9765f91daffcf77d565bc594d5fc44a70f31dcbd59e1a.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/jasny/jasny-bootstrap.min.self-4baa524b709c1302251cb1003d063e410d3d4457c7e3d07801b6a185343688fc.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/steps/jquery.steps.min.self-c193c0139920b8cce2030215367be8866bc98b8e3f44e943c622e03e41cd8cba.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/validate/jquery.validate.min.self-10bec2c7b0b17f0a6befb0b2b66ebb3e71401a2a83d366fdbe33cc0f2f7ad3bf.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/dropzone/dropzone.self-ba7ef3899c1cac37283f5611116c0ad77f9369ea5bd727ba187fbcbb20d271d9.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/colorpicker/bootstrap-colorpicker.min.self-a634dfce68bf2f85f5caf5ebec8fc4828622f502ea061d985e720f7f0f6f99ad.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/clockpicker/clockpicker.self-deaa91240c3942d66f13535ae21a27428aae46788a4c542cb1dfc8dcde8e83ac.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/chosen/chosen.jquery.self-2cbdc889c6d70b24a7d1df4801a25ef7aa3bf04ba6adf81220252348c058ef02.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/bootstrap-tagsinput/bootstrap-tagsinput.self-6838daba9201ad885ef13c42f4570ff1caea4d4fd602f491493cbbcd038aea7b.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/select2/select2.full.min.self-ea8f4eea0168a18c6f044f075d65bba15f5ff3b01cce09d828f6ab5d9f8344b5.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/typehead/bootstrap3-typeahead.min.self-4dca83db3515029e69804109cfce3dba4a529df2d93fe696e37ace0b4f294d30.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/cita.self-8e2448e8409e2d44cd534b8673f642c3d4101cfebfc88484690c8fda7fbe9ffd.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 02:04:02 -0430
+
+
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 02:04:03 -0430
+
+
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 02:04:03 -0430
+
+
+Started GET "/assets/rails-322506f9917889126e81df2833a6eecdf2e394658d53dad347e9882dd4dbf28e.png" for 127.0.0.1 at 2017-02-08 02:04:03 -0430
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 02:04:03 -0430
