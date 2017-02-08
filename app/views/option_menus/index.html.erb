@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Option Menus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id padre</th>
+      <th>Nombre</th>
+      <th>Url path</th>
+      <th>Icono</th>
+      <th>Controlador</th>
+      <th>Accion</th>
+      <th>Num hijos</th>
+      <th>Estatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @option_menus.each do |option_menu| %>
+      <tr>
+        <td><%= option_menu.id_padre %></td>
+        <td><%= option_menu.nombre %></td>
+        <td><%= option_menu.url_path %></td>
+        <td><%= option_menu.icono %></td>
+        <td><%= option_menu.controlador %></td>
+        <td><%= option_menu.accion %></td>
+        <td><%= option_menu.num_hijos %></td>
+        <td><%= option_menu.estatus %></td>
+        <td><%= link_to 'Show', option_menu %></td>
+        <td><%= link_to 'Edit', edit_option_menu_path(option_menu) %></td>
+        <td><%= link_to 'Destroy', option_menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Option menu', new_option_menu_path %>

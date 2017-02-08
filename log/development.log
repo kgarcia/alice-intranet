@@ -17745,3 +17745,1065 @@ Completed 200 OK in 1458ms (Views: 1434.3ms | ActiveRecord: 0.0ms)
 
 
 Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-07 21:17:33 -0430
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-08 00:04:28 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navigation.html.erb (4.6ms)
+  Rendered layouts/_topnavbar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 356ms (Views: 347.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:04:28 -0430
+
+
+Started GET "/especialidads" for 127.0.0.1 at 2017-02-08 00:04:32 -0430
+Processing by EspecialidadsController#index as HTML
+  [1m[35mEspecialidad Load (0.2ms)[0m  SELECT "especialidads".* FROM "especialidads"
+  Rendered especialidads/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 79ms (Views: 51.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:04:33 -0430
+
+
+Started GET "/especialidads/new" for 127.0.0.1 at 2017-02-08 00:04:35 -0430
+Processing by EspecialidadsController#new as HTML
+  Rendered especialidads/_form.html.erb (48.8ms)
+  Rendered especialidads/new.html.erb within layouts/application (50.1ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 100ms (Views: 99.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:04:35 -0430
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-08 00:14:00 -0430
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 53ms (Views: 52.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:14:00 -0430
+  [1m[35m (88.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateOptionMenus (20170208050104)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateOptionMenus < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "option_menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_padre" integer, "nombre" varchar, "url_path" varchar, "icono" varchar, "controlador" varchar, "accion" varchar, "num_hijos" integer, "estatus" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050104"]]
+  [1m[35m (96.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to InsertOptionMenu (20170208050509)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Configuración General"], ["url_path", "#"], ["icono", "fa-cogs"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Maestros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Parametros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Otros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Oferta y Eventos"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 1], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Servicios"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Servicios"], ["url_path", "#"], ["icono", "fa-flask"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Especialistas"], ["url_path", "#"], ["icono", "fa-user-md"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Eventos"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Agenda"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Horarios"], ["url_path", "#"], ["icono", "fa-clock-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-pencil"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Citas"], ["url_path", "#"], ["icono", "fa-stethoscope"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Historial"], ["url_path", "#"], ["icono", "fa-history"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-pencil"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Servicio Medico"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Registrar Paciente"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Evaluar Cita"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Consultar Pacientes"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Reportes"], ["url_path", "#"], ["icono", "fa-bar-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Satisfaccion del Paciente"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Citas Concretadas"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Efectos de Difusion"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Usuarios"], ["url_path", "#"], ["icono", "fa-user"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Pacientes"], ["url_path", "#"], ["icono", "fa-user"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-briefcase"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Acciones"], ["url_path", "#"], ["icono", "fa-check"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Administracion Web"], ["url_path", "#"], ["icono", "fa-cog"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Contenido"], ["url_path", "#"], ["icono", "fa-at"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Imagenes"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Noticias"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 2], ["nombre", "Especialista"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Antecedentes"], ["url_path", "#"], ["icono", "fa-list"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Habitos"], ["url_path", "#"], ["icono", "fa-thumbs-up"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Ubicacion"], ["url_path", "#"], ["icono", "fa-globe"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Especialidad"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050509"]]
+  [1m[35m (93.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-08 05:07:59 UTC], ["updated_at", 2017-02-08 05:07:59 UTC]]
+  [1m[35m (124.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-02-08 00:38:16 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.1ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (4.0ms)
+  Rendered layouts/_navigation.html.erb (6.3ms)
+  Rendered layouts/_topnavbar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 4115ms (Views: 4094.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 00:38:20 -0430
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 00:38:20 -0430
+Started GET "/assets/style.self-d709f955e7585fbd33cdd4c17099bd6c9608f8432e2b903c3ba0200ce560b55e.css?body=1" for 127.0.0.1 at 2017-02-08 00:38:20 -0430
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 00:38:20 -0430
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 00:38:20 -0430
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 00:38:20 -0430
+Started GET "/assets/option_menus.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 00:38:20 -0430
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 00:38:20 -0430
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 00:38:20 -0430
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 00:38:20 -0430
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:38:20 -0430
+Started GET "/especialidads" for 127.0.0.1 at 2017-02-08 00:38:32 -0430
+Processing by EspecialidadsController#index as HTML
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering especialidads/index.html.erb within layouts/application
+  [1m[36mEspecialidad Load (0.3ms)[0m  [1m[34mSELECT "especialidads".* FROM "especialidads"[0m
+  Rendered especialidads/index.html.erb within layouts/application (14.6ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (5.3ms)
+  Rendered layouts/_navigation.html.erb (8.6ms)
+  Rendered layouts/_topnavbar.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 109ms (Views: 99.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:38:33 -0430
+Started GET "/" for 127.0.0.1 at 2017-02-08 00:46:31 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (5.2ms)
+  Rendered layouts/_navigation.html.erb (9.6ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 468ms (Views: 445.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/option_menus.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 00:46:32 -0430
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:46:32 -0430
+Started GET "/" for 127.0.0.1 at 2017-02-08 00:46:35 -0430
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.1ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (4.7ms)
+  Rendered layouts/_navigation.html.erb (7.0ms)
+  Rendered layouts/_topnavbar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 63ms (Views: 60.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:46:35 -0430
+Started GET "/" for 127.0.0.1 at 2017-02-08 00:46:36 -0430
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (4.6ms)
+  Rendered layouts/_navigation.html.erb (8.0ms)
+  Rendered layouts/_topnavbar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 61ms (Views: 57.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:46:36 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[35m (204.6ms)[0m  [1m[35mCREATE TABLE "especialidads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar, "nombre" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (99.9ms)[0m  [1m[35mCREATE TABLE "especialista" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "cedula" varchar, "nombre" varchar, "apellido" varchar, "especialidad_id" integer, "fecha_ingreso" date, "sexo_id" integer, "curriculum" text, "edad" integer, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (99.6ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_especialidad_id" ON "especialista" ("especialidad_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+  [1m[35m (99.8ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_sexo_id" ON "especialista" ("sexo_id")[0m
+  [1m[35m (111.0ms)[0m  [1m[35mCREATE TABLE "option_menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_padre" integer, "nombre" varchar, "url_path" varchar, "icono" varchar, "controlador" varchar, "accion" varchar, "num_hijos" integer, "estatus" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (177.4ms)[0m  [1m[35mCREATE TABLE "sexos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descripcion" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (122.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (111.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20170208050509')[0m
+  [1m[35m (111.5ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES
+('20170208050104'),
+('20170130005927'),
+('20170130010831'),
+('20170130010845');
+
+[0m
+  [1m[35m (112.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-08 05:20:07 UTC], ["updated_at", 2017-02-08 05:20:07 UTC]]
+  [1m[35m (93.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (64.2ms)[0m  [1m[35mCREATE TABLE "especialidads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar, "nombre" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (99.9ms)[0m  [1m[35mCREATE TABLE "especialista" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "cedula" varchar, "nombre" varchar, "apellido" varchar, "especialidad_id" integer, "fecha_ingreso" date, "sexo_id" integer, "curriculum" text, "edad" integer, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (122.5ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_especialidad_id" ON "especialista" ("especialidad_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+  [1m[35m (122.5ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_sexo_id" ON "especialista" ("sexo_id")[0m
+  [1m[35m (111.1ms)[0m  [1m[35mCREATE TABLE "option_menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_padre" integer, "nombre" varchar, "url_path" varchar, "icono" varchar, "controlador" varchar, "accion" varchar, "num_hijos" integer, "estatus" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (99.9ms)[0m  [1m[35mCREATE TABLE "sexos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descripcion" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (100.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (144.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20170208050509')[0m
+  [1m[35m (290.0ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES
+('20170208050104'),
+('20170130005927'),
+('20170130010831'),
+('20170130010845');
+
+[0m
+  [1m[35m (221.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-08 05:20:08 UTC], ["updated_at", 2017-02-08 05:20:08 UTC]]
+  [1m[35m (263.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[35m (103.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (110.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEspecialidads (20170130005927)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialidads < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "especialidads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar, "nombre" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130005927"]]
+  [1m[35m (111.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSexos (20170130010831)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateSexos < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "sexos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descripcion" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130010831"]]
+  [1m[35m (105.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEspecialista (20170130010845)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialista < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "especialista" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "cedula" varchar, "nombre" varchar, "apellido" varchar, "especialidad_id" integer, "fecha_ingreso" date, "sexo_id" integer, "curriculum" text, "edad" integer, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_especialidad_id" ON "especialista" ("especialidad_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_sexo_id" ON "especialista" ("sexo_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130010845"]]
+  [1m[35m (96.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptionMenus (20170208050104)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateOptionMenus < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "option_menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_padre" integer, "nombre" varchar, "url_path" varchar, "icono" varchar, "controlador" varchar, "accion" varchar, "num_hijos" integer, "estatus" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050104"]]
+  [1m[35m (76.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to InsertOptionMenu (20170208050509)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Configuración General"], ["url_path", "#"], ["icono", "fa-cogs"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Maestros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Parametros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Otros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Oferta y Eventos"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 1], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Servicios"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Servicios"], ["url_path", "#"], ["icono", "fa-flask"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Especialistas"], ["url_path", "#"], ["icono", "fa-user-md"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Eventos"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Agenda"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Horarios"], ["url_path", "#"], ["icono", "fa-clock-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-pencil"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Citas"], ["url_path", "#"], ["icono", "fa-stethoscope"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Historial"], ["url_path", "#"], ["icono", "fa-history"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-pencil"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Servicio Medico"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Registrar Paciente"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Evaluar Cita"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Consultar Pacientes"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Reportes"], ["url_path", "#"], ["icono", "fa-bar-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Satisfaccion del Paciente"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Citas Concretadas"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Efectos de Difusion"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Usuarios"], ["url_path", "#"], ["icono", "fa-user"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Pacientes"], ["url_path", "#"], ["icono", "fa-user"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-briefcase"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Acciones"], ["url_path", "#"], ["icono", "fa-check"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Administracion Web"], ["url_path", "#"], ["icono", "fa-cog"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Contenido"], ["url_path", "#"], ["icono", "fa-at"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Imagenes"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Noticias"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 2], ["nombre", "Especialista"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Antecedentes"], ["url_path", "#"], ["icono", "fa-list"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Habitos"], ["url_path", "#"], ["icono", "fa-thumbs-up"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Ubicacion"], ["url_path", "#"], ["icono", "fa-globe"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Especialidad"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050509"]]
+  [1m[35m (106.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-08 05:20:29 UTC], ["updated_at", 2017-02-08 05:20:29 UTC]]
+  [1m[35m (105.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-02-08 00:50:55 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.1ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (4.0ms)
+  Rendered layouts/_navigation.html.erb (7.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 421ms (Views: 399.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:50:56 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[35m (103.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (97.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEspecialidads (20170130005927)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialidads < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "especialidads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar, "nombre" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130005927"]]
+  [1m[35m (114.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSexos (20170130010831)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateSexos < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "sexos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descripcion" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130010831"]]
+  [1m[35m (98.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEspecialista (20170130010845)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialista < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "especialista" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "cedula" varchar, "nombre" varchar, "apellido" varchar, "especialidad_id" integer, "fecha_ingreso" date, "sexo_id" integer, "curriculum" text, "edad" integer, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_especialidad_id" ON "especialista" ("especialidad_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_sexo_id" ON "especialista" ("sexo_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130010845"]]
+  [1m[35m (96.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptionMenus (20170208050104)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateOptionMenus < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "option_menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_padre" integer, "nombre" varchar, "url_path" varchar, "icono" varchar, "controlador" varchar, "accion" varchar, "num_hijos" integer, "estatus" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050104"]]
+  [1m[35m (99.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to InsertOptionMenu (20170208050509)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Configuración General"], ["url_path", "#"], ["icono", "fa-cogs"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Maestros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Parametros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Otros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Oferta y Eventos"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 1], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Servicios"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Servicios"], ["url_path", "#"], ["icono", "fa-flask"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Especialistas"], ["url_path", "#"], ["icono", "fa-user-md"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Eventos"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Agenda"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Horarios"], ["url_path", "#"], ["icono", "fa-clock-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-pencil"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Citas"], ["url_path", "#"], ["icono", "fa-stethoscope"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Historial"], ["url_path", "#"], ["icono", "fa-history"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-pencil"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Servicio Medico"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Registrar Paciente"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Evaluar Cita"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Consultar Pacientes"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Reportes"], ["url_path", "#"], ["icono", "fa-bar-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Satisfaccion del Paciente"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Citas Concretadas"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Efectos de Difusion"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Usuarios"], ["url_path", "#"], ["icono", "fa-user"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Pacientes"], ["url_path", "#"], ["icono", "fa-user"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-briefcase"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Acciones"], ["url_path", "#"], ["icono", "fa-check"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Administracion Web"], ["url_path", "#"], ["icono", "fa-cog"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Contenido"], ["url_path", "#"], ["icono", "fa-at"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Imagenes"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Noticias"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 2], ["nombre", "Especialista"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Antecedentes"], ["url_path", "#"], ["icono", "fa-list"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Habitos"], ["url_path", "#"], ["icono", "fa-thumbs-up"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Ubicacion"], ["url_path", "#"], ["icono", "fa-globe"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Especialidad"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:21:39 UTC], ["updated_at", 2017-02-08 05:21:39 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050509"]]
+  [1m[35m (105.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-08 05:21:40 UTC], ["updated_at", 2017-02-08 05:21:40 UTC]]
+  [1m[35m (94.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-02-08 00:51:54 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.1ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (5.6ms)
+  Rendered layouts/_navigation.html.erb (8.4ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 416ms (Views: 394.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:51:55 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[35m (96.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (96.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEspecialidads (20170130005927)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialidads < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "especialidads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar, "nombre" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130005927"]]
+  [1m[35m (83.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSexos (20170130010831)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateSexos < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "sexos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descripcion" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130010831"]]
+  [1m[35m (109.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEspecialista (20170130010845)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialista < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "especialista" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "cedula" varchar, "nombre" varchar, "apellido" varchar, "especialidad_id" integer, "fecha_ingreso" date, "sexo_id" integer, "curriculum" text, "edad" integer, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_especialidad_id" ON "especialista" ("especialidad_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_sexo_id" ON "especialista" ("sexo_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130010845"]]
+  [1m[35m (104.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptionMenus (20170208050104)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateOptionMenus < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "option_menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_padre" integer, "nombre" varchar, "url_path" varchar, "icono" varchar, "controlador" varchar, "accion" varchar, "num_hijos" integer, "estatus" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050104"]]
+  [1m[35m (109.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to InsertOptionMenu (20170208050509)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Configuración General"], ["url_path", "#"], ["icono", "fa-cogs"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Maestros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Parametros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Otros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Oferta y Eventos"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Servicios"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Servicios"], ["url_path", "#"], ["icono", "fa-flask"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Especialistas"], ["url_path", "#"], ["icono", "fa-user-md"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Eventos"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Agenda"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Horarios"], ["url_path", "#"], ["icono", "fa-clock-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-pencil"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Citas"], ["url_path", "#"], ["icono", "fa-stethoscope"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Historial"], ["url_path", "#"], ["icono", "fa-history"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-pencil"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Servicio Medico"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Registrar Paciente"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Evaluar Cita"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Consultar Pacientes"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Reportes"], ["url_path", "#"], ["icono", "fa-bar-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Satisfaccion del Paciente"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Citas Concretadas"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Efectos de Difusion"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Usuarios"], ["url_path", "#"], ["icono", "fa-user"], ["controlador", ""], ["accion", ""], ["num_hijos", 5], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Pacientes"], ["url_path", "#"], ["icono", "fa-user"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-briefcase"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Acciones"], ["url_path", "#"], ["icono", "fa-check"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Administracion Web"], ["url_path", "#"], ["icono", "fa-cog"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Contenido"], ["url_path", "#"], ["icono", "fa-at"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Imagenes"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Noticias"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 2], ["nombre", "Especialista"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Antecedentes"], ["url_path", "#"], ["icono", "fa-list"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Habitos"], ["url_path", "#"], ["icono", "fa-thumbs-up"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Ubicacion"], ["url_path", "#"], ["icono", "fa-globe"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Especialidad"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050509"]]
+  [1m[35m (127.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-08 05:22:45 UTC], ["updated_at", 2017-02-08 05:22:45 UTC]]
+  [1m[35m (117.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-02-08 00:53:00 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.0ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (4.3ms)
+  Rendered layouts/_navigation.html.erb (6.5ms)
+  Rendered layouts/_topnavbar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 426ms (Views: 405.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:53:01 -0430
+Started GET "/" for 127.0.0.1 at 2017-02-08 00:53:05 -0430
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (4.0ms)
+  Rendered layouts/_navigation.html.erb (7.3ms)
+  Rendered layouts/_topnavbar.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 63ms (Views: 60.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 00:53:05 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[35m (110.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (154.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEspecialidads (20170130005927)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialidads < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "especialidads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar, "nombre" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130005927"]]
+  [1m[35m (97.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSexos (20170130010831)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateSexos < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "sexos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descripcion" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130010831"]]
+  [1m[35m (109.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEspecialista (20170130010845)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialista < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "especialista" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "cedula" varchar, "nombre" varchar, "apellido" varchar, "especialidad_id" integer, "fecha_ingreso" date, "sexo_id" integer, "curriculum" text, "edad" integer, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_especialidad_id" ON "especialista" ("especialidad_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_sexo_id" ON "especialista" ("sexo_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130010845"]]
+  [1m[35m (108.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptionMenus (20170208050104)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateOptionMenus < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "option_menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_padre" integer, "nombre" varchar, "url_path" varchar, "icono" varchar, "controlador" varchar, "accion" varchar, "num_hijos" integer, "estatus" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050104"]]
+  [1m[35m (109.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to InsertOptionMenu (20170208050509)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Configuración General"], ["url_path", "#"], ["icono", "fa-cogs"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Maestros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Parametros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Otros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Oferta y Eventos"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Servicios"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Servicios"], ["url_path", "#"], ["icono", "fa-flask"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Especialistas"], ["url_path", "#"], ["icono", "fa-user-md"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Eventos"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Agenda"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Horarios"], ["url_path", "#"], ["icono", "fa-clock-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-pencil"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Citas"], ["url_path", "#"], ["icono", "fa-stethoscope"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Historial"], ["url_path", "#"], ["icono", "fa-history"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-pencil"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Servicio Medico"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Registrar Paciente"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Evaluar Cita"], ["url_path", "#"], ["icono", "fa-calendar-check-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Consultar Pacientes"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Reportes"], ["url_path", "#"], ["icono", "fa-bar-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Satisfaccion del Paciente"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Citas Concretadas"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Efectos de Difusion"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Usuarios"], ["url_path", "#"], ["icono", "fa-user"], ["controlador", ""], ["accion", ""], ["num_hijos", 5], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Pacientes"], ["url_path", "#"], ["icono", "fa-user"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-briefcase"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Acciones"], ["url_path", "#"], ["icono", "fa-check"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Administracion Web"], ["url_path", "#"], ["icono", "fa-cog"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Contenido"], ["url_path", "#"], ["icono", "fa-at"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Imagenes"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Noticias"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 2], ["nombre", "Especialista"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Antecedentes"], ["url_path", "#"], ["icono", "fa-list"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Habitos"], ["url_path", "#"], ["icono", "fa-thumbs-up"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Ubicacion"], ["url_path", "#"], ["icono", "fa-globe"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Especialidad"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050509"]]
+  [1m[35m (117.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-08 05:42:58 UTC], ["updated_at", 2017-02-08 05:42:58 UTC]]
+  [1m[35m (118.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-02-08 01:13:10 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.1ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (4.3ms)
+  Rendered layouts/_navigation.html.erb (6.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 425ms (Views: 404.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:13:11 -0430
+Started GET "/" for 127.0.0.1 at 2017-02-08 01:13:33 -0430
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.1ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.4ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.6ms)
+  Rendered layouts/_navigation.html.erb (9.3ms)
+  Rendered layouts/_topnavbar.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 64ms (Views: 61.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:13:34 -0430
+Started GET "/" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (4.3ms)
+  Rendered layouts/_navigation.html.erb (7.4ms)
+  Rendered layouts/_topnavbar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 62ms (Views: 59.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/style.self-d709f955e7585fbd33cdd4c17099bd6c9608f8432e2b903c3ba0200ce560b55e.css?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/option_menus.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/a6-b8e9007bb4a531d1918165879a8a86b3d084c2774c2962f429074dec66bb3b75.jpg" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2" for 127.0.0.1 at 2017-02-08 01:13:39 -0430
+Started GET "/" for 127.0.0.1 at 2017-02-08 01:13:51 -0430
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.1ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.4ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (5.7ms)
+  Rendered layouts/_navigation.html.erb (8.8ms)
+  Rendered layouts/_topnavbar.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 68ms (Views: 65.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:13:51 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[35m (106.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (99.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEspecialidads (20170130005927)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialidads < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "especialidads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "codigo" varchar, "nombre" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130005927"]]
+  [1m[35m (73.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateSexos (20170130010831)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateSexos < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "sexos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descripcion" varchar, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130010831"]]
+  [1m[35m (175.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateEspecialista (20170130010845)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialista < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "especialista" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "cedula" varchar, "nombre" varchar, "apellido" varchar, "especialidad_id" integer, "fecha_ingreso" date, "sexo_id" integer, "curriculum" text, "edad" integer, "estatus" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_especialidad_id" ON "especialista" ("especialidad_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_especialista_on_sexo_id" ON "especialista" ("sexo_id")[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170130010845"]]
+  [1m[35m (119.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOptionMenus (20170208050104)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateOptionMenus < ActiveRecord::Migration[4.2] (called from load at /usr/local/bin/rake:22)
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "option_menus" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "id_padre" integer, "nombre" varchar, "url_path" varchar, "icono" varchar, "controlador" varchar, "accion" varchar, "num_hijos" integer, "estatus" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050104"]]
+  [1m[35m (118.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to InsertOptionMenu (20170208050509)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Configuración General"], ["url_path", "#"], ["icono", "fa-cogs"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Maestros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Parametros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 1], ["nombre", "Otros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Oferta y Eventos"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Servicios"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Servicios"], ["url_path", "#"], ["icono", "fa-flask"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 6], ["nombre", "Especialistas"], ["url_path", "#"], ["icono", "fa-user-md"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 5], ["nombre", "Catalogo de Eventos"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Agenda"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Horarios"], ["url_path", "#"], ["icono", "fa-clock-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 10], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-exclamation-circle"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Citas"], ["url_path", "#"], ["icono", "fa-stethoscope"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-plus"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Historial"], ["url_path", "#"], ["icono", "fa-history"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 14], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-exclamation-circle"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Servicio Medico"], ["url_path", "#"], ["icono", "fa-hospital-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Registrar Paciente"], ["url_path", "#"], ["icono", "fa-id-card-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Evaluar Cita"], ["url_path", "#"], ["icono", "fa-star-half-full"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 19], ["nombre", "Consultar Pacientes"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Reportes"], ["url_path", "#"], ["icono", "fa-bar-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Satisfaccion del Paciente"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Citas Concretadas"], ["url_path", "#"], ["icono", "fa-pie-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Efectos de Difusion"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 23], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Usuarios"], ["url_path", "#"], ["icono", "fa-users"], ["controlador", ""], ["accion", ""], ["num_hijos", 5], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-user-plus"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Pacientes"], ["url_path", "#"], ["icono", "fa-ambulance"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-bookmark-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 28], ["nombre", "Acciones"], ["url_path", "#"], ["icono", "fa-check"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["nombre", "Administracion Web"], ["url_path", "#"], ["icono", "fa-cog"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Contenido"], ["url_path", "#"], ["icono", "fa-at"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Imagenes"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 34], ["nombre", "Noticias"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 2], ["nombre", "Especialista"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Antecedentes"], ["url_path", "#"], ["icono", "fa-list"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Habitos"], ["url_path", "#"], ["icono", "fa-thumbs-up"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Ubicacion"], ["url_path", "#"], ["icono", "fa-globe"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["id_padre", 3], ["nombre", "Especialidad"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-08 05:44:41 UTC], ["updated_at", 2017-02-08 05:44:41 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170208050509"]]
+  [1m[35m (108.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-08 05:44:42 UTC], ["updated_at", 2017-02-08 05:44:42 UTC]]
+  [1m[35m (83.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-02-08 01:14:48 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.1ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.7ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (4.2ms)
+  Rendered layouts/_navigation.html.erb (8.7ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 433ms (Views: 411.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:14:49 -0430

@@ -1,0 +1,62 @@
+        <% @opt_menu.each do |opt_menu| %>
+
+            <% if opt_menu.id_padre == nil %>
+
+            <li id="opt-menu-<%= opt_menu.id %>" class="<%= is_active_controller( opt_menu.controlador ) %>">
+                <a href="<%= opt_menu.url_path %>">
+                    <i class="fa <%= opt_menu.icono %>"></i> 
+                    <span class="nav-label" data-i18n="nav.<%= opt_menu.controlador %>"><%= opt_menu.nombre %></span> 
+                <% if @opt_padres.include? (opt_menu.id) %>
+                    <span class="fa arrow"></span>
+                <% end %>
+                </a>
+
+            <% if @opt_padres.include? (opt_menu.id) %>
+
+                <ul id="opt-menu-child-<%= opt_menu.id %>" class="nav nav-second-level collapse <%= is_active_controller( opt_menu.controlador, 'in' ) %>">
+                
+                <% @opt_menu_child.each do |opt_child_1| %>
+                    
+                    <% if opt_child_1.id_padre == opt_menu.id %>
+                    
+                        <li id="opt-child-<%= opt_child_1.id %>" class="<%= is_active_action( opt_child_1.accion ) %>">
+                            <a href="<%= opt_child_1.url_path %>" data-i18n="nav.<%= opt_menu.controlador %>.<%= opt_child_1.nombre %>">
+                                <i class="fa <%= opt_child_1.icono %>"></i> 
+                                <%= opt_child_1.nombre %> 
+                                <% if @opt_padres.include? (opt_child_1.id) %>
+                                    <span class="fa arrow"></span>
+                                <% end %>
+                            </a>
+
+                            <% if @opt_padres.include? (opt_child_1.id) %>
+
+                                <ul id="opt-menu-child-<%= opt_menu.id %>" class="nav nav-third-level">
+                                
+                                <% @opt_menu_child.each do |opt_child_2| %>
+                                    
+                                    <% if opt_child_2.id_padre == opt_child_1.id %>
+                                    
+                                        <li id="opt-child-<%= opt_child_2.id %>" class="<%= is_active_action( opt_child_2.accion ) %>">
+                                            <a href="<%= opt_child_2.url_path %>" data-i18n="nav.<%= opt_menu.controlador %>.<%= opt_child_2.nombre %>">
+                                                <i class="fa <%= opt_child_2.icono %>"></i> 
+                                                <%= opt_child_2.nombre %> 
+                                            </a>
+                                        </li>
+
+                                    <% end %>
+
+                                <% end %>
+                                </ul>
+
+                            <% end %>
+                        </li>
+
+                    <% end %>
+
+                <% end %>
+                </ul>
+
+            <% end %>
+            </li>
+            <% end %>
+        <% end %>  
