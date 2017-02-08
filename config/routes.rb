@@ -1,4 +1,5 @@
 Myapp::Application.routes.draw do
+  resources :option_menus
   resources :sexos
   resources :especialista
   resources :especialidads

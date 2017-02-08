@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130010845) do
+ActiveRecord::Schema.define(version: 20170208050509) do
 
   create_table "especialidads", force: :cascade do |t|
     t.string   "codigo"
@@ -33,10 +32,22 @@ ActiveRecord::Schema.define(version: 20170130010845) do
     t.boolean  "estatus"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.index ["especialidad_id"], name: "index_especialista_on_especialidad_id"
+    t.index ["sexo_id"], name: "index_especialista_on_sexo_id"
   end
 
-  add_index "especialista", ["especialidad_id"], name: "index_especialista_on_especialidad_id"
-  add_index "especialista", ["sexo_id"], name: "index_especialista_on_sexo_id"
+  create_table "option_menus", force: :cascade do |t|
+    t.integer  "id_padre"
+    t.string   "nombre"
+    t.string   "url_path"
+    t.string   "icono"
+    t.string   "controlador"
+    t.string   "accion"
+    t.integer  "num_hijos"
+    t.string   "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "sexos", force: :cascade do |t|
     t.string   "descripcion"

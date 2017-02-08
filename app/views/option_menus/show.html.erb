@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id padre:</strong>
+  <%= @option_menu.id_padre %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @option_menu.nombre %>
+</p>
+
+<p>
+  <strong>Url path:</strong>
+  <%= @option_menu.url_path %>
+</p>
+
+<p>
+  <strong>Icono:</strong>
+  <%= @option_menu.icono %>
+</p>
+
+<p>
+  <strong>Controlador:</strong>
+  <%= @option_menu.controlador %>
+</p>
+
+<p>
+  <strong>Accion:</strong>
+  <%= @option_menu.accion %>
+</p>
+
+<p>
+  <strong>Num hijos:</strong>
+  <%= @option_menu.num_hijos %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @option_menu.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_option_menu_path(@option_menu) %> |
+<%= link_to 'Back', option_menus_path %>
