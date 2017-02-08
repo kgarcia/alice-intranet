@@ -1,4 +1,8 @@
 Myapp::Application.routes.draw do
+  resources :habitos
+  resources :respuestas
+  resources :preguntas
+  resources :parametros
   resources :sexos
   resources :especialista
   resources :especialidads

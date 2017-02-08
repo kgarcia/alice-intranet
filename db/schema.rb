@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130010845) do
+ActiveRecord::Schema.define(version: 20170208064825) do
 
   create_table "especialidads", force: :cascade do |t|
     t.string   "codigo"
@@ -37,6 +37,27 @@ ActiveRecord::Schema.define(version: 20170130010845) do
 
   add_index "especialista", ["especialidad_id"], name: "index_especialista_on_especialidad_id"
   add_index "especialista", ["sexo_id"], name: "index_especialista_on_sexo_id"
+
+  create_table "habitos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.string   "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "preguntas", force: :cascade do |t|
+    t.string   "descripcion"
+    t.string   "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "respuestas", force: :cascade do |t|
+    t.string   "descripcion"
+    t.string   "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "sexos", force: :cascade do |t|
     t.string   "descripcion"
