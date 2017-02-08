@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 <div class="ibox-title">
-    <h5>Basic Data Tables example with responsive plugin</h5>
+    <h5>Listado de Especialidades</h5>
 </div>
 <div class="ibox-content">
-<%= link_to 'Nueva Especialidad', new_especialidad_path , :class => "btn btn-primary btn-sm fa fa-plus" %>
+<%= link_to ' Nueva Especialidad', new_especialidad_path , :class => "btn btn-primary btn-sm fa fa-plus" %>
  <br><br> 
                  <input type="text" class="form-control input-sm m-b-xs" id="filter"
-                       placeholder="Search in table">
+                       placeholder="Buscar especialidad">
  <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="2">
     <thead>
       <tr>
@@ -22,9 +22,13 @@
         <tr>
           <td><%= especialidad.codigo.upcase %></td>
           <td><%= especialidad.nombre.upcase %></td>
-          <td><%= especialidad.estatus %></td>
-          <td><%= link_to '', edit_especialidad_path(especialidad), :class => "btn btn-warning btn-sm fa fa-pencil" %>
-          <%= link_to '', especialidad, method: :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+          <% if especialidad.estatus == true %>
+            <td > <label class="label label-success"> Activa </label></td>
+            <% else %>
+            <td > <label class="label label-plain"> Inactiva </label></td>
+            <% end %>
+          <td><%= link_to '', edit_especialidad_path(especialidad), :class => "btn btn-warning dim btn-sm-dim fa fa-pencil" %>
+          <%= link_to '', especialidad, method: :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger dim btn-sm-dim fa fa-trash" %></td>
         </tr>
       <% end %>
     </tbody>

@@ -24,7 +24,7 @@
                      
                       <div class="form-group"><label class="col-lg-2 control-label">Codigo</label>
 
-                          <div class="col-lg-10"><%= f.text_field :codigo , :class => "form-control"%> <span class="help-block m-b-none">autogenerado</span>
+                          <div class="col-lg-10"><%= f.text_field :codigo ,:value => "ESP007", :class => "form-control"%> <span class="help-block m-b-none">autogenerado</span>
                           </div>
                       </div>
                       <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
@@ -39,12 +39,11 @@
                       </div>
                       <div class="form-group">
                           <div class="col-lg-offset-2 col-lg-10">
-                              <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>
-                             
+                          <%= link_to 'Atrás', especialidads_path , :class => "btn btn-sm btn-white" %>
+                              <%= f.submit 'Guardar', :class => "btn btn-sm btn-primary"%>
+                             <% end %>                     
                           </div>
-                      </div>
-                  <% end %>
+                      </div>                  
               </div>
-
            
 
