@@ -1,4 +1,5 @@
 Myapp::Application.routes.draw do
+  resources :cita
   resources :sexos
   resources :especialista
   resources :especialidads
