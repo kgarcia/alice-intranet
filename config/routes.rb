@@ -1,4 +1,9 @@
 Myapp::Application.routes.draw do
+  resources :discapacidades
+  resources :tipo_discapacidades
+  resources :patologias
+  resources :tipo_patologias
+  resources :vacunas
   resources :option_menus
   resources :sexos
   resources :especialista
