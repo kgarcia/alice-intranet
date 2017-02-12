@@ -1,5 +1,6 @@
 Myapp::Application.routes.draw do
 
+
   resources :discapacidades
   resources :tipo_discapacidades
   resources :patologias
@@ -19,8 +20,10 @@ Myapp::Application.routes.draw do
   resources :tipo_habitos
   resources :option_menus
   resources :sexos
+
   get "home/index"
   get "home/minor"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
