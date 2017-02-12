@@ -10,33 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211162952) do
+ActiveRecord::Schema.define(version: 20170212200838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "especialidads", force: :cascade do |t|
-    t.string   "codigo"
-    t.string   "nombre"
-    t.boolean  "estatus"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "especialista", force: :cascade do |t|
-    t.string   "cedula"
-    t.string   "nombre"
-    t.string   "apellido"
-    t.integer  "especialidad_id"
-    t.date     "fecha_ingreso"
-    t.integer  "sexo_id"
-    t.text     "curriculum"
-    t.integer  "edad"
-    t.boolean  "estatus"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["especialidad_id"], name: "index_especialista_on_especialidad_id", using: :btree
-    t.index ["sexo_id"], name: "index_especialista_on_sexo_id", using: :btree
+  create_table "discapacidades", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_discapacidades_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["tipo_discapacidades_id"], name: "index_discapacidades_on_tipo_discapacidades_id", using: :btree
   end
 
   create_table "option_menus", force: :cascade do |t|
@@ -50,6 +35,15 @@ ActiveRecord::Schema.define(version: 20170211162952) do
     t.string   "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "patologias", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_patologias_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["tipo_patologias_id"], name: "index_patologias_on_tipo_patologias_id", using: :btree
   end
 
   create_table "preguntas", force: :cascade do |t|
@@ -66,6 +60,27 @@ ActiveRecord::Schema.define(version: 20170211162952) do
     t.datetime "updated_at",  null: false
   end
 
-  add_foreign_key "especialista", "especialidads"
-  add_foreign_key "especialista", "sexos"
+  create_table "tipo_discapacidades", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tipo_patologias", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "vacunas", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_foreign_key "discapacidades", "tipo_discapacidades", column: "tipo_discapacidades_id"
+  add_foreign_key "patologias", "tipo_patologias", column: "tipo_patologias_id"
 end
