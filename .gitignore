@@ -57,4 +57,4 @@ bower.json
 .byebug_history
 
 /config/database.yml
-
+/db/schema.rb
