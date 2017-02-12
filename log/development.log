@@ -17758,3 +17758,42 @@ Completed 200 OK in 635ms (Views: 626.4ms | ActiveRecord: 0.0ms)
 
 
 Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 14:27:54 -0430
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-12 16:16:04 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation.html.erb (5.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 346ms (Views: 337.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 16:16:04 -0430
+
+
+Started GET "/especialidads" for 127.0.0.1 at 2017-02-12 16:16:08 -0430
+Processing by EspecialidadsController#index as HTML
+  [1m[35mEspecialidad Load (0.2ms)[0m  SELECT "especialidads".* FROM "especialidads"
+  Rendered especialidads/index.html.erb within layouts/application (6.1ms)
+  Rendered layouts/_navigation.html.erb (2.2ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 99ms (Views: 83.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 16:16:08 -0430
+
+
+Started GET "/especialidads/new" for 127.0.0.1 at 2017-02-12 16:16:09 -0430
+Processing by EspecialidadsController#new as HTML
+  Rendered especialidads/_form.html.erb (45.3ms)
+  Rendered especialidads/new.html.erb within layouts/application (54.3ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_topnavbar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 102ms (Views: 101.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 16:16:10 -0430

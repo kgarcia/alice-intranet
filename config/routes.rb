@@ -1,7 +1,4 @@
 Myapp::Application.routes.draw do
-  resources :sexos
-  resources :especialista
-  resources :especialidads
   get "home/index"
   get "home/minor"
   # The priority is based upon order of creation: first created -> highest priority.
