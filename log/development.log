@@ -17745,3 +17745,16 @@ Completed 200 OK in 1458ms (Views: 1434.3ms | ActiveRecord: 0.0ms)
 
 
 Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-07 21:17:33 -0430
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-12 14:27:53 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_navigation.html.erb (5.0ms)
+  Rendered layouts/_topnavbar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 635ms (Views: 626.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 14:27:54 -0430
