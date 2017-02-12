@@ -16,6 +16,5 @@
 # end
 
 ActiveSupport::Inflector.inflections do |inflect|
-  inflect.irregular 'respuesta', 'respuestas'
   inflect.irregular 'pregunta', 'preguntas'
 end
