@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208050509) do
+ActiveRecord::Schema.define(version: 20170211162952) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "especialidads", force: :cascade do |t|
     t.string   "codigo"
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 20170208050509) do
     t.boolean  "estatus"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["especialidad_id"], name: "index_especialista_on_especialidad_id"
-    t.index ["sexo_id"], name: "index_especialista_on_sexo_id"
+    t.index ["especialidad_id"], name: "index_especialista_on_especialidad_id", using: :btree
+    t.index ["sexo_id"], name: "index_especialista_on_sexo_id", using: :btree
   end
 
   create_table "option_menus", force: :cascade do |t|
@@ -49,6 +52,13 @@ ActiveRecord::Schema.define(version: 20170208050509) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "preguntas", force: :cascade do |t|
+    t.string   "descripcion"
+    t.string   "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "sexos", force: :cascade do |t|
     t.string   "descripcion"
     t.boolean  "estatus"
@@ -56,4 +66,6 @@ ActiveRecord::Schema.define(version: 20170208050509) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "especialista", "especialidads"
+  add_foreign_key "especialista", "sexos"
 end
