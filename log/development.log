@@ -18807,3 +18807,764 @@ Completed 200 OK in 433ms (Views: 411.9ms | ActiveRecord: 1.1ms)
 
 
 Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-08 01:14:49 -0430
+Started GET "/" for 127.0.0.1 at 2017-02-12 15:11:00 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.9ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (5.9ms)
+  Rendered layouts/_navigation.html.erb (8.8ms)
+  Rendered layouts/_topnavbar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 6957ms (Views: 6915.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/style.self-b521151281baa83617f28eff8466a76b526f99e2364711ff71737baa68947ed8.css?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/especialidads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/especialista.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/option_menus.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-12 15:11:07 -0400
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-12 15:11:08 -0400
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-12 15:11:08 -0400
+Started GET "/assets/a6-b8e9007bb4a531d1918165879a8a86b3d084c2774c2962f429074dec66bb3b75.jpg" for 127.0.0.1 at 2017-02-12 15:11:08 -0400
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 15:11:08 -0400
+Started GET "/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2" for 127.0.0.1 at 2017-02-12 15:11:08 -0400
+Started GET "/" for 127.0.0.1 at 2017-02-12 15:16:34 -0400
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.8ms)
+  Rendered layouts/_navigation.html.erb (9.6ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 96ms (Views: 91.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 15:16:34 -0400
+Started GET "/" for 127.0.0.1 at 2017-02-12 15:16:37 -0400
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.5ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (7.4ms)
+  Rendered layouts/_navigation.html.erb (10.0ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 80ms (Views: 76.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 15:16:37 -0400
+Started GET "/" for 127.0.0.1 at 2017-02-12 15:17:57 -0400
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.9ms)
+  Rendered layouts/_navigation.html.erb (9.8ms)
+  Rendered layouts/_topnavbar.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 95ms (Views: 89.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 15:17:57 -0400
+Started GET "/" for 127.0.0.1 at 2017-02-12 15:18:01 -0400
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.4ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (7.2ms)
+  Rendered layouts/_navigation.html.erb (10.0ms)
+  Rendered layouts/_topnavbar.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 102ms (Views: 96.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 15:18:02 -0400
+Started GET "/" for 127.0.0.1 at 2017-02-12 15:18:25 -0400
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.4ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.5ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (8.7ms)
+  Rendered layouts/_navigation.html.erb (13.4ms)
+  Rendered layouts/_topnavbar.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 108ms (Views: 103.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 15:18:25 -0400
+Started GET "/sexos/index" for 127.0.0.1 at 2017-02-12 15:21:50 -0400
+Processing by SexosController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mSexo Load (0.3ms)[0m  [1m[34mSELECT  "sexos".* FROM "sexos" WHERE "sexos"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 300ms (ActiveRecord: 1.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Sexo with 'id'=index):
+  
+app/controllers/sexos_controller.rb:67:in `set_sexo'
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.7ms)
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (34.5ms)
+Started GET "/especialista/index" for 127.0.0.1 at 2017-02-12 15:22:25 -0400
+Processing by EspecialistaController#show as HTML
+  Parameters: {"id"=>"index"}
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mEspecialistum Load (0.2ms)[0m  [1m[34mSELECT  "especialista".* FROM "especialista" WHERE "especialista"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 108ms (ActiveRecord: 1.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Especialistum with 'id'=index):
+  
+app/controllers/especialista_controller.rb:67:in `set_especialistum'
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.8ms)
+Started GET "/especialista/" for 127.0.0.1 at 2017-02-12 15:22:30 -0400
+Processing by EspecialistaController#index as HTML
+  [1m[36mOptionMenu Load (0.4ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering especialista/index.html.erb within layouts/application
+  [1m[36mEspecialistum Load (0.2ms)[0m  [1m[34mSELECT "especialista".* FROM "especialista"[0m
+  Rendered especialista/index.html.erb within layouts/application (3.1ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (7.7ms)
+  Rendered layouts/_navigation.html.erb (10.5ms)
+  Rendered layouts/_topnavbar.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 106ms (Views: 100.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 15:22:30 -0400
+Started GET "/sexos/" for 127.0.0.1 at 2017-02-12 15:22:44 -0400
+Processing by SexosController#index as HTML
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering sexos/index.html.erb within layouts/application
+  [1m[36mSexo Load (0.2ms)[0m  [1m[34mSELECT "sexos".* FROM "sexos"[0m
+  Rendered sexos/index.html.erb within layouts/application (2.2ms)
+  [1m[36mOptionMenu Load (0.4ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.9ms)
+  Rendered layouts/_navigation.html.erb (9.4ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 87ms (Views: 79.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 15:22:44 -0400
+Started GET "/especialistas/" for 127.0.0.1 at 2017-02-12 15:23:21 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/especialistas"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered collection of /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [35 times] (59.6ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (161.8ms)
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.8ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (382.0ms)
+Started GET "/especialista/" for 127.0.0.1 at 2017-02-12 15:23:25 -0400
+Processing by EspecialistaController#index as HTML
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering especialista/index.html.erb within layouts/application
+  [1m[36mEspecialistum Load (0.3ms)[0m  [1m[34mSELECT "especialista".* FROM "especialista"[0m
+  Rendered especialista/index.html.erb within layouts/application (4.0ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.8ms)
+  Rendered layouts/_navigation.html.erb (9.9ms)
+  Rendered layouts/_topnavbar.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 108ms (Views: 100.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 15:23:25 -0400
+Started GET "/especialista/" for 127.0.0.1 at 2017-02-12 15:24:28 -0400
+Processing by EspecialistaController#index as HTML
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering especialista/index.html.erb within layouts/application
+  [1m[36mEspecialistum Load (0.3ms)[0m  [1m[34mSELECT "especialista".* FROM "especialista"[0m
+  Rendered especialista/index.html.erb within layouts/application (2.8ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.4ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (7.4ms)
+  Rendered layouts/_navigation.html.erb (10.3ms)
+  Rendered layouts/_topnavbar.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 138ms (Views: 132.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 15:24:29 -0400
+Started GET "/preguntas/" for 127.0.0.1 at 2017-02-12 16:20:23 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/preguntas"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered collection of /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [35 times] (13.4ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (51.8ms)
+Started GET "/especialista/" for 127.0.0.1 at 2017-02-12 16:20:40 -0400
+Processing by EspecialistaController#index as HTML
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering especialista/index.html.erb within layouts/application
+  [1m[36mEspecialistum Load (0.2ms)[0m  [1m[34mSELECT "especialista".* FROM "especialista"[0m
+  Rendered especialista/index.html.erb within layouts/application (2.6ms)
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (7.2ms)
+  Rendered layouts/_navigation.html.erb (10.3ms)
+  Rendered layouts/_topnavbar.html.erb (7.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 93ms (Views: 88.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 16:20:41 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTipoHabitos (20170212205443)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "tipo_habitos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descripcion" varchar, "estatus" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170212205443"]]
+  [1m[35m (98.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+Started GET "/tipos-habito/" for 127.0.0.1 at 2017-02-12 16:57:18 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActionController::RoutingError (No route matches [GET] "/tipos-habito"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered collection of /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [43 times] (14.6ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (49.8ms)
+Started GET "/tipos-habitos/" for 127.0.0.1 at 2017-02-12 16:57:43 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/tipos-habitos"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered collection of /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [43 times] (13.6ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.3ms)
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (50.3ms)
+Started GET "/tipos_habitos/" for 127.0.0.1 at 2017-02-12 16:59:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/tipos_habitos"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:140:in `service'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/httpserver.rb:96:in `run'
+/home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/2.4.0/webrick/server.rb:290:in `block in start_thread'
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered collection of /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [43 times] (15.2ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (53.4ms)
+Started GET "/tipo_habitos/" for 127.0.0.1 at 2017-02-12 16:59:20 -0400
+Processing by TipoHabitosController#index as HTML
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering tipo_habitos/index.html.erb within layouts/application
+  [1m[36mTipoHabito Load (0.2ms)[0m  [1m[34mSELECT "tipo_habitos".* FROM "tipo_habitos"[0m
+  Rendered tipo_habitos/index.html.erb within layouts/application (3.1ms)
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.4ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (8.8ms)
+  Rendered layouts/_navigation.html.erb (12.3ms)
+  Rendered layouts/_topnavbar.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 348ms (Views: 321.1ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/tipo_habitos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-12 16:59:21 -0400
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 16:59:21 -0400
+Started GET "/tipo_habitos/new" for 127.0.0.1 at 2017-02-12 16:59:38 -0400
+Processing by TipoHabitosController#new as HTML
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering tipo_habitos/new.html.erb within layouts/application
+  Rendered tipo_habitos/_form.html.erb (166.8ms)
+  Rendered tipo_habitos/new.html.erb within layouts/application (168.5ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (5.8ms)
+  Rendered layouts/_navigation.html.erb (8.2ms)
+  Rendered layouts/_topnavbar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 258ms (Views: 247.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 16:59:39 -0400
+Started GET "/tipo_habitos/new" for 127.0.0.1 at 2017-02-12 16:59:47 -0400
+Processing by TipoHabitosController#new as HTML
+  [1m[36mOptionMenu Load (0.4ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering tipo_habitos/new.html.erb within layouts/application
+  Rendered tipo_habitos/_form.html.erb (3.1ms)
+  Rendered tipo_habitos/new.html.erb within layouts/application (4.9ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.4ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (7.3ms)
+  Rendered layouts/_navigation.html.erb (10.4ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 94ms (Views: 90.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 16:59:47 -0400
+Started POST "/tipo_habitos" for 127.0.0.1 at 2017-02-12 17:01:26 -0400
+Processing by TipoHabitosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xe9WJwN9RkrapOK0WxtmcRZdrtEJeZkdd742gCG4loC+ZQwhoi1GPDr+l1VfVknMFE+cNEDQzLFzRaxCRiXqIA==", "tipo_habito"=>{"descripcion"=>"Habitos de Salud", "estatus"=>"1"}, "commit"=>"Create Tipo habito"}
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "tipo_habitos" ("descripcion", "estatus", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["descripcion", "Habitos de Salud"], ["estatus", 1], ["created_at", 2017-02-12 21:01:26 UTC], ["updated_at", 2017-02-12 21:01:26 UTC]]
+  [1m[35m (76.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/tipo_habitos/1
+Completed 302 Found in 81ms (ActiveRecord: 76.6ms)
+
+
+Started GET "/tipo_habitos/1" for 127.0.0.1 at 2017-02-12 17:01:26 -0400
+Processing by TipoHabitosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mTipoHabito Load (0.1ms)[0m  [1m[34mSELECT  "tipo_habitos".* FROM "tipo_habitos" WHERE "tipo_habitos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tipo_habitos/show.html.erb within layouts/application
+  Rendered tipo_habitos/show.html.erb within layouts/application (1.0ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.0ms)
+  Rendered layouts/_navigation.html.erb (8.4ms)
+  Rendered layouts/_topnavbar.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 76ms (Views: 72.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 17:01:26 -0400
+Started GET "/tipo_habitos" for 127.0.0.1 at 2017-02-12 17:01:30 -0400
+Processing by TipoHabitosController#index as HTML
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering tipo_habitos/index.html.erb within layouts/application
+  [1m[36mTipoHabito Load (0.2ms)[0m  [1m[34mSELECT "tipo_habitos".* FROM "tipo_habitos"[0m
+  Rendered tipo_habitos/index.html.erb within layouts/application (2.5ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.0ms)
+  Rendered layouts/_navigation.html.erb (8.9ms)
+  Rendered layouts/_topnavbar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 85ms (Views: 80.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 17:01:30 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateHabitos (20170212211153)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "habitos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "descripcion" varchar, "estatus" integer, "TipoHabito_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_habitos_on_TipoHabito_id" ON "habitos" ("TipoHabito_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170212211153"]]
+  [1m[35m (183.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_sexo_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_especialista_on_especialidad_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_habitos_on_TipoHabito_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_habitos_on_TipoHabito_id' AND type='index'
+[0m
+Started GET "/habitos" for 127.0.0.1 at 2017-02-12 17:12:20 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HabitosController#index as HTML
+  [1m[36mOptionMenu Load (0.1ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering habitos/index.html.erb within layouts/application
+  [1m[36mHabito Load (0.2ms)[0m  [1m[34mSELECT "habitos".* FROM "habitos"[0m
+  Rendered habitos/index.html.erb within layouts/application (2.3ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.4ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.5ms)
+  Rendered layouts/_navigation.html.erb (9.0ms)
+  Rendered layouts/_topnavbar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 235ms (Views: 213.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/habitos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-12 17:12:21 -0400
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 17:12:21 -0400
+Started GET "/habitos/new" for 127.0.0.1 at 2017-02-12 17:13:06 -0400
+Processing by HabitosController#new as HTML
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering habitos/new.html.erb within layouts/application
+  Rendered habitos/_form.html.erb (2.5ms)
+  Rendered habitos/new.html.erb within layouts/application (3.6ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.4ms)
+  Rendered layouts/_navigation.html.erb (9.2ms)
+  Rendered layouts/_topnavbar.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 92ms (Views: 83.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 17:13:06 -0400
+Started POST "/habitos" for 127.0.0.1 at 2017-02-12 17:13:53 -0400
+Processing by HabitosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6pBzDwGfrBAnkdCAwu3DPwnobFxX6hjihvHqGuc4TKWRGikJoM+sZsfLpWHGoOyCC/peuR5DTU6CCnDYgKUwBQ==", "habito"=>{"descripcion"=>"Fumar", "estatus"=>"1", "TipoHabito_id"=>"1"}, "commit"=>"Create Habito"}
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "habitos" ("descripcion", "estatus", "TipoHabito_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["descripcion", "Fumar"], ["estatus", 1], ["TipoHabito_id", 1], ["created_at", 2017-02-12 21:13:53 UTC], ["updated_at", 2017-02-12 21:13:53 UTC]]
+  [1m[35m (219.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/habitos/1
+Completed 302 Found in 228ms (ActiveRecord: 221.0ms)
+
+
+Started GET "/habitos/1" for 127.0.0.1 at 2017-02-12 17:13:54 -0400
+Processing by HabitosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mHabito Load (0.2ms)[0m  [1m[34mSELECT  "habitos".* FROM "habitos" WHERE "habitos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering habitos/show.html.erb within layouts/application
+  [1m[36mTipoHabito Load (0.2ms)[0m  [1m[34mSELECT  "tipo_habitos".* FROM "tipo_habitos" WHERE "tipo_habitos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered habitos/show.html.erb within layouts/application (49.8ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (5.5ms)
+  Rendered layouts/_navigation.html.erb (8.1ms)
+  Rendered layouts/_topnavbar.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 131ms (Views: 125.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 17:13:54 -0400
+Started GET "/habitos" for 127.0.0.1 at 2017-02-12 17:13:57 -0400
+Processing by HabitosController#index as HTML
+  [1m[36mOptionMenu Load (0.5ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering habitos/index.html.erb within layouts/application
+  [1m[36mHabito Load (0.3ms)[0m  [1m[34mSELECT "habitos".* FROM "habitos"[0m
+  [1m[36mTipoHabito Load (0.1ms)[0m  [1m[34mSELECT  "tipo_habitos".* FROM "tipo_habitos" WHERE "tipo_habitos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered habitos/index.html.erb within layouts/application (5.2ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (7.6ms)
+  Rendered layouts/_navigation.html.erb (11.4ms)
+  Rendered layouts/_topnavbar.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 99ms (Views: 93.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 17:13:57 -0400
+Started GET "/habitos" for 127.0.0.1 at 2017-02-12 17:14:21 -0400
+Processing by HabitosController#index as HTML
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering habitos/index.html.erb within layouts/application
+  [1m[36mHabito Load (0.2ms)[0m  [1m[34mSELECT "habitos".* FROM "habitos"[0m
+  [1m[36mTipoHabito Load (0.1ms)[0m  [1m[34mSELECT  "tipo_habitos".* FROM "tipo_habitos" WHERE "tipo_habitos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered habitos/index.html.erb within layouts/application (2.6ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (5.7ms)
+  Rendered layouts/_navigation.html.erb (8.1ms)
+  Rendered layouts/_topnavbar.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 76ms (Views: 71.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 17:14:21 -0400
+Started GET "/habitos" for 127.0.0.1 at 2017-02-12 17:20:36 -0400
+Processing by HabitosController#index as HTML
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering habitos/index.html.erb within layouts/application
+  [1m[36mHabito Load (0.2ms)[0m  [1m[34mSELECT "habitos".* FROM "habitos"[0m
+  [1m[36mTipoHabito Load (0.2ms)[0m  [1m[34mSELECT  "tipo_habitos".* FROM "tipo_habitos" WHERE "tipo_habitos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered habitos/index.html.erb within layouts/application (19.3ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.1ms)
+  Rendered layouts/_navigation.html.erb (8.5ms)
+  Rendered layouts/_topnavbar.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 109ms (Views: 86.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 17:20:37 -0400
+Started GET "/habitos/new" for 127.0.0.1 at 2017-02-12 17:20:38 -0400
+Processing by HabitosController#new as HTML
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.3ms)
+
+
+  
+NameError (uninitialized constant HabitosController::TipoHabitos):
+  
+app/controllers/habitos_controller.rb:17:in `new'
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/conamerica02/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.8ms)
+Started GET "/habitos/new" for 127.0.0.1 at 2017-02-12 17:21:09 -0400
+Processing by HabitosController#new as HTML
+  [1m[36mOptionMenu Load (0.1ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering habitos/new.html.erb within layouts/application
+  [1m[36mTipoHabito Load (0.2ms)[0m  [1m[34mSELECT "tipo_habitos".* FROM "tipo_habitos"[0m
+  Rendered habitos/_form.html.erb (91.0ms)
+  Rendered habitos/new.html.erb within layouts/application (92.8ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (5.6ms)
+  Rendered layouts/_navigation.html.erb (8.4ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 195ms (Views: 169.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 17:21:09 -0400
+Started GET "/habitos/new" for 127.0.0.1 at 2017-02-12 17:31:14 -0400
+Processing by HabitosController#new as HTML
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering habitos/new.html.erb within layouts/application
+  [1m[36mTipoHabito Load (0.2ms)[0m  [1m[34mSELECT "tipo_habitos".* FROM "tipo_habitos"[0m
+  Rendered habitos/_form.html.erb (4.4ms)
+  Rendered habitos/new.html.erb within layouts/application (6.5ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.1ms)
+  Rendered layouts/_navigation.html.erb (8.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 98ms (Views: 92.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 17:31:14 -0400
+Started GET "/habitos" for 127.0.0.1 at 2017-02-12 17:31:18 -0400
+Processing by HabitosController#index as HTML
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering habitos/index.html.erb within layouts/application
+  [1m[36mHabito Load (0.2ms)[0m  [1m[34mSELECT "habitos".* FROM "habitos"[0m
+  [1m[36mTipoHabito Load (0.2ms)[0m  [1m[34mSELECT  "tipo_habitos".* FROM "tipo_habitos" WHERE "tipo_habitos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered habitos/index.html.erb within layouts/application (7.4ms)
+  [1m[36mOptionMenu Load (0.2ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.3ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (6.3ms)
+  Rendered layouts/_navigation.html.erb (9.3ms)
+  Rendered layouts/_topnavbar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 89ms (Views: 83.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-12 17:31:18 -0400

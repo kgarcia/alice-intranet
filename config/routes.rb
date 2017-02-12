@@ -1,4 +1,6 @@
 Myapp::Application.routes.draw do
+  resources :habitos
+  resources :tipo_habitos
   resources :option_menus
   resources :sexos
   resources :especialista

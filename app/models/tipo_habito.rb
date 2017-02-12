@@ -1,0 +1,2 @@
+class TipoHabito < ApplicationRecord
+end

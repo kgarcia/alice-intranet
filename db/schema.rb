@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208050509) do
+ActiveRecord::Schema.define(version: 20170212211153) do
 
   create_table "especialidads", force: :cascade do |t|
     t.string   "codigo"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20170208050509) do
     t.index ["sexo_id"], name: "index_especialista_on_sexo_id"
   end
 
+  create_table "habitos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "TipoHabito_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["TipoHabito_id"], name: "index_habitos_on_TipoHabito_id"
+  end
+
   create_table "option_menus", force: :cascade do |t|
     t.integer  "id_padre"
     t.string   "nombre"
@@ -52,6 +61,13 @@ ActiveRecord::Schema.define(version: 20170208050509) do
   create_table "sexos", force: :cascade do |t|
     t.string   "descripcion"
     t.boolean  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tipo_habitos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
