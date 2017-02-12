@@ -42,6 +42,6 @@ test:
  
 production:
   <<: *default
-  database: alice_test
+  database: alice_production
  
  
