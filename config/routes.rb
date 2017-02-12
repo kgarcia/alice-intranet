@@ -58,4 +58,7 @@ root to: 'home#index'
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+
+  resources :preguntas
 end

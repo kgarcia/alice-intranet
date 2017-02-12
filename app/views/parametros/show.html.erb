@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @parametro.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @parametro.estatus %>
+</p>
+
+<%= link_to 'Editar', send("edit_"+@parametro.class.name.downcase+"_path") %> |
+<%= link_to 'Atras', send(@parametro.class.table_name+'_path') %>
