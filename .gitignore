@@ -58,3 +58,4 @@ bower.json
 
 /config/database.yml
 /db/schema.rb
+/config/routes.rb
