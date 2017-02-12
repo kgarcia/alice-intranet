@@ -1,0 +1,1 @@
+json.array! @adicciones, partial: 'adicciones/adiccion', as: :adiccion

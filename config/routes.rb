@@ -1,13 +1,24 @@
 Myapp::Application.routes.draw do
+
   resources :discapacidades
   resources :tipo_discapacidades
   resources :patologias
   resources :tipo_patologias
   resources :vacunas
+  resources :adicciones
+  resources :tipo_adicciones
+  resources :grupo_sanguineos
+  resources :cirugias
+  resources :tipo_cirugias
+  resources :estado_civiles
+  resources :ocupaciones
+  resources :profesiones
+  resources :lesiones
+  resources :tipo_lesiones
+  resources :habitos
+  resources :tipo_habitos
   resources :option_menus
   resources :sexos
-  resources :especialista
-  resources :especialidads
   get "home/index"
   get "home/minor"
   # The priority is based upon order of creation: first created -> highest priority.

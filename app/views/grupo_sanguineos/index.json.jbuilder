@@ -1,0 +1,1 @@
+json.array! @grupo_sanguineos, partial: 'grupo_sanguineos/grupo_sanguineo', as: :grupo_sanguineo

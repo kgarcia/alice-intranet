@@ -9,6 +9,7 @@ gem 'font-awesome-rails', '4.7.0.1'
 gem 'sqlite3'
 
 gem 'pg', '~> 0.19'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.4'
 

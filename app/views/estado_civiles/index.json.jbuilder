@@ -1,0 +1,1 @@
+json.array! @estado_civiles, partial: 'estado_civiles/estado_civil', as: :estado_civil
