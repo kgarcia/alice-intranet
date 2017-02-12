@@ -1,0 +1,1 @@
+json.array! @tipo_cirugias, partial: 'tipo_cirugias/tipo_cirugia', as: :tipo_cirugia

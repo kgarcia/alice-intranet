@@ -1,0 +1,27 @@
+<%= form_for(tipo_patologia) do |f| %>
+  <% if tipo_patologia.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tipo_patologia.errors.count, "error") %> prohibited this tipo_patologia from being saved:</h2>
+
+      <ul>
+      <% tipo_patologia.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
