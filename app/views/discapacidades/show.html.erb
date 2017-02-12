@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @discapacidad.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @discapacidad.estatus %>
+</p>
+
+<p>
+  <strong>Tipodiscapacidad:</strong>
+  <%= @discapacidad.TipoDiscapacidad %>
+</p>
+
+<%= link_to 'Edit', edit_discapacidad_path(@discapacidad) %> |
+<%= link_to 'Back', discapacidades_path %>

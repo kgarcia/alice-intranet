@@ -1,0 +1,2 @@
+class Vacuna < ApplicationRecord
+end

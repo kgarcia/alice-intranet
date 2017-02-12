@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Patologias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Estatus</th>
+      <th>Tipopatologia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patologias.each do |patologia| %>
+      <tr>
+        <td><%= patologia.descripcion %></td>
+        <td><%= patologia.estatus %></td>
+        <td><%= patologia.TipoPatologia %></td>
+        <td><%= link_to 'Show', patologia %></td>
+        <td><%= link_to 'Edit', edit_patologia_path(patologia) %></td>
+        <td><%= link_to 'Destroy', patologia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Patologia', new_patologia_path %>

@@ -20039,3 +20039,37 @@ Migrating to AddPrioridadToPregunta (20170211162952)
   [1m[35m (9.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (144.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (87.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEspecialidads (20170130005927)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialidads < ActiveRecord::Migration[4.2] (called from load at /home/oscar/.rvm/gems/ruby-2.3.3/bin/rake:22)
+  [1m[35m (85.1ms)[0m  [1m[35mCREATE TABLE "especialidads" ("id" serial primary key, "codigo" character varying, "nombre" character varying, "estatus" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170130005927"]]
+  [1m[35m (17.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSexos (20170130010831)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateSexos < ActiveRecord::Migration[4.2] (called from load at /home/oscar/.rvm/gems/ruby-2.3.3/bin/rake:22)
+  [1m[35m (84.6ms)[0m  [1m[35mCREATE TABLE "sexos" ("id" serial primary key, "descripcion" character varying, "estatus" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170130010831"]]
+  [1m[35m (20.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEspecialista (20170130010845)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateEspecialista < ActiveRecord::Migration[4.2] (called from load at /home/oscar/.rvm/gems/ruby-2.3.3/bin/rake:22)
+  [1m[35m (97.1ms)[0m  [1m[35mCREATE TABLE "especialista" ("id" serial primary key, "cedula" character varying, "nombre" character varying, "apellido" character varying, "especialidad_id" integer, "fecha_ingreso" date, "sexo_id" integer, "curriculum" text, "edad" integer, "estatus" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_88009270f5"
+FOREIGN KEY ("especialidad_id")
+  REFERENCES "especialidades" ("id")
+, CONSTRAINT "fk_rails_fa84c6b726"
+FOREIGN KEY ("sexo_id")
+  REFERENCES "sexos" ("id")
+)[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
