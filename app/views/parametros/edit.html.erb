@@ -3,4 +3,4 @@
 <%= render 'parametros/form' %>
 
 <%= link_to 'Ver', @parametro %> |
-<%= link_to 'Atras', send(@parametro.class.table_name+'_path') %>
+<%= link_to 'Atras', polymorphic_url(@parametro.class) %>
