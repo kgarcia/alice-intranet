@@ -1,0 +1,1 @@
+json.partial! "grupo_sanguineos/grupo_sanguineo", grupo_sanguineo: @grupo_sanguineo

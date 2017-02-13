@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @lesion.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @lesion.estatus %>
+</p>
+
+<p>
+  <strong>Tipolesion:</strong>
+  <%= @lesion.TipoLesion %>
+</p>
+
+<%= link_to 'Edit', edit_lesion_path(@lesion) %> |
+<%= link_to 'Back', lesiones_path %>

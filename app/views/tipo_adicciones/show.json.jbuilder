@@ -1,0 +1,1 @@
+json.partial! "tipo_adicciones/tipo_adiccion", tipo_adiccion: @tipo_adiccion

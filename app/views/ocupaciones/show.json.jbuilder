@@ -1,0 +1,1 @@
+json.partial! "ocupaciones/ocupacion", ocupacion: @ocupacion

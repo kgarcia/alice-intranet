@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @tipo_adiccion.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @tipo_adiccion.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_tipo_adiccion_path(@tipo_adiccion) %> |
+<%= link_to 'Back', tipo_adicciones_path %>
