@@ -1,0 +1,847 @@
+  [1m[35m (104.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (128.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePreguntas (20170208035557)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePreguntas < ActiveRecord::Migration[4.2] (called from load at /home/marco/.rvm/gems/ruby-2.3.3/bin/rake:22)
+  [1m[35m (127.5ms)[0m  [1m[35mCREATE TABLE "preguntas" ("id" serial primary key, "descripcion" character varying, "estatus" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170208035557"]]
+  [1m[35m (18.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOptionMenus (20170208050104)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateOptionMenus < ActiveRecord::Migration[4.2] (called from load at /home/marco/.rvm/gems/ruby-2.3.3/bin/rake:22)
+  [1m[35m (122.8ms)[0m  [1m[35mCREATE TABLE "option_menus" ("id" serial primary key, "id_padre" integer, "nombre" character varying, "url_path" character varying, "icono" character varying, "controlador" character varying, "accion" character varying, "num_hijos" integer, "estatus" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170208050104"]]
+  [1m[35m (15.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to InsertOptionMenu (20170208050509)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Configuración General"], ["url_path", "#"], ["icono", "fa-cogs"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 1], ["nombre", "Maestros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 1], ["nombre", "Parametros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 1], ["nombre", "Otros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Oferta y Eventos"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 5], ["nombre", "Catalogo de Servicios"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 6], ["nombre", "Servicios"], ["url_path", "#"], ["icono", "fa-flask"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 6], ["nombre", "Especialistas"], ["url_path", "#"], ["icono", "fa-user-md"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 5], ["nombre", "Catalogo de Eventos"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Agenda"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 10], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 10], ["nombre", "Horarios"], ["url_path", "#"], ["icono", "fa-clock-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 10], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-exclamation-circle"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Citas"], ["url_path", "#"], ["icono", "fa-stethoscope"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-plus"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Historial"], ["url_path", "#"], ["icono", "fa-history"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-exclamation-circle"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Servicio Medico"], ["url_path", "#"], ["icono", "fa-hospital-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 19], ["nombre", "Registrar Paciente"], ["url_path", "#"], ["icono", "fa-id-card-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 19], ["nombre", "Evaluar Cita"], ["url_path", "#"], ["icono", "fa-star-half-full"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 19], ["nombre", "Consultar Pacientes"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Reportes"], ["url_path", "#"], ["icono", "fa-bar-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Satisfaccion del Paciente"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Citas Concretadas"], ["url_path", "#"], ["icono", "fa-pie-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Efectos de Difusion"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Usuarios"], ["url_path", "#"], ["icono", "fa-users"], ["controlador", ""], ["accion", ""], ["num_hijos", 5], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-user-plus"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Pacientes"], ["url_path", "#"], ["icono", "fa-ambulance"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-bookmark-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Acciones"], ["url_path", "#"], ["icono", "fa-check"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Administracion Web"], ["url_path", "#"], ["icono", "fa-cog"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 34], ["nombre", "Contenido"], ["url_path", "#"], ["icono", "fa-at"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 34], ["nombre", "Imagenes"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 34], ["nombre", "Noticias"], ["url_path", "#"], ["icono", "newspaper"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 2], ["nombre", "Especialista"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Antecedentes"], ["url_path", "#"], ["icono", "fa-list"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Habitos"], ["url_path", "#"], ["icono", "fa-thumbs-up"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Ubicacion"], ["url_path", "#"], ["icono", "fa-globe"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Especialidad"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-12 23:51:05 UTC], ["updated_at", 2017-02-12 23:51:05 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170208050509"]]
+  [1m[35m (15.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPrioridadToPregunta (20170211162952)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170211162952"]]
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateVacunas (20170212200618)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (102.2ms)[0m  [1m[35mCREATE TABLE "vacunas" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200618"]]
+  [1m[35m (14.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoPatologias (20170212200718)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (124.9ms)[0m  [1m[35mCREATE TABLE "tipo_patologias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200718"]]
+  [1m[35m (14.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePatologias (20170212200738)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (127.1ms)[0m  [1m[35mCREATE TABLE "patologias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_patologias_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e9d7ce69d5"
+FOREIGN KEY ("tipo_patologias_id")
+  REFERENCES "tipo_patologias" ("id")
+)[0m
+  [1m[35m (71.9ms)[0m  [1m[35mCREATE  INDEX  "index_patologias_on_tipo_patologias_id" ON "patologias"  ("tipo_patologias_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200738"]]
+  [1m[35m (24.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoDiscapacidades (20170212200821)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (93.3ms)[0m  [1m[35mCREATE TABLE "tipo_discapacidades" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200821"]]
+  [1m[35m (23.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDiscapacidades (20170212200838)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (95.7ms)[0m  [1m[35mCREATE TABLE "discapacidades" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_discapacidades_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5e05ffea06"
+FOREIGN KEY ("tipo_discapacidades_id")
+  REFERENCES "tipo_discapacidades" ("id")
+)[0m
+  [1m[35m (41.4ms)[0m  [1m[35mCREATE  INDEX  "index_discapacidades_on_tipo_discapacidades_id" ON "discapacidades"  ("tipo_discapacidades_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200838"]]
+  [1m[35m (20.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoHabitos (20170212205443)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (152.3ms)[0m  [1m[35mCREATE TABLE "tipo_habitos" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212205443"]]
+  [1m[35m (19.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHabitos (20170212211153)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (109.9ms)[0m  [1m[35mCREATE TABLE "habitos" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_habitos_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_fd281aaead"
+FOREIGN KEY ("tipo_habitos_id")
+  REFERENCES "tipo_habitos" ("id")
+)[0m
+  [1m[35m (49.6ms)[0m  [1m[35mCREATE  INDEX  "index_habitos_on_tipo_habitos_id" ON "habitos"  ("tipo_habitos_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212211153"]]
+  [1m[35m (18.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoLesiones (20170212232902)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (98.7ms)[0m  [1m[35mCREATE TABLE "tipo_lesiones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212232902"]]
+  [1m[35m (17.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLesiones (20170212233025)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (132.7ms)[0m  [1m[35mCREATE TABLE "lesiones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_lesiones_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_38a15a4916"
+FOREIGN KEY ("tipo_lesiones_id")
+  REFERENCES "tipo_lesiones" ("id")
+)[0m
+  [1m[35m (39.6ms)[0m  [1m[35mCREATE  INDEX  "index_lesiones_on_tipo_lesiones_id" ON "lesiones"  ("tipo_lesiones_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233025"]]
+  [1m[35m (16.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProfesiones (20170212233059)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (133.9ms)[0m  [1m[35mCREATE TABLE "profesiones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233059"]]
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOcupaciones (20170212233112)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (112.9ms)[0m  [1m[35mCREATE TABLE "ocupaciones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233112"]]
+  [1m[35m (14.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEstadoCiviles (20170212233136)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (113.5ms)[0m  [1m[35mCREATE TABLE "estado_civiles" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233136"]]
+  [1m[35m (14.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoCirugias (20170212233541)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (92.5ms)[0m  [1m[35mCREATE TABLE "tipo_cirugias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233541"]]
+  [1m[35m (24.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCirugias (20170212233607)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (116.6ms)[0m  [1m[35mCREATE TABLE "cirugias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_cirugias_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_954762983f"
+FOREIGN KEY ("tipo_cirugias_id")
+  REFERENCES "tipo_cirugias" ("id")
+)[0m
+  [1m[35m (39.8ms)[0m  [1m[35mCREATE  INDEX  "index_cirugias_on_tipo_cirugias_id" ON "cirugias"  ("tipo_cirugias_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233607"]]
+  [1m[35m (22.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGrupoSanguineos (20170212233652)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (108.9ms)[0m  [1m[35mCREATE TABLE "grupo_sanguineos" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233652"]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoAdicciones (20170212233752)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (96.4ms)[0m  [1m[35mCREATE TABLE "tipo_adicciones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233752"]]
+  [1m[35m (20.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdicciones (20170212233812)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (119.6ms)[0m  [1m[35mCREATE TABLE "adicciones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_adicciones_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_1cd9db2926"
+FOREIGN KEY ("tipo_adicciones_id")
+  REFERENCES "tipo_adicciones" ("id")
+)[0m
+  [1m[35m (52.1ms)[0m  [1m[35mCREATE  INDEX  "index_adicciones_on_tipo_adicciones_id" ON "adicciones"  ("tipo_adicciones_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233812"]]
+  [1m[35m (19.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-12 23:51:07 UTC], ["updated_at", 2017-02-12 23:51:07 UTC]]
+  [1m[35m (11.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/pais" for 127.0.0.1 at 2017-02-13 00:35:17 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (28.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.1) lib/active_record/migration.rb:573:in `check_pending!'
+activerecord (5.0.1) lib/active_record/migration.rb:549:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.6ms)
+  [1m[35m (18.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePaises (20170213050347)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (674.5ms)[0m  [1m[35mCREATE TABLE "paises" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170213050347"]]
+  [1m[35m (24.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (35.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/pais" for 127.0.0.1 at 2017-02-13 00:36:12 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActionController::RoutingError (No route matches [GET] "/pais"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+rack (2.0.1) lib/rack/handler/webrick.rb:86:in `service'
+/home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+/home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+/home/marco/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+  Rendering /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered collection of /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [171 times] (87.2ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (37.1ms)
+  Rendering /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (18.7ms)
+  Rendered /home/marco/.rvm/gems/ruby-2.3.3/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (195.8ms)
+Started GET "/paises" for 127.0.0.1 at 2017-02-13 00:36:17 -0430
+Processing by PaisesController#index as HTML
+  [1m[36mOptionMenu Load (27.2ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering paises/index.html.erb within layouts/application
+  [1m[36mPais Load (0.8ms)[0m  [1m[34mSELECT "paises".* FROM "paises"[0m
+  Rendered paises/index.html.erb within layouts/application (6.3ms)
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (8.9ms)
+  Rendered layouts/_navigation.html.erb (20.2ms)
+  Rendered layouts/_topnavbar.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 13149ms (Views: 13084.4ms | ActiveRecord: 38.2ms)
+
+
+Started GET "/assets/application.self-0778144d1b49e448b7ba31664788157f0e9c7b6aea5563fbe16beeb155d37e17.css?body=1" for 127.0.0.1 at 2017-02-13 00:36:30 -0430
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:30 -0430
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for 127.0.0.1 at 2017-02-13 00:36:30 -0430
+Started GET "/assets/style.self-518a309ad8cd53776ae8058072a046e348bf92c06269ad36f432a1cd0d4cbf64.css?body=1" for 127.0.0.1 at 2017-02-13 00:36:30 -0430
+Started GET "/assets/jquery/jquery-3.1.1.min.self-9347a28e490a684188bc8e7748f6f086a53a87088854ac4de47095f42a085b5b.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:30 -0430
+Started GET "/assets/animate/animate.self-570992b3ad6a262de1924aa4ecc17a6f9cf45cb8fd0daaf3cfe5a9f2f3e08e2e.css?body=1" for 127.0.0.1 at 2017-02-13 00:36:30 -0430
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:30 -0430
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:30 -0430
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:30 -0430
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/adicciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/cirugias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/discapacidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/estado_civiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/grupo_sanguineos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/habitos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/lesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/ocupaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/option_menus.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/paises.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/patologias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/profesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/tipo_adicciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/tipo_cirugias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/tipo_discapacidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/tipo_habitos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/tipo_lesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/tipo_patologias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/vacunas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/application.self-90e7ed1c03f271c6d5d952d21e8059fdd75eece5a10b1cf1b92a994332ddc129.js?body=1" for 127.0.0.1 at 2017-02-13 00:36:31 -0430
+Started GET "/assets/a6-b8e9007bb4a531d1918165879a8a86b3d084c2774c2962f429074dec66bb3b75.jpg" for 127.0.0.1 at 2017-02-13 00:36:32 -0430
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-13 00:36:32 -0430
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-13 00:36:32 -0430
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-13 00:36:33 -0430
+Started GET "/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2" for 127.0.0.1 at 2017-02-13 00:36:33 -0430
+Started GET "/paises/new" for 127.0.0.1 at 2017-02-13 00:36:53 -0430
+Processing by PaisesController#new as HTML
+  [1m[36mOptionMenu Load (1.1ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering paises/new.html.erb within layouts/application
+  Rendered paises/_form.html.erb (320.0ms)
+  Rendered paises/new.html.erb within layouts/application (321.9ms)
+  [1m[36mOptionMenu Load (1.1ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (11.1ms)
+  Rendered layouts/_navigation.html.erb (15.7ms)
+  Rendered layouts/_topnavbar.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 523ms (Views: 506.6ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-13 00:36:54 -0430
+Started GET "/" for 127.0.0.1 at 2017-02-13 00:37:00 -0430
+Processing by HomeController#index as HTML
+  [1m[36mOptionMenu Load (0.9ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" WHERE (num_hijos > 0)[0m
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.6ms)
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (num_hijos > 0)[0m
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT id, id_padre, nombre, url_path, icono, controlador, accion FROM "option_menus" WHERE (id_padre IS NOT NULL)[0m
+  Rendered layouts/_navigation-menu.html.erb (8.0ms)
+  Rendered layouts/_navigation.html.erb (11.1ms)
+  Rendered layouts/_topnavbar.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 127ms (Views: 99.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-13 00:37:01 -0430
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEstados (20170213052534)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (263.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "alice_development"[0m
+  [1m[35m (331.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "alice_test"[0m
+  [1m[35m (113.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (116.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePreguntas (20170208035557)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePreguntas < ActiveRecord::Migration[4.2] (called from load at /home/marco/.rvm/gems/ruby-2.3.3/bin/rake:22)
+  [1m[35m (98.9ms)[0m  [1m[35mCREATE TABLE "preguntas" ("id" serial primary key, "descripcion" character varying, "estatus" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170208035557"]]
+  [1m[35m (19.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOptionMenus (20170208050104)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateOptionMenus < ActiveRecord::Migration[4.2] (called from load at /home/marco/.rvm/gems/ruby-2.3.3/bin/rake:22)
+  [1m[35m (120.8ms)[0m  [1m[35mCREATE TABLE "option_menus" ("id" serial primary key, "id_padre" integer, "nombre" character varying, "url_path" character varying, "icono" character varying, "controlador" character varying, "accion" character varying, "num_hijos" integer, "estatus" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170208050104"]]
+  [1m[35m (16.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to InsertOptionMenu (20170208050509)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Configuración General"], ["url_path", "#"], ["icono", "fa-cogs"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 1], ["nombre", "Maestros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 1], ["nombre", "Parametros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 1], ["nombre", "Otros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Oferta y Eventos"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 5], ["nombre", "Catalogo de Servicios"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 6], ["nombre", "Servicios"], ["url_path", "#"], ["icono", "fa-flask"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 6], ["nombre", "Especialistas"], ["url_path", "#"], ["icono", "fa-user-md"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 5], ["nombre", "Catalogo de Eventos"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Agenda"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 10], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 10], ["nombre", "Horarios"], ["url_path", "#"], ["icono", "fa-clock-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 10], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-exclamation-circle"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Citas"], ["url_path", "#"], ["icono", "fa-stethoscope"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-plus"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Historial"], ["url_path", "#"], ["icono", "fa-history"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-exclamation-circle"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Servicio Medico"], ["url_path", "#"], ["icono", "fa-hospital-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 19], ["nombre", "Registrar Paciente"], ["url_path", "#"], ["icono", "fa-id-card-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 19], ["nombre", "Evaluar Cita"], ["url_path", "#"], ["icono", "fa-star-half-full"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 19], ["nombre", "Consultar Pacientes"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Reportes"], ["url_path", "#"], ["icono", "fa-bar-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Satisfaccion del Paciente"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Citas Concretadas"], ["url_path", "#"], ["icono", "fa-pie-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Efectos de Difusion"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Usuarios"], ["url_path", "#"], ["icono", "fa-users"], ["controlador", ""], ["accion", ""], ["num_hijos", 5], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-user-plus"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Pacientes"], ["url_path", "#"], ["icono", "fa-ambulance"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-bookmark-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Acciones"], ["url_path", "#"], ["icono", "fa-check"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Administracion Web"], ["url_path", "#"], ["icono", "fa-cog"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 34], ["nombre", "Contenido"], ["url_path", "#"], ["icono", "fa-at"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 34], ["nombre", "Imagenes"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 34], ["nombre", "Noticias"], ["url_path", "#"], ["icono", "newspaper"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 2], ["nombre", "Especialista"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Antecedentes"], ["url_path", "#"], ["icono", "fa-list"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Habitos"], ["url_path", "#"], ["icono", "fa-thumbs-up"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Ubicacion"], ["url_path", "#"], ["icono", "fa-globe"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Especialidad"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:28:10 UTC], ["updated_at", 2017-02-13 05:28:10 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170208050509"]]
+  [1m[35m (23.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPrioridadToPregunta (20170211162952)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170211162952"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateVacunas (20170212200618)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (100.9ms)[0m  [1m[35mCREATE TABLE "vacunas" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200618"]]
+  [1m[35m (15.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoPatologias (20170212200718)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (134.9ms)[0m  [1m[35mCREATE TABLE "tipo_patologias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200718"]]
+  [1m[35m (15.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePatologias (20170212200738)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (114.6ms)[0m  [1m[35mCREATE TABLE "patologias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_patologias_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e9d7ce69d5"
+FOREIGN KEY ("tipo_patologias_id")
+  REFERENCES "tipo_patologias" ("id")
+)[0m
+  [1m[35m (50.2ms)[0m  [1m[35mCREATE  INDEX  "index_patologias_on_tipo_patologias_id" ON "patologias"  ("tipo_patologias_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200738"]]
+  [1m[35m (14.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoDiscapacidades (20170212200821)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (97.0ms)[0m  [1m[35mCREATE TABLE "tipo_discapacidades" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200821"]]
+  [1m[35m (24.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDiscapacidades (20170212200838)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (127.2ms)[0m  [1m[35mCREATE TABLE "discapacidades" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_discapacidades_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5e05ffea06"
+FOREIGN KEY ("tipo_discapacidades_id")
+  REFERENCES "tipo_discapacidades" ("id")
+)[0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE  INDEX  "index_discapacidades_on_tipo_discapacidades_id" ON "discapacidades"  ("tipo_discapacidades_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200838"]]
+  [1m[35m (23.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoHabitos (20170212205443)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (108.2ms)[0m  [1m[35mCREATE TABLE "tipo_habitos" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212205443"]]
+  [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHabitos (20170212211153)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (96.1ms)[0m  [1m[35mCREATE TABLE "habitos" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_habitos_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_fd281aaead"
+FOREIGN KEY ("tipo_habitos_id")
+  REFERENCES "tipo_habitos" ("id")
+)[0m
+  [1m[35m (41.7ms)[0m  [1m[35mCREATE  INDEX  "index_habitos_on_tipo_habitos_id" ON "habitos"  ("tipo_habitos_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212211153"]]
+  [1m[35m (20.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoLesiones (20170212232902)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (130.2ms)[0m  [1m[35mCREATE TABLE "tipo_lesiones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212232902"]]
+  [1m[35m (19.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLesiones (20170212233025)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (97.8ms)[0m  [1m[35mCREATE TABLE "lesiones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_lesiones_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_38a15a4916"
+FOREIGN KEY ("tipo_lesiones_id")
+  REFERENCES "tipo_lesiones" ("id")
+)[0m
+  [1m[35m (62.3ms)[0m  [1m[35mCREATE  INDEX  "index_lesiones_on_tipo_lesiones_id" ON "lesiones"  ("tipo_lesiones_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233025"]]
+  [1m[35m (18.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProfesiones (20170212233059)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (99.3ms)[0m  [1m[35mCREATE TABLE "profesiones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233059"]]
+  [1m[35m (17.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOcupaciones (20170212233112)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (111.4ms)[0m  [1m[35mCREATE TABLE "ocupaciones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233112"]]
+  [1m[35m (17.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEstadoCiviles (20170212233136)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (101.4ms)[0m  [1m[35mCREATE TABLE "estado_civiles" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233136"]]
+  [1m[35m (15.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoCirugias (20170212233541)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (123.8ms)[0m  [1m[35mCREATE TABLE "tipo_cirugias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233541"]]
+  [1m[35m (15.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCirugias (20170212233607)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (103.0ms)[0m  [1m[35mCREATE TABLE "cirugias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_cirugias_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_954762983f"
+FOREIGN KEY ("tipo_cirugias_id")
+  REFERENCES "tipo_cirugias" ("id")
+)[0m
+  [1m[35m (57.5ms)[0m  [1m[35mCREATE  INDEX  "index_cirugias_on_tipo_cirugias_id" ON "cirugias"  ("tipo_cirugias_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233607"]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGrupoSanguineos (20170212233652)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (114.4ms)[0m  [1m[35mCREATE TABLE "grupo_sanguineos" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233652"]]
+  [1m[35m (24.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoAdicciones (20170212233752)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (182.3ms)[0m  [1m[35mCREATE TABLE "tipo_adicciones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233752"]]
+  [1m[35m (23.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdicciones (20170212233812)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (108.0ms)[0m  [1m[35mCREATE TABLE "adicciones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_adicciones_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_1cd9db2926"
+FOREIGN KEY ("tipo_adicciones_id")
+  REFERENCES "tipo_adicciones" ("id")
+)[0m
+  [1m[35m (47.6ms)[0m  [1m[35mCREATE  INDEX  "index_adicciones_on_tipo_adicciones_id" ON "adicciones"  ("tipo_adicciones_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233812"]]
+  [1m[35m (22.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePaises (20170213050347)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (128.7ms)[0m  [1m[35mCREATE TABLE "paises" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170213050347"]]
+  [1m[35m (20.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEstados (20170213052534)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEstados (20170213052534)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateEstados (20170213052534)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-13 05:32:01 UTC], ["updated_at", 2017-02-13 05:32:01 UTC]]
+  [1m[35m (22.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (232.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "alice_development"[0m
+  [1m[35m (325.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "alice_test"[0m
+  [1m[35m (102.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (117.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePreguntas (20170208035557)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreatePreguntas < ActiveRecord::Migration[4.2] (called from load at /home/marco/.rvm/gems/ruby-2.3.3/bin/rake:22)
+  [1m[35m (102.5ms)[0m  [1m[35mCREATE TABLE "preguntas" ("id" serial primary key, "descripcion" character varying, "estatus" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170208035557"]]
+  [1m[35m (17.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOptionMenus (20170208050104)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateOptionMenus < ActiveRecord::Migration[4.2] (called from load at /home/marco/.rvm/gems/ruby-2.3.3/bin/rake:22)
+  [1m[35m (127.5ms)[0m  [1m[35mCREATE TABLE "option_menus" ("id" serial primary key, "id_padre" integer, "nombre" character varying, "url_path" character varying, "icono" character varying, "controlador" character varying, "accion" character varying, "num_hijos" integer, "estatus" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170208050104"]]
+  [1m[35m (21.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to InsertOptionMenu (20170208050509)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Configuración General"], ["url_path", "#"], ["icono", "fa-cogs"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 1], ["nombre", "Maestros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 1], ["nombre", "Parametros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 1], ["nombre", "Otros"], ["url_path", "#"], ["icono", "fa-edit"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Oferta y Eventos"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 5], ["nombre", "Catalogo de Servicios"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 2], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 6], ["nombre", "Servicios"], ["url_path", "#"], ["icono", "fa-flask"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 6], ["nombre", "Especialistas"], ["url_path", "#"], ["icono", "fa-user-md"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 5], ["nombre", "Catalogo de Eventos"], ["url_path", "#"], ["icono", "fa-table"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Agenda"], ["url_path", "#"], ["icono", "fa-calendar"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 10], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 10], ["nombre", "Horarios"], ["url_path", "#"], ["icono", "fa-clock-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 10], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-exclamation-circle"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Citas"], ["url_path", "#"], ["icono", "fa-stethoscope"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-plus"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Historial"], ["url_path", "#"], ["icono", "fa-history"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 14], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-exclamation-circle"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Servicio Medico"], ["url_path", "#"], ["icono", "fa-hospital-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 19], ["nombre", "Registrar Paciente"], ["url_path", "#"], ["icono", "fa-id-card-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 19], ["nombre", "Evaluar Cita"], ["url_path", "#"], ["icono", "fa-star-half-full"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 19], ["nombre", "Consultar Pacientes"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Reportes"], ["url_path", "#"], ["icono", "fa-bar-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 4], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Satisfaccion del Paciente"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Citas Concretadas"], ["url_path", "#"], ["icono", "fa-pie-chart"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Efectos de Difusion"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 23], ["nombre", "Eventualidades"], ["url_path", "#"], ["icono", "fa-file-text-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Usuarios"], ["url_path", "#"], ["icono", "fa-users"], ["controlador", ""], ["accion", ""], ["num_hijos", 5], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Registrar"], ["url_path", "#"], ["icono", "fa-user-plus"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Consultar"], ["url_path", "#"], ["icono", "fa-search"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Pacientes"], ["url_path", "#"], ["icono", "fa-ambulance"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-bookmark-o"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 28], ["nombre", "Acciones"], ["url_path", "#"], ["icono", "fa-check"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["nombre", "Administracion Web"], ["url_path", "#"], ["icono", "fa-cog"], ["controlador", ""], ["accion", ""], ["num_hijos", 3], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 34], ["nombre", "Contenido"], ["url_path", "#"], ["icono", "fa-at"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 34], ["nombre", "Imagenes"], ["url_path", "#"], ["icono", "fa-desktop"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 34], ["nombre", "Noticias"], ["url_path", "#"], ["icono", "newspaper"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 2], ["nombre", "Especialista"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Roles"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Antecedentes"], ["url_path", "#"], ["icono", "fa-list"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Habitos"], ["url_path", "#"], ["icono", "fa-thumbs-up"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Ubicacion"], ["url_path", "#"], ["icono", "fa-globe"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "option_menus" ("id_padre", "nombre", "url_path", "icono", "controlador", "accion", "num_hijos", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["id_padre", 3], ["nombre", "Especialidad"], ["url_path", "#"], ["icono", "fa-heartbeat"], ["controlador", ""], ["accion", ""], ["num_hijos", 0], ["estatus", "A"], ["created_at", 2017-02-13 05:36:39 UTC], ["updated_at", 2017-02-13 05:36:39 UTC]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170208050509"]]
+  [1m[35m (17.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPrioridadToPregunta (20170211162952)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170211162952"]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateVacunas (20170212200618)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (107.7ms)[0m  [1m[35mCREATE TABLE "vacunas" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200618"]]
+  [1m[35m (20.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoPatologias (20170212200718)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (96.4ms)[0m  [1m[35mCREATE TABLE "tipo_patologias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200718"]]
+  [1m[35m (19.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePatologias (20170212200738)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (133.2ms)[0m  [1m[35mCREATE TABLE "patologias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_patologias_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e9d7ce69d5"
+FOREIGN KEY ("tipo_patologias_id")
+  REFERENCES "tipo_patologias" ("id")
+)[0m
+  [1m[35m (39.5ms)[0m  [1m[35mCREATE  INDEX  "index_patologias_on_tipo_patologias_id" ON "patologias"  ("tipo_patologias_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200738"]]
+  [1m[35m (17.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoDiscapacidades (20170212200821)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (119.1ms)[0m  [1m[35mCREATE TABLE "tipo_discapacidades" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200821"]]
+  [1m[35m (183.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDiscapacidades (20170212200838)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (114.3ms)[0m  [1m[35mCREATE TABLE "discapacidades" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_discapacidades_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5e05ffea06"
+FOREIGN KEY ("tipo_discapacidades_id")
+  REFERENCES "tipo_discapacidades" ("id")
+)[0m
+  [1m[35m (39.6ms)[0m  [1m[35mCREATE  INDEX  "index_discapacidades_on_tipo_discapacidades_id" ON "discapacidades"  ("tipo_discapacidades_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212200838"]]
+  [1m[35m (15.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoHabitos (20170212205443)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (130.4ms)[0m  [1m[35mCREATE TABLE "tipo_habitos" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212205443"]]
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHabitos (20170212211153)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (103.6ms)[0m  [1m[35mCREATE TABLE "habitos" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_habitos_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_fd281aaead"
+FOREIGN KEY ("tipo_habitos_id")
+  REFERENCES "tipo_habitos" ("id")
+)[0m
+  [1m[35m (51.5ms)[0m  [1m[35mCREATE  INDEX  "index_habitos_on_tipo_habitos_id" ON "habitos"  ("tipo_habitos_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212211153"]]
+  [1m[35m (24.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoLesiones (20170212232902)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (104.2ms)[0m  [1m[35mCREATE TABLE "tipo_lesiones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212232902"]]
+  [1m[35m (23.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLesiones (20170212233025)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (128.0ms)[0m  [1m[35mCREATE TABLE "lesiones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_lesiones_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_38a15a4916"
+FOREIGN KEY ("tipo_lesiones_id")
+  REFERENCES "tipo_lesiones" ("id")
+)[0m
+  [1m[35m (41.4ms)[0m  [1m[35mCREATE  INDEX  "index_lesiones_on_tipo_lesiones_id" ON "lesiones"  ("tipo_lesiones_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233025"]]
+  [1m[35m (22.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProfesiones (20170212233059)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (94.9ms)[0m  [1m[35mCREATE TABLE "profesiones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233059"]]
+  [1m[35m (21.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOcupaciones (20170212233112)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (119.5ms)[0m  [1m[35mCREATE TABLE "ocupaciones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233112"]]
+  [1m[35m (22.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEstadoCiviles (20170212233136)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (106.1ms)[0m  [1m[35mCREATE TABLE "estado_civiles" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233136"]]
+  [1m[35m (33.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoCirugias (20170212233541)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (96.3ms)[0m  [1m[35mCREATE TABLE "tipo_cirugias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233541"]]
+  [1m[35m (21.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCirugias (20170212233607)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (119.9ms)[0m  [1m[35mCREATE TABLE "cirugias" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_cirugias_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_954762983f"
+FOREIGN KEY ("tipo_cirugias_id")
+  REFERENCES "tipo_cirugias" ("id")
+)[0m
+  [1m[35m (61.2ms)[0m  [1m[35mCREATE  INDEX  "index_cirugias_on_tipo_cirugias_id" ON "cirugias"  ("tipo_cirugias_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233607"]]
+  [1m[35m (20.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateGrupoSanguineos (20170212233652)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (97.6ms)[0m  [1m[35mCREATE TABLE "grupo_sanguineos" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233652"]]
+  [1m[35m (18.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoAdicciones (20170212233752)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (99.3ms)[0m  [1m[35mCREATE TABLE "tipo_adicciones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233752"]]
+  [1m[35m (18.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdicciones (20170212233812)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (111.0ms)[0m  [1m[35mCREATE TABLE "adicciones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "tipo_adicciones_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_1cd9db2926"
+FOREIGN KEY ("tipo_adicciones_id")
+  REFERENCES "tipo_adicciones" ("id")
+)[0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE  INDEX  "index_adicciones_on_tipo_adicciones_id" ON "adicciones"  ("tipo_adicciones_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170212233812"]]
+  [1m[35m (17.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePaises (20170213053227)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (101.2ms)[0m  [1m[35mCREATE TABLE "paises" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170213053227"]]
+  [1m[35m (15.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEstados (20170213053448)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (126.1ms)[0m  [1m[35mCREATE TABLE "estados" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "pais_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_04cf8c14b4"
+FOREIGN KEY ("pais_id")
+  REFERENCES "paises" ("id")
+)[0m
+  [1m[35m (39.9ms)[0m  [1m[35mCREATE  INDEX  "index_estados_on_pais_id" ON "estados"  ("pais_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170213053448"]]
+  [1m[35m (24.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCiudades (20170213053530)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (119.8ms)[0m  [1m[35mCREATE TABLE "ciudades" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "estado_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_17fbcda9da"
+FOREIGN KEY ("estado_id")
+  REFERENCES "estados" ("id")
+)[0m
+  [1m[35m (46.6ms)[0m  [1m[35mCREATE  INDEX  "index_ciudades_on_estado_id" ON "ciudades"  ("estado_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170213053530"]]
+  [1m[35m (23.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-13 05:36:43 UTC], ["updated_at", 2017-02-13 05:36:43 UTC]]
+  [1m[35m (13.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTipoUbicaciones (20170213053841)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (102.3ms)[0m  [1m[35mCREATE TABLE "tipo_ubicaciones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170213053841"]]
+  [1m[35m (22.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUbicaciones (20170213053932)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (115.4ms)[0m  [1m[35mCREATE TABLE "ubicaciones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "ciudad_id" integer, "tipo_ubicacion_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_f48f5b5567"
+FOREIGN KEY ("ciudad_id")
+  REFERENCES "ciudades" ("id")
+, CONSTRAINT "fk_rails_ce98f6de91"
+FOREIGN KEY ("tipo_ubicacion_id")
+  REFERENCES "tipo_ubicaciones" ("id")
+)[0m
+  [1m[35m (60.5ms)[0m  [1m[35mCREATE  INDEX  "index_ubicaciones_on_ciudad_id" ON "ubicaciones"  ("ciudad_id")[0m
+  [1m[35m (52.9ms)[0m  [1m[35mCREATE  INDEX  "index_ubicaciones_on_tipo_ubicacion_id" ON "ubicaciones"  ("tipo_ubicacion_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170213053932"]]
+  [1m[35m (23.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
