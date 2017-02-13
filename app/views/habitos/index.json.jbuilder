@@ -1,0 +1,1 @@
+json.array! @habitos, partial: 'habitos/habito', as: :habito

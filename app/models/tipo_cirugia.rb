@@ -1,0 +1,2 @@
+class TipoCirugia < ApplicationRecord
+end

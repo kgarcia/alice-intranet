@@ -1,0 +1,1 @@
+json.partial! "estado_civiles/estado_civil", estado_civil: @estado_civil

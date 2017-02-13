@@ -1,0 +1,1 @@
+json.partial! "discapacidades/discapacidad", discapacidad: @discapacidad

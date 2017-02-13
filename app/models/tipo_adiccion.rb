@@ -1,0 +1,2 @@
+class TipoAdiccion < ApplicationRecord
+end

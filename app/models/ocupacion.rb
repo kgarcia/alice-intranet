@@ -1,0 +1,2 @@
+class Ocupacion < ApplicationRecord
+end

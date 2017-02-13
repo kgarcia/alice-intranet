@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_padre: 1
+  nombre: MyString
+  url_path: MyString
+  icono: MyString
+  controlador: MyString
+  accion: MyString
+  num_hijos: 1
+  estatus: MyString
+
+two:
+  id_padre: 1
+  nombre: MyString
+  url_path: MyString
+  icono: MyString
+  controlador: MyString
+  accion: MyString
+  num_hijos: 1
+  estatus: MyString

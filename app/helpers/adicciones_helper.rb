@@ -1,0 +1,2 @@
+module AdiccionesHelper
+end

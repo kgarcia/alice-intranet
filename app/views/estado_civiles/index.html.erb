@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Estado Civiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Estatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estado_civiles.each do |estado_civil| %>
+      <tr>
+        <td><%= estado_civil.descripcion %></td>
+        <td><%= estado_civil.estatus %></td>
+        <td><%= link_to 'Show', estado_civil %></td>
+        <td><%= link_to 'Edit', edit_estado_civil_path(estado_civil) %></td>
+        <td><%= link_to 'Destroy', estado_civil, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Estado Civil', new_estado_civil_path %>

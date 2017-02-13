@@ -1,0 +1,2 @@
+class TipoPatologia < ApplicationRecord
+end

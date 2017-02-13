@@ -1,0 +1,2 @@
+class TipoLesion < ApplicationRecord
+end
