@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @parametro.descripcion %>
+</p>
+<p>
+  <strong>Tipo:</strong>
+  <%= @parametro.tipo.descripcion %>
+</p>
+<p>
+  <strong>Estatus:</strong>
+  <%= @parametro.estatus %>
+</p>
+
+<%= link_to 'Editar', edit_polymorphic_url(@parametro) %> |
+<%= link_to 'Atras', polymorphic_url(@parametro.class) %>
