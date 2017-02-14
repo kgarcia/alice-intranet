@@ -4,21 +4,31 @@ class TipoAdiccionesController < ApplicationController
   # GET /tipo_adicciones
   # GET /tipo_adicciones.json
   def index
-    @tipo_adicciones = TipoAdiccion.all
+    @parametros = TipoAdiccion.all
+
+    render "parametros/index"
   end
 
   # GET /tipo_adicciones/1
   # GET /tipo_adicciones/1.json
   def show
+    @parametro = TipoAdiccion.find(params[:id])
+
+    render "parametros/show"
   end
 
   # GET /tipo_adicciones/new
   def new
-    @tipo_adiccion = TipoAdiccion.new
+    @parametro = TipoAdiccion.new
+
+    render "parametros/new"
   end
 
   # GET /tipo_adicciones/1/edit
   def edit
+    @parametro = TipoAdiccion.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /tipo_adicciones
