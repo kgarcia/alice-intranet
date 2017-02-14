@@ -1,0 +1,6 @@
+<h1>Editando <%= @parametro.class.name + ": " + @parametro.descripcion%> </h1>
+
+<%= render 'parametros_select/form' %>
+
+<%= link_to 'Ver', @parametro %> |
+<%= link_to 'Atras', polymorphic_url(@parametro.class) %>

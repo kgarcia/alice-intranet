@@ -16,3 +16,4 @@
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require_tree .
+//= require footable/footable.min.js

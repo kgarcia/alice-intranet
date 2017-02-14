@@ -6,13 +6,13 @@
  <br><br> 
                  <input type="text" class="form-control input-sm m-b-xs" id="filter"
                        placeholder="Search in table">
- <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="2">
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
       <tr>
-        <th>Codigo</th>
+        <th data-breakpoints="xs" data-type="number">Codigo</th>
         <th>Nombre</th>
         <th>Estatus</th>
-        <th colspan="3"></th>
+        <th colspan="1"></th>
       </tr>
     </thead>
 
@@ -22,9 +22,12 @@
           <td><%= parametro.id %></td>
           <td><%= parametro.descripcion %></td>
           <td><%= parametro.estatus %></td>
-          <td><%= link_to '', polymorphic_url(parametro), :class => "btn btn-info btn-sm fa fa-eye" %></td>
-          <td><%= link_to '', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm fa fa-pencil" %></td>
-          <td><%= link_to '', polymorphic_url(parametro), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+          <td>
+            <%= link_to '', polymorphic_url(parametro), :class => "btn btn-info btn-sm fa fa-eye" %>
+            <%= link_to '', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+            <%= link_to '', polymorphic_url(parametro), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %>
+              
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -40,20 +43,10 @@
 <br>
 
 
-<% content_for :javascript do %>
-
 <script type="text/javascript">
-
-
-$(function() {
-
-    $('.footable').footable();
-    $('.footable2').footable();
-
-
+$(document).ready(function(){
+$('.table').footable();
 });
 
 </script>
-
-<% end %>
 
