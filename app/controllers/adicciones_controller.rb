@@ -4,21 +4,35 @@ class AdiccionesController < ApplicationController
   # GET /adicciones
   # GET /adicciones.json
   def index
-    @adicciones = Adiccion.all
+    @parametros = Adiccion.all
+    @referencia = "tipoAdiccion"
+    render "parametros_select/index"
   end
 
   # GET /adicciones/1
   # GET /adicciones/1.json
   def show
+    @parametro = Adiccion.find(params[:id])
+
+    render "parametros_select/show"
   end
 
   # GET /adicciones/new
   def new
-    @adiccion = Adiccion.new
+    @parametro = Adiccion.new
+    @collection = TipoAdiccion.all
+    @referencia = :tipo_adicciones_id
+
+    render "parametros_select/new"
   end
 
   # GET /adicciones/1/edit
   def edit
+    @parametro = Adiccion.find(params[:id])
+    @collection = TipoAdiccion.all
+    @referencia = :tipo_adicciones_id
+
+    render "parametros_select/edit"
   end
 
   # POST /adicciones
@@ -69,6 +83,6 @@ class AdiccionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adiccion_params
-      params.require(:adiccion).permit(:descripcion, :estatus, :TipoAdiccion_id)
+      params.require(:adiccion).permit(:descripcion, :estatus, :tipo_adicciones_id)
     end
 end

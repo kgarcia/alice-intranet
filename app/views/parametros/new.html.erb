@@ -1,5 +1,5 @@
-<h1>Nuevo <%= @parametro.class.name %></h1>
+<h1><%= @parametro.class.name %></h1>
 
 <%= render 'parametros/form' %>
 
-<%= link_to 'Atras', send(@parametro.class.table_name+'_path') %>
+<%= link_to 'Atras', polymorphic_url(@parametro.class)) %>
