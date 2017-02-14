@@ -1,6 +1,11 @@
 Myapp::Application.routes.draw do
 
 
+  resources :ubicaciones
+  resources :tipo_ubicaciones
+  resources :ciudades
+  resources :estados
+  resources :paises
   resources :discapacidades
   resources :tipo_discapacidades
   resources :patologias

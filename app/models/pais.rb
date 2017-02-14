@@ -1,0 +1,2 @@
+class Pais < ApplicationRecord
+end

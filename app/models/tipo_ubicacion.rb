@@ -1,0 +1,2 @@
+class TipoUbicacion < ApplicationRecord
+end
