@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212233812) do
+ActiveRecord::Schema.define(version: 20170213053932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20170212233812) do
     t.index ["tipo_cirugias_id"], name: "index_cirugias_on_tipo_cirugias_id", using: :btree
   end
 
+  create_table "ciudades", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "estado_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["estado_id"], name: "index_ciudades_on_estado_id", using: :btree
+  end
+
   create_table "discapacidades", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -47,6 +56,15 @@ ActiveRecord::Schema.define(version: 20170212233812) do
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "estados", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "pais_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["pais_id"], name: "index_estados_on_pais_id", using: :btree
   end
 
   create_table "grupo_sanguineos", force: :cascade do |t|
@@ -90,6 +108,13 @@ ActiveRecord::Schema.define(version: 20170212233812) do
     t.string   "accion"
     t.integer  "num_hijos"
     t.string   "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "paises", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -159,6 +184,24 @@ ActiveRecord::Schema.define(version: 20170212233812) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tipo_ubicaciones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "ubicaciones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "ciudad_id"
+    t.integer  "tipo_ubicacion_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["ciudad_id"], name: "index_ubicaciones_on_ciudad_id", using: :btree
+    t.index ["tipo_ubicacion_id"], name: "index_ubicaciones_on_tipo_ubicacion_id", using: :btree
+  end
+
   create_table "vacunas", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -168,8 +211,12 @@ ActiveRecord::Schema.define(version: 20170212233812) do
 
   add_foreign_key "adicciones", "tipo_adicciones", column: "tipo_adicciones_id"
   add_foreign_key "cirugias", "tipo_cirugias", column: "tipo_cirugias_id"
+  add_foreign_key "ciudades", "estados"
   add_foreign_key "discapacidades", "tipo_discapacidades", column: "tipo_discapacidades_id"
+  add_foreign_key "estados", "paises"
   add_foreign_key "habitos", "tipo_habitos", column: "tipo_habitos_id"
   add_foreign_key "lesiones", "tipo_lesiones", column: "tipo_lesiones_id"
   add_foreign_key "patologias", "tipo_patologias", column: "tipo_patologias_id"
+  add_foreign_key "ubicaciones", "ciudades"
+  add_foreign_key "ubicaciones", "tipo_ubicaciones"
 end

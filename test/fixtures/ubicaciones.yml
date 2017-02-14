@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  estatus: 1
+  ciudad: one
+  tipo_ubicacion: one
+
+two:
+  descripcion: MyString
+  estatus: 1
+  ciudad: two
+  tipo_ubicacion: two
