@@ -1,0 +1,1 @@
+json.partial! "tipo_evaluaciones/tipo_evaluacion", tipo_evaluacion: @tipo_evaluacion

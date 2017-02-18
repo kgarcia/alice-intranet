@@ -1,0 +1,2 @@
+class TipoHorario < ApplicationRecord
+end

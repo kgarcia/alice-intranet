@@ -1,0 +1,2 @@
+class TipoEventualidad < ApplicationRecord
+end

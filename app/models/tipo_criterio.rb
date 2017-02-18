@@ -1,0 +1,2 @@
+class TipoCriterio < ApplicationRecord
+end

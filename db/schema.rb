@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213053932) do
+ActiveRecord::Schema.define(version: 20170218210633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,15 @@ ActiveRecord::Schema.define(version: 20170213053932) do
     t.index ["tipo_lesiones_id"], name: "index_lesiones_on_tipo_lesiones_id", using: :btree
   end
 
+  create_table "motivos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_motivo_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["tipo_motivo_id"], name: "index_motivos_on_tipo_motivo_id", using: :btree
+  end
+
   create_table "ocupaciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -149,7 +158,35 @@ ActiveRecord::Schema.define(version: 20170213053932) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tipo_calificaciones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tipo_cirugias", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tipo_citas", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tipo_criterio", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tipo_criterios", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
@@ -163,6 +200,20 @@ ActiveRecord::Schema.define(version: 20170213053932) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tipo_evaluaciones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tipo_eventualidades", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tipo_habitos", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -170,7 +221,28 @@ ActiveRecord::Schema.define(version: 20170213053932) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tipo_horarios", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tipo_lesiones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tipo_motivos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tipo_pagos", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
@@ -216,6 +288,7 @@ ActiveRecord::Schema.define(version: 20170213053932) do
   add_foreign_key "estados", "paises"
   add_foreign_key "habitos", "tipo_habitos", column: "tipo_habitos_id"
   add_foreign_key "lesiones", "tipo_lesiones", column: "tipo_lesiones_id"
+  add_foreign_key "motivos", "tipo_motivos"
   add_foreign_key "patologias", "tipo_patologias", column: "tipo_patologias_id"
   add_foreign_key "ubicaciones", "ciudades"
   add_foreign_key "ubicaciones", "tipo_ubicaciones"

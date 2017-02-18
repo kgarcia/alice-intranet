@@ -1,0 +1,1 @@
+json.partial! "tipo_motivos/tipo_motivo", tipo_motivo: @tipo_motivo
