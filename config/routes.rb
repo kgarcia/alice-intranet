@@ -1,6 +1,16 @@
 Myapp::Application.routes.draw do
 
 
+  resources :tipo_criterios
+  resources :tipo_horarios
+  resources :tipo_citas
+  resources :tipo_criterio
+  resources :tipo_calificaciones
+  resources :tipo_evaluaciones
+  resources :tipo_pagos
+  resources :tipo_eventualidades
+  resources :motivos
+  resources :tipo_motivos
   resources :ubicaciones
   resources :tipo_ubicaciones
   resources :ciudades
