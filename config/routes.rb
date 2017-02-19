@@ -2,6 +2,8 @@ Myapp::Application.routes.draw do
 
 
   resources :ubicaciones
+  resources :sectores
+  resources :sectors
   resources :tipo_ubicaciones
   resources :ciudades
   resources :estados

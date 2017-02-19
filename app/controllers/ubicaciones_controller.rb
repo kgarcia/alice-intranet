@@ -4,7 +4,7 @@ class UbicacionesController < ApplicationController
   # GET /ubicaciones
   # GET /ubicaciones.json
   def index
-    @ubicaciones = Ubicacion.all
+    @parametros = Ubicacion.all
   end
 
   # GET /ubicaciones/1
@@ -69,6 +69,6 @@ class UbicacionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ubicacion_params
-      params.require(:ubicacion).permit(:descripcion, :estatus, :ciudad_id, :tipo_ubicacion_id)
+      params.require(:ubicacion).permit(:descripcion, :estatus, :sector_id, :ciudad_id, :tipo_ubicacion_id)
     end
 end
