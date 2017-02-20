@@ -1,0 +1,2 @@
+class TipoAtencion < ApplicationRecord
+end

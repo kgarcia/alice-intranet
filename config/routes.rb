@@ -1,6 +1,8 @@
 Myapp::Application.routes.draw do
 
 
+  resources :tipo_servicios
+  resources :tipo_atenciones
   resources :discapacidades
   resources :tipo_discapacidades
   resources :patologias

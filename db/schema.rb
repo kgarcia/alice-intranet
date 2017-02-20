@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212233812) do
+ActiveRecord::Schema.define(version: 20170219083325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "adiccion_tipo_servicios", force: :cascade do |t|
+    t.integer  "adiccion_id"
+    t.integer  "tipo_servicio_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["adiccion_id"], name: "index_adiccion_tipo_servicios_on_adiccion_id", using: :btree
+    t.index ["tipo_servicio_id"], name: "index_adiccion_tipo_servicios_on_tipo_servicio_id", using: :btree
+  end
 
   create_table "adicciones", force: :cascade do |t|
     t.string   "descripcion"
@@ -22,6 +31,15 @@ ActiveRecord::Schema.define(version: 20170212233812) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["tipo_adicciones_id"], name: "index_adicciones_on_tipo_adicciones_id", using: :btree
+  end
+
+  create_table "cirugia_tipo_servicios", force: :cascade do |t|
+    t.integer  "cirugia_id"
+    t.integer  "tipo_servicio_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["cirugia_id"], name: "index_cirugia_tipo_servicios_on_cirugia_id", using: :btree
+    t.index ["tipo_servicio_id"], name: "index_cirugia_tipo_servicios_on_tipo_servicio_id", using: :btree
   end
 
   create_table "cirugias", force: :cascade do |t|
@@ -131,6 +149,13 @@ ActiveRecord::Schema.define(version: 20170212233812) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tipo_atenciones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tipo_cirugias", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -166,6 +191,20 @@ ActiveRecord::Schema.define(version: 20170212233812) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tipo_servicios", force: :cascade do |t|
+    t.string   "descripcion"
+    t.text     "texto"
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
+    t.integer  "estatus"
+    t.integer  "tipo_atencion_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["tipo_atencion_id"], name: "index_tipo_servicios_on_tipo_atencion_id", using: :btree
+  end
+
   create_table "vacunas", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -173,10 +212,15 @@ ActiveRecord::Schema.define(version: 20170212233812) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "adiccion_tipo_servicios", "adicciones"
+  add_foreign_key "adiccion_tipo_servicios", "tipo_servicios"
   add_foreign_key "adicciones", "tipo_adicciones", column: "tipo_adicciones_id"
+  add_foreign_key "cirugia_tipo_servicios", "cirugias"
+  add_foreign_key "cirugia_tipo_servicios", "tipo_servicios"
   add_foreign_key "cirugias", "tipo_cirugias", column: "tipo_cirugias_id"
   add_foreign_key "discapacidades", "tipo_discapacidades", column: "tipo_discapacidades_id"
   add_foreign_key "habitos", "tipo_habitos", column: "tipo_habitos_id"
   add_foreign_key "lesiones", "tipo_lesiones", column: "tipo_lesiones_id"
   add_foreign_key "patologias", "tipo_patologias", column: "tipo_patologias_id"
+  add_foreign_key "tipo_servicios", "tipo_atenciones"
 end
