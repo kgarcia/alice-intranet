@@ -14,7 +14,7 @@ class TipoAdiccionesController < ApplicationController
   def show
     @parametro = TipoAdiccion.find(params[:id])
 
-    render "parametros/show"
+    render "parametros/edit"
   end
 
   # GET /tipo_adicciones/new

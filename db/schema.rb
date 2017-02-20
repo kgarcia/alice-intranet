@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20170219083325) do
   create_table "adicciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
-    t.integer  "tipo_adicciones_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["tipo_adicciones_id"], name: "index_adicciones_on_tipo_adicciones_id", using: :btree
+    t.integer  "tipo_adiccion_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["tipo_adiccion_id"], name: "index_adicciones_on_tipo_adiccion_id", using: :btree
   end
 
   create_table "cirugia_tipo_servicios", force: :cascade do |t|
@@ -135,13 +135,6 @@ ActiveRecord::Schema.define(version: 20170219083325) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "sexos", force: :cascade do |t|
-    t.string   "descripcion"
-    t.boolean  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "tipo_adicciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -214,7 +207,7 @@ ActiveRecord::Schema.define(version: 20170219083325) do
 
   add_foreign_key "adiccion_tipo_servicios", "adicciones"
   add_foreign_key "adiccion_tipo_servicios", "tipo_servicios"
-  add_foreign_key "adicciones", "tipo_adicciones", column: "tipo_adicciones_id"
+  add_foreign_key "adicciones", "tipo_adicciones"
   add_foreign_key "cirugia_tipo_servicios", "cirugias"
   add_foreign_key "cirugia_tipo_servicios", "tipo_servicios"
   add_foreign_key "cirugias", "tipo_cirugias", column: "tipo_cirugias_id"

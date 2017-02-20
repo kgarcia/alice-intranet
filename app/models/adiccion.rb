@@ -4,6 +4,6 @@ class Adiccion < ApplicationRecord
   has_many :tipo_servicios, through: :adiccion_tipo_servicios
 
   def tipo
-  	return self.tipoAdiccion
+  	return self.tipo_adiccion
   end
 end
