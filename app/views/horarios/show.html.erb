@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @horario.descripcion %>
+</p>
+
+<p>
+  <strong>Tipo horario(Cantidad de personas/tiempo promedio):</strong>
+  <%= @horario.tipo_horario.descripcion %>
+</p>
+<div class="ibox-content">
+
+ <table >
+  <thead>
+    <tr>
+      <th>Inicio</th>
+      <th>Fin</th>	
+      <th>LUNES</th>
+      <th>MARTES</th>
+      <th>MIERCOLES</th>
+      <th>JUEVES</th>
+      <th>VIERNES</th>
+      <th>SABADO</th>
+      <th>DOMINGO</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @turnos.each do |turno| %>
+      <tr>
+        <td><%= turno.hora_inicio.strftime("%H:%M") %></td>
+        <td><%= turno.hora_fin.strftime("%H:%M") %></td>
+        <td><%= turno.tipodia.descripcion %></td>
+        <td><%= turno.horario.descripcion %></td>
+        
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
+<%= link_to 'Edit', edit_horario_path(@horario) %> |
+<%= link_to 'Back', horarios_path %>

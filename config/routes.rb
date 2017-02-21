@@ -1,6 +1,9 @@
 Myapp::Application.routes.draw do
 
 
+  resources :turnos
+  resources :horarios
+  resources :dias
   resources :tipo_criterios
   resources :tipo_horarios
   resources :tipo_citas

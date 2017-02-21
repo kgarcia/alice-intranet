@@ -14,11 +14,6 @@
                     </div>
                   <% end %>
                  
-                  <div class="form-group"><label class="col-lg-2 control-label">Codigo</label>
-
-                      <div class="col-lg-10"><%= f.text_field :id , :value => @parametro.class.maximum(:id).next, :class => "form-control", :readonly => true%> <span class="help-block m-b-none">autogenerado</span>
-                      </div>
-                  </div>
                   <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
 
                       <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>

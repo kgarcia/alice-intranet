@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218210633) do
+ActiveRecord::Schema.define(version: 20170219204613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20170218210633) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["estado_id"], name: "index_ciudades_on_estado_id", using: :btree
+  end
+
+  create_table "dias", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "discapacidades", force: :cascade do |t|
@@ -81,6 +88,15 @@ ActiveRecord::Schema.define(version: 20170218210633) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["tipo_habitos_id"], name: "index_habitos_on_tipo_habitos_id", using: :btree
+  end
+
+  create_table "horarios", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_horario_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["tipo_horario_id"], name: "index_horarios_on_tipo_horario_id", using: :btree
   end
 
   create_table "lesiones", force: :cascade do |t|
@@ -222,7 +238,7 @@ ActiveRecord::Schema.define(version: 20170218210633) do
   end
 
   create_table "tipo_horarios", force: :cascade do |t|
-    t.string   "descripcion"
+    t.integer  "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -263,6 +279,19 @@ ActiveRecord::Schema.define(version: 20170218210633) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "turnos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.time     "hora_inicio"
+    t.time     "hora_fin"
+    t.integer  "estatus"
+    t.integer  "dia_id"
+    t.integer  "horario_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["dia_id"], name: "index_turnos_on_dia_id", using: :btree
+    t.index ["horario_id"], name: "index_turnos_on_horario_id", using: :btree
+  end
+
   create_table "ubicaciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -287,9 +316,12 @@ ActiveRecord::Schema.define(version: 20170218210633) do
   add_foreign_key "discapacidades", "tipo_discapacidades", column: "tipo_discapacidades_id"
   add_foreign_key "estados", "paises"
   add_foreign_key "habitos", "tipo_habitos", column: "tipo_habitos_id"
+  add_foreign_key "horarios", "tipo_horarios"
   add_foreign_key "lesiones", "tipo_lesiones", column: "tipo_lesiones_id"
   add_foreign_key "motivos", "tipo_motivos"
   add_foreign_key "patologias", "tipo_patologias", column: "tipo_patologias_id"
+  add_foreign_key "turnos", "dias"
+  add_foreign_key "turnos", "horarios"
   add_foreign_key "ubicaciones", "ciudades"
   add_foreign_key "ubicaciones", "tipo_ubicaciones"
 end
