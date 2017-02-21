@@ -1,6 +1,8 @@
 Myapp::Application.routes.draw do
 
 
+  resources :especialistas
+  resources :especialidades
   resources :ubicaciones
   resources :tipo_ubicaciones
   resources :ciudades

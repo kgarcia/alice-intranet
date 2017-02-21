@@ -29,7 +29,7 @@ default: &default
   encoding: unicode
   host: localhost
   pool: 5
-  username: postgres
+  username: tadeo
   password: 1234
 
 development:
