@@ -2,30 +2,69 @@ class TipoServicio < ApplicationRecord
 	belongs_to :tipo_atencion
 
 	has_many :adiccion_tipo_servicios
-  has_many :adiccions, :through => :adiccion_tipo_servicios
+  has_many :adicciones, :through => :adiccion_tipo_servicios
   has_many :cirugia_tipo_servicios
   has_many :cirugias, through: :cirugia_tipo_servicios
 
 	has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   	validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
 
-  	after_save :save_adicciones, :save_cirugias
+  	after_save :save_adicciones, :save_cirugias, :save_discapacidades, :save_estado_civiles, :save_grupo_sanguineos,
+                :save_habitos, :save_lesiones, :save_ocupaciones, :save_patologias, :save_profesiones, :save_vacunas
 
-    attr_reader :adicciones, :cirugiasTipoServicio 
+    attr_reader :adiccionesTipoServicio, :cirugiasTipoServicio, :discapacidadesTipoServicio, :estadoCivilesTipoServicio, :grupoSanguineoTipoServicio,
+                :habitosTipoServicio, :lesionesTipoServicio, :ocupacionesTipoServicio, :patologiasTipoServicio, :profesionesTipoServicio, :vacunasTipoServicio
 
-  	def adicciones=(value)
-	  	@adicciones = value
+
+  	def adiccionesTipoServicio=(value)
+	  	@adiccionesTipoServicio = value
 	  end
 
     def cirugiasTipoServicio=(value)
       @cirugiasTipoServicio = value
     end
 
+    def discapacidadesTipoServicio=(value)
+      @discapacidadesTipoServicio = value
+    end
+
+    def estadoCivilesTipoServicio=(value)
+      @estadoCivilesTipoServicio = value
+    end
+
+    def grupoSanguineosTipoServicio=(value)
+      @grupoSanguineosTipoServicio = value
+    end
+    
+    def habitosTipoServicio=(value)
+      @habitosTipoServicio = value
+    end
+
+    def lesionesTipoServicio=(value)
+      @lesionesTipoServicio = value
+    end
+
+    def ocupacionesTipoServicio=(value)
+      @ocupacionesTipoServicio = value
+    end
+
+    def patologiasTipoServicio=(value)
+      @patologiasTipoServicio = value
+    end
+
+    def profesionesTipoServicio=(value)
+      @profesionesTipoServicio = value
+    end
+
+    def vacunasTipoServicio=(value)
+      @vacunasTipoServicio = value
+    end 
+
    private
    def save_adicciones
     AdiccionTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
-    if !@adicciones.nil?
-	      @adicciones.each do |adiccion_id|
+    if !@adiccionesTipoServicio.nil?  
+	      @adiccionesTipoServicio.each do |adiccion_id|
 		      AdiccionTipoServicio.create(adiccion_id: adiccion_id, tipo_servicio_id: self.id )
         end
 	   end
@@ -40,4 +79,96 @@ class TipoServicio < ApplicationRecord
         end
      end
    end
+
+   private
+   def save_discapacidades
+    DiscapacidadTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@discapacidadesTipoServicio.nil?
+        @discapacidadesTipoServicio.each do |discapacidad_id|
+          DiscapacidadTipoServicio.create(discapacidad_id: discapacidad_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+   private
+   def save_estado_civiles
+    EstadoCivilTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@estadoCivilesTipoServicio.nil?
+        @estadoCivilesTipoServicio.each do |estado_civil_id|
+          EstadoCivilTipoServicio.create(estado_civil_id: estado_civil_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+   private
+   def save_grupo_sanguineo
+    GrupoSanguineoTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@grupoSanguineosTipoServicio.nil?
+        @grupoSanguineosTipoServicio.each do |grupo_sanguineo_id|
+          GrupoSanguineoTipoServicio.create(grupo_sanguineo_id: grupo_sanguineo_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+   private
+   def save_habitos
+    HabitoTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@habitosTipoServicio.nil?
+        @habitosTipoServicio.each do |habito_id|
+          HabitoTipoServicio.create(habito_id: habito_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+   private
+   def save_lesiones
+    LesionTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@lesionesTipoServicio.nil?
+        @lesionesTipoServicio.each do |lesion_id|
+          LesionTipoServicio.create(lesion_id: lesion_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+   private
+   def save_ocupaciones
+    OcupacionTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@ocupacionesTipoServicio.nil?
+        @ocupacionesTipoServicio.each do |ocupacion_id|
+          OcupacionTipoServicio.create(ocupacion_id: ocupacion_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+   private
+   def save_patologias
+    PatologiaTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@patologiasTipoServicio.nil?
+        @patologiasTipoServicio.each do |patologia_id|
+          PatologiaTipoServicio.create(patologia_id: patologia_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+   private
+   def save_profesiones
+    ProfesionTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@profesionesTipoServicio.nil?
+        @profesionesTipoServicio.each do |profesion_id|
+          ProfesionTipoServicio.create(profesion_id: profesion_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+   private
+   def save_vacunas
+    VacunaTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@vacunasTipoServicio.nil?
+        @vacunasTipoServicio.each do |vacuna_id|
+          VacunaTipoServicio.create(vacuna_id: vacuna_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+
 end
