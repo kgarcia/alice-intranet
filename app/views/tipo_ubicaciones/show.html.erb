@@ -1,14 +1,3 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @tipo_ubicacion.descripcion %>
-</p>
-
-<p>
-  <strong>Estatus:</strong>
-  <%= @tipo_ubicacion.estatus %>
-</p>
-
-<%= link_to 'Edit', edit_tipo_ubicacion_path(@tipo_ubicacion) %> |
-<%= link_to 'Back', tipo_ubicaciones_path %>
+<%= render 'form', tipo_ubicacion: @parametro %>
