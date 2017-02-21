@@ -1,0 +1,32 @@
+<%= form_for(ciudad) do |f| %>
+  <% if ciudad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ciudad.errors.count, "error") %> prohibited this ciudad from being saved:</h2>
+
+      <ul>
+      <% ciudad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estado_id %>
+    <%= f.text_field :estado_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

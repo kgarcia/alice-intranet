@@ -18,16 +18,25 @@
                       </ul>
                     </div>
                   <% end %>
-                  <% if(@parametro.id?)%>
-                  <div class="form-group"><label class="col-lg-2 control-label">Codigo</label>
-                      <div class="col-lg-10"><%= f.text_field :id, :class => "form-control", :readonly => true %>
-                       </div>
+                 
+                  <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
+
+                      <div class="col-lg-10"><%= f.text_field :descripcion , :class => "form-control"%> <span class="help-block m-b-none">autogenerado</span>
+                      </div>
                   </div>
-                  <% end %>
-                  <div class="form-group"><label class="col-lg-2 control-label">Descripcion</label>
+                  <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
 
+                      <div class="col-lg-10"><%= f.text_field :sector_id, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
 
-                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                      <div class="col-lg-10"><%= f.text_field :ciudad_id, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
+
+                      <div class="col-lg-10"><%= f.text_field :tipo_ubicacion_id, :class => "form-control" %>
                        </div>
                     </div>
                    <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>

@@ -67,5 +67,6 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'horario', 'horarios'
 	inflect.irregular 'cita', 'citas'
 	inflect.irregular 'atencion', 'atenciones'
+	inflect.irregular 'sector', 'sectores'
 
 end

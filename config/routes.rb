@@ -3,6 +3,13 @@ Myapp::Application.routes.draw do
 
   resources :tipo_servicios
   resources :tipo_atenciones
+  resources :ubicaciones
+  resources :sectores
+  resources :sectors
+  resources :tipo_ubicaciones
+  resources :ciudades
+  resources :estados
+  resources :paises
   resources :discapacidades
   resources :tipo_discapacidades
   resources :patologias
