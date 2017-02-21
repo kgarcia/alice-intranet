@@ -1,37 +1,56 @@
-<%= form_for(ubicacion) do |f| %>
-  <% if ubicacion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(ubicacion.errors.count, "error") %> prohibited this ubicacion from being saved:</h2>
+<div class="row">   
+   <div class="col-lg-6 col-lg-offset-3">
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h5><%= @parametro.class.name %></h5>
+              </div>
+          </div>
+          <div class="ibox-content">
+             <%= form_for @parametro, :html => {:class => 'form-horizontal'} do |f| %>
+                  <% if @parametro.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@parametro.errors.count, "error") %> prohibited this parametro from being saved:</h2>
 
-      <ul>
-      <% ubicacion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+                      <ul>
+                      <% @parametro.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                 
+                  <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
 
-  <div class="field">
-    <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
+                      <div class="col-lg-10"><%= f.text_field :descripcion , :class => "form-control"%> <span class="help-block m-b-none">autogenerado</span>
+                      </div>
+                  </div>
+                  <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
+
+                      <div class="col-lg-10"><%= f.text_field :sector_id, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
+
+                      <div class="col-lg-10"><%= f.text_field :ciudad_id, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
+
+                      <div class="col-lg-10"><%= f.text_field :tipo_ubicacion_id, :class => "form-control" %>
+                       </div>
+                    </div>
+                   <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
+
+                      <div class="col-lg-10"><%= f.text_field :estatus, :class => "form-control" %>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="col-lg-offset-2 col-lg-10">
+                          <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>
+                         
+                      </div>
+                  </div>
+              <% end %>
+          </div>
   </div>
-
-  <div class="field">
-    <%= f.label :estatus %>
-    <%= f.number_field :estatus %>
-  </div>
-
-  <div class="field">
-    <%= f.label :ciudad_id %>
-    <%= f.text_field :ciudad_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :tipo_ubicacion_id %>
-    <%= f.text_field :tipo_ubicacion_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170219213433) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -158,6 +159,20 @@ ActiveRecord::Schema.define(version: 20170219213433) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "sectores", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "sexos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.boolean  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tipo_adicciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -210,11 +225,13 @@ ActiveRecord::Schema.define(version: 20170219213433) do
   create_table "ubicaciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
+    t.integer  "sector_id"
     t.integer  "ciudad_id"
     t.integer  "tipo_ubicacion_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.index ["ciudad_id"], name: "index_ubicaciones_on_ciudad_id", using: :btree
+    t.index ["sector_id"], name: "index_ubicaciones_on_sector_id", using: :btree
     t.index ["tipo_ubicacion_id"], name: "index_ubicaciones_on_tipo_ubicacion_id", using: :btree
   end
 
@@ -235,5 +252,6 @@ ActiveRecord::Schema.define(version: 20170219213433) do
   add_foreign_key "lesiones", "tipo_lesiones", column: "tipo_lesiones_id"
   add_foreign_key "patologias", "tipo_patologias", column: "tipo_patologias_id"
   add_foreign_key "ubicaciones", "ciudades"
+  add_foreign_key "ubicaciones", "sectores"
   add_foreign_key "ubicaciones", "tipo_ubicaciones"
 end

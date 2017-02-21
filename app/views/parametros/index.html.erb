@@ -4,12 +4,11 @@
 <div class="ibox-content">
 <%= link_to @parametros.new.class.name, new_polymorphic_url(@parametros.new), :class => "btn btn-primary btn-sm fa fa-plus" %>
  <br><br> 
- 
+
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
       <tr>
-        <th data-breakpoints="xs" data-type="number">Codigo</th>
-        <th>Nombre</th>
+        <th>Descripción</th>
         <th>Estatus</th>
         <th colspan="1"></th>
       </tr>
@@ -18,7 +17,6 @@
     <tbody>
       <% @parametros.each do |parametro| %>
         <tr>
-          <td><%= parametro.id %></td>
           <td><%= parametro.descripcion %></td>
           <td><%= parametro.estatus %></td>
           <td>

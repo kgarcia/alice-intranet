@@ -3,13 +3,7 @@
 one:
   descripcion: MyString
   estatus: 1
-  sector: one
-  ciudad: one
-  tipo_ubicacion: one
 
 two:
   descripcion: MyString
   estatus: 1
-  sector: two
-  ciudad: two
-  tipo_ubicacion: two
