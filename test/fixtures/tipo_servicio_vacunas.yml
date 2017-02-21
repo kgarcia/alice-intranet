@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vacuna: one
+  tipo_servicio: one
+
+two:
+  vacuna: two
+  tipo_servicio: two

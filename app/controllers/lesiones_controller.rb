@@ -4,21 +4,34 @@ class LesionesController < ApplicationController
   # GET /lesiones
   # GET /lesiones.json
   def index
-    @lesiones = Lesion.all
+    @parametros = Lesion.all
+    render "parametros_select/index"
   end
 
   # GET /lesiones/1
   # GET /lesiones/1.json
   def show
+    @parametro = Lesion.find(params[:id])
+
+    render "parametros_select/edit"
   end
 
   # GET /lesiones/new
   def new
-    @lesion = Lesion.new
+    @parametro = Lesion.new
+    @collection = TipoLesion.all
+    @referencia = :tipo_lesion_id
+
+    render "parametros_select/new"
   end
 
   # GET /lesiones/1/edit
   def edit
+    @parametro = Lesion.new
+    @collection = TipoLesion.all
+    @referencia = :tipo_lesion_id
+
+    render "parametros_select/edit"
   end
 
   # POST /lesiones
@@ -28,7 +41,7 @@ class LesionesController < ApplicationController
 
     respond_to do |format|
       if @lesion.save
-        format.html { redirect_to @lesion, notice: 'Lesion was successfully created.' }
+        format.html { redirect_to edit_lesion_path(@lesion), notice: 'Lesion was successfully created.' }
         format.json { render :show, status: :created, location: @lesion }
       else
         format.html { render :new }
@@ -42,7 +55,7 @@ class LesionesController < ApplicationController
   def update
     respond_to do |format|
       if @lesion.update(lesion_params)
-        format.html { redirect_to @lesion, notice: 'Lesion was successfully updated.' }
+        format.html { redirect_to edit_lesion_path(@lesion), notice: 'Lesion was successfully updated.' }
         format.json { render :show, status: :ok, location: @lesion }
       else
         format.html { render :edit }
@@ -69,6 +82,6 @@ class LesionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesion_params
-      params.require(:lesion).permit(:descripcion, :estatus, :TipoLesion_id)
+      params.require(:lesion).permit(:descripcion, :estatus, :tipo_lesion_id)
     end
 end

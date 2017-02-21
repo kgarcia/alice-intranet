@@ -5,7 +5,6 @@ class AdiccionesController < ApplicationController
   # GET /adicciones.json
   def index
     @parametros = Adiccion.all
-    @referencia = "tipoAdiccion"
     render "parametros_select/index"
   end
 
@@ -14,7 +13,7 @@ class AdiccionesController < ApplicationController
   def show
     @parametro = Adiccion.find(params[:id])
 
-    render "parametros_select/show"
+    render "parametros_select/edit"
   end
 
   # GET /adicciones/new
@@ -56,7 +55,7 @@ class AdiccionesController < ApplicationController
   def update
     respond_to do |format|
       if @adiccion.update(adiccion_params)
-        format.html { redirect_to @adiccion, notice: 'Adiccion was successfully updated.' }
+        format.html { redirect_to edit_adiccion_path(@adiccion), notice: 'Adiccion was successfully updated.' }
         format.json { render :show, status: :ok, location: @adiccion }
       else
         format.html { render :edit }

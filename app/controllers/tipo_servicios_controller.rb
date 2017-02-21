@@ -34,9 +34,11 @@ class TipoServiciosController < ApplicationController
   def create
     @tipo_servicio = TipoServicio.new(tipo_servicio_params)
     @tipo_servicio.adicciones = params[:adicciones]
+    @tipo_servicio.cirugiasTipoServicio = params[:cirugias]
 
     respond_to do |format|     
       if @tipo_servicio.save
+        puts @tipo_servicio.inspect
         format.html { redirect_to @tipo_servicio, notice: 'Tipo servicio was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_servicio }
       else
@@ -49,6 +51,9 @@ class TipoServiciosController < ApplicationController
   # PATCH/PUT /tipo_servicios/1
   # PATCH/PUT /tipo_servicios/1.json
   def update
+    @tipo_servicio.adicciones = params[:adicciones]
+    @tipo_servicio.cirugiasTipoServicio = params[:cirugias]
+    
     respond_to do |format|
       if @tipo_servicio.update(tipo_servicio_params)
         format.html { redirect_to @tipo_servicio, notice: 'Tipo servicio was successfully updated.' }

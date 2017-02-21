@@ -88,7 +88,9 @@
                     <div id="cirugias" class="tab-pane fade in">
                       <h3>Cirugias</h3>
                       <div>
-                        <%= f.collection_check_boxes(:cirugias, @cirugias, :id, :descripcion) %>
+                        <% @cirugias.each do |cirugia| %>
+                            <%= check_box_tag('cirugias[]', cirugia.id, @tipo_servicio.cirugias.include?(cirugia)) %> <%= cirugia.descripcion %>
+                        <% end %>
                       </div>
                       
                     </div>
