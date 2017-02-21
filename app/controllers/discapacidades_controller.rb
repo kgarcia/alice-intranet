@@ -4,21 +4,34 @@ class DiscapacidadesController < ApplicationController
   # GET /discapacidades
   # GET /discapacidades.json
   def index
-    @discapacidades = Discapacidad.all
+   @parametros = Discapacidad.all
+   render "parametros_select/index"
   end
 
   # GET /discapacidades/1
   # GET /discapacidades/1.json
   def show
+    @parametro = Discapacidad.find(params[:id])
+
+    render "parametros_select/edit"
   end
 
   # GET /discapacidades/new
   def new
-    @discapacidad = Discapacidad.new
+    @parametro = Discapacidad.new
+    @collection = TipoDiscapacidad.all
+    @referencia = :tipo_discapacidad_id
+
+    render "parametros_select/new"
   end
 
   # GET /discapacidades/1/edit
   def edit
+    @parametro = Discapacidad.find(params[:id])
+    @collection = TipoDiscapacidad.all
+    @referencia = :tipo_discapacidad_id
+
+    render "parametros_select/edit"
   end
 
   # POST /discapacidades
@@ -28,7 +41,7 @@ class DiscapacidadesController < ApplicationController
 
     respond_to do |format|
       if @discapacidad.save
-        format.html { redirect_to @discapacidad, notice: 'Discapacidad was successfully created.' }
+        format.html { redirect_to edit_discapacidad_path(@discapacidad), notice: 'Discapacidad was successfully created.' }
         format.json { render :show, status: :created, location: @discapacidad }
       else
         format.html { render :new }
@@ -42,7 +55,7 @@ class DiscapacidadesController < ApplicationController
   def update
     respond_to do |format|
       if @discapacidad.update(discapacidad_params)
-        format.html { redirect_to @discapacidad, notice: 'Discapacidad was successfully updated.' }
+        format.html { redirect_to edit_discapacidad_path(@discapacidad), notice: 'Discapacidad was successfully updated.' }
         format.json { render :show, status: :ok, location: @discapacidad }
       else
         format.html { render :edit }
@@ -69,6 +82,6 @@ class DiscapacidadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def discapacidad_params
-      params.require(:discapacidad).permit(:descripcion, :estatus, :TipoDiscapacidad_id)
+      params.require(:discapacidad).permit(:descripcion, :estatus, :tipo_discapacidad_id)
     end
 end

@@ -17,3 +17,4 @@
 //= require slimscroll/jquery.slimscroll.min.js
 //= require_tree .
 //= require footable/footable.min.js
+//= require tinymce

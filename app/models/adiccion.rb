@@ -1,7 +1,9 @@
 class Adiccion < ApplicationRecord
-  belongs_to :tipoAdiccion, foreign_key: "tipo_adicciones_id"
+  belongs_to :tipo_adiccion
+  has_many :adiccion_tipo_servicios
+  has_many :tipo_servicios, through: :adiccion_tipo_servicios
 
   def tipo
-  	return self.tipoAdiccion
+  	return self.tipo_adiccion
   end
 end

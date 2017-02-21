@@ -4,21 +4,30 @@ class GrupoSanguineosController < ApplicationController
   # GET /grupo_sanguineos
   # GET /grupo_sanguineos.json
   def index
-    @grupo_sanguineos = GrupoSanguineo.all
+    @parametros = GrupoSanguineo.all
+
+    render "parametros/index"
   end
 
   # GET /grupo_sanguineos/1
   # GET /grupo_sanguineos/1.json
   def show
+    @parametro = GrupoSanguineo.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /grupo_sanguineos/new
   def new
-    @grupo_sanguineo = GrupoSanguineo.new
+    @parametro = GrupoSanguineo.new
+    render "parametros/new"
   end
 
   # GET /grupo_sanguineos/1/edit
   def edit
+    @parametro = GrupoSanguineo.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /grupo_sanguineos
@@ -28,7 +37,7 @@ class GrupoSanguineosController < ApplicationController
 
     respond_to do |format|
       if @grupo_sanguineo.save
-        format.html { redirect_to @grupo_sanguineo, notice: 'Grupo sanguineo was successfully created.' }
+        format.html { redirect_to edit_grupo_sanguineo_path(@grupo_sanguineo), notice: 'Grupo sanguineo was successfully created.' }
         format.json { render :show, status: :created, location: @grupo_sanguineo }
       else
         format.html { render :new }
@@ -42,7 +51,7 @@ class GrupoSanguineosController < ApplicationController
   def update
     respond_to do |format|
       if @grupo_sanguineo.update(grupo_sanguineo_params)
-        format.html { redirect_to @grupo_sanguineo, notice: 'Grupo sanguineo was successfully updated.' }
+        format.html { redirect_to edit_grupo_sanguineo_path(@grupo_sanguineo), notice: 'Grupo sanguineo was successfully updated.' }
         format.json { render :show, status: :ok, location: @grupo_sanguineo }
       else
         format.html { render :edit }
