@@ -11,7 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+
 ActiveRecord::Schema.define(version: 20170221032257) do
+
 
 
   # These are extensions that must be enabled in order to support this database
@@ -87,6 +89,22 @@ ActiveRecord::Schema.define(version: 20170221032257) do
     t.datetime "updated_at",       null: false
     t.index ["estado_civil_id"], name: "index_estado_civil_tipo_servicios_on_estado_civil_id", using: :btree
     t.index ["tipo_servicio_id"], name: "index_estado_civil_tipo_servicios_on_tipo_servicio_id", using: :btree
+  end
+
+  create_table "especialidades", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "especialistas", force: :cascade do |t|
+    t.integer  "especialidad_id"
+    t.string   "descripcion"
+    t.string   "estatus"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["especialidad_id"], name: "index_especialistas_on_especialidad_id", using: :btree
   end
 
   create_table "estado_civiles", force: :cascade do |t|
@@ -374,6 +392,7 @@ ActiveRecord::Schema.define(version: 20170221032257) do
   add_foreign_key "cirugias", "tipo_cirugias", column: "tipo_cirugias_id"
   add_foreign_key "ciudades", "estados"
   add_foreign_key "discapacidades", "tipo_discapacidades", column: "tipo_discapacidades_id"
+  add_foreign_key "especialistas", "especialidades"
   add_foreign_key "estados", "paises"
   add_foreign_key "habitos", "tipo_habitos", column: "tipo_habitos_id"
   add_foreign_key "lesiones", "tipo_lesiones", column: "tipo_lesiones_id"
