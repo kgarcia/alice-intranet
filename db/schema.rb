@@ -156,6 +156,15 @@ ActiveRecord::Schema.define(version: 20170219204613) do
     t.index ["tipo_habito_id"], name: "index_habitos_on_tipo_habito_id", using: :btree
   end
 
+  create_table "horarios", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "limite_horario"
+    t.integer  "estatus"
+    t.integer  "tipo_horario_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["tipo_horario_id"], name: "index_horarios_on_tipo_horario_id", using: :btree
+  end
   create_table "lesion_tipo_servicios", force: :cascade do |t|
     t.integer  "lesion_id"
     t.integer  "tipo_servicio_id"

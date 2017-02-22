@@ -13,24 +13,24 @@ class HorariosController < ApplicationController
   def show
     @horario = Horario.find(params[:id])
     @turnos = Turno.where(horario_id: @horario.id)
+    @dias = Dia.all
     
   end
 
   # GET /horarios/new
   def new
-    @parametro = Horario.new
+
+    @horario = Horario.new
     @collection = TipoHorario.all
     @referencia = :tipo_horario_id
 
-    render "parametros_select/new"
   end
 
   # GET /horarios/1/edit
   def edit
     @horario = Horario.find(params[:id])
-
-
-    render "horario/edit"
+    @collection = TipoHorario.all
+    @referencia = :tipo_horario_id
   end
 
   # POST /horarios
@@ -81,6 +81,6 @@ class HorariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def horario_params
-      params.require(:horario).permit(:descripcion, :tipo_horario_id)
+      params.require(:horario).permit(:descripcion, :tipo_horario_id, :estatus, :limite_horario)
     end
 end
