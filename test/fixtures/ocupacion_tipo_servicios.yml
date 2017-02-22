@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ocupacion: one
+  tipo_servicio: one
+
+two:
+  ocupacion: two
+  tipo_servicio: two

@@ -4,21 +4,34 @@ class CirugiasController < ApplicationController
   # GET /cirugias
   # GET /cirugias.json
   def index
-    @cirugias = Cirugia.all
+    @parametros = Cirugia.all
+    render "parametros_select/index"
   end
 
   # GET /cirugias/1
   # GET /cirugias/1.json
   def show
+    @parametro = Cirugia.find(params[:id])
+
+    render "parametros_select/edit"
   end
 
   # GET /cirugias/new
   def new
-    @cirugia = Cirugia.new
+    @parametro = Cirugia.new
+    @collection = TipoCirugia.all
+    @referencia = :tipo_cirugia_id
+
+    render "parametros_select/new"
   end
 
   # GET /cirugias/1/edit
   def edit
+    @parametro = Cirugia.find(params[:id])
+    @collection = TipoCirugia.all
+    @referencia = :tipo_cirugia_id
+
+    render "parametros_select/edit"
   end
 
   # POST /cirugias
@@ -28,7 +41,7 @@ class CirugiasController < ApplicationController
 
     respond_to do |format|
       if @cirugia.save
-        format.html { redirect_to @cirugia, notice: 'Cirugia was successfully created.' }
+        format.html { redirect_to edit_cirugia_path(@cirugia), notice: 'Cirugia was successfully created.' }
         format.json { render :show, status: :created, location: @cirugia }
       else
         format.html { render :new }
@@ -42,7 +55,7 @@ class CirugiasController < ApplicationController
   def update
     respond_to do |format|
       if @cirugia.update(cirugia_params)
-        format.html { redirect_to @cirugia, notice: 'Cirugia was successfully updated.' }
+        format.html { redirect_to edit_cirugia_path(@cirugia), notice: 'Cirugia was successfully updated.' }
         format.json { render :show, status: :ok, location: @cirugia }
       else
         format.html { render :edit }
@@ -69,6 +82,6 @@ class CirugiasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cirugia_params
-      params.require(:cirugia).permit(:descripcion, :estatus, :TipoCirugia_id)
+      params.require(:cirugia).permit(:descripcion, :estatus, :tipo_cirugia_id)
     end
 end

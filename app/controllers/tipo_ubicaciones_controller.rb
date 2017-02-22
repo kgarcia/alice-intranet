@@ -4,12 +4,15 @@ class TipoUbicacionesController < ApplicationController
   # GET /tipo_ubicaciones
   # GET /tipo_ubicaciones.json
   def index
-    @tipo_ubicaciones = TipoUbicacion.all
+    @parametros = TipoUbicacion.all
+    
+    render "parametros/index"
   end
 
   # GET /tipo_ubicaciones/1
   # GET /tipo_ubicaciones/1.json
   def show
+    @parametro = TipoUbicacion.find(params[:id])
   end
 
   # GET /tipo_ubicaciones/new
@@ -19,6 +22,7 @@ class TipoUbicacionesController < ApplicationController
 
   # GET /tipo_ubicaciones/1/edit
   def edit
+    @parametro = TipoUbicacion.find(params[:id])
   end
 
   # POST /tipo_ubicaciones

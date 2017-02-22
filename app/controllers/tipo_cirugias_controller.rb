@@ -4,21 +4,30 @@ class TipoCirugiasController < ApplicationController
   # GET /tipo_cirugias
   # GET /tipo_cirugias.json
   def index
-    @tipo_cirugias = TipoCirugia.all
+    @parametros = TipoCirugia.all
+
+    render "parametros/index"
   end
 
   # GET /tipo_cirugias/1
   # GET /tipo_cirugias/1.json
   def show
+    @parametro = TipoCirugia.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /tipo_cirugias/new
   def new
-    @tipo_cirugia = TipoCirugia.new
+    @parametro = TipoCirugia.new
+    render "parametros/new"
   end
 
   # GET /tipo_cirugias/1/edit
   def edit
+    @parametro = TipoCirugia.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /tipo_cirugias
@@ -28,7 +37,7 @@ class TipoCirugiasController < ApplicationController
 
     respond_to do |format|
       if @tipo_cirugia.save
-        format.html { redirect_to @tipo_cirugia, notice: 'Tipo cirugia was successfully created.' }
+        format.html { redirect_to edit_tipo_cirugia_path(@tipo_cirugia), notice: 'Tipo cirugia was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_cirugia }
       else
         format.html { render :new }
@@ -42,7 +51,7 @@ class TipoCirugiasController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_cirugia.update(tipo_cirugia_params)
-        format.html { redirect_to @tipo_cirugia, notice: 'Tipo cirugia was successfully updated.' }
+        format.html { redirect_to edit_tipo_cirugia_path(@tipo_cirugia), notice: 'Tipo cirugia was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_cirugia }
       else
         format.html { render :edit }

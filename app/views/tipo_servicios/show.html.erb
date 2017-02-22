@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @tipo_servicio.descripcion %>
+</p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @tipo_servicio.texto.html_safe %>
+</p>
+
+<p>
+  <strong>Foto:</strong>
+  <%= image_tag @tipo_servicio.foto.url(:medium) %>
+</p>
+
+<p>
+  <strong>Tipo de Atencion:</strong>
+  <%= @tipo_servicio.tipo_atencion.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @tipo_servicio.estatus %>
+</p>
+
+<%= link_to 'Editar', edit_tipo_servicio_path(@tipo_servicio) %> |
+<%= link_to 'Atras', tipo_servicios_path %>

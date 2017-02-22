@@ -1,0 +1,111 @@
+<div class="row">   
+   <div class="col-lg-10 col-lg-offset-1">
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h5>Tipo de Servicio</h5>
+              </div>
+          </div>
+          <div class="ibox-content">
+
+          <%= form_for @tipo_servicio, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
+                  <% if @tipo_servicio.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@tipo_servicio.errors.count, "error") %> prohibited this parametro from being saved:</h2>
+
+                      <ul>
+                      <% @tipo_servicio.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#datos">Datos basicos</a></li>
+                <li><a data-toggle="tab" href="#texto">Texto</a></li>
+                <li><a data-toggle="tab" href="#perfil">Perfil</a></li>
+              </ul>
+
+              <div class="tab-content">
+                <div id="datos" class="tab-pane fade in active">
+                  <h3>Datos Basicos</h3>
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label">Nombre</label>
+
+                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                       </div>
+                    </div>
+
+                   <div class="form-group">
+                      <label class="col-lg-2 control-label">Foto</label>
+
+                      <div class="col-lg-10"><%= f.file_field :foto, :class => "form-control" %>
+                       </div>
+                    </div>
+
+                    <div class="field form-group">
+                      <label class="col-lg-2 control-label">Tipo de Atencion</label>
+                      <div class="col-lg-10">
+                        <%= f.collection_select(:tipo_atencion_id, @tipos_atencion, :id, :descripcion, {},{:class => "form-control"}) %>
+                      </div>
+                      
+                    </div> 
+
+                   <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
+
+                      <div class="col-lg-10"><%= f.text_field :estatus, :class => "form-control" %>
+                      </div>
+                  </div>
+                </div>
+                <div id="texto" class="tab-pane fade">
+                  <h3>Texto</h3>
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label">Texto</label>
+
+                      <div class="col-lg-10"><%= f.text_area :texto, :class => "tinymce form-control" %>
+                       </div>
+
+                      <%= tinymce %>
+                    </div>
+                </div>
+                <div id="perfil" class="tab-pane fade">
+                  <h3>Perfil del Tipo de Servicio</h3>
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#adicciones">Adicciones</a></li>
+                    <li><a data-toggle="tab" href="#cirugias">Cirugias</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <div id="adicciones" class="tab-pane fade in active">
+                      <h3>Adicciones</h3>
+                      <div>
+                        <% @adicciones.each do |adiccion| %>
+                            <%= check_box_tag('adicciones[]', adiccion.id, @tipo_servicio.adiccions.include?(adiccion)) %> <%= adiccion.descripcion %>
+                        <% end %>
+                      </div>
+                      
+                    </div>
+                    <div id="cirugias" class="tab-pane fade in">
+                      <h3>Cirugias</h3>
+                      <div>
+                        <% @cirugias.each do |cirugia| %>
+                            <%= check_box_tag('cirugias[]', cirugia.id, @tipo_servicio.cirugias.include?(cirugia)) %> <%= cirugia.descripcion %>
+                        <% end %>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          
+              <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                      <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>
+                     
+                  </div>
+              </div>
+          <% end %>
+          </div>
+  </div>
+</div>

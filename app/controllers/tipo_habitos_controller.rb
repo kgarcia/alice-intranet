@@ -4,21 +4,30 @@ class TipoHabitosController < ApplicationController
   # GET /tipo_habitos
   # GET /tipo_habitos.json
   def index
-    @tipo_habitos = TipoHabito.all
+    @parametros = TipoHabito.all
+
+    render "parametros/index"
   end
 
   # GET /tipo_habitos/1
   # GET /tipo_habitos/1.json
   def show
+    @parametro = TipoHabito.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /tipo_habitos/new
   def new
-    @tipo_habito = TipoHabito.new
+    @parametro = TipoHabito.new
+    render "parametros/new"
   end
 
   # GET /tipo_habitos/1/edit
   def edit
+    @parametro = TipoHabito.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /tipo_habitos
@@ -28,7 +37,7 @@ class TipoHabitosController < ApplicationController
 
     respond_to do |format|
       if @tipo_habito.save
-        format.html { redirect_to @tipo_habito, notice: 'Tipo habito was successfully created.' }
+        format.html { redirect_to edit_tipo_habito_path(@tipo_habito), notice: 'Tipo habito was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_habito }
       else
         format.html { render :new }
@@ -42,7 +51,7 @@ class TipoHabitosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_habito.update(tipo_habito_params)
-        format.html { redirect_to @tipo_habito, notice: 'Tipo habito was successfully updated.' }
+        format.html { redirect_to edit_tipo_habito_path(@tipo_habito), notice: 'Tipo habito was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_habito }
       else
         format.html { render :edit }

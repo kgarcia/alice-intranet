@@ -1,0 +1,1 @@
+json.array! @especialistas, partial: 'especialistas/especialista', as: :especialista
