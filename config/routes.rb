@@ -1,6 +1,8 @@
 Myapp::Application.routes.draw do
 
 
+  resources :busquedas
+  resources :tipo_busquedas
   resources :eventualidades
   resources :turnos
   resources :horarios
