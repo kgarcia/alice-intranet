@@ -38,7 +38,7 @@ class TipoCitasController < ApplicationController
 
     respond_to do |format|
       if @tipo_cita.save
-        format.html { redirect_to @tipo_cita, notice: 'Tipo cita was successfully created.' }
+        format.html { redirect_to action:"index", notice: 'Tipo cita was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_cita }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class TipoCitasController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_cita.update(tipo_cita_params)
-        format.html { redirect_to @tipo_cita, notice: 'Tipo cita was successfully updated.' }
+        format.html { redirect_to action:"index", notice: 'Tipo cita was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_cita }
       else
         format.html { render :edit }

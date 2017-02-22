@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218210633) do
+ActiveRecord::Schema.define(version: 20170220004334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,19 @@ ActiveRecord::Schema.define(version: 20170218210633) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["pais_id"], name: "index_estados_on_pais_id", using: :btree
+  end
+
+  create_table "eventualidades", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_eventualidad_id"
+    t.integer  "motivo_id"
+    t.datetime "fecha_inicio"
+    t.datetime "fecha_fin"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["motivo_id"], name: "index_eventualidades_on_motivo_id", using: :btree
+    t.index ["tipo_eventualidad_id"], name: "index_eventualidades_on_tipo_eventualidad_id", using: :btree
   end
 
   create_table "grupo_sanguineos", force: :cascade do |t|
@@ -286,6 +299,8 @@ ActiveRecord::Schema.define(version: 20170218210633) do
   add_foreign_key "ciudades", "estados"
   add_foreign_key "discapacidades", "tipo_discapacidades", column: "tipo_discapacidades_id"
   add_foreign_key "estados", "paises"
+  add_foreign_key "eventualidades", "motivos"
+  add_foreign_key "eventualidades", "tipo_eventualidades"
   add_foreign_key "habitos", "tipo_habitos", column: "tipo_habitos_id"
   add_foreign_key "lesiones", "tipo_lesiones", column: "tipo_lesiones_id"
   add_foreign_key "motivos", "tipo_motivos"

@@ -1,6 +1,7 @@
 Myapp::Application.routes.draw do
 
 
+  resources :eventualidades
   resources :tipo_criterios
   resources :tipo_horarios
   resources :tipo_citas

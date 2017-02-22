@@ -38,7 +38,7 @@ class TipoPagosController < ApplicationController
 
     respond_to do |format|
       if @tipo_pago.save
-        format.html { redirect_to @tipo_pago, notice: 'Tipo pago was successfully created.' }
+        format.html { redirect_to action:"index", notice: 'Tipo pago was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_pago }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class TipoPagosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_pago.update(tipo_pago_params)
-        format.html { redirect_to @tipo_pago, notice: 'Tipo pago was successfully updated.' }
+        format.html { redirect_to action:"index", notice: 'Tipo pago was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_pago }
       else
         format.html { render :edit }
