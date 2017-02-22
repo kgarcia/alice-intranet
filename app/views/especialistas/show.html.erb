@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Especialidad:</strong>
+  <%= @especialista.especialidad %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @especialista.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @especialista.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_especialista_path(@especialista) %> |
+<%= link_to 'Back', especialistas_path %>

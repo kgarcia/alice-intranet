@@ -18,8 +18,8 @@
       <% @parametros.each do |parametro| %>
           <tr>
             <td><%= parametro.id %></td>
-            <td><%= link_to parametro.descripcion, polymorphic_url(parametro) %></td>
-            <td><%= parametro.tipo.descripcion %></td>
+            <td><%= link_to parametro.descripcion, edit_polymorphic_url(parametro) %></td>
+            <td><%= link_to parametro.tipo.descripcion, edit_polymorphic_url(parametro.tipo) %></td>
             <td><%= parametro.estatus %></td>
             <td>
               <%= link_to '', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm fa fa-pencil" %>

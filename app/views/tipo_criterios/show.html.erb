@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @tipo_criterio.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @tipo_criterio.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_tipo_criterio_path(@tipo_criterio) %> |
+<%= link_to 'Back', tipo_criterios_path %>

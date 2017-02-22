@@ -4,21 +4,30 @@ class OcupacionesController < ApplicationController
   # GET /ocupaciones
   # GET /ocupaciones.json
   def index
-    @ocupaciones = Ocupacion.all
+    @parametros = Ocupacion.all
+
+    render "parametros/index"
   end
 
   # GET /ocupaciones/1
   # GET /ocupaciones/1.json
   def show
+    @parametro = Ocupacion.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /ocupaciones/new
   def new
-    @ocupacion = Ocupacion.new
+    @parametro = Ocupacion.new
+    render "parametros/new"
   end
 
   # GET /ocupaciones/1/edit
   def edit
+    @parametro = Ocupacion.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /ocupaciones
@@ -28,7 +37,7 @@ class OcupacionesController < ApplicationController
 
     respond_to do |format|
       if @ocupacion.save
-        format.html { redirect_to @ocupacion, notice: 'Ocupacion was successfully created.' }
+        format.html { redirect_to edit_ocupacion_path(@ocupacion), notice: 'Ocupacion was successfully created.' }
         format.json { render :show, status: :created, location: @ocupacion }
       else
         format.html { render :new }
@@ -42,7 +51,7 @@ class OcupacionesController < ApplicationController
   def update
     respond_to do |format|
       if @ocupacion.update(ocupacion_params)
-        format.html { redirect_to @ocupacion, notice: 'Ocupacion was successfully updated.' }
+        format.html { redirect_to edit_ocupacion_path(@ocupacion), notice: 'Ocupacion was successfully updated.' }
         format.json { render :show, status: :ok, location: @ocupacion }
       else
         format.html { render :edit }

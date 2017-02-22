@@ -32,7 +32,7 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'difusion', 'difusiones'
 	inflect.irregular 'notificacion', 'notificaciones'
 	inflect.irregular 'persona', 'personas'
-	inflect.irregular 'parentesco', 'parentesco'
+	inflect.irregular 'parentesco', 'parentescos'
 	inflect.irregular 'suscripcion', 'suscripciones'
 	inflect.irregular 'paciente', 'pacientes'
 	inflect.irregular 'noticia', 'noticias'
@@ -40,7 +40,7 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'referencia', 'referencias'
 	inflect.irregular 'evaluacion', 'evaluaciones'
 	inflect.irregular 'calificacion', 'calificaciones'
-	inflect.irregular 'criterio', 'criterio'
+	inflect.irregular 'criterio', 'criterios'
 	inflect.irregular 'pregunta', 'preguntas'
 	inflect.irregular 'cirugia', 'cirugias'
 	inflect.irregular 'sanguineo', 'sanguineos'
@@ -66,6 +66,7 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'bloque', 'bloques'
 	inflect.irregular 'horario', 'horarios'
 	inflect.irregular 'cita', 'citas'
+	inflect.irregular 'atencion', 'atenciones'
 	inflect.irregular 'sector', 'sectores'
 
 end

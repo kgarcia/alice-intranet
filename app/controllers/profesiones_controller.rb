@@ -4,21 +4,30 @@ class ProfesionesController < ApplicationController
   # GET /profesiones
   # GET /profesiones.json
   def index
-    @profesiones = Profesion.all
+    @parametros = Profesion.all
+
+    render "parametros/index"
   end
 
   # GET /profesiones/1
   # GET /profesiones/1.json
   def show
+    @parametro = Profesion.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /profesiones/new
   def new
-    @profesion = Profesion.new
+    @parametro = Profesion.new
+    render "parametros/new"
   end
 
   # GET /profesiones/1/edit
   def edit
+    @parametro = Profesion.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /profesiones
@@ -28,7 +37,7 @@ class ProfesionesController < ApplicationController
 
     respond_to do |format|
       if @profesion.save
-        format.html { redirect_to @profesion, notice: 'Profesion was successfully created.' }
+        format.html { redirect_to edit_profesion_path(@profesion), notice: 'Profesion was successfully created.' }
         format.json { render :show, status: :created, location: @profesion }
       else
         format.html { render :new }
@@ -42,7 +51,7 @@ class ProfesionesController < ApplicationController
   def update
     respond_to do |format|
       if @profesion.update(profesion_params)
-        format.html { redirect_to @profesion, notice: 'Profesion was successfully updated.' }
+        format.html { redirect_to edit_profesion_path(@profesion), notice: 'Profesion was successfully updated.' }
         format.json { render :show, status: :ok, location: @profesion }
       else
         format.html { render :edit }

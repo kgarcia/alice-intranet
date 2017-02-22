@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @turno.descripcion %>
+</p>
+
+<p>
+  <strong>Hora inicio:</strong>
+  <%= @turno.hora_inicio.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Hora fin:</strong>
+  <%= @turno.hora_fin.strftime("%H:%M") %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @turno.estatus %>
+</p>
+
+<p>
+  <strong>Dia:</strong>
+  <%= @turno.tipodia.descripcion %>
+</p>
+
+<p>
+  <strong>Horario:</strong>
+  <%= @turno.horario.descripcion %>
+</p>
+
+<p>
+<strong>cantidad de personas que atenderá</strong>
+<%= @turno.cantidad_horas%>
+</p>
+
+
+<%= link_to 'Edit', edit_turno_path(@turno) %> |
+<%= link_to 'Back', turnos_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  estatus: 1
+  tipo_motivo: one
+
+two:
+  descripcion: MyString
+  estatus: 1
+  tipo_motivo: two

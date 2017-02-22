@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @tipo_horario.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @tipo_horario.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_tipo_horario_path(@tipo_horario) %> |
+<%= link_to 'Back', tipo_horarios_path %>

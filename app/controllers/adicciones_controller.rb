@@ -5,7 +5,6 @@ class AdiccionesController < ApplicationController
   # GET /adicciones.json
   def index
     @parametros = Adiccion.all
-    @referencia = "tipoAdiccion"
     render "parametros_select/index"
   end
 
@@ -14,14 +13,14 @@ class AdiccionesController < ApplicationController
   def show
     @parametro = Adiccion.find(params[:id])
 
-    render "parametros_select/show"
+    render "parametros_select/edit"
   end
 
   # GET /adicciones/new
   def new
     @parametro = Adiccion.new
     @collection = TipoAdiccion.all
-    @referencia = :tipo_adicciones_id
+    @referencia = :tipo_adiccion_id
 
     render "parametros_select/new"
   end
@@ -30,7 +29,7 @@ class AdiccionesController < ApplicationController
   def edit
     @parametro = Adiccion.find(params[:id])
     @collection = TipoAdiccion.all
-    @referencia = :tipo_adicciones_id
+    @referencia = :tipo_adiccion_id
 
     render "parametros_select/edit"
   end
@@ -42,7 +41,7 @@ class AdiccionesController < ApplicationController
 
     respond_to do |format|
       if @adiccion.save
-        format.html { redirect_to @adiccion, notice: 'Adiccion was successfully created.' }
+        format.html { redirect_to edit_adiccion_path(@adiccion), notice: 'Adiccion was successfully created.' }
         format.json { render :show, status: :created, location: @adiccion }
       else
         format.html { render :new }
@@ -56,7 +55,7 @@ class AdiccionesController < ApplicationController
   def update
     respond_to do |format|
       if @adiccion.update(adiccion_params)
-        format.html { redirect_to @adiccion, notice: 'Adiccion was successfully updated.' }
+        format.html { redirect_to edit_adiccion_path(@adiccion), notice: 'Adiccion was successfully updated.' }
         format.json { render :show, status: :ok, location: @adiccion }
       else
         format.html { render :edit }
@@ -83,6 +82,6 @@ class AdiccionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adiccion_params
-      params.require(:adiccion).permit(:descripcion, :estatus, :tipo_adicciones_id)
+      params.require(:adiccion).permit(:descripcion, :estatus, :tipo_adiccion_id)
     end
 end

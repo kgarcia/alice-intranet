@@ -4,21 +4,30 @@ class TipoLesionesController < ApplicationController
   # GET /tipo_lesiones
   # GET /tipo_lesiones.json
   def index
-    @tipo_lesiones = TipoLesion.all
+    @parametros = TipoLesion.all
+
+    render "parametros/index"
   end
 
   # GET /tipo_lesiones/1
   # GET /tipo_lesiones/1.json
   def show
+    @parametro = TipoLesion.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /tipo_lesiones/new
   def new
-    @tipo_lesion = TipoLesion.new
+    @parametro = TipoLesion.new
+    render "parametros/new"
   end
 
   # GET /tipo_lesiones/1/edit
   def edit
+    @parametro = TipoLesion.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /tipo_lesiones
@@ -28,7 +37,7 @@ class TipoLesionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_lesion.save
-        format.html { redirect_to @tipo_lesion, notice: 'Tipo lesion was successfully created.' }
+        format.html { redirect_to edit_tipo_lesion_path(@tipo_lesion), notice: 'Tipo lesion was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_lesion }
       else
         format.html { render :new }
@@ -42,7 +51,7 @@ class TipoLesionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_lesion.update(tipo_lesion_params)
-        format.html { redirect_to @tipo_lesion, notice: 'Tipo lesion was successfully updated.' }
+        format.html { redirect_to edit_tipo_lesion_path(@tipo_lesion), notice: 'Tipo lesion was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_lesion }
       else
         format.html { render :edit }
