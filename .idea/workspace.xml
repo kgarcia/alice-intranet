@@ -527,7 +527,7 @@
       <workItem from="1487532310779" duration="20891000" />
       <workItem from="1487555364090" duration="143000" />
       <workItem from="1487617595434" duration="6177000" />
-      <workItem from="1487708079401" duration="6906000" />
+      <workItem from="1487708079401" duration="6918000" />
     </task>
     <task id="LOCAL-00001" summary="se crearon los tipos verdes">
       <created>1487459345990</created>
@@ -557,11 +557,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487722402476</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Eventualidad, motivo y tipos verdes listo">
+      <created>1487722414379</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1487722414379</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53486000" />
+    <option name="totallyTimeSpent" value="53498000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1282" height="775" extended-state="6" />
