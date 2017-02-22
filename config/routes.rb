@@ -3,6 +3,24 @@ Myapp::Application.routes.draw do
 
 
   resources :servicios
+  resources :sexos
+  resources :personas
+  resources :roles
+  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations"}
+  resources :eventualidades
+  resources :turnos
+  resources :horarios
+  resources :dias
+  resources :tipo_criterios
+  resources :tipo_horarios
+  resources :tipo_citas
+  resources :tipo_criterio
+  resources :tipo_calificaciones
+  resources :tipo_evaluaciones
+  resources :tipo_pagos
+  resources :tipo_eventualidades
+  resources :motivos
+  resources :tipo_motivos
   resources :tipo_servicios
   resources :tipo_atenciones
   resources :especialistas
@@ -32,7 +50,6 @@ Myapp::Application.routes.draw do
   resources :habitos
   resources :tipo_habitos
   resources :option_menus
-  resources :sexos
 
   get "home/index"
   get "home/minor"

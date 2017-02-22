@@ -17,7 +17,8 @@ class TipoUbicacionesController < ApplicationController
 
   # GET /tipo_ubicaciones/new
   def new
-    @tipo_ubicacion = TipoUbicacion.new
+    @parametro = TipoUbicacion.new
+    @parametros = TipoUbicacion.all
   end
 
   # GET /tipo_ubicaciones/1/edit

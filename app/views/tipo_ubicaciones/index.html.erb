@@ -1,29 +1,46 @@
+<%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
 
-<h1>Tipo Ubicaciones</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Descripcion</th>
-      <th>Estatus</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tipo_ubicaciones.each do |tipo_ubicacion| %>
+<div class="ibox-content">
+<%= link_to @parametros.new.class.name, new_polymorphic_url(@parametros.new), :class => "btn btn-primary btn-sm fa fa-plus" %>
+ <br><br>                 
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
       <tr>
-        <td><%= tipo_ubicacion.descripcion %></td>
-        <td><%= tipo_ubicacion.estatus %></td>
-        <td><%= link_to 'Show', tipo_ubicacion %></td>
-        <td><%= link_to 'Edit', edit_tipo_ubicacion_path(tipo_ubicacion) %></td>
-        <td><%= link_to 'Destroy', tipo_ubicacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th data-breakpoints="xs" data-type="number">Descripción</th>
+        <th>Estatusss</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @parametros.each do |parametro| %>
+        <tr>
+          <td><%= parametro.descripcion %></td>
+          <td><%= parametro.estatus %></td>
+          <td>
+            <%= link_to '', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+            <%= link_to '', parametro, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %>            
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+        <tr>
+            <td colspan="5">
+                <ul class="pagination pull-right"></ul>
+            </td>
+        </tr>
+      </tfoot>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Tipo Ubicacion', new_tipo_ubicacion_path %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+</script>
+

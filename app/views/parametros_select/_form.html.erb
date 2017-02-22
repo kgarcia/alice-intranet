@@ -13,6 +13,7 @@
                       </ul>
                     </div>
                   <% end %>
+
                  
                   <% if(@parametro.id?)%>
                   <div class="form-group"><label class="col-lg-2 control-label">Codigo</label>
@@ -20,6 +21,8 @@
                        </div>
                   </div>
                   <% end %>
+
+
                   <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
 
                       <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
@@ -32,9 +35,11 @@
                   </div>
                   <div class="field form-group">
                     <label class="col-lg-2 control-label">Tipo</label>
+
                      <div class="col-lg-10">
                       <%= f.collection_select(@referencia, @collection, :id, :descripcion, {},{:class => "form-control"}) %>
                      </div>
+
                   </div>
                   <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">

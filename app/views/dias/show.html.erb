@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @dia.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @dia.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_dia_path(@dia) %> |
+<%= link_to 'Back', dias_path %>

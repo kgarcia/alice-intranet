@@ -53,9 +53,14 @@ GEM
     autoprefixer-rails (6.7.2)
       execjs
     bcrypt (3.1.11)
+    bootstrap (4.0.0.alpha6)
+      autoprefixer-rails (>= 6.0.3)
+      sass (>= 3.4.19)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap3-datetimepicker-rails (4.14.30)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (9.0.6)
     climate_control (0.1.0)
@@ -76,6 +81,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.1.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.17)
@@ -108,11 +114,19 @@ GEM
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    momentjs-rails (2.17.1)
+      railties (>= 3.1)
     multi_json (1.12.1)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    paperclip (5.0.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (~> 0.3.0)
     pg (0.19.0)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -134,6 +148,9 @@ GEM
       nokogiri (~> 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails-i18n (5.0.3)
+      i18n (~> 0.7)
+      railties (~> 5.0)
     railties (5.0.1)
       actionpack (= 5.0.1)
       activesupport (= 5.0.1)
@@ -197,18 +214,25 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap (~> 4.0.0.alpha6)
   bootstrap-sass (~> 3.3.7)
+  bootstrap3-datetimepicker-rails (~> 4.14.30)
   byebug
   coffee-rails (~> 4.2)
   devise
+  devise-i18n
   font-awesome-rails (= 4.7.0.1)
   footable-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
+
+  momentjs-rails (>= 2.9.0)
+
   paperclip!
   pg (~> 0.19)
   rails (~> 5.0.1)
+  rails-i18n (~> 5.0.0)
   sass-rails (~> 5.0.4)
   sdoc
   spring
@@ -221,4 +245,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.3
+   1.14.4

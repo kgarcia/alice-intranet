@@ -1,0 +1,1 @@
+json.array! @tipo_eventualidades, partial: 'tipo_eventualidades/tipo_eventualidad', as: :tipo_eventualidad
