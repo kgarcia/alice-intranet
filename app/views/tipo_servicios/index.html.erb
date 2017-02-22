@@ -1,0 +1,49 @@
+<%= csrf_meta_tag %>
+<p id="notice"><%= notice %></p>
+
+<div class="ibox-content">
+<%= link_to 'Tipo de Servicio', new_tipo_servicio_path, :class => "btn btn-primary btn-sm fa fa-plus" %>
+ <br><br> 
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
+      <tr>
+        <th data-breakpoints="xs" data-type="number">Codigo</th>
+        <th>Descripcion</th>
+        <th>Tipo de Atencion</th>
+        <th>Estatus</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tipo_servicios.each do |tipoServicio| %>
+          <tr>
+            <td><%= tipoServicio.id %></td>
+            <td><%= link_to tipoServicio.descripcion, polymorphic_url(tipoServicio) %></td>
+            <td><%= tipoServicio.tipo_atencion.descripcion %></td>
+            <td><%= tipoServicio.estatus %></td>
+            <td>
+              <%= link_to '', edit_tipo_servicio_path(tipoServicio), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+              <%= link_to '', tipoServicio, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+          </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <ul class="pagination pull-right"></ul>
+                        </td>
+                    </tr>
+                    </tfoot>
+  </table>
+</div>
+<br>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+</script>
+
+

@@ -3,7 +3,7 @@ class CreateAdicciones < ActiveRecord::Migration[5.0]
     create_table :adicciones do |t|
       t.string :descripcion
       t.integer :estatus
-      t.references :tipo_adicciones, foreign_key: true
+      t.references :tipo_adiccion, foreign_key: true
 
       t.timestamps
     end

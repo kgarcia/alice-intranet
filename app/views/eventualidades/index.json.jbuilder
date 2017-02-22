@@ -1,0 +1,1 @@
+json.array! @eventualidades, partial: 'eventualidades/eventualidad', as: :eventualidad

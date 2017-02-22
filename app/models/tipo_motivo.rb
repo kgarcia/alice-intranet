@@ -1,0 +1,2 @@
+class TipoMotivo < ApplicationRecord
+end

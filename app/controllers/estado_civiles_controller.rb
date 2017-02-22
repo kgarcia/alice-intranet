@@ -4,21 +4,30 @@ class EstadoCivilesController < ApplicationController
   # GET /estado_civiles
   # GET /estado_civiles.json
   def index
-    @estado_civiles = EstadoCivil.all
+    @parametros = EstadoCivil.all
+
+    render "parametros/index"
   end
 
   # GET /estado_civiles/1
   # GET /estado_civiles/1.json
   def show
+    @parametro = EstadoCivil.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /estado_civiles/new
   def new
-    @estado_civil = EstadoCivil.new
+    @parametro = EstadoCivil.new
+    render "parametros/new"
   end
 
   # GET /estado_civiles/1/edit
   def edit
+    @parametro = EstadoCivil.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /estado_civiles
@@ -28,7 +37,7 @@ class EstadoCivilesController < ApplicationController
 
     respond_to do |format|
       if @estado_civil.save
-        format.html { redirect_to @estado_civil, notice: 'Estado civil was successfully created.' }
+        format.html { redirect_to edit_estado_civil_path(@estado_civil), notice: 'Estado civil was successfully created.' }
         format.json { render :show, status: :created, location: @estado_civil }
       else
         format.html { render :new }
@@ -42,7 +51,7 @@ class EstadoCivilesController < ApplicationController
   def update
     respond_to do |format|
       if @estado_civil.update(estado_civil_params)
-        format.html { redirect_to @estado_civil, notice: 'Estado civil was successfully updated.' }
+        format.html { redirect_to edit_estado_civil_path(@estado_civil), notice: 'Estado civil was successfully updated.' }
         format.json { render :show, status: :ok, location: @estado_civil }
       else
         format.html { render :edit }
