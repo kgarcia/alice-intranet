@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170222023440) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +58,13 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["estado_id"], name: "index_ciudades_on_estado_id", using: :btree
+  end
+
+  create_table "dias", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "discapacidad_tipo_servicios", force: :cascade do |t|
@@ -120,6 +126,19 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.index ["pais_id"], name: "index_estados_on_pais_id", using: :btree
   end
 
+  create_table "eventualidades", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_eventualidad_id"
+    t.integer  "motivo_id"
+    t.datetime "fecha_inicio"
+    t.datetime "fecha_fin"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["motivo_id"], name: "index_eventualidades_on_motivo_id", using: :btree
+    t.index ["tipo_eventualidad_id"], name: "index_eventualidades_on_tipo_eventualidad_id", using: :btree
+  end
+
   create_table "grupo_sanguineo_tipo_servicios", force: :cascade do |t|
     t.integer  "grupo_sanguineo_id"
     t.integer  "tipo_servicio_id"
@@ -154,6 +173,15 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.index ["tipo_habito_id"], name: "index_habitos_on_tipo_habito_id", using: :btree
   end
 
+  create_table "horarios", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_horario_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["tipo_horario_id"], name: "index_horarios_on_tipo_horario_id", using: :btree
+  end
+
   create_table "lesion_tipo_servicios", force: :cascade do |t|
     t.integer  "lesion_id"
     t.integer  "tipo_servicio_id"
@@ -172,15 +200,6 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.index ["tipo_lesion_id"], name: "index_lesiones_on_tipo_lesion_id", using: :btree
   end
 
-  create_table "ocupacion_tipo_servicios", force: :cascade do |t|
-    t.integer  "ocupacion_id"
-    t.integer  "tipo_servicio_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["ocupacion_id"], name: "index_ocupacion_tipo_servicios_on_ocupacion_id", using: :btree
-    t.index ["tipo_servicio_id"], name: "index_ocupacion_tipo_servicios_on_tipo_servicio_id", using: :btree
-  end
-
   create_table "motivos", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -188,6 +207,15 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["tipo_motivo_id"], name: "index_motivos_on_tipo_motivo_id", using: :btree
+  end
+
+  create_table "ocupacion_tipo_servicios", force: :cascade do |t|
+    t.integer  "ocupacion_id"
+    t.integer  "tipo_servicio_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["ocupacion_id"], name: "index_ocupacion_tipo_servicios_on_ocupacion_id", using: :btree
+    t.index ["tipo_servicio_id"], name: "index_ocupacion_tipo_servicios_on_tipo_servicio_id", using: :btree
   end
 
   create_table "ocupaciones", force: :cascade do |t|
@@ -210,14 +238,6 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.datetime "updated_at",  null: false
   end
 
-
-  create_table "paises", force: :cascade do |t|
-    t.string   "descripcion"
-    t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "option_roles", force: :cascade do |t|
     t.integer  "option_menu_id"
     t.integer  "rol_id"
@@ -226,7 +246,14 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.index ["option_menu_id"], name: "index_option_roles_on_option_menu_id", using: :btree
     t.index ["rol_id"], name: "index_option_roles_on_rol_id", using: :btree
   end
-  
+
+  create_table "paises", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "patologia_tipo_servicios", force: :cascade do |t|
     t.integer  "patologia_id"
     t.integer  "tipo_servicio_id"
@@ -282,12 +309,12 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.datetime "updated_at",  null: false
   end
 
-
   create_table "roles", force: :cascade do |t|
     t.string   "descripcion"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
   create_table "sectores", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -319,8 +346,8 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
-   create_table "tipo_adicciones", force: :cascade do |t|
+
+  create_table "tipo_adicciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
@@ -335,7 +362,6 @@ ActiveRecord::Schema.define(version: 20170222023440) do
   end
 
   create_table "tipo_calificaciones", force: :cascade do |t|
-
     t.string   "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
@@ -399,7 +425,7 @@ ActiveRecord::Schema.define(version: 20170222023440) do
   end
 
   create_table "tipo_horarios", force: :cascade do |t|
-    t.string   "descripcion"
+    t.integer  "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -463,6 +489,19 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "turnos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.time     "hora_inicio"
+    t.time     "hora_fin"
+    t.integer  "estatus"
+    t.integer  "dia_id"
+    t.integer  "horario_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["dia_id"], name: "index_turnos_on_dia_id", using: :btree
+    t.index ["horario_id"], name: "index_turnos_on_horario_id", using: :btree
+  end
+
   create_table "ubicaciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -518,19 +557,26 @@ ActiveRecord::Schema.define(version: 20170222023440) do
   add_foreign_key "estado_civil_tipo_servicios", "estado_civiles"
   add_foreign_key "estado_civil_tipo_servicios", "tipo_servicios"
   add_foreign_key "estados", "paises"
+  add_foreign_key "eventualidades", "motivos"
+  add_foreign_key "eventualidades", "tipo_eventualidades"
   add_foreign_key "grupo_sanguineo_tipo_servicios", "grupo_sanguineos"
   add_foreign_key "grupo_sanguineo_tipo_servicios", "tipo_servicios"
   add_foreign_key "habito_tipo_servicios", "habitos"
   add_foreign_key "habito_tipo_servicios", "tipo_servicios"
   add_foreign_key "habitos", "tipo_habitos"
+  add_foreign_key "horarios", "tipo_horarios"
   add_foreign_key "lesion_tipo_servicios", "lesiones"
   add_foreign_key "lesion_tipo_servicios", "tipo_servicios"
   add_foreign_key "lesiones", "tipo_lesiones"
+  add_foreign_key "motivos", "tipo_motivos"
   add_foreign_key "ocupacion_tipo_servicios", "ocupaciones"
   add_foreign_key "ocupacion_tipo_servicios", "tipo_servicios"
+  add_foreign_key "option_roles", "option_menus"
+  add_foreign_key "option_roles", "roles"
   add_foreign_key "patologia_tipo_servicios", "patologias"
   add_foreign_key "patologia_tipo_servicios", "tipo_servicios"
   add_foreign_key "patologias", "tipo_patologias"
+  add_foreign_key "personas", "sexos"
   add_foreign_key "profesion_tipo_servicios", "profesiones"
   add_foreign_key "profesion_tipo_servicios", "tipo_servicios"
   add_foreign_key "servicios", "especialistas"
@@ -539,20 +585,8 @@ ActiveRecord::Schema.define(version: 20170222023440) do
   add_foreign_key "tipo_servicio_vacunas", "tipo_servicios"
   add_foreign_key "tipo_servicio_vacunas", "vacunas"
   add_foreign_key "tipo_servicios", "tipo_atenciones"
-
-  add_foreign_key "adicciones", "tipo_adicciones", column: "tipo_adicciones_id"
-  add_foreign_key "cirugias", "tipo_cirugias", column: "tipo_cirugias_id"
-  add_foreign_key "ciudades", "estados"
-  add_foreign_key "discapacidades", "tipo_discapacidades", column: "tipo_discapacidades_id"
-  add_foreign_key "especialistas", "especialidades"
-  add_foreign_key "estados", "paises"
-  add_foreign_key "habitos", "tipo_habitos", column: "tipo_habitos_id"
-  add_foreign_key "lesiones", "tipo_lesiones", column: "tipo_lesiones_id"
-  add_foreign_key "option_roles", "option_menus"
-  add_foreign_key "option_roles", "roles"
-  add_foreign_key "motivos", "tipo_motivos"
-  add_foreign_key "patologias", "tipo_patologias", column: "tipo_patologias_id"
-  add_foreign_key "personas", "sexos"
+  add_foreign_key "turnos", "dias"
+  add_foreign_key "turnos", "horarios"
   add_foreign_key "ubicaciones", "ciudades"
   add_foreign_key "ubicaciones", "sectores"
   add_foreign_key "ubicaciones", "tipo_ubicaciones"
