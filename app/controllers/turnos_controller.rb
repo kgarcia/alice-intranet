@@ -6,25 +6,32 @@ class TurnosController < ApplicationController
   def index
     @turnos = Turno.all
     @dia ="dia"
+
   end
 
   # GET /turnos/1
   # GET /turnos/1.json
   def show
       @turno = Turno.find(params[:id])
+     
   end
 
   # GET /turnos/new
   def new
     @turno = Turno.new
     @dias = Dia.all
+    @horarios = Horario.all
+    @referencia = :horario_id
   end
 
   # GET /turnos/1/edit
   def edit
-    @turno = Turno.new
+    @horarios = Horario.all
+    @turno = Turno.find(params[:id])
     @dias = Dia.all
     @dia = :dia_id
+    @referencia = :horario_id
+
   end
 
   # POST /turnos

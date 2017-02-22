@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20170219204613) do
 
   create_table "horarios", force: :cascade do |t|
     t.string   "descripcion"
+    t.integer  "limite_horario"
     t.integer  "estatus"
     t.integer  "tipo_horario_id"
     t.datetime "created_at",      null: false
@@ -238,7 +239,7 @@ ActiveRecord::Schema.define(version: 20170219204613) do
   end
 
   create_table "tipo_horarios", force: :cascade do |t|
-    t.integer  "descripcion"
+    t.string   "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

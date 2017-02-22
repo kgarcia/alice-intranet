@@ -1,27 +1,50 @@
-<%= form_for(horario) do |f| %>
-  <% if horario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(horario.errors.count, "error") %> prohibited this horario from being saved:</h2>
+<div class="row">   
+   <div class="col-lg-6 col-lg-offset-3">
+    <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h5>Horario</h5>
+              </div>
+          </div>
+          <div class="ibox-content">
+             <%= form_for @horario , :html => {:class => 'form-horizontal'} do |f| %>
+                  <% if @horario.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@horario.errors.count, "error") %> prohibited this parametro from being saved:</h2>
 
-      <ul>
-      <% horario.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+                      <ul>
+                      <% @horario.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                  
+                  <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
 
-  <div class="field">
-    <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
+                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                       </div>
+                    </div>
+                   <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
+
+                      <div class="col-lg-10"><%= f.text_field :estatus, :class => "form-control" %>
+                      </div>
+                  </div>
+                  <div class="field form-group"><label class="col-lg-2 control-label">Tipo</label>
+                    <div class="col-lg-10"><%= f.collection_select(@referencia, @collection, :id, :descripcion,{}, :class =>"form-control") %></div>
+                  </div>
+                  <div class="form-group"><label class="col-lg-2 control-label">Cantidad</label>
+
+                      <div class="col-lg-10"><%= f.text_field :limite_horario, :class => "form-control" %>
+                      </div>
+                  </div>
+                  <div class="form-group">                    
+                      <div class="col-lg-offset-2 col-lg-10">
+                          <%= f.submit 'Guardar', :class => "btn btn-sm btn-primary " %>
+                          <%= button_tag "Limpiar", type: :reset , :class => "btn btn-sm btn-white fa fa-paint-brush"%>
+                          <%= link_to 'Atras', @horario.class, :class => "btn btn-sm btn-white " %>
+                      </div>
+ </div>
+              <% end %>
+          </div>
   </div>
-
-  <div class="field">
-    <%= f.label :tipo_horario_id %>
-    <%= f.text_field :tipo_horario_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

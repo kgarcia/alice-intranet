@@ -1,12 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Descripcion:</strong>
+  <strong>Horario:</strong>
   <%= @horario.descripcion %>
+</p>
+<p>
+  <strong>Limite de personas/tiempo promedio:</strong>
+  <%= @horario.limite_horario %>
 </p>
 
 <p>
-  <strong>Tipo horario(Cantidad de personas/tiempo promedio):</strong>
+  <strong>Tipo horario:</strong>
   <%= @horario.tipo_horario.descripcion %>
 </p>
 <div class="ibox-content">
@@ -14,29 +18,50 @@
  <table >
   <thead>
     <tr>
-      <th>Inicio</th>
-      <th>Fin</th>	
-      <th>LUNES</th>
-      <th>MARTES</th>
-      <th>MIERCOLES</th>
-      <th>JUEVES</th>
-      <th>VIERNES</th>
-      <th>SABADO</th>
-      <th>DOMINGO</th>
+
+             <% @dias.each do |dia| %>
+      <th> <%=dia.descripcion%></th>
+          <%end%>
+     
       <th colspan="6"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @turnos.each do |turno| %>
-      <tr>
-        <td><%= turno.hora_inicio.strftime("%H:%M") %></td>
-        <td><%= turno.hora_fin.strftime("%H:%M") %></td>
-        <td><%= turno.tipodia.descripcion %></td>
-        <td><%= turno.horario.descripcion %></td>
+      <%if(turno.tipodia.descripcion== "LUNES")%>
+       <tr>
+        <td><%= turno.hora_inicio.strftime("%H:%M") %>
+        <%= turno.hora_fin.strftime("%H:%M") %>
+        <%=turno.horario.descripcion%>
+        <%=turno.tipodia.descripcion%>
+        <%=turno.descripcion%>
+        </td>
+        <%end%>
+       <%if(turno.tipodia.descripcion== "MARTES")%>
+      
+        <td><%= turno.hora_inicio.strftime("%H:%M") %>
+        <%= turno.hora_fin.strftime("%H:%M") %>
+        <%=turno.horario.descripcion%>
+        <%=turno.tipodia.descripcion%>
+        <%=turno.descripcion%>
+        </td>
         
+      
+        <%end%>
+        <%if(turno.tipodia.descripcion== "MIERCOLES")%>
+        <td><%= turno.hora_inicio.strftime("%H:%M") %>
+        <%= turno.hora_fin.strftime("%H:%M") %>
+        <%=turno.horario.descripcion%>
+        <%=turno.descripcion%>
+        <%=turno.tipodia.descripcion%></td>
         
-      </tr>
+         </tr>
+        <%end%>
+      
+        
+       
+     
     <% end %>
   </tbody>
 </table>
