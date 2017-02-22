@@ -1,33 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72c8b283-0bf6-4bc7-84be-ccaa824bbba9" name="Default" comment="Eventualidad, motivo y tipos verdes listo">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Development__alice1802.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Production__alice1802.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/spec__alice1802.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/test__alice1802.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/alice1802.iml" afterPath="$PROJECT_DIR$/.idea/alice1802.iml" />
+    <list default="true" id="72c8b283-0bf6-4bc7-84be-ccaa824bbba9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/motivos_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/motivos_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tipo_calificaciones_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tipo_calificaciones_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tipo_citas_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tipo_citas_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tipo_criterios_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tipo_criterios_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tipo_evaluaciones_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tipo_evaluaciones_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tipo_eventualidades_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tipo_eventualidades_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tipo_horarios_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tipo_horarios_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/tipo_pagos_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/tipo_pagos_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/motivo.rb" afterPath="$PROJECT_DIR$/app/models/motivo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/tipo_eventualidad.rb" afterPath="$PROJECT_DIR$/app/models/tipo_eventualidad.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/parametros_select/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/parametros_select/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="alice1802.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -552,7 +527,7 @@
       <workItem from="1487532310779" duration="20891000" />
       <workItem from="1487555364090" duration="143000" />
       <workItem from="1487617595434" duration="6177000" />
-      <workItem from="1487708079401" duration="6882000" />
+      <workItem from="1487708079401" duration="6906000" />
     </task>
     <task id="LOCAL-00001" summary="se crearon los tipos verdes">
       <created>1487459345990</created>
@@ -575,11 +550,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487461293555</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Eventualidad, motivo y tipos verdes listo">
+      <created>1487722402476</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1487722402476</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53462000" />
+    <option name="totallyTimeSpent" value="53486000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1282" height="775" extended-state="6" />
@@ -619,7 +601,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="se crearon los tipos verdes" />
     <MESSAGE value="se crearon los tipos verdes again" />
-    <option name="LAST_COMMIT_MESSAGE" value="se crearon los tipos verdes again" />
+    <MESSAGE value="Eventualidad, motivo y tipos verdes listo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eventualidad, motivo y tipos verdes listo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
