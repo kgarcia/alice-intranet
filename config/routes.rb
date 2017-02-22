@@ -1,6 +1,7 @@
 Myapp::Application.routes.draw do
 
 
+  resources :eventualidades
   resources :turnos
   resources :horarios
   resources :dias
@@ -14,7 +15,13 @@ Myapp::Application.routes.draw do
   resources :tipo_eventualidades
   resources :motivos
   resources :tipo_motivos
+  resources :tipo_servicios
+  resources :tipo_atenciones
+  resources :especialistas
+  resources :especialidades
   resources :ubicaciones
+  resources :sectores
+  resources :sectors
   resources :tipo_ubicaciones
   resources :ciudades
   resources :estados

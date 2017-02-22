@@ -39,7 +39,7 @@ class TipoCriteriosController < ApplicationController
 
     respond_to do |format|
       if @tipo_criterio.save
-        format.html { redirect_to @tipo_criterio, notice: 'Tipo criterio was successfully created.' }
+        format.html { redirect_to action:"index", notice: 'Tipo criterio was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_criterio }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class TipoCriteriosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_criterio.update(tipo_criterio_params)
-        format.html { redirect_to @tipo_criterio, notice: 'Tipo criterio was successfully updated.' }
+        format.html { redirect_to action:"index", notice: 'Tipo criterio was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_criterio }
       else
         format.html { render :edit }

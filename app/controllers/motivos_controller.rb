@@ -4,21 +4,38 @@ class MotivosController < ApplicationController
   # GET /motivos
   # GET /motivos.json
   def index
-    @motivos = Motivo.all
+    @parametros = Motivo.all
+    @referencia = "tipoMotivo"
+
+    render "parametros_select/index"
   end
 
   # GET /motivos/1
   # GET /motivos/1.json
   def show
+    @parametro = Motivo.find(params[:id])
+
+    render "parametros_select/show"
   end
 
   # GET /motivos/new
   def new
-    @motivo = Motivo.new
+    @parametro = Motivo.new
+    @collection = TipoMotivo.all
+    @referencia = :tipo_motivo_id
+
+    render "parametros_select/new"
   end
 
   # GET /motivos/1/edit
   def edit
+
+    @parametro = Motivo.find(params[:id])
+    @collection = TipoMotivo.all
+    @referencia = :tipo_motivo_id
+
+    render "parametros_select/edit"
+
   end
 
   # POST /motivos
@@ -28,7 +45,7 @@ class MotivosController < ApplicationController
 
     respond_to do |format|
       if @motivo.save
-        format.html { redirect_to @motivo, notice: 'Motivo was successfully created.' }
+        format.html { redirect_to action:"index", notice: 'Motivo was successfully created.' }
         format.json { render :show, status: :created, location: @motivo }
       else
         format.html { render :new }
@@ -42,7 +59,7 @@ class MotivosController < ApplicationController
   def update
     respond_to do |format|
       if @motivo.update(motivo_params)
-        format.html { redirect_to @motivo, notice: 'Motivo was successfully updated.' }
+        format.html { redirect_to action:"index", notice: 'Motivo was successfully updated.' }
         format.json { render :show, status: :ok, location: @motivo }
       else
         format.html { render :edit }

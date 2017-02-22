@@ -4,21 +4,34 @@ class PatologiasController < ApplicationController
   # GET /patologias
   # GET /patologias.json
   def index
-    @patologias = Patologia.all
+    @parametros = Patologia.all
+    render "parametros_select/index"
   end
 
   # GET /patologias/1
   # GET /patologias/1.json
   def show
+    @parametro = Patologia.find(params[:id])
+
+    render "parametros_select/edit"
   end
 
   # GET /patologias/new
   def new
-    @patologia = Patologia.new
+    @parametro = Patologia.new
+    @collection = TipoPatologia.all
+    @referencia = :tipo_patologia_id
+
+    render "parametros_select/new"
   end
 
   # GET /patologias/1/edit
   def edit
+    @parametro = Patologia.find(params[:id])
+    @collection = TipoPatologia.all
+    @referencia = :tipo_patologia_id
+
+    render "parametros_select/edit"
   end
 
   # POST /patologias
@@ -28,7 +41,7 @@ class PatologiasController < ApplicationController
 
     respond_to do |format|
       if @patologia.save
-        format.html { redirect_to @patologia, notice: 'Patologia was successfully created.' }
+        format.html { redirect_to edit_patologia_path(@patologia), notice: 'Patologia was successfully created.' }
         format.json { render :show, status: :created, location: @patologia }
       else
         format.html { render :new }
@@ -42,7 +55,7 @@ class PatologiasController < ApplicationController
   def update
     respond_to do |format|
       if @patologia.update(patologia_params)
-        format.html { redirect_to @patologia, notice: 'Patologia was successfully updated.' }
+        format.html { redirect_to edit_patologia_path(@patologia), notice: 'Patologia was successfully updated.' }
         format.json { render :show, status: :ok, location: @patologia }
       else
         format.html { render :edit }
@@ -69,6 +82,6 @@ class PatologiasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patologia_params
-      params.require(:patologia).permit(:descripcion, :estatus, :TipoPatologia_id)
+      params.require(:patologia).permit(:descripcion, :estatus, :tipo_patologia_id)
     end
 end

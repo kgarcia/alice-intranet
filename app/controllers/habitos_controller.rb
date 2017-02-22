@@ -4,22 +4,34 @@ class HabitosController < ApplicationController
   # GET /habitos
   # GET /habitos.json
   def index
-    @habitos = Habito.all
+    @parametros = Habito.all
+    render "parametros_select/index"
   end
 
   # GET /habitos/1
   # GET /habitos/1.json
   def show
+    @parametro = Habito.find(params[:id])
+
+    render "parametros_select/edit"
   end
 
   # GET /habitos/new
   def new
-    @tipoHabitos = TipoHabito.all
-    @habito = Habito.new
+    @parametro = Habito.new
+    @collection = TipoHabito.all
+    @referencia = :tipo_habito_id
+
+    render "parametros_select/new"
   end
 
   # GET /habitos/1/edit
   def edit
+    @parametro = Habito.new
+    @collection = TipoHabito.all
+    @referencia = :tipo_habito_id
+
+    render "parametros_select/edit"
   end
 
   # POST /habitos
@@ -29,7 +41,7 @@ class HabitosController < ApplicationController
 
     respond_to do |format|
       if @habito.save
-        format.html { redirect_to @habito, notice: 'Habito was successfully created.' }
+        format.html { redirect_to edit_habito_path(@habito), notice: 'Habito was successfully created.' }
         format.json { render :show, status: :created, location: @habito }
       else
         format.html { render :new }
@@ -43,7 +55,7 @@ class HabitosController < ApplicationController
   def update
     respond_to do |format|
       if @habito.update(habito_params)
-        format.html { redirect_to @habito, notice: 'Habito was successfully updated.' }
+        format.html { redirect_to edit_habito_path(@habito), notice: 'Habito was successfully updated.' }
         format.json { render :show, status: :ok, location: @habito }
       else
         format.html { render :edit }
@@ -70,6 +82,6 @@ class HabitosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def habito_params
-      params.require(:habito).permit(:descripcion, :estatus, :TipoHabito_id)
+      params.require(:habito).permit(:descripcion, :estatus, :tipo_habito_id)
     end
 end

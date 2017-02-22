@@ -1,0 +1,27 @@
+<%= form_for(especialidad) do |f| %>
+  <% if especialidad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(especialidad.errors.count, "error") %> prohibited this especialidad from being saved:</h2>
+
+      <ul>
+      <% especialidad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

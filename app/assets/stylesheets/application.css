@@ -13,5 +13,7 @@
  *= require animate/animate.css
  *= require style
  *= require footable/footable.bootstrap.min.css
+ *= require _bootstrap-sprockets
+ *= require bootstrap-datetimepicker.css
  */
 
