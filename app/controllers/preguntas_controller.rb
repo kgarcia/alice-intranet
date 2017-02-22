@@ -20,7 +20,7 @@ class PreguntasController < ApplicationController
   # GET /pregunta/new
   def new
     @parametro = Pregunta.new
-
+    @sexos = Sexo.all
     render "parametros/new"
   end
 
