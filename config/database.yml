@@ -29,8 +29,8 @@ default: &default
   encoding: unicode
   host: localhost
   pool: 5
-  username: user
-  password: 1234
+  username: roberth
+  password: ap94
 
 
 development:
