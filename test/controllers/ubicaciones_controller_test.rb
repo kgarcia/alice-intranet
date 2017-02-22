@@ -17,7 +17,7 @@ class UbicacionesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ubicacion" do
     assert_difference('Ubicacion.count') do
-      post ubicaciones_url, params: { ubicacion: { ciudad_id: @ubicacion.ciudad_id, descripcion: @ubicacion.descripcion, estatus: @ubicacion.estatus, tipo_ubicacion_id: @ubicacion.tipo_ubicacion_id } }
+      post ubicaciones_url, params: { ubicacion: { ciudad_id: @ubicacion.ciudad_id, descripcion: @ubicacion.descripcion, estatus: @ubicacion.estatus, sector_id: @ubicacion.sector_id, tipo_ubicacion_id: @ubicacion.tipo_ubicacion_id } }
     end
 
     assert_redirected_to ubicacion_url(Ubicacion.last)
@@ -34,7 +34,7 @@ class UbicacionesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update ubicacion" do
-    patch ubicacion_url(@ubicacion), params: { ubicacion: { ciudad_id: @ubicacion.ciudad_id, descripcion: @ubicacion.descripcion, estatus: @ubicacion.estatus, tipo_ubicacion_id: @ubicacion.tipo_ubicacion_id } }
+    patch ubicacion_url(@ubicacion), params: { ubicacion: { ciudad_id: @ubicacion.ciudad_id, descripcion: @ubicacion.descripcion, estatus: @ubicacion.estatus, sector_id: @ubicacion.sector_id, tipo_ubicacion_id: @ubicacion.tipo_ubicacion_id } }
     assert_redirected_to ubicacion_url(@ubicacion)
   end
 

@@ -1,33 +1,53 @@
+<%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
 
-<h1>Ubicaciones</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Descripcion</th>
-      <th>Estatus</th>
-      <th>Ciudad</th>
-      <th>Tipo ubicacion</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ubicaciones.each do |ubicacion| %>
+<div class="ibox-content">
+<%= link_to @parametros.new.class.name, new_polymorphic_url(@parametros.new), :class => "btn btn-primary btn-sm fa fa-plus" %>
+ <br><br>                 
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
       <tr>
-        <td><%= ubicacion.descripcion %></td>
-        <td><%= ubicacion.estatus %></td>
-        <td><%= ubicacion.ciudad %></td>
-        <td><%= ubicacion.tipo_ubicacion %></td>
-        <td><%= link_to 'Show', ubicacion %></td>
-        <td><%= link_to 'Edit', edit_ubicacion_path(ubicacion) %></td>
-        <td><%= link_to 'Destroy', ubicacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th data-breakpoints="xs" data-type="number">Descripción</th>
+        <th>Sector</th>
+        <th>Ciudad</th>
+        <th>Tipo de ubicación</th>
+        <th>Estatus</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @parametros.each do |parametro| %>
+        <tr>
+          <td><%= parametro.descripcion %></td>
+          <td><%= parametro.sector %></td>
+          <td><%= parametro.ciudad %></td>
+          <td><%= parametro.tipo_ubicacion %></td>
+          <td><%= parametro.estatus %></td>
+          <td>
+            <%= link_to '', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+            <%= link_to '', parametro, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %>
+            
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+        <tr>
+            <td colspan="5">
+                <ul class="pagination pull-right"></ul>
+            </td>
+        </tr>
+      </tfoot>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Ubicacion', new_ubicacion_path %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+</script>
+

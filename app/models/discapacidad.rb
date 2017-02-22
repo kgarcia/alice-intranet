@@ -1,3 +1,9 @@
 class Discapacidad < ApplicationRecord
-  belongs_to :TipoDiscapacidad
+  belongs_to :tipo_discapacidad
+  has_many :discapacidad_tipo_servicios
+  has_many :tipo_servicios, through: :discapacidad_tipo_servicios
+
+  def tipo
+  	return self.tipo_discapacidad
+  end
 end

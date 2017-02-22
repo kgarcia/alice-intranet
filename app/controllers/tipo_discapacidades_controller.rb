@@ -4,21 +4,30 @@ class TipoDiscapacidadesController < ApplicationController
   # GET /tipo_discapacidades
   # GET /tipo_discapacidades.json
   def index
-    @tipo_discapacidades = TipoDiscapacidad.all
+    @parametros = TipoDiscapacidad.all
+
+    render "parametros/index"
   end
 
   # GET /tipo_discapacidades/1
   # GET /tipo_discapacidades/1.json
   def show
+    @parametro = TipoDiscapacidad.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /tipo_discapacidades/new
   def new
-    @tipo_discapacidad = TipoDiscapacidad.new
+    @parametro = TipoDiscapacidad.new
+    render "parametros/new"
   end
 
   # GET /tipo_discapacidades/1/edit
   def edit
+    @parametro = TipoDiscapacidad.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /tipo_discapacidades
@@ -28,7 +37,7 @@ class TipoDiscapacidadesController < ApplicationController
 
     respond_to do |format|
       if @tipo_discapacidad.save
-        format.html { redirect_to @tipo_discapacidad, notice: 'Tipo discapacidad was successfully created.' }
+        format.html { redirect_to edit_tipo_discapacidad_path(@tipo_discapacidad), notice: 'Tipo discapacidad was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_discapacidad }
       else
         format.html { render :new }
@@ -42,7 +51,7 @@ class TipoDiscapacidadesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_discapacidad.update(tipo_discapacidad_params)
-        format.html { redirect_to @tipo_discapacidad, notice: 'Tipo discapacidad was successfully updated.' }
+        format.html { redirect_to edit_tipo_discapacidad_path(@tipo_discapacidad), notice: 'Tipo discapacidad was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_discapacidad }
       else
         format.html { render :edit }
