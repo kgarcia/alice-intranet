@@ -180,10 +180,10 @@ class TipoServicio < ApplicationRecord
 
    private
    def save_vacunas
-    VacunaTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    TipoServicioVacuna.where(:tipo_servicio_id => self.id).destroy_all
     if !@vacunasTipoServicio.nil?
         @vacunasTipoServicio.each do |vacuna_id|
-          VacunaTipoServicio.create(vacuna_id: vacuna_id, tipo_servicio_id: self.id )
+          TipoServicioVacuna.create(vacuna_id: vacuna_id, tipo_servicio_id: self.id )
         end
      end
    end
