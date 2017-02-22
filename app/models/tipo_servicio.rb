@@ -5,6 +5,24 @@ class TipoServicio < ApplicationRecord
   has_many :adicciones, :through => :adiccion_tipo_servicios
   has_many :cirugia_tipo_servicios
   has_many :cirugias, through: :cirugia_tipo_servicios
+  has_many :discapacidades_tipo_servicios
+  has_many :discapacidades, through: :discapacidad_tipo_servicios
+  has_many :estado_civil_tipo_servicios
+  has_many :estado_civiles, through: :estado_civil_tipo_servicios
+  has_many :grupo_sanguineo_tipo_servicios
+  has_many :grupo_sanguineos, through: :grupo_sanguineo_tipo_servicios
+  has_many :habito_tipo_servicios
+  has_many :habitos, through: :habito_tipo_servicios
+  has_many :lesion_tipo_servicios
+  has_many :lesiones, through: :lesion_tipo_servicios
+  has_many :ocupacion_tipo_servicios
+  has_many :ocupaciones, through: :ocupacion_tipo_servicios
+  has_many :patologia_tipo_servicios
+  has_many :patologias, through: :patologia_tipo_servicios
+  has_many :profesion_tipo_servicios
+  has_many :profesiones, through: :profesion_tipo_servicios
+  has_many :vacuna_tipo_servicios
+  has_many :vacunas, through: :vacuna_tipo_servicios
 
 	has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   	validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
@@ -162,10 +180,10 @@ class TipoServicio < ApplicationRecord
 
    private
    def save_vacunas
-    VacunaTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    TipoServicioVacuna.where(:tipo_servicio_id => self.id).destroy_all
     if !@vacunasTipoServicio.nil?
         @vacunasTipoServicio.each do |vacuna_id|
-          VacunaTipoServicio.create(vacuna_id: vacuna_id, tipo_servicio_id: self.id )
+          TipoServicioVacuna.create(vacuna_id: vacuna_id, tipo_servicio_id: self.id )
         end
      end
    end
