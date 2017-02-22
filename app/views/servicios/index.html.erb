@@ -1,0 +1,56 @@
+<%= csrf_meta_tag %>
+<p id="notice"><%= notice %></p>
+
+<div class="ibox-content">
+<%= link_to 'Servicio', new_servicio_path, :class => "btn btn-primary btn-sm fa fa-plus" %>
+ <br><br> 
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
+      <tr>
+        <th data-breakpoints="xs" data-type="number">Codigo</th>
+        <th>Descripcion</th>
+        <th>Tipo de Servicio</th>
+        <th>Especialista</th>
+        <th>Ubicacion</th>
+        <th>Estatus</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @servicios.each do |servicio| %>
+          <tr>
+            <td><%= servicio.id %></td>
+            <td><%= link_to servicio.descripcion, polymorphic_url(servicio) %></td>
+            <td><%= servicio.tipo_servicio.descripcion %></td>
+            <% if(servicio.especialista.nil?) %>
+              <td><%= servicio.especialista %></td>
+            <% end %>
+            
+            <td><%= servicio.ubicacion.descripcion %></td>
+            <td><%= servicio.estatus %></td>
+            <td>
+              <%= link_to '', edit_servicio_path(servicio), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+              <%= link_to '', servicio, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+          </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <ul class="pagination pull-right"></ul>
+                        </td>
+                    </tr>
+                    </tfoot>
+  </table>
+</div>
+<br>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+</script>
+
+

@@ -2,6 +2,7 @@ Myapp::Application.routes.draw do
 
 
 
+  resources :servicios
   resources :tipo_servicios
   resources :tipo_atenciones
   resources :especialistas
