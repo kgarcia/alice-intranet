@@ -1,6 +1,8 @@
 Myapp::Application.routes.draw do
 
 
+
+  resources :servicios
   resources :sexos
   resources :personas
   resources :roles

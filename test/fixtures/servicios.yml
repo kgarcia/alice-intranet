@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyText
+  ubicacion: one
+  tipo_servicio: one
+  especialista: one
+  estatus: 1
+  foto: MyString
+  precio: 
+
+two:
+  descripcion: MyText
+  ubicacion: two
+  tipo_servicio: two
+  especialista: two
+  estatus: 1
+  foto: MyString
+  precio: 
