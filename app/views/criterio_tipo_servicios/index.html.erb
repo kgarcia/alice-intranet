@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Criterio Tipo Servicios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Criterio</th>
+      <th>Tipo servici</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @criterio_tipo_servicios.each do |criterio_tipo_servicio| %>
+      <tr>
+        <td><%= criterio_tipo_servicio.criterio %></td>
+        <td><%= criterio_tipo_servicio.tipo_servici %></td>
+        <td><%= link_to 'Show', criterio_tipo_servicio %></td>
+        <td><%= link_to 'Edit', edit_criterio_tipo_servicio_path(criterio_tipo_servicio) %></td>
+        <td><%= link_to 'Destroy', criterio_tipo_servicio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Criterio Tipo Servicio', new_criterio_tipo_servicio_path %>

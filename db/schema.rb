@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222023440) do
+ActiveRecord::Schema.define(version: 20170222070133) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +32,15 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["tipo_adiccion_id"], name: "index_adicciones_on_tipo_adiccion_id", using: :btree
+  end
+
+  create_table "calificaciones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_calificacion_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["tipo_calificacion_id"], name: "index_calificaciones_on_tipo_calificacion_id", using: :btree
   end
 
   create_table "cirugia_tipo_servicios", force: :cascade do |t|
@@ -60,6 +70,24 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.index ["estado_id"], name: "index_ciudades_on_estado_id", using: :btree
   end
 
+  create_table "criterio_tipo_servicios", force: :cascade do |t|
+    t.integer  "criterio_id"
+    t.integer  "tipo_servicio_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["criterio_id"], name: "index_criterio_tipo_servicios_on_criterio_id", using: :btree
+    t.index ["tipo_servicio_id"], name: "index_criterio_tipo_servicios_on_tipo_servicio_id", using: :btree
+  end
+
+  create_table "criterios", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_criterio_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["tipo_criterio_id"], name: "index_criterios_on_tipo_criterio_id", using: :btree
+  end
+
   create_table "dias", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -75,6 +103,14 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.index ["discapacidad_id"], name: "index_discapacidad_tipo_servicios_on_discapacidad_id", using: :btree
     t.index ["tipo_servicio_id"], name: "index_discapacidad_tipo_servicios_on_tipo_servicio_id", using: :btree
   end
+
+  create_table "dias", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
 
   create_table "discapacidades", force: :cascade do |t|
     t.string   "descripcion"
@@ -124,6 +160,15 @@ ActiveRecord::Schema.define(version: 20170222023440) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["pais_id"], name: "index_estados_on_pais_id", using: :btree
+  end
+
+  create_table "evaluaciones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_evaluacion_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["tipo_evaluacion_id"], name: "index_evaluaciones_on_tipo_evaluacion_id", using: :btree
   end
 
   create_table "eventualidades", force: :cascade do |t|
@@ -546,10 +591,14 @@ ActiveRecord::Schema.define(version: 20170222023440) do
   add_foreign_key "adiccion_tipo_servicios", "adicciones"
   add_foreign_key "adiccion_tipo_servicios", "tipo_servicios"
   add_foreign_key "adicciones", "tipo_adicciones"
+  add_foreign_key "calificaciones", "tipo_calificaciones"
   add_foreign_key "cirugia_tipo_servicios", "cirugias"
   add_foreign_key "cirugia_tipo_servicios", "tipo_servicios"
   add_foreign_key "cirugias", "tipo_cirugias"
   add_foreign_key "ciudades", "estados"
+  add_foreign_key "criterio_tipo_servicios", "criterios"
+  add_foreign_key "criterio_tipo_servicios", "tipo_servicios"
+  add_foreign_key "criterios", "tipo_criterios"
   add_foreign_key "discapacidad_tipo_servicios", "discapacidades"
   add_foreign_key "discapacidad_tipo_servicios", "tipo_servicios"
   add_foreign_key "discapacidades", "tipo_discapacidades"
@@ -557,6 +606,7 @@ ActiveRecord::Schema.define(version: 20170222023440) do
   add_foreign_key "estado_civil_tipo_servicios", "estado_civiles"
   add_foreign_key "estado_civil_tipo_servicios", "tipo_servicios"
   add_foreign_key "estados", "paises"
+  add_foreign_key "evaluaciones", "tipo_evaluaciones"
   add_foreign_key "eventualidades", "motivos"
   add_foreign_key "eventualidades", "tipo_eventualidades"
   add_foreign_key "grupo_sanguineo_tipo_servicios", "grupo_sanguineos"

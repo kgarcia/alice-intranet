@@ -1,6 +1,10 @@
 Myapp::Application.routes.draw do
 
 
+  resources :evaluaciones
+  resources :criterio_tipo_servicios
+  resources :calificaciones
+  resources :criterios
 
   resources :servicios
   resources :sexos

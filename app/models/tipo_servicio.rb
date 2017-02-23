@@ -5,6 +5,8 @@ class TipoServicio < ApplicationRecord
   has_many :adicciones, :through => :adiccion_tipo_servicios
   has_many :cirugia_tipo_servicios
   has_many :cirugias, through: :cirugia_tipo_servicios
+  has_many :criterio_tipo_servicios
+  has_many :criterio, through: :criterio_tipo_servicios
   has_many :discapacidades_tipo_servicios
   has_many :discapacidades, through: :discapacidad_tipo_servicios
   has_many :estado_civil_tipo_servicios
@@ -28,10 +30,12 @@ class TipoServicio < ApplicationRecord
   	validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
 
   	after_save :save_adicciones, :save_cirugias, :save_discapacidades, :save_estado_civiles, :save_grupo_sanguineos,
-                :save_habitos, :save_lesiones, :save_ocupaciones, :save_patologias, :save_profesiones, :save_vacunas
+                :save_habitos, :save_lesiones, :save_ocupaciones, :save_patologias, :save_profesiones, :save_vacunas,
+                :save_criterios
 
     attr_reader :adiccionesTipoServicio, :cirugiasTipoServicio, :discapacidadesTipoServicio, :estadoCivilesTipoServicio, :grupoSanguineoTipoServicio,
-                :habitosTipoServicio, :lesionesTipoServicio, :ocupacionesTipoServicio, :patologiasTipoServicio, :profesionesTipoServicio, :vacunasTipoServicio
+                :habitosTipoServicio, :lesionesTipoServicio, :ocupacionesTipoServicio, :patologiasTipoServicio, :profesionesTipoServicio, :vacunasTipoServicio,
+                :criteriosTipoServicio
 
 
   	def adiccionesTipoServicio=(value)
@@ -42,6 +46,10 @@ class TipoServicio < ApplicationRecord
       @cirugiasTipoServicio = value
     end
 
+    def criterioTipoServicio=(value)
+      @criteriosTipoServicio = value
+    end
+  
     def discapacidadesTipoServicio=(value)
       @discapacidadesTipoServicio = value
     end
@@ -99,6 +107,16 @@ class TipoServicio < ApplicationRecord
    end
 
    private
+
+   def save_criterios
+    CriterioTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@criteriosTipoServicio.nil?
+        @criteriosTipoServicio.each do |criterio_id|
+          CriterioTipoServicio.create(criterio_id: criterio_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
    def save_discapacidades
     DiscapacidadTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
     if !@discapacidadesTipoServicio.nil?
@@ -187,6 +205,5 @@ class TipoServicio < ApplicationRecord
         end
      end
    end
-
 
 end

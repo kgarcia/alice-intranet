@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @calificacion.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @calificacion.estatus %>
+</p>
+
+<p>
+  <strong>Tipo calificacion:</strong>
+  <%= @calificacion.tipo_calificacion %>
+</p>
+
+<%= link_to 'Edit', edit_calificacion_path(@calificacion) %> |
+<%= link_to 'Back', calificaciones_path %>
