@@ -16,6 +16,9 @@ class TipoServiciosController < ApplicationController
   def new
     @tipo_servicio = TipoServicio.new
     @tipos_atencion = TipoAtencion.all
+    @especialidades = Especialidad.all
+    @categorias = Categoria.all
+
     @adicciones = Adiccion.all
     @cirugias = Cirugia.all
     @discapacidades = Discapacidad.all
@@ -33,6 +36,9 @@ class TipoServiciosController < ApplicationController
   # GET /tipo_servicios/1/edit
   def edit
     @tipos_atencion = TipoAtencion.all
+    @especialidades = Especialidad.all
+    @categorias = Categoria.all
+
     @adicciones = Adiccion.all
     @cirugias = Cirugia.all
     @discapacidades = Discapacidad.all
@@ -123,6 +129,6 @@ class TipoServiciosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tipo_servicio_params
-      params.require(:tipo_servicio).permit(:descripcion, :texto, :foto, :estatus, :tipo_atencion_id, :tipo_categoria_id, :especialidad_id)
+      params.require(:tipo_servicio).permit(:descripcion, :texto, :foto, :estatus, :tipo_atencion_id, :categoria_id, :especialidad_id)
     end
 end
