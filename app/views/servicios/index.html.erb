@@ -7,27 +7,22 @@
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
       <tr>
-        <th data-breakpoints="xs" data-type="number">Codigo</th>
-        <th>Descripcion</th>
-        <th>Tipo de Servicio</th>
+        <th data-sorted="true">Tipo de Servicio</th>
         <th>Especialista</th>
         <th>Ubicacion</th>
-        <th>Estatus</th>
+        <th>Descripcion</th>
         <th colspan="1"></th>
       </tr>
     </thead>
     <tbody>
       <% @servicios.each do |servicio| %>
           <tr>
-            <td><%= servicio.id %></td>
-            <td><%= link_to servicio.descripcion, polymorphic_url(servicio) %></td>
             <td><%= servicio.tipo_servicio.descripcion %></td>
             <% if(servicio.especialista.nil?) %>
               <td><%= servicio.especialista %></td>
             <% end %>
-            
             <td><%= servicio.ubicacion.descripcion %></td>
-            <td><%= servicio.estatus %></td>
+            <td><%= link_to servicio.descripcion, polymorphic_url(servicio) %></td>
             <td>
               <%= link_to '', edit_servicio_path(servicio), :class => "btn btn-warning btn-sm fa fa-pencil" %>
               <%= link_to '', servicio, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>

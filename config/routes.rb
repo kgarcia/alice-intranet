@@ -1,6 +1,8 @@
 Myapp::Application.routes.draw do
 
 
+  resources :categorias
+  resources :citas
   resources :evaluaciones
   resources :criterio_tipo_servicios
   resources :calificaciones

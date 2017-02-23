@@ -5,10 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Descripcion</th>
-      <th>Estatus</th>
-      <th>Tipo eventualidad</th>
+      <th data-sorted="true">Tipo eventualidad</th>
       <th>Motivo</th>
+      <th>Descripcion</th>
       <th>Fecha inicio</th>
       <th>Fecha fin</th>
       <th colspan="3"></th>
@@ -18,10 +17,9 @@
   <tbody>
     <% @eventualidades.each do |eventualidad| %>
       <tr>
-        <td><%= eventualidad.descripcion %></td>
-        <td><%= eventualidad.estatus %></td>
         <td><%= eventualidad.tipo_eventualidad %></td>
         <td><%= eventualidad.motivo %></td>
+        <td><%= eventualidad.descripcion %></td>
         <td><%= eventualidad.fecha_inicio %></td>
         <td><%= eventualidad.fecha_fin %></td>
         <td><%= link_to 'Show', eventualidad %></td>

@@ -16,6 +16,9 @@ class TipoServiciosController < ApplicationController
   def new
     @tipo_servicio = TipoServicio.new
     @tipos_atencion = TipoAtencion.all
+    @especialidades = Especialidad.all
+    @categorias = Categoria.all
+
     @adicciones = Adiccion.all
     @cirugias = Cirugia.all
     @discapacidades = Discapacidad.all
@@ -26,12 +29,16 @@ class TipoServiciosController < ApplicationController
     @ocupaciones = Ocupacion.all
     @patologias = Patologia.all
     @profesiones = Profesion.all
+    @sexos = Sexo.all
     @vacunas = Vacuna.all
   end
 
   # GET /tipo_servicios/1/edit
   def edit
     @tipos_atencion = TipoAtencion.all
+    @especialidades = Especialidad.all
+    @categorias = Categoria.all
+
     @adicciones = Adiccion.all
     @cirugias = Cirugia.all
     @discapacidades = Discapacidad.all
@@ -42,6 +49,7 @@ class TipoServiciosController < ApplicationController
     @ocupaciones = Ocupacion.all
     @patologias = Patologia.all
     @profesiones = Profesion.all
+    @sexos = Sexo.all
     @vacunas = Vacuna.all
 
   end
@@ -60,7 +68,9 @@ class TipoServiciosController < ApplicationController
     @tipo_servicio.ocupacionesTipoServicio = params[:ocupaciones]
     @tipo_servicio.patologiasTipoServicio = params[:patologias]
     @tipo_servicio.profesionesTipoServicio = params[:profesiones]
+    @tipo_servicio.sexosTipoServicio = params[:sexos]
     @tipo_servicio.vacunasTipoServicio = params[:vacunas]
+
 
     respond_to do |format|     
       if @tipo_servicio.save
@@ -77,8 +87,18 @@ class TipoServiciosController < ApplicationController
   # PATCH/PUT /tipo_servicios/1
   # PATCH/PUT /tipo_servicios/1.json
   def update
-    @tipo_servicio.adicciones = params[:adicciones]
+    @tipo_servicio.adiccionesTipoServicio = params[:adicciones]
     @tipo_servicio.cirugiasTipoServicio = params[:cirugias]
+    @tipo_servicio.discapacidadesTipoServicio = params[:discapacidades]
+    @tipo_servicio.estadoCivilesTipoServicio = params[:estado_civiles]
+    @tipo_servicio.grupoSanguineosTipoServicio = params[:grupo_sanguineos]
+    @tipo_servicio.habitosTipoServicio = params[:habitos]
+    @tipo_servicio.lesionesTipoServicio = params[:lesiones]
+    @tipo_servicio.ocupacionesTipoServicio = params[:ocupaciones]
+    @tipo_servicio.patologiasTipoServicio = params[:patologias]
+    @tipo_servicio.profesionesTipoServicio = params[:profesiones]
+    @tipo_servicio.sexosTipoServicio = params[:sexos]
+    @tipo_servicio.vacunasTipoServicio = params[:vacunas]
 
     respond_to do |format|
       if @tipo_servicio.update(tipo_servicio_params)
@@ -109,6 +129,6 @@ class TipoServiciosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tipo_servicio_params
-      params.require(:tipo_servicio).permit(:descripcion, :texto, :foto, :estatus, :tipo_atencion_id)
+      params.require(:tipo_servicio).permit(:descripcion, :texto, :foto, :estatus, :tipo_atencion_id, :categoria_id, :especialidad_id)
     end
 end

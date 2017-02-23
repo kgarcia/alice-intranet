@@ -1,5 +1,7 @@
 class TipoServicio < ApplicationRecord
 	belongs_to :tipo_atencion
+  belongs_to :categoria
+  belongs_to :especialidad
 
 	has_many :adiccion_tipo_servicios
   has_many :adicciones, :through => :adiccion_tipo_servicios
@@ -23,6 +25,8 @@ class TipoServicio < ApplicationRecord
   has_many :patologias, through: :patologia_tipo_servicios
   has_many :profesion_tipo_servicios
   has_many :profesiones, through: :profesion_tipo_servicios
+  has_many :sexo_tipo_servicios
+  has_many :sexos, through: :sexo_tipo_servicios
   has_many :vacuna_tipo_servicios
   has_many :vacunas, through: :vacuna_tipo_servicios
 
@@ -31,11 +35,11 @@ class TipoServicio < ApplicationRecord
 
   	after_save :save_adicciones, :save_cirugias, :save_discapacidades, :save_estado_civiles, :save_grupo_sanguineos,
                 :save_habitos, :save_lesiones, :save_ocupaciones, :save_patologias, :save_profesiones, :save_vacunas,
-                :save_criterios
+                :save_criterios, :save_sexos
 
     attr_reader :adiccionesTipoServicio, :cirugiasTipoServicio, :discapacidadesTipoServicio, :estadoCivilesTipoServicio, :grupoSanguineoTipoServicio,
                 :habitosTipoServicio, :lesionesTipoServicio, :ocupacionesTipoServicio, :patologiasTipoServicio, :profesionesTipoServicio, :vacunasTipoServicio,
-                :criteriosTipoServicio
+                :criteriosTipoServicio, :sexosTipoServicio
 
 
   	def adiccionesTipoServicio=(value)
@@ -81,6 +85,10 @@ class TipoServicio < ApplicationRecord
     def profesionesTipoServicio=(value)
       @profesionesTipoServicio = value
     end
+
+    def sexosTipoServicio=(value)
+      @sexosTipoServicio = value
+    end 
 
     def vacunasTipoServicio=(value)
       @vacunasTipoServicio = value
@@ -137,7 +145,7 @@ class TipoServicio < ApplicationRecord
    end
 
    private
-   def save_grupo_sanguineo
+   def save_grupo_sanguineos
     GrupoSanguineoTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
     if !@grupoSanguineosTipoServicio.nil?
         @grupoSanguineosTipoServicio.each do |grupo_sanguineo_id|
@@ -192,6 +200,16 @@ class TipoServicio < ApplicationRecord
     if !@profesionesTipoServicio.nil?
         @profesionesTipoServicio.each do |profesion_id|
           ProfesionTipoServicio.create(profesion_id: profesion_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+   private
+   def save_sexos
+    SexoTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@sexoTipoServicio.nil?
+        @sexoTipoServicio.each do |sexo_id|
+          SexoTipoServicio.create(sexo_id: sexo_id, tipo_servicio_id: self.id )
         end
      end
    end
