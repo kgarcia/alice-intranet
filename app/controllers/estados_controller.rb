@@ -4,21 +4,32 @@ class EstadosController < ApplicationController
   # GET /estados
   # GET /estados.json
   def index
-    @estados = Estado.all
+    @parametros = Estado.all
+    render "parametros_select/index"
   end
 
   # GET /estados/1
   # GET /estados/1.json
   def show
+    @parametro = Estado.find(params[:id])
+
+    render "parametros_select/edit"
   end
 
   # GET /estados/new
   def new
-    @estado = Estado.new
+    @parametro = Estado.new
+    @collection = Pais.all
+    @referencia = :pais_id
+
+    render "parametros_select/new"
   end
 
   # GET /estados/1/edit
   def edit
+    @parametro = Estado.find(params[:id])
+
+    render "parametros_select/edit"
   end
 
   # POST /estados
@@ -28,7 +39,7 @@ class EstadosController < ApplicationController
 
     respond_to do |format|
       if @estado.save
-        format.html { redirect_to @estado, notice: 'Estado was successfully created.' }
+        format.html { redirect_to edit_estado_path(@estado), notice: 'Estado was successfully created.' }
         format.json { render :show, status: :created, location: @estado }
       else
         format.html { render :new }
@@ -42,7 +53,7 @@ class EstadosController < ApplicationController
   def update
     respond_to do |format|
       if @estado.update(estado_params)
-        format.html { redirect_to @estado, notice: 'Estado was successfully updated.' }
+        format.html { redirect_to edit_estado_path(@estado), notice: 'Estado was successfully updated.' }
         format.json { render :show, status: :ok, location: @estado }
       else
         format.html { render :edit }

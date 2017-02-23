@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  turno: one
+  persona: one
+  usuario: one
+  fecha: 2017-02-22 21:49:30
+  tipo_pago: one
+  tipo_cita: one
+  estatus: 1
+
+two:
+  turno: two
+  persona: two
+  usuario: two
+  fecha: 2017-02-22 21:49:30
+  tipo_pago: two
+  tipo_cita: two
+  estatus: 1

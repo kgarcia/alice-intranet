@@ -36,7 +36,7 @@ class EvaluacionesController < ApplicationController
 
     respond_to do |format|
       if @evaluacion.save
-        format.html { redirect_to @evaluacion, notice: 'Evaluacion was successfully created.' }
+        format.html { redirect_to edit_evaluacion_path(@evaluacion), notice: 'Evaluacion was successfully created.' }
         format.json { render :show, status: :created, location: @evaluacion }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class EvaluacionesController < ApplicationController
   def update
     respond_to do |format|
       if @evaluacion.update(evaluacion_params)
-        format.html { redirect_to @evaluacion, notice: 'Evaluacion was successfully updated.' }
+        format.html { redirect_to edit_evaluacion_path(@evaluacion), notice: 'Evaluacion was successfully updated.' }
         format.json { render :show, status: :ok, location: @evaluacion }
       else
         format.html { render :edit }

@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222070133) do
-
+ActiveRecord::Schema.define(version: 20170223030651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +42,13 @@ ActiveRecord::Schema.define(version: 20170222070133) do
     t.index ["tipo_calificacion_id"], name: "index_calificaciones_on_tipo_calificacion_id", using: :btree
   end
 
+  create_table "categorias", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "cirugia_tipo_servicios", force: :cascade do |t|
     t.integer  "cirugia_id"
     t.integer  "tipo_servicio_id"
@@ -59,6 +65,23 @@ ActiveRecord::Schema.define(version: 20170222070133) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["tipo_cirugia_id"], name: "index_cirugias_on_tipo_cirugia_id", using: :btree
+  end
+
+  create_table "citas", force: :cascade do |t|
+    t.integer  "turno_id"
+    t.integer  "persona_id"
+    t.integer  "usuario_id"
+    t.datetime "fecha"
+    t.integer  "tipo_pago_id"
+    t.integer  "tipo_cita_id"
+    t.integer  "estatus"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["persona_id"], name: "index_citas_on_persona_id", using: :btree
+    t.index ["tipo_cita_id"], name: "index_citas_on_tipo_cita_id", using: :btree
+    t.index ["tipo_pago_id"], name: "index_citas_on_tipo_pago_id", using: :btree
+    t.index ["turno_id"], name: "index_citas_on_turno_id", using: :btree
+    t.index ["usuario_id"], name: "index_citas_on_usuario_id", using: :btree
   end
 
   create_table "ciudades", force: :cascade do |t|
@@ -103,14 +126,6 @@ ActiveRecord::Schema.define(version: 20170222070133) do
     t.index ["discapacidad_id"], name: "index_discapacidad_tipo_servicios_on_discapacidad_id", using: :btree
     t.index ["tipo_servicio_id"], name: "index_discapacidad_tipo_servicios_on_tipo_servicio_id", using: :btree
   end
-
-  create_table "dias", force: :cascade do |t|
-    t.string   "descripcion"
-    t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
 
   create_table "discapacidades", force: :cascade do |t|
     t.string   "descripcion"
@@ -385,6 +400,15 @@ ActiveRecord::Schema.define(version: 20170222070133) do
     t.index ["ubicacion_id"], name: "index_servicios_on_ubicacion_id", using: :btree
   end
 
+  create_table "sexo_tipo_servicios", force: :cascade do |t|
+    t.integer  "sexo_id"
+    t.integer  "tipo_servicio_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["sexo_id"], name: "index_sexo_tipo_servicios_on_sexo_id", using: :btree
+    t.index ["tipo_servicio_id"], name: "index_sexo_tipo_servicios_on_tipo_servicio_id", using: :btree
+  end
+
   create_table "sexos", force: :cascade do |t|
     t.string   "decripcion"
     t.string   "estatus"
@@ -521,9 +545,13 @@ ActiveRecord::Schema.define(version: 20170222070133) do
     t.integer  "foto_file_size"
     t.datetime "foto_updated_at"
     t.integer  "estatus"
+    t.integer  "categoria_id"
+    t.integer  "especialidad_id"
     t.integer  "tipo_atencion_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.index ["categoria_id"], name: "index_tipo_servicios_on_categoria_id", using: :btree
+    t.index ["especialidad_id"], name: "index_tipo_servicios_on_especialidad_id", using: :btree
     t.index ["tipo_atencion_id"], name: "index_tipo_servicios_on_tipo_atencion_id", using: :btree
   end
 
@@ -595,6 +623,11 @@ ActiveRecord::Schema.define(version: 20170222070133) do
   add_foreign_key "cirugia_tipo_servicios", "cirugias"
   add_foreign_key "cirugia_tipo_servicios", "tipo_servicios"
   add_foreign_key "cirugias", "tipo_cirugias"
+  add_foreign_key "citas", "personas"
+  add_foreign_key "citas", "tipo_citas"
+  add_foreign_key "citas", "tipo_pagos"
+  add_foreign_key "citas", "turnos"
+  add_foreign_key "citas", "usuarios"
   add_foreign_key "ciudades", "estados"
   add_foreign_key "criterio_tipo_servicios", "criterios"
   add_foreign_key "criterio_tipo_servicios", "tipo_servicios"
@@ -632,8 +665,12 @@ ActiveRecord::Schema.define(version: 20170222070133) do
   add_foreign_key "servicios", "especialistas"
   add_foreign_key "servicios", "tipo_servicios"
   add_foreign_key "servicios", "ubicaciones"
+  add_foreign_key "sexo_tipo_servicios", "sexos"
+  add_foreign_key "sexo_tipo_servicios", "tipo_servicios"
   add_foreign_key "tipo_servicio_vacunas", "tipo_servicios"
   add_foreign_key "tipo_servicio_vacunas", "vacunas"
+  add_foreign_key "tipo_servicios", "categorias"
+  add_foreign_key "tipo_servicios", "especialidades"
   add_foreign_key "tipo_servicios", "tipo_atenciones"
   add_foreign_key "turnos", "dias"
   add_foreign_key "turnos", "horarios"

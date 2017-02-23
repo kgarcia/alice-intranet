@@ -11,6 +11,10 @@ class CriteriosController < ApplicationController
   # GET /criterios/1
   # GET /criterios/1.json
   def show
+    @parametro = Criterio.find(params[:id])
+    @collection = TipoCriterio.all
+    @referencia = :tipo_criterio_id
+    render "parametros_select/edit"
   end
 
   # GET /criterios/new
@@ -36,7 +40,7 @@ class CriteriosController < ApplicationController
 
     respond_to do |format|
       if @criterio.save
-        format.html { redirect_to @criterio, notice: 'Criterio was successfully created.' }
+        format.html { redirect_to edit_criterio_path(@criterio), notice: 'Criterio was successfully created.' }
         format.json { render :show, status: :created, location: @criterio }
       else
         format.html { render :new }
@@ -50,7 +54,7 @@ class CriteriosController < ApplicationController
   def update
     respond_to do |format|
       if @criterio.update(criterio_params)
-        format.html { redirect_to @criterio, notice: 'Criterio was successfully updated.' }
+        format.html { redirect_to edit_criterio_path(@criterio), notice: 'Criterio was successfully updated.' }
         format.json { render :show, status: :ok, location: @criterio }
       else
         format.html { render :edit }
