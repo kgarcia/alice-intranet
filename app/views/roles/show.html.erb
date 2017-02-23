@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @rol.descripcion %>
+</p>
+<% @rol.option_menu.each do |opcion| %>
+<%# @rol.option_menus.each do |opcion| %>
+	<%= opcion.nombre %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_rol_path(@rol) %> |
+<%= link_to 'Back', roles_path %>

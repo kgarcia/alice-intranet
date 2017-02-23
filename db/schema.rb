@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170222070133) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -102,6 +103,14 @@ ActiveRecord::Schema.define(version: 20170222070133) do
     t.index ["discapacidad_id"], name: "index_discapacidad_tipo_servicios_on_discapacidad_id", using: :btree
     t.index ["tipo_servicio_id"], name: "index_discapacidad_tipo_servicios_on_tipo_servicio_id", using: :btree
   end
+
+  create_table "dias", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
 
   create_table "discapacidades", force: :cascade do |t|
     t.string   "descripcion"
@@ -274,6 +283,15 @@ ActiveRecord::Schema.define(version: 20170222070133) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "option_roles", force: :cascade do |t|
+    t.integer  "option_menu_id"
+    t.integer  "rol_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["option_menu_id"], name: "index_option_roles_on_option_menu_id", using: :btree
+    t.index ["rol_id"], name: "index_option_roles_on_rol_id", using: :btree
+  end
+
   create_table "paises", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -299,6 +317,20 @@ ActiveRecord::Schema.define(version: 20170222070133) do
     t.index ["tipo_patologia_id"], name: "index_patologias_on_tipo_patologia_id", using: :btree
   end
 
+  create_table "personas", force: :cascade do |t|
+    t.string   "cedula"
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "telefono"
+    t.string   "direccion"
+    t.date     "fecha_nacimiento"
+    t.integer  "sexo_id"
+    t.integer  "edad"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["sexo_id"], name: "index_personas_on_sexo_id", using: :btree
+  end
+
   create_table "preguntas", force: :cascade do |t|
     t.string   "descripcion"
     t.string   "estatus"
@@ -322,11 +354,42 @@ ActiveRecord::Schema.define(version: 20170222070133) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "sectores", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "servicios", force: :cascade do |t|
+    t.text     "descripcion"
+    t.integer  "ubicacion_id"
+    t.integer  "tipo_servicio_id"
+    t.integer  "especialista_id"
+    t.integer  "estatus"
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
+    t.float    "precio"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["especialista_id"], name: "index_servicios_on_especialista_id", using: :btree
+    t.index ["tipo_servicio_id"], name: "index_servicios_on_tipo_servicio_id", using: :btree
+    t.index ["ubicacion_id"], name: "index_servicios_on_ubicacion_id", using: :btree
+  end
+
+  create_table "sexos", force: :cascade do |t|
+    t.string   "decripcion"
+    t.string   "estatus"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tipo_adicciones", force: :cascade do |t|
@@ -497,6 +560,27 @@ ActiveRecord::Schema.define(version: 20170222070133) do
     t.index ["tipo_ubicacion_id"], name: "index_ubicaciones_on_tipo_ubicacion_id", using: :btree
   end
 
+  create_table "usuarios", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.integer  "rol_id"
+    t.integer  "persona_id"
+    t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
+    t.index ["persona_id"], name: "index_usuarios_on_persona_id", using: :btree
+    t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
+    t.index ["rol_id"], name: "index_usuarios_on_rol_id", using: :btree
+  end
+
   create_table "vacunas", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -537,11 +621,17 @@ ActiveRecord::Schema.define(version: 20170222070133) do
   add_foreign_key "motivos", "tipo_motivos"
   add_foreign_key "ocupacion_tipo_servicios", "ocupaciones"
   add_foreign_key "ocupacion_tipo_servicios", "tipo_servicios"
+  add_foreign_key "option_roles", "option_menus"
+  add_foreign_key "option_roles", "roles"
   add_foreign_key "patologia_tipo_servicios", "patologias"
   add_foreign_key "patologia_tipo_servicios", "tipo_servicios"
   add_foreign_key "patologias", "tipo_patologias"
+  add_foreign_key "personas", "sexos"
   add_foreign_key "profesion_tipo_servicios", "profesiones"
   add_foreign_key "profesion_tipo_servicios", "tipo_servicios"
+  add_foreign_key "servicios", "especialistas"
+  add_foreign_key "servicios", "tipo_servicios"
+  add_foreign_key "servicios", "ubicaciones"
   add_foreign_key "tipo_servicio_vacunas", "tipo_servicios"
   add_foreign_key "tipo_servicio_vacunas", "vacunas"
   add_foreign_key "tipo_servicios", "tipo_atenciones"
@@ -550,4 +640,6 @@ ActiveRecord::Schema.define(version: 20170222070133) do
   add_foreign_key "ubicaciones", "ciudades"
   add_foreign_key "ubicaciones", "sectores"
   add_foreign_key "ubicaciones", "tipo_ubicaciones"
+  add_foreign_key "usuarios", "personas"
+  add_foreign_key "usuarios", "roles"
 end

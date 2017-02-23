@@ -1,0 +1,2 @@
+class Sexo < ApplicationRecord
+end

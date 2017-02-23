@@ -18,6 +18,15 @@ class TipoServiciosController < ApplicationController
     @tipos_atencion = TipoAtencion.all
     @adicciones = Adiccion.all
     @cirugias = Cirugia.all
+    @discapacidades = Discapacidad.all
+    @estado_civiles = EstadoCivil.all
+    @grupo_sanguineos = GrupoSanguineo.all
+    @habitos = Habito.all
+    @lesiones = Lesion.all
+    @ocupaciones = Ocupacion.all
+    @patologias = Patologia.all
+    @profesiones = Profesion.all
+    @vacunas = Vacuna.all
   end
 
   # GET /tipo_servicios/1/edit
@@ -25,16 +34,33 @@ class TipoServiciosController < ApplicationController
     @tipos_atencion = TipoAtencion.all
     @adicciones = Adiccion.all
     @cirugias = Cirugia.all
-    puts @tipo_servicio.adiccion_tipo_servicios.inspect
-    puts @tipo_servicio.adiccions.inspect
+    @discapacidades = Discapacidad.all
+    @estado_civiles = EstadoCivil.all
+    @grupo_sanguineos = GrupoSanguineo.all
+    @habitos = Habito.all
+    @lesiones = Lesion.all
+    @ocupaciones = Ocupacion.all
+    @patologias = Patologia.all
+    @profesiones = Profesion.all
+    @vacunas = Vacuna.all
+
   end
 
   # POST /tipo_servicios
   # POST /tipo_servicios.json
   def create
     @tipo_servicio = TipoServicio.new(tipo_servicio_params)
-    @tipo_servicio.adicciones = params[:adicciones]
+    @tipo_servicio.adiccionesTipoServicio = params[:adicciones]
     @tipo_servicio.cirugiasTipoServicio = params[:cirugias]
+    @tipo_servicio.discapacidadesTipoServicio = params[:discapacidades]
+    @tipo_servicio.estadoCivilesTipoServicio = params[:estado_civiles]
+    @tipo_servicio.grupoSanguineosTipoServicio = params[:grupo_sanguineos]
+    @tipo_servicio.habitosTipoServicio = params[:habitos]
+    @tipo_servicio.lesionesTipoServicio = params[:lesiones]
+    @tipo_servicio.ocupacionesTipoServicio = params[:ocupaciones]
+    @tipo_servicio.patologiasTipoServicio = params[:patologias]
+    @tipo_servicio.profesionesTipoServicio = params[:profesiones]
+    @tipo_servicio.vacunasTipoServicio = params[:vacunas]
 
     respond_to do |format|     
       if @tipo_servicio.save
@@ -53,7 +79,7 @@ class TipoServiciosController < ApplicationController
   def update
     @tipo_servicio.adicciones = params[:adicciones]
     @tipo_servicio.cirugiasTipoServicio = params[:cirugias]
-    
+
     respond_to do |format|
       if @tipo_servicio.update(tipo_servicio_params)
         format.html { redirect_to @tipo_servicio, notice: 'Tipo servicio was successfully updated.' }
@@ -83,6 +109,6 @@ class TipoServiciosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tipo_servicio_params
-      params.require(:tipo_servicio).permit(:descripcion, :texto, :foto, :estatus, :tipo_atencion_id, :adicciones, :cirugias)
+      params.require(:tipo_servicio).permit(:descripcion, :texto, :foto, :estatus, :tipo_atencion_id)
     end
 end

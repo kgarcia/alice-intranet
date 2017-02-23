@@ -5,6 +5,12 @@ Myapp::Application.routes.draw do
   resources :criterio_tipo_servicios
   resources :calificaciones
   resources :criterios
+
+  resources :servicios
+  resources :sexos
+  resources :personas
+  resources :roles
+  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations"}
   resources :eventualidades
   resources :turnos
   resources :horarios
@@ -48,7 +54,6 @@ Myapp::Application.routes.draw do
   resources :habitos
   resources :tipo_habitos
   resources :option_menus
-  resources :sexos
 
   get "home/index"
   get "home/minor"
