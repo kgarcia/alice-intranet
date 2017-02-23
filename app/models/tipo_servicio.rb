@@ -39,7 +39,7 @@ class TipoServicio < ApplicationRecord
 
     attr_reader :adiccionesTipoServicio, :cirugiasTipoServicio, :discapacidadesTipoServicio, :estadoCivilesTipoServicio, :grupoSanguineoTipoServicio,
                 :habitosTipoServicio, :lesionesTipoServicio, :ocupacionesTipoServicio, :patologiasTipoServicio, :profesionesTipoServicio, :vacunasTipoServicio,
-                :criteriosTipoServicio, :criteriosTipoServicio
+                :criteriosTipoServicio, :sexosTipoServicio
 
 
   	def adiccionesTipoServicio=(value)
@@ -145,7 +145,7 @@ class TipoServicio < ApplicationRecord
    end
 
    private
-   def save_grupo_sanguineo
+   def save_grupo_sanguineos
     GrupoSanguineoTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
     if !@grupoSanguineosTipoServicio.nil?
         @grupoSanguineosTipoServicio.each do |grupo_sanguineo_id|

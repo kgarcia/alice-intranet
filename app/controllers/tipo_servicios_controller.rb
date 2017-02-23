@@ -68,7 +68,7 @@ class TipoServiciosController < ApplicationController
     @tipo_servicio.ocupacionesTipoServicio = params[:ocupaciones]
     @tipo_servicio.patologiasTipoServicio = params[:patologias]
     @tipo_servicio.profesionesTipoServicio = params[:profesiones]
-    @tipo_servicio.sexoTipoServicio = params[:sexos]
+    @tipo_servicio.sexosTipoServicio = params[:sexos]
     @tipo_servicio.vacunasTipoServicio = params[:vacunas]
 
 
@@ -97,7 +97,7 @@ class TipoServiciosController < ApplicationController
     @tipo_servicio.ocupacionesTipoServicio = params[:ocupaciones]
     @tipo_servicio.patologiasTipoServicio = params[:patologias]
     @tipo_servicio.profesionesTipoServicio = params[:profesiones]
-    @tipo_servicio.sexoTipoServicio = params[:sexos]
+    @tipo_servicio.sexosTipoServicio = params[:sexos]
     @tipo_servicio.vacunasTipoServicio = params[:vacunas]
 
     respond_to do |format|
