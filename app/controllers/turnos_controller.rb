@@ -88,6 +88,6 @@ class TurnosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def turno_params
-      params.require(:turno).permit(:descripcion, :hora_inicio, :hora_fin, :estatus, :dia_id, :horario_id)
+      params.require(:turno).permit(:descripcion, :hora_inicio, :hora_fin, :estatus, :dia_id, :horario_id, :tipo_turno_id)
     end
 end

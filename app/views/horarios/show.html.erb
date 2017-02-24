@@ -1,72 +1,64 @@
-<p id="notice"><%= notice %></p>
+      <p id="notice"><%= notice %></p>
+      <div class="ibox-content">
+        <p>
+          <strong>Servicio/Consulta :</strong>
+          <%= @horario.descripcion %>
+        </p>
+        <p>
+          <strong>Tipo horario:</strong>
+          <%= @horario.tipo_horario.descripcion %>
+        </p>
+        <p>
+          <%  if @horario.tipo_horario.id == 2  then %>
+          <strong>Tiempo promedio de atencion(min):</strong>
+          <%= @horario.limite_horario %>
+          <%else %>
+          <strong>Cantidad de pacientes:</strong>
+          <%= @horario.limite_horario %>
+          <%end %>
+        </p>
+        <%= link_to link_to 'Turno', new_turno_path , :class => "btn btn-primary btn-sm fa fa-plus" %> <br><br> 
+        <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+          <thead>
+            <tr>
+              <th>Hora Inicio</th>
+              <th>Hora Fin</th>  
+              <th>Dia</th> 
+              <th colspan="1"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @turnos.each do |turno| %>
+            <tr>
+              <td><%= turno.hora_inicio.strftime("%H:%M") %></td>
+              <td><%= turno.hora_fin.strftime("%H:%M")%> </td>
+              <td><%=turno.tipodia.descripcion%></td>
+              <td><%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+                <%= link_to '', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+              </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5">
+                  <ul class="pagination pull-right"></ul>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <br>
+        <div id="calendar"> </div>
+<script>
+    $('#calendar').fullCalendar({
+      events: <%= @events.to_json.html_safe %>
+    })
+</script>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('.table').footable();
+          });
 
-<p>
-  <strong>Horario:</strong>
-  <%= @horario.descripcion %>
-</p>
-<p>
-  <strong>Limite de personas/tiempo promedio:</strong>
-  <%= @horario.limite_horario %>
-</p>
+        </script>
 
-<p>
-  <strong>Tipo horario:</strong>
-  <%= @horario.tipo_horario.descripcion %>
-</p>
-<div class="ibox-content">
 
- <table >
-  <thead>
-    <tr>
-
-             <% @dias.each do |dia| %>
-      <th> <%=dia.descripcion%></th>
-          <%end%>
-     
-      <th colspan="6"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @turnos.each do |turno| %>
-      <%if(turno.tipodia.descripcion== "LUNES")%>
-       <tr>
-        <td><%= turno.hora_inicio.strftime("%H:%M") %>
-        <%= turno.hora_fin.strftime("%H:%M") %>
-        <%=turno.horario.descripcion%>
-        <%=turno.tipodia.descripcion%>
-        <%=turno.descripcion%>
-        </td>
-        <%end%>
-       <%if(turno.tipodia.descripcion== "MARTES")%>
-      
-        <td><%= turno.hora_inicio.strftime("%H:%M") %>
-        <%= turno.hora_fin.strftime("%H:%M") %>
-        <%=turno.horario.descripcion%>
-        <%=turno.tipodia.descripcion%>
-        <%=turno.descripcion%>
-        </td>
-        
-      
-        <%end%>
-        <%if(turno.tipodia.descripcion== "MIERCOLES")%>
-        <td><%= turno.hora_inicio.strftime("%H:%M") %>
-        <%= turno.hora_fin.strftime("%H:%M") %>
-        <%=turno.horario.descripcion%>
-        <%=turno.descripcion%>
-        <%=turno.tipodia.descripcion%></td>
-        
-         </tr>
-        <%end%>
-      
-        
-       
-     
-    <% end %>
-  </tbody>
-</table>
-
-</div>
-
-<%= link_to 'Edit', edit_horario_path(@horario) %> |
-<%= link_to 'Back', horarios_path %>

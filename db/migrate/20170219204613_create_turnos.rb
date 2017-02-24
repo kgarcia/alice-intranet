@@ -7,7 +7,7 @@ class CreateTurnos < ActiveRecord::Migration[5.0]
       t.integer :estatus
       t.references :dia, foreign_key: true
       t.references :horario, foreign_key: true
-
+      t.references :tipo_turno, foreign_key: true
       t.timestamps
     end
   end

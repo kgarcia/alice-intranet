@@ -81,6 +81,6 @@ class HorariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def horario_params
-      params.require(:horario).permit(:descripcion, :tipo_horario_id, :estatus, :limite_horario)
+      params.require(:horario).permit(:descripcion, :tipo_horario_id, :estatus)
     end
 end
