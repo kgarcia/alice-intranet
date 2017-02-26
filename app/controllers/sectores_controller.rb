@@ -4,21 +4,30 @@ class SectoresController < ApplicationController
   # GET /sectores
   # GET /sectores.json
   def index
-    @sectores = Sector.all
+    @parametros = Sector.all
+
+    render "parametros/index"
   end
 
   # GET /sectores/1
   # GET /sectores/1.json
   def show
+    @parametro = Sector.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /sectores/new
   def new
-    @sector = Sector.new
+    @parametro = Sector.new
+    render "parametros/new"
   end
 
   # GET /sectores/1/edit
   def edit
+    @parametro = Sector.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /sectores
@@ -28,7 +37,7 @@ class SectoresController < ApplicationController
 
     respond_to do |format|
       if @sector.save
-        format.html { redirect_to @sector, notice: 'Sector was successfully created.' }
+        format.html { redirect_to edit_sector_path(@sector), notice: 'Sector was successfully created.' }
         format.json { render :show, status: :created, location: @sector }
       else
         format.html { render :new }
@@ -42,7 +51,7 @@ class SectoresController < ApplicationController
   def update
     respond_to do |format|
       if @sector.update(sector_params)
-        format.html { redirect_to @sector, notice: 'Sector was successfully updated.' }
+        format.html { redirect_to edit_sector_path(@sector), notice: 'Sector was successfully updated.' }
         format.json { render :show, status: :ok, location: @sector }
       else
         format.html { render :edit }

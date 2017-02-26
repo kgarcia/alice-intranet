@@ -1,6 +1,22 @@
 Myapp::Application.routes.draw do
 
 
+
+  resources :eventos
+  resources :tipo_eventos
+  resources :busquedas
+  resources :tipo_busquedas
+  resources :categorias
+  resources :citas
+  resources :evaluaciones
+  resources :criterio_tipo_servicios
+  resources :calificaciones
+  resources :criterios
+  resources :servicios
+  resources :sexos
+  resources :personas
+  resources :roles
+  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations", sessions: "usuarios/sessions"}
   resources :eventualidades
   resources :turnos
   resources :horarios
@@ -44,7 +60,6 @@ Myapp::Application.routes.draw do
   resources :habitos
   resources :tipo_habitos
   resources :option_menus
-  resources :sexos
 
   get "home/index"
   get "home/minor"

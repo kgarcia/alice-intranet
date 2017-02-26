@@ -1,0 +1,1 @@
+json.array! @calificaciones, partial: 'calificaciones/calificacion', as: :calificacion

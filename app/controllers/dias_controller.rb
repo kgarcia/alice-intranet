@@ -38,7 +38,7 @@ class DiasController < ApplicationController
 
     respond_to do |format|
       if @dia.save
-        format.html { redirect_to @dia, notice: 'Dia was successfully created.' }
+        format.html { redirect_to edit_dia_path(@dia), notice: 'Dia was successfully created.' }
         format.json { render :show, status: :created, location: @dia }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class DiasController < ApplicationController
   def update
     respond_to do |format|
       if @dia.update(dia_params)
-        format.html { redirect_to @dia, notice: 'Dia was successfully updated.' }
+        format.html { redirect_to edit_dia_path(@dia), notice: 'Dia was successfully updated.' }
         format.json { render :show, status: :ok, location: @dia }
       else
         format.html { render :edit }

@@ -14,7 +14,7 @@ class TipoEvaluacionesController < ApplicationController
   def show
     @parametro = TipoEvaluacion.find(params[:id])
 
-    render "parametros/show"
+    render "parametros/edit"
   end
 
   # GET /tipo_evaluaciones/new
@@ -39,7 +39,7 @@ class TipoEvaluacionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_evaluacion.save
-        format.html { redirect_to action:"index", notice: 'Tipo evaluacion was successfully created.' }
+        format.html { redirect_to edit_tipo_evaluacion_path(@tipo_evaluacion), notice: 'Tipo evaluacion was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_evaluacion }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class TipoEvaluacionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_evaluacion.update(tipo_evaluacion_params)
-        format.html { redirect_to action:"index", notice: 'Tipo evaluacion was successfully updated.' }
+        format.html { redirect_to edit_tipo_evaluacion_path(@tipo_evaluacion), notice: 'Tipo evaluacion was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_evaluacion }
       else
         format.html { render :edit }

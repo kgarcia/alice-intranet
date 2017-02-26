@@ -1,0 +1,47 @@
+<%= form_for(busqueda) do |f| %>
+  <% if busqueda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(busqueda.errors.count, "error") %> prohibited this busqueda from being saved:</h2>
+
+      <ul>
+      <% busqueda.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo_busqueda_id %>
+    <%= f.text_field :tipo_busqueda_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :especialidad_id %>
+    <%= f.text_field :especialidad_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :especialista_id %>
+    <%= f.text_field :especialista_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo_servicio_id %>
+    <%= f.text_field :tipo_servicio_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -68,5 +68,6 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'cita', 'citas'
 	inflect.irregular 'atencion', 'atenciones'
 	inflect.irregular 'sector', 'sectores'
+	inflect.irregular 'categoria', 'categorias'
 
 end

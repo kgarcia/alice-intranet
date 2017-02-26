@@ -3,18 +3,18 @@
             <div class="navbar-header">
                 <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
             </div>
+            <% if usuario_signed_in? %>
             <ul class="nav navbar-top-links navbar-right">
               <li>
                     <div class="chip">
                         <%= image_tag "a6.jpg" , :style => " width: 20px; heigth: 20px;" %>
-                         Alicia trinidad
+                         <%= current_usuario.email %>
                     </div>
                  </li>
                 <li>
-                    <a href="#">
-                        <i class="fa fa-sign-out"></i> Cerrar Sesión
-                    </a>
+                    <%= link_to 'Cerrar Sesión', destroy_usuario_session_path, :class =>"fa fa-sign-out" %> 
                 </li>
             </ul>
+            <% end %>
         </nav>
     </div>
