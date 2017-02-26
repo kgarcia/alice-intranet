@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo eventualidad:</strong>
+  <%= @eventualidad.tipo_eventualidad %>
+</p>
+
+<p>
+  <strong>Motivo:</strong>
+  <%= @eventualidad.motivo %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @eventualidad.descripcion %>
+</p>
+
+
+<p>
+  <strong>Fecha inicio:</strong>
+  <%= @eventualidad.fecha_inicio %>
+</p>
+
+<p>
+  <strong>Fecha fin:</strong>
+  <%= @eventualidad.fecha_fin %>
+</p>
+
+<%= link_to 'Edit', edit_eventualidad_path(@eventualidad) %> |
+<%= link_to 'Back', eventualidades_path %>

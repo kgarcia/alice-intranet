@@ -4,21 +4,44 @@ class SectoresController < ApplicationController
   # GET /sectores
   # GET /sectores.json
   def index
+<<<<<<< HEAD
     @sectores = Sector.all
+=======
+    @parametros = Sector.all
+
+    render "parametros/index"
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /sectores/1
   # GET /sectores/1.json
   def show
+<<<<<<< HEAD
+=======
+    @parametro = Sector.find(params[:id])
+
+    render "parametros/edit"
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /sectores/new
   def new
+<<<<<<< HEAD
     @sector = Sector.new
+=======
+    @parametro = Sector.new
+    render "parametros/new"
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /sectores/1/edit
   def edit
+<<<<<<< HEAD
+=======
+    @parametro = Sector.find(params[:id])
+
+    render "parametros/edit"
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # POST /sectores
@@ -28,7 +51,11 @@ class SectoresController < ApplicationController
 
     respond_to do |format|
       if @sector.save
+<<<<<<< HEAD
         format.html { redirect_to @sector, notice: 'Sector was successfully created.' }
+=======
+        format.html { redirect_to edit_sector_path(@sector), notice: 'Sector was successfully created.' }
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
         format.json { render :show, status: :created, location: @sector }
       else
         format.html { render :new }
@@ -42,7 +69,11 @@ class SectoresController < ApplicationController
   def update
     respond_to do |format|
       if @sector.update(sector_params)
+<<<<<<< HEAD
         format.html { redirect_to @sector, notice: 'Sector was successfully updated.' }
+=======
+        format.html { redirect_to edit_sector_path(@sector), notice: 'Sector was successfully updated.' }
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
         format.json { render :show, status: :ok, location: @sector }
       else
         format.html { render :edit }

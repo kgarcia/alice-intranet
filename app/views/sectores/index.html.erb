@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p id="notice"><%= notice %></p>
 
 <h1>Sectores</h1>
@@ -27,3 +28,51 @@
 <br>
 
 <%= link_to 'New Sector', new_sector_path %>
+=======
+<%= csrf_meta_tag %>
+<p id="notice"><%= notice %></p>
+
+<div class="ibox-content">
+<%= link_to @sectores.new.class.name, new_polymorphic_url(@sectores.new), :class => "btn btn-primary btn-sm fa fa-plus" %>
+ <br><br>                 
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
+      <tr>
+        <th data-breakpoints="xs" data-type="number">Descripción</th>
+        <th>Estatus</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sectores.each do |sector| %>
+        <tr>
+          <td><%= sector.descripcion %></td>
+          <td><%= sector.estatus %></td>
+          <td>
+            <%= link_to '', edit_polymorphic_url(sector), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+            <%= link_to '', sector, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %>            
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+        <tr>
+            <td colspan="5">
+                <ul class="pagination pull-right"></ul>
+            </td>
+        </tr>
+      </tfoot>
+  </table>
+</div>
+<br>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+</script>
+
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157

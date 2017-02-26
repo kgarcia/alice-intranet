@@ -3,6 +3,7 @@
 
 <div class="ibox-content">
 <%= link_to @parametros.new.class.name, new_polymorphic_url(@parametros.new), :class => "btn btn-primary btn-sm fa fa-plus" %>
+<<<<<<< HEAD
  <br><br> 
                  <!--<input type="text" class="form-control input-sm m-b-xs" id="filter"
                        placeholder="Search in table">-->
@@ -14,6 +15,16 @@
         <th>Ciudad</th>
         <th>Tipo de ubicación</th>
         <th>Estatus</th>
+=======
+ <br><br>                 
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
+      <tr>
+        <th data-sorted="true">Ciudad</th>
+        <th>Sector</th>
+        <th>Tipo de ubicación</th>
+        <th data-breakpoints="xs">Descripción</th>
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
         <th colspan="1"></th>
       </tr>
     </thead>
@@ -21,6 +32,7 @@
     <tbody>
       <% @parametros.each do |parametro| %>
         <tr>
+<<<<<<< HEAD
           <td><%= parametro.descripcion %></td>
           <td><%= parametro.sector %></td>
           <td><%= parametro.ciudad %></td>
@@ -31,17 +43,36 @@
             <%= link_to '', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm fa fa-pencil" %>
             <%= link_to '', polymorphic_url(parametro), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %>
               
+=======
+          <td><%= parametro.ciudad.descripcion %></td>        
+          <td><%= parametro.sector.descripcion %></td>
+          <td><%= parametro.tipo_ubicacion.descripcion   %></td>
+          <td><%= parametro.descripcion %></td>
+          <td>
+            <%= link_to '', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+            <%= link_to '', parametro, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %>
+            
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
           </td>
         </tr>
       <% end %>
     </tbody>
       <tfoot>
+<<<<<<< HEAD
                     <tr>
                         <td colspan="5">
                             <ul class="pagination pull-right"></ul>
                         </td>
                     </tr>
                     </tfoot>
+=======
+        <tr>
+            <td colspan="5">
+                <ul class="pagination pull-right"></ul>
+            </td>
+        </tr>
+      </tfoot>
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   </table>
 </div>
 <br>

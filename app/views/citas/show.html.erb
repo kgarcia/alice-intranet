@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Turno:</strong>
+  <%= @cita.turno %>
+</p>
+
+<p>
+  <strong>Persona:</strong>
+  <%= @cita.persona %>
+</p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @cita.usuario %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @cita.fecha %>
+</p>
+
+<p>
+  <strong>Tipo pago:</strong>
+  <%= @cita.tipo_pago %>
+</p>
+
+<p>
+  <strong>Tipo cita:</strong>
+  <%= @cita.tipo_cita %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @cita.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_cita_path(@cita) %> |
+<%= link_to 'Back', citas_path %>

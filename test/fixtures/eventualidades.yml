@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  estatus: 1
+  tipo_eventualidad: one
+  motivo: one
+  fecha_inicio: 2017-02-19 20:43:34
+  fecha_fin: 2017-02-19 20:43:34
+
+two:
+  descripcion: MyString
+  estatus: 1
+  tipo_eventualidad: two
+  motivo: two
+  fecha_inicio: 2017-02-19 20:43:34
+  fecha_fin: 2017-02-19 20:43:34

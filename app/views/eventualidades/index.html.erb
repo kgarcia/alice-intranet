@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Eventualidades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th data-sorted="true">Tipo eventualidad</th>
+      <th>Motivo</th>
+      <th>Descripcion</th>
+      <th>Fecha inicio</th>
+      <th>Fecha fin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @eventualidades.each do |eventualidad| %>
+      <tr>
+        <td><%= eventualidad.tipo_eventualidad %></td>
+        <td><%= eventualidad.motivo %></td>
+        <td><%= eventualidad.descripcion %></td>
+        <td><%= eventualidad.fecha_inicio %></td>
+        <td><%= eventualidad.fecha_fin %></td>
+        <td><%= link_to 'Show', eventualidad %></td>
+        <td><%= link_to 'Edit', edit_eventualidad_path(eventualidad) %></td>
+        <td><%= link_to 'Destroy', eventualidad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Eventualidad', new_eventualidad_path %>

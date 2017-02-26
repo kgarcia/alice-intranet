@@ -1,0 +1,1 @@
+json.array! @tipo_evaluaciones, partial: 'tipo_evaluaciones/tipo_evaluacion', as: :tipo_evaluacion

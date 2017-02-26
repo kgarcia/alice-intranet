@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tipo Criterio</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Estatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tipo_criterio.each do |tipo_criterio| %>
+      <tr>
+        <td><%= tipo_criterio.descripcion %></td>
+        <td><%= tipo_criterio.estatus %></td>
+        <td><%= link_to 'Show', tipo_criterio %></td>
+        <td><%= link_to 'Edit', edit_tipo_criterio_path(tipo_criterio) %></td>
+        <td><%= link_to 'Destroy', tipo_criterio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tipo Criterio', new_tipo_criterio_path %>

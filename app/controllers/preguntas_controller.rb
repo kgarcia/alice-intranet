@@ -14,7 +14,13 @@ class PreguntasController < ApplicationController
 
   # GET /preguntas/new
   def new
+<<<<<<< HEAD
     @pregunta = Pregunta.new
+=======
+    @parametro = Pregunta.new
+    @sexos = Sexo.all
+    render "parametros/new"
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /preguntas/1/edit

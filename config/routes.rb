@@ -1,12 +1,49 @@
 Myapp::Application.routes.draw do
 
 
+<<<<<<< HEAD
   resources :preguntas
   resources :tipo_preguntas
   resources :opiniones
   resources :tipo_opiniones
   resources :noticias
   resources :tipo_noticias
+=======
+
+  resources :eventos
+  resources :tipo_eventos
+  resources :busquedas
+  resources :tipo_busquedas
+  resources :categorias
+  resources :citas
+  resources :evaluaciones
+  resources :criterio_tipo_servicios
+  resources :calificaciones
+  resources :criterios
+  resources :servicios
+  resources :sexos
+  resources :personas
+  resources :roles
+  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations", sessions: "usuarios/sessions"}
+  resources :eventualidades
+  resources :turnos
+  resources :horarios
+  resources :dias
+  resources :tipo_criterios
+  resources :tipo_horarios
+  resources :tipo_citas
+  resources :tipo_criterio
+  resources :tipo_calificaciones
+  resources :tipo_evaluaciones
+  resources :tipo_pagos
+  resources :tipo_eventualidades
+  resources :motivos
+  resources :tipo_motivos
+  resources :tipo_servicios
+  resources :tipo_atenciones
+  resources :especialistas
+  resources :especialidades
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   resources :ubicaciones
   resources :sectores
   resources :sectors
@@ -32,7 +69,6 @@ Myapp::Application.routes.draw do
   resources :habitos
   resources :tipo_habitos
   resources :option_menus
-  resources :sexos
 
   get "home/index"
   get "home/minor"

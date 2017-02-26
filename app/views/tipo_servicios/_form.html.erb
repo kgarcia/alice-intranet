@@ -1,0 +1,255 @@
+<div class="row">   
+   <div class="col-lg-10 col-lg-offset-1">
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h5>Tipo de Servicio</h5>
+              </div>
+          </div>
+          <div class="ibox-content">
+
+          <%= form_for @tipo_servicio, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
+                  <% if @tipo_servicio.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@tipo_servicio.errors.count, "error") %> prohibited this parametro from being saved:</h2>
+
+                      <ul>
+                      <% @tipo_servicio.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#datos">Datos basicos</a></li>
+                <li><a data-toggle="tab" href="#texto">Texto</a></li>
+                <li><a data-toggle="tab" href="#perfil-persona">Perfil de Pacientes</a></li>
+                <li><a data-toggle="tab" href="#perfil-medico">Perfil Medico</a></li>
+                <li><a data-toggle="tab" href="#perfil-otros">Otros</a></li>
+              </ul>
+
+              <div class="tab-content">
+
+                <div id="datos" class="tab-pane fade in active">
+                  <h3>Datos Basicos</h3>
+
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Tipo de Atencion</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select(:tipo_atencion_id, @tipos_atencion, :id, :descripcion, {},{:class => "form-control"}) %>
+                    </div>
+                    
+                  </div>
+
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Categoria</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select(:categoria_id, @categorias, :id, :descripcion, {},{:class => "form-control"}) %>
+                    </div>
+                    
+                  </div>
+
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Especialidad</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select(:especialidad_id, @especialidades, :id, :descripcion, {},{:class => "form-control"}) %>
+                    </div>
+                    
+                  </div> 
+
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label">Nombre</label>
+
+                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                       </div>
+                    </div>
+
+                   <div class="form-group">
+                      <label class="col-lg-2 control-label">Foto</label>
+
+                      <div class="col-lg-10"><%= f.file_field :foto, :class => "form-control" %>
+                       </div>
+                    </div>
+                </div>
+
+                <div id="texto" class="tab-pane fade">
+                  <h3>Texto</h3>
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label">Texto</label>
+
+                      <div class="col-lg-10"><%= f.text_area :texto, :class => "tinymce form-control" %>
+                       </div>
+
+                      <%= tinymce %>
+                    </div>
+                </div>
+
+                <div id="perfil-persona" class="tab-pane fade">
+                  <h3>Perfil de Paciente</h3>
+                  <ul class="nav nav-tabs">
+                    <li><a data-toggle="tab" href="#estado_civiles">Estado Civil</a></li>
+                    <li><a data-toggle="tab" href="#ocupaciones">Ocupaciones</a></li>
+                    <li><a data-toggle="tab" href="#profesiones">Profesiones</a></li>
+                    <li><a data-toggle="tab" href="#sexos">Sexo</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+
+                    <div id="estado_civiles" class="tab-pane fade in">
+                      <h3>Estados Civiles</h3>
+                      <div>
+                        <% @estado_civiles.each do |estado_civil| %>
+                            <%= check_box_tag('estado_civiles[]', estado_civil.id, @tipo_servicio.estado_civiles.include?(estado_civil)) %> <%= estado_civil.descripcion %>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                    <div id="ocupaciones" class="tab-pane fade in">
+                      <h3>Ocupaciones</h3>
+                      <div>
+                        <% @ocupaciones.each do |ocupacion| %>
+                            <%= check_box_tag('ocupaciones[]', ocupacion.id, @tipo_servicio.ocupaciones.include?(ocupacion)) %> <%= ocupacion.descripcion %>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                    <div id="profesiones" class="tab-pane fade in">
+                      <h3>Profesiones</h3>
+                      <div>
+                        <% @profesiones.each do |profesion| %>
+                            <%= check_box_tag('profesions[]', profesion.id, @tipo_servicio.profesiones.include?(profesion)) %> <%= profesion.descripcion %>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                    <div id="sexos" class="tab-pane fade in">
+                      <h3>Sexos</h3>
+                      <div>
+                        <% @sexos.each do |sexo| %>
+                            <%= check_box_tag('sexos[]', sexo.id, @tipo_servicio.sexos.include?(sexo)) %> <%= sexo.descripcion %>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                  </div>
+                </div>
+
+                <div id="perfil-medico" class="tab-pane fade">
+                  <h3>Perfil del Tipo de Servicio</h3>
+                  <ul class="nav nav-tabs">
+                    <li><a data-toggle="tab" href="#cirugias">Cirugias</a></li>
+                    <li><a data-toggle="tab" href="#discapacidades">Discapacidades</a></li>
+                    <li><a data-toggle="tab" href="#grupo_sanguineos">Grupos Sanguineos</a></li>
+                    <li><a data-toggle="tab" href="#lesiones">Lesiones</a></li>
+                    <li><a data-toggle="tab" href="#patologias">Patologias</a></li>
+                    <li><a data-toggle="tab" href="#vacunas">Vacunas</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+
+                    <div id="cirugias" class="tab-pane fade in">
+                      <h3>Cirugias</h3>
+                      <div>
+                        <% @cirugias.each do |cirugia| %>
+                            <%= check_box_tag('cirugias[]', cirugia.id, @tipo_servicio.cirugias.include?(cirugia)) %> <%= cirugia.descripcion %>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                    <div id="discapacidades" class="tab-pane fade in">
+                      <h3>Discapacidades</h3>
+                      <div>
+                        <% @discapacidades.each do |discapacidad| %>
+                            <%= check_box_tag('discapacidades[]', discapacidad.id, @tipo_servicio.discapacidades.include?(discapacidad)) %> <%= discapacidad.descripcion %>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                    <div id="grupo_sanguineos" class="tab-pane fade in">
+                      <h3>Grupos Sanguineos</h3>
+                      <div>
+                        <% @grupo_sanguineos.each do |grupo_sanguineo| %>
+                            <%= check_box_tag('grupo_sanguineos[]', grupo_sanguineo.id, @tipo_servicio.grupo_sanguineos.include?(grupo_sanguineo)) %> <%= grupo_sanguineo.descripcion %>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                    <div id="lesiones" class="tab-pane fade in">
+                      <h3>Lesiones</h3>
+                      <div>
+                        <% @lesiones.each do |lesion| %>
+                            <%= check_box_tag('lesiones[]', lesion.id, @tipo_servicio.lesiones.include?(lesion)) %> <%= lesion.descripcion %>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                    <div id="patologias" class="tab-pane fade in">
+                      <h3>Patologias</h3>
+                      <div>
+                        <% @patologias.each do |patologia| %>
+                            <%= check_box_tag('patologias[]', patologia.id, @tipo_servicio.patologias.include?(patologia)) %> <%= patologia.descripcion %>
+                        <% end %>
+                      </div>  
+                    </div>
+
+
+                    <div id="vacunas" class="tab-pane fade in">
+                      <h3>Vacunas</h3>
+                      <div>
+                        <% @vacunas.each do |vacuna| %>
+                            <%= check_box_tag('vacunas[]', vacuna.id, @tipo_servicio.vacunas.include?(vacuna)) %> <%= vacuna.descripcion %>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                  </div>
+                </div>
+
+                <div id="perfil-otros" class="tab-pane fade">
+                  <h3>Perfil del Tipo de Servicio</h3>
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#adicciones">Adicciones</a></li>
+                    <li><a data-toggle="tab" href="#habitos">Habitos</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <div id="adicciones" class="tab-pane fade in active">
+                      <h3>Adicciones</h3>
+                      <div>
+
+                        <% @profesiones.each do |profesion| %>
+                            <%= check_box_tag('profesiones[]', profesion.id, @tipo_servicio.profesiones.include?(profesion)) %> <%= profesion.descripcion %>
+
+                        <% @adicciones.each do |adiccion| %>
+                            <%= check_box_tag('adicciones[]', adiccion.id, @tipo_servicio.adicciones.include?(adiccion)) %> <%= adiccion.descripcion %>
+
+                        <% end %>
+                      </div>  
+                    </div>
+
+                    <div id="habitos" class="tab-pane fade in">
+                      <h3>Cirugias</h3>
+                      <div>
+                        <% @habitos.each do |habito| %>
+                            <%= check_box_tag('habitos[]', habito.id, @tipo_servicio.habitos.include?(habito)) %> <%= habito.descripcion %>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                  </div>
+                </div>
+
+
+              </div>
+
+          
+              <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                      <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>
+                     
+                  </div>
+              </div>
+          <% end %>
+          </div>
+  </div>
+</div>

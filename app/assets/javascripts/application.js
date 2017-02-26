@@ -10,10 +10,21 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery/jquery-3.1.1.min.js
+//= require jquery2.js
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require_tree .
+<<<<<<< HEAD
 //= require footable/footable.min.js
+=======
+//= require footable/footable.min.js
+
+//= require datapicker/bootstrap-datepicker.js
+//= require moment
+//= require moment/es
+//= require bootstrap-datetimepicker
+
+//= require tinymce
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157

@@ -1,0 +1,1 @@
+json.partial! "eventualidades/eventualidad", eventualidad: @eventualidad

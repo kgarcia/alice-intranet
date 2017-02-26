@@ -1,0 +1,1 @@
+json.partial! "especialistas/especialista", especialista: @especialista

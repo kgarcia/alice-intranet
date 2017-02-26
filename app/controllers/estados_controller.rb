@@ -4,21 +4,46 @@ class EstadosController < ApplicationController
   # GET /estados
   # GET /estados.json
   def index
+<<<<<<< HEAD
     @estados = Estado.all
+=======
+    @parametros = Estado.all
+    render "parametros_select/index"
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /estados/1
   # GET /estados/1.json
   def show
+<<<<<<< HEAD
+=======
+    @parametro = Estado.find(params[:id])
+
+    render "parametros_select/edit"
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /estados/new
   def new
+<<<<<<< HEAD
     @estado = Estado.new
+=======
+    @parametro = Estado.new
+    @collection = Pais.all
+    @referencia = :pais_id
+
+    render "parametros_select/new"
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /estados/1/edit
   def edit
+<<<<<<< HEAD
+=======
+    @parametro = Estado.find(params[:id])
+
+    render "parametros_select/edit"
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # POST /estados
@@ -28,7 +53,11 @@ class EstadosController < ApplicationController
 
     respond_to do |format|
       if @estado.save
+<<<<<<< HEAD
         format.html { redirect_to @estado, notice: 'Estado was successfully created.' }
+=======
+        format.html { redirect_to edit_estado_path(@estado), notice: 'Estado was successfully created.' }
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
         format.json { render :show, status: :created, location: @estado }
       else
         format.html { render :new }
@@ -42,7 +71,11 @@ class EstadosController < ApplicationController
   def update
     respond_to do |format|
       if @estado.update(estado_params)
+<<<<<<< HEAD
         format.html { redirect_to @estado, notice: 'Estado was successfully updated.' }
+=======
+        format.html { redirect_to edit_estado_path(@estado), notice: 'Estado was successfully updated.' }
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
         format.json { render :show, status: :ok, location: @estado }
       else
         format.html { render :edit }

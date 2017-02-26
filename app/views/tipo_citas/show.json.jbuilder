@@ -1,0 +1,1 @@
+json.partial! "tipo_citas/tipo_cita", tipo_cita: @tipo_cita

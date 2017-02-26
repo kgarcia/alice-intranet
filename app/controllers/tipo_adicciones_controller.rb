@@ -14,13 +14,20 @@ class TipoAdiccionesController < ApplicationController
   def show
     @parametro = TipoAdiccion.find(params[:id])
 
+<<<<<<< HEAD
     render "parametros/show"
+=======
+    render "parametros/edit"
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /tipo_adicciones/new
   def new
     @parametro = TipoAdiccion.new
+<<<<<<< HEAD
 
+=======
+>>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
     render "parametros/new"
   end
 
@@ -38,7 +45,7 @@ class TipoAdiccionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_adiccion.save
-        format.html { redirect_to @tipo_adiccion, notice: 'Tipo adiccion was successfully created.' }
+        format.html { redirect_to edit_tipo_adiccion_path(@tipo_adiccion), notice: 'Tipo adiccion was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_adiccion }
       else
         format.html { render :new }
@@ -52,7 +59,7 @@ class TipoAdiccionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_adiccion.update(tipo_adiccion_params)
-        format.html { redirect_to @tipo_adiccion, notice: 'Tipo adiccion was successfully updated.' }
+        format.html { redirect_to edit_tipo_adiccion_path(@tipo_adiccion), notice: 'Tipo adiccion was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_adiccion }
       else
         format.html { render :edit }

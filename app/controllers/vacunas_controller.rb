@@ -4,21 +4,30 @@ class VacunasController < ApplicationController
   # GET /vacunas
   # GET /vacunas.json
   def index
-    @vacunas = Vacuna.all
+    @parametros = Vacuna.all
+
+    render "parametros/index"
   end
 
   # GET /vacunas/1
   # GET /vacunas/1.json
   def show
+    @parametro = Vacuna.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /vacunas/new
   def new
-    @vacuna = Vacuna.new
+    @parametro = Vacuna.new
+    render "parametros/new"
   end
 
   # GET /vacunas/1/edit
   def edit
+    @parametro = Vacuna.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /vacunas
@@ -28,7 +37,7 @@ class VacunasController < ApplicationController
 
     respond_to do |format|
       if @vacuna.save
-        format.html { redirect_to @vacuna, notice: 'Vacuna was successfully created.' }
+        format.html { redirect_to edit_vacuna_path(@vacuna), notice: 'Vacuna was successfully created.' }
         format.json { render :show, status: :created, location: @vacuna }
       else
         format.html { render :new }
@@ -42,7 +51,7 @@ class VacunasController < ApplicationController
   def update
     respond_to do |format|
       if @vacuna.update(vacuna_params)
-        format.html { redirect_to @vacuna, notice: 'Vacuna was successfully updated.' }
+        format.html { redirect_to edit_vacuna_path(@vacuna), notice: 'Vacuna was successfully updated.' }
         format.json { render :show, status: :ok, location: @vacuna }
       else
         format.html { render :edit }
