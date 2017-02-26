@@ -1,0 +1,2 @@
+class TipoNoticia < ApplicationRecord
+end

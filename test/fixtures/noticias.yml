@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titulo: MyString
+  descripcion: MyString
+  tipo_noticias: one
+  estatus: 1
+
+two:
+  titulo: MyString
+  descripcion: MyString
+  tipo_noticias: two
+  estatus: 1

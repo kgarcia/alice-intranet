@@ -1,0 +1,2 @@
+class TipoOpinion < ApplicationRecord
+end

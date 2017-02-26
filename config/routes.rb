@@ -1,6 +1,19 @@
 Myapp::Application.routes.draw do
 
 
+  resources :preguntas
+  resources :tipo_preguntas
+  resources :opiniones
+  resources :tipo_opiniones
+  resources :noticias
+  resources :tipo_noticias
+  resources :ubicaciones
+  resources :sectores
+  resources :sectors
+  resources :tipo_ubicaciones
+  resources :ciudades
+  resources :estados
+  resources :paises
   resources :discapacidades
   resources :tipo_discapacidades
   resources :patologias
@@ -79,5 +92,4 @@ root to: 'home#index'
   #   end
 
 
-  resources :preguntas
 end

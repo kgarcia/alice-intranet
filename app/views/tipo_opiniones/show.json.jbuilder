@@ -1,0 +1,1 @@
+json.partial! "tipo_opiniones/tipo_opinion", tipo_opinion: @tipo_opinion

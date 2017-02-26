@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @ubicacion.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @ubicacion.estatus %>
+</p>
+
+<p>
+  <strong>Sector:</strong>
+  <%= @ubicacion.sector %>
+</p>
+
+<p>
+  <strong>Ciudad:</strong>
+  <%= @ubicacion.ciudad %>
+</p>
+
+<p>
+  <strong>Tipo ubicacion:</strong>
+  <%= @ubicacion.tipo_ubicacion %>
+</p>
+
+<%= link_to 'Edit', edit_ubicacion_path(@ubicacion) %> |
+<%= link_to 'Back', ubicaciones_path %>

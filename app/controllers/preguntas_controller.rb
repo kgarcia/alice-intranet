@@ -1,72 +1,62 @@
 class PreguntasController < ApplicationController
   before_action :set_pregunta, only: [:show, :edit, :update, :destroy]
 
-  # GET /pregunta
-  # GET /pregunta.json
+  # GET /preguntas
+  # GET /preguntas.json
   def index
-    @parametros = Pregunta.all
-
-    render "parametros/index"
+    @preguntas = Pregunta.all
   end
 
-  # GET /pregunta/1
-  # GET /pregunta/1.json
+  # GET /preguntas/1
+  # GET /preguntas/1.json
   def show
-    @parametro = Pregunta.find(params[:id])
-
-    render "parametros/show"
   end
 
-  # GET /pregunta/new
+  # GET /preguntas/new
   def new
-    @parametro = Pregunta.new
-
-    render "parametros/new"
+    @pregunta = Pregunta.new
   end
 
-  # GET /pregunta/1/edit
+  # GET /preguntas/1/edit
   def edit
-    @parametro = Pregunta.find(params[:id])
-    
-    render "parametros/edit"
   end
 
-  # POST /pregunta
-  # POST /pregunta.json
+  # POST /preguntas
+  # POST /preguntas.json
   def create
     @pregunta = Pregunta.new(pregunta_params)
 
     respond_to do |format|
       if @pregunta.save
         format.html { redirect_to @pregunta, notice: 'Pregunta was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @pregunta }
+        format.json { render :show, status: :created, location: @pregunta }
       else
-        format.html { render action: 'new' }
+        format.html { render :new }
         format.json { render json: @pregunta.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /pregunta/1
-  # PATCH/PUT /pregunta/1.json
+  # PATCH/PUT /preguntas/1
+  # PATCH/PUT /preguntas/1.json
   def update
     respond_to do |format|
       if @pregunta.update(pregunta_params)
         format.html { redirect_to @pregunta, notice: 'Pregunta was successfully updated.' }
-        format.json { head :no_content }
+        format.json { render :show, status: :ok, location: @pregunta }
       else
-        format.html { render action: 'edit' }
+        format.html { render :edit }
         format.json { render json: @pregunta.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /pregunta/1
-  # DELETE /pregunta/1.json
+  # DELETE /preguntas/1
+  # DELETE /preguntas/1.json
   def destroy
     @pregunta.destroy
     respond_to do |format|
-      format.html { redirect_to pregunta_url }
+      format.html { redirect_to preguntas_url, notice: 'Pregunta was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -79,6 +69,6 @@ class PreguntasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pregunta_params
-      params.require(:pregunta).permit(:descripcion, :estatus)
+      params.require(:pregunta).permit(:titulo, :descripcion, :respuesta, :tipo_pregunta_id, :estatus)
     end
 end

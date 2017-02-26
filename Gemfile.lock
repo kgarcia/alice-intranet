@@ -67,6 +67,8 @@ GEM
     ffi (1.9.17)
     font-awesome-rails (4.7.0.1)
       railties (>= 3.2, < 5.1)
+    footable-rails (0.0.1)
+      railties (>= 3.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.8.0)
@@ -183,6 +185,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   font-awesome-rails (= 4.7.0.1)
+  footable-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
