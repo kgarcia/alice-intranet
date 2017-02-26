@@ -15,20 +15,19 @@
               </div>
           <% end %>
 
+          <div class="field form-group">
+            <label class="col-lg-2 control-label">Tipo de Eventualidad</label>
+            <div class="col-lg-10"><%= f.collection_select(@referencia_tipo, @collection_tipo, :id, :descripcion, {}, :class => "form-control") %></div>
+          </div>
+          
+          <div class="field form-group">
+            <label class="col-lg-2 control-label">Motivo</label>
+            <div class="col-lg-10"><%= f.collection_select(@referencia_motivo, @collection_motivo, :id, :descripcion, {}, :class => "form-control") %></div>
+          </div>
 
           <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
             <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
             </div>
-          </div>
-
-          <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
-            <div class="col-lg-10"><%= f.number_field :estatus, :class => "form-control" %>
-            </div>
-          </div>
-
-          <div class="field form-group">
-            <label class="col-lg-2 control-label">Tipo de Eventualidad</label>
-            <div class="col-lg-10"><%= f.collection_select(@referencia_tipo, @collection_tipo, :id, :descripcion, {}, :class => "form-control") %></div>
           </div>
 
           <div class="form-group"><label class="col-lg-2 control-label">Fecha inicio</label>
@@ -39,13 +38,6 @@
           <div class="form-group"><label class="col-lg-2 control-label">Fecha fin</label>
             <div class="col-lg-10"><%= f.datetime_select :fecha_fin %>
             </div>
-          </div>
-
-
-
-          <div class="field form-group">
-            <label class="col-lg-2 control-label">Motivo</label>
-            <div class="col-lg-10"><%= f.collection_select(@referencia_motivo, @collection_motivo, :id, :descripcion, {}, :class => "form-control") %></div>
           </div>
 
 

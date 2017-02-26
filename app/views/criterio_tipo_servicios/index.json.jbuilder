@@ -1,0 +1,1 @@
+json.array! @criterio_tipo_servicios, partial: 'criterio_tipo_servicios/criterio_tipo_servicio', as: :criterio_tipo_servicio

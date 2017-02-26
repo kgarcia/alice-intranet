@@ -1,0 +1,78 @@
+<div class="row">   
+   <div class="col-lg-10 col-lg-offset-1">
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h5>Servicio</h5>
+              </div>
+          </div>
+          <div class="ibox-content">
+
+              <%= form_for @servicio, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
+                  <% if @servicio.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@servicio.errors.count, "error") %> prohibited this parametro from being saved:</h2>
+
+                      <ul>
+                      <% @servicio.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+
+                    <div class="field form-group">
+                      <label class="col-lg-2 control-label">Tipo de Servicio</label>
+                      <div class="col-lg-10">
+                        <%= f.collection_select(:tipo_servicio_id, @tipo_servicios, :id, :descripcion, {},{:class => "form-control"}) %>
+                      </div>
+                      
+                    </div>
+
+                    <div class="field form-group">
+                      <label class="col-lg-2 control-label">Especialista</label>
+                      <div class="col-lg-10">
+                        <%= f.collection_select(:especialista_id, @especialistas, :id, :descripcion, {},{:class => "form-control"}) %>
+                      </div>
+                      
+                    </div>
+
+                    <div class="field form-group">
+                      <label class="col-lg-2 control-label">Ubicacion</label>
+                      <div class="col-lg-10">
+                        <%= f.collection_select(:ubicacion_id, @ubicaciones, :id, :descripcion, {},{:class => "form-control"}) %>
+                      </div>
+                      
+                    </div>  
+
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label">Descripcion</label>
+
+                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                       </div>
+                    </div>
+
+                    <div class="form-group"><label class="col-lg-2 control-label">Precio</label>
+
+                        <div class="col-lg-10"><%= f.number_field :precio, :class => "form-control" %>
+                        </div>
+                    </div>
+
+                   <div class="form-group">
+                      <label class="col-lg-2 control-label">Foto</label>
+
+                      <div class="col-lg-10"><%= f.file_field :foto, :class => "form-control" %>
+                       </div>
+                    </div>
+
+                </div>
+
+          
+              <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                      <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>
+                     
+                  </div>
+              </div>
+          <% end %>
+          </div>
+  </div>

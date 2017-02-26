@@ -10,15 +10,20 @@ class UbicacionesController < ApplicationController
   # GET /ubicaciones/1
   # GET /ubicaciones/1.json
   def show
+  @parametro = Ubicacion.find(params[:id])
   end
 
   # GET /ubicaciones/new
   def new
-    @ubicacion = Ubicacion.new
+    @parametro = Ubicacion.new
+    @tipoUbicaciones = TipoUbicacion.all
+    @ciudades = Ciudad.all
+    @sectores = Sector.all
   end
 
   # GET /ubicaciones/1/edit
-  def edit
+  def edit  
+  @parametro = Ubicacion.find(params[:id])
   end
 
   # POST /ubicaciones

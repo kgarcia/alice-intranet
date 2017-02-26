@@ -1,0 +1,54 @@
+<%= form_for(persona) do |f| %>
+  <% if persona.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(persona.errors.count, "error") %> prohibited this persona from being saved:</h2>
+
+      <ul>
+      <% persona.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+                  <div class="form-group"><label class="col-lg-2 control-label">Cedula</label>
+
+                      <div class="col-lg-10"><%= f.text_field :cedula, :class => "form-control" %>
+                       </div>
+                    </div>
+                   <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
+
+                      <div class="col-lg-10"><%= f.text_field :nombre, :class => "form-control" %>
+                      </div>
+                  </div>
+                  <div class="form-group"><label class="col-lg-2 control-label">Apellido</label>
+
+                      <div class="col-lg-10"><%= f.text_field :apellido, :class => "form-control" %>
+                      </div>
+                  </div>
+                   <div class="form-group"><label class="col-lg-2 control-label">Telefono</label>
+
+                      <div class="col-lg-10"><%= f.text_field :telefono, :class => "form-control" %>
+                      </div>
+                  </div>
+                   <div class="form-group"><label class="col-lg-2 control-label">Direccion</label>
+
+                      <div class="col-lg-10"><%= f.text_field :direccion, :class => "form-control" %>
+                      </div>
+                  </div>
+                   <div class="form-group"><label class="col-lg-2 control-label">Fecha de Nacimiento</label>
+
+                      <div class="col-lg-10"><%= f.text_field :fecha_nacimiento, :class => "form-control" %>
+                      </div>
+                  </div>
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Sexo</label>
+                    <div class="col-lg-10"><%= f.collection_select(:sexo_id, @sexos, :id, :decripcion,{}, :class => "form-control" )%></div>
+                  </div>
+                  <div class="form-group">
+                      <div class="col-lg-offset-2 col-lg-10">
+                          <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>
+                      </div>
+                  </div>
+<% end %>

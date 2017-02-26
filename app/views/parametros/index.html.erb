@@ -8,8 +8,7 @@
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
       <tr>
-        <th>Descripción</th>
-        <th>Estatus</th>
+        <th data-sorted="true">Descripción</th>
         <th colspan="1"></th>
       </tr>
     </thead>
@@ -17,24 +16,21 @@
     <tbody>
       <% @parametros.each do |parametro| %>
         <tr>
-          <td><%= parametro.id %></td>
           <td><%= link_to parametro.descripcion, edit_polymorphic_url(parametro) %></td>
-          <td><%= parametro.estatus %></td>
           <td>
             <%= link_to '', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm fa fa-pencil" %>
             <%= link_to '', polymorphic_url(parametro), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %>
-              
           </td>
         </tr>
       <% end %>
     </tbody>
       <tfoot>
-                    <tr>
-                        <td colspan="5">
-                            <ul class="pagination pull-right"></ul>
-                        </td>
-                    </tr>
-                    </tfoot>
+        <tr>
+            <td colspan="5">
+                <ul class="pagination pull-right"></ul>
+            </td>
+        </tr>
+      </tfoot>
   </table>
 </div>
 <br>

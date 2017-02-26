@@ -5,7 +5,8 @@ class CreateTipoServicios < ActiveRecord::Migration[5.0]
       t.text :texto
       t.attachment :foto
       t.integer :estatus
-
+      t.references :categoria, foreign_key: true
+      t.references :especialidad, foreign_key: true
       t.references :tipo_atencion, foreign_key: true
       t.timestamps
     end
