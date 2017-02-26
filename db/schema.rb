@@ -115,7 +115,6 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
   create_table "criterio_tipo_servicios", force: :cascade do |t|
     t.integer  "criterio_id"
     t.integer  "tipo_servicio_id"
@@ -134,13 +133,6 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.index ["tipo_criterio_id"], name: "index_criterios_on_tipo_criterio_id", using: :btree
   end
 
-  create_table "dias", force: :cascade do |t|
-    t.string   "descripcion"
-    t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-  
   create_table "discapacidad_tipo_servicios", force: :cascade do |t|
     t.integer  "discapacidad_id"
     t.integer  "tipo_servicio_id"
@@ -218,6 +210,7 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.index ["tipo_evaluacion_id"], name: "index_evaluaciones_on_tipo_evaluacion_id", using: :btree
   end
 
+
   create_table "eventualidades", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -267,6 +260,7 @@ ActiveRecord::Schema.define(version: 20170223030651) do
 
   create_table "horarios", force: :cascade do |t|
     t.string   "descripcion"
+    t.integer  "tiempo_cita"
     t.integer  "estatus"
     t.integer  "tipo_horario_id"
     t.datetime "created_at",      null: false
@@ -329,6 +323,7 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
 
   create_table "option_roles", force: :cascade do |t|
     t.integer  "option_menu_id"
@@ -413,6 +408,7 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
 
 
   create_table "servicios", force: :cascade do |t|
@@ -614,10 +610,11 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.time     "hora_inicio"
     t.time     "hora_fin"
     t.integer  "estatus"
+    t.integer  "cantidad_pacientes"
     t.integer  "dia_id"
     t.integer  "horario_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.index ["dia_id"], name: "index_turnos_on_dia_id", using: :btree
     t.index ["horario_id"], name: "index_turnos_on_horario_id", using: :btree
   end
