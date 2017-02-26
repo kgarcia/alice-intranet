@@ -1,6 +1,8 @@
 Myapp::Application.routes.draw do
 
 
+  resources :eventos
+  resources :tipo_eventos
   resources :busquedas
   resources :tipo_busquedas
   resources :eventualidades

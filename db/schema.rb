@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222014440) do
+ActiveRecord::Schema.define(version: 20170226034021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,15 @@ ActiveRecord::Schema.define(version: 20170222014440) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["pais_id"], name: "index_estados_on_pais_id", using: :btree
+  end
+
+  create_table "eventos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_evento_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["tipo_evento_id"], name: "index_eventos_on_tipo_evento_id", using: :btree
   end
 
   create_table "eventualidades", force: :cascade do |t|
@@ -378,6 +387,13 @@ ActiveRecord::Schema.define(version: 20170222014440) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tipo_eventos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tipo_eventualidades", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -508,6 +524,7 @@ ActiveRecord::Schema.define(version: 20170222014440) do
   add_foreign_key "estado_civil_tipo_servicios", "estado_civiles"
   add_foreign_key "estado_civil_tipo_servicios", "tipo_servicios"
   add_foreign_key "estados", "paises"
+  add_foreign_key "eventos", "tipo_eventos"
   add_foreign_key "eventualidades", "motivos"
   add_foreign_key "eventualidades", "tipo_eventualidades"
   add_foreign_key "grupo_sanguineo_tipo_servicios", "grupo_sanguineos"

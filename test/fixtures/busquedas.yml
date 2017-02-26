@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  estatus: 1
+  tipo_busqueda: one
+  especialidad: one
+  especialista: one
+  tipo_servicio: one
+
+two:
+  descripcion: MyString
+  estatus: 1
+  tipo_busqueda: two
+  especialidad: two
+  especialista: two
+  tipo_servicio: two

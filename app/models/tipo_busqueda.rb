@@ -1,0 +1,2 @@
+class TipoBusqueda < ApplicationRecord
+end
