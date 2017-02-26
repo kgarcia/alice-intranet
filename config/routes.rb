@@ -1,25 +1,22 @@
 Myapp::Application.routes.draw do
 
 
-<<<<<<< HEAD
+
   resources :eventos
   resources :tipo_eventos
   resources :busquedas
   resources :tipo_busquedas
-=======
   resources :categorias
   resources :citas
   resources :evaluaciones
   resources :criterio_tipo_servicios
   resources :calificaciones
   resources :criterios
-
   resources :servicios
   resources :sexos
   resources :personas
   resources :roles
   devise_for :usuarios , :controllers => {registrations: "usuarios/registrations"}
->>>>>>> 2dd622a8c1b815cb1fe94f49a1a75b78425232a2
   resources :eventualidades
   resources :turnos
   resources :horarios
