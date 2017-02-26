@@ -12077,3 +12077,333 @@ Started GET "/assets/tinymce/preinit.self-84328a53e798df12f891eb49871773fd9f9254
 Started GET "/assets/tinymce.self-75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070.js?body=1" for 127.0.0.1 at 2017-02-26 17:37:25 -0430
 Started GET "/assets/tinymce/tinymce.self-32bea8c9c9f81b871d51a186ff33640087e78acd6519c30da7b2797692227a6c.js?body=1" for 127.0.0.1 at 2017-02-26 17:37:25 -0430
 Started GET "/assets/application.self-ffdc6875af660850c9d7cd92d9a9e3b927e77858edba20cbc41f6d4755a54394.js?body=1" for 127.0.0.1 at 2017-02-26 17:37:25 -0430
+Started GET "/tipo_noticias" for 127.0.0.1 at 2017-02-26 17:46:25 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TipoNoticiasController#index as HTML
+  Rendering parametros/index.html.erb within layouts/application
+  [1m[36mTipoNoticia Load (1.2ms)[0m  [1m[34mSELECT "tipo_noticias".* FROM "tipo_noticias"[0m
+  Rendered parametros/index.html.erb within layouts/application (44.2ms)
+  Rendered layouts/_navigation.html.erb (1.9ms)
+  Rendered layouts/_topnavbar.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 2714ms (Views: 2651.9ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/assets/application.self-1ff511816342c12d474a0a224a23e1b7edccf50548dd9e251661e0b9e2f75f69.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:28 -0430
+Started GET "/assets/animate/animate.self-52aff9ef01435a43fd10e9910ae5e5fbe25d343ad91dc1329f64e0de1e6e1148.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:28 -0430
+Started GET "/assets/footable/footable.bootstrap.min.self-7046d8648be7ee664e3add46266344019eeaba8681170f225c5dcffc6d09552d.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:28 -0430
+Started GET "/assets/font-awesome.self-407fb3615be540a148636cc5d171903af160c86d0eaf12321feadbd280e334c3.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:28 -0430
+Started GET "/assets/style.self-cb9d747ac45d384cccc28f0f219dbdf33dbe97ecd1dc7c650cbda72d39afde27.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:28 -0430
+Started GET "/assets/_bootstrap-sprockets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:28 -0430
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:28 -0430
+Started GET "/assets/jquery2.self-25ca496239ae8641a09627c8aace5863e7676e465fbb4ce81bc7eb78c4d15627.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/adicciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/busquedas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/calificaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/categorias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/citas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/cirugias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/criterio_tipo_servicios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/ciudades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/dias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:29 -0430
+Started GET "/assets/criterios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/especialidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/especialistas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/discapacidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/estado_civiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/estados.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/evaluaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/eventos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/eventualidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/grupo_sanguineos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/habitos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/horarios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/lesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/motivos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/noticias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/ocupaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/opiniones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/option_menus.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/paises.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/patologias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/personas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/preguntas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/profesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/roles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/servicios.self-d9b4c63ad8dc1c6ef8821fafe39a79d2c4393d060ec85537d9d913241e235d6e.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/tipo_adicciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/sectores.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/sectors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/tipo_atenciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/tipo_busquedas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/tipo_cirugias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/tipo_citas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:30 -0430
+Started GET "/assets/tipo_calificaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_criterios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_criterio.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_evaluaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_discapacidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_eventos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_eventualidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_horarios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_habitos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_lesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_pagos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_motivos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_opiniones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_noticias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_patologias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_preguntas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_servicios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tipo_ubicaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/ubicaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/turnos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/vacunas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/footable/footable.min.self-9a6576a744d508253fae1f0eeb107820f48d7430054b9f17d628e25752e05b14.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/moment.self-34da66f0997d145341cfb3fc71c794ea32b4c6affa3ff5d9e7e5107170125d1c.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/moment/es.self-1aa4838a6ec619978fdce480422a56537f79d12a33ac9b8779c35f272e48a45e.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tinymce/tinymce.self-32bea8c9c9f81b871d51a186ff33640087e78acd6519c30da7b2797692227a6c.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tinymce/preinit.self-84328a53e798df12f891eb49871773fd9f925439c8630e9e22423a82ef9e6f89.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/tinymce.self-75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:31 -0430
+Started GET "/assets/application.self-ffdc6875af660850c9d7cd92d9a9e3b927e77858edba20cbc41f6d4755a54394.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:32 -0430
+Started GET "/tipo_noticias" for 127.0.0.1 at 2017-02-26 17:46:34 -0430
+Processing by TipoNoticiasController#index as HTML
+  Rendering parametros/index.html.erb within layouts/application
+  [1m[36mTipoNoticia Load (1.4ms)[0m  [1m[34mSELECT "tipo_noticias".* FROM "tipo_noticias"[0m
+  Rendered parametros/index.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_navigation.html.erb (2.1ms)
+  Rendered layouts/_topnavbar.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 497ms (Views: 492.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.self-1ff511816342c12d474a0a224a23e1b7edccf50548dd9e251661e0b9e2f75f69.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/footable/footable.bootstrap.min.self-7046d8648be7ee664e3add46266344019eeaba8681170f225c5dcffc6d09552d.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/style.self-cb9d747ac45d384cccc28f0f219dbdf33dbe97ecd1dc7c650cbda72d39afde27.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/_bootstrap-sprockets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/font-awesome.self-407fb3615be540a148636cc5d171903af160c86d0eaf12321feadbd280e334c3.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/animate/animate.self-52aff9ef01435a43fd10e9910ae5e5fbe25d343ad91dc1329f64e0de1e6e1148.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/jquery2.self-25ca496239ae8641a09627c8aace5863e7676e465fbb4ce81bc7eb78c4d15627.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:35 -0430
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/adicciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/calificaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/categorias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/busquedas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/cirugias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/citas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/ciudades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/criterio_tipo_servicios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/criterios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/discapacidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/dias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/especialidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/especialistas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/evaluaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/estados.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/estado_civiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/eventos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/eventualidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/grupo_sanguineos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/habitos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/horarios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:36 -0430
+Started GET "/assets/lesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:37 -0430
+Started GET "/tipo_noticias" for 127.0.0.1 at 2017-02-26 17:46:37 -0430
+Processing by TipoNoticiasController#index as HTML
+  Rendering parametros/index.html.erb within layouts/application
+  [1m[36mTipoNoticia Load (1.4ms)[0m  [1m[34mSELECT "tipo_noticias".* FROM "tipo_noticias"[0m
+  Rendered parametros/index.html.erb within layouts/application (8.6ms)
+Started GET "/tipo_noticias" for 127.0.0.1 at 2017-02-26 17:46:37 -0430
+Processing by TipoNoticiasController#index as HTML
+  Rendering parametros/index.html.erb within layouts/application
+  [1m[36mTipoNoticia Load (10.8ms)[0m  [1m[34mSELECT "tipo_noticias".* FROM "tipo_noticias"[0m
+  Rendered parametros/index.html.erb within layouts/application (18.5ms)
+Started GET "/tipo_noticias" for 127.0.0.1 at 2017-02-26 17:46:37 -0430
+Started GET "/tipo_noticias" for 127.0.0.1 at 2017-02-26 17:46:37 -0430
+Processing by TipoNoticiasController#index as HTML
+Started GET "/tipo_noticias" for 127.0.0.1 at 2017-02-26 17:46:37 -0430
+  Rendering parametros/index.html.erb within layouts/application
+  Rendered layouts/_navigation.html.erb (2.0ms)
+  Rendered layouts/_topnavbar.html.erb (1.7ms)
+  [1m[36mTipoNoticia Load (5.0ms)[0m  [1m[34mSELECT "tipo_noticias".* FROM "tipo_noticias"[0m
+Processing by TipoNoticiasController#index as HTML
+Processing by TipoNoticiasController#index as HTML
+  Rendered layouts/_footer.html.erb (0.8ms)
+Started GET "/tipo_noticias" for 127.0.0.1 at 2017-02-26 17:46:37 -0430
+  Rendered parametros/index.html.erb within layouts/application (35.5ms)
+  Rendering parametros/index.html.erb within layouts/application
+Completed 200 OK in 774ms (Views: 771.3ms | ActiveRecord: 1.4ms)
+
+
+  Rendering parametros/index.html.erb within layouts/application
+  [1m[36mTipoNoticia Load (8.7ms)[0m  [1m[34mSELECT "tipo_noticias".* FROM "tipo_noticias"[0m
+  Rendered parametros/index.html.erb within layouts/application (18.7ms)
+  [1m[36mTipoNoticia Load (38.9ms)[0m  [1m[34mSELECT "tipo_noticias".* FROM "tipo_noticias"[0m
+Processing by TipoNoticiasController#index as HTML
+  Rendered parametros/index.html.erb within layouts/application (59.6ms)
+  Rendering parametros/index.html.erb within layouts/application
+  [1m[36mTipoNoticia Load (0.7ms)[0m  [1m[34mSELECT "tipo_noticias".* FROM "tipo_noticias"[0m
+  Rendered parametros/index.html.erb within layouts/application (90.3ms)
+  Rendered layouts/_navigation.html.erb (2.2ms)
+  Rendered layouts/_topnavbar.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 2246ms (Views: 2233.6ms | ActiveRecord: 10.8ms)
+
+
+  Rendered layouts/_navigation.html.erb (2.0ms)
+  Rendered layouts/_topnavbar.html.erb (1.7ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+  Rendered layouts/_topnavbar.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 2270ms (Views: 2263.8ms | ActiveRecord: 5.0ms)
+
+
+Completed 200 OK in 2174ms (Views: 2163.6ms | ActiveRecord: 8.7ms)
+
+
+  Rendered layouts/_navigation.html.erb (0.3ms)
+  Rendered layouts/_topnavbar.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 2190ms (Views: 2149.3ms | ActiveRecord: 38.9ms)
+
+
+  Rendered layouts/_navigation.html.erb (0.3ms)
+  Rendered layouts/_topnavbar.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 1893ms (Views: 1891.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.self-1ff511816342c12d474a0a224a23e1b7edccf50548dd9e251661e0b9e2f75f69.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/_bootstrap-sprockets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/animate/animate.self-52aff9ef01435a43fd10e9910ae5e5fbe25d343ad91dc1329f64e0de1e6e1148.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/style.self-cb9d747ac45d384cccc28f0f219dbdf33dbe97ecd1dc7c650cbda72d39afde27.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/font-awesome.self-407fb3615be540a148636cc5d171903af160c86d0eaf12321feadbd280e334c3.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/footable/footable.bootstrap.min.self-7046d8648be7ee664e3add46266344019eeaba8681170f225c5dcffc6d09552d.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/jquery2.self-25ca496239ae8641a09627c8aace5863e7676e465fbb4ce81bc7eb78c4d15627.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:40 -0430
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/adicciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/calificaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/busquedas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/cirugias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/categorias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/ciudades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/citas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/criterio_tipo_servicios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/criterios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/dias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/discapacidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/especialidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/especialistas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/estados.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/estado_civiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/eventos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/evaluaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/eventualidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/habitos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/grupo_sanguineos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/horarios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/lesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/motivos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/noticias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/ocupaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/opiniones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/option_menus.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/patologias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/paises.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/personas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:41 -0430
+Started GET "/assets/preguntas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/profesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/roles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/sectors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/servicios.self-d9b4c63ad8dc1c6ef8821fafe39a79d2c4393d060ec85537d9d913241e235d6e.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/sectores.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_atenciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_busquedas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_adicciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_cirugias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_citas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_calificaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_criterio.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_criterios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_discapacidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_eventualidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_eventos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_habitos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_evaluaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_lesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_noticias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_horarios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_motivos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_opiniones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_pagos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_patologias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_servicios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_ubicaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/turnos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/vacunas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/ubicaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/tipo_preguntas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:42 -0430
+Started GET "/assets/footable/footable.min.self-9a6576a744d508253fae1f0eeb107820f48d7430054b9f17d628e25752e05b14.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:43 -0430
+Started GET "/assets/moment.self-34da66f0997d145341cfb3fc71c794ea32b4c6affa3ff5d9e7e5107170125d1c.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:43 -0430
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:43 -0430
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:43 -0430
+Started GET "/assets/moment/es.self-1aa4838a6ec619978fdce480422a56537f79d12a33ac9b8779c35f272e48a45e.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:43 -0430
+Started GET "/assets/tinymce/tinymce.self-32bea8c9c9f81b871d51a186ff33640087e78acd6519c30da7b2797692227a6c.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:43 -0430
+Started GET "/assets/tinymce/preinit.self-84328a53e798df12f891eb49871773fd9f925439c8630e9e22423a82ef9e6f89.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:43 -0430
+Started GET "/assets/tinymce.self-75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:43 -0430
+Started GET "/assets/application.self-ffdc6875af660850c9d7cd92d9a9e3b927e77858edba20cbc41f6d4755a54394.js?body=1" for 127.0.0.1 at 2017-02-26 17:46:43 -0430
