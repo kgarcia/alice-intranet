@@ -170,7 +170,7 @@
                       <h3>Profesiones</h3>
                       <div>
                         <% @profesiones.each do |profesion| %>
-                            <%= check_box_tag('profesions[]', profesion.id, @tipo_servicio.profesiones.include?(profesion)) %> <%= profesion.descripcion %>
+                            <%= check_box_tag('profesiones[]', profesion.id, @tipo_servicio.profesiones.include?(profesion)) %> <%= profesion.descripcion %>
                         <% end %>
                       </div>  
                     </div>
