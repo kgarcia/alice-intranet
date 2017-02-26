@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Criterio:</strong>
+  <%= @criterio_tipo_servicio.criterio %>
+</p>
+
+<p>
+  <strong>Tipo servici:</strong>
+  <%= @criterio_tipo_servicio.tipo_servici %>
+</p>
+
+<%= link_to 'Edit', edit_criterio_tipo_servicio_path(@criterio_tipo_servicio) %> |
+<%= link_to 'Back', criterio_tipo_servicios_path %>

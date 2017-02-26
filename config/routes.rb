@@ -2,6 +2,16 @@ Myapp::Application.routes.draw do
 
 
 
+  resources :eventos
+  resources :tipo_eventos
+  resources :busquedas
+  resources :tipo_busquedas
+  resources :categorias
+  resources :citas
+  resources :evaluaciones
+  resources :criterio_tipo_servicios
+  resources :calificaciones
+  resources :criterios
   resources :servicios
   resources :sexos
   resources :personas

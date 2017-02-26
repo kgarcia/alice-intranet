@@ -7,11 +7,10 @@
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
       <tr>
-        <th data-breakpoints="xs" data-type="number">Descripción</th>
+        <th data-sorted="true">Ciudad</th>
         <th>Sector</th>
-        <th>Ciudad</th>
         <th>Tipo de ubicación</th>
-        <th>Estatus</th>
+        <th data-breakpoints="xs">Descripción</th>
         <th colspan="1"></th>
       </tr>
     </thead>
@@ -19,11 +18,10 @@
     <tbody>
       <% @parametros.each do |parametro| %>
         <tr>
+          <td><%= parametro.ciudad.descripcion %></td>        
+          <td><%= parametro.sector.descripcion %></td>
+          <td><%= parametro.tipo_ubicacion.descripcion   %></td>
           <td><%= parametro.descripcion %></td>
-          <td><%= parametro.sector %></td>
-          <td><%= parametro.ciudad %></td>
-          <td><%= parametro.tipo_ubicacion %></td>
-          <td><%= parametro.estatus %></td>
           <td>
             <%= link_to '', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm fa fa-pencil" %>
             <%= link_to '', parametro, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %>

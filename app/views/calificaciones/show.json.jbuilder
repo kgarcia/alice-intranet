@@ -1,0 +1,1 @@
+json.partial! "calificaciones/calificacion", calificacion: @calificacion
