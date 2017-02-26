@@ -16,7 +16,7 @@ Myapp::Application.routes.draw do
   resources :sexos
   resources :personas
   resources :roles
-  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations"}
+  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations", sessions: "usuarios/sessions"}
   resources :eventualidades
   resources :turnos
   resources :horarios

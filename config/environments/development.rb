@@ -28,4 +28,7 @@ Myapp::Application.configure do
   config.assets.debug = true
   
   config.i18n.default_locale = :es
+
+Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
+Paperclip.options[:command_path] = "/opt/ImageMagick/bin"
 end
