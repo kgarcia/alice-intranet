@@ -12,7 +12,12 @@ class TurnosController < ApplicationController
   # GET /turnos/1
   # GET /turnos/1.json
   def show
-      @turno = Turno.find(params[:id])
+    @horarios = Horario.all
+    @turno = Turno.find(params[:id])
+    @dias = Dia.all
+    @dia = :dia_id
+    @referencia = :horario_id
+   render "edit"
      
   end
 
@@ -43,6 +48,7 @@ class TurnosController < ApplicationController
     puts params
     @dias_turno.each do |d|
       @turno.dia_id = d
+      @turno.estatus = 1
       @turno.save
       @turno = Turno.new(turno_params)
      
@@ -88,6 +94,6 @@ class TurnosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def turno_params
-      params.require(:turno).permit(:descripcion, :hora_inicio, :hora_fin, :estatus, :dia_id, :horario_id, :tipo_turno_id)
+      params.require(:turno).permit(:descripcion, :hora_inicio, :hora_fin, :estatus, :dia_id, :horario_id,:cantidad_pacientes)
     end
 end

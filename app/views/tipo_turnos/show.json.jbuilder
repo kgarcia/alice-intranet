@@ -1,1 +1,0 @@
-json.partial! "tipo_turnos/tipo_turno", tipo_turno: @tipo_turno

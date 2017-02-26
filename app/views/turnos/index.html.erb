@@ -12,10 +12,8 @@
         <th>Descripcion</th>
         <th>Hora Inicio</th>
         <th>Hora Fin</th>
-        <th>Estatus</th>
         <th>Día</th>
-        <th>Dr/Servicio</th>
-        <th data-breakpoints="xs">Tipo</th>
+        <th>Servicio</th>
         <th colspan="1"></th>
       </tr>
     </thead>
@@ -25,7 +23,7 @@
            <td><%= turno.descripcion %></td>
         <td><%= turno.hora_inicio.strftime("%H:%M") %></td>
         <td><%= turno.hora_fin.strftime("%H:%M") %></td>
-        <td><%= turno.estatus %></td>
+
         <td><%= turno.tipodia.descripcion %></td>
         <td><%= turno.horario.descripcion %></td>
             <td>

@@ -1,6 +1,69 @@
 <h1>Editar Turno</h1>
 
-<%= render 'form', turno: @turno %>
 
-<%= link_to 'Show', @turno %> |
-<%= link_to 'Back', turnos_path %>
+
+<div class="row">   
+  <div class="col-lg-8 col-lg-offset-2">
+   <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h5>Turno</h5>
+              </div>
+          </div>
+    <div class="ibox-content">
+
+      <%= form_for @turno, :html => {:class => 'form-horizontal'}  do |f| %>
+      <% if @turno.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(turno.errors.count, "error") %> prohibited this turno from being saved:</h2>
+
+        <ul>
+          <% turno.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+      <div class="form-group"><label class="col-lg-3 control-label">Descripción</label>           
+          <div class="col-lg-8"><%= f.text_field :descripcion, :class => "form-control" %></div>
+      </div>
+      <div class="form-group"><label class="col-lg-3 control-label">Hora Inicio</label>           
+          <div class="col-lg-8"><%= f.text_field :hora_inicio, :class => "form-control" %></div>
+      </div>
+     <div class="form-group"><label class="col-lg-3 control-label">Hora Fin</label>           
+          <div class="col-lg-8"><%= f.text_field :hora_fin, :class => "form-control" %></div>
+      </div>
+     
+     
+      <div class="field form-group"><label class="col-lg-3 control-label">Servicio</label>
+                    <div class="col-lg-8"><%= f.collection_select(@referencia, @horarios, :id, :descripcion,{}, :class =>"form-control",:disabled=>true) %></div>
+                  </div>
+      <div class="form-group"><label class="col-lg-3 control-label">Dias</label>           
+          <div class="col-lg-8"> 
+            <%= f.collection_select(@referencia, @dias, :id, :descripcion,{},:class =>"form-control",:disabled=>true)%>             </div>
+      </div>
+
+      <div class="form-group">                    
+                      <div class="col-lg-offset-3 col-lg-10">
+                          <%= f.submit 'Guardar', :class => "btn btn-sm btn-primary " %>
+                          <%= link_to 'Atras', @turno, :class => "btn btn-sm btn-white " %>
+                      </div>
+ </div>
+        <% end %>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+            $(function () {
+                $('#turno_hora_inicio').datetimepicker({
+                    format: 'LT'
+                });
+            });
+               $(function () {
+                $('#turno_hora_fin').datetimepicker({
+                    format: 'LT'
+                });
+            });
+        </script>

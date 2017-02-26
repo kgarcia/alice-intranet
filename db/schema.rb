@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(version: 20170221032257) do
 
   create_table "horarios", force: :cascade do |t|
     t.string   "descripcion"
+    t.integer  "tiempo_cita"
     t.integer  "estatus"
     t.integer  "tipo_horario_id"
     t.datetime "created_at",      null: false
@@ -428,13 +429,6 @@ ActiveRecord::Schema.define(version: 20170221032257) do
     t.index ["tipo_atencion_id"], name: "index_tipo_servicios_on_tipo_atencion_id", using: :btree
   end
 
-  create_table "tipo_turnos", force: :cascade do |t|
-    t.string   "descripcion"
-    t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "tipo_ubicaciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -447,14 +441,13 @@ ActiveRecord::Schema.define(version: 20170221032257) do
     t.time     "hora_inicio"
     t.time     "hora_fin"
     t.integer  "estatus"
+    t.integer  "cantidad_pacientes"
     t.integer  "dia_id"
     t.integer  "horario_id"
-    t.integer  "tipo_turno_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.index ["dia_id"], name: "index_turnos_on_dia_id", using: :btree
     t.index ["horario_id"], name: "index_turnos_on_horario_id", using: :btree
-    t.index ["tipo_turno_id"], name: "index_turnos_on_tipo_turno_id", using: :btree
   end
 
   create_table "ubicaciones", force: :cascade do |t|
@@ -515,7 +508,6 @@ ActiveRecord::Schema.define(version: 20170221032257) do
   add_foreign_key "tipo_servicios", "tipo_atenciones"
   add_foreign_key "turnos", "dias"
   add_foreign_key "turnos", "horarios"
-  add_foreign_key "turnos", "tipo_turnos"
   add_foreign_key "ubicaciones", "ciudades"
   add_foreign_key "ubicaciones", "sectores"
   add_foreign_key "ubicaciones", "tipo_ubicaciones"

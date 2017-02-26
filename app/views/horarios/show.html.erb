@@ -11,10 +11,10 @@
         <p>
           <%  if @horario.tipo_horario.id == 2  then %>
           <strong>Tiempo promedio de atencion(min):</strong>
-          <%= @horario.limite_horario %>
+          <%= @horario.tiempo_cita %>
           <%else %>
           <strong>Cantidad de pacientes:</strong>
-          <%= @horario.limite_horario %>
+          <%= @horario.tiempo_cita %>
           <%end %>
         </p>
         <%= link_to link_to 'Turno', new_turno_path , :class => "btn btn-primary btn-sm fa fa-plus" %> <br><br> 

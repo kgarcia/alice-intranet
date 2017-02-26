@@ -1,7 +1,6 @@
 Myapp::Application.routes.draw do
 
 
-  resources :tipo_turnos
   resources :eventualidades
   resources :turnos
   resources :horarios

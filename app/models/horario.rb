@@ -6,6 +6,6 @@ class Horario < ApplicationRecord
   end
 
   def cantidad_pacientes_turno
-  	return turno.cantidad_horas/horario.limite_horario
+  	return turno.cantidad_horas/horario.tiempo_cita
   end
 end

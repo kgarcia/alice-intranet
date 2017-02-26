@@ -26,11 +26,8 @@
       <div class="form-group"><label class="col-lg-3 control-label">Hora Inicio</label>           
           <div class="col-lg-8"><%= f.text_field :hora_inicio, :class => "form-control" %></div>
       </div>
-   <div class="form-group"><label class="col-lg-3 control-label">Hora Inicio</label>           
+   <div class="form-group"><label class="col-lg-3 control-label">Hora Fin</label>           
           <div class="col-lg-8"><%= f.text_field :hora_fin, :class => "form-control" %></div>
-      </div>
-      <div class="form-group"><label class="col-lg-3 control-label">Estatus</label>           
-          <div class="col-lg-8"><%= f.text_field :estatus , :class => "form-control" %></div>
       </div>
     
       <div class="field form-group"><label class="col-lg-3 control-label">Dr/Servicio</label>
@@ -60,6 +57,11 @@
 <script type="text/javascript">
             $(function () {
                 $('#turno_hora_inicio').datetimepicker({
+                    format: 'LT'
+                });
+            });
+               $(function () {
+                $('#turno_hora_fin').datetimepicker({
                     format: 'LT'
                 });
             });
