@@ -1,14 +1,14 @@
 Myapp::Application.routes.draw do
 
 
-<<<<<<< HEAD
+
   resources :preguntas
   resources :tipo_preguntas
   resources :opiniones
   resources :tipo_opiniones
   resources :noticias
   resources :tipo_noticias
-=======
+
 
   resources :eventos
   resources :tipo_eventos
@@ -43,7 +43,7 @@ Myapp::Application.routes.draw do
   resources :tipo_atenciones
   resources :especialistas
   resources :especialidades
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
+
   resources :ubicaciones
   resources :sectores
   resources :sectors

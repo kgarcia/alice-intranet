@@ -4,7 +4,6 @@
 <div class="ibox-content">
 <%= link_to @parametros.new.class.name, new_polymorphic_url(@parametros.new), :class => "btn btn-primary btn-sm fa fa-plus" %>
  <br><br> 
-<<<<<<< HEAD
                  <!--<input type="text" class="form-control input-sm m-b-xs" id="filter"
                        placeholder="Search in table">-->
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
@@ -12,13 +11,6 @@
       <tr>
         <th>Descripción</th>
         <th>Estatus</th>
-=======
-
- <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
-    <thead>
-      <tr>
-        <th data-sorted="true">Descripción</th>
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
         <th colspan="1"></th>
       </tr>
     </thead>
@@ -26,7 +18,7 @@
     <tbody>
       <% @parametros.each do |parametro| %>
         <tr>
-<<<<<<< HEAD
+
           <td><%= parametro.descripcion %></td>
           <td><%= parametro.estatus %></td>
           <td>
@@ -34,12 +26,12 @@
             <%= link_to '', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm fa fa-pencil" %>
             <%= link_to '', polymorphic_url(parametro), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %>
               
-=======
+
           <td><%= link_to parametro.descripcion, edit_polymorphic_url(parametro) %></td>
           <td>
             <%= link_to '', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm fa fa-pencil" %>
             <%= link_to '', polymorphic_url(parametro), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %>
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
+
           </td>
         </tr>
       <% end %>

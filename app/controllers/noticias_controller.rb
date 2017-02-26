@@ -10,6 +10,8 @@ class NoticiasController < ApplicationController
   # GET /noticias/1
   # GET /noticias/1.json
   def show
+    @tipoNoticias = TipoNoticia.all
+    render "edit"
   end
 
   # GET /noticias/new

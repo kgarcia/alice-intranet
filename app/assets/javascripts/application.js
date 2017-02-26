@@ -16,10 +16,8 @@
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
 //= require_tree .
-<<<<<<< HEAD
 //= require footable/footable.min.js
-=======
-//= require footable/footable.min.js
+
 
 //= require datapicker/bootstrap-datepicker.js
 //= require moment
@@ -27,4 +25,3 @@
 //= require bootstrap-datetimepicker
 
 //= require tinymce
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157

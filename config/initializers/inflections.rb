@@ -66,12 +66,12 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'bloque', 'bloques'
 	inflect.irregular 'horario', 'horarios'
 	inflect.irregular 'cita', 'citas'
-<<<<<<< HEAD
+
 	inflect.irregular 'sector', 'sectores'
-=======
+
 	inflect.irregular 'atencion', 'atenciones'
 	inflect.irregular 'sector', 'sectores'
 	inflect.irregular 'categoria', 'categorias'
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
+
 
 end
