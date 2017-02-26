@@ -1,0 +1,1 @@
+json.partial! "tipo_busquedas/tipo_busqueda", tipo_busqueda: @tipo_busqueda
