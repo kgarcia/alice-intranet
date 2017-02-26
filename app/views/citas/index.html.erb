@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Citas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Turno</th>
+      <th>Persona</th>
+      <th>Usuario</th>
+      <th>Fecha</th>
+      <th>Tipo pago</th>
+      <th>Tipo cita</th>
+      <th>Estatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @citas.each do |cita| %>
+      <tr>
+        <td><%= cita.turno %></td>
+        <td><%= cita.persona %></td>
+        <td><%= cita.usuario %></td>
+        <td><%= cita.fecha %></td>
+        <td><%= cita.tipo_pago %></td>
+        <td><%= cita.tipo_cita %></td>
+        <td><%= cita.estatus %></td>
+        <td><%= link_to 'Show', cita %></td>
+        <td><%= link_to 'Edit', edit_cita_path(cita) %></td>
+        <td><%= link_to 'Destroy', cita, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cita', new_cita_path %>

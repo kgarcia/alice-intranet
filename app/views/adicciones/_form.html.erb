@@ -1,0 +1,32 @@
+<%= form_for(adiccion) do |f| %>
+  <% if adiccion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(adiccion.errors.count, "error") %> prohibited this adiccion from being saved:</h2>
+
+      <ul>
+      <% adiccion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :TipoAdiccion_id %>
+    <%= f.text_field :tipo_adicciones_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,1 @@
+json.partial! "tipo_criterios/tipo_criterio", tipo_criterio: @tipo_criterio

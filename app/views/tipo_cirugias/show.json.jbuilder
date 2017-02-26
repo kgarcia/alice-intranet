@@ -1,0 +1,1 @@
+json.partial! "tipo_cirugias/tipo_cirugia", tipo_cirugia: @tipo_cirugia

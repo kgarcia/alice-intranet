@@ -1,0 +1,1 @@
+json.partial! "tipo_horarios/tipo_horario", tipo_horario: @tipo_horario

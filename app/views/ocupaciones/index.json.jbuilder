@@ -1,0 +1,1 @@
+json.array! @ocupaciones, partial: 'ocupaciones/ocupacion', as: :ocupacion

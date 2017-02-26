@@ -1,0 +1,32 @@
+<%= form_for(habito) do |f| %>
+  <% if habito.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(habito.errors.count, "error") %> prohibited this habito from being saved:</h2>
+
+      <ul>
+      <% habito.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :TipoHabito_id %>
+    <%= f.collection_select(:TipoHabito_id, @tipoHabitos, :id, :descripcion) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,2 +1,2 @@
-class Especialidad < ActiveRecord::Base
+class Especialidad < ApplicationRecord
 end

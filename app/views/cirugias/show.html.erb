@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @cirugia.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @cirugia.estatus %>
+</p>
+
+<p>
+  <strong>Tipocirugia:</strong>
+  <%= @cirugia.TipoCirugia %>
+</p>
+
+<%= link_to 'Edit', edit_cirugia_path(@cirugia) %> |
+<%= link_to 'Back', cirugias_path %>

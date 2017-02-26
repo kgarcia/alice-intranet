@@ -1,49 +1,48 @@
 require 'test_helper'
 
-class SexosControllerTest < ActionController::TestCase
+class SexosControllerTest < ActionDispatch::IntegrationTest
   setup do
     @sexo = sexos(:one)
   end
 
   test "should get index" do
-    get :index
+    get sexos_url
     assert_response :success
-    assert_not_nil assigns(:sexos)
   end
 
   test "should get new" do
-    get :new
+    get new_sexo_url
     assert_response :success
   end
 
   test "should create sexo" do
     assert_difference('Sexo.count') do
-      post :create, sexo: { descripcion: @sexo.descripcion }
+      post sexos_url, params: { sexo: { decripcion: @sexo.decripcion, estatus: @sexo.estatus } }
     end
 
-    assert_redirected_to sexo_path(assigns(:sexo))
+    assert_redirected_to sexo_url(Sexo.last)
   end
 
   test "should show sexo" do
-    get :show, id: @sexo
+    get sexo_url(@sexo)
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @sexo
+    get edit_sexo_url(@sexo)
     assert_response :success
   end
 
   test "should update sexo" do
-    patch :update, id: @sexo, sexo: { descripcion: @sexo.descripcion }
-    assert_redirected_to sexo_path(assigns(:sexo))
+    patch sexo_url(@sexo), params: { sexo: { decripcion: @sexo.decripcion, estatus: @sexo.estatus } }
+    assert_redirected_to sexo_url(@sexo)
   end
 
   test "should destroy sexo" do
     assert_difference('Sexo.count', -1) do
-      delete :destroy, id: @sexo
+      delete sexo_url(@sexo)
     end
 
-    assert_redirected_to sexos_path
+    assert_redirected_to sexos_url
   end
 end

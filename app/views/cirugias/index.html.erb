@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cirugias</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Estatus</th>
+      <th>Tipocirugia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cirugias.each do |cirugia| %>
+      <tr>
+        <td><%= cirugia.descripcion %></td>
+        <td><%= cirugia.estatus %></td>
+        <td><%= cirugia.TipoCirugia %></td>
+        <td><%= link_to 'Show', cirugia %></td>
+        <td><%= link_to 'Edit', edit_cirugia_path(cirugia) %></td>
+        <td><%= link_to 'Destroy', cirugia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cirugia', new_cirugia_path %>

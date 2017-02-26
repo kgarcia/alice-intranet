@@ -1,1 +1,1 @@
-json.extract! @sexo, :id, :descripcion, :created_at, :updated_at
+json.partial! "sexos/sexo", sexo: @sexo

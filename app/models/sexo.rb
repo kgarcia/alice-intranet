@@ -1,2 +1,2 @@
-class Sexo < ActiveRecord::Base
+class Sexo < ApplicationRecord
 end

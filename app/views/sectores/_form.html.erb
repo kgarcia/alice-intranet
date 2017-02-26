@@ -1,0 +1,43 @@
+<div class="row">   
+   <div class="col-lg-6 col-lg-offset-3">
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h5><%= @sector.class.name %></h5>
+              </div>
+          </div>
+          <div class="ibox-content">
+             <%= form_for @sector, :html => {:class => 'form-horizontal'} do |f| %>
+                  <% if @sector.errors.any? %>
+                    <div id="error_explanation">
+                        <h2>
+                          <%= pluralize(@sector.errors.count, "error") %> prohibited this parametro from being saved:
+                        </h2>
+                      <ul>
+                      <% @sector.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                 
+                  <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
+                      <div class="col-lg-10"><%= f.text_field :descripcion , :class => "form-control"%> 
+                      </div>
+                  </div>                  
+                   <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
+                      <div class="col-lg-10">
+                      <%= f.text_field :estatus, :class => "form-control" %>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="col-lg-offset-2 col-lg-2">
+                          <%= f.submit 'Guardar', :class => "btn btn-sm btn-primary" %>
+                      </div>
+                      <div class="col-lg-2">
+                      <%= link_to 'Atras', sectores_path, :class => "btn btn-sm btn-danger" %>                          
+                      </div>
+                  </div>
+              <% end %>
+          </div>
+  </div>
+</div>

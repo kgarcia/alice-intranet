@@ -1,10 +1,10 @@
-<%= form_for(@sexo) do |f| %>
-  <% if @sexo.errors.any? %>
+<%= form_for(sexo) do |f| %>
+  <% if sexo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@sexo.errors.count, "error") %> prohibited this sexo from being saved:</h2>
+      <h2><%= pluralize(sexo.errors.count, "error") %> prohibited this sexo from being saved:</h2>
 
       <ul>
-      <% @sexo.errors.full_messages.each do |message| %>
+      <% sexo.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,12 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :descripcion %><br>
-    <%= f.text_field :descripcion %>
+    <%= f.label :decripcion %>
+    <%= f.text_field :decripcion %>
   </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.text_field :estatus %>
+  </div>
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-
-probando escribiendo en el formulario de sexo

@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  descripcion: MyString
+  decripcion: MyString
+  estatus: MyString
 
 two:
-  descripcion: MyString
+  decripcion: MyString
+  estatus: MyString

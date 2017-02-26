@@ -4,21 +4,30 @@ class SexosController < ApplicationController
   # GET /sexos
   # GET /sexos.json
   def index
-    @sexos = Sexo.all
+    @parametros = Sexo.all
+
+    render "parametros/index"
   end
 
   # GET /sexos/1
   # GET /sexos/1.json
   def show
+    @parametro = Sexo.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /sexos/new
   def new
-    @sexo = Sexo.new
+    @parametro = Sexo.new
+    render "parametros/new"
   end
 
   # GET /sexos/1/edit
   def edit
+    @parametro = Sexo.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /sexos
@@ -28,10 +37,10 @@ class SexosController < ApplicationController
 
     respond_to do |format|
       if @sexo.save
-        format.html { redirect_to @sexo, notice: 'Sexo was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @sexo }
+        format.html { redirect_to edit_sexo_path(@sexo), notice: 'Sexo was successfully created.' }
+        format.json { render :show, status: :created, location: @sexo }
       else
-        format.html { render action: 'new' }
+        format.html { render :new }
         format.json { render json: @sexo.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +51,10 @@ class SexosController < ApplicationController
   def update
     respond_to do |format|
       if @sexo.update(sexo_params)
-        format.html { redirect_to @sexo, notice: 'Sexo was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to edit_sexo_path(@sexo), notice: 'Sexo was successfully updated.' }
+        format.json { render :show, status: :ok, location: @sexo }
       else
-        format.html { render action: 'edit' }
+        format.html { render :edit }
         format.json { render json: @sexo.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +65,7 @@ class SexosController < ApplicationController
   def destroy
     @sexo.destroy
     respond_to do |format|
-      format.html { redirect_to sexos_url }
+      format.html { redirect_to sexos_url, notice: 'Sexo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +78,6 @@ class SexosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sexo_params
-      params.require(:sexo).permit(:descripcion)
+      params.require(:sexo).permit(:decripcion, :estatus)
     end
 end

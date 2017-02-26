@@ -1,0 +1,1 @@
+json.array! @tipo_motivos, partial: 'tipo_motivos/tipo_motivo', as: :tipo_motivo

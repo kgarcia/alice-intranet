@@ -1,0 +1,1 @@
+json.array! @tipo_lesiones, partial: 'tipo_lesiones/tipo_lesion', as: :tipo_lesion

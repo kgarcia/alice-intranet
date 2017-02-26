@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
 	Pais.create(descripcion: 'Venezuela', codigo: 'VE',estatus: 1)
 	Pais.create(descripcion: 'Mexico', codigo: 'MX',estatus: 1)
 	Pais.create(descripcion: 'Antigua y Barbudas', codigo: 'AB',estatus: 1)
@@ -138,4 +139,7 @@
 	Vacuna.create(descripcion: 'Rubeola',estatus: 1)
 	Vacuna.create(descripcion: 'Tetanos',estatus: 1)
 	Vacuna.create(descripcion: 'Difteria',estatus: 1)
+
+
+end
 
