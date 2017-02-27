@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  correo: MyString
+  nombre: MyString
+  descripcion: MyString
+  tipo_opinion: one
+  motivo: one
+  estatus: 1
+
+two:
+  correo: MyString
+  nombre: MyString
+  descripcion: MyString
+  tipo_opinion: two
+  motivo: two
+  estatus: 1

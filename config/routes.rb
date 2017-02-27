@@ -3,6 +3,14 @@ Myapp::Application.routes.draw do
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
+
+  resources :informacion_generals
+  resources :noticias
+  resources :opiniones
+  resources :tipo_opiniones
+  resources :tipo_preguntas
+  resources :tipo_noticias
+
   get 'agenda_servicio/:id/detalle', to: 'agenda_servicio#detalle'
 
   resources :notificaciones
