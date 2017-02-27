@@ -18,7 +18,6 @@
 //= require_tree .
 //= require footable/footable.min.js
 
-
 //= require datapicker/bootstrap-datepicker.js
 //= require moment
 //= require moment/es

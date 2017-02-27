@@ -1,32 +1,3 @@
-<<<<<<< HEAD
-<%= form_for(tipo_ubicacion) do |f| %>
-  <% if tipo_ubicacion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tipo_ubicacion.errors.count, "error") %> prohibited this tipo_ubicacion from being saved:</h2>
-
-      <ul>
-      <% tipo_ubicacion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
-  </div>
-
-  <div class="field">
-    <%= f.label :estatus %>
-    <%= f.number_field :estatus %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-=======
 <div class="row">   
    <div class="col-lg-6 col-lg-offset-3">
           <div class="ibox float-e-margins">
@@ -70,4 +41,3 @@
           </div>
   </div>
 </div>
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157

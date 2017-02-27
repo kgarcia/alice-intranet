@@ -13,6 +13,10 @@
       </ul>
     </div>
   <% end %>
+         <div class="field form-group">
+                    <label class="col-lg-2 control-label">Tipo Opinion</label>
+                    <%= f.collection_select(:tipo_opinion_id, @tipoOpiniones, :id, :descripcion) %>
+                  </div>
  <div class="form-group"><label class="col-lg-2 control-label">Correo Electronico</label>
 
                       <div class="col-lg-10"><%= f.text_field :correo, :class => "form-control" %>
@@ -28,15 +32,6 @@
                       <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
                        </div>
                     </div>
-                     <div class="field form-group">
-                    <label class="col-lg-2 control-label">Tipo Opinion</label>
-                    <%= f.collection_select(:tipo_opinion_id, @tipoOpiniones, :id, :descripcion) %>
-                  </div>
-                   <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
-
-                      <div class="col-lg-10"><%= f.text_field :estatus, :class => "form-control" %>
-                      </div>
-                  </div>
                   <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">
                           <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>

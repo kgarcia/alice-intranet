@@ -17,7 +17,7 @@ class NoticiasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create noticia" do
     assert_difference('Noticia.count') do
-      post noticias_url, params: { noticia: { descripcion: @noticia.descripcion, estatus: @noticia.estatus, tipo_noticias_id: @noticia.tipo_noticias_id, titulo: @noticia.titulo } }
+      post noticias_url, params: { noticia: { descripcion: @noticia.descripcion, estatus: @noticia.estatus, tipo_noticia_id: @noticia.tipo_noticia_id, titulo: @noticia.titulo } }
     end
 
     assert_redirected_to noticia_url(Noticia.last)
@@ -34,7 +34,7 @@ class NoticiasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update noticia" do
-    patch noticia_url(@noticia), params: { noticia: { descripcion: @noticia.descripcion, estatus: @noticia.estatus, tipo_noticias_id: @noticia.tipo_noticias_id, titulo: @noticia.titulo } }
+    patch noticia_url(@noticia), params: { noticia: { descripcion: @noticia.descripcion, estatus: @noticia.estatus, tipo_noticia_id: @noticia.tipo_noticia_id, titulo: @noticia.titulo } }
     assert_redirected_to noticia_url(@noticia)
   end
 

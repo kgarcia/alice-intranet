@@ -2,14 +2,11 @@ Myapp::Application.routes.draw do
 
 
 
-  resources :preguntas
-  resources :tipo_preguntas
+  resources :noticias
   resources :opiniones
   resources :tipo_opiniones
-  resources :noticias
+  resources :tipo_preguntas
   resources :tipo_noticias
-
-
   resources :eventos
   resources :tipo_eventos
   resources :busquedas
@@ -43,7 +40,6 @@ Myapp::Application.routes.draw do
   resources :tipo_atenciones
   resources :especialistas
   resources :especialidades
-
   resources :ubicaciones
   resources :sectores
   resources :sectors
@@ -128,4 +124,5 @@ root to: 'home#index'
   #   end
 
 
+  resources :preguntas
 end

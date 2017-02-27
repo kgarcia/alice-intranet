@@ -1,34 +1,3 @@
-<<<<<<< HEAD
-<p id="notice"><%= notice %></p>
-
-<h1>Sectores</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Descripcion</th>
-      <th>Estatus</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @sectores.each do |sector| %>
-      <tr>
-        <td><%= sector.descripcion %></td>
-        <td><%= sector.estatus %></td>
-        <td><%= link_to 'Show', sector %></td>
-        <td><%= link_to 'Edit', edit_sector_path(sector) %></td>
-        <td><%= link_to 'Destroy', sector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Sector', new_sector_path %>
-=======
 <%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
 
@@ -75,4 +44,3 @@ $('.table').footable();
 
 </script>
 
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157

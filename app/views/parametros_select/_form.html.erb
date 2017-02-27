@@ -14,15 +14,6 @@
                     </div>
                   <% end %>
 
-                 
-                  <div class="form-group"><label class="col-lg-2 control-label">Codigo</label>
-
-                      <div class="col-lg-10"><%= f.text_field :id , :value => @parametro.class.maximum(:id).next, :class => "form-control", :readonly => true%> <span class="help-block m-b-none">autogenerado</span>
-                      </div> 
-                  </div>
-                  <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
-
-
                   <div class="field form-group">
                     <label class="col-lg-2 control-label">Tipo</label>
 
@@ -34,21 +25,9 @@
 
                   <div class="form-group"><label class="col-lg-2 control-label">Descripcion</label>
 
-
                       <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
                        </div>
                     </div>
-
-                   <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
-
-                      <div class="col-lg-10"><%= f.text_field :estatus, :class => "form-control" %>
-                      </div>
-                  </div>
-                  <div class="field form-group">
-                    <label class="col-lg-2 control-label">Tipo</label>
-                    <%= f.collection_select(@referencia, @collection, :id, :descripcion) %>
-                  </div>
-
                   <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-10">
                           <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>

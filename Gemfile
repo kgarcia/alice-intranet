@@ -86,3 +86,4 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'tinymce-rails'
 
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+

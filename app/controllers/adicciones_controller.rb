@@ -5,10 +5,6 @@ class AdiccionesController < ApplicationController
   # GET /adicciones.json
   def index
     @parametros = Adiccion.all
-<<<<<<< HEAD
-    @referencia = "tipoAdiccion"
-=======
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
     render "parametros_select/index"
   end
 
@@ -17,22 +13,14 @@ class AdiccionesController < ApplicationController
   def show
     @parametro = Adiccion.find(params[:id])
 
-<<<<<<< HEAD
-    render "parametros_select/show"
-=======
     render "parametros_select/edit"
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /adicciones/new
   def new
     @parametro = Adiccion.new
     @collection = TipoAdiccion.all
-<<<<<<< HEAD
-    @referencia = :tipo_adicciones_id
-=======
     @referencia = :tipo_adiccion_id
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
 
     render "parametros_select/new"
   end
@@ -41,11 +29,7 @@ class AdiccionesController < ApplicationController
   def edit
     @parametro = Adiccion.find(params[:id])
     @collection = TipoAdiccion.all
-<<<<<<< HEAD
-    @referencia = :tipo_adicciones_id
-=======
     @referencia = :tipo_adiccion_id
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
 
     render "parametros_select/edit"
   end
@@ -98,10 +82,6 @@ class AdiccionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adiccion_params
-<<<<<<< HEAD
-      params.require(:adiccion).permit(:descripcion, :estatus, :tipo_adicciones_id)
-=======
       params.require(:adiccion).permit(:descripcion, :estatus, :tipo_adiccion_id)
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
     end
 end

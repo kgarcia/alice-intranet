@@ -3,34 +3,6 @@ def change
 
     OptionMenu.create(:id_padre => nil, :nombre => 'Configuración General',     :url_path => '#', :icono => 'fa-cogs'       ,      :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
       OptionMenu.create(:id_padre => 1,   :nombre => 'Datos de Servicios',                :url_path => '#', :icono => 'fa-edit',           :controlador => '', :accion => '', num_hijos: 9, :estatus => 'A')
-<<<<<<< HEAD
-              OptionMenu.create(:id_padre => 2, :nombre => 'Paises',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 2, :nombre => 'Estados',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 2, :nombre => 'Ciudades',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 2, :nombre => 'Tipos de Ubicación',                   :url_path => '', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 2, :nombre => 'Ubicaciónes',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 2, :nombre => 'Especialidades',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 2, :nombre => 'Tipos de Atención',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 2, :nombre => 'Tipos de Servicio',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 2, :nombre => 'Tipos de Evento',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-      OptionMenu.create(:id_padre => 1,   :nombre => 'Datos de Agendas y Citas',              :url_path => '#', :icono => 'fa-edit', :controlador => '', :accion => '', num_hijos: 14, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Dias',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Turnos',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Bloques',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Tipos de Horario',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Tipos de Cita',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Tipos de Pago',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Tipos de Motivo',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Motivos',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Tipos de Eventualidad',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Eventualidades',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Tipos de Calificacio',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Calificaciones',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Tipos de Criterio',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.create(:id_padre => 12, :nombre => 'Criterios',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-      OptionMenu.create(:id_padre => 1,   :nombre => 'Datos de Segmentacion',                   :url_path => '#', :icono => 'fa-edit',          :controlador => '', :accion => '', num_hijos: 18, :estatus => 'A')
-              OptionMenu.create(:id_padre => 27, :nombre => 'Sexos',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-=======
               OptionMenu.create(:id_padre => 2, :nombre => 'Paises',                   :url_path => 'paises', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
               OptionMenu.create(:id_padre => 2, :nombre => 'Estados',                   :url_path => 'estados', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
               OptionMenu.create(:id_padre => 2, :nombre => 'Ciudades',                   :url_path => 'ciudades', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
@@ -57,7 +29,6 @@ def change
               OptionMenu.create(:id_padre => 12, :nombre => 'Criterios',                   :url_path => 'criterios', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
       OptionMenu.create(:id_padre => 1,   :nombre => 'Datos de Segmentacion',                   :url_path => '#', :icono => 'fa-edit',          :controlador => '', :accion => '', num_hijos: 18, :estatus => 'A')
               OptionMenu.create(:id_padre => 27, :nombre => 'Sexos',                   :url_path => 'sexos', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
               OptionMenu.create(:id_padre => 27, :nombre => 'Tipos de Hábito',                   :url_path => 'tipo_habitos', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
               OptionMenu.create(:id_padre => 27, :nombre => 'Hábitos',                   :url_path => 'habitos', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
               OptionMenu.create(:id_padre => 27, :nombre => 'Tipos de Lesion',                   :url_path => 'tipo_lesiones', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
@@ -78,13 +49,8 @@ def change
     OptionMenu.create(:id_padre => nil, :nombre => 'Oferta y Eventos',          :url_path => '#', :icono => 'fa-calendar',         :controlador => '', :accion => '', num_hijos: 2, :estatus => 'A')
 
       OptionMenu.create(:id_padre => 46,   :nombre => 'Catalogo de Servicios',   :url_path => '#', :icono => 'fa-table',           :controlador => '', :accion => '', num_hijos: 2, :estatus => 'A')
-<<<<<<< HEAD
-        OptionMenu.create(:id_padre => 47,   :nombre => 'Servicios',             :url_path => '#', :icono => 'fa-flask',            :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-        OptionMenu.create(:id_padre => 47,   :nombre => 'Especialistas',         :url_path => '#', :icono => 'fa-user-md',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-=======
         OptionMenu.create(:id_padre => 47,   :nombre => 'Servicios',             :url_path => 'servicios', :icono => 'fa-flask',            :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
         OptionMenu.create(:id_padre => 47,   :nombre => 'Especialistas',         :url_path => 'especialistas', :icono => 'fa-user-md',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
       OptionMenu.create(:id_padre => 46,   :nombre => 'Catalogo de Eventos',     :url_path => '#', :icono => 'fa-table',            :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
      
     OptionMenu.create(:id_padre => nil,   :nombre => 'Agenda',                  :url_path => '#', :icono => 'fa-calendar',         :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
@@ -121,13 +87,8 @@ def change
         OptionMenu.create(:id_padre => 73,  :nombre => 'Imagenes',                  :url_path => '#', :icono => 'fa-desktop',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
   	    OptionMenu.create(:id_padre => 73,  :nombre => 'Noticias',                  :url_path => '#', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
       OptionMenu.create(:id_padre => 72, :nombre => 'Seguridad Funcional',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
-<<<<<<< HEAD
-        OptionMenu.create(:id_padre => 77, :nombre => 'Usuarios',               :url_path => '#', :icono => 'fa-user-plus',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-        OptionMenu.create(:id_padre => 77, :nombre => 'Roles',                      :url_path => '#', :icono => 'fa-bookmark-o',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-=======
         OptionMenu.create(:id_padre => 77, :nombre => 'Usuarios',               :url_path => 'usuarios/edit', :icono => 'fa-user-plus',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
         OptionMenu.create(:id_padre => 77, :nombre => 'Roles',                      :url_path => 'roles', :icono => 'fa-bookmark-o',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
         OptionMenu.create(:id_padre => 77, :nombre => 'Permisos',                   :url_path => '#', :icono => 'fa-check',            :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
       OptionMenu.create(:id_padre => 72, :nombre => 'General',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
       OptionMenu.create(:id_padre => 72, :nombre => 'Base de Datos',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')

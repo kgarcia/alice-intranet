@@ -3,11 +3,11 @@
 one:
   titulo: MyString
   descripcion: MyString
-  tipo_noticias: one
+  tipo_noticia: one
   estatus: 1
 
 two:
   titulo: MyString
   descripcion: MyString
-  tipo_noticias: two
+  tipo_noticia: two
   estatus: 1

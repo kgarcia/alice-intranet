@@ -17,7 +17,7 @@ class OpinionesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create opinion" do
     assert_difference('Opinion.count') do
-      post opiniones_url, params: { opinion: { correo: @opinion.correo, descripcion: @opinion.descripcion, estatus: @opinion.estatus, nombre: @opinion.nombre, tipo_opinion_id: @opinion.tipo_opinion_id } }
+      post opiniones_url, params: { opinion: { correo: @opinion.correo, descripcion: @opinion.descripcion, estatus: @opinion.estatus, motivo_id: @opinion.motivo_id, nombre: @opinion.nombre, tipo_opinion_id: @opinion.tipo_opinion_id } }
     end
 
     assert_redirected_to opinion_url(Opinion.last)
@@ -34,7 +34,7 @@ class OpinionesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update opinion" do
-    patch opinion_url(@opinion), params: { opinion: { correo: @opinion.correo, descripcion: @opinion.descripcion, estatus: @opinion.estatus, nombre: @opinion.nombre, tipo_opinion_id: @opinion.tipo_opinion_id } }
+    patch opinion_url(@opinion), params: { opinion: { correo: @opinion.correo, descripcion: @opinion.descripcion, estatus: @opinion.estatus, motivo_id: @opinion.motivo_id, nombre: @opinion.nombre, tipo_opinion_id: @opinion.tipo_opinion_id } }
     assert_redirected_to opinion_url(@opinion)
   end
 

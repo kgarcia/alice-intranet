@@ -1,35 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Opiniones</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Correo</th>
-      <th>Nombre</th>
-      <th>Descripcion</th>
-      <th>Tipo opinion</th>
-      <th>Estatus</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @opiniones.each do |opinion| %>
+<div class="ibox-content">
+<%= link_to 'Opinion', new_opinion_path, :class => "btn btn-primary btn-sm fa fa-plus" %>
+ <br><br> 
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
       <tr>
-        <td><%= opinion.correo %></td>
-        <td><%= opinion.nombre %></td>
-        <td><%= opinion.descripcion %></td>
-        <td><%= opinion.tipo_opinion %></td>
-        <td><%= opinion.estatus %></td>
-        <td><%= link_to 'Show', opinion %></td>
-        <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
-        <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th data-breakpoints="xs" data-sorted="true">Tipo de opinion</th>
+        <th>Correo</th>
+        <th>Nombre del cliente</th>
+        <th>Descripcion</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+        <% @opiniones.each do |opinion| %>
+          <tr>
+            <td><%= opinion.tipo_opinion.descripcion %></td>
+            <td><%= opinion.correo %></td>
+            <td><%= opinion.nombre %></td>
+            <td><%= opinion.descripcion %></td>
+            <td><%= link_to '', edit_polymorphic_url(opinion), :class => "btn btn-warning btn-sm fa fa-pencil" %></td>
+            <td><%= link_to 'Show', opinion %></td>
+            <td><%= link_to 'Edit', edit_opinion_path(opinion) %></td>
+            <td><%= link_to 'Destroy', opinion, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <ul class="pagination pull-right"></ul>
+                        </td>
+                    </tr>
+                    </tfoot>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Opinion', new_opinion_path %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+
+</script>
+
+

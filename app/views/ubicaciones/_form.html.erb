@@ -9,14 +9,9 @@
              <%= form_for @parametro, :html => {:class => 'form-horizontal'} do |f| %>
                   <% if @parametro.errors.any? %>
                     <div id="error_explanation">
-<<<<<<< HEAD
-                      <h2><%= pluralize(@parametro.errors.count, "error") %> prohibited this parametro from being saved:</h2>
-
-=======
                         <h2>
                           <%= pluralize(@parametro.errors.count, "error") %> prohibited this parametro from being saved:
                         </h2>
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
                       <ul>
                       <% @parametro.errors.full_messages.each do |message| %>
                         <li><%= message %></li>
@@ -25,37 +20,6 @@
                     </div>
                   <% end %>
                  
-<<<<<<< HEAD
-                  <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
-
-                      <div class="col-lg-10"><%= f.text_field :descripcion , :class => "form-control"%> <span class="help-block m-b-none">autogenerado</span>
-                      </div>
-                  </div>
-                  <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
-
-                      <div class="col-lg-10"><%= f.text_field :sector_id, :class => "form-control" %>
-                       </div>
-                    </div>
-                    <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
-
-                      <div class="col-lg-10"><%= f.text_field :ciudad_id, :class => "form-control" %>
-                       </div>
-                    </div>
-                    <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
-
-                      <div class="col-lg-10"><%= f.text_field :tipo_ubicacion_id, :class => "form-control" %>
-                       </div>
-                    </div>
-                   <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
-
-                      <div class="col-lg-10"><%= f.text_field :estatus, :class => "form-control" %>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <div class="col-lg-offset-2 col-lg-10">
-                          <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>
-                         
-=======
                  <div class="form-group"><label class="col-lg-2 control-label">Ciudad</label>
                     <div class="col-lg-10">
                       <%= f.collection_select :ciudad_id, Ciudad.all, :id, :descripcion, {prompt: "Seleccione"}, {class: "form-control"} %>
@@ -85,7 +49,6 @@
                       </div>
                       <div class="col-lg-2">
                       <%= link_to 'Atras', ubicaciones_path, :class => "btn btn-sm btn-danger" %>                          
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
                       </div>
                   </div>
               <% end %>

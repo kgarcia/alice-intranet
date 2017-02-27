@@ -4,46 +4,32 @@ class CiudadesController < ApplicationController
   # GET /ciudades
   # GET /ciudades.json
   def index
-<<<<<<< HEAD
-    @ciudades = Ciudad.all
-=======
     @parametros = Ciudad.all
     render "parametros_select/index"  
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /ciudades/1
   # GET /ciudades/1.json
   def show
-<<<<<<< HEAD
-=======
     @parametro = Ciudad.find(params[:id])
 
     render "parametros_select/edit"
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /ciudades/new
   def new
-<<<<<<< HEAD
-    @ciudad = Ciudad.new
-=======
     @parametro = Ciudad.new
     @collection = Estado.all
     @referencia = :estado_id
 
     render "parametros_select/new"
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /ciudades/1/edit
   def edit
-<<<<<<< HEAD
-=======
     @parametro = Ciudad.find(params[:id])
 
     render "parametros_select/edit"
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # POST /ciudades
@@ -53,11 +39,7 @@ class CiudadesController < ApplicationController
 
     respond_to do |format|
       if @ciudad.save
-<<<<<<< HEAD
-        format.html { redirect_to @ciudad, notice: 'Ciudad was successfully created.' }
-=======
         format.html { redirect_to edit_ciudad_path(@ciudad), notice: 'Ciudad was successfully created.' }
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
         format.json { render :show, status: :created, location: @ciudad }
       else
         format.html { render :new }
@@ -71,11 +53,7 @@ class CiudadesController < ApplicationController
   def update
     respond_to do |format|
       if @ciudad.update(ciudad_params)
-<<<<<<< HEAD
-        format.html { redirect_to @ciudad, notice: 'Ciudad was successfully updated.' }
-=======
         format.html { redirect_to edit_ciudad_path(@ciudad), notice: 'Ciudad was successfully updated.' }
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
         format.json { render :show, status: :ok, location: @ciudad }
       else
         format.html { render :edit }

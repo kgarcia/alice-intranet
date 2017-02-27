@@ -5,6 +5,7 @@ class CreateOpiniones < ActiveRecord::Migration[5.0]
       t.string :nombre
       t.string :descripcion
       t.references :tipo_opinion, foreign_key: true
+      t.references :motivo, foreign_key: true
       t.integer :estatus
 
       t.timestamps

@@ -10,21 +10,11 @@ class UbicacionesController < ApplicationController
   # GET /ubicaciones/1
   # GET /ubicaciones/1.json
   def show
-<<<<<<< HEAD
-=======
   @parametro = Ubicacion.find(params[:id])
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # GET /ubicaciones/new
   def new
-<<<<<<< HEAD
-    @ubicacion = Ubicacion.new
-  end
-
-  # GET /ubicaciones/1/edit
-  def edit
-=======
     @parametro = Ubicacion.new
     @tipoUbicaciones = TipoUbicacion.all
     @ciudades = Ciudad.all
@@ -34,7 +24,6 @@ class UbicacionesController < ApplicationController
   # GET /ubicaciones/1/edit
   def edit  
   @parametro = Ubicacion.find(params[:id])
->>>>>>> 46d78a09a6d73b42ea989e8ff32ab2bd3293e157
   end
 
   # POST /ubicaciones
