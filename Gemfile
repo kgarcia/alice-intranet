@@ -87,3 +87,6 @@ gem 'tinymce-rails'
 
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
+#Gema para facebook
+gem "koala", "~> 3.0.0.beta2"
+

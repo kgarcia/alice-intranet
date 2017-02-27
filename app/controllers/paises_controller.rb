@@ -12,9 +12,9 @@ class PaisesController < ApplicationController
   # GET /paises/1
   # GET /paises/1.json
   def show
-    @parametro = Pais.find(params[:id])
+   # @parametro = Pais.find(params[:id])
 
-    render "parametros/edit"
+   # render "parametros/edit"
   end
 
   # GET /paises/new

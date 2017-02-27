@@ -141,5 +141,4 @@
 	Vacuna.create(descripcion: 'Difteria',estatus: 1)
 
 
-end
 
