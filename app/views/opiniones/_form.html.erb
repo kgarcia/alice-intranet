@@ -1,0 +1,44 @@
+<div class="row">   
+   <div class="col-lg-6 col-lg-offset-3">
+          <div class="ibox-content">
+<%= form_for(opinion) do |f| %>
+  <% if opinion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(opinion.errors.count, "error") %> prohibited this opinion from being saved:</h2>
+
+      <ul>
+      <% opinion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+         <div class="field form-group">
+                    <label class="col-lg-2 control-label">Tipo Opinion</label>
+                    <%= f.collection_select(:tipo_opinion_id, @tipoOpiniones, :id, :descripcion) %>
+                  </div>
+ <div class="form-group"><label class="col-lg-2 control-label">Correo Electronico</label>
+
+                      <div class="col-lg-10"><%= f.text_field :correo, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Nombre del cliente</label>
+
+                      <div class="col-lg-10"><%= f.text_field :nombre, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Descripcion</label>
+
+                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                       </div>
+                    </div>
+                  <div class="form-group">
+                      <div class="col-lg-offset-2 col-lg-10">
+                          <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>
+                         
+                      </div>
+                  </div>
+<% end %>
+    </div>
+  </div>
+</div>

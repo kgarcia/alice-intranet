@@ -4,4 +4,8 @@ class Motivo < ApplicationRecord
   def tipo
     return self.tipo_motivo
   end
+
+  def self.titulo
+	  return "Motivos"
+  end
 end

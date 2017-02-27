@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<div class="ibox-content">
+<%= link_to 'Pregunta', new_pregunta_path, :class => "btn btn-primary btn-sm fa fa-plus" %>
+ <br><br> 
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
+      <tr>
+        <th data-breakpoints="xs" data-sorted="true">Tipo de pregunta</th>
+        <th>Titulo</th>
+        <th>Descripcion</th>
+        <th>Respuesta</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @preguntas.each do |pregunta| %>
+          <tr>
+            <td><%= pregunta.tipo_pregunta.descripcion %></td>
+            <td><%= pregunta.titulo %></td>
+            <td><%= pregunta.descripcion %></td>
+            <td><%= pregunta.respuesta %></td>
+            <td><%= link_to '', edit_polymorphic_url(pregunta), :class => "btn btn-warning btn-sm fa fa-pencil" %></td>
+            <td><%= link_to 'Show', pregunta %></td>
+            <td><%= link_to 'Edit', edit_pregunta_path(pregunta) %></td>
+            <td><%= link_to 'Destroy', pregunta, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <ul class="pagination pull-right"></ul>
+                        </td>
+                    </tr>
+                    </tfoot>
+  </table>
+</div>
+<br>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+
+</script>
+
+

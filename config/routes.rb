@@ -1,7 +1,14 @@
 Myapp::Application.routes.draw do
 
-
-
+  resources :tipo_preguntas
+  resources :tipo_opiniones
+  resources :tipo_noticias
+  resources :preguntas
+  resources :opiniones
+  resources :noticias
+  resources :universidades
+  resources :formacion_academicas
+  resources :nivel_formaciones
   resources :eventos
   resources :tipo_eventos
   resources :busquedas

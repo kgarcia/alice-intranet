@@ -5,4 +5,8 @@ class Servicio < ApplicationRecord
 
   has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   	validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
+
+  def self.titulo
+	  return "Servicios"
+  end
 end

@@ -31,7 +31,7 @@
                     <div class="field form-group">
                       <label class="col-lg-2 control-label">Especialista</label>
                       <div class="col-lg-10">
-                        <%= f.collection_select(:especialista_id, @especialistas, :id, :descripcion, {},{:class => "form-control"}) %>
+                        <%= f.collection_select(:especialista_id, @especialistas, :id, :nombre, {},{:class => "form-control"}) %>
                       </div>
                       
                     </div>

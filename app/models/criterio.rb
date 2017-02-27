@@ -6,4 +6,8 @@ class Criterio < ApplicationRecord
   def tipo
   	return self.tipo_criterio
   end
+
+  def self.titulo
+	  return "Criterios"
+  end
 end

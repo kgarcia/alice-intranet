@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @formacion_academica.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @formacion_academica.estatus %>
+</p>
+
+<p>
+  <strong>Nivel formacion:</strong>
+  <%= @formacion_academica.nivel_formacion %>
+</p>
+
+<%= link_to 'Edit', edit_formacion_academica_path(@formacion_academica) %> |
+<%= link_to 'Back', formacion_academicas_path %>
