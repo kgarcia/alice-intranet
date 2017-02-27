@@ -213,6 +213,15 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.string   "descripcion"
     t.integer  "estatus"
     t.integer  "tipo_evento_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["tipo_evento_id"], name: "index_eventos_on_tipo_evento_id", using: :btree
+  end
+
+  create_table "eventos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_evento_id"
     t.string   "foto_file_name"
     t.string   "foto_content_type"
     t.integer  "foto_file_size"
@@ -500,6 +509,7 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.index ["servicio_id"], name: "index_servicio_eventos_on_servicio_id", using: :btree
   end
 
+
   create_table "servicios", force: :cascade do |t|
     t.text     "descripcion"
     t.integer  "ubicacion_id"
@@ -778,6 +788,10 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.datetime "updated_at",                          null: false
     t.integer  "rol_id"
     t.integer  "persona_id"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_usuarios_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
     t.index ["persona_id"], name: "index_usuarios_on_persona_id", using: :btree
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree

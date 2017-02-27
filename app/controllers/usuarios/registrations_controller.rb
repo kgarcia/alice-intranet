@@ -15,6 +15,7 @@ end
      @persona = Persona.new(persona_params)
      @persona.save
      super
+     #ExampleMailer.sample_mail(Usuario.last).deliver_now
    end
 
   # GET /resource/edit

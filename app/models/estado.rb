@@ -1,5 +1,6 @@
 class Estado < ApplicationRecord
   belongs_to :pais
+  has_many :ciudad
 
   def tipo
   	return self.pais
@@ -8,5 +9,4 @@ class Estado < ApplicationRecord
   def self.titulo
 	  return "Estados"
   end
-
 end
