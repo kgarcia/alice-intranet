@@ -457,7 +457,7 @@
     TipoPago.find_or_create_by(:descripcion => 'Nota Credito', :estatus => 1)
     TipoPago.find_or_create_by(:descripcion => 'Nota Debito', :estatus => 1)
     TipoPago.find_or_create_by(:descripcion => 'Seguro', :estatus => 1)
-    Persona.find_or_create_by(:cedula => '20473293', :nombre => 'Richard', :apellido => 'Gere', :telefono => '+584245126060', :direccion => 'Urb. Bararida Residencias Venezuela II Etapa', :fecha_nacimiento => '16/05/1991', :sexo_id => Sexo.find(1), :edad => 25)
+    Persona.find_or_create_by(:cedula => '20473293', :nombre => 'Richard', :apellido => 'Gere', :telefono => '+584245126060', :direccion => 'Urb. Bararida Residencias Venezuela II Etapa', :fecha_nacimiento => '16/05/1991', :sexo_id => Sexo.find(1))
     Usuario.find_or_create_by(:email => 'jonnathangte68@hotmail.com', :encrypted_password => '$2a$04$WdGflFc08MtXWLskfoWM8.v8OsFDgM3bttyd4ZxTk2uRS3uZvr6ky', :rol_id => Rol.find(1), :persona_id => Persona.find(1))
 
 
