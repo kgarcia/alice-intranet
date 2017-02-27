@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @tipo_pregunta.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @tipo_pregunta.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_tipo_pregunta_path(@tipo_pregunta) %> |
+<%= link_to 'Back', tipo_preguntas_path %>

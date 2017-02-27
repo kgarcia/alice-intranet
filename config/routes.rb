@@ -1,18 +1,29 @@
 Myapp::Application.routes.draw do
 
-
+  resources :tipo_preguntas
+  resources :tipo_opiniones
+  resources :tipo_noticias
+  resources :preguntas
+  resources :opiniones
+  resources :noticias
+  resources :universidades
+  resources :formacion_academicas
+  resources :nivel_formaciones
+  resources :eventos
+  resources :tipo_eventos
+  resources :busquedas
+  resources :tipo_busquedas
   resources :categorias
   resources :citas
   resources :evaluaciones
   resources :criterio_tipo_servicios
   resources :calificaciones
   resources :criterios
-
   resources :servicios
   resources :sexos
   resources :personas
   resources :roles
-  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations"}
+  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations", sessions: "usuarios/sessions"}
   resources :eventualidades
   resources :turnos
   resources :horarios

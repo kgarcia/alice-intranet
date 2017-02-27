@@ -1,0 +1,1 @@
+json.array! @tipo_busquedas, partial: 'tipo_busquedas/tipo_busqueda', as: :tipo_busqueda

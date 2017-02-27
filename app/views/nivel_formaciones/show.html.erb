@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @nivel_formacion.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @nivel_formacion.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_nivel_formacion_path(@nivel_formacion) %> |
+<%= link_to 'Back', nivel_formaciones_path %>

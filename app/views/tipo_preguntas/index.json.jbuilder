@@ -1,0 +1,1 @@
+json.array! @tipo_preguntas, partial: 'tipo_preguntas/tipo_pregunta', as: :tipo_pregunta
