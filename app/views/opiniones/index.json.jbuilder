@@ -1,0 +1,1 @@
+json.array! @opiniones, partial: 'opiniones/opinion', as: :opinion

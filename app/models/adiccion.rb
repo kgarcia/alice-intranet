@@ -6,4 +6,9 @@ class Adiccion < ApplicationRecord
   def tipo
   	return self.tipo_adiccion
   end
+
+  def self.titulo
+		return "Adicciones"
+	end
+
 end

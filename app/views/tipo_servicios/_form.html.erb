@@ -31,8 +31,7 @@
               <div class="tab-content">
 
                 <div id="datos" class="tab-pane fade in active">
-                  <h3>Datos Basicos</h3>
-
+                  <br>
                   <div class="field form-group">
                     <label class="col-lg-2 control-label">Tipo de Atencion</label>
                     <div class="col-lg-10">
@@ -73,7 +72,7 @@
                 </div>
 
                 <div id="texto" class="tab-pane fade">
-                  <h3>Texto</h3>
+                  <br>
                   <div class="form-group">
                       <label class="col-lg-2 control-label">Texto</label>
 
@@ -85,7 +84,7 @@
                 </div>
 
                 <div id="perfil-persona" class="tab-pane fade">
-                  <h3>Perfil de Paciente</h3>
+                  <br>
                   <ul class="nav nav-tabs">
                     <li><a data-toggle="tab" href="#estado_civiles">Estado Civil</a></li>
                     <li><a data-toggle="tab" href="#ocupaciones">Ocupaciones</a></li>
@@ -96,7 +95,6 @@
                   <div class="tab-content">
 
                     <div id="estado_civiles" class="tab-pane fade in">
-                      <h3>Estados Civiles</h3>
                       <div>
                         <% @estado_civiles.each do |estado_civil| %>
                             <%= check_box_tag('estado_civiles[]', estado_civil.id, @tipo_servicio.estado_civiles.include?(estado_civil)) %> <%= estado_civil.descripcion %>
@@ -105,7 +103,6 @@
                     </div>
 
                     <div id="ocupaciones" class="tab-pane fade in">
-                      <h3>Ocupaciones</h3>
                       <div>
                         <% @ocupaciones.each do |ocupacion| %>
                             <%= check_box_tag('ocupaciones[]', ocupacion.id, @tipo_servicio.ocupaciones.include?(ocupacion)) %> <%= ocupacion.descripcion %>
@@ -114,7 +111,6 @@
                     </div>
 
                     <div id="profesiones" class="tab-pane fade in">
-                      <h3>Profesiones</h3>
                       <div>
                         <% @profesiones.each do |profesion| %>
                             <%= check_box_tag('profesions[]', profesion.id, @tipo_servicio.profesiones.include?(profesion)) %> <%= profesion.descripcion %>
@@ -123,7 +119,6 @@
                     </div>
 
                     <div id="sexos" class="tab-pane fade in">
-                      <h3>Sexos</h3>
                       <div>
                         <% @sexos.each do |sexo| %>
                             <%= check_box_tag('sexos[]', sexo.id, @tipo_servicio.sexos.include?(sexo)) %> <%= sexo.descripcion %>
@@ -135,7 +130,7 @@
                 </div>
 
                 <div id="perfil-medico" class="tab-pane fade">
-                  <h3>Perfil del Tipo de Servicio</h3>
+                  <br>
                   <ul class="nav nav-tabs">
                     <li><a data-toggle="tab" href="#cirugias">Cirugias</a></li>
                     <li><a data-toggle="tab" href="#discapacidades">Discapacidades</a></li>
@@ -148,7 +143,6 @@
                   <div class="tab-content">
 
                     <div id="cirugias" class="tab-pane fade in">
-                      <h3>Cirugias</h3>
                       <div>
                         <% @cirugias.each do |cirugia| %>
                             <%= check_box_tag('cirugias[]', cirugia.id, @tipo_servicio.cirugias.include?(cirugia)) %> <%= cirugia.descripcion %>
@@ -157,7 +151,6 @@
                     </div>
 
                     <div id="discapacidades" class="tab-pane fade in">
-                      <h3>Discapacidades</h3>
                       <div>
                         <% @discapacidades.each do |discapacidad| %>
                             <%= check_box_tag('discapacidades[]', discapacidad.id, @tipo_servicio.discapacidades.include?(discapacidad)) %> <%= discapacidad.descripcion %>
@@ -166,7 +159,6 @@
                     </div>
 
                     <div id="grupo_sanguineos" class="tab-pane fade in">
-                      <h3>Grupos Sanguineos</h3>
                       <div>
                         <% @grupo_sanguineos.each do |grupo_sanguineo| %>
                             <%= check_box_tag('grupo_sanguineos[]', grupo_sanguineo.id, @tipo_servicio.grupo_sanguineos.include?(grupo_sanguineo)) %> <%= grupo_sanguineo.descripcion %>
@@ -175,7 +167,6 @@
                     </div>
 
                     <div id="lesiones" class="tab-pane fade in">
-                      <h3>Lesiones</h3>
                       <div>
                         <% @lesiones.each do |lesion| %>
                             <%= check_box_tag('lesiones[]', lesion.id, @tipo_servicio.lesiones.include?(lesion)) %> <%= lesion.descripcion %>
@@ -184,7 +175,6 @@
                     </div>
 
                     <div id="patologias" class="tab-pane fade in">
-                      <h3>Patologias</h3>
                       <div>
                         <% @patologias.each do |patologia| %>
                             <%= check_box_tag('patologias[]', patologia.id, @tipo_servicio.patologias.include?(patologia)) %> <%= patologia.descripcion %>
@@ -194,7 +184,6 @@
 
 
                     <div id="vacunas" class="tab-pane fade in">
-                      <h3>Vacunas</h3>
                       <div>
                         <% @vacunas.each do |vacuna| %>
                             <%= check_box_tag('vacunas[]', vacuna.id, @tipo_servicio.vacunas.include?(vacuna)) %> <%= vacuna.descripcion %>
@@ -206,7 +195,7 @@
                 </div>
 
                 <div id="perfil-otros" class="tab-pane fade">
-                  <h3>Perfil del Tipo de Servicio</h3>
+                  <br>
                   <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#adicciones">Adicciones</a></li>
                     <li><a data-toggle="tab" href="#habitos">Habitos</a></li>
@@ -214,7 +203,6 @@
 
                   <div class="tab-content">
                     <div id="adicciones" class="tab-pane fade in active">
-                      <h3>Adicciones</h3>
                       <div>
                         <% @adicciones.each do |adiccion| %>
                             <%= check_box_tag('adicciones[]', adiccion.id, @tipo_servicio.adicciones.include?(adiccion)) %> <%= adiccion.descripcion %>
@@ -223,7 +211,6 @@
                     </div>
 
                     <div id="habitos" class="tab-pane fade in">
-                      <h3>Cirugias</h3>
                       <div>
                         <% @habitos.each do |habito| %>
                             <%= check_box_tag('habitos[]', habito.id, @tipo_servicio.habitos.include?(habito)) %> <%= habito.descripcion %>

@@ -4,4 +4,8 @@ class Calificacion < ApplicationRecord
   def tipo
   	return self.tipo_calificacion
   end
+
+  def self.titulo
+		return "Calificaciones"
+	end
 end

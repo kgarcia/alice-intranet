@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Universidades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Estatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @universidades.each do |universidad| %>
+      <tr>
+        <td><%= universidad.descripcion %></td>
+        <td><%= universidad.estatus %></td>
+        <td><%= link_to 'Show', universidad %></td>
+        <td><%= link_to 'Edit', edit_universidad_path(universidad) %></td>
+        <td><%= link_to 'Destroy', universidad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Universidad', new_universidad_path %>

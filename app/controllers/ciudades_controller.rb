@@ -28,7 +28,8 @@ class CiudadesController < ApplicationController
   # GET /ciudades/1/edit
   def edit
     @parametro = Ciudad.find(params[:id])
-
+    @collection = Estado.all
+    @referencia = :estado_id
     render "parametros_select/edit"
   end
 

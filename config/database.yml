@@ -30,11 +30,7 @@ default: &default
   host: localhost
   pool: 5
   username: postgres
-<<<<<<< HEAD
-  password: postgres
-=======
   password: 
->>>>>>> 2dd622a8c1b815cb1fe94f49a1a75b78425232a2
 
 
 development:

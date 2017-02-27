@@ -6,4 +6,7 @@ class Cirugia < ApplicationRecord
   def tipo
   	return self.tipo_cirugia
   end
+  def self.titulo
+		return "Cirugias"
+	end
 end

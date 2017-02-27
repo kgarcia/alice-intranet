@@ -4,5 +4,7 @@ class Evento < ApplicationRecord
   def tipo
   	return self.tipo_evento
   end
-
+  def self.titulo
+	  return "Eventos"
+  end
 end

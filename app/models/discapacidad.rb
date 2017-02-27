@@ -6,4 +6,9 @@ class Discapacidad < ApplicationRecord
   def tipo
   	return self.tipo_discapacidad
   end
+
+  def self.titulo
+	  return "Discapacidades"
+  end
+
 end

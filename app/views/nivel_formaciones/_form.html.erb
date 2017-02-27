@@ -1,0 +1,27 @@
+<%= form_for(nivel_formacion) do |f| %>
+  <% if nivel_formacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(nivel_formacion.errors.count, "error") %> prohibited this nivel_formacion from being saved:</h2>
+
+      <ul>
+      <% nivel_formacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
