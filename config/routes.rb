@@ -1,9 +1,13 @@
 Myapp::Application.routes.draw do
 
 
+<<<<<<< HEAD
   resources :universidades
   resources :formacion_academicas
   resources :nivel_formaciones
+=======
+
+>>>>>>> ae7de5a72b04711f631ce4bc446b80bd5fc41189
   resources :eventos
   resources :tipo_eventos
   resources :busquedas
@@ -18,7 +22,11 @@ Myapp::Application.routes.draw do
   resources :sexos
   resources :personas
   resources :roles
+<<<<<<< HEAD
   devise_for :usuarios , :controllers => {registrations: "usuarios/registrations"}
+=======
+  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations", sessions: "usuarios/sessions"}
+>>>>>>> ae7de5a72b04711f631ce4bc446b80bd5fc41189
   resources :eventualidades
   resources :turnos
   resources :horarios

@@ -7,6 +7,11 @@ class TipoServicio < ApplicationRecord
   has_many :adicciones, :through => :adiccion_tipo_servicios
   has_many :cirugia_tipo_servicios
   has_many :cirugias, through: :cirugia_tipo_servicios
+  has_many :profesion_tipo_servicios
+  has_many :profesiones, through: :profesion_tipo_servicios
+  has_many :patologia_tipo_servicios
+  has_many :patologias, through: :patologia_tipo_servicios
+
   has_many :criterio_tipo_servicios
   has_many :criterio, through: :criterio_tipo_servicios
   has_many :discapacidades_tipo_servicios
