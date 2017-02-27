@@ -8,7 +8,6 @@ class CreatePersonas < ActiveRecord::Migration[5.0]
       t.string :direccion
       t.date :fecha_nacimiento
       t.references :sexo, foreign_key: true
-      t.integer :edad
 
       t.timestamps
     end

@@ -7,4 +7,8 @@ class Busqueda < ApplicationRecord
   def tipo
     return self.tipo_busqueda
   end
+
+  def self.titulo
+		return "Busquedas"
+	end
 end

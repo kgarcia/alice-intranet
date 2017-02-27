@@ -5,6 +5,7 @@ class ServiciosController < ApplicationController
   # GET /servicios.json
   def index
     @servicios = Servicio.all
+    
   end
 
   # GET /servicios/1
@@ -22,7 +23,7 @@ class ServiciosController < ApplicationController
 
   # GET /servicios/1/edit
   def edit
-    @servicio = Servicio.new
+    @servicio = Servicio.find(params[:id])
     @tipo_servicios = TipoServicio.all
     @ubicaciones = Ubicacion.all
     @especialistas = Especialista.all

@@ -1,0 +1,1 @@
+json.array! @tipo_noticias, partial: 'tipo_noticias/tipo_noticia', as: :tipo_noticia

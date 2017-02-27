@@ -17,4 +17,8 @@ class Adiccion < ApplicationRecord
 	@page_graph.put_wall_post('post on page wall') # post as page, requires new publish_pages permission
 	@page_graph.put_connections(page_id, 'feed', :message => message, :picture => picture_url, :link => link_url)
   end
+  def self.titulo
+		return "Adicciones"
+	end
+
 end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nivel Formaciones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Estatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nivel_formaciones.each do |nivel_formacion| %>
+      <tr>
+        <td><%= nivel_formacion.descripcion %></td>
+        <td><%= nivel_formacion.estatus %></td>
+        <td><%= link_to 'Show', nivel_formacion %></td>
+        <td><%= link_to 'Edit', edit_nivel_formacion_path(nivel_formacion) %></td>
+        <td><%= link_to 'Destroy', nivel_formacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Nivel Formacion', new_nivel_formacion_path %>

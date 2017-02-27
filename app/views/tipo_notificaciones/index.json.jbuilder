@@ -1,0 +1,1 @@
+json.array! @tipo_notificaciones, partial: 'tipo_notificaciones/tipo_notificacion', as: :tipo_notificacion

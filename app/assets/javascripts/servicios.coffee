@@ -4,4 +4,10 @@
 
 $(document).ready ->  
 	$('#servicio_tipo_servicio_id').change ->
-		alert(this.value)
+			$.ajax '/tipo_servicios.json',
+		        type: 'GET'
+		        dataType: 'html'
+		        error: (jqXHR, textStatus, errorThrown) ->
+		            $('body').append "AJAX Error: #{textStatus}"
+		        success: (data, textStatus, jqXHR) ->
+		            $('body').append "Successful AJAX call: #{data}"

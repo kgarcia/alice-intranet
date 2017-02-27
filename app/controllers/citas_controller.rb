@@ -69,6 +69,6 @@ class CitasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cita_params
-      params.require(:cita).permit(:turno_id, :persona_id, :usuario_id, :fecha, :tipo_pago_id, :tipo_cita_id, :estatus)
+      params.require(:cita).permit(:turno_id, :persona_id, :usuario_id, :fecha, :tipo_pago_id, :tipo_cita_id, :eventualidad_id, :estatus)
     end
 end

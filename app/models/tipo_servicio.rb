@@ -229,4 +229,8 @@ class TipoServicio < ApplicationRecord
      end
    end
 
+  def self.titulo
+    return "Tipos de Servicio"
+  end
+
 end
