@@ -4,43 +4,38 @@ class EventosController < ApplicationController
   # GET /eventos
   # GET /eventos.json
   def index
-    @parametros = Evento.all
-    render "parametros_select/index"
+    @eventos = Evento.all
+    @referencia_tipo = "tipo_evento"
+
   end
 
   # GET /eventos/1
   # GET /eventos/1.json
   def show
-     @parametro = Evento.find(params[:id])
-
-    render "parametros_select/edit"
+     @evento = Evento.find(params[:id])
   end
 
   # GET /eventos/new
   def new
     @evento = Evento.new
-
-    @parametro = Evento.new
     @collection = TipoEvento.all
     @referencia = :tipo_evento_id
-
-    render "parametros_select/new"
+    @servicios = Servicio.all
   end
 
   # GET /eventos/1/edit
   def edit
-    @parametro = Evento.find(params[:id])
+    @evento = Evento.find(params[:id])
     @collection = TipoEvento.all
     @referencia = :tipo_evento_id
-
-    render "parametros_select/edit"
+    @servicios = Servicio.all   
   end
 
   # POST /eventos
   # POST /eventos.json
   def create
     @evento = Evento.new(evento_params)
-
+    @evento.servicioEvento = params[:servicios]
     respond_to do |format|
       if @evento.save
         format.html { redirect_to action:"index", notice: 'Evento was successfully created.' }
@@ -84,6 +79,6 @@ class EventosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evento_params
-      params.require(:evento).permit(:descripcion, :estatus, :tipo_evento_id)
+      params.require(:evento).permit(:descripcion, :estatus, :tipo_evento_id, :foto)
     end
 end

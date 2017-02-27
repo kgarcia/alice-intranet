@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226232450) do
+ActiveRecord::Schema.define(version: 20170227171355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,9 +89,11 @@ ActiveRecord::Schema.define(version: 20170226232450) do
     t.datetime "fecha"
     t.integer  "tipo_pago_id"
     t.integer  "tipo_cita_id"
+    t.integer  "eventualidad_id"
     t.integer  "estatus"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["eventualidad_id"], name: "index_citas_on_eventualidad_id", using: :btree
     t.index ["persona_id"], name: "index_citas_on_persona_id", using: :btree
     t.index ["tipo_cita_id"], name: "index_citas_on_tipo_cita_id", using: :btree
     t.index ["tipo_pago_id"], name: "index_citas_on_tipo_pago_id", using: :btree
@@ -210,8 +212,12 @@ ActiveRecord::Schema.define(version: 20170226232450) do
     t.string   "descripcion"
     t.integer  "estatus"
     t.integer  "tipo_evento_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.index ["tipo_evento_id"], name: "index_eventos_on_tipo_evento_id", using: :btree
   end
 
@@ -323,6 +329,15 @@ ActiveRecord::Schema.define(version: 20170226232450) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["tipo_noticia_id"], name: "index_noticias_on_tipo_noticia_id", using: :btree
+  end
+
+  create_table "notificaciones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_notificacion_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["tipo_notificacion_id"], name: "index_notificaciones_on_tipo_notificacion_id", using: :btree
   end
 
   create_table "ocupacion_tipo_servicios", force: :cascade do |t|
@@ -453,6 +468,17 @@ ActiveRecord::Schema.define(version: 20170226232450) do
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "servicio_eventos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "servicio_id"
+    t.integer  "evento_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["evento_id"], name: "index_servicio_eventos_on_evento_id", using: :btree
+    t.index ["servicio_id"], name: "index_servicio_eventos_on_servicio_id", using: :btree
   end
 
   create_table "servicios", force: :cascade do |t|
@@ -608,6 +634,13 @@ ActiveRecord::Schema.define(version: 20170226232450) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tipo_notificaciones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tipo_opiniones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -616,6 +649,13 @@ ActiveRecord::Schema.define(version: 20170226232450) do
   end
 
   create_table "tipo_pagos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tipo_parentescos", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
@@ -743,6 +783,7 @@ ActiveRecord::Schema.define(version: 20170226232450) do
   add_foreign_key "cirugia_tipo_servicios", "cirugias"
   add_foreign_key "cirugia_tipo_servicios", "tipo_servicios"
   add_foreign_key "cirugias", "tipo_cirugias"
+  add_foreign_key "citas", "eventualidades"
   add_foreign_key "citas", "personas"
   add_foreign_key "citas", "tipo_citas"
   add_foreign_key "citas", "tipo_pagos"
@@ -778,6 +819,7 @@ ActiveRecord::Schema.define(version: 20170226232450) do
   add_foreign_key "lesiones", "tipo_lesiones"
   add_foreign_key "motivos", "tipo_motivos"
   add_foreign_key "noticias", "tipo_noticias"
+  add_foreign_key "notificaciones", "tipo_notificaciones"
   add_foreign_key "ocupacion_tipo_servicios", "ocupaciones"
   add_foreign_key "ocupacion_tipo_servicios", "tipo_servicios"
   add_foreign_key "opiniones", "motivos"
@@ -791,6 +833,8 @@ ActiveRecord::Schema.define(version: 20170226232450) do
   add_foreign_key "preguntas", "tipo_preguntas"
   add_foreign_key "profesion_tipo_servicios", "profesiones"
   add_foreign_key "profesion_tipo_servicios", "tipo_servicios"
+  add_foreign_key "servicio_eventos", "eventos"
+  add_foreign_key "servicio_eventos", "servicios"
   add_foreign_key "servicios", "especialistas"
   add_foreign_key "servicios", "tipo_servicios"
   add_foreign_key "servicios", "ubicaciones"

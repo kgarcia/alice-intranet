@@ -4,7 +4,7 @@ class CreateEventos < ActiveRecord::Migration[5.0]
       t.string :descripcion
       t.integer :estatus
       t.references :tipo_evento, foreign_key: true
-
+      t.attachment :foto
       t.timestamps
     end
   end
