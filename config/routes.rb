@@ -2,6 +2,7 @@ Myapp::Application.routes.draw do
 
 
 
+  resources :informacion_generals
   resources :noticias
   resources :opiniones
   resources :tipo_opiniones

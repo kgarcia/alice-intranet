@@ -1,0 +1,2 @@
+module InformacionGeneralsHelper
+end

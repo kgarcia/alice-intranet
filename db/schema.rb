@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226232439) do
+ActiveRecord::Schema.define(version: 20170227193022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -265,6 +265,22 @@ ActiveRecord::Schema.define(version: 20170226232439) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["tipo_horario_id"], name: "index_horarios_on_tipo_horario_id", using: :btree
+  end
+
+  create_table "informacion_generals", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "rif"
+    t.text     "direccion"
+    t.string   "tlf"
+    t.string   "email"
+    t.text     "widgetFB"
+    t.text     "widgetTW"
+    t.string   "slogan"
+    t.string   "logo"
+    t.float    "latitud"
+    t.float    "longitud"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "lesion_tipo_servicios", force: :cascade do |t|
