@@ -1,0 +1,1 @@
+json.array! @informacion_generals, partial: 'informacion_generals/informacion_general', as: :informacion_general
