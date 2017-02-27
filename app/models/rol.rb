@@ -18,5 +18,8 @@ attr_reader :option_menus
   end
       
   end
+  def self.titulo		
+     return "Roles"		
+   end
 end
 
