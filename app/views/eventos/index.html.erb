@@ -1,31 +1,56 @@
+<%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
 
-<h1>Eventos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Descripcion</th>
-      <th>Estatus</th>
-      <th>Tipo evento</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @eventos.each do |evento| %>
+<div class="ibox-content">
+<%= link_to '', new_evento_path, :class => "btn btn-circle btn-primary btn-md fa fa-plus" %>
+ <br><br> 
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
       <tr>
-        <td><%= evento.descripcion %></td>
-        <td><%= evento.estatus %></td>
-        <td><%= evento.tipo_evento %></td>
-        <td><%= link_to 'Show', evento %></td>
-        <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
-        <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th data-sorted="true">Tipo de Evento</th>
+        <th data-breakpoints="xs">Descripción</th>    
+        <th colspan="1"></th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @eventos.each do |evento| %>
+          <tr>
+            <td><%= evento.tipo_evento.descripcion %></td>
+            <td><%= link_to evento.descripcion, polymorphic_url(evento) %></td>
+            <td>
+              <%= link_to '', edit_evento_path(evento), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+              <%= link_to '', Evento, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
 
+          </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <ul class="pagination pull-right"></ul>
+                        </td>
+                    </tr>
+                    </tfoot>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Evento', new_evento_path %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+

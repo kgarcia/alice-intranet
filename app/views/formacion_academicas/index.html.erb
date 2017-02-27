@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Formacion Academicas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Estatus</th>
+      <th>Nivel formacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @formacion_academicas.each do |formacion_academica| %>
+      <tr>
+        <td><%= formacion_academica.descripcion %></td>
+        <td><%= formacion_academica.estatus %></td>
+        <td><%= formacion_academica.nivel_formacion %></td>
+        <td><%= link_to 'Show', formacion_academica %></td>
+        <td><%= link_to 'Edit', edit_formacion_academica_path(formacion_academica) %></td>
+        <td><%= link_to 'Destroy', formacion_academica, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Formacion Academica', new_formacion_academica_path %>

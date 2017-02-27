@@ -16,4 +16,8 @@ class Usuario < ApplicationRecord
     #self.rol ||= Rol.find_by(descripcion: 'paciente')
   end
 
+  def self.titulo
+    return "Usuarios"
+  end
+
 end

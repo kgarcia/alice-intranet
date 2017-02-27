@@ -15,5 +15,8 @@
  *= require footable/footable.bootstrap.min.css
  *= require _bootstrap-sprockets
  *= require bootstrap-datetimepicker.css
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ *= require fullcalendar
  */
 
