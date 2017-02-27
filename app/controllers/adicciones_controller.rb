@@ -12,7 +12,6 @@ class AdiccionesController < ApplicationController
   # GET /adicciones/1.json
   def show
     @parametro = Adiccion.find(params[:id])
-
     render "parametros_select/edit"
   end
 
@@ -21,7 +20,6 @@ class AdiccionesController < ApplicationController
     @parametro = Adiccion.new
     @collection = TipoAdiccion.all
     @referencia = :tipo_adiccion_id
-
     render "parametros_select/new"
   end
 

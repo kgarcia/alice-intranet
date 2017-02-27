@@ -38,7 +38,7 @@ class TipoEventualidadesController < ApplicationController
 
     respond_to do |format|
       if @tipo_eventualidad.save
-        format.html { redirect_to edit_tipo_eventualidad_path(@tipo_eventualidad), notice: 'Tipo eventualidad was successfully created.' }
+        format.html { redirect_to action:"index", notice: 'Tipo eventualidad was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_eventualidad }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class TipoEventualidadesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_eventualidad.update(tipo_eventualidad_params)
-        format.html { redirect_to edit_tipo_eventualidad_path(@tipo_eventualidad), notice: 'Tipo eventualidad was successfully updated.' }
+        format.html { redirect_to action:"index", notice: 'Tipo eventualidad was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_eventualidad }
       else
         format.html { render :edit }
