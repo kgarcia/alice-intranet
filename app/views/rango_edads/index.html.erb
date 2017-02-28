@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rango Edads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Edad inicial</th>
+      <th>Edad final</th>
+      <th>Estatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rango_edads.each do |rango_edad| %>
+      <tr>
+        <td><%= rango_edad.descripcion %></td>
+        <td><%= rango_edad.edad_inicial %></td>
+        <td><%= rango_edad.edad_final %></td>
+        <td><%= rango_edad.estatus %></td>
+        <td><%= link_to 'Show', rango_edad %></td>
+        <td><%= link_to 'Edit', edit_rango_edad_path(rango_edad) %></td>
+        <td><%= link_to 'Destroy', rango_edad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rango Edad', new_rango_edad_path %>

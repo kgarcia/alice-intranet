@@ -1,0 +1,2 @@
+class RangoEdad < ApplicationRecord
+end

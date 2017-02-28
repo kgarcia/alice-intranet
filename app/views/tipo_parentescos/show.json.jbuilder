@@ -1,0 +1,1 @@
+json.partial! "tipo_parentescos/tipo_parentesco", tipo_parentesco: @tipo_parentesco

@@ -1,0 +1,1 @@
+json.array! @tipo_parentescos, partial: 'tipo_parentescos/tipo_parentesco', as: :tipo_parentesco
