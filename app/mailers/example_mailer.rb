@@ -6,10 +6,10 @@ class ExampleMailer < ApplicationMailer
     mail(to: @usuario.email, subject: 'Sample Email')
   end
 
-  def cita_registrada(usuario, cita)
- 	@usuario = usuario
+  def cita_registrada(email, cita)
+ 	@email = email
  	@cita = cita
-    mail(to: @usuario.email, subject: "Cita Registrada")
+    mail(to: @email, subject: "Cita Registrada")
   end
 
 end

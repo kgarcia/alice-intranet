@@ -28,6 +28,7 @@ class CitasController < ApplicationController
 
     respond_to do |format|
       if @cita.save
+        ExampleMailer.cita_registrada('kevin93ps@gmail.com', @cita)
         format.html { redirect_to @cita, notice: 'Cita was successfully created.' }
         format.json { render :show, status: :created, location: @cita }
       else
