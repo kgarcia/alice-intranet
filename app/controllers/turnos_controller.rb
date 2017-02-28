@@ -27,6 +27,8 @@ class TurnosController < ApplicationController
     @dias = Dia.all
     @horarios = Horario.all
     @referencia = :horario_id
+    @collection_tipo_turno = TipoTurno.all 
+    @referencia_tipo = :tipo_turno_id
   end
 
   # GET /turnos/1/edit
@@ -94,6 +96,6 @@ class TurnosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def turno_params
-      params.require(:turno).permit(:descripcion, :hora_inicio, :hora_fin, :estatus, :dia_id, :horario_id,:cantidad_pacientes)
+      params.require(:turno).permit( :hora_inicio, :hora_fin, :estatus, :dia_id, :horario_id,:cantidad_pacientes, :tipo_turno_id)
     end
 end

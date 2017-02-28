@@ -1,0 +1,1 @@
+json.array! @tipo_turnos, partial: 'tipo_turnos/tipo_turno', as: :tipo_turno

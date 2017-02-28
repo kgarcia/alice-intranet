@@ -9,4 +9,5 @@ class Estado < ApplicationRecord
   def self.titulo
 	  return "Estados"
   end
+
 end
