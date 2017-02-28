@@ -1,29 +1,47 @@
+
+
+<%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
 
-<h1>Horarios</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Descripcion</th>
-      <th>Tipo horario</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @horarios.each do |horario| %>
+<div class="ibox-content">
+<%= link_to link_to 'Horario', new_horario_path , :class => "btn btn-primary btn-sm fa fa-plus" %>
+ <br><br> 
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
       <tr>
-        <td><%= horario.descripcion %></td>
-        <td><%= horario.tipo_horario.descripcion %></td>
-        <td><%= link_to 'Show', horario %></td>
-        <td><%= link_to 'Edit', edit_horario_path(horario) %></td>
-        <td><%= link_to 'Destroy', horario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Tipo Horario</th>
+        <th>Servicio</th>
+        
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @horarios.each do |horario| %>
+          <tr>
+        <td><%= horario.tipo_horario.descripcion %></td>
+        <td><%= horario.servicio.descripcion%></td>
+            <td>
+             <%= link_to '', edit_polymorphic_url(horario), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+             <%= link_to '', horario, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+          </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <ul class="pagination pull-right"></ul>
+                        </td>
+                    </tr>
+                    </tfoot>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Horario', new_horario_path %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+</script>
+

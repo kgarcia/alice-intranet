@@ -1,8 +1,8 @@
       <p id="notice"><%= notice %></p>
       <div class="ibox-content">
         <p>
-          <strong>Servicio/Consulta :</strong>
-          <%= @horario.descripcion %>
+          <strong>Servicio :</strong>
+          <%= @horario.servicio.descripcion %>
         </p>
         <p>
           <strong>Tipo horario:</strong>
@@ -13,26 +13,44 @@
           <strong>Tiempo promedio de atencion(min):</strong>
           <%= @horario.tiempo_cita %>
           <%else %>
-          <strong>Cantidad de pacientes:</strong>
-          <%= @horario.tiempo_cita %>
+       
           <%end %>
+        </p>       
+        <p>
+             <%  if (!(@horario.servicio.especialista.nil? )) %>
+              <p>
+          <strong>Especialista :</strong>
+          <%= @horario.servicio.especialista.descripcion %>
         </p>
-        <%= link_to link_to 'Turno', new_turno_path , :class => "btn btn-primary btn-sm fa fa-plus" %> <br><br> 
+       
+             <%end%>
+        </p>
+        <%= link_to link_to 'Horario', edit_horario_path(@horario) , :class => "btn btn-primary btn-sm fa fa-plus" %> <br><br> 
         <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+            <h3>Turno de la Mañana </h3>
           <thead>
             <tr>
-              <th>Hora Inicio</th>
-              <th>Hora Fin</th>  
               <th>Dia</th> 
+              <th>Hora Inicio</th>
+              <th>Hora Fin</th> 
+              <% if @horario.tipo_horario.id  == 2 %>
+              <th> <%=  @horario.tipo_horario.descripcion%></th> 
+
+              <% else %>
+              <th>Cantidad pacientes</th> 
+               <%end%> 
+            
               <th colspan="1"></th>
+            
             </tr>
           </thead>
           <tbody>
-            <% @turnos.each do |turno| %>
+            <%@turnosM.each do |turno| %>
             <tr>
+              <td><%=turno.tipodia.descripcion%></td>
               <td><%= turno.hora_inicio.strftime("%H:%M") %></td>
               <td><%= turno.hora_fin.strftime("%H:%M")%> </td>
-              <td><%=turno.tipodia.descripcion%></td>
+              <td><%= turno.cantidad_pacientes %> </td>
               <td><%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
                 <%= link_to '', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
               </tr>
@@ -46,14 +64,47 @@
               </tr>
             </tfoot>
           </table>
-        </div>
+   <h3>Turno de la tarde </h3>
+        <div>
+           <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+          <thead>
+            <tr>
+              <th>Dia</th> 
+              <th>Hora Inicio</th>
+              <th>Hora Fin</th> 
+              <% if @horario.tipo_horario.id  == 2 %>
+              <th> <%=  @horario.tipo_horario.descripcion%></th> 
+
+              <% else %>
+              <th>Cantidad pacientes</th> 
+               <%end%> 
+            
+              <th colspan="1"></th>
+            
+            </tr>
+          </thead>
+          <tbody>
+            <% @turnosT.each do |turno| %>
+            <tr>
+              <td><%=turno.tipodia.descripcion%></td>
+              <td><%= turno.hora_inicio.strftime("%H:%M") %></td>
+              <td><%= turno.hora_fin.strftime("%H:%M")%> </td>
+              <td><%= turno.cantidad_pacientes %> </td>
+              <td><%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+                <%= link_to '', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+              </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5">
+                  <ul class="pagination pull-right"></ul>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>     </div>
         <br>
-        <div id="calendar"> </div>
-<script>
-    $('#calendar').fullCalendar({
-      events: <%= @events.to_json.html_safe %>
-    })
-</script>
         <script type="text/javascript">
           $(document).ready(function(){
             $('.table').footable();

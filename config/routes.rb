@@ -2,6 +2,7 @@ Myapp::Application.routes.draw do
 
 
 
+  resources :tipo_turnos
   resources :eventos
   resources :tipo_eventos
   resources :busquedas

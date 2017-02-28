@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170223030651) do
+ActiveRecord::Schema.define(version: 20170226034021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.index ["tipo_busqueda_id"], name: "index_busquedas_on_tipo_busqueda_id", using: :btree
     t.index ["tipo_servicio_id"], name: "index_busquedas_on_tipo_servicio_id", using: :btree
   end
+
   create_table "calificaciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.index ["tipo_cirugia_id"], name: "index_cirugias_on_tipo_cirugia_id", using: :btree
   end
 
-
   create_table "citas", force: :cascade do |t|
     t.integer  "turno_id"
     t.integer  "persona_id"
@@ -108,13 +107,7 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.datetime "updated_at",  null: false
     t.index ["estado_id"], name: "index_ciudades_on_estado_id", using: :btree
   end
-  
-  create_table "dias", force: :cascade do |t|
-    t.string   "descripcion"
-    t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
+
   create_table "criterio_tipo_servicios", force: :cascade do |t|
     t.integer  "criterio_id"
     t.integer  "tipo_servicio_id"
@@ -131,6 +124,13 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["tipo_criterio_id"], name: "index_criterios_on_tipo_criterio_id", using: :btree
+  end
+
+  create_table "dias", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "discapacidad_tipo_servicios", force: :cascade do |t|
@@ -192,15 +192,6 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.index ["pais_id"], name: "index_estados_on_pais_id", using: :btree
   end
 
-
-  create_table "eventos", force: :cascade do |t|
-    t.string   "descripcion"
-    t.integer  "estatus"
-    t.integer  "tipo_evento_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.index ["tipo_evento_id"], name: "index_eventos_on_tipo_evento_id", using: :btree
-  end
   create_table "evaluaciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -210,6 +201,14 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.index ["tipo_evaluacion_id"], name: "index_evaluaciones_on_tipo_evaluacion_id", using: :btree
   end
 
+  create_table "eventos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_evento_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["tipo_evento_id"], name: "index_eventos_on_tipo_evento_id", using: :btree
+  end
 
   create_table "eventualidades", force: :cascade do |t|
     t.string   "descripcion"
@@ -259,12 +258,13 @@ ActiveRecord::Schema.define(version: 20170223030651) do
   end
 
   create_table "horarios", force: :cascade do |t|
-    t.string   "descripcion"
     t.integer  "tiempo_cita"
     t.integer  "estatus"
     t.integer  "tipo_horario_id"
+    t.integer  "servicio_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.index ["servicio_id"], name: "index_horarios_on_servicio_id", using: :btree
     t.index ["tipo_horario_id"], name: "index_horarios_on_tipo_horario_id", using: :btree
   end
 
@@ -324,7 +324,6 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.datetime "updated_at",  null: false
   end
 
-
   create_table "option_roles", force: :cascade do |t|
     t.integer  "option_menu_id"
     t.integer  "rol_id"
@@ -336,6 +335,7 @@ ActiveRecord::Schema.define(version: 20170223030651) do
 
   create_table "paises", force: :cascade do |t|
     t.string   "descripcion"
+    t.string   "codigo"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -408,8 +408,6 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-
 
   create_table "servicios", force: :cascade do |t|
     t.text     "descripcion"
@@ -537,7 +535,7 @@ ActiveRecord::Schema.define(version: 20170223030651) do
   end
 
   create_table "tipo_horarios", force: :cascade do |t|
-    t.integer  "descripcion"
+    t.string   "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -598,6 +596,12 @@ ActiveRecord::Schema.define(version: 20170223030651) do
     t.index ["tipo_atencion_id"], name: "index_tipo_servicios_on_tipo_atencion_id", using: :btree
   end
 
+  create_table "tipo_turnos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tipo_ubicaciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -606,17 +610,18 @@ ActiveRecord::Schema.define(version: 20170223030651) do
   end
 
   create_table "turnos", force: :cascade do |t|
-    t.string   "descripcion"
     t.time     "hora_inicio"
     t.time     "hora_fin"
     t.integer  "estatus"
     t.integer  "cantidad_pacientes"
     t.integer  "dia_id"
     t.integer  "horario_id"
+    t.integer  "tipo_turno_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["dia_id"], name: "index_turnos_on_dia_id", using: :btree
     t.index ["horario_id"], name: "index_turnos_on_horario_id", using: :btree
+    t.index ["tipo_turno_id"], name: "index_turnos_on_tipo_turno_id", using: :btree
   end
 
   create_table "ubicaciones", force: :cascade do |t|
@@ -667,10 +672,6 @@ ActiveRecord::Schema.define(version: 20170223030651) do
   add_foreign_key "busquedas", "especialistas"
   add_foreign_key "busquedas", "tipo_busquedas"
   add_foreign_key "busquedas", "tipo_servicios"
-  add_foreign_key "cirugia_tipo_servicios", "cirugias"
-  add_foreign_key "cirugia_tipo_servicios", "tipo_servicios"
-  add_foreign_key "cirugias", "tipo_cirugias"
-  add_foreign_key "ciudades", "estados"
   add_foreign_key "calificaciones", "tipo_calificaciones"
   add_foreign_key "cirugia_tipo_servicios", "cirugias"
   add_foreign_key "cirugia_tipo_servicios", "tipo_servicios"
@@ -691,8 +692,8 @@ ActiveRecord::Schema.define(version: 20170223030651) do
   add_foreign_key "estado_civil_tipo_servicios", "estado_civiles"
   add_foreign_key "estado_civil_tipo_servicios", "tipo_servicios"
   add_foreign_key "estados", "paises"
-  add_foreign_key "eventos", "tipo_eventos"
   add_foreign_key "evaluaciones", "tipo_evaluaciones"
+  add_foreign_key "eventos", "tipo_eventos"
   add_foreign_key "eventualidades", "motivos"
   add_foreign_key "eventualidades", "tipo_eventualidades"
   add_foreign_key "grupo_sanguineo_tipo_servicios", "grupo_sanguineos"
@@ -700,6 +701,7 @@ ActiveRecord::Schema.define(version: 20170223030651) do
   add_foreign_key "habito_tipo_servicios", "habitos"
   add_foreign_key "habito_tipo_servicios", "tipo_servicios"
   add_foreign_key "habitos", "tipo_habitos"
+  add_foreign_key "horarios", "servicios"
   add_foreign_key "horarios", "tipo_horarios"
   add_foreign_key "lesion_tipo_servicios", "lesiones"
   add_foreign_key "lesion_tipo_servicios", "tipo_servicios"
@@ -727,6 +729,7 @@ ActiveRecord::Schema.define(version: 20170223030651) do
   add_foreign_key "tipo_servicios", "tipo_atenciones"
   add_foreign_key "turnos", "dias"
   add_foreign_key "turnos", "horarios"
+  add_foreign_key "turnos", "tipo_turnos"
   add_foreign_key "ubicaciones", "ciudades"
   add_foreign_key "ubicaciones", "sectores"
   add_foreign_key "ubicaciones", "tipo_ubicaciones"
