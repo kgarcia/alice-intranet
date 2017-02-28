@@ -1,6 +1,10 @@
 Myapp::Application.routes.draw do
 
 
+  get 'grafico/generar'
+
+  get 'grafico/ver'
+
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
 

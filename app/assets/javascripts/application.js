@@ -28,6 +28,9 @@
 
 //= require dataTables/jquery.dataTables
 
+//= require highcharts
+//= require highcharts/modules/exporting
+
 $.extend(true, $.fn.dataTable.defaults, {
     "language": {"url": "/js/datatables/Spanish.json"}
 });

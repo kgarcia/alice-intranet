@@ -11,7 +11,6 @@ class AgendaServicioController < ApplicationController
 
     @items = []
 
-    citas = Cita.left_outer_joins(turno: {horario: :servicio}).where("servicios.id = ?", @servicio.id)
-    puts citas
+    citas = Cita.left_outer_joins(turno: {horario: :servicio}).where("turno.horario.servicio.id = ?", @servicio.id)
   end
 end

@@ -1,7 +1,7 @@
 class Horario < ApplicationRecord
   belongs_to :tipo_horario, foreign_key: "tipo_horario_id"
   has_many :turno
-  has_many :servicio
+  belongs_to :servicio
 
   def tipo
   	return self.tipo_horario
