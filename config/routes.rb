@@ -4,6 +4,9 @@ Myapp::Application.routes.draw do
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
 
+  resources :tipo_turnos
+
+
   resources :informacion_generals
   resources :noticias
   resources :opiniones
