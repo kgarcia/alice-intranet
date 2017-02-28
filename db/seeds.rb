@@ -341,11 +341,17 @@
     # Cargar la tabla auxiliar entre opcion de menu y usuario con todas las opciones para el usuario dueño
     $i = 1
     begin
-        OptionRol.find_or_create_by(:option_menu => OptionMenu.find($i), :rol => Rol.find(1))
-        if OptionRol.find($i).nil?
+    	
+        if $i > OptionMenu.count
            $i = -1
+           puts 'if'
+        else
+        	
+        	OptionRol.find_or_create_by(:option_menu => OptionMenu.find($i), :rol => Rol.find(1))        	
+        	$i = $i+1
         end
-    end while $i === -1
+        
+    end while $i != -1
     TipoCriterio.find_or_create_by(:descripcion => 'Atencion al cliente')
     TipoCriterio.find_or_create_by(:descripcion => 'Higiene y Seguridad')
     TipoCriterio.find_or_create_by(:descripcion => 'Comodidad')

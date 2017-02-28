@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 20170227193022) do
 
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,8 +53,12 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.string   "descripcion"
     t.integer  "estatus"
     t.integer  "tipo_calificacion_id"
+    t.integer  "criterio_id"
+    t.integer  "evaluacion_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.index ["criterio_id"], name: "index_calificaciones_on_criterio_id", using: :btree
+    t.index ["evaluacion_id"], name: "index_calificaciones_on_evaluacion_id", using: :btree
     t.index ["tipo_calificacion_id"], name: "index_calificaciones_on_tipo_calificacion_id", using: :btree
   end
 
@@ -351,7 +354,6 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.index ["tipo_noticia_id"], name: "index_noticias_on_tipo_noticia_id", using: :btree
   end
 
-
   create_table "notificaciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -491,8 +493,6 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.datetime "updated_at",  null: false
   end
 
-
-
   create_table "servicio_eventos", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -503,7 +503,6 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.index ["evento_id"], name: "index_servicio_eventos_on_evento_id", using: :btree
     t.index ["servicio_id"], name: "index_servicio_eventos_on_servicio_id", using: :btree
   end
-
 
   create_table "servicios", force: :cascade do |t|
     t.text     "descripcion"
@@ -814,6 +813,8 @@ ActiveRecord::Schema.define(version: 20170227193022) do
   add_foreign_key "busquedas", "especialistas"
   add_foreign_key "busquedas", "tipo_busquedas"
   add_foreign_key "busquedas", "tipo_servicios"
+  add_foreign_key "calificaciones", "criterios"
+  add_foreign_key "calificaciones", "evaluaciones"
   add_foreign_key "calificaciones", "tipo_calificaciones"
   add_foreign_key "cirugia_tipo_servicios", "cirugias"
   add_foreign_key "cirugia_tipo_servicios", "tipo_servicios"
