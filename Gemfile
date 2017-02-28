@@ -69,6 +69,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Datatables
+gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'ajax-datatables-rails'
 
 # Footable
 
@@ -79,6 +82,7 @@ gem 'devise-i18n'
 
 
 gem 'momentjs-rails', '>= 2.9.0'
+gem 'fullcalendar-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 gem 'bootstrap', '~> 4.0.0.alpha6'
@@ -86,4 +90,7 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'tinymce-rails'
 
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
+#Gema para facebook
+gem "koala", "~> 3.0.0.beta2"
 

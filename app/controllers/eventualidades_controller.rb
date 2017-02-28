@@ -42,6 +42,12 @@ class EventualidadesController < ApplicationController
 
     respond_to do |format|
       if @eventualidad.save
+        @citas = Cita.where(:fecha => @eventualidad.fecha_inicio..@eventualidad.fecha_fin)
+        @citas.each do |cita|
+          cita.estatus = 10 #Con estatus 10 se eliminaran las citas oscar lo va a cambiar
+          cita.eventualidad_id = @eventualidad.id
+          cita.save
+        end
         format.html { redirect_to action:"index", notice: 'Eventualidad was successfully created.' }
         format.json { render :show, status: :created, location: @eventualidad }
       else

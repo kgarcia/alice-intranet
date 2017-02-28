@@ -1,0 +1,1 @@
+json.partial! "informacion_generals/informacion_general", informacion_general: @informacion_general

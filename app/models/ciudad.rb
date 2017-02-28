@@ -4,4 +4,9 @@ class Ciudad < ApplicationRecord
   def tipo
   	return self.estado
   end
+
+
+  def self.titulo
+	 return "Ciudades"
+  end
 end

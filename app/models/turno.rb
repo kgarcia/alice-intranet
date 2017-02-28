@@ -10,7 +10,10 @@ def tipodia
   def cantidad_horas
 	(((self.hora_fin).to_time-(self.hora_inicio).to_time )/3600).round
   end
+
   def tipo_turno
   	return self.tipo_turno
+  def self.titulo
+	  return "Turnos"
   end
 end

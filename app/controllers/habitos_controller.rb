@@ -27,7 +27,7 @@ class HabitosController < ApplicationController
 
   # GET /habitos/1/edit
   def edit
-    @parametro = Habito.new
+    @parametro = Habito.find(params[:id])
     @collection = TipoHabito.all
     @referencia = :tipo_habito_id
 

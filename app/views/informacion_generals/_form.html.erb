@@ -1,0 +1,81 @@
+<div class="row">   
+   <div class="col-lg-6 col-lg-offset-3">
+          <div class="ibox-content">
+          <%= form_for(informacion_general) do |f| %>
+            <% if informacion_general.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(informacion_general.errors.count, "error") %> prohibited this informacion_general from being saved:</h2>
+
+                <ul>
+                <% informacion_general.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+
+                  <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
+
+                      <div class="col-lg-10"><%= f.text_field :nombre, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Rif</label>
+
+                      <div class="col-lg-10"><%= f.text_field :rif, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Direccion</label>
+
+                      <div class="col-lg-10"><%= f.text_area :direccion, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Telefono</label>
+
+                      <div class="col-lg-10"><%= f.text_field :tlf, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Email</label>
+
+                      <div class="col-lg-10"><%= f.text_field :email, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Widget Facebook</label>
+
+                      <div class="col-lg-10"><%= f.text_area :widgetFB, :class => "form-control" %>
+                       </div>
+                    </div>
+             
+                    <div class="form-group"><label class="col-lg-2 control-label">Widget Twitter</label>
+
+                      <div class="col-lg-10"><%= f.text_area :widgetTW, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Slogan</label>
+                      <div class="col-lg-10"><%= f.text_field :slogan, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Logo</label>
+
+                      <div class="col-lg-10"><%= f.text_field :logo, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Latitud</label>
+
+                      <div class="col-lg-10"><%= f.text_field :latitud, :class => "form-control" %>
+                       </div>
+                    </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Longitud</label>
+
+                      <div class="col-lg-10"><%= f.text_field :longitud, :class => "form-control" %>
+                       </div>
+                    </div>
+                        <div class="form-group">                    
+                      <div class="col-lg-offset-3 col-lg-10">
+                          <%= f.submit 'Guardar', :class => "btn btn-sm btn-primary " %>
+                      </div>
+ </div>
+  <% end %>
+    </div>
+  </div>
+</div>

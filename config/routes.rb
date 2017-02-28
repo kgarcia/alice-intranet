@@ -1,8 +1,33 @@
 Myapp::Application.routes.draw do
 
 
+  get 'agenda_servicio/', to: 'agenda_servicio#lista'
+
 
   resources :tipo_turnos
+
+
+  resources :informacion_generals
+  resources :noticias
+  resources :opiniones
+  resources :tipo_opiniones
+  resources :tipo_preguntas
+  resources :tipo_noticias
+
+  get 'agenda_servicio/:id/detalle', to: 'agenda_servicio#detalle'
+
+  resources :notificaciones
+  resources :tipo_notificaciones
+  resources :servicio_eventos
+  resources :tipo_preguntas
+  resources :tipo_opiniones
+  resources :tipo_noticias
+  resources :preguntas
+  resources :opiniones
+  resources :noticias
+  resources :universidades
+  resources :formacion_academicas
+  resources :nivel_formaciones
   resources :eventos
   resources :tipo_eventos
   resources :busquedas
@@ -17,7 +42,7 @@ Myapp::Application.routes.draw do
   resources :sexos
   resources :personas
   resources :roles
-  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations", sessions: "usuarios/sessions"}
+  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations", sessions: "usuarios/sessions", confirmations: 'usuarios/confirmations'}
   resources :eventualidades
   resources :turnos
   resources :horarios

@@ -25,4 +25,9 @@ class Usuarios::ConfirmationsController < Devise::ConfirmationsController
   # def after_confirmation_path_for(resource_name, resource)
   #   super(resource_name, resource)
   # end
+
+  private
+  def after_confirmation_path_for(resource_name, resource)
+    #redirect_to new_usuario_session_path
+  end
 end

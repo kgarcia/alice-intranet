@@ -45,7 +45,7 @@ class MotivosController < ApplicationController
 
     respond_to do |format|
       if @motivo.save
-        format.html { redirect_to edit_motivo_path(@motivo), notice: 'Motivo was successfully created.' }
+        format.html { redirect_to action:"index", notice: 'Motivo was successfully created.' }
         format.json { render :show, status: :created, location: @motivo }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class MotivosController < ApplicationController
   def update
     respond_to do |format|
       if @motivo.update(motivo_params)
-        format.html { redirect_to edit_motivo_path(@motivo), notice: 'Motivo was successfully updated.' }
+        format.html { redirect_to action:"index", notice: 'Motivo was successfully updated.' }
         format.json { render :show, status: :ok, location: @motivo }
       else
         format.html { render :edit }

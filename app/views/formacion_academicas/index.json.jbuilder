@@ -1,0 +1,1 @@
+json.array! @formacion_academicas, partial: 'formacion_academicas/formacion_academica', as: :formacion_academica

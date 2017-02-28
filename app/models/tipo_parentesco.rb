@@ -1,0 +1,2 @@
+class TipoParentesco < ApplicationRecord
+end

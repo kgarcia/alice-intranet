@@ -13,7 +13,7 @@ class EstadosController < ApplicationController
   def show
     @parametro = Estado.find(params[:id])
 
-    render "parametros_select/edit"
+    #render "parametros_select/edit"
   end
 
   # GET /estados/new
@@ -21,8 +21,8 @@ class EstadosController < ApplicationController
     @parametro = Estado.new
     @collection = Pais.all
     @referencia = :pais_id
-
-    render "parametros_select/new"
+    @estado = Estado.new
+    #render "parametros_select/new"
   end
 
   # GET /estados/1/edit
