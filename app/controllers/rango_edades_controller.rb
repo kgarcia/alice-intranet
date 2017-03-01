@@ -1,28 +1,28 @@
-class RangoEdadsController < ApplicationController
+class RangoEdadesController < ApplicationController
   before_action :set_rango_edad, only: [:show, :edit, :update, :destroy]
 
-  # GET /rango_edads
-  # GET /rango_edads.json
+  # GET /rango_edades
+  # GET /rango_edades.json
   def index
-    @rango_edads = RangoEdad.all
+    @rango_edades = RangoEdad.all
   end
 
-  # GET /rango_edads/1
-  # GET /rango_edads/1.json
+  # GET /rango_edades/1
+  # GET /rango_edades/1.json
   def show
   end
 
-  # GET /rango_edads/new
+  # GET /rango_edades/new
   def new
     @rango_edad = RangoEdad.new
   end
 
-  # GET /rango_edads/1/edit
+  # GET /rango_edades/1/edit
   def edit
   end
 
-  # POST /rango_edads
-  # POST /rango_edads.json
+  # POST /rango_edades
+  # POST /rango_edades.json
   def create
     @rango_edad = RangoEdad.new(rango_edad_params)
 
@@ -37,8 +37,8 @@ class RangoEdadsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /rango_edads/1
-  # PATCH/PUT /rango_edads/1.json
+  # PATCH/PUT /rango_edades/1
+  # PATCH/PUT /rango_edades/1.json
   def update
     respond_to do |format|
       if @rango_edad.update(rango_edad_params)
@@ -51,12 +51,12 @@ class RangoEdadsController < ApplicationController
     end
   end
 
-  # DELETE /rango_edads/1
-  # DELETE /rango_edads/1.json
+  # DELETE /rango_edades/1
+  # DELETE /rango_edades/1.json
   def destroy
     @rango_edad.destroy
     respond_to do |format|
-      format.html { redirect_to rango_edads_url, notice: 'Rango edad was successfully destroyed.' }
+      format.html { redirect_to rango_edades_url, notice: 'Rango edad was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

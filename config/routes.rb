@@ -1,9 +1,9 @@
 Myapp::Application.routes.draw do
 
 
+  resources :rango_edades
   resources :difusiones
   resources :tipo_entidads
-  resources :rango_edads
   resources :parentescos
   resources :tipo_parentescos
   resources :tipo_difusiones

@@ -26204,3 +26204,275 @@ Started GET "/assets/dataTables/jquery.dataTables.self-f520d04a662abc3bbb379438d
 Started GET "/assets/highcharts/modules/exporting.self-7a1b6790b745132f4ce79f391dd3070ca5c3560917f517555f36706d8ba52164.js?body=1" for 127.0.0.1 at 2017-02-28 16:55:02 -0430
 Started GET "/assets/highcharts.self-da17a1517f872cc8dd728b7b1d89961614deae7570ca9879815a51919f5fb2c9.js?body=1" for 127.0.0.1 at 2017-02-28 16:55:02 -0430
 Started GET "/assets/application.self-d6019758952760a01af8fdb3ed940cf2905f011b76b032d587a188923beefeac.js?body=1" for 127.0.0.1 at 2017-02-28 16:55:02 -0430
+  [1m[35m (29.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (11.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTipoDifusiones (20170228220201)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (683.8ms)[0m  [1m[35mCREATE TABLE "tipo_difusiones" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (29.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228220201"]]
+  [1m[35m (24.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateParentescos (20170228221713)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (264.5ms)[0m  [1m[35mCREATE TABLE "parentescos" ("id" serial primary key, "descripcion" character varying, "persona_id" integer, "pariente_id" integer, "tipo_parentesco_id" integer, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_aec71d92e2"
+FOREIGN KEY ("persona_id")
+  REFERENCES "personas" ("id")
+, CONSTRAINT "fk_rails_4d3df6d9ea"
+FOREIGN KEY ("pariente_id")
+  REFERENCES "parientes" ("id")
+, CONSTRAINT "fk_rails_0c7fc197d2"
+FOREIGN KEY ("tipo_parentesco_id")
+  REFERENCES "tipo_parentescos" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateParentescos (20170228221713)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (97.3ms)[0m  [1m[35mCREATE TABLE "parentescos" ("id" serial primary key, "descripcion" character varying, "persona_id" integer, "pariente_id" integer, "tipo_parentesco_id" integer, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_aec71d92e2"
+FOREIGN KEY ("persona_id")
+  REFERENCES "personas" ("id")
+, CONSTRAINT "fk_rails_0c7fc197d2"
+FOREIGN KEY ("tipo_parentesco_id")
+  REFERENCES "tipo_parentescos" ("id")
+)[0m
+  [1m[35m (30.1ms)[0m  [1m[35mCREATE  INDEX  "index_parentescos_on_persona_id" ON "parentescos"  ("persona_id")[0m
+  [1m[35m (42.1ms)[0m  [1m[35mCREATE  INDEX  "index_parentescos_on_pariente_id" ON "parentescos"  ("pariente_id")[0m
+  [1m[35m (39.8ms)[0m  [1m[35mCREATE  INDEX  "index_parentescos_on_tipo_parentesco_id" ON "parentescos"  ("tipo_parentesco_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228221713"]]
+  [1m[35m (16.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTipoEntidads (20170228223855)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (83.2ms)[0m  [1m[35mCREATE TABLE "tipo_entidads" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228223855"]]
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDifusiones (20170228231622)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateDifusiones (20170228231622)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (120.6ms)[0m  [1m[35mCREATE TABLE "difusiones" ("id" serial primary key, "asunto" text, "texto" text, "imagen_file_name" character varying, "imagen_content_type" character varying, "imagen_file_size" integer, "imagen_updated_at" timestamp, "tipo_entidad_id" integer, "entidad_id" integer, "token_facebook" character varying, "tipo_difusion_id" integer, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_a5b2e77b26"
+FOREIGN KEY ("tipo_entidad_id")
+  REFERENCES "tipo_entidads" ("id")
+, CONSTRAINT "fk_rails_679fd555ce"
+FOREIGN KEY ("entidad_id")
+  REFERENCES "entidads" ("id")
+, CONSTRAINT "fk_rails_fc35788c6f"
+FOREIGN KEY ("tipo_difusion_id")
+  REFERENCES "tipo_difusiones" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateDifusiones (20170228231622)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (102.2ms)[0m  [1m[35mCREATE TABLE "difusiones" ("id" serial primary key, "asunto" text, "texto" text, "imagen_file_name" character varying, "imagen_content_type" character varying, "imagen_file_size" integer, "imagen_updated_at" timestamp, "tipo_entidad_id" integer, "token_facebook" character varying, "tipo_difusion_id" integer, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_a5b2e77b26"
+FOREIGN KEY ("tipo_entidad_id")
+  REFERENCES "tipo_entidads" ("id")
+, CONSTRAINT "fk_rails_a5b2e77b26"
+FOREIGN KEY ("tipo_entidad_id")
+  REFERENCES "tipo_entidads" ("id")
+, CONSTRAINT "fk_rails_fc35788c6f"
+FOREIGN KEY ("tipo_difusion_id")
+  REFERENCES "tipo_difusiones" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (28.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (5010.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "alice_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTipoEntidads (20170228223855)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (30.5ms)[0m  [1m[35mDROP TABLE "tipo_entidads"[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170228223855"]]
+  [1m[35m (18.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateTipoEntidads (20170228223855)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (76.5ms)[0m  [1m[35mCREATE TABLE "tipo_entidads" ("id" serial primary key, "descripcion" character varying, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228223855"]]
+  [1m[35m (12.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDifusiones (20170228231622)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (76.5ms)[0m  [1m[35mCREATE TABLE "difusiones" ("id" serial primary key, "asunto" text, "texto" text, "imagen_file_name" character varying, "imagen_content_type" character varying, "imagen_file_size" integer, "imagen_updated_at" timestamp, "tipo_entidad_id" integer, "token_facebook" character varying, "tipo_difusion_id" integer, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_a5b2e77b26"
+FOREIGN KEY ("tipo_entidad_id")
+  REFERENCES "tipo_entidads" ("id")
+, CONSTRAINT "fk_rails_a5b2e77b26"
+FOREIGN KEY ("tipo_entidad_id")
+  REFERENCES "tipo_entidads" ("id")
+, CONSTRAINT "fk_rails_fc35788c6f"
+FOREIGN KEY ("tipo_difusion_id")
+  REFERENCES "tipo_difusiones" ("id")
+)[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5008097007705224475);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateDifusiones (20170228231622)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (100.3ms)[0m  [1m[35mCREATE TABLE "difusiones" ("id" serial primary key, "asunto" text, "texto" text, "imagen_file_name" character varying, "imagen_content_type" character varying, "imagen_file_size" integer, "imagen_updated_at" timestamp, "tipo_entidad_id" integer, "entidad_id" integer, "token_facebook" character varying, "tipo_difusion_id" integer, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_a5b2e77b26"
+FOREIGN KEY ("tipo_entidad_id")
+  REFERENCES "tipo_entidads" ("id")
+, CONSTRAINT "fk_rails_fc35788c6f"
+FOREIGN KEY ("tipo_difusion_id")
+  REFERENCES "tipo_difusiones" ("id")
+)[0m
+  [1m[35m (39.7ms)[0m  [1m[35mCREATE  INDEX  "index_difusiones_on_tipo_entidad_id" ON "difusiones"  ("tipo_entidad_id")[0m
+  [1m[35m (40.9ms)[0m  [1m[35mCREATE  INDEX  "index_difusiones_on_entidad_id" ON "difusiones"  ("entidad_id")[0m
+  [1m[35m (52.4ms)[0m  [1m[35mCREATE  INDEX  "index_difusiones_on_tipo_difusion_id" ON "difusiones"  ("tipo_difusion_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228231622"]]
+  [1m[35m (11.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAdiccionPersonas (20170228232017)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (92.3ms)[0m  [1m[35mCREATE TABLE "adiccion_personas" ("id" serial primary key, "persona_id" integer, "adiccion_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_881600f5ce"
+FOREIGN KEY ("persona_id")
+  REFERENCES "personas" ("id")
+, CONSTRAINT "fk_rails_18920428ea"
+FOREIGN KEY ("adiccion_id")
+  REFERENCES "adicciones" ("id")
+)[0m
+  [1m[35m (35.8ms)[0m  [1m[35mCREATE  INDEX  "index_adiccion_personas_on_persona_id" ON "adiccion_personas"  ("persona_id")[0m
+  [1m[35m (39.9ms)[0m  [1m[35mCREATE  INDEX  "index_adiccion_personas_on_adiccion_id" ON "adiccion_personas"  ("adiccion_id")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228232017"]]
+  [1m[35m (16.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCirugiaPersonas (20170228232205)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (54.1ms)[0m  [1m[35mCREATE TABLE "cirugia_personas" ("id" serial primary key, "persona_id" integer, "cirugia_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_cdae19df03"
+FOREIGN KEY ("persona_id")
+  REFERENCES "personas" ("id")
+, CONSTRAINT "fk_rails_479e5af35d"
+FOREIGN KEY ("cirugia_id")
+  REFERENCES "cirugias" ("id")
+)[0m
+  [1m[35m (39.7ms)[0m  [1m[35mCREATE  INDEX  "index_cirugia_personas_on_persona_id" ON "cirugia_personas"  ("persona_id")[0m
+  [1m[35m (40.1ms)[0m  [1m[35mCREATE  INDEX  "index_cirugia_personas_on_cirugia_id" ON "cirugia_personas"  ("cirugia_id")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228232205"]]
+  [1m[35m (14.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDiscapacidadPersonas (20170228232410)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.5ms)[0m  [1m[35mCREATE TABLE "discapacidad_personas" ("id" serial primary key, "persona_id" integer, "discapacidad_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_4731ef4c19"
+FOREIGN KEY ("persona_id")
+  REFERENCES "personas" ("id")
+, CONSTRAINT "fk_rails_16641cf42f"
+FOREIGN KEY ("discapacidad_id")
+  REFERENCES "discapacidades" ("id")
+)[0m
+  [1m[35m (36.8ms)[0m  [1m[35mCREATE  INDEX  "index_discapacidad_personas_on_persona_id" ON "discapacidad_personas"  ("persona_id")[0m
+  [1m[35m (42.3ms)[0m  [1m[35mCREATE  INDEX  "index_discapacidad_personas_on_discapacidad_id" ON "discapacidad_personas"  ("discapacidad_id")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228232410"]]
+  [1m[35m (11.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHabitoPersonas (20170228232634)
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (49.4ms)[0m  [1m[35mCREATE TABLE "habito_personas" ("id" serial primary key, "persona_id" integer, "habito_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_631930439d"
+FOREIGN KEY ("persona_id")
+  REFERENCES "personas" ("id")
+, CONSTRAINT "fk_rails_3d5c7a63a5"
+FOREIGN KEY ("habito_id")
+  REFERENCES "habitos" ("id")
+)[0m
+  [1m[35m (37.0ms)[0m  [1m[35mCREATE  INDEX  "index_habito_personas_on_persona_id" ON "habito_personas"  ("persona_id")[0m
+  [1m[35m (40.3ms)[0m  [1m[35mCREATE  INDEX  "index_habito_personas_on_habito_id" ON "habito_personas"  ("habito_id")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228232634"]]
+  [1m[35m (9.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLesionPersonas (20170228232929)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (53.2ms)[0m  [1m[35mCREATE TABLE "lesion_personas" ("id" serial primary key, "persona_id" integer, "lesion_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_470515f63c"
+FOREIGN KEY ("persona_id")
+  REFERENCES "personas" ("id")
+, CONSTRAINT "fk_rails_75ae00b70c"
+FOREIGN KEY ("lesion_id")
+  REFERENCES "lesiones" ("id")
+)[0m
+  [1m[35m (36.9ms)[0m  [1m[35mCREATE  INDEX  "index_lesion_personas_on_persona_id" ON "lesion_personas"  ("persona_id")[0m
+  [1m[35m (42.2ms)[0m  [1m[35mCREATE  INDEX  "index_lesion_personas_on_lesion_id" ON "lesion_personas"  ("lesion_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228232929"]]
+  [1m[35m (9.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOcupacionPersonas (20170228233008)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (44.5ms)[0m  [1m[35mCREATE TABLE "ocupacion_personas" ("id" serial primary key, "persona_id" integer, "ocupacion_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_5cde3dba3a"
+FOREIGN KEY ("persona_id")
+  REFERENCES "personas" ("id")
+, CONSTRAINT "fk_rails_7437e536c2"
+FOREIGN KEY ("ocupacion_id")
+  REFERENCES "ocupaciones" ("id")
+)[0m
+  [1m[35m (48.2ms)[0m  [1m[35mCREATE  INDEX  "index_ocupacion_personas_on_persona_id" ON "ocupacion_personas"  ("persona_id")[0m
+  [1m[35m (40.0ms)[0m  [1m[35mCREATE  INDEX  "index_ocupacion_personas_on_ocupacion_id" ON "ocupacion_personas"  ("ocupacion_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228233008"]]
+  [1m[35m (18.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePatologiaPersonas (20170228233035)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (55.5ms)[0m  [1m[35mCREATE TABLE "patologia_personas" ("id" serial primary key, "persona_id" integer, "patologia_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b8eb175b0e"
+FOREIGN KEY ("persona_id")
+  REFERENCES "personas" ("id")
+, CONSTRAINT "fk_rails_374fd2049a"
+FOREIGN KEY ("patologia_id")
+  REFERENCES "patologias" ("id")
+)[0m
+  [1m[35m (40.5ms)[0m  [1m[35mCREATE  INDEX  "index_patologia_personas_on_persona_id" ON "patologia_personas"  ("persona_id")[0m
+  [1m[35m (42.6ms)[0m  [1m[35mCREATE  INDEX  "index_patologia_personas_on_patologia_id" ON "patologia_personas"  ("patologia_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228233035"]]
+  [1m[35m (15.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePersonaProfesiones (20170228233400)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (51.6ms)[0m  [1m[35mCREATE TABLE "persona_profesiones" ("id" serial primary key, "persona_id" integer, "profesion_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_c52eee776c"
+FOREIGN KEY ("persona_id")
+  REFERENCES "personas" ("id")
+, CONSTRAINT "fk_rails_7ffb9c01ca"
+FOREIGN KEY ("profesion_id")
+  REFERENCES "profesiones" ("id")
+)[0m
+  [1m[35m (38.1ms)[0m  [1m[35mCREATE  INDEX  "index_persona_profesiones_on_persona_id" ON "persona_profesiones"  ("persona_id")[0m
+  [1m[35m (40.4ms)[0m  [1m[35mCREATE  INDEX  "index_persona_profesiones_on_profesion_id" ON "persona_profesiones"  ("profesion_id")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228233400"]]
+  [1m[35m (12.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePersonaVacunas (20170228233428)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (65.5ms)[0m  [1m[35mCREATE TABLE "persona_vacunas" ("id" serial primary key, "persona_id" integer, "vacuna_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_83b52da9d5"
+FOREIGN KEY ("persona_id")
+  REFERENCES "personas" ("id")
+, CONSTRAINT "fk_rails_7e415c75c0"
+FOREIGN KEY ("vacuna_id")
+  REFERENCES "vacunas" ("id")
+)[0m
+  [1m[35m (33.2ms)[0m  [1m[35mCREATE  INDEX  "index_persona_vacunas_on_persona_id" ON "persona_vacunas"  ("persona_id")[0m
+  [1m[35m (40.0ms)[0m  [1m[35mCREATE  INDEX  "index_persona_vacunas_on_vacuna_id" ON "persona_vacunas"  ("vacuna_id")[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228233428"]]
+  [1m[35m (9.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRangoEdades (20170228235127)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (94.6ms)[0m  [1m[35mCREATE TABLE "rango_edades" ("id" serial primary key, "descripcion" character varying, "edad_inicial" integer, "edad_final" integer, "estatus" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228235127"]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRangoEdadTipoServicios (20170228235151)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (44.7ms)[0m  [1m[35mCREATE TABLE "rango_edad_tipo_servicios" ("id" serial primary key, "rango_edad_id" integer, "tipo_servicio_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_38882b55ac"
+FOREIGN KEY ("rango_edad_id")
+  REFERENCES "rango_edades" ("id")
+, CONSTRAINT "fk_rails_0cf99630b1"
+FOREIGN KEY ("tipo_servicio_id")
+  REFERENCES "tipo_servicios" ("id")
+)[0m
+  [1m[35m (47.6ms)[0m  [1m[35mCREATE  INDEX  "index_rango_edad_tipo_servicios_on_rango_edad_id" ON "rango_edad_tipo_servicios"  ("rango_edad_id")[0m
+  [1m[35m (40.7ms)[0m  [1m[35mCREATE  INDEX  "index_rango_edad_tipo_servicios_on_tipo_servicio_id" ON "rango_edad_tipo_servicios"  ("tipo_servicio_id")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228235151"]]
+  [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(5008097007705224475)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m

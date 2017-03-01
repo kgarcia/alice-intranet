@@ -1,6 +1,6 @@
-class CreateRangoEdads < ActiveRecord::Migration[5.0]
+class CreateRangoEdades < ActiveRecord::Migration[5.0]
   def change
-    create_table :rango_edads do |t|
+    create_table :rango_edades do |t|
       t.string :descripcion
       t.integer :edad_inicial
       t.integer :edad_final
