@@ -4,21 +4,32 @@ class TipoParentescosController < ApplicationController
   # GET /tipo_parentescos
   # GET /tipo_parentescos.json
   def index
-    @tipo_parentescos = TipoParentesco.all
+    @parametros = TipoParentesco.all
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_parentescos/1
   # GET /tipo_parentescos/1.json
   def show
+    @parametro = TipoParentesco.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /tipo_parentescos/new
   def new
-    @tipo_parentesco = TipoParentesco.new
+    @parametro = TipoParentesco.new
+    render "parametros/new"
   end
 
   # GET /tipo_parentescos/1/edit
   def edit
+    @parametro = TipoParentesco.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /tipo_parentescos
@@ -28,7 +39,7 @@ class TipoParentescosController < ApplicationController
 
     respond_to do |format|
       if @tipo_parentesco.save
-        format.html { redirect_to @tipo_parentesco, notice: 'Tipo parentesco was successfully created.' }
+        format.html { redirect_to tipo_parentescos_url, notice: 'Tipo parentesco was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_parentesco }
       else
         format.html { render :new }
@@ -42,7 +53,7 @@ class TipoParentescosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_parentesco.update(tipo_parentesco_params)
-        format.html { redirect_to @tipo_parentesco, notice: 'Tipo parentesco was successfully updated.' }
+        format.html { redirect_to tipo_parentescos_url, notice: 'Tipo parentesco was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_parentesco }
       else
         format.html { render :edit }

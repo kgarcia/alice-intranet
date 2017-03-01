@@ -35,17 +35,21 @@ class TipoServicio < ApplicationRecord
   has_many :sexos, through: :sexo_tipo_servicios
   has_many :tipo_servicio_vacunas
   has_many :vacunas, through: :tipo_servicio_vacunas
+  has_many :rango_edad_tipo_servicios
+  has_many :rango_edades, through: :rango_edad_tipo_servicios
+  has_many :rango_peso_tipo_servicios
+  has_many :rango_pesos, through: :rango_peso_tipo_servicios
 
 	has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   	validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
 
   	after_save :save_adicciones, :save_cirugias, :save_discapacidades, :save_estado_civiles, :save_grupo_sanguineos,
                 :save_habitos, :save_lesiones, :save_ocupaciones, :save_patologias, :save_profesiones, :save_vacunas,
-                :save_criterios, :save_sexos
+                :save_criterios, :save_sexos, :save_rango_edades, :save_rango_pesos
 
     attr_reader :adiccionesTipoServicio, :cirugiasTipoServicio, :discapacidadesTipoServicio, :estadoCivilesTipoServicio, :grupoSanguineoTipoServicio,
                 :habitosTipoServicio, :lesionesTipoServicio, :ocupacionesTipoServicio, :patologiasTipoServicio, :profesionesTipoServicio, :vacunasTipoServicio,
-                :criteriosTipoServicio, :sexosTipoServicio
+                :criteriosTipoServicio, :sexosTipoServicio, :rangoEdadesTipoServicio, :rangoPesosTipoServicio
 
 
   	def adiccionesTipoServicio=(value)
@@ -99,6 +103,14 @@ class TipoServicio < ApplicationRecord
     def vacunasTipoServicio=(value)
       @vacunasTipoServicio = value
     end 
+
+    def rangoEdadesTipoServicio=(value)
+      @rangoEdadesTipoServicio = value
+    end
+
+    def rangoPesosTipoServicio=(value)
+      @rangoPesosTipoServicio = value
+    end  
 
    private
    def save_adicciones
@@ -226,6 +238,24 @@ class TipoServicio < ApplicationRecord
     if !@vacunasTipoServicio.nil?
         @vacunasTipoServicio.each do |vacuna_id|
           TipoServicioVacuna.create(vacuna_id: vacuna_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+   def save_rango_edades
+    RangoEdadTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@rangoEdadesTipoServicio.nil?
+        @rangoEdadesTipoServicio.each do |rango_edad_id|
+          RangoEdadTipoServicio.create(rango_edad_id: rango_edad_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+   def save_rango_pesos
+    RangoPesoTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@rangoPesosTipoServicio.nil?
+        @rangoPesosTipoServicio.each do |rango_peso_id|
+          RangoPesoTipoServicio.create(rango_peso_id: rango_peso_id, tipo_servicio_id: self.id )
         end
      end
    end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228235151) do
+ActiveRecord::Schema.define(version: 20170301055057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -609,6 +609,24 @@ ActiveRecord::Schema.define(version: 20170228235151) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "rango_peso_tipo_servicios", force: :cascade do |t|
+    t.integer  "rango_peso_id"
+    t.integer  "tipo_servicio_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["rango_peso_id"], name: "index_rango_peso_tipo_servicios_on_rango_peso_id", using: :btree
+    t.index ["tipo_servicio_id"], name: "index_rango_peso_tipo_servicios_on_tipo_servicio_id", using: :btree
+  end
+
+  create_table "rango_pesos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "peso_inicial"
+    t.integer  "peso_final"
+    t.integer  "estatus"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string   "descripcion"
     t.datetime "created_at",  null: false
@@ -1030,6 +1048,8 @@ ActiveRecord::Schema.define(version: 20170228235151) do
   add_foreign_key "profesion_tipo_servicios", "tipo_servicios"
   add_foreign_key "rango_edad_tipo_servicios", "rango_edades"
   add_foreign_key "rango_edad_tipo_servicios", "tipo_servicios"
+  add_foreign_key "rango_peso_tipo_servicios", "rango_pesos"
+  add_foreign_key "rango_peso_tipo_servicios", "tipo_servicios"
   add_foreign_key "servicio_eventos", "eventos"
   add_foreign_key "servicio_eventos", "servicios"
   add_foreign_key "servicios", "especialistas"

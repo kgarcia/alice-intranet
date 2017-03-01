@@ -3,6 +3,7 @@ class Turno < ApplicationRecord
   belongs_to :horario, foreign_key:"horario_id"
   belongs_to :tipo_turno, foreign_key:"tipo_turno_id"
   has_many :cita
+  
 def tipodia
   	return self.dia
   end
