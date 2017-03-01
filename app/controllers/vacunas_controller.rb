@@ -5,8 +5,11 @@ class VacunasController < ApplicationController
   # GET /vacunas.json
   def index
     @parametros = Vacuna.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /vacunas/1

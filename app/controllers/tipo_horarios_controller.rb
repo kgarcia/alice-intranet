@@ -5,8 +5,11 @@ class TipoHorariosController < ApplicationController
   # GET /tipo_horarios.json
   def index
     @parametros = TipoHorario.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_horarios/1

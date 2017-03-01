@@ -6,8 +6,11 @@ class MotivosController < ApplicationController
   def index
     @parametros = Motivo.all
     @referencia = "tipoMotivo"
-
-    render "parametros_select/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros_select/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /motivos/1
@@ -20,7 +23,7 @@ class MotivosController < ApplicationController
 
   # GET /motivos/new
   def new
-    @parametro = Motivo.new
+    @parametro = Motivo.new 
     @collection = TipoMotivo.all
     @referencia = :tipo_motivo_id
 

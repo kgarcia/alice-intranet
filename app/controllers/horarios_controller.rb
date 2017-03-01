@@ -5,7 +5,11 @@ class HorariosController < ApplicationController
   def index
     @parametros = Horario.all
     @referencia = "tipoHorario"
-    render "parametros_select/index"
+        
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /horarios/1

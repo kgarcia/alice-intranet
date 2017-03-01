@@ -5,7 +5,11 @@ class FormacionAcademicasController < ApplicationController
   # GET /formacion_academicas.json
   def index
     @parametros = FormacionAcademica.all
-    render "parametros_select/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros_select/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /formacion_academicas/1

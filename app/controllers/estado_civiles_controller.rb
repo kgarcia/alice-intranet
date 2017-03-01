@@ -6,7 +6,10 @@ class EstadoCivilesController < ApplicationController
   def index
     @parametros = EstadoCivil.all
 
-    render "parametros/index"
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /estado_civiles/1

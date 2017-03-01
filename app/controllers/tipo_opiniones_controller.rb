@@ -5,8 +5,11 @@ before_action :set_tipo_opinion, only: [:show, :edit, :update, :destroy]
   # GET /tipo_opiniones.json
   def index
     @parametros = TipoOpinion.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_opiniones/1

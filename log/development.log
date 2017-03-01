@@ -21316,3 +21316,1252 @@ Completed 200 OK in 229ms (Views: 219.1ms | ActiveRecord: 2.6ms)
 
 
 Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 21:19:13 -0430
+Started GET "/citas" for 127.0.0.1 at 2017-02-27 21:56:31 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CitasController#index as HTML
+  [1m[36mUsuario Load (1.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering citas/index.html.erb within layouts/application
+  [1m[36mCita Load (1.3ms)[0m  [1m[34mSELECT "citas".* FROM "citas"[0m
+  Rendered citas/index.html.erb within layouts/application (8.8ms)
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (9.7ms)
+  Rendered layouts/_navigation.html.erb (12.0ms)
+  Rendered layouts/_topnavbar.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 939ms (Views: 841.7ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/assets/application.self-9041d5a14d6ddcd6601dc3303e5b2b1b45b8aba9d761c2126bb0d13991b420ad.css?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/style.self-fe47ea4c03ac2a106a93b81badf002c7cf09f12e8679e01b9147ade2d774ad7c.css?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/font-awesome.self-407fb3615be540a148636cc5d171903af160c86d0eaf12321feadbd280e334c3.css?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/animate/animate.self-52aff9ef01435a43fd10e9910ae5e5fbe25d343ad91dc1329f64e0de1e6e1148.css?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/_bootstrap-sprockets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/footable/footable.bootstrap.min.self-7046d8648be7ee664e3add46266344019eeaba8681170f225c5dcffc6d09552d.css?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/dataTables/jquery.dataTables.self-5fd6b0c86095b4e630df348f14c7db9505f5da2902af6ef9fd3a8dc67335de7d.css?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/dataTables/bootstrap/3/jquery.dataTables.bootstrap.self-4c409d46917cadad70ecb4011a18c50f25e796ecba7f1e868f58256b60858380.css?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/fullcalendar.self-072e821b393fed185ac58e03410e44491d785b8dcfec9366bdc98a71058df0ce.css?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/jquery2.self-25ca496239ae8641a09627c8aace5863e7676e465fbb4ce81bc7eb78c4d15627.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/metisMenu/jquery.metisMenu.self-587029531d977fc7fa10623dd670189a298bd606124c23fc2edd051da5b0c914.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/pace/pace.min.self-9bf6d667514a59744d5db2c9392aaf5595dec9c131a425ababa1cb8cddb814f2.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/slimscroll/jquery.slimscroll.min.self-a2008e2992d055fbe5108d326a54c3083f843da1a30240d2b2e1f706716fa03e.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/adicciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/agenda_servicio.self-c20b88cb7d1193c72adacf697d09d4fd1011ae90b2efdc40fa600894fe57dd4a.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/busquedas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/cirugias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/calificaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/categorias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/citas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/criterio_tipo_servicios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/ciudades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/dias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/criterios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/especialidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/discapacidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/especialistas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/estados.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/estado_civiles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/evaluaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/eventos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/eventualidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/formacion_academicas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/habitos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/grupo_sanguineos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/informacion_generals.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/inspinia.self-d11d88d2823b5f00edda889fec5c5fe942ce753673c6dda5288422cf32432119.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/horarios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/lesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/motivos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/nivel_formaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/notificaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/noticias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/ocupaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/opiniones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/option_menus.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/paises.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/patologias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/profesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:33 -0430
+Started GET "/assets/personas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/roles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/sectores.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/sectors.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/servicio_eventos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_adicciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/servicios.self-21861644405d854f44db90cbd2d55ca78b83b02228c96f67dc5bc08de1b4ab71.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/sexos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_atenciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_busquedas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_calificaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_cirugias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_criterios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_criterio.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_citas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_discapacidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_evaluaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_eventos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_habitos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_eventualidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_horarios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_lesiones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_motivos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_notificaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_noticias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_opiniones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_pagos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_patologias.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_preguntas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_servicios.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tipo_ubicaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/turnos.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/ubicaciones.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/universidades.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/vacunas.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/footable/footable.min.self-9a6576a744d508253fae1f0eeb107820f48d7430054b9f17d628e25752e05b14.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/moment/es.self-1aa4838a6ec619978fdce480422a56537f79d12a33ac9b8779c35f272e48a45e.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/datapicker/bootstrap-datepicker.self-01cd3bf86245b38d0415b39e29f486b62189cc7b2c9de85511529341595db0bd.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/fullcalendar.self-7bff7d4c8a6b558f991b231ed807aa6626c734cf5861b5c22f6288c26b2874a8.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/moment.self-34da66f0997d145341cfb3fc71c794ea32b4c6affa3ff5d9e7e5107170125d1c.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tinymce/tinymce.self-32bea8c9c9f81b871d51a186ff33640087e78acd6519c30da7b2797692227a6c.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tinymce/preinit.self-84328a53e798df12f891eb49871773fd9f925439c8630e9e22423a82ef9e6f89.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/tinymce.self-75a11da44c802486bc6f65640aa48a730f0f684c5c07a42ba3cd1735eb3fb070.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/dataTables/jquery.dataTables.self-f520d04a662abc3bbb379438d969df199552297a55b74651a9e2b33b775df3ed.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/application.self-d1535d29d59f9a405e6ddab89df51e11a6f5a5756337769a9de429692bd0faaa.js?body=1" for 127.0.0.1 at 2017-02-27 21:56:34 -0430
+Started GET "/assets/alice-horizontal1-acf479a491fa6fdce0d8b285deea1d22d4ce88de8db5a867acc42cd47bc3a1b6.png" for 127.0.0.1 at 2017-02-27 21:56:35 -0430
+Started GET "/assets/alice_sq-fcb2b72f529df4f27262511639b862881ef4dbb069a131e2fae1283a289f74dd.png" for 127.0.0.1 at 2017-02-27 21:56:35 -0430
+Started GET "/assets/a6-b8e9007bb4a531d1918165879a8a86b3d084c2774c2962f429074dec66bb3b75.jpg" for 127.0.0.1 at 2017-02-27 21:56:35 -0430
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 21:56:35 -0430
+Started GET "/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2" for 127.0.0.1 at 2017-02-27 21:56:35 -0430
+Started GET "/citas/new" for 127.0.0.1 at 2017-02-27 21:57:23 -0430
+Processing by CitasController#new as HTML
+  [1m[36mUsuario Load (0.9ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering citas/new.html.erb within layouts/application
+  Rendered citas/_form.html.erb (424.9ms)
+  Rendered citas/new.html.erb within layouts/application (434.4ms)
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (13.4ms)
+  Rendered layouts/_navigation.html.erb (16.9ms)
+  Rendered layouts/_topnavbar.html.erb (4.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 701ms (Views: 662.7ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 21:57:25 -0430
+Started POST "/citas" for 127.0.0.1 at 2017-02-27 21:58:00 -0430
+Processing by CitasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LW6qcrO8KmUE8okSCK49zZrI0QkZafZfYS53zj8laCzXi8sx5CNlb6VVqrFWquktoryg7CgqBydqumTQvXJIlg==", "cita"=>{"turno_id"=>"1", "persona_id"=>"1", "usuario_id"=>"1", "fecha"=>"01/03/2017 09:57 PM", "tipo_pago_id"=>"1", "tipo_cita_id"=>"1", "estatus"=>"1"}, "commit"=>"Crear Cita"}
+  [1m[36mUsuario Load (0.9ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.8ms)[0m  [1m[32mINSERT INTO "citas" ("turno_id", "persona_id", "usuario_id", "fecha", "tipo_pago_id", "tipo_cita_id", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["turno_id", 1], ["persona_id", 1], ["usuario_id", 1], ["fecha", 2017-03-01 21:57:00 UTC], ["tipo_pago_id", 1], ["tipo_cita_id", 1], ["estatus", 1], ["created_at", 2017-02-28 02:28:00 UTC], ["updated_at", 2017-02-28 02:28:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 7.5ms)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "citas" violates foreign key constraint "fk_rails_9b20d4f749"
+DETAIL:  Key (tipo_cita_id)=(1) is not present in table "tipo_citas".
+: INSERT INTO "citas" ("turno_id", "persona_id", "usuario_id", "fecha", "tipo_pago_id", "tipo_cita_id", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"):
+  
+app/controllers/citas_controller.rb:30:in `block in create'
+app/controllers/citas_controller.rb:29:in `create'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.6ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.9ms)
+Started POST "/citas" for 127.0.0.1 at 2017-02-27 22:02:40 -0430
+Processing by CitasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LW6qcrO8KmUE8okSCK49zZrI0QkZafZfYS53zj8laCzXi8sx5CNlb6VVqrFWquktoryg7CgqBydqumTQvXJIlg==", "cita"=>{"turno_id"=>"1", "persona_id"=>"1", "usuario_id"=>"1", "fecha"=>"01/03/2017 09:57 PM", "tipo_pago_id"=>"1", "tipo_cita_id"=>"1", "estatus"=>"1"}, "commit"=>"Crear Cita"}
+  [1m[36mUsuario Load (1.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.8ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "citas" ("turno_id", "persona_id", "usuario_id", "fecha", "tipo_pago_id", "tipo_cita_id", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["turno_id", 1], ["persona_id", 1], ["usuario_id", 1], ["fecha", 2017-03-01 21:57:00 UTC], ["tipo_pago_id", 1], ["tipo_cita_id", 1], ["estatus", 1], ["created_at", 2017-02-28 02:32:40 UTC], ["updated_at", 2017-02-28 02:32:40 UTC]]
+  [1m[35m (17.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/citas/2
+Completed 302 Found in 159ms (ActiveRecord: 23.2ms)
+
+
+Started GET "/citas/2" for 127.0.0.1 at 2017-02-27 22:02:40 -0430
+Processing by CitasController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUsuario Load (1.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mCita Load (1.2ms)[0m  [1m[34mSELECT  "citas".* FROM "citas" WHERE "citas"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering citas/show.html.erb within layouts/application
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from _app_views_citas_show_html_erb___662514740894478670_69986309473760 at /home/kevin/Documents/railsworkspace/Rails_Seed_Project/app/views/citas/show.html.erb:5)
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from _app_views_citas_show_html_erb___662514740894478670_69986309473760 at /home/kevin/Documents/railsworkspace/Rails_Seed_Project/app/views/citas/show.html.erb:5)
+  [1m[36mTurno Load (0.3ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPersona Load (0.3ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoPago Load (0.7ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoCita Load (0.3ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered citas/show.html.erb within layouts/application (79.7ms)
+  [1m[36mOptionMenu Load (1.0ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (1.1ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (15.3ms)
+  Rendered layouts/_navigation.html.erb (19.4ms)
+  Rendered layouts/_topnavbar.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 324ms (Views: 276.0ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:02:41 -0430
+Started GET "/citas" for 127.0.0.1 at 2017-02-27 22:02:45 -0430
+Processing by CitasController#index as HTML
+  [1m[36mUsuario Load (1.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering citas/index.html.erb within layouts/application
+  [1m[36mCita Load (0.6ms)[0m  [1m[34mSELECT "citas".* FROM "citas"[0m
+  [1m[36mTurno Load (0.4ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPersona Load (0.3ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoPago Load (0.2ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoCita Load (0.3ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered citas/index.html.erb within layouts/application (12.1ms)
+  [1m[36mOptionMenu Load (0.9ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (1.2ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (12.1ms)
+  Rendered layouts/_navigation.html.erb (14.6ms)
+  Rendered layouts/_topnavbar.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 225ms (Views: 211.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:02:45 -0430
+Started GET "/citas" for 127.0.0.1 at 2017-02-27 22:04:50 -0430
+Processing by CitasController#index as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.5ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering citas/index.html.erb within layouts/application
+  [1m[36mCita Load (0.4ms)[0m  [1m[34mSELECT "citas".* FROM "citas"[0m
+  [1m[36mTurno Load (0.5ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPersona Load (0.3ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoPago Load (0.2ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoCita Load (0.2ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered citas/index.html.erb within layouts/application (15.0ms)
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (1.0ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (12.8ms)
+  Rendered layouts/_navigation.html.erb (15.9ms)
+  Rendered layouts/_topnavbar.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 210ms (Views: 200.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:04:50 -0430
+Started GET "/citas/new" for 127.0.0.1 at 2017-02-27 22:04:51 -0430
+Processing by CitasController#new as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering citas/new.html.erb within layouts/application
+  Rendered citas/_form.html.erb (5.8ms)
+  Rendered citas/new.html.erb within layouts/application (7.3ms)
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (2.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (16.8ms)
+  Rendered layouts/_navigation.html.erb (19.9ms)
+  Rendered layouts/_topnavbar.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 235ms (Views: 219.2ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:04:52 -0430
+Started POST "/citas" for 127.0.0.1 at 2017-02-27 22:05:02 -0430
+Processing by CitasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/HI/PoWcAsf+2js5Bfh9hoXPKObWjT9ITnP2gZppZHUGl1590gNNzV99GJpb/KlmvbtZA+fOzjBF5+WfGD5Ezw==", "cita"=>{"turno_id"=>"1", "persona_id"=>"1", "usuario_id"=>"1", "fecha"=>"01/03/2017 10:04 PM", "tipo_pago_id"=>"1", "tipo_cita_id"=>"1", "estatus"=>"1"}, "commit"=>"Crear Cita"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "citas" ("turno_id", "persona_id", "usuario_id", "fecha", "tipo_pago_id", "tipo_cita_id", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["turno_id", 1], ["persona_id", 1], ["usuario_id", 1], ["fecha", 2017-03-01 22:04:00 UTC], ["tipo_pago_id", 1], ["tipo_cita_id", 1], ["estatus", 1], ["created_at", 2017-02-28 02:35:02 UTC], ["updated_at", 2017-02-28 02:35:02 UTC]]
+  [1m[35m (23.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/citas/3
+Completed 302 Found in 39ms (ActiveRecord: 26.4ms)
+
+
+Started GET "/citas/3" for 127.0.0.1 at 2017-02-27 22:05:03 -0430
+Processing by CitasController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (1.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mCita Load (0.4ms)[0m  [1m[34mSELECT  "citas".* FROM "citas" WHERE "citas"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering citas/show.html.erb within layouts/application
+  [1m[36mTurno Load (0.7ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPersona Load (0.5ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.8ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoPago Load (0.4ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoCita Load (0.4ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered citas/show.html.erb within layouts/application (14.2ms)
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (12.9ms)
+  Rendered layouts/_navigation.html.erb (15.6ms)
+  Rendered layouts/_topnavbar.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 236ms (Views: 218.3ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:05:03 -0430
+Started GET "/citas" for 127.0.0.1 at 2017-02-27 22:06:17 -0430
+Processing by CitasController#index as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering citas/index.html.erb within layouts/application
+  [1m[36mCita Load (0.7ms)[0m  [1m[34mSELECT "citas".* FROM "citas"[0m
+  [1m[36mTurno Load (0.5ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPersona Load (0.4ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoPago Load (0.4ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoCita Load (0.4ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered citas/index.html.erb within layouts/application (21.8ms)
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (2.0ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (32.0ms)
+  Rendered layouts/_navigation.html.erb (34.8ms)
+  Rendered layouts/_topnavbar.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 223ms (Views: 210.9ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:06:18 -0430
+Started GET "/citas" for 127.0.0.1 at 2017-02-27 22:07:24 -0430
+Processing by CitasController#index as HTML
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering citas/index.html.erb within layouts/application
+  [1m[36mCita Load (0.4ms)[0m  [1m[34mSELECT "citas".* FROM "citas"[0m
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from block in _app_views_citas_index_html_erb___309510168877294325_69986471372660 at /home/kevin/Documents/railsworkspace/Rails_Seed_Project/app/views/citas/index.html.erb:22)
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from block in _app_views_citas_index_html_erb___309510168877294325_69986471372660 at /home/kevin/Documents/railsworkspace/Rails_Seed_Project/app/views/citas/index.html.erb:22)
+  [1m[36mTurno Load (0.3ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPersona Load (0.4ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoPago Load (0.2ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoCita Load (0.3ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered citas/index.html.erb within layouts/application (105.7ms)
+  [1m[36mOptionMenu Load (0.5ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (0.5ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (10.7ms)
+  Rendered layouts/_navigation.html.erb (15.1ms)
+  Rendered layouts/_topnavbar.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 342ms (Views: 264.1ms | ActiveRecord: 21.6ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:07:25 -0430
+Started GET "/citas/new" for 127.0.0.1 at 2017-02-27 22:07:35 -0430
+Processing by CitasController#new as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering citas/new.html.erb within layouts/application
+  Rendered citas/_form.html.erb (4.2ms)
+  Rendered citas/new.html.erb within layouts/application (5.2ms)
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (1.1ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (17.4ms)
+  Rendered layouts/_navigation.html.erb (22.2ms)
+  Rendered layouts/_topnavbar.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 263ms (Views: 252.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:07:36 -0430
+Started POST "/citas" for 127.0.0.1 at 2017-02-27 22:08:58 -0430
+Processing by CitasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"O3d1Ld4flJ1PgzrjHCktYnPS8a2Isqhk9WVH6hF6WfbBkhRuiYDbl+4kGUBCLfmCS6aASLnxWRz+8VT0ky15TA==", "cita"=>{"turno_id"=>"1", "persona_id"=>"1", "usuario_id"=>"1", "fecha"=>"27/02/2017 10:08 PM", "tipo_pago_id"=>"1", "tipo_cita_id"=>"1", "estatus"=>"1"}, "commit"=>"Crear Cita"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "citas" ("turno_id", "persona_id", "usuario_id", "fecha", "tipo_pago_id", "tipo_cita_id", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["turno_id", 1], ["persona_id", 1], ["usuario_id", 1], ["fecha", 2017-02-27 22:08:00 UTC], ["tipo_pago_id", 1], ["tipo_cita_id", 1], ["estatus", 1], ["created_at", 2017-02-28 02:38:58 UTC], ["updated_at", 2017-02-28 02:38:58 UTC]]
+  [1m[35m (18.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/citas/4
+Completed 302 Found in 38ms (ActiveRecord: 21.3ms)
+
+
+Started GET "/citas/4" for 127.0.0.1 at 2017-02-27 22:08:58 -0430
+Processing by CitasController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mCita Load (0.3ms)[0m  [1m[34mSELECT  "citas".* FROM "citas" WHERE "citas"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering citas/show.html.erb within layouts/application
+  [1m[36mTurno Load (0.4ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPersona Load (0.3ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoPago Load (0.3ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoCita Load (0.3ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered citas/show.html.erb within layouts/application (11.9ms)
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (17.3ms)
+  Rendered layouts/_navigation.html.erb (20.9ms)
+  Rendered layouts/_topnavbar.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 320ms (Views: 304.7ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:08:59 -0430
+Started GET "/citas" for 127.0.0.1 at 2017-02-27 22:09:01 -0430
+Processing by CitasController#index as HTML
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering citas/index.html.erb within layouts/application
+  [1m[36mCita Load (0.8ms)[0m  [1m[34mSELECT "citas".* FROM "citas"[0m
+  [1m[36mTurno Load (0.3ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPersona Load (0.4ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoPago Load (0.2ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoCita Load (0.4ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered citas/index.html.erb within layouts/application (23.8ms)
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (1.2ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (14.1ms)
+  Rendered layouts/_navigation.html.erb (17.1ms)
+  Rendered layouts/_topnavbar.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 215ms (Views: 200.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:09:01 -0430
+Started GET "/citas/new" for 127.0.0.1 at 2017-02-27 22:11:25 -0430
+Processing by CitasController#new as HTML
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering citas/new.html.erb within layouts/application
+  Rendered citas/_form.html.erb (3.9ms)
+  Rendered citas/new.html.erb within layouts/application (5.1ms)
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (22.2ms)
+  Rendered layouts/_navigation.html.erb (26.9ms)
+  Rendered layouts/_topnavbar.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 337ms (Views: 272.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:11:26 -0430
+Started POST "/citas" for 127.0.0.1 at 2017-02-27 22:11:37 -0430
+Processing by CitasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sIz3JBI8iCWOxqJnAiJNqPUHFB1NM+NSxa9k42Pe7CZKaZZnRaPHLy9hgcRcJplIzXNl+HxwEirOO3f94YnMnA==", "cita"=>{"turno_id"=>"1", "persona_id"=>"1", "usuario_id"=>"1", "fecha"=>"21/02/2017 10:11 PM", "tipo_pago_id"=>"1", "tipo_cita_id"=>"1", "estatus"=>"1"}, "commit"=>"Crear Cita"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "citas" ("turno_id", "persona_id", "usuario_id", "fecha", "tipo_pago_id", "tipo_cita_id", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["turno_id", 1], ["persona_id", 1], ["usuario_id", 1], ["fecha", 2017-02-21 22:11:00 UTC], ["tipo_pago_id", 1], ["tipo_cita_id", 1], ["estatus", 1], ["created_at", 2017-02-28 02:41:37 UTC], ["updated_at", 2017-02-28 02:41:37 UTC]]
+  [1m[35m (31.6ms)[0m  [1m[35mCOMMIT[0m
+ExampleMailer#cita_registrada: processed outbound mail in 17.0ms
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 34.7ms)
+
+
+  
+NameError (undefined local variable or method `email' for #<ExampleMailer:0x007f4deb357f88>
+Did you mean?  mail):
+  
+app/mailers/example_mailer.rb:10:in `cita_registrada'
+app/controllers/citas_controller.rb:31:in `block in create'
+app/controllers/citas_controller.rb:29:in `create'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.9ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.9ms)
+Started POST "/citas" for 127.0.0.1 at 2017-02-27 22:11:52 -0430
+Processing by CitasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sIz3JBI8iCWOxqJnAiJNqPUHFB1NM+NSxa9k42Pe7CZKaZZnRaPHLy9hgcRcJplIzXNl+HxwEirOO3f94YnMnA==", "cita"=>{"turno_id"=>"1", "persona_id"=>"1", "usuario_id"=>"1", "fecha"=>"21/02/2017 10:11 PM", "tipo_pago_id"=>"1", "tipo_cita_id"=>"1", "estatus"=>"1"}, "commit"=>"Crear Cita"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "citas" ("turno_id", "persona_id", "usuario_id", "fecha", "tipo_pago_id", "tipo_cita_id", "estatus", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["turno_id", 1], ["persona_id", 1], ["usuario_id", 1], ["fecha", 2017-02-21 22:11:00 UTC], ["tipo_pago_id", 1], ["tipo_cita_id", 1], ["estatus", 1], ["created_at", 2017-02-28 02:41:53 UTC], ["updated_at", 2017-02-28 02:41:53 UTC]]
+  [1m[35m (30.7ms)[0m  [1m[35mCOMMIT[0m
+  Rendering example_mailer/cita_registrada.html.erb within layouts/mailer
+  [1m[36mCita Load (0.4ms)[0m  [1m[34mSELECT  "citas".* FROM "citas" ORDER BY "citas"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered example_mailer/cita_registrada.html.erb within layouts/mailer (2.6ms)
+  Rendering example_mailer/cita_registrada.text.erb within layouts/mailer
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "citas".* FROM "citas" ORDER BY "citas"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendered example_mailer/cita_registrada.text.erb within layouts/mailer (1.4ms)
+ExampleMailer#cita_registrada: processed outbound mail in 233.6ms
+Sent mail to kevin93ps@gmail.com (57528.2ms)
+Date: Mon, 27 Feb 2017 22:11:53 -0430
+From: kevin93ps@gmail.com
+To: kevin93ps@gmail.com
+Message-ID: <58b4e3718bc55_47ad3fa6ff1b9b68397f@kevin-Aspire-V3-572G.mail>
+Subject: Cita Registrada
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_58b4e3718a4d7_47ad3fa6ff1b9b683844";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_58b4e3718a4d7_47ad3fa6ff1b9b683844
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hola 
+su cita ha sido registrada exitosamente 2017-02-28 02:41:53 UTC
+
+
+----==_mimepart_58b4e3718a4d7_47ad3fa6ff1b9b683844
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi </h1>
+    <p>
+		Su cita ha sido registrada exitosamente para el dia 2017-02-28 02:41:53 UTC
+
+    </p>
+  </body>
+</html>
+
+  </body>
+</html>
+
+----==_mimepart_58b4e3718a4d7_47ad3fa6ff1b9b683844--
+
+Redirected to http://localhost:3000/citas/6
+Completed 302 Found in 57876ms (ActiveRecord: 34.0ms)
+
+
+Started GET "/citas/6" for 127.0.0.1 at 2017-02-27 22:12:51 -0430
+Processing by CitasController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mCita Load (0.3ms)[0m  [1m[34mSELECT  "citas".* FROM "citas" WHERE "citas"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering citas/show.html.erb within layouts/application
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from _app_views_citas_show_html_erb___662514740894478670_69986314156980 at /home/kevin/Documents/railsworkspace/Rails_Seed_Project/app/views/citas/show.html.erb:5)
+DEPRECATION WARNING: Time columns will become time zone aware in Rails 5.1. This
+still causes `String`s to be parsed as if they were in `Time.zone`,
+and `Time`s to be converted to `Time.zone`.
+
+To keep the old behavior, you must add the following to your initializer:
+
+    config.active_record.time_zone_aware_types = [:datetime]
+
+To silence this deprecation warning, add the following:
+
+    config.active_record.time_zone_aware_types = [:datetime, :time]
+ (called from _app_views_citas_show_html_erb___662514740894478670_69986314156980 at /home/kevin/Documents/railsworkspace/Rails_Seed_Project/app/views/citas/show.html.erb:5)
+  [1m[36mTurno Load (0.5ms)[0m  [1m[34mSELECT  "turnos".* FROM "turnos" WHERE "turnos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPersona Load (0.3ms)[0m  [1m[34mSELECT  "personas".* FROM "personas" WHERE "personas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoPago Load (0.3ms)[0m  [1m[34mSELECT  "tipo_pagos".* FROM "tipo_pagos" WHERE "tipo_pagos"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTipoCita Load (0.3ms)[0m  [1m[34mSELECT  "tipo_citas".* FROM "tipo_citas" WHERE "tipo_citas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered citas/show.html.erb within layouts/application (88.2ms)
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (1.0ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (13.5ms)
+  Rendered layouts/_navigation.html.erb (16.6ms)
+  Rendered layouts/_topnavbar.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 352ms (Views: 319.3ms | ActiveRecord: 23.1ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-27 22:12:51 -0430
+Started GET "/" for 127.0.0.1 at 2017-02-28 15:59:29 -0430
+  [1m[36mActiveRecord::SchemaMigration Load (18.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[36mUsuario Load (49.0ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (15.1ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (58.8ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.6ms)
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (10.9ms)
+  Rendered layouts/_navigation.html.erb (21.9ms)
+  Rendered layouts/_topnavbar.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 3157ms (Views: 2700.6ms | ActiveRecord: 241.2ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-28 15:59:35 -0430
+Started GET "/personas" for 127.0.0.1 at 2017-02-28 15:59:41 -0430
+Processing by PersonasController#index as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.6ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.8ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering personas/index.html.erb within layouts/application
+  [1m[36mPersona Load (37.3ms)[0m  [1m[34mSELECT "personas".* FROM "personas"[0m
+  Rendered personas/index.html.erb within layouts/application (82.5ms)
+Completed 500 Internal Server Error in 207ms (ActiveRecord: 41.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `edad' for #<Persona:0x007f378b667230>):
+    27:         <td><%= persona.direccion %></td>
+    28:         <td><%= persona.fecha_nacimiento %></td>
+    29:         <td><%= persona.sexo %></td>
+    30:         <td><%= persona.edad %></td>
+    31:         <td><%= link_to 'Registrar Cuenta', new_usuario_registration_path, :persona_id => persona.id  %></td>
+    32:         <td><%= link_to 'Edit', edit_persona_path(persona) %></td>
+    33:         <td><%= link_to 'Destroy', persona, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+app/views/personas/index.html.erb:30:in `block in _app_views_personas_index_html_erb___389020509939112814_69938263108100'
+app/views/personas/index.html.erb:21:in `_app_views_personas_index_html_erb___389020509939112814_69938263108100'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.4ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.6ms)
+Started GET "/personas/new" for 127.0.0.1 at 2017-02-28 15:59:47 -0430
+Processing by PersonasController#new as HTML
+  [1m[36mUsuario Load (0.7ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.7ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering personas/new.html.erb within layouts/application
+  [1m[36mSexo Load (32.2ms)[0m  [1m[34mSELECT "sexos".* FROM "sexos"[0m
+  Rendered personas/_form.html.erb (154.7ms)
+  Rendered personas/new.html.erb within layouts/application (173.0ms)
+Completed 500 Internal Server Error in 210ms (ActiveRecord: 36.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `decripcion' for #<Sexo:0x007f378bde0868>
+Did you mean?  descripcion
+               descripcion?
+               descripcion=):
+    44:                   </div>
+    45:                   <div class="field form-group">
+    46:                     <label class="col-lg-2 control-label">Sexo</label>
+    47:                     <div class="col-lg-10"><%= f.collection_select(:sexo_id, @sexos, :id, :decripcion,{}, :class => "form-control" )%></div>
+    48:                   </div>
+    49:                   <div class="form-group">
+    50:                       <div class="col-lg-offset-2 col-lg-10">
+  
+app/views/personas/_form.html.erb:47:in `block in _app_views_personas__form_html_erb___3657872034637915149_69938272895140'
+app/views/personas/_form.html.erb:1:in `_app_views_personas__form_html_erb___3657872034637915149_69938272895140'
+app/views/personas/new.html.erb:3:in `_app_views_personas_new_html_erb___89329407419345228_69938272854900'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.7ms)
+Started GET "/usuarios/sign_up" for 127.0.0.1 at 2017-02-28 15:59:58 -0430
+Processing by Usuarios::RegistrationsController#new as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 686ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 15:59:59 -0430
+Processing by HomeController#index as HTML
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.5ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus".* FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (id_padre IS NOT NULL)[0m  [["rol_id", 1]]
+  Rendered layouts/_navigation-menu.html.erb (10.5ms)
+  Rendered layouts/_navigation.html.erb (13.2ms)
+  Rendered layouts/_topnavbar.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 178ms (Views: 168.7ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/patterns/header-profile-skin-1.png" for 127.0.0.1 at 2017-02-28 16:00:00 -0430
+Started GET "/usuarios/sign_out" for 127.0.0.1 at 2017-02-28 16:00:01 -0430
+Processing by Usuarios::SessionsController#destroy as HTML
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT  "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mOptionMenu Load (0.6ms)[0m  [1m[34mSELECT "option_menus"."id" FROM "option_menus" INNER JOIN "option_roles" ON "option_menus"."id" = "option_roles"."option_menu_id" WHERE "option_roles"."rol_id" = $1 AND (num_hijos > 0)[0m  [["rol_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 16:00:01 -0430
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_topnavbar.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 176ms (Views: 171.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usuarios/sign_up" for 127.0.0.1 at 2017-02-28 16:00:11 -0430
+Processing by Usuarios::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  [1m[36mRol Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles"[0m
+  [1m[36mSexo Load (0.2ms)[0m  [1m[34mSELECT "sexos".* FROM "sexos"[0m
+  Rendered personas/_datos_persona.html.erb (2.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (151.3ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_topnavbar.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 334ms (Views: 331.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/paises" for 127.0.0.1 at 2017-02-28 16:11:58 -0430
+Processing by PaisesController#index as HTML
+  Rendering parametros/index.html.erb within layouts/application
+  [1m[36mPais Load (99.2ms)[0m  [1m[34mSELECT "paises".* FROM "paises"[0m
+  Rendered parametros/index.html.erb within layouts/application (118.9ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_topnavbar.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 321ms (Views: 198.4ms | ActiveRecord: 103.0ms)
+
+
+Started GET "/paises.json" for 127.0.0.1 at 2017-02-28 16:12:04 -0430
+Processing by PaisesController#index as JSON
+  Rendering parametros/index.json.jbuilder
+  [1m[36mPais Load (0.4ms)[0m  [1m[34mSELECT "paises".* FROM "paises"[0m
+  Rendered parametros/index.json.jbuilder (34.0ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `parametro_url' for #<#<Class:0x007f37893c0d30>:0x007f378b8321a0>):
+    1: json.array!(@parametros) do |parametro|
+    2:   json.extract! parametro, :id, :descripcion, :estatus
+    3:   json.url parametro_url(parametro, format: :json)
+    4: end
+  
+app/views/parametros/index.json.jbuilder:3:in `block in _app_views_parametros_index_json_jbuilder___543035118599310420_69938270275180'
+app/views/parametros/index.json.jbuilder:1:in `_app_views_parametros_index_json_jbuilder___543035118599310420_69938270275180'
+app/controllers/paises_controller.rb:9:in `index'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.2ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.6ms)
+Started GET "/paises.json" for 127.0.0.1 at 2017-02-28 16:16:28 -0430
+  
+SyntaxError (/home/kevin/Documents/railsworkspace/Rails_Seed_Project/app/controllers/paises_controller.rb:23: syntax error, unexpected ':'
+    render "parametros/new" unless: -> { request.format.json? }
+                                   ^):
+  
+app/controllers/paises_controller.rb:23: syntax error, unexpected ':'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.8ms)
+Started GET "/paises.json" for 127.0.0.1 at 2017-02-28 16:16:40 -0430
+Processing by PaisesController#index as JSON
+  Rendering parametros/index.json.jbuilder
+  [1m[36mPais Load (0.8ms)[0m  [1m[34mSELECT "paises".* FROM "paises"[0m
+  Rendered parametros/index.json.jbuilder (46.0ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 4.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `parametro_url' for #<#<Class:0x007f378ba73b08>:0x007f378ba70f48>):
+    1: json.array!(@parametros) do |parametro|
+    2:   json.extract! parametro, :id, :descripcion, :estatus
+    3:   json.url parametro_url(parametro, format: :json)
+    4: end
+  
+app/views/parametros/index.json.jbuilder:3:in `block in _app_views_parametros_index_json_jbuilder___543035118599310420_69938271426800'
+app/views/parametros/index.json.jbuilder:1:in `_app_views_parametros_index_json_jbuilder___543035118599310420_69938271426800'
+app/controllers/paises_controller.rb:9:in `index'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (21.4ms)
+Started GET "/paises.json" for 127.0.0.1 at 2017-02-28 16:17:46 -0430
+Processing by PaisesController#index as JSON
+  Rendering parametros/index.json.jbuilder
+  [1m[36mPais Load (0.7ms)[0m  [1m[34mSELECT "paises".* FROM "paises"[0m
+  Rendered parametros/index.json.jbuilder (54.9ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `parametro_url' for #<#<Class:0x007f378ba73b08>:0x007f379e30a138>):
+    1: json.array!(@parametros) do |parametro|
+    2:   json.extract! parametro, :id, :descripcion, :estatus
+    3:   json.url parametro_url(parametro, format: :json)
+    4: end
+  
+app/views/parametros/index.json.jbuilder:3:in `block in _app_views_parametros_index_json_jbuilder___543035118599310420_69938426917160'
+app/views/parametros/index.json.jbuilder:1:in `_app_views_parametros_index_json_jbuilder___543035118599310420_69938426917160'
+app/controllers/paises_controller.rb:9:in `index'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.8ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (24.8ms)
+Started GET "/paises.json" for 127.0.0.1 at 2017-02-28 16:17:57 -0430
+Processing by PaisesController#index as JSON
+  Rendering parametros/index.json.jbuilder
+  [1m[36mPais Load (0.3ms)[0m  [1m[34mSELECT "paises".* FROM "paises"[0m
+  Rendered parametros/index.json.jbuilder (44.7ms)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 3.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `parametro_url' for #<#<Class:0x007f379e5b1030>:0x007f379e57acd8>):
+    1: json.array!(@parametros) do |parametro|
+    2:   json.extract! parametro, :id, :descripcion, :estatus
+    3:   json.url parametro_url(parametro, format: :json)
+    4: end
+  
+app/views/parametros/index.json.jbuilder:3:in `block in _app_views_parametros_index_json_jbuilder___543035118599310420_69938428222680'
+app/views/parametros/index.json.jbuilder:1:in `_app_views_parametros_index_json_jbuilder___543035118599310420_69938428222680'
+app/controllers/paises_controller.rb:9:in `index'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.3ms)
+Started GET "/paises.json" for 127.0.0.1 at 2017-02-28 16:27:05 -0430
+Processing by PaisesController#index as JSON
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+RuntimeError (In order to use respond_with, first you need to declare the formats your controller responds to in the class level.):
+  
+app/controllers/paises_controller.rb:9:in `index'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.1ms)
+Started GET "/paises.json" for 127.0.0.1 at 2017-02-28 16:27:30 -0430
+Processing by PaisesController#index as JSON
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+RuntimeError (In order to use respond_with, first you need to declare the formats your controller responds to in the class level.):
+  
+app/controllers/paises_controller.rb:9:in `index'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (20.9ms)
+Started GET "/paises.json" for 127.0.0.1 at 2017-02-28 16:27:52 -0430
+Processing by PaisesController#index as JSON
+  [1m[36mPais Load (0.4ms)[0m  [1m[34mSELECT "paises".* FROM "paises"[0m
+Completed 200 OK in 20ms (Views: 11.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/paises" for 127.0.0.1 at 2017-02-28 16:28:00 -0430
+Processing by PaisesController#index as HTML
+  Rendering parametros/index.html.erb within layouts/application
+  [1m[36mPais Load (0.4ms)[0m  [1m[34mSELECT "paises".* FROM "paises"[0m
+  Rendered parametros/index.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_topnavbar.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 256ms (Views: 254.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/citas.json" for 127.0.0.1 at 2017-02-28 17:55:49 -0430
+Processing by CitasController#index as JSON
+  Rendering citas/index.json.jbuilder
+  [1m[36mCita Load (49.0ms)[0m  [1m[34mSELECT "citas".* FROM "citas"[0m
+  Rendered citas/_cita.json.jbuilder (2.2ms)
+  Rendered citas/_cita.json.jbuilder (0.3ms)
+  Rendered citas/_cita.json.jbuilder (0.2ms)
+  Rendered citas/_cita.json.jbuilder (0.3ms)
+  Rendered citas/_cita.json.jbuilder (0.4ms)
+  Rendered citas/index.json.jbuilder (100.9ms)
+Completed 200 OK in 120ms (Views: 51.2ms | ActiveRecord: 53.0ms)
+
+
+Started GET "/estados" for 127.0.0.1 at 2017-02-28 18:07:30 -0430
+Processing by EstadosController#index as HTML
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+  
+RuntimeError (In order to use respond_with, first you need to declare the formats your controller responds to in the class level.):
+  
+app/controllers/estados_controller.rb:8:in `index'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.2ms)
+Started GET "/estados" for 127.0.0.1 at 2017-02-28 18:08:55 -0430
+Processing by EstadosController#index as HTML
+  Rendering parametros_select/index.html.erb within layouts/application
+  [1m[36mEstado Load (26.3ms)[0m  [1m[34mSELECT "estados".* FROM "estados"[0m
+  [1m[36mPais Load (0.3ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "paises".* FROM "paises" WHERE "paises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered parametros_select/index.html.erb within layouts/application (69.5ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 243ms (Views: 206.1ms | ActiveRecord: 32.9ms)
+
+
+Started GET "/estados/new" for 127.0.0.1 at 2017-02-28 18:09:00 -0430
+Processing by EstadosController#new as HTML
+  Rendering estados/new.html.erb within layouts/application
+  Rendered estados/_form.html.erb (29.4ms)
+  Rendered estados/new.html.erb within layouts/application (30.9ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_topnavbar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 188ms (Views: 174.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/estados/new" for 127.0.0.1 at 2017-02-28 18:13:49 -0430
+Processing by EstadosController#new as HTML
+  Rendering estados/new.html.erb within layouts/application
+  Rendered estados/_form.html.erb (2.2ms)
+  Rendered estados/new.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 179ms (Views: 164.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/estados/new" for 127.0.0.1 at 2017-02-28 18:19:10 -0430
+Processing by EstadosController#new as HTML
+  Rendering estados/new.html.erb within layouts/application
+  Rendered estados/_form.html.erb (1.7ms)
+  Rendered estados/new.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_topnavbar.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 149ms (Views: 148.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/estados/new" for 127.0.0.1 at 2017-02-28 18:19:16 -0430
+Processing by EstadosController#new as HTML
+  Rendering parametros_select/new.html.erb within layouts/application
+  [1m[36mPais Load (0.3ms)[0m  [1m[34mSELECT "paises".* FROM "paises"[0m
+  Rendered parametros_select/_form.html.erb (11.1ms)
+  Rendered parametros_select/new.html.erb within layouts/application (21.1ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 191ms (Views: 174.6ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/tipo_horarios" for 127.0.0.1 at 2017-02-28 19:10:57 -0430
+Processing by TipoHorariosController#index as HTML
+  Rendering parametros/index.html.erb within layouts/application
+  [1m[36mTipoHorario Load (15.1ms)[0m  [1m[34mSELECT "tipo_horarios".* FROM "tipo_horarios"[0m
+  Rendered parametros/index.html.erb within layouts/application (24.6ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+  Rendered layouts/_topnavbar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 212ms (Views: 178.1ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/tipo_horarios/1/edit" for 127.0.0.1 at 2017-02-28 19:11:11 -0430
+Processing by TipoHorariosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTipoHorario Load (0.5ms)[0m  [1m[34mSELECT  "tipo_horarios".* FROM "tipo_horarios" WHERE "tipo_horarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tipo_horarios".* FROM "tipo_horarios" WHERE "tipo_horarios"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering parametros/edit.html.erb within layouts/application
+  Rendered parametros/_form.html.erb (1.9ms)
+  Rendered parametros/edit.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+  Rendered layouts/_topnavbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 274ms (Views: 269.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/preguntas" for 127.0.0.1 at 2017-02-28 19:29:30 -0430
+Processing by PreguntasController#index as HTML
+  Rendering preguntas/index.html.erb within layouts/application
+  [1m[36mPregunta Load (41.4ms)[0m  [1m[34mSELECT "preguntas".* FROM "preguntas"[0m
+  Rendered preguntas/index.html.erb within layouts/application (68.0ms)
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 44.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `descripcion' for nil:NilClass):
+    16:     <tbody>
+    17:         <% @preguntas.each do |pregunta| %>
+    18:           <tr>
+    19:             <td><%= pregunta.tipo_pregunta.descripcion %></td>
+    20:             <td><%= pregunta.titulo %></td>
+    21:             <td><%= pregunta.descripcion %></td>
+    22:             <td><%= pregunta.respuesta %></td>
+  
+app/views/preguntas/index.html.erb:19:in `block in _app_views_preguntas_index_html_erb__1656812869532020850_69938273811260'
+app/views/preguntas/index.html.erb:17:in `_app_views_preguntas_index_html_erb__1656812869532020850_69938273811260'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.1ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.6ms)
+Started GET "/tipo_preguntas" for 127.0.0.1 at 2017-02-28 19:32:09 -0430
+Processing by TipoPreguntasController#index as HTML
+  Rendering parametros/index.html.erb within layouts/application
+  [1m[36mTipoPregunta Load (14.8ms)[0m  [1m[34mSELECT "tipo_preguntas".* FROM "tipo_preguntas"[0m
+  Rendered parametros/index.html.erb within layouts/application (23.8ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_topnavbar.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 194ms (Views: 175.6ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/tipo_preguntas/new" for 127.0.0.1 at 2017-02-28 19:32:11 -0430
+Processing by TipoPreguntasController#new as HTML
+  Rendering parametros/new.html.erb within layouts/application
+  Rendered parametros/_form.html.erb (2.0ms)
+  Rendered parametros/new.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_navigation.html.erb (0.7ms)
+  Rendered layouts/_topnavbar.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 158ms (Views: 157.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/tipo_preguntas" for 127.0.0.1 at 2017-02-28 19:32:17 -0430
+Processing by TipoPreguntasController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hx1uTMH92TN9GQpNeJekUT/lzY6cagvePU0uW1CS38JMjp4zXhrGLQSgludN+p9fTTTNiBcqr4PMfdN5mqIyvg==", "tipo_pregunta"=>{"descripcion"=>"juan"}, "button"=>""}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (43.2ms)[0m  [1m[32mINSERT INTO "tipo_preguntas" ("descripcion", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["descripcion", "juan"], ["created_at", 2017-03-01 00:02:17 UTC], ["updated_at", 2017-03-01 00:02:17 UTC]]
+  [1m[35m (36.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/tipo_preguntas/1
+Completed 302 Found in 82ms (ActiveRecord: 79.3ms)
+
+
+Started GET "/tipo_preguntas/1" for 127.0.0.1 at 2017-02-28 19:32:17 -0430
+Processing by TipoPreguntasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTipoPregunta Load (0.3ms)[0m  [1m[34mSELECT  "tipo_preguntas".* FROM "tipo_preguntas" WHERE "tipo_preguntas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "tipo_preguntas".* FROM "tipo_preguntas" WHERE "tipo_preguntas"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering parametros/show.html.erb within layouts/application
+  Rendered parametros/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+  Rendered layouts/_topnavbar.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 175ms (Views: 171.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tipo_preguntas" for 127.0.0.1 at 2017-02-28 19:32:19 -0430
+Processing by TipoPreguntasController#index as HTML
+  Rendering parametros/index.html.erb within layouts/application
+  [1m[36mTipoPregunta Load (0.4ms)[0m  [1m[34mSELECT "tipo_preguntas".* FROM "tipo_preguntas"[0m
+  Rendered parametros/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_topnavbar.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 162ms (Views: 161.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/preguntas" for 127.0.0.1 at 2017-02-28 19:32:24 -0430
+Processing by PreguntasController#index as HTML
+  Rendering preguntas/index.html.erb within layouts/application
+  [1m[36mPregunta Load (0.3ms)[0m  [1m[34mSELECT "preguntas".* FROM "preguntas"[0m
+  Rendered preguntas/index.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `descripcion' for nil:NilClass):
+    16:     <tbody>
+    17:         <% @preguntas.each do |pregunta| %>
+    18:           <tr>
+    19:             <td><%= pregunta.tipo_pregunta.descripcion %></td>
+    20:             <td><%= pregunta.titulo %></td>
+    21:             <td><%= pregunta.descripcion %></td>
+    22:             <td><%= pregunta.respuesta %></td>
+  
+app/views/preguntas/index.html.erb:19:in `block in _app_views_preguntas_index_html_erb__1656812869532020850_69938268681080'
+app/views/preguntas/index.html.erb:17:in `_app_views_preguntas_index_html_erb__1656812869532020850_69938268681080'
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.7ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.1ms)

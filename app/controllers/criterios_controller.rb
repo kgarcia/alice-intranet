@@ -5,7 +5,10 @@ class CriteriosController < ApplicationController
   # GET /criterios.json
   def index
     @parametros = Criterio.all
-    render "parametros_select/index"
+    respond_to do |format|
+      format.html {  render "parametros_select/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /criterios/1
