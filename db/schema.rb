@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170227193022) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -205,7 +204,6 @@ ActiveRecord::Schema.define(version: 20170227193022) do
   end
 
   create_table "evaluaciones", force: :cascade do |t|
-
     t.string   "descripcion"
     t.integer  "estatus"
     t.integer  "tipo_evaluacion_id"

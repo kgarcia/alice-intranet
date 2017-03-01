@@ -3,6 +3,14 @@ Myapp::Application.routes.draw do
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
+  get 'cancelar_cita', to: 'citas#cancelar'
+  get 'cancelar_cita/:id', to: 'citas#cancelar2'
+
+  get 'chequear_cita', to: 'citas#chequear'
+  get 'chequear_cita/:id', to: 'citas#chequear2'
+
+  get 'finalizar_cita', to: 'citas#finalizar'
+  get 'finalizar_cita/:id', to: 'citas#finalizar2'
 
   resources :tipo_turnos
 
