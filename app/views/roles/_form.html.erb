@@ -11,22 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :descripcion %>
     <%= f.text_field :descripcion %>
   </div>
-
-  <div class="field">
-    <%= f.label :descripcion %>
+<%= f.label :Opciones_Disponibles %>
+  <div class="form-group">
     <% @options.each do |opcion| %>
-    <div>
+    <div class="col-md-3">
       <%= check_box_tag "option_menus[]",  opcion.id %> <%= opcion.nombre %>
     </div>
     <% end %>
   </div>
 
 
-  <div class="actions">
+  <div class="form-group actions">
     <%= f.submit %>
   </div>
 <% end %>

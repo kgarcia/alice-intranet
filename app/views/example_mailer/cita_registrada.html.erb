@@ -4,9 +4,11 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%# @email %></h1>
+    <h1>Hola <%# @email %></h1>
     <p>
-		Su cita ha sido registrada exitosamente para el dia <%= Cita.last.created_at %>
+    	Codigo de Cita: 54862
+		Su cita para <b>Consulta de Cardiología<b> con el <b>Doctor Miguel Jimenez<b> ha sido registrada exitosamente para el dia <%= Cita.last.created_at %>
+
 
     </p>
   </body>

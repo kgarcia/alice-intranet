@@ -14,7 +14,8 @@ class Evento < ApplicationRecord
   	def servicioEvento=(value)
 	  	@servicioEvento = value
 	  end
-   def tipo
+
+  def tipo
     return self.tipo_evento
   end
 
