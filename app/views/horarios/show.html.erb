@@ -20,7 +20,7 @@
              <%  if (!(@horario.servicio.especialista.nil? )) %>
               <p>
           <strong>Especialista :</strong>
-          <%= @horario.servicio.especialista.persona.nombre %>
+          <%= @horario.servicio.especialista.persona.nombre %> <%= @horario.servicio.especialista.persona.apellido %>
         </p>
        
              <%end%>
@@ -34,7 +34,7 @@
               <th>Hora Inicio</th>
               <th>Hora Fin</th> 
               <% if @horario.tipo_horario.id  == 2 %>
-              <th> <%=  @horario.tipo_horario.descripcion%></th> 
+              <th>Número max pacientes</th> 
 
               <% else %>
               <th>Cantidad pacientes</th> 
@@ -47,10 +47,26 @@
           <tbody>
             <%@turnosM.each do |turno| %>
             <tr>
-              <td><%=turno.tipodia.descripcion%></td>
-              <td><%= turno.hora_inicio.strftime("%H:%M") %></td>
-              <td><%= turno.hora_fin.strftime("%H:%M")%> </td>
-              <td><%= turno.cantidad_pacientes %> </td>
+              <td><%=turno.tipodia.descripcion%><%= turno.numero_pacientes_por_turno%></td>
+               <td>
+                <%if turno.hora_inicio == turno.hora_fin %>
+                  TURNO CERRADO
+                  <%else%>
+                  <%= turno.hora_inicio.strftime("%H:%M") %>
+                <%end%>
+              </td>
+               <td>
+                <%if turno.hora_inicio == turno.hora_fin %>
+                  TURNO CERRADO
+                  <%else%>
+                  <%= turno.hora_fin.strftime("%H:%M") %>
+                <%end%>
+              </td>
+                   <% if @horario.tipo_horario.id  == 2 %>
+                   <td><%= turno.numero_pacientes_por_turno %> </td>
+                   <%else%>
+                      <td><%= turno.cantidad_pacientes %> </td>
+                    <%end%>
               <td><%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
                 <%= link_to '', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
               </tr>
@@ -87,9 +103,26 @@
             <% @turnosT.each do |turno| %>
             <tr>
               <td><%=turno.tipodia.descripcion%></td>
-              <td><%= turno.hora_inicio.strftime("%H:%M") %></td>
-              <td><%= turno.hora_fin.strftime("%H:%M")%> </td>
-              <td><%= turno.cantidad_pacientes %> </td>
+              <td>
+                <%if turno.hora_inicio == turno.hora_fin %>
+                  TURNO CERRADO
+                  <%else%>
+                  <%= turno.hora_inicio.strftime("%H:%M") %>
+                <%end%>
+              </td>
+               <td>
+                <%if turno.hora_inicio == turno.hora_fin %>
+                  TURNO CERRADO
+                  <%else%>
+                  <%= turno.hora_fin.strftime("%H:%M") %>
+                <%end%>
+              </td>
+                 <% if @horario.tipo_horario.id  == 2 %>
+                   <td><%= turno.numero_pacientes_por_turno %> </td>
+                   <%else%>
+                      <td><%= turno.cantidad_pacientes %> </td>
+                    <%end%>
+       
               <td><%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
                 <%= link_to '', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
               </tr>

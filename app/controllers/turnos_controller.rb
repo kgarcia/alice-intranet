@@ -17,7 +17,9 @@ class TurnosController < ApplicationController
     @dias = Dia.all
     @dia = :dia_id
     @referencia = :horario_id
-   render "edit"
+    @collection_tipo_turno = TipoTurno.all 
+    @referencia_tipo = :tipo_turno_id
+    render "edit"
      
   end
 
@@ -38,7 +40,8 @@ class TurnosController < ApplicationController
     @dias = Dia.all
     @dia = :dia_id
     @referencia = :horario_id
-
+    @collection_tipo_turno = TipoTurno.all 
+    @referencia_tipo = :tipo_turno_id
   end
 
   # POST /turnos
