@@ -13,7 +13,7 @@ class Evento < ApplicationRecord
 
   	def servicioEvento=(value)
 	  	@servicioEvento = value
-	end
+	  end
 
    private
     def save_servicios
