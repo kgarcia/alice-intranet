@@ -5,6 +5,7 @@ class Ciudad < ApplicationRecord
   	return self.estado
   end
 
+
   def self.titulo
 	 return "Ciudades"
   end

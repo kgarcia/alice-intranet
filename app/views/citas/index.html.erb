@@ -1,39 +1,54 @@
+<%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
-
-<h1>Citas</h1>
-
-<table>
-  <thead>
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h2 class="parametros-titulo"><%= @citas.new.class.titulo %></h2>
+  </div>
+</div>
+<div class="ibox-content">
+  <%= link_to "", new_polymorphic_url(@citas.new), :class => "btn btn-primary btn-sm fa fa-plus", :title => "Nuevo"%>
+  <br><br>
+  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
     <tr>
-      <th>Turno</th>
-      <th>Persona</th>
-      <th>Usuario</th>
-      <th>Fecha</th>
-      <th>Tipo pago</th>
-      <th>Tipo cita</th>
-      <th>Estatus</th>
-      <th colspan="3"></th>
+      <th data-breakpoints="xs" data-sorted="true">Referencia</th>
+      <th>Servicio</th>
+      <th>Especialista</th>
+      <th>Paciente</th>
+      <th colspan="1"></th>
+      <th colspan="1"></th>
     </tr>
-  </thead>
-
-  <tbody>
-    <% @citas.each do |cita| %>
-      <tr>
-        <td><%= cita.turno %></td>
-        <td><%= cita.persona %></td>
-        <td><%= cita.usuario %></td>
-        <td><%= cita.fecha %></td>
-        <td><%= cita.tipo_pago %></td>
-        <td><%= cita.tipo_cita %></td>
-        <td><%= cita.estatus %></td>
-        <td><%= link_to 'Show', cita %></td>
-        <td><%= link_to 'Edit', edit_cita_path(cita) %></td>
-        <td><%= link_to 'Destroy', cita, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    </thead>
+    <tbody>
+    <% @lista.each do |cita| %>
+        <tr>
+          <td><%= cita.id%></td>
+          <td><%= cita.turno.horario.servicio.descripcion %></td>
+          <td><%= cita.turno.horario.servicio.especialista.persona.nombre %> <%= cita.turno.horario.servicio.especialista.persona.apellido %></td>
+          <td><%= cita.persona.nombre %> <%= cita.persona.apellido%></td>
+          <td>
+            <%= link_to '', edit_cita_path(cita), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+            <%= link_to '', Cita, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
-
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="5">
+        <ul class="pagination pull-right"></ul>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Cita', new_cita_path %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.table').footable();
+  });
+
+</script>
+
+

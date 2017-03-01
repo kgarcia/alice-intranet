@@ -20,9 +20,10 @@
       </div>
       <% end %>
 
-      <div class="form-group"><label class="col-lg-3 control-label">Descripción</label>           
-          <div class="col-lg-8"><%= f.text_field :descripcion, :class => "form-control" %></div>
-      </div>
+     <div class="field form-group"><label class="col-lg-3 control-label">Tipo Turno</label>
+                    <div class="col-lg-8"><%= f.collection_select(@referencia_tipo, @collection_tipo_turno,:id, :descripcion,{}, :class =>"form-control") %></div>
+                  </div>
+
       <div class="form-group"><label class="col-lg-3 control-label">Hora Inicio</label>           
           <div class="col-lg-8"><%= f.text_field :hora_inicio, :class => "form-control" %></div>
       </div>
@@ -30,9 +31,13 @@
           <div class="col-lg-8"><%= f.text_field :hora_fin, :class => "form-control" %></div>
       </div>
     
-      <div class="field form-group"><label class="col-lg-3 control-label">Dr/Servicio</label>
-                    <div class="col-lg-8"><%= f.collection_select(@referencia, @horarios, :id, :descripcion,{}, :class =>"form-control") %></div>
-                  </div>
+      <div class="field form-group"><label class="col-lg-3 control-label">codigo Horario :(viene por defecto)</label>
+                    <div class="col-lg-8"><%= f.collection_select(@referencia, @horarios, :id, :id,{}, :class =>"form-control") %></div>
+      </div>  
+      <div class="field form-group"><label class="col-lg-3 control-label">Cantidad de pacientes</label>
+                    <div class="col-lg-8"><%= f.text_field :cantidad_pacientes, :class => "form-control" %></div>
+      </div>
+
       <div class="form-group"><label class="col-lg-3 control-label">Dias</label>           
           <div class="col-lg-8"> <% @dias.each do |dia| %>
             <%= check_box_tag"dias[]", dia.id%> <%= dia.descripcion%><% end %>
@@ -62,7 +67,7 @@
             });
                $(function () {
                 $('#turno_hora_fin').datetimepicker({
-                    format: 'LT'
+                 format: 'LT'
                 });
             });
         </script>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  persona: one
+  pariente: one
+  tipo_parentesco: one
+  estatus: 1
+
+two:
+  descripcion: MyString
+  persona: two
+  pariente: two
+  tipo_parentesco: two
+  estatus: 1

@@ -204,6 +204,8 @@
                   <div class="tab-content">
                     <div id="adicciones" class="tab-pane fade in active">
                       <div>
+
+
                         <% @adicciones.each do |adiccion| %>
                             <%= check_box_tag('adicciones[]', adiccion.id, @tipo_servicio.adicciones.include?(adiccion)) %> <%= adiccion.descripcion %>
 

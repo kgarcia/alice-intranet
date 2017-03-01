@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @rango_edad.descripcion %>
+</p>
+
+<p>
+  <strong>Edad inicial:</strong>
+  <%= @rango_edad.edad_inicial %>
+</p>
+
+<p>
+  <strong>Edad final:</strong>
+  <%= @rango_edad.edad_final %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @rango_edad.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_rango_edad_path(@rango_edad) %> |
+<%= link_to 'Back', rango_edades_path %>

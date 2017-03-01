@@ -33,7 +33,6 @@ class ServiciosController < ApplicationController
   # POST /servicios.json
   def create
     @servicio = Servicio.new(servicio_params)
-
     respond_to do |format|
       if @servicio.save
         format.html { redirect_to @servicio, notice: 'Servicio was successfully created.' }

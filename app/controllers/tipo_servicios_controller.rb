@@ -106,7 +106,7 @@ class TipoServiciosController < ApplicationController
     #@page_graph.put_wall_post('Website') # post as page, requires new publish_pages permission
   #  @page_graph.put_connections("AliceLaTrinidad", 'feed', :message => message, :picture => picture_url, :link => link_url)
   @tipo_servicio = TipoServicio.last
-    @page_graph.put_picture(Rails.public_path+'bardenova.jpg', ".jpg", {:caption => @tipo_servicio.descripcion}, "me")
+    #@page_graph.put_picture(Rails.public_path+'bardenova.jpg', ".jpg", {:caption => @tipo_servicio.descripcion}, "me")
 
   end
 

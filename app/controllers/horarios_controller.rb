@@ -3,22 +3,17 @@ class HorariosController < ApplicationController
   # GET /horarios
   # GET /horarios.json
   def index
-    @parametros = Horario.all
-    @referencia = "tipoHorario"
-        
-    respond_to do |format|
-      format.html {  render "parametros/index" }
-      format.json { render json: @parametros }
-    end
+    @horarios = Horario.all
+    @tipoHorario = "tipo_horario"
   end
 
   # GET /horarios/1
   # GET /horarios/1.json
   def show
     @horario = Horario.find(params[:id])
-    @turnos = Turno.where(horario_id: @horario.id)
-    @dias = Dia.all
-    
+    @turnosM = Turno.where(horario_id: @horario.id).rewhere(tipo_turno_id: 1)
+    @turnosT = Turno.where(horario_id: @horario.id).rewhere(tipo_turno_id: 2)
+    @dias = Dia.all    
   end
 
   # GET /horarios/new
@@ -27,6 +22,8 @@ class HorariosController < ApplicationController
     @horario = Horario.new
     @collection = TipoHorario.all
     @referencia = :tipo_horario_id
+    @collectionServ = Servicio.all
+    @referenciaServ = :servicio_id
 
   end
 
@@ -35,15 +32,18 @@ class HorariosController < ApplicationController
     @horario = Horario.find(params[:id])
     @collection = TipoHorario.all
     @referencia = :tipo_horario_id
+     @collectionServ = Servicio.all
+    @referenciaServ = :servicio_id
   end
 
   # POST /horarios
   # POST /horarios.json
   def create
     @horario = Horario.new(horario_params)
-
+    @horario.estatus = 1
     respond_to do |format|
       if @horario.save
+   
         format.html { redirect_to @horario, notice: 'Horario was successfully created.' }
         format.json { render :show, status: :created, location: @horario }
       else
@@ -52,7 +52,6 @@ class HorariosController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /horarios/1
   # PATCH/PUT /horarios/1.json
   def update
@@ -85,6 +84,6 @@ class HorariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def horario_params
-      params.require(:horario).permit(:descripcion, :tipo_horario_id,:tiempo_cita, :estatus)
+      params.require(:horario).permit(:tipo_horario_id,:tiempo_cita, :estatus,:servicio_id)
     end
 end
