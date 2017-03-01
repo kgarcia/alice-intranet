@@ -1,0 +1,57 @@
+<%= form_for(difusion) do |f| %>
+  <% if difusion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(difusion.errors.count, "error") %> prohibited this difusion from being saved:</h2>
+
+      <ul>
+      <% difusion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :asunto %>
+    <%= f.text_area :asunto %>
+  </div>
+
+  <div class="field">
+    <%= f.label :texto %>
+    <%= f.text_area :texto %>
+  </div>
+
+  <div class="field">
+    <%= f.label :imagen %>
+    <%= f.text_field :imagen %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo_entidad_id %>
+    <%= f.text_field :tipo_entidad_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :entidad_id %>
+    <%= f.text_field :entidad_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :token_facebook %>
+    <%= f.text_field :token_facebook %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo_difusion_id %>
+    <%= f.text_field :tipo_difusion_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

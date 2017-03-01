@@ -1,0 +1,1 @@
+json.partial! "rango_edades/rango_edad", rango_edad: @rango_edad

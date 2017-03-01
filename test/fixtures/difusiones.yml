@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  asunto: MyText
+  texto: MyText
+  imagen: 
+  tipo_entidad: one
+  entidad: one
+  token_facebook: MyString
+  tipo_difusion: one
+  estatus: 1
+
+two:
+  asunto: MyText
+  texto: MyText
+  imagen: 
+  tipo_entidad: two
+  entidad: two
+  token_facebook: MyString
+  tipo_difusion: two
+  estatus: 1

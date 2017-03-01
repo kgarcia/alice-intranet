@@ -1,0 +1,2 @@
+class TipoEntidad < ApplicationRecord
+end

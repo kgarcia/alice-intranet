@@ -1,0 +1,1 @@
+json.array! @rango_edades, partial: 'rango_edades/rango_edad', as: :rango_edad

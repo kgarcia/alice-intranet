@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @parentesco.descripcion %>
+</p>
+
+<p>
+  <strong>Persona:</strong>
+  <%= @parentesco.persona %>
+</p>
+
+<p>
+  <strong>Pariente:</strong>
+  <%= @parentesco.pariente %>
+</p>
+
+<p>
+  <strong>Tipo parentesco:</strong>
+  <%= @parentesco.tipo_parentesco %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @parentesco.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_parentesco_path(@parentesco) %> |
+<%= link_to 'Back', parentescos_path %>

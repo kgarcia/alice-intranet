@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Difusiones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Asunto</th>
+      <th>Texto</th>
+      <th>Imagen</th>
+      <th>Tipo entidad</th>
+      <th>Entidad</th>
+      <th>Token facebook</th>
+      <th>Tipo difusion</th>
+      <th>Estatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @difusiones.each do |difusion| %>
+      <tr>
+        <td><%= difusion.asunto %></td>
+        <td><%= difusion.texto %></td>
+        <td><%= difusion.imagen %></td>
+        <td><%= difusion.tipo_entidad %></td>
+        <td><%= difusion.entidad %></td>
+        <td><%= difusion.token_facebook %></td>
+        <td><%= difusion.tipo_difusion %></td>
+        <td><%= difusion.estatus %></td>
+        <td><%= link_to 'Show', difusion %></td>
+        <td><%= link_to 'Edit', edit_difusion_path(difusion) %></td>
+        <td><%= link_to 'Destroy', difusion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Difusion', new_difusion_path %>

@@ -20,7 +20,7 @@
              <%  if (!(@horario.servicio.especialista.nil? )) %>
               <p>
           <strong>Especialista :</strong>
-          <%= @horario.servicio.especialista.descripcion %>
+          <%= @horario.servicio.especialista.persona.nombre %>
         </p>
        
              <%end%>

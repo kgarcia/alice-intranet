@@ -2,6 +2,7 @@ class TipoServicio < ApplicationRecord
 	belongs_to :tipo_atencion
   belongs_to :categoria
   belongs_to :especialidad
+  has_many :servicios
 
 	has_many :adiccion_tipo_servicios
   has_many :adicciones, :through => :adiccion_tipo_servicios
@@ -14,7 +15,7 @@ class TipoServicio < ApplicationRecord
 
   has_many :criterio_tipo_servicios
   has_many :criterio, through: :criterio_tipo_servicios
-  has_many :discapacidades_tipo_servicios
+  has_many :discapacidad_tipo_servicios
   has_many :discapacidades, through: :discapacidad_tipo_servicios
   has_many :estado_civil_tipo_servicios
   has_many :estado_civiles, through: :estado_civil_tipo_servicios
@@ -32,8 +33,8 @@ class TipoServicio < ApplicationRecord
   has_many :profesiones, through: :profesion_tipo_servicios
   has_many :sexo_tipo_servicios
   has_many :sexos, through: :sexo_tipo_servicios
-  has_many :vacuna_tipo_servicios
-  has_many :vacunas, through: :vacuna_tipo_servicios
+  has_many :tipo_servicio_vacunas
+  has_many :vacunas, through: :tipo_servicio_vacunas
 
 	has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   	validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
