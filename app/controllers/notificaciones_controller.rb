@@ -5,7 +5,11 @@ class NotificacionesController < ApplicationController
   # GET /notificaciones.json
   def index
     @parametros = Notificacion.all
-    render "parametros_select/index"
+        
+    respond_to do |format|
+      format.html {  render "parametros_select/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /notificaciones/1

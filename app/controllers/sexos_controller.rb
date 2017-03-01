@@ -5,8 +5,11 @@ class SexosController < ApplicationController
   # GET /sexos.json
   def index
     @parametros = Sexo.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /sexos/1

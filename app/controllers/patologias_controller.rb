@@ -5,7 +5,11 @@ class PatologiasController < ApplicationController
   # GET /patologias.json
   def index
     @parametros = Patologia.all
-    render "parametros_select/index"
+        
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /patologias/1

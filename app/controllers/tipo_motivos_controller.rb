@@ -6,8 +6,11 @@ class TipoMotivosController < ApplicationController
 
   def index
     @parametros = TipoMotivo.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
 

@@ -5,8 +5,11 @@ class TipoEvaluacionesController < ApplicationController
   # GET /tipo_evaluaciones.json
   def index
      @parametros = TipoEvaluacion.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_evaluaciones/1

@@ -5,8 +5,11 @@ class TipoCitasController < ApplicationController
   # GET /tipo_citas.json
   def index
     @parametros = TipoCita.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_citas/1

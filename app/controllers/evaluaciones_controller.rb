@@ -5,7 +5,10 @@ class EvaluacionesController < ApplicationController
   # GET /evaluaciones.json
   def index
     @parametros = Evaluacion.all
-    render "parametros_select/index"
+    respond_to do |format|
+      format.html {  render "parametros_select/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /evaluaciones/1

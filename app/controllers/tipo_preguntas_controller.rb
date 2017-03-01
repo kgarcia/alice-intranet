@@ -5,8 +5,11 @@ before_action :set_tipo_pregunta, only: [:show, :edit, :update, :destroy]
   # GET /tipo_preguntaes.json
   def index
     @parametros = TipoPregunta.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_preguntaes/1

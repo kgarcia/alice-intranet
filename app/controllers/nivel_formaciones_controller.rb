@@ -5,7 +5,11 @@ class NivelFormacionesController < ApplicationController
   # GET /nivel_formaciones.json
   def index
     @parametros = NivelFormacion.all
-    render "parametros/index"
+        
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /nivel_formaciones/1
