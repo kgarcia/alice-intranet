@@ -116,7 +116,7 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (1.8.6)
+    json (2.0.3)
     koala (3.0.0.beta2)
       addressable
       faraday
@@ -217,7 +217,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.4)
+    uglifier (3.1.1)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)

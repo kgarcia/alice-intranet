@@ -10,7 +10,4 @@ class Horario < ApplicationRecord
 	  return "Tipos de horario"
   end
   
-  def cantidad_pacientes_turno
-  	return turno.cantidad_horas/horario.tiempo_cita
-  end
 end

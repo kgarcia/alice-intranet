@@ -44,6 +44,7 @@ class HorariosController < ApplicationController
     @horario.estatus = 1
     respond_to do |format|
       if @horario.save
+   
         format.html { redirect_to @horario, notice: 'Horario was successfully created.' }
         format.json { render :show, status: :created, location: @horario }
       else
