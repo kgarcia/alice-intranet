@@ -5,6 +5,7 @@ class CitasController < ApplicationController
   # GET /citas.json
   def index
     @citas = Cita.all
+    @lista = Cita.joins(turno:[horario:[:servicio]])
   end
 
   # GET /citas/1
@@ -28,6 +29,7 @@ class CitasController < ApplicationController
 
     respond_to do |format|
       if @cita.save
+        ExampleMailer.cita_registrada('kevin93ps@gmail.com', @cita)
         format.html { redirect_to @cita, notice: 'Cita was successfully created.' }
         format.json { render :show, status: :created, location: @cita }
       else
@@ -59,6 +61,39 @@ class CitasController < ApplicationController
       format.html { redirect_to citas_url, notice: 'Cita was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def cancelar
+    @citas = Cita.all
+  end
+
+  def cancelar2
+    @cita = Cita.find(params[:id])
+    @cita.estatus = 4
+    @cita.save
+    redirect_to citas_url
+  end
+
+  def chequear
+    @citas = Cita.all
+  end
+
+  def chequear2
+    @cita = Cita.find(params[:id])
+    @cita.estatus = 6
+    @cita.save
+    redirect_to citas_url
+  end
+
+  def finalizar
+    @citas = Cita.all
+  end
+
+  def finalizar2
+    @cita = Cita.find(params[:id])
+    @cita.estatus = 7
+    @cita.save
+    redirect_to citas_url
   end
 
   private

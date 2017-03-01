@@ -2,8 +2,14 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   before_action :cargar_navigation
-  protect_from_forgery with: :null_session
+  #protect_from_forgery unless: -> { request.format.json? }
 
+  #skip_before_action :verify_authenticity_token
+
+  #protect_from_forgery with: :null_session
+  protect_from_forgery with: :null_session, if: ->{request.format.json?}
+
+ # before_action :koala
 
  before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -13,7 +19,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:rol_id])
   end
 
+#https://graph.facebook.com/oauth/access_token?client_id=938437439571434&client_secret=65ddff3df089a012edc6d5a5ea11b4b5&grant_type=fb_exchange_token&fb_exchange_token=EAANVgP46xeoBAIaACL3MV24Lnd8SDP8UB8w3tqeZBJierTMyQ2aVKkEQV4SNFaXF4OZCn24p0JKIZBCF0RnPMZCdVRgw4BtjuI5JzN52w9c7JgN7D4ZBclk1OtMV90TgRjUaPBCSDlSG39picML0dDAbWkUq6MVPBzuXF2AzS4FjIaxpBazTZABLuah3ZCO6RUZD
+ 
+
    private
+
+
 
   def cargar_navigation
 
