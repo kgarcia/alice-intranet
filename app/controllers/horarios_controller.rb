@@ -5,7 +5,6 @@ class HorariosController < ApplicationController
   def index
     @horarios = Horario.all
     @tipoHorario = "tipo_horario"
-    
   end
 
   # GET /horarios/1
