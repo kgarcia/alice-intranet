@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170228235151) do
+ActiveRecord::Schema.define(version: 20170301055057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -337,7 +337,6 @@ ActiveRecord::Schema.define(version: 20170228235151) do
   end
 
   create_table "horarios", force: :cascade do |t|
-    t.string   "descripcion"
     t.integer  "tiempo_cita"
     t.integer  "estatus"
     t.integer  "tipo_horario_id"
@@ -416,7 +415,6 @@ ActiveRecord::Schema.define(version: 20170228235151) do
     t.datetime "updated_at",      null: false
     t.index ["tipo_noticia_id"], name: "index_noticias_on_tipo_noticia_id", using: :btree
   end
-
 
   create_table "notificaciones", force: :cascade do |t|
     t.string   "descripcion"
@@ -611,6 +609,24 @@ ActiveRecord::Schema.define(version: 20170228235151) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "rango_peso_tipo_servicios", force: :cascade do |t|
+    t.integer  "rango_peso_id"
+    t.integer  "tipo_servicio_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["rango_peso_id"], name: "index_rango_peso_tipo_servicios_on_rango_peso_id", using: :btree
+    t.index ["tipo_servicio_id"], name: "index_rango_peso_tipo_servicios_on_tipo_servicio_id", using: :btree
+  end
+
+  create_table "rango_pesos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "peso_inicial"
+    t.integer  "peso_final"
+    t.integer  "estatus"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string   "descripcion"
     t.datetime "created_at",  null: false
@@ -623,7 +639,6 @@ ActiveRecord::Schema.define(version: 20170228235151) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
 
   create_table "servicio_eventos", force: :cascade do |t|
     t.string   "descripcion"
@@ -712,13 +727,6 @@ ActiveRecord::Schema.define(version: 20170228235151) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "tipo_criterio", force: :cascade do |t|
-    t.string   "descripcion"
-    t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "tipo_criterios", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -740,7 +748,7 @@ ActiveRecord::Schema.define(version: 20170228235151) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "tipo_entidads", force: :cascade do |t|
+  create_table "tipo_entidades", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
@@ -872,6 +880,12 @@ ActiveRecord::Schema.define(version: 20170228235151) do
     t.index ["tipo_atencion_id"], name: "index_tipo_servicios_on_tipo_atencion_id", using: :btree
   end
 
+  create_table "tipo_turnos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tipo_ubicaciones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -880,17 +894,18 @@ ActiveRecord::Schema.define(version: 20170228235151) do
   end
 
   create_table "turnos", force: :cascade do |t|
-    t.string   "descripcion"
     t.time     "hora_inicio"
     t.time     "hora_fin"
     t.integer  "estatus"
     t.integer  "cantidad_pacientes"
     t.integer  "dia_id"
     t.integer  "horario_id"
+    t.integer  "tipo_turno_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["dia_id"], name: "index_turnos_on_dia_id", using: :btree
     t.index ["horario_id"], name: "index_turnos_on_horario_id", using: :btree
+    t.index ["tipo_turno_id"], name: "index_turnos_on_tipo_turno_id", using: :btree
   end
 
   create_table "ubicaciones", force: :cascade do |t|
@@ -928,6 +943,10 @@ ActiveRecord::Schema.define(version: 20170228235151) do
     t.datetime "updated_at",                          null: false
     t.integer  "rol_id"
     t.integer  "persona_id"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_usuarios_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
     t.index ["persona_id"], name: "index_usuarios_on_persona_id", using: :btree
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
@@ -969,7 +988,7 @@ ActiveRecord::Schema.define(version: 20170228235151) do
   add_foreign_key "criterio_tipo_servicios", "tipo_servicios"
   add_foreign_key "criterios", "tipo_criterios"
   add_foreign_key "difusiones", "tipo_difusiones"
-  add_foreign_key "difusiones", "tipo_entidads"
+  add_foreign_key "difusiones", "tipo_entidades"
   add_foreign_key "discapacidad_personas", "discapacidades"
   add_foreign_key "discapacidad_personas", "personas"
   add_foreign_key "discapacidad_tipo_servicios", "discapacidades"
@@ -994,6 +1013,7 @@ ActiveRecord::Schema.define(version: 20170228235151) do
   add_foreign_key "habito_tipo_servicios", "habitos"
   add_foreign_key "habito_tipo_servicios", "tipo_servicios"
   add_foreign_key "habitos", "tipo_habitos"
+  add_foreign_key "horarios", "servicios"
   add_foreign_key "horarios", "tipo_horarios"
   add_foreign_key "lesion_personas", "lesiones"
   add_foreign_key "lesion_personas", "personas"
@@ -1028,6 +1048,8 @@ ActiveRecord::Schema.define(version: 20170228235151) do
   add_foreign_key "profesion_tipo_servicios", "tipo_servicios"
   add_foreign_key "rango_edad_tipo_servicios", "rango_edades"
   add_foreign_key "rango_edad_tipo_servicios", "tipo_servicios"
+  add_foreign_key "rango_peso_tipo_servicios", "rango_pesos"
+  add_foreign_key "rango_peso_tipo_servicios", "tipo_servicios"
   add_foreign_key "servicio_eventos", "eventos"
   add_foreign_key "servicio_eventos", "servicios"
   add_foreign_key "servicios", "especialistas"
@@ -1042,6 +1064,7 @@ ActiveRecord::Schema.define(version: 20170228235151) do
   add_foreign_key "tipo_servicios", "tipo_atenciones"
   add_foreign_key "turnos", "dias"
   add_foreign_key "turnos", "horarios"
+  add_foreign_key "turnos", "tipo_turnos"
   add_foreign_key "ubicaciones", "ciudades"
   add_foreign_key "ubicaciones", "sectores"
   add_foreign_key "ubicaciones", "tipo_ubicaciones"
