@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Asunto:</strong>
+  <%= @difusion.asunto %>
+</p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @difusion.texto %>
+</p>
+
+<p>
+  <strong>Imagen:</strong>
+  <%= @difusion.imagen %>
+</p>
+
+<p>
+  <strong>Tipo entidad:</strong>
+  <%= @difusion.tipo_entidad %>
+</p>
+
+<p>
+  <strong>Entidad:</strong>
+  <%= @difusion.entidad %>
+</p>
+
+<p>
+  <strong>Token facebook:</strong>
+  <%= @difusion.token_facebook %>
+</p>
+
+<p>
+  <strong>Tipo difusion:</strong>
+  <%= @difusion.tipo_difusion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @difusion.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_difusion_path(@difusion) %> |
+<%= link_to 'Back', difusiones_path %>

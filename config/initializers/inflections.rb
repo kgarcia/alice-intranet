@@ -72,4 +72,5 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'formacion', 'formaciones'
 	inflect.irregular 'academica', 'academicas'
 	inflect.irregular 'universidad', 'universidades'
+	inflect.irregular 'edad', 'edades'
 end

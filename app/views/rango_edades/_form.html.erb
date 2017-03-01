@@ -1,0 +1,37 @@
+<%= form_for(rango_edad) do |f| %>
+  <% if rango_edad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rango_edad.errors.count, "error") %> prohibited this rango_edad from being saved:</h2>
+
+      <ul>
+      <% rango_edad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :edad_inicial %>
+    <%= f.number_field :edad_inicial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :edad_final %>
+    <%= f.number_field :edad_final %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

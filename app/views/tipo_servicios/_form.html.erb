@@ -206,10 +206,6 @@
                       <div>
 
 
-                        <% @profesiones.each do |profesion| %>
-                            <%= check_box_tag('profesiones[]', profesion.id, @tipo_servicio.profesiones.include?(profesion)) %> <%= profesion.descripcion %>
-<%end%>
-
                         <% @adicciones.each do |adiccion| %>
                             <%= check_box_tag('adicciones[]', adiccion.id, @tipo_servicio.adicciones.include?(adiccion)) %> <%= adiccion.descripcion %>
 

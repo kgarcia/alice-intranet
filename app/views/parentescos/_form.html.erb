@@ -1,0 +1,42 @@
+<%= form_for(parentesco) do |f| %>
+  <% if parentesco.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parentesco.errors.count, "error") %> prohibited this parentesco from being saved:</h2>
+
+      <ul>
+      <% parentesco.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :persona_id %>
+    <%= f.text_field :persona_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pariente_id %>
+    <%= f.text_field :pariente_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo_parentesco_id %>
+    <%= f.text_field :tipo_parentesco_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

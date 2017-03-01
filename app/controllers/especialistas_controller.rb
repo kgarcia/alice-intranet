@@ -27,6 +27,12 @@ class EspecialistasController < ApplicationController
 
   # GET /especialistas/1/edit
   def edit
+    @especialista = Especialista.find(params[:id])
+    @persona = @especialista.persona
+    @especialidades = Especialidad.all
+    @universidades = Universidad.all
+    @formacion_academicas = FormacionAcademica.all
+    @sexos = Sexo.all
   end
 
   # POST /especialistas

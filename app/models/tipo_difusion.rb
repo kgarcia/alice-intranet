@@ -1,0 +1,2 @@
+class TipoDifusion < ApplicationRecord
+end

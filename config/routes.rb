@@ -1,6 +1,16 @@
 Myapp::Application.routes.draw do
 
 
+  resources :rango_edades
+  resources :difusiones
+  resources :tipo_entidads
+  resources :parentescos
+  resources :tipo_parentescos
+  resources :tipo_difusiones
+  get 'grafico/generar'
+
+  get 'grafico/ver'
+
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
 
