@@ -4,21 +4,32 @@ class TipoDifusionesController < ApplicationController
   # GET /tipo_difusiones
   # GET /tipo_difusiones.json
   def index
-    @tipo_difusiones = TipoDifusion.all
+    @parametros = TipoDifusion.all
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_difusiones/1
   # GET /tipo_difusiones/1.json
   def show
+    @parametro = TipoDifusion.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /tipo_difusiones/new
   def new
-    @tipo_difusion = TipoDifusion.new
+    @parametro = TipoDifusion.new
+    render "parametros/new"
   end
 
   # GET /tipo_difusiones/1/edit
   def edit
+    @parametro = TipoDifusion.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /tipo_difusiones
@@ -28,7 +39,7 @@ class TipoDifusionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_difusion.save
-        format.html { redirect_to @tipo_difusion, notice: 'Tipo difusion was successfully created.' }
+        format.html { redirect_to tipo_difusiones_url, notice: 'Tipo difusion was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_difusion }
       else
         format.html { render :new }
@@ -42,7 +53,7 @@ class TipoDifusionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_difusion.update(tipo_difusion_params)
-        format.html { redirect_to @tipo_difusion, notice: 'Tipo difusion was successfully updated.' }
+        format.html { redirect_to tipo_difusiones_url, notice: 'Tipo difusion was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_difusion }
       else
         format.html { render :edit }

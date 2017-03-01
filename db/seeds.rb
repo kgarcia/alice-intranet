@@ -378,7 +378,7 @@
     TipoEvaluacion.find_or_create_by(:descripcion => 'Medico', :estatus => 1)
     TipoEvaluacion.find_or_create_by(:descripcion => 'Paciente', :estatus => 1)
     Evaluacion.find_or_create_by(:descripcion => 'Del (1 al 10, siendo el 1 poco el 10 mucho) indique que le ha parecido la:')
-    Evaluacion.find_or_create_by(:descripcion => 'Seleccione como se sintio con respecto a la:')	
+    Evaluacion.find_or_create_by(:descripcion => 'Seleccione como se sintio con respecto a la:')
     TipoParentesco.find_or_create_by(:descripcion => 'Hijo/a', :estatus => 1)
     TipoParentesco.find_or_create_by(:descripcion => 'Nieto/a', :estatus => 1)
     TipoParentesco.find_or_create_by(:descripcion => 'Bisnieto/a', :estatus => 1)

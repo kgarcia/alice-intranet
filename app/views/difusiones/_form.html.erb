@@ -1,57 +1,96 @@
-<%= form_for(difusion) do |f| %>
-  <% if difusion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(difusion.errors.count, "error") %> prohibited this difusion from being saved:</h2>
+<div class="row">   
+   <div class="col-lg-10 col-lg-offset-1">
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Difusion" %></h2>
+              </div>
+          </div>
+          <div class="ibox-content">
 
-      <ul>
-      <% difusion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <%= form_for @difusion, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
+                  <% if @difusion.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@difusion.errors.count, "error") %> prohibited this parametro from being saved:</h2>
 
-  <div class="field">
-    <%= f.label :asunto %>
-    <%= f.text_area :asunto %>
+                      <ul>
+                      <% @difusion.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#datos">Difusion</a></li>
+                <li><a data-toggle="tab" href="#texto">Texto</a></li>
+              </ul>
+
+              <div class="tab-content">
+
+                <div id="datos" class="tab-pane fade in active">
+                  <br>
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Tipo de Difusion</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select(:tipo_difusion_id, @tipo_difusiones, :id, :descripcion, {},{:class => "form-control"}) %>
+                    </div>
+                    
+                  </div>
+
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Tipo de Entidad</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select(:tipo_entidad_id, @tipo_entidades, :id, :descripcion, {},{:class => "form-control"}) %>
+                    </div>
+                    
+                  </div>
+
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Servicio</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select(:tipo_entidad_id, @servicios, :id, :descripcion, {},{:class => "form-control"}) %>
+                    </div>
+                    
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label">Asunto</label>
+
+                      <div class="col-lg-10"><%= f.text_field :asunto, :class => "form-control" %>
+                       </div>
+                    </div>
+
+                   <div class="form-group">
+                      <label class="col-lg-2 control-label">Foto</label>
+
+                      <div class="col-lg-10"><%= f.file_field :imagen, :class => "form-control" %>
+                       </div>
+                    </div>
+                </div>
+
+                <div id="texto" class="tab-pane fade">
+                  <br>
+                  <div class="form-group">
+                      <label class="col-lg-2 control-label">Texto</label>
+
+                      <div class="col-lg-10"><%= f.text_area :texto, :class => "tinymce form-control" %>
+                       </div>
+
+                      <%= tinymce %>
+                    </div>
+                </div>
+
+
+              </div>
+
+          
+              <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                      <%= f.submit 'Enviar', :class => "btn btn-sm btn-white" %>
+                     
+                  </div>
+              </div>
+          <% end %>
+          </div>
   </div>
-
-  <div class="field">
-    <%= f.label :texto %>
-    <%= f.text_area :texto %>
-  </div>
-
-  <div class="field">
-    <%= f.label :imagen %>
-    <%= f.text_field :imagen %>
-  </div>
-
-  <div class="field">
-    <%= f.label :tipo_entidad_id %>
-    <%= f.text_field :tipo_entidad_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :entidad_id %>
-    <%= f.text_field :entidad_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :token_facebook %>
-    <%= f.text_field :token_facebook %>
-  </div>
-
-  <div class="field">
-    <%= f.label :tipo_difusion_id %>
-    <%= f.text_field :tipo_difusion_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :estatus %>
-    <%= f.number_field :estatus %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

@@ -1,41 +1,46 @@
+<%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
+<div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Difusiones" %></h2>
+              </div>
+          </div>
+<div class="ibox-content">
+<%= link_to '', new_difusion_path, :class => "btn btn-primary btn-sm fa fa-plus" %>
+ <br><br> 
 
-<h1>Difusiones</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Asunto</th>
-      <th>Texto</th>
-      <th>Imagen</th>
-      <th>Tipo entidad</th>
-      <th>Entidad</th>
-      <th>Token facebook</th>
-      <th>Tipo difusion</th>
-      <th>Estatus</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @difusiones.each do |difusion| %>
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
       <tr>
-        <td><%= difusion.asunto %></td>
-        <td><%= difusion.texto %></td>
-        <td><%= difusion.imagen %></td>
-        <td><%= difusion.tipo_entidad %></td>
-        <td><%= difusion.entidad %></td>
-        <td><%= difusion.token_facebook %></td>
-        <td><%= difusion.tipo_difusion %></td>
-        <td><%= difusion.estatus %></td>
-        <td><%= link_to 'Show', difusion %></td>
-        <td><%= link_to 'Edit', edit_difusion_path(difusion) %></td>
-        <td><%= link_to 'Destroy', difusion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th data-sorted="true">Tipo</th>
+        <th data-breakpoints="xs">Asunto</th>
+        <th data-breakpoints="xs">Entidad</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @difusiones.each do |difusion| %>
+          <tr>
+            <td><%= difusion.tipo_difusion.descripcion %></td>
+            <td><%= link_to difusion.asunto, polymorphic_url(difusion) %></td>
+            <td><%= difusion.entidad.nombre %></td>            
+          </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+        <tr>
+            <td colspan="5">
+                <ul class="pagination pull-right"></ul>
+            </td>
+        </tr>
+      </tfoot>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Difusion', new_difusion_path %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+</script>

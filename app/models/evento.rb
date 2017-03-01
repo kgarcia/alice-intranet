@@ -32,8 +32,4 @@ class Evento < ApplicationRecord
         end
 	   end
    end
-
-  
-
-  
 end

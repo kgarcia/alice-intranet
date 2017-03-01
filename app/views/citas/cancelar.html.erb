@@ -6,8 +6,6 @@
   </div>
 </div>
 <div class="ibox-content">
-  <%= link_to "", new_polymorphic_url(@citas.new), :class => "btn btn-primary btn-sm fa fa-plus", :title => "Nuevo"%>
-  <br><br>
   <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
     <tr>
@@ -23,8 +21,8 @@
     <% @citas.each do |cita| %>
         <tr>
           <td><%= cita.id%></td>
-          <td><%= cita.turno.horario.servicio.descripcion %></td>
-          <td><%= cita.turno.horario.servicio.especialista.persona.nombre %> <%= cita.turno.horario.servicio.especialista.persona.apellido %></td>
+          <td><%= cita.turno.horario.servicio.tipo_servicio.descripcion %></td>
+          <td><%= cita.turno.horario.servicio.especialista.nombre %> </td>
           <td><%= cita.persona.nombre %> <%= cita.persona.apellido%></td>
           <td>
             <%= link_to '', 'cancelar_cita/'+cita.id.to_s, :class => "btn btn-danger btn-sm fa fa-times" %>
