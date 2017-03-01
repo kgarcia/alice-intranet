@@ -5,7 +5,7 @@ class CitasController < ApplicationController
   # GET /citas.json
   def index
     @citas = Cita.all
-    @lista = Cita.joins(turno:[horario:[:servicio]])
+    @lista = Cita.all
   end
 
   # GET /citas/1
@@ -26,7 +26,7 @@ class CitasController < ApplicationController
   # POST /citas.json
   def create
     @cita = Cita.new(cita_params)
-
+    @cita.estatus = 1
     respond_to do |format|
       if @cita.save
         ExampleMailer.cita_registrada.deliver_now#('kevin93ps@gmail.com', @cita)
@@ -67,33 +67,66 @@ class CitasController < ApplicationController
     @citas = Cita.all
   end
 
+  def cancelarCita
+    @cita = Cita.find(params[:id])
+  end
+
   def cancelar2
     @cita = Cita.find(params[:id])
-    @cita.estatus = 4
+    @cita.estatus = 5
     @cita.save
     redirect_to citas_url
   end
 
   def chequear
-    @citas = Cita.all
+    @citas = Cita.where(:estatus => 1)
   end
 
-  def chequear2
+  def chequearCita
     @cita = Cita.find(params[:id])
-    @cita.estatus = 6
+    @sexos = Sexo.all
+    @persona = @cita.persona
+
+    render "chequear_citas"
+  end
+
+  def guardarChequearCita
+    @cita = Cita.find(params[:cita_id])
+    @persona = @cita.persona
+    @persona.update(persona_params)
+    @cita.estatus = 2
     @cita.save
-    redirect_to citas_url
+    redirect_to "/chequear_cita"
   end
 
   def finalizar
-    @citas = Cita.all
+    @citas = Cita.where(:estatus => 2)
   end
 
-  def finalizar2
+  def finalizarCita
     @cita = Cita.find(params[:id])
-    @cita.estatus = 7
+    @persona = @cita.persona
+    
+    @adicciones = Adiccion.all
+    @cirugias = Cirugia.all
+    @discapacidades = Discapacidad.all
+    @estado_civiles = EstadoCivil.all
+    @grupo_sanguineos = GrupoSanguineo.all
+    @lesiones = Lesion.all
+    @patologias = Patologia.all
+    @sexos = Sexo.all
+    @vacunas = Vacuna.all
+
+    render "finalizar_citas"
+  end
+
+  def guardarFinalizarCita
+    @cita = Cita.find(params[:cita_id])
+    @persona = @cita.persona
+    @persona.update(persona_params)
+    @cita.estatus = 3
     @cita.save
-    redirect_to citas_url
+    redirect_to "/finalizar_cita"
   end
 
   private
@@ -105,5 +138,9 @@ class CitasController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def cita_params
       params.require(:cita).permit(:turno_id, :persona_id, :usuario_id, :fecha, :tipo_pago_id, :tipo_cita_id, :eventualidad_id, :estatus)
+    end
+
+    def persona_params
+      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id)
     end
 end

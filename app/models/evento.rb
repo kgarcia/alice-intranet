@@ -14,6 +14,13 @@ class Evento < ApplicationRecord
   	def servicioEvento=(value)
 	  	@servicioEvento = value
 	  end
+   def tipo
+    return self.tipo_evento
+  end
+
+  def self.titulo
+    return "Eventos"
+  end
 
    private
     def save_servicios
@@ -24,12 +31,4 @@ class Evento < ApplicationRecord
         end
 	   end
    end
-
-  def tipo
-    return self.tipo_evento
-  end
-
-  def self.titulo
-	  return "Eventos"
-  end
 end

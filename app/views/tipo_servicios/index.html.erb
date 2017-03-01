@@ -1,6 +1,10 @@
 <%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
-
+<div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Tipo de Servicio" %></h2>
+              </div>
+          </div>
 <div class="ibox-content">
 <%= link_to '', new_tipo_servicio_path, :class => "btn btn-primary btn-sm fa fa-plus" %>
  <br><br> 
@@ -8,7 +12,7 @@
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
       <tr>
-        <th data-sorted="true">Tipo de Atencion</th>
+        <th data-sorted="true">Tipos de Atencion</th>
         <th data-breakpoints="xs">Categoria</th>
         <th data-breakpoints="xs">Especialidad</th>
         <th>Descripcion</th>

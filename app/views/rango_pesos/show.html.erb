@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @rango_peso.descripcion %>
+</p>
+
+<p>
+  <strong>Peso inicial:</strong>
+  <%= @rango_peso.peso_inicial %>
+</p>
+
+<p>
+  <strong>Peso final:</strong>
+  <%= @rango_peso.peso_final %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @rango_peso.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_rango_peso_path(@rango_peso) %> |
+<%= link_to 'Back', rango_pesos_path %>

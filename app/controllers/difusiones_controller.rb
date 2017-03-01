@@ -15,10 +15,17 @@ class DifusionesController < ApplicationController
   # GET /difusiones/new
   def new
     @difusion = Difusion.new
+    @tipo_entidades = TipoEntidad.all
+    @tipo_difusiones = TipoDifusion.all
+    @servicios = Servicio.all
+
   end
 
   # GET /difusiones/1/edit
   def edit
+    @tiposEntidad = TipoEntidad.all
+    @tiposDifusion = TipoDifusion.all
+
   end
 
   # POST /difusiones

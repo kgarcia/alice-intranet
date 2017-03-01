@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  peso_inicial: 1
+  peso_final: 1
+  estatus: 1
+
+two:
+  descripcion: MyString
+  peso_inicial: 1
+  peso_final: 1
+  estatus: 1
