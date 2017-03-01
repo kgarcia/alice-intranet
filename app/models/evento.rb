@@ -15,6 +15,14 @@ class Evento < ApplicationRecord
 	  	@servicioEvento = value
 	  end
 
+  def tipo
+    return self.tipo_evento
+  end
+
+  def self.titulo
+    return "Eventos"
+  end
+
    private
     def save_servicios
      ServicioEvento.where(:evento_id => self.id).destroy_all
@@ -25,11 +33,7 @@ class Evento < ApplicationRecord
 	   end
    end
 
-  def tipo
-    return self.tipo_evento
-  end
+  
 
-  def self.titulo
-	  return "Eventos"
-  end
+  
 end

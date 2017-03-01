@@ -2,25 +2,29 @@
 <p id="notice"><%= notice %></p>
 <div class="ibox float-e-margins">
   <div class="ibox-title">
-    <h2 class="parametros-titulo"><%= @eventualidades.new.class.titulo %></h2>
+    <h2 class="parametros-titulo">Eventualidades</h2>
   </div>
 </div>
+
 <div class="ibox-content">
-  <%= link_to "", new_polymorphic_url(@eventualidades.new), :class => "btn btn-primary btn-sm fa fa-plus", :title => "Nuevo"%>
+  <%= link_to "", new_eventualidad_path, :class => "btn btn-primary btn-sm fa fa-plus", :title => "Nuevo"%>
   <br><br>
   <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
     <tr>
       <th data-breakpoints="xs" data-sorted="true">Tipo</th>
+      <th>Motivo</th>
       <th>Descripcion</th>
+      <th>Fecha Inicio</th>
+      <th>Fecha Fin</th>
       <th colspan="1"></th>
     </tr>
     </thead>
     <tbody>
     <% @eventualidades.each do |eventualidad| %>
         <tr>
-          <td><%= eventualidad.tipo_eventualidad %></td>
-          <td><%= eventualidad.motivo %></td>
+          <td><%= eventualidad.tipo %></td>
+          <td><%= eventualidad.motivo%></td>
           <td><%= eventualidad.descripcion %></td>
           <td><%= eventualidad.fecha_inicio %></td>
           <td><%= eventualidad.fecha_fin %></td>
