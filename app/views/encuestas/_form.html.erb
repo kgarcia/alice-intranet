@@ -1,0 +1,62 @@
+<div class="row">   
+   <div class="col-lg-6 col-lg-offset-3">
+        <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo">Evaluación</h2>
+              </div>
+          </div>
+          <div class="ibox-content">
+             <%= form_for @cita, :html => {:class => 'form-horizontal'} do |f| %>
+                  <% if @cita.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@cita.errors.count, "error") %> prohibited this encuesta from being saved:</h2>
+
+                      <ul>
+                      <% @cita.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+
+                  <% @criterios.each do |cts| %>
+                    <div class="field form-group">
+                      <!--<label class="col-lg-2 control-label">Criterio</label>-->
+                       <div class="col-lg-12">
+                        <%= cts.descripcion %>
+                       </div>
+                    </div>                                        
+
+                      <%= f.fields_for :calificacion do |ff| %>
+                        <div>
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label">
+                              <%= ff.label :calificacion %>
+                            </label>
+                            <div class="col-lg-10">
+                              <%= ff.text_field :@evaluacionw %>
+                            </div>
+                          </div>
+                      </div>
+                    <% end %>                    
+                  <% end %>
+                  
+                  <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                          <%= button_tag( :class => "btn btn-primary", :title => "Guardar") do %>
+                            <span class="fa fa-check"></span>
+                          <% end %>
+                      </div>
+                      <% if (@cita.new_record?) %>
+                        <div class="col-lg-2">
+                        <%= link_to '', '', type: :reset, :class => "btn btn-sm btn-warning fa fa-recycle", :title => "Limpiar"  %>                          
+                        </div>
+                        <% end %>
+                      <div class="col-lg-2">
+                      <%= link_to '', polymorphic_url(@cita.class), :class => "btn btn-sm btn-success fa fa-undo", :title => "Atras" %>                          
+                      </div>
+                  </div>
+              <% end %>
+          </div>
+  </div>
+</div>

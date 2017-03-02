@@ -146,4 +146,5 @@ root to: 'home#index'
 
 
   resources :preguntas
+  resources :encuestas
 end

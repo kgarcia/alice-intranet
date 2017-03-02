@@ -13,6 +13,7 @@ def tipodia
 
   def tipo_turno
   	return self.tipo_turno
+  end
   def self.titulo
 	  return "Turnos"
   end
