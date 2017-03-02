@@ -5,8 +5,11 @@ class GrupoSanguineosController < ApplicationController
   # GET /grupo_sanguineos.json
   def index
     @parametros = GrupoSanguineo.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /grupo_sanguineos/1

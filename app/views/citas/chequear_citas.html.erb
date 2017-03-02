@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+  <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Datos basicos paciente" %></h2>
+              </div>
+          </div>
+    <div class="ibox-content">
+      <%= form_tag "/chequear_cita", method: "post", :html => {:class => 'form-horizontal'} do |f| %>
+          <% if @persona.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@persona.errors.count, "error") %> prohibited this parametro from being
+                  saved:</h2>
+
+                <ul>
+                  <% @persona.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <div class="form-group row"><label class="col-lg-2 control-label">Cita</label>
+              <div class="col-lg-10">
+              <%= text_field_tag :cita_id, @cita.id, {:class => "form-control", readonly: true} %>
+              </div>
+          </div>
+
+          <%= render 'personas/datos_persona', persona: @persona %>
+
+          <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                          <%= button_tag( :class => "btn btn-primary", :title => "Guardar") do %>
+                            <span class="fa fa-check"></span>
+                          <% end %>
+                      </div>
+                      <% if (@persona.new_record?) %>
+                        <div class="col-lg-2">
+                        <%= link_to '', '', type: :reset, :class => "btn btn-sm btn-warning fa fa-recycle", :title => "Limpiar"  %>                          
+                        </div>
+                      <% end %>
+                      <div class="col-lg-2">
+                      <%= link_to '', '/chequear_cita', :class => "btn btn-sm btn-success fa fa-undo", :title => "Atras" %>                          
+                      </div>
+                  </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,51 @@
+<%= csrf_meta_tag %>
+<p id="notice"><%= notice %></p>
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h2 class="parametros-titulo"><%= @rango_pesos.new.class.titulo %></h2>
+    </div>
+</div>
+<div class="ibox-content">
+<%= link_to "", new_polymorphic_url(@rango_pesos.new), :class => "btn btn-primary btn-sm fa fa-plus", :title => "Nuevo"%>
+
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
+      <tr>
+        <th data-sorted="true">Descripción</th>
+        <th>Peso inicial</th>
+        <th>Peso final</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @rango_pesos.each do |rango_peso| %>
+        <tr>
+          <td><%= link_to rango_peso.descripcion, edit_polymorphic_url(rango_peso) %></td>
+          <td><%= rango_peso.peso_inicial %></td>
+          <td><%= rango_peso.peso_final %></td>
+          <td>
+            <%= link_to '', edit_polymorphic_url(rango_peso), :class => "btn btn-warning btn-sm fa fa-pencil", :title => "Editar" %>
+            <%= link_to '', polymorphic_url(rango_peso), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash", :title => "Eliminar" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+        <tr>
+            <td colspan="5">
+                <ul class="pagination pull-right"></ul>
+            </td>
+        </tr>
+      </tfoot>
+  </table>
+</div>
+<br>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+</script>

@@ -5,7 +5,10 @@ class CiudadesController < ApplicationController
   # GET /ciudades.json
   def index
     @parametros = Ciudad.all
-    render "parametros_select/index"  
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /ciudades/1

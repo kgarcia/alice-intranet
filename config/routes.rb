@@ -1,8 +1,31 @@
 Myapp::Application.routes.draw do
 
 
+  resources :rango_pesos
+  resources :rango_edades
+  resources :difusiones
+  resources :tipo_entidades
+  resources :parentescos
+  resources :tipo_parentescos
+  resources :tipo_difusiones
+
+  get 'grafico/generar'
+
+  get 'grafico/ver'
+
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
+  get 'cancelar_cita', to: 'citas#cancelar'
+
+  get 'cancelar_cita/:id', to: 'citas#cancelarCita'
+
+  get 'chequear_cita', to: 'citas#chequear'
+  get 'chequear_cita/:id', to: 'citas#chequearCita'
+  post 'chequear_cita', to: 'citas#guardarChequearCita'
+
+  get 'finalizar_cita', to: 'citas#finalizar'
+  get 'finalizar_cita/:id', to: 'citas#finalizarCita'
+  post 'finalizar_cita', to: 'citas#guardarFinalizarCita'
 
   resources :tipo_turnos
 
@@ -143,7 +166,6 @@ root to: 'home#index'
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
 
   resources :preguntas
   resources :encuestas

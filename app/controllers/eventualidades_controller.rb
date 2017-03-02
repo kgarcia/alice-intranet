@@ -4,11 +4,11 @@ class EventualidadesController < ApplicationController
   # GET /eventualidades
   # GET /eventualidades.json
   def index
-    @parametros = Eventualidad.all
+    @eventualidades = Eventualidad.all
     @referencia_tipo = "tipo_eventualidad"
     @referencia_motivo = "motivo"
 
-    render "parametros_select/index"
+    
   end
 
   # GET /eventualidades/1

@@ -5,8 +5,10 @@ class EspecialidadesController < ApplicationController
   # GET /especialidades.json
   def index
     @parametros = Especialidad.all
-
-    render "parametros/index"
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /especialidades/1

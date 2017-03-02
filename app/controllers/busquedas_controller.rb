@@ -5,8 +5,10 @@ class BusquedasController < ApplicationController
   # GET /busquedas.json
   def index
     @parametros = Busqueda.all
-
-    render "parametros/index"
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /busquedas/1

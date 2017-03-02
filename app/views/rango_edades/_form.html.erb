@@ -1,0 +1,58 @@
+<div class="row">   
+   <div class="col-lg-6 col-lg-offset-3">
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= rango_edad.class.titulo %></h2>
+              </div>
+          </div>
+          <div class="ibox-content">
+             <%= form_for rango_edad, :html => {:class => 'form-horizontal'} do |f| %>
+                  <% if rango_edad.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(rango_edad.errors.count, "error") %> prohibited this parametro from being saved:</h2>
+
+                      <ul>
+                      <% rango_edad.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+
+                  <div class="form-group"><label class="col-lg-2 control-label">Descripcion</label>
+
+                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                       </div>
+                   </div>
+
+                  <div class="form-group"><label class="col-lg-2 control-label">Edad Inicial</label>
+
+                      <div class="col-lg-10"><%= f.number_field :edad_inicial, :class => "form-control" %>
+                       </div>
+                  </div>
+
+                  <div class="form-group"><label class="col-lg-2 control-label">Edad Final</label>
+
+                      <div class="col-lg-10"><%= f.number_field :edad_final, :class => "form-control" %>
+                       </div>
+                  </div>                  
+
+                  <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                          <%= button_tag( :class => "btn btn-primary", :title => "Guardar") do %>
+                            <span class="fa fa-check"></span>
+                          <% end %>
+                      </div>
+                      <% if (rango_edad.new_record?) %>
+                        <div class="col-lg-2">
+                        <%= link_to '', '', type: :reset, :class => "btn btn-sm btn-warning fa fa-recycle", :title => "Limpiar"  %>                          
+                        </div>
+                      <% end %>
+                      <div class="col-lg-2">
+                      <%= link_to '', polymorphic_url(rango_edad.class), :class => "btn btn-sm btn-success fa fa-undo", :title => "Atras" %>                          
+                      </div>
+                  </div>
+              <% end %>
+          </div>
+  </div>
+</div>

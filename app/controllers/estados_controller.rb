@@ -5,7 +5,10 @@ class EstadosController < ApplicationController
   # GET /estados.json
   def index
     @parametros = Estado.all
-    render "parametros_select/index"
+     respond_to do |format|
+      format.html {  render "parametros_select/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /estados/1
@@ -22,7 +25,7 @@ class EstadosController < ApplicationController
     @collection = Pais.all
     @referencia = :pais_id
     @estado = Estado.new
-    #render "parametros_select/new"
+    render "parametros_select/new"
   end
 
   # GET /estados/1/edit

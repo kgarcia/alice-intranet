@@ -54,7 +54,7 @@ GEM
     ajax-datatables-rails (0.3.1)
       railties (>= 3.1)
     arel (7.1.4)
-    autoprefixer-rails (6.7.5)
+    autoprefixer-rails (6.7.6)
       execjs
     bcrypt (3.1.11)
     bootstrap (4.0.0.alpha6)
@@ -79,6 +79,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     debug_inspector (0.0.2)
+    descriptive_statistics (2.4.0)
     devise (4.2.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -101,6 +102,8 @@ GEM
       momentjs-rails (>= 2.9.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    highcharts-rails (5.0.7)
+      railties (>= 3.1)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
@@ -116,8 +119,8 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (1.8.6)
-    koala (3.0.0.beta2)
+    json (2.0.3)
+    koala (3.0.0.beta3)
       addressable
       faraday
       json (>= 2.0)
@@ -217,7 +220,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.0.4)
+    uglifier (3.1.1)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -240,11 +243,13 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails (~> 4.14.30)
   byebug
   coffee-rails (~> 4.2)
+  descriptive_statistics (~> 2.4.0)
   devise
   devise-i18n
   font-awesome-rails (= 4.7.0.1)
   footable-rails
   fullcalendar-rails
+  highcharts-rails
   jbuilder (~> 2.5)
   jquery-datatables-rails (~> 3.4.0)
   jquery-rails

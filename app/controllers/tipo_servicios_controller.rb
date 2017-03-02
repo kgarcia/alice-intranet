@@ -10,7 +10,7 @@ class TipoServiciosController < ApplicationController
   # GET /tipo_servicios/1
   # GET /tipo_servicios/1.json
   def show
-    self.koala
+    #self.koala
   end
 
   # GET /tipo_servicios/new
@@ -32,6 +32,9 @@ class TipoServiciosController < ApplicationController
     @profesiones = Profesion.all
     @sexos = Sexo.all
     @vacunas = Vacuna.all
+
+    @rangoEdades = RangoEdad.all
+    @rangoPesos = RangoPeso.all
   end
 
   # GET /tipo_servicios/1/edit
@@ -53,6 +56,9 @@ class TipoServiciosController < ApplicationController
     @sexos = Sexo.all
     @vacunas = Vacuna.all
 
+    @rangoEdades = RangoEdad.all
+    @rangoPesos = RangoPeso.all
+
   end
 
   # POST /tipo_servicios
@@ -71,6 +77,9 @@ class TipoServiciosController < ApplicationController
     @tipo_servicio.profesionesTipoServicio = params[:profesiones]
     @tipo_servicio.sexosTipoServicio = params[:sexos]
     @tipo_servicio.vacunasTipoServicio = params[:vacunas]
+
+    @tipo_servicio.rangoEdadesTipoServicio = params[:rango_edades]
+    @tipo_servicio.rangoPesosTipoServicio = params[:rango_pesos]
 
 
     respond_to do |format|     
@@ -106,7 +115,7 @@ class TipoServiciosController < ApplicationController
     #@page_graph.put_wall_post('Website') # post as page, requires new publish_pages permission
   #  @page_graph.put_connections("AliceLaTrinidad", 'feed', :message => message, :picture => picture_url, :link => link_url)
   @tipo_servicio = TipoServicio.last
-    @page_graph.put_picture(Rails.public_path+'bardenova.jpg', ".jpg", {:caption => @tipo_servicio.descripcion}, "me")
+    #@page_graph.put_picture(Rails.public_path+'bardenova.jpg', ".jpg", {:caption => @tipo_servicio.descripcion}, "me")
 
   end
 
@@ -125,6 +134,8 @@ class TipoServiciosController < ApplicationController
     @tipo_servicio.profesionesTipoServicio = params[:profesiones]
     @tipo_servicio.sexosTipoServicio = params[:sexos]
     @tipo_servicio.vacunasTipoServicio = params[:vacunas]
+    @tipo_servicio.rangoEdadesTipoServicio = params[:rango_edades]
+    @tipo_servicio.rangoPesosTipoServicio = params[:rango_pesos]
 
     respond_to do |format|
       if @tipo_servicio.update(tipo_servicio_params)

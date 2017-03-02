@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227193022) do
+ActiveRecord::Schema.define(version: 20170301055057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "adiccion_personas", force: :cascade do |t|
+    t.integer  "persona_id"
+    t.integer  "adiccion_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["adiccion_id"], name: "index_adiccion_personas_on_adiccion_id", using: :btree
+    t.index ["persona_id"], name: "index_adiccion_personas_on_persona_id", using: :btree
+  end
 
   create_table "adiccion_tipo_servicios", force: :cascade do |t|
     t.integer  "adiccion_id"
@@ -66,6 +75,15 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "cirugia_personas", force: :cascade do |t|
+    t.integer  "persona_id"
+    t.integer  "cirugia_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cirugia_id"], name: "index_cirugia_personas_on_cirugia_id", using: :btree
+    t.index ["persona_id"], name: "index_cirugia_personas_on_persona_id", using: :btree
   end
 
   create_table "cirugia_tipo_servicios", force: :cascade do |t|
@@ -137,6 +155,34 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "difusiones", force: :cascade do |t|
+    t.text     "asunto"
+    t.text     "texto"
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
+    t.integer  "imagen_file_size"
+    t.datetime "imagen_updated_at"
+    t.integer  "tipo_entidad_id"
+    t.integer  "entidad_id"
+    t.string   "token_facebook"
+    t.integer  "tipo_difusion_id"
+    t.integer  "estatus"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["entidad_id"], name: "index_difusiones_on_entidad_id", using: :btree
+    t.index ["tipo_difusion_id"], name: "index_difusiones_on_tipo_difusion_id", using: :btree
+    t.index ["tipo_entidad_id"], name: "index_difusiones_on_tipo_entidad_id", using: :btree
+  end
+
+  create_table "discapacidad_personas", force: :cascade do |t|
+    t.integer  "persona_id"
+    t.integer  "discapacidad_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["discapacidad_id"], name: "index_discapacidad_personas_on_discapacidad_id", using: :btree
+    t.index ["persona_id"], name: "index_discapacidad_personas_on_persona_id", using: :btree
   end
 
   create_table "discapacidad_tipo_servicios", force: :cascade do |t|
@@ -263,6 +309,15 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "habito_personas", force: :cascade do |t|
+    t.integer  "persona_id"
+    t.integer  "habito_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["habito_id"], name: "index_habito_personas_on_habito_id", using: :btree
+    t.index ["persona_id"], name: "index_habito_personas_on_persona_id", using: :btree
+  end
+
   create_table "habito_tipo_servicios", force: :cascade do |t|
     t.integer  "habito_id"
     t.integer  "tipo_servicio_id"
@@ -306,6 +361,15 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.float    "longitud"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "lesion_personas", force: :cascade do |t|
+    t.integer  "persona_id"
+    t.integer  "lesion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesion_id"], name: "index_lesion_personas_on_lesion_id", using: :btree
+    t.index ["persona_id"], name: "index_lesion_personas_on_persona_id", using: :btree
   end
 
   create_table "lesion_tipo_servicios", force: :cascade do |t|
@@ -359,6 +423,15 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.index ["tipo_notificacion_id"], name: "index_notificaciones_on_tipo_notificacion_id", using: :btree
+  end
+
+  create_table "ocupacion_personas", force: :cascade do |t|
+    t.integer  "persona_id"
+    t.integer  "ocupacion_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["ocupacion_id"], name: "index_ocupacion_personas_on_ocupacion_id", using: :btree
+    t.index ["persona_id"], name: "index_ocupacion_personas_on_persona_id", using: :btree
   end
 
   create_table "ocupacion_tipo_servicios", force: :cascade do |t|
@@ -420,6 +493,28 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "parentescos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "persona_id"
+    t.integer  "pariente_id"
+    t.integer  "tipo_parentesco_id"
+    t.integer  "estatus"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["pariente_id"], name: "index_parentescos_on_pariente_id", using: :btree
+    t.index ["persona_id"], name: "index_parentescos_on_persona_id", using: :btree
+    t.index ["tipo_parentesco_id"], name: "index_parentescos_on_tipo_parentesco_id", using: :btree
+  end
+
+  create_table "patologia_personas", force: :cascade do |t|
+    t.integer  "persona_id"
+    t.integer  "patologia_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["patologia_id"], name: "index_patologia_personas_on_patologia_id", using: :btree
+    t.index ["persona_id"], name: "index_patologia_personas_on_persona_id", using: :btree
+  end
+
   create_table "patologia_tipo_servicios", force: :cascade do |t|
     t.integer  "patologia_id"
     t.integer  "tipo_servicio_id"
@@ -436,6 +531,24 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.index ["tipo_patologia_id"], name: "index_patologias_on_tipo_patologia_id", using: :btree
+  end
+
+  create_table "persona_profesiones", force: :cascade do |t|
+    t.integer  "persona_id"
+    t.integer  "profesion_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["persona_id"], name: "index_persona_profesiones_on_persona_id", using: :btree
+    t.index ["profesion_id"], name: "index_persona_profesiones_on_profesion_id", using: :btree
+  end
+
+  create_table "persona_vacunas", force: :cascade do |t|
+    t.integer  "persona_id"
+    t.integer  "vacuna_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["persona_id"], name: "index_persona_vacunas_on_persona_id", using: :btree
+    t.index ["vacuna_id"], name: "index_persona_vacunas_on_vacuna_id", using: :btree
   end
 
   create_table "personas", force: :cascade do |t|
@@ -476,6 +589,42 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "rango_edad_tipo_servicios", force: :cascade do |t|
+    t.integer  "rango_edad_id"
+    t.integer  "tipo_servicio_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["rango_edad_id"], name: "index_rango_edad_tipo_servicios_on_rango_edad_id", using: :btree
+    t.index ["tipo_servicio_id"], name: "index_rango_edad_tipo_servicios_on_tipo_servicio_id", using: :btree
+  end
+
+  create_table "rango_edades", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "edad_inicial"
+    t.integer  "edad_final"
+    t.integer  "estatus"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "rango_peso_tipo_servicios", force: :cascade do |t|
+    t.integer  "rango_peso_id"
+    t.integer  "tipo_servicio_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["rango_peso_id"], name: "index_rango_peso_tipo_servicios_on_rango_peso_id", using: :btree
+    t.index ["tipo_servicio_id"], name: "index_rango_peso_tipo_servicios_on_tipo_servicio_id", using: :btree
+  end
+
+  create_table "rango_pesos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "peso_inicial"
+    t.integer  "peso_final"
+    t.integer  "estatus"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -578,13 +727,6 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "tipo_criterio", force: :cascade do |t|
-    t.string   "descripcion"
-    t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "tipo_criterios", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -592,7 +734,21 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tipo_difusiones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tipo_discapacidades", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tipo_entidades", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
@@ -804,6 +960,8 @@ ActiveRecord::Schema.define(version: 20170227193022) do
     t.datetime "updated_at",  null: false
   end
 
+  add_foreign_key "adiccion_personas", "adicciones"
+  add_foreign_key "adiccion_personas", "personas"
   add_foreign_key "adiccion_tipo_servicios", "adicciones"
   add_foreign_key "adiccion_tipo_servicios", "tipo_servicios"
   add_foreign_key "adicciones", "tipo_adicciones"
@@ -814,6 +972,8 @@ ActiveRecord::Schema.define(version: 20170227193022) do
   add_foreign_key "calificaciones", "criterios"
   add_foreign_key "calificaciones", "evaluaciones"
   add_foreign_key "calificaciones", "tipo_calificaciones"
+  add_foreign_key "cirugia_personas", "cirugias"
+  add_foreign_key "cirugia_personas", "personas"
   add_foreign_key "cirugia_tipo_servicios", "cirugias"
   add_foreign_key "cirugia_tipo_servicios", "tipo_servicios"
   add_foreign_key "cirugias", "tipo_cirugias"
@@ -827,6 +987,10 @@ ActiveRecord::Schema.define(version: 20170227193022) do
   add_foreign_key "criterio_tipo_servicios", "criterios"
   add_foreign_key "criterio_tipo_servicios", "tipo_servicios"
   add_foreign_key "criterios", "tipo_criterios"
+  add_foreign_key "difusiones", "tipo_difusiones"
+  add_foreign_key "difusiones", "tipo_entidades"
+  add_foreign_key "discapacidad_personas", "discapacidades"
+  add_foreign_key "discapacidad_personas", "personas"
   add_foreign_key "discapacidad_tipo_servicios", "discapacidades"
   add_foreign_key "discapacidad_tipo_servicios", "tipo_servicios"
   add_foreign_key "discapacidades", "tipo_discapacidades"
@@ -844,30 +1008,48 @@ ActiveRecord::Schema.define(version: 20170227193022) do
   add_foreign_key "formacion_academicas", "nivel_formaciones"
   add_foreign_key "grupo_sanguineo_tipo_servicios", "grupo_sanguineos"
   add_foreign_key "grupo_sanguineo_tipo_servicios", "tipo_servicios"
+  add_foreign_key "habito_personas", "habitos"
+  add_foreign_key "habito_personas", "personas"
   add_foreign_key "habito_tipo_servicios", "habitos"
   add_foreign_key "habito_tipo_servicios", "tipo_servicios"
   add_foreign_key "habitos", "tipo_habitos"
   add_foreign_key "horarios", "servicios"
   add_foreign_key "horarios", "tipo_horarios"
+  add_foreign_key "lesion_personas", "lesiones"
+  add_foreign_key "lesion_personas", "personas"
   add_foreign_key "lesion_tipo_servicios", "lesiones"
   add_foreign_key "lesion_tipo_servicios", "tipo_servicios"
   add_foreign_key "lesiones", "tipo_lesiones"
   add_foreign_key "motivos", "tipo_motivos"
   add_foreign_key "noticias", "tipo_noticias"
   add_foreign_key "notificaciones", "tipo_notificaciones"
+  add_foreign_key "ocupacion_personas", "ocupaciones"
+  add_foreign_key "ocupacion_personas", "personas"
   add_foreign_key "ocupacion_tipo_servicios", "ocupaciones"
   add_foreign_key "ocupacion_tipo_servicios", "tipo_servicios"
   add_foreign_key "opiniones", "motivos"
   add_foreign_key "opiniones", "tipo_opiniones"
   add_foreign_key "option_roles", "option_menus"
   add_foreign_key "option_roles", "roles"
+  add_foreign_key "parentescos", "personas"
+  add_foreign_key "parentescos", "tipo_parentescos"
+  add_foreign_key "patologia_personas", "patologias"
+  add_foreign_key "patologia_personas", "personas"
   add_foreign_key "patologia_tipo_servicios", "patologias"
   add_foreign_key "patologia_tipo_servicios", "tipo_servicios"
   add_foreign_key "patologias", "tipo_patologias"
+  add_foreign_key "persona_profesiones", "personas"
+  add_foreign_key "persona_profesiones", "profesiones"
+  add_foreign_key "persona_vacunas", "personas"
+  add_foreign_key "persona_vacunas", "vacunas"
   add_foreign_key "personas", "sexos"
   add_foreign_key "preguntas", "tipo_preguntas"
   add_foreign_key "profesion_tipo_servicios", "profesiones"
   add_foreign_key "profesion_tipo_servicios", "tipo_servicios"
+  add_foreign_key "rango_edad_tipo_servicios", "rango_edades"
+  add_foreign_key "rango_edad_tipo_servicios", "tipo_servicios"
+  add_foreign_key "rango_peso_tipo_servicios", "rango_pesos"
+  add_foreign_key "rango_peso_tipo_servicios", "tipo_servicios"
   add_foreign_key "servicio_eventos", "eventos"
   add_foreign_key "servicio_eventos", "servicios"
   add_foreign_key "servicios", "especialistas"

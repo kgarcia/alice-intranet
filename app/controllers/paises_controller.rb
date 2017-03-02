@@ -5,8 +5,13 @@ class PaisesController < ApplicationController
   # GET /paises.json
   def index
     @parametros = Pais.all
+    @paises = Pais.all
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
 
-    render "parametros/index"
   end
 
   # GET /paises/1
@@ -20,7 +25,7 @@ class PaisesController < ApplicationController
   # GET /paises/new
   def new
     @parametro = Pais.new
-    render "parametros/new"
+      render "parametros/new" 
   end
 
   # GET /paises/1/edit

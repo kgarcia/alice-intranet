@@ -7,6 +7,7 @@ class Cita < ApplicationRecord
   belongs_to :eventualidad
   belongs_to :evaluacion
 
+
   def self.titulo
 		return "Citas"
 	end
