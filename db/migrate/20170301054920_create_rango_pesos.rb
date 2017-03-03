@@ -5,6 +5,7 @@ class CreateRangoPesos < ActiveRecord::Migration[5.0]
       t.integer :peso_inicial
       t.integer :peso_final
       t.integer :estatus
+      t.belongs_to :detalle_perfil_comun
 
       t.timestamps
     end

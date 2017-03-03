@@ -1,0 +1,2 @@
+class DetallePerfilComun < ApplicationRecord
+end
