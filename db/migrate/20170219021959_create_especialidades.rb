@@ -4,6 +4,7 @@ class CreateEspecialidades < ActiveRecord::Migration[5.0]
       t.string :descripcion
       t.integer :estatus
       t.references :tipo_especialidad
+      t.references :especialista
 
       t.timestamps
     end
