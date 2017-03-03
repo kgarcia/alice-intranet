@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301055057) do
+ActiveRecord::Schema.define(version: 20170303023749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,6 +150,13 @@ ActiveRecord::Schema.define(version: 20170301055057) do
     t.index ["tipo_criterio_id"], name: "index_criterios_on_tipo_criterio_id", using: :btree
   end
 
+  create_table "detalle_perfil_comuns", force: :cascade do |t|
+    t.integer  "perfil_comuns_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["perfil_comuns_id"], name: "index_detalle_perfil_comuns_on_perfil_comuns_id", using: :btree
+  end
+
   create_table "dias", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -206,8 +213,10 @@ ActiveRecord::Schema.define(version: 20170301055057) do
   create_table "especialidades", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "tipo_especialidad_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["tipo_especialidad_id"], name: "index_especialidades_on_tipo_especialidad_id", using: :btree
   end
 
   create_table "especialistas", force: :cascade do |t|
@@ -533,6 +542,13 @@ ActiveRecord::Schema.define(version: 20170301055057) do
     t.index ["tipo_patologia_id"], name: "index_patologias_on_tipo_patologia_id", using: :btree
   end
 
+  create_table "perfil_comuns", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "persona_profesiones", force: :cascade do |t|
     t.integer  "persona_id"
     t.integer  "profesion_id"
@@ -625,6 +641,16 @@ ActiveRecord::Schema.define(version: 20170301055057) do
     t.integer  "estatus"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "responsables", force: :cascade do |t|
+    t.integer  "estatus"
+    t.integer  "personas_id"
+    t.integer  "servicios_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["personas_id"], name: "index_responsables_on_personas_id", using: :btree
+    t.index ["servicios_id"], name: "index_responsables_on_servicios_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
@@ -749,6 +775,13 @@ ActiveRecord::Schema.define(version: 20170301055057) do
   end
 
   create_table "tipo_entidades", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tipo_especialidades", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
     t.datetime "created_at",  null: false
@@ -987,6 +1020,7 @@ ActiveRecord::Schema.define(version: 20170301055057) do
   add_foreign_key "criterio_tipo_servicios", "criterios"
   add_foreign_key "criterio_tipo_servicios", "tipo_servicios"
   add_foreign_key "criterios", "tipo_criterios"
+  add_foreign_key "detalle_perfil_comuns", "perfil_comuns", column: "perfil_comuns_id"
   add_foreign_key "difusiones", "tipo_difusiones"
   add_foreign_key "difusiones", "tipo_entidades"
   add_foreign_key "discapacidad_personas", "discapacidades"
@@ -1050,6 +1084,8 @@ ActiveRecord::Schema.define(version: 20170301055057) do
   add_foreign_key "rango_edad_tipo_servicios", "tipo_servicios"
   add_foreign_key "rango_peso_tipo_servicios", "rango_pesos"
   add_foreign_key "rango_peso_tipo_servicios", "tipo_servicios"
+  add_foreign_key "responsables", "personas", column: "personas_id"
+  add_foreign_key "responsables", "servicios", column: "servicios_id"
   add_foreign_key "servicio_eventos", "eventos"
   add_foreign_key "servicio_eventos", "servicios"
   add_foreign_key "servicios", "especialistas"
