@@ -20,7 +20,7 @@ class TurnosController < ApplicationController
     @collection_tipo_turno = TipoTurno.all 
     @referencia_tipo = :tipo_turno_id
     render "edit"
-     
+   
   end
 
   # GET /turnos/new

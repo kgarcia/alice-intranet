@@ -64,11 +64,16 @@ class CitasController < ApplicationController
   end
 
   def cancelar
-    @citas = Cita.all
+    @citas = Cita.all.where(:estatus => 1)
   end
 
   def cancelarCita
     @cita = Cita.find(params[:id])
+    @collection_tipo = TipoEventualidad.all
+    @collection_motivo = Motivo.all
+    @referencia_tipo ="tipo_eventualidad_id"
+    @referencia_motivo = "motivo_id"
+    render "cancelarCitas"
   end
 
   def cancelar2
