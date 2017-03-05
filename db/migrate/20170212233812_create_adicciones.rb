@@ -4,7 +4,6 @@ class CreateAdicciones < ActiveRecord::Migration[5.0]
       t.string :descripcion
       t.integer :estatus
       t.references :tipo_adiccion, foreign_key: true
-      t.belongs_to :detalle_pefil_comun
 
       t.timestamps
     end

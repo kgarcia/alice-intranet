@@ -5,7 +5,6 @@ class CreateRangoEdades < ActiveRecord::Migration[5.0]
       t.integer :edad_inicial
       t.integer :edad_final
       t.integer :estatus
-      t.belongs_to :detalle_perfil_comun
 
       t.timestamps
     end
