@@ -348,8 +348,8 @@
       OptionMenu.find_or_create_by(:id_padre => 80, :nombre => 'Seguridad Funcional',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 87, :nombre => 'Usuarios',               :url_path => '#', :icono => 'fa-user-plus',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 87, :nombre => 'Roles',                      :url_path => '/roles', :icono => 'fa-bookmark-o',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-      OptionMenu.find_or_create_by(:id_padre => 87, :nombre => 'General',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-      OptionMenu.find_or_create_by(:id_padre => 87, :nombre => 'Base de Datos',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+      OptionMenu.find_or_create_by(:id_padre => 80, :nombre => 'General',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+      OptionMenu.find_or_create_by(:id_padre => 80, :nombre => 'Base de Datos',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
     # Cargar la tabla auxiliar entre opcion de menu y usuario con todas las opciones para el usuario dueño
     $i = 1
     begin
@@ -494,3 +494,4 @@
     TipoDifusion.find_or_create_by(:descripcion => "Segmentada")
     TipoEntidad.find_or_create_by(:descripcion => "Servicio")
     TipoEntidad.find_or_create_by(:descripcion => "Evento")
+    TipoCita.find_or_create_by(:descripcion => "General")
