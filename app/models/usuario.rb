@@ -6,6 +6,7 @@ class Usuario < ApplicationRecord
   belongs_to :rol
   belongs_to :persona
   before_create :set_default_rol
+  has_many :servicio
   # or 
   # before_validation :set_default_role 
 

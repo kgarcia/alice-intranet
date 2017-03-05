@@ -662,11 +662,13 @@ ActiveRecord::Schema.define(version: 20170301055057) do
     t.integer  "foto_file_size"
     t.datetime "foto_updated_at"
     t.float    "precio"
+    t.integer  "usuario_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.index ["especialista_id"], name: "index_servicios_on_especialista_id", using: :btree
     t.index ["tipo_servicio_id"], name: "index_servicios_on_tipo_servicio_id", using: :btree
     t.index ["ubicacion_id"], name: "index_servicios_on_ubicacion_id", using: :btree
+    t.index ["usuario_id"], name: "index_servicios_on_usuario_id", using: :btree
   end
 
   create_table "sexo_tipo_servicios", force: :cascade do |t|
@@ -1055,6 +1057,7 @@ ActiveRecord::Schema.define(version: 20170301055057) do
   add_foreign_key "servicios", "especialistas"
   add_foreign_key "servicios", "tipo_servicios"
   add_foreign_key "servicios", "ubicaciones"
+  add_foreign_key "servicios", "usuarios"
   add_foreign_key "sexo_tipo_servicios", "sexos"
   add_foreign_key "sexo_tipo_servicios", "tipo_servicios"
   add_foreign_key "tipo_servicio_vacunas", "tipo_servicios"

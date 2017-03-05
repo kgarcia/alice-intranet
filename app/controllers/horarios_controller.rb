@@ -10,7 +10,9 @@ class HorariosController < ApplicationController
   # GET /horarios/1
   # GET /horarios/1.json
   def show
-    @horario = Horario.find(params[:id])
+    #current_usuario.persona.id.where(horario.id)
+    @horario = Horario.where(servicio_id: current_usuario.persona.especialista.servicio)
+    #@horario = Horario.find(params[:id])
     @turnosM = Turno.where(horario_id: @horario.id).rewhere(tipo_turno_id: 1)
     @turnosT = Turno.where(horario_id: @horario.id).rewhere(tipo_turno_id: 2)
     @dias = Dia.all    

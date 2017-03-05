@@ -8,7 +8,7 @@ class CreateServicios < ActiveRecord::Migration[5.0]
       t.integer :estatus
       t.attachment :foto
       t.float :precio
-
+      t.references :usuario, foreign_key: true 
       t.timestamps
     end
   end

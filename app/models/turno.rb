@@ -37,11 +37,9 @@ def tipodia
             @turnos_cita.push(self.hora_inicio)
 
             else
-              @turnos_cita.push(@turnos_cita.last + (self.hora_inicio + @horario.tiempo_cita*60))
-              puts @turnos_cita.last 
+              @turnos_cita.push(@turnos_cita.last + (self.hora_inicio + @horario.tiempo_cita*60)) 
             end
           end
-
       return      @turnos_cita 
 
     else  ((self.hora_inicio < self.hora_fin)  and
@@ -54,13 +52,16 @@ def tipodia
             
           else
               @turnos_cita.push(@turnos_cita.last + (self.cantidad_horas/self.cantidad_pacientes)*60)
-              puts @turnos_cita.last 
           end
         end
-
       return       @turnos_cita 
 
     end
+  end
+
+  def arreglo_horarios_disponibles (fecha_inicio)
+
+
   end
 
 end

@@ -2,7 +2,8 @@ class Servicio < ApplicationRecord
   belongs_to :ubicacion
   belongs_to :tipo_servicio
   belongs_to :especialista
-
+  belongs_to :responsable     
+  
   has_one :horario
   has_many :servicio_evento
   has_many :eventos, through: :servicio_evento

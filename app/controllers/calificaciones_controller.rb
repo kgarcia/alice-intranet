@@ -1,6 +1,5 @@
 class CalificacionesController < ApplicationController
   before_action :set_calificacion, only: [:show, :edit, :update, :destroy]
-
   # GET /calificaciones
   # GET /calificaciones.json
   def index
