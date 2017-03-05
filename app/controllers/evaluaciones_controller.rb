@@ -80,6 +80,7 @@ class EvaluacionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluacion_params
-      params.require(:evaluacion).permit(:descripcion, :estatus, :tipo_evaluacion_id)
+      params.require(:evaluacion).permit(:descripcion, :estatus, :tipo_evaluacion_id, calificaciones_attributes: [:id, :criterio_id, :descripcion])
     end
+
 end
