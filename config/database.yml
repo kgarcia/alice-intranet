@@ -29,8 +29,8 @@ default: &default
   encoding: unicode
   host: localhost
   pool: 5
-  username: jon
-  password: a
+  username: postgres
+  password: postgres
 
 
 development:
