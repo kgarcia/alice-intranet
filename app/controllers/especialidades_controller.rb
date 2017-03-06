@@ -16,7 +16,7 @@ class EspecialidadesController < ApplicationController
   def show
     @parametro = Especialidad.find(params[:id])
 
-    render "parametros/edit"
+    #render "parametros/edit"
   end
 
   # GET /especialidades/new
