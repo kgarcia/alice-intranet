@@ -29,20 +29,21 @@ default: &default
   encoding: unicode
   host: localhost
   pool: 5
-  username: jon
-  password: a
+  username: postgres
+  password: 1234
+
 
 
 development:
   <<: *default
-  database: alice_development_l
+  database: alice_development
 
 test:
   <<: *default
-  database: alice_test_l
+  database: alice_test
  
 production:
   <<: *default
-  database: alice_production_l
+  database: alice_production
  
 

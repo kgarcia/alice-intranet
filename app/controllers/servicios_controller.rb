@@ -5,12 +5,23 @@ class ServiciosController < ApplicationController
   # GET /servicios.json
   def index
     @servicios = Servicio.all
-    
+    respond_to do |format|
+      format.html
+      format.json { render json: @servicios.to_json }
+    end
   end
 
   # GET /servicios/1
   # GET /servicios/1.json
   def show
+     @parametro = Servicio.find(params[:id])
+    puts '##########################################'
+    puts @parametro.as_json
+    puts '##########################################'
+    respond_to do |format|
+      
+      format.json { render json: @parametro.to_json }
+    end
   end
 
   # GET /servicios/new
