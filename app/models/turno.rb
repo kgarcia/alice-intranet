@@ -29,7 +29,7 @@ def tipodia
 
   def arreglo_horario_citas
     if ((self.hora_inicio < self.hora_fin)  and
-        Horario.find(self.horario_id).tipo_horario_id ==2 ) #aca es el calculo de horarios para cita (tiempo promedio) por turno
+        Horario.find(self.horario_id).tipo_horario_id ==1 ) #aca es el calculo de horarios para cita (tiempo promedio) por turno
         @turnos_cita = Array.new 
         @horario = Horario.find(self.horario_id)
           for i in 1..self.numero_pacientes_por_turno do
@@ -37,7 +37,7 @@ def tipodia
             @turnos_cita.push(self.hora_inicio)
 
             else
-              @turnos_cita.push(@turnos_cita.last + (self.hora_inicio + @horario.tiempo_cita*60))
+              @turnos_cita.push(@turnos_cita.last + @horario.tiempo_cita.to_int*60)
               puts @turnos_cita.last 
             end
           end
@@ -45,7 +45,7 @@ def tipodia
       return      @turnos_cita 
 
     else  ((self.hora_inicio < self.hora_fin)  and
-        Horario.find(self.horario_id).tipo_horario_id ==1 ) #aca es el calculo de horarios para cita por cantidad de pacientes por turno
+        Horario.find(self.horario_id).tipo_horario_id ==2 ) #aca es el calculo de horarios para cita por cantidad de pacientes por turno
         @turnos_cita = Array.new 
         @horario = Horario.find(self.horario_id)
         for i in 1..self.cantidad_pacientes do

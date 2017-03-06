@@ -17,9 +17,15 @@ class PaisesController < ApplicationController
   # GET /paises/1
   # GET /paises/1.json
   def show
-   # @parametro = Pais.find(params[:id])
-
+   @parametro = Pais.find(1)
+    puts '##########################################'
+    puts @parametro.to_json
+    puts '##########################################'
    # render "parametros/edit"
+   respond_to do |format|
+      
+      format.json { render json: @parametro.to_json }
+    end
   end
 
   # GET /paises/new
