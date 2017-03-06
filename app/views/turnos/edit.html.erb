@@ -43,7 +43,13 @@
           <div class="col-lg-8"> 
             <%= f.collection_select(@referencia, @dias, :id, :descripcion,{},:class =>"form-control",:disabled=>true)%>             </div>
       </div>
+        <% if @turno.horario.tipo_horario_id== 1%>
+        <div class="field form-group"><label class="col-lg-3 control-label">Cantidad de pacientes</label>
+      <div class="col-lg-8"><%= f.text_field :cantidad_pacientes, :class => "form-control" %></div>
+      </div>
+        <%else%>
 
+      <% end %>
       <div class="form-group">                    
                       <div class="col-lg-offset-3 col-lg-10">
                           <%= f.submit 'Guardar', :class => "btn btn-sm btn-primary " %>

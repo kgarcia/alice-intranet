@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-lg-6 col-lg-offset-3">
     <div class="ibox-content">
-      <%= form_for @eventualidad, :html => {:class => 'form-horizontal'} do |f| %>
-          <% if @eventualidad.errors.any? %>
+      <%= form_for @cita, :html => {:class => 'form-horizontal'} do |f| %>
+          <% if @cita.errors.any? %>
               <div id="error_explanation">
-                <h2><%= pluralize(@eventualidad.errors.count, "error") %> prohibited this parametro from being
+                <h2><%= pluralize(@cita.errors.count, "error") %> prohibited this parametro from being
                   saved:</h2>
 
                 <ul>
-                  <% @eventualidad.errors.full_messages.each do |message| %>
+                  <% @cita.errors.full_messages.each do |message| %>
                       <li><%= message %></li>
                   <% end %>
                 </ul>
@@ -17,7 +17,7 @@
 
           <div class="field form-group">
             <label class="col-lg-2 control-label">Tipo de Eventualidad</label>
-            <div class="col-lg-10"><%= f.collection_select(@referencia_tipo, @collection_tipo, :id, :descripcion, {}, :class => "form-control") %></div>
+            <div class="col-lg-10"><%= f.collection_select(tipo_eventualidad_id:, @collection_tipo, :id, :descripcion, {}, :class => "form-control") %></div>
           </div>
           
           <div class="field form-group">

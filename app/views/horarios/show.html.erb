@@ -47,7 +47,7 @@
           <tbody>
             <%@turnosM.each do |turno| %>
             <tr>
-              <td><%=turno.tipodia.descripcion%><%= turno.numero_pacientes_por_turno%></td>
+              <td><%=turno.tipodia.descripcion%><%= turno.arreglo_horario_citas %></td>
                <td>
                 <%if turno.hora_inicio == turno.hora_fin %>
                   TURNO CERRADO
@@ -89,7 +89,7 @@
               <th>Hora Inicio</th>
               <th>Hora Fin</th> 
               <% if @horario.tipo_horario.id  == 2 %>
-              <th> <%=  @horario.tipo_horario.descripcion%></th> 
+              <th> <%=@horario.tipo_horario.descripcion%></th> 
 
               <% else %>
               <th>Cantidad pacientes</th> 
@@ -102,7 +102,7 @@
           <tbody>
             <% @turnosT.each do |turno| %>
             <tr>
-              <td><%=turno.tipodia.descripcion%></td>
+              <td><%=turno.tipodia.descripcion%><%= turno.arreglo_horario_citas %></td>
               <td>
                 <%if turno.hora_inicio == turno.hora_fin %>
                   TURNO CERRADO

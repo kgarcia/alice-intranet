@@ -32,7 +32,6 @@ default: &default
   username: postgres
   password: root
 
-
 development:
   <<: *default
   database: alice_development

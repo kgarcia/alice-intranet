@@ -85,17 +85,17 @@
 	    yAxis: {
 	        min: 0,
 	        title: {
-	            text: 'Citas'
+	            text: 'Servicios'
 	        }
 	    },
 	    legend: {
 	        enabled: false
 	    },
 	    tooltip: {
-	        pointFormat: 'Citas: <b>{point.y:.1f}</b>'
+	        pointFormat: 'Servicios: <b>{point.y:.1f}</b>'
 	    },
 	    series: [{
-	        name: 'Citas',
+	        name: 'Servicios',
 	        data: [
 	        <% @especialidades.each do |especialidad|%>
 	            ['<%= especialidad[0] %>', <%= especialidad[1] %>],
