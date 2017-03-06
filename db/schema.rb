@@ -99,8 +99,10 @@ ActiveRecord::Schema.define(version: 20170303023749) do
     t.string   "descripcion"
     t.integer  "estatus"
     t.integer  "tipo_cirugia_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "detalle_pefil_comun_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["detalle_pefil_comun_id"], name: "index_cirugias_on_detalle_pefil_comun_id", using: :btree
     t.index ["tipo_cirugia_id"], name: "index_cirugias_on_tipo_cirugia_id", using: :btree
   end
 
@@ -110,14 +112,12 @@ ActiveRecord::Schema.define(version: 20170303023749) do
     t.integer  "usuario_id"
     t.datetime "fecha"
     t.integer  "tipo_pago_id"
-    t.integer  "tipo_cita_id"
     t.integer  "eventualidad_id"
     t.integer  "estatus"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["eventualidad_id"], name: "index_citas_on_eventualidad_id", using: :btree
     t.index ["persona_id"], name: "index_citas_on_persona_id", using: :btree
-    t.index ["tipo_cita_id"], name: "index_citas_on_tipo_cita_id", using: :btree
     t.index ["tipo_pago_id"], name: "index_citas_on_tipo_pago_id", using: :btree
     t.index ["turno_id"], name: "index_citas_on_turno_id", using: :btree
     t.index ["usuario_id"], name: "index_citas_on_usuario_id", using: :btree
@@ -151,10 +151,39 @@ ActiveRecord::Schema.define(version: 20170303023749) do
   end
 
   create_table "detalle_perfil_comuns", force: :cascade do |t|
+    t.integer  "estatus"
     t.integer  "perfil_comuns_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "grupo_sanguineo_id"
+    t.integer  "lesion_id"
+    t.integer  "adiccion_id"
+    t.integer  "rango_edad_id"
+    t.integer  "rango_peso_id"
+    t.integer  "patologia_id"
+    t.integer  "profesion_id"
+    t.integer  "ocupacion_id"
+    t.integer  "cirugia_id"
+    t.integer  "discapacidad_id"
+    t.integer  "vacuna_id"
+    t.integer  "habito_id"
+    t.integer  "sexo_id"
+    t.integer  "estado_civil_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["adiccion_id"], name: "index_detalle_perfil_comuns_on_adiccion_id", using: :btree
+    t.index ["cirugia_id"], name: "index_detalle_perfil_comuns_on_cirugia_id", using: :btree
+    t.index ["discapacidad_id"], name: "index_detalle_perfil_comuns_on_discapacidad_id", using: :btree
+    t.index ["estado_civil_id"], name: "index_detalle_perfil_comuns_on_estado_civil_id", using: :btree
+    t.index ["grupo_sanguineo_id"], name: "index_detalle_perfil_comuns_on_grupo_sanguineo_id", using: :btree
+    t.index ["habito_id"], name: "index_detalle_perfil_comuns_on_habito_id", using: :btree
+    t.index ["lesion_id"], name: "index_detalle_perfil_comuns_on_lesion_id", using: :btree
+    t.index ["ocupacion_id"], name: "index_detalle_perfil_comuns_on_ocupacion_id", using: :btree
+    t.index ["patologia_id"], name: "index_detalle_perfil_comuns_on_patologia_id", using: :btree
     t.index ["perfil_comuns_id"], name: "index_detalle_perfil_comuns_on_perfil_comuns_id", using: :btree
+    t.index ["profesion_id"], name: "index_detalle_perfil_comuns_on_profesion_id", using: :btree
+    t.index ["rango_edad_id"], name: "index_detalle_perfil_comuns_on_rango_edad_id", using: :btree
+    t.index ["rango_peso_id"], name: "index_detalle_perfil_comuns_on_rango_peso_id", using: :btree
+    t.index ["sexo_id"], name: "index_detalle_perfil_comuns_on_sexo_id", using: :btree
+    t.index ["vacuna_id"], name: "index_detalle_perfil_comuns_on_vacuna_id", using: :btree
   end
 
   create_table "dias", force: :cascade do |t|
@@ -214,8 +243,10 @@ ActiveRecord::Schema.define(version: 20170303023749) do
     t.string   "descripcion"
     t.integer  "estatus"
     t.integer  "tipo_especialidad_id"
+    t.integer  "especialista_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.index ["especialista_id"], name: "index_especialidades_on_especialista_id", using: :btree
     t.index ["tipo_especialidad_id"], name: "index_especialidades_on_tipo_especialidad_id", using: :btree
   end
 
@@ -545,8 +576,10 @@ ActiveRecord::Schema.define(version: 20170303023749) do
   create_table "perfil_comuns", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
+    t.integer  "persona_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["persona_id"], name: "index_perfil_comuns_on_persona_id", using: :btree
   end
 
   create_table "persona_profesiones", force: :cascade do |t|
@@ -746,13 +779,6 @@ ActiveRecord::Schema.define(version: 20170303023749) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "tipo_citas", force: :cascade do |t|
-    t.string   "descripcion"
-    t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "tipo_criterios", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -826,8 +852,10 @@ ActiveRecord::Schema.define(version: 20170303023749) do
   create_table "tipo_lesiones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "detalle_pefil_comun_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["detalle_pefil_comun_id"], name: "index_tipo_lesiones_on_detalle_pefil_comun_id", using: :btree
   end
 
   create_table "tipo_motivos", force: :cascade do |t|
@@ -1012,7 +1040,6 @@ ActiveRecord::Schema.define(version: 20170303023749) do
   add_foreign_key "cirugias", "tipo_cirugias"
   add_foreign_key "citas", "eventualidades"
   add_foreign_key "citas", "personas"
-  add_foreign_key "citas", "tipo_citas"
   add_foreign_key "citas", "tipo_pagos"
   add_foreign_key "citas", "turnos"
   add_foreign_key "citas", "usuarios"
@@ -1020,7 +1047,21 @@ ActiveRecord::Schema.define(version: 20170303023749) do
   add_foreign_key "criterio_tipo_servicios", "criterios"
   add_foreign_key "criterio_tipo_servicios", "tipo_servicios"
   add_foreign_key "criterios", "tipo_criterios"
+  add_foreign_key "detalle_perfil_comuns", "adicciones"
+  add_foreign_key "detalle_perfil_comuns", "cirugias"
+  add_foreign_key "detalle_perfil_comuns", "discapacidades"
+  add_foreign_key "detalle_perfil_comuns", "estado_civiles"
+  add_foreign_key "detalle_perfil_comuns", "grupo_sanguineos"
+  add_foreign_key "detalle_perfil_comuns", "habitos"
+  add_foreign_key "detalle_perfil_comuns", "lesiones"
+  add_foreign_key "detalle_perfil_comuns", "ocupaciones"
+  add_foreign_key "detalle_perfil_comuns", "patologias"
   add_foreign_key "detalle_perfil_comuns", "perfil_comuns", column: "perfil_comuns_id"
+  add_foreign_key "detalle_perfil_comuns", "profesiones"
+  add_foreign_key "detalle_perfil_comuns", "rango_edades"
+  add_foreign_key "detalle_perfil_comuns", "rango_pesos"
+  add_foreign_key "detalle_perfil_comuns", "sexos"
+  add_foreign_key "detalle_perfil_comuns", "vacunas"
   add_foreign_key "difusiones", "tipo_difusiones"
   add_foreign_key "difusiones", "tipo_entidades"
   add_foreign_key "discapacidad_personas", "discapacidades"
