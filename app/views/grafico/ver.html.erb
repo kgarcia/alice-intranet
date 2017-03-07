@@ -7,6 +7,7 @@
       </div>
       <div class="ibox-content">
       	  <div class="container col-sm-6">
+      	  	  <p>Desde el: <strong>20/03/2017</strong> al <strong>27/03/2017</strong></p>
 			  <table class="table table-hover">
 			    <tbody>
 			      <tr>
@@ -44,11 +45,11 @@
 				        <td><%= @especialidades.standard_deviation %></td>
 				      </tr>
 				      <tr>
-				        <td><strong>Minimo</strong></td>
+				        <td><strong>Maximo</strong></td>
 				        <td><%= @especialidades.min[0] %>: <%= @especialidades.min[1] %></td>
 				      </tr>
 				      <tr>
-				        <td><strong>Maximo</strong></td>
+				        <td><strong>Minimo</strong></td>
 				        <td><%= @especialidades.max[0] %>: <%= @especialidades.max[1] %></td>
 				      </tr>  
 				      <tr>
@@ -85,17 +86,17 @@
 	    yAxis: {
 	        min: 0,
 	        title: {
-	            text: 'Servicios'
+	            text: 'Citas'
 	        }
 	    },
 	    legend: {
 	        enabled: false
 	    },
 	    tooltip: {
-	        pointFormat: 'Servicios: <b>{point.y:.1f}</b>'
+	        pointFormat: 'Citas: <b>{point.y:.1f}</b>'
 	    },
 	    series: [{
-	        name: 'Servicios',
+	        name: 'Citas',
 	        data: [
 	        <% @especialidades.each do |especialidad|%>
 	            ['<%= especialidad[0] %>', <%= especialidad[1] %>],

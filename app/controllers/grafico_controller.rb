@@ -5,9 +5,9 @@ class GraficoController < ApplicationController
   end
 
   def ver
-  	@especialidades = Especialidad.contarServicios
+  	@especialidades = Especialidad.contarCitas
   	@estadisticas =  @especialidades.descriptive_statistics
-  	@titulo = "Servicios por especialidad"
+  	@titulo = "Citas por especialidad"
 
   end
 end
