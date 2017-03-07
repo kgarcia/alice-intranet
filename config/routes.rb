@@ -1,6 +1,7 @@
 Myapp::Application.routes.draw do
 
-
+  resources :perfiles
+  resources :tipo_especialidades
   resources :rango_pesos
   resources :rango_edades
   resources :difusiones

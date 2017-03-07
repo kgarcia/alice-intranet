@@ -1,9 +1,16 @@
 class Especialidad < ApplicationRecord
-  has_many :especialistas
   has_many :tipo_servicios
+  belongs_to :tipo_especialidad
+
+  has_many :especialidad_especialistas
+  has_many :especialistas, through: :especialidad_especialistas
 
   def self.titulo
 	  return "Especialidades"
+  end
+
+  def tipo
+    return self.tipo_especialidad
   end
 
   def contarEspecialistas
