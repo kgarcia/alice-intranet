@@ -6,7 +6,7 @@ class EspecialidadesController < ApplicationController
   def index
     @parametros = Especialidad.all
     respond_to do |format|
-      format.html {  render "parametros/index" }
+      format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
     end
   end
@@ -15,22 +15,26 @@ class EspecialidadesController < ApplicationController
   # GET /especialidades/1.json
   def show
     @parametro = Especialidad.find(params[:id])
-
-    #render "parametros/edit"
+    @collection = TipoEspecialidad.all
+    @referencia = :tipo_especialidad_id
+    render "parametros_select/edit"
   end
 
   # GET /especialidades/new
   def new
     @parametro = Especialidad.new
+    @collection = TipoEspecialidad.all
+    @referencia = :tipo_especialidad_id
 
-    render "parametros/new"
+    render "parametros_select/new"
   end
 
   # GET /especialidades/1/edit
   def edit
     @parametro = Especialidad.find(params[:id])
-
-    render "parametros/edit"
+    @collection = TipoEspecialidad.all
+    @referencia = :tipo_especialidad_id
+    render "parametros_select/edit"
   end
 
   # POST /especialidades
@@ -81,6 +85,6 @@ class EspecialidadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def especialidad_params
-      params.require(:especialidad).permit(:descripcion, :estatus)
+      params.require(:especialidad).permit(:descripcion, :tipo_especialidad_id, :estatus)
     end
 end
