@@ -3,11 +3,11 @@ class CreateTurnos < ActiveRecord::Migration[5.0]
     create_table :turnos do |t|
       t.time :hora_inicio
       t.time :hora_fin
-      t.integer :estatus
-      t.integer :cantidad_pacientes
+      t.integer :estatus, :null => false, :default => 1
+      t.integer :cantidad_pacientes, :null => true
       t.references :dia, foreign_key: true
       t.references :horario, foreign_key: true
-      t.references :tipo_turno, foreign_key: true
+      t.references :tipo_turno, foreign_key: true, :null => false
       t.timestamps
     end
   end

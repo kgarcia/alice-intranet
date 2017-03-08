@@ -3,10 +3,10 @@ class CreateOpiniones < ActiveRecord::Migration[5.0]
     create_table :opiniones do |t|
       t.string :correo
       t.string :nombre
-      t.string :descripcion
+      t.string :descripcion, :null => false
       t.references :tipo_opinion, foreign_key: true
       t.references :motivo, foreign_key: true
-      t.integer :estatus
+      t.integer :estatus, :null => false, :default => 1
 
       t.timestamps
     end

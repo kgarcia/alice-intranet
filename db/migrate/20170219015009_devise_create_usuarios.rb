@@ -19,6 +19,9 @@ class DeviseCreateUsuarios < ActiveRecord::Migration[5.0]
       t.inet     :current_sign_in_ip
       t.inet     :last_sign_in_ip
 
+      ## Datos propios
+      t.references :persona, foreign_key: true, :null => false
+
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at

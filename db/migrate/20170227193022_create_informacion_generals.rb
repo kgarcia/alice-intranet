@@ -12,6 +12,7 @@ class CreateInformacionGenerals < ActiveRecord::Migration[5.0]
       t.string :logo
       t.float :latitud
       t.float :longitud
+      t.integer :estatus, :null => false, :default => 1
 
       t.timestamps
     end

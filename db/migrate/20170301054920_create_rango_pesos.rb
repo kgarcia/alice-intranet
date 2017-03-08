@@ -4,7 +4,7 @@ class CreateRangoPesos < ActiveRecord::Migration[5.0]
       t.string :descripcion
       t.integer :peso_inicial
       t.integer :peso_final
-      t.integer :estatus
+      t.integer :estatus, :null => false, :default => 1
 
       t.timestamps
     end
