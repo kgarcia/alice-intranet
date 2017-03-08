@@ -8,6 +8,6 @@ class Cita < ApplicationRecord
 
 
   def self.titulo
-		return "Citas"
+		return "Cita"
 	end
 end

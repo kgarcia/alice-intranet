@@ -20,7 +20,7 @@ class Evento < ApplicationRecord
   end
 
   def self.titulo
-    return "Eventos"
+    return "Evento"
   end
 
    private

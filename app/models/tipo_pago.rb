@@ -1,5 +1,5 @@
 class TipoPago < ApplicationRecord
   def self.titulo
-	  return "Tipos de Pago"
+	  return "Tipo de Pago"
   end
 end

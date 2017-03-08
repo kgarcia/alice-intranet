@@ -6,7 +6,7 @@
               </div>
           </div>
 <div class="ibox-content">
-<%= link_to '', new_tipo_servicio_path, :class => "btn btn-primary btn-sm fa fa-plus" %>
+<%= link_to 'Registrar', new_tipo_servicio_path, :class => "btn btn-primary btn-sm" %>
  <br><br> 
 
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
@@ -27,8 +27,8 @@
             <td><%= tipoServicio.especialidad.descripcion %></td>          
             <td><%= link_to tipoServicio.descripcion, polymorphic_url(tipoServicio) %></td>
             <td>
-              <%= link_to '', edit_tipo_servicio_path(tipoServicio), :class => "btn btn-warning btn-sm fa fa-pencil" %>
-              <%= link_to '', tipoServicio, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+              <%= link_to 'Editar', edit_tipo_servicio_path(tipoServicio), :class => "btn btn-warning btn-sm " %>
+              <%= link_to 'Eliminar', tipoServicio, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm " %></td>
           </tr>
       <% end %>
     </tbody>

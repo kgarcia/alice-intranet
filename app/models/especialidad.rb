@@ -3,7 +3,7 @@ class Especialidad < ApplicationRecord
   has_many :tipo_servicios
 
   def self.titulo
-	  return "Especialidades"
+	  return "Especialidad"
   end
 
   def contarEspecialistas

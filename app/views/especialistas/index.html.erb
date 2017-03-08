@@ -1,16 +1,19 @@
 <%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
-
+<div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Especialistas" %></h2>
+              </div>
+          </div>
 <div class="ibox-content">
-<%= link_to 'Especialista', new_especialista_path, :class => "btn btn-primary btn-sm fa fa-plus" %>
+<%= link_to 'Registrar', new_especialista_path, :class => "btn btn-primary btn-sm " %>
  <br><br> 
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
       <tr>
         <th data-sorted="true">Especialidad</th>
-        <th>Apellidos</th>        
-        <th>Nombres</th>
-        <th>Descripcion</th>
+        <th>Nombres</th>        
+        <th>Apellidos</th>
         <th colspan="1"></th>
       </tr>
     </thead>
@@ -21,8 +24,8 @@
             <td><%= link_to especialista.persona.nombre, edit_especialista_path(especialista) %></td>          
             <td><%= link_to especialista.persona.apellido, edit_especialista_path(especialista) %></td>
             <td>
-              <%= link_to '', edit_especialista_path(especialista), :class => "btn btn-warning btn-sm fa fa-pencil" %>
-              <%= link_to '', especialista, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+              <%= link_to 'Editar', edit_especialista_path(especialista), :class => "btn btn-warning btn-sm " %>
+              <%= link_to 'Eliminar', especialista, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
           </tr>
       <% end %>
     </tbody>

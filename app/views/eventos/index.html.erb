@@ -6,13 +6,13 @@
   </div>
 </div>
 <div class="ibox-content">
-  <%= link_to "", new_polymorphic_url(@eventos.new), :class => "btn btn-primary btn-sm fa fa-plus", :title => "Nuevo"%>
+  <%= link_to "Registrar", new_polymorphic_url(@eventos.new), :class => "btn btn-primary btn-sm "%>
   <br><br>
   <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
     <tr>
       <th data-breakpoints="xs" data-sorted="true">Tipo</th>
-      <th>Descripcion</th>
+      <th>Descripción</th>
       <th colspan="1"></th>
     </tr>
     </thead>
@@ -22,8 +22,8 @@
           <td><%= evento.tipo_evento.descripcion %></td>
           <td><%= link_to evento.descripcion, polymorphic_url(evento) %></td>
           <td>
-            <%= link_to '', edit_evento_path(evento), :class => "btn btn-warning btn-sm fa fa-pencil" %>
-            <%= link_to '', Evento, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+            <%= link_to 'Editar', edit_evento_path(evento), :class => "btn btn-warning btn-sm" %>
+            <%= link_to 'Eliminar', Evento, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
         </tr>
     <% end %>
     </tbody>

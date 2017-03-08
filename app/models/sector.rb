@@ -1,5 +1,5 @@
 class Sector < ApplicationRecord
   def self.titulo
-	  return "Sectores"
+	  return "Sector"
   end
 end

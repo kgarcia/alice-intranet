@@ -5,12 +5,12 @@
 <table>
   <thead>
     <tr>
-      <th>Descripcion</th>
+      <th>Descripción</th>
       <th>Estatus</th>
-      <th>Tipo busqueda</th>
+      <th>Tipo Búsqueda</th>
       <th>Especialidad</th>
       <th>Especialista</th>
-      <th>Tipo servicio</th>
+      <th>Tipo Servicio</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,9 +24,8 @@
         <td><%= busqueda.especialidad %></td>
         <td><%= busqueda.especialista %></td>
         <td><%= busqueda.tipo_servicio %></td>
-        <td><%= link_to 'Show', busqueda %></td>
-        <td><%= link_to 'Edit', edit_busqueda_path(busqueda) %></td>
-        <td><%= link_to 'Destroy', busqueda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_busqueda_path(busqueda),:class => "btn btn-warning btn-sm" %></td>
+        <td><%= link_to 'Eliminar', busqueda, method: :delete, data: { confirm: '¿Estás seguro?',:class => "btn btn-danger btn-sm" } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Busqueda', new_busqueda_path %>
+<%= link_to 'Registrar', new_busqueda_path,:class => "btn btn-primary btn-sm  %>

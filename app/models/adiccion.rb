@@ -18,7 +18,7 @@ class Adiccion < ApplicationRecord
 	@page_graph.put_connections(page_id, 'feed', :message => message, :picture => picture_url, :link => link_url)
   end
   def self.titulo
-		return "Adicciones"
+		return "Adicción"
 	end
 
 end

@@ -3,7 +3,7 @@ class TipoAtencion < ApplicationRecord
 	has_many :tipo_servicio
 	
   def self.titulo
-	  return "Tipos de Atencion"
+	  return "Tipo de Atención"
   end 
 
 end

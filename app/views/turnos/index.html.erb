@@ -8,7 +8,7 @@
               </div>
           </div>
 <div class="ibox-content">
-<%= link_to link_to 'Turno', new_turno_path , :class => "btn btn-primary btn-sm fa fa-plus" %>
+<%= link_to link_to 'Registar', new_turno_path , :class => "btn btn-primary btn-sm" %>
  <br><br> 
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
@@ -29,8 +29,8 @@
 
         <td><%= turno.horario.id %></td>
             <td>
-             <%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
-             <%= link_to '', turno, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+             <%= link_to 'Editar', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm " %>
+             <%= link_to 'Eliminar', turno, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm " %></td>
           </tr>
       <% end %>
     </tbody>
