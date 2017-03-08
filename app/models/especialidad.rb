@@ -1,9 +1,16 @@
 class Especialidad < ApplicationRecord
-  has_many :especialistas
   has_many :tipo_servicios
+  belongs_to :tipo_especialidad
+
+  has_many :especialidad_especialistas
+  has_many :especialistas, through: :especialidad_especialistas
 
   def self.titulo
 	  return "Especialidades"
+  end
+
+  def tipo
+    return self.tipo_especialidad
   end
 
   def contarEspecialistas
@@ -19,12 +26,16 @@ class Especialidad < ApplicationRecord
 
   def self.contarServicios
   	@servicios = Especialidad.joins(tipo_servicios: :servicios).group("especialidades.descripcion").count
-  	puts @servicios.inspect
   	return @servicios
   end
 
   def contarCitas
   	@citas = Cita.joins(turno: { horario: {servicio: {tipo_servicio: :especialidad } } }).where( tipo_servicios: { especialidad: self })
   	return @citas.count
+  end
+
+  def self.contarCitas
+    @citas = Especialidad.joins(tipo_servicios: { servicios: { horario: { turnos: :citas } } } ).group("especialidades.descripcion").count
+    return @citas
   end
 end

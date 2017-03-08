@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  estado_civil: one
-  tipo_servicio: one
-
-two:
-  estado_civil: two
-  tipo_servicio: two
