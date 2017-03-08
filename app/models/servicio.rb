@@ -6,6 +6,7 @@ class Servicio < ApplicationRecord
   has_one :horario
   has_many :servicio_evento
   has_many :eventos, through: :servicio_evento
+  has_many :usuarios
 
 
   has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
@@ -25,14 +26,9 @@ def save_horario_turnos
        for i in 1..7
           Turno.create(horario_id: @horarioNuevo.id,cantidad_pacientes: 0,hora_inicio: "08:00:00" , hora_fin: "08:00:00",estatus: 1,dia_id: i, tipo_turno_id: 1)
           Turno.create(horario_id: @horarioNuevo.id,cantidad_pacientes: 0,hora_inicio: "13:00:00" , hora_fin: "13:00:00",estatus: 1,dia_id: i, tipo_turno_id: 2)
-       
+
        end
-   
 end
-
-  
-
-
 
 end
 

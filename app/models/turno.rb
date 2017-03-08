@@ -15,12 +15,12 @@ def tipodia
   def tipo_turno
   	return self.tipo_turno
   end
+
   def self.titulo
 	  return "Turnos"
   end
 
    def numero_pacientes_por_turno
-    
     @horario = Horario.find(self.horario_id)
     if @horario.tiempo_cita !=0
     return self.cantidad_horas/@horario.tiempo_cita

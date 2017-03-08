@@ -22,6 +22,7 @@
 //= require moment
 //= require moment/es
 //= require fullcalendar
+//= require fullcalendar/lang/es
 //= require bootstrap-datetimepicker
 
 //= require tinymce

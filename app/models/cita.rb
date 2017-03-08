@@ -9,5 +9,6 @@ class Cita < ApplicationRecord
 
   def self.titulo
 		return "Citas"
-	end
+  end
+
 end

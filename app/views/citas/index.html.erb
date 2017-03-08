@@ -2,11 +2,10 @@
 <p id="notice"><%= notice %></p>
 <div class="ibox float-e-margins">
   <div class="ibox-title">
-    <h2 class="parametros-titulo"><%= @citas.new.class.titulo %></h2>
+    <h2 class="parametros-titulo"><%= @lista.new.class.titulo %></h2>
   </div>
 </div>
 <div class="ibox-content">
-  <%= link_to "", new_polymorphic_url(@citas.new), :class => "btn btn-primary btn-sm fa fa-plus", :title => "Nuevo"%>
   <br><br>
   <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
@@ -27,8 +26,8 @@
           <td><%= cita.turno.horario.servicio.especialista.persona.nombre %> <%= cita.turno.horario.servicio.especialista.persona.apellido %></td>
           <td><%= cita.persona.nombre %> <%= cita.persona.apellido%></td>
           <td>
-            <%= link_to '', edit_cita_path(cita), :class => "btn btn-warning btn-sm fa fa-pencil" %>
-            <%= link_to '', Cita, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+            <%= link_to 'Detalle', edit_cita_path(cita), :class => "btn btn-warning btn-sm" %>
+            <%= link_to 'Cancelar','cancelar_cita/'+cita.id.to_s , :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
         </tr>
     <% end %>
     </tbody>

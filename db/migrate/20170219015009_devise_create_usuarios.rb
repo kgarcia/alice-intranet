@@ -1,6 +1,8 @@
 class DeviseCreateUsuarios < ActiveRecord::Migration[5.0]
   def change
     create_table :usuarios do |t|
+      t.references :servicio, foreign_key: true
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

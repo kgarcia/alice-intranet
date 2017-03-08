@@ -15,9 +15,11 @@ Myapp::Application.routes.draw do
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
-  get 'cancelar_cita', to: 'citas#cancelar'
+  get 'historial_cita', to: 'citas#historial'
 
+  get 'cancelar_cita', to: 'citas#cancelar'
   get 'cancelar_cita/:id', to: 'citas#cancelarCita'
+  post 'cancelar_cita', to: 'citas#confirmarCancelacion'
 
   get 'chequear_cita', to: 'citas#chequear'
   get 'chequear_cita/:id', to: 'citas#chequearCita'
@@ -37,7 +39,7 @@ Myapp::Application.routes.draw do
   resources :tipo_preguntas
   resources :tipo_noticias
 
-  get 'agenda_servicio/:id/detalle', to: 'agenda_servicio#detalle'
+  get 'agenda_servicio/:id/detalle', to: 'agenda_servicio#detalle', as: :agenda_servicio_detalle
 
   resources :notificaciones
   resources :tipo_notificaciones

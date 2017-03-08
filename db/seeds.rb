@@ -92,11 +92,11 @@
 	Pregunta.find_or_create_by(descripcion: 'Como ha sido la atencion?',estatus: 1)
 	Pregunta.find_or_create_by(descripcion: 'Califique el tiempo de espera',estatus: 1)
 	TipoPatologia.find_or_create_by(descripcion: 'Tumores',estatus: 1)
-	TipoPatologia.find_or_create_by(descripcion: 'Quirurgica',estatus: 1) 
+	TipoPatologia.find_or_create_by(descripcion: 'Quirurgica',estatus: 1)
 	TipoPatologia.find_or_create_by(descripcion: 'Molecular',estatus: 1)
 	TipoPatologia.find_or_create_by(descripcion: 'Dermatologica',estatus: 1)
 	TipoPatologia.find_or_create_by(descripcion: 'Histopatologia',estatus: 1)
-	TipoAdiccion.find_or_create_by(descripcion: 'Salud',estatus: 1) 
+	TipoAdiccion.find_or_create_by(descripcion: 'Salud',estatus: 1)
 	Adiccion.find_or_create_by(descripcion: 'Fumar',estatus: 1, tipo_adiccion: TipoAdiccion.find(1))
 	Adiccion.find_or_create_by(descripcion: 'Comer en Exceso',estatus: 1, tipo_adiccion: TipoAdiccion.find(1))
 	Adiccion.find_or_create_by(descripcion: 'Alcohol',estatus: 1, tipo_adiccion: TipoAdiccion.find(1))
@@ -258,7 +258,7 @@
               OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Ubicaciónes',                   :url_path => '/ubicaciones', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
               OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Especialidades',                   :url_path => '/especialidades', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
               OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Tipos de Atención',                   :url_path => '/tipo_atenciones', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-              OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Rangos de Edad',                   :url_path => '/rango_edades', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')              
+              OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Rangos de Edad',                   :url_path => '/rango_edades', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
               OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Categorias',                   :url_path => '/categorias', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
               OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Tipos de Servicio',                   :url_path => '/tipo_servicios', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
               OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Tipos de Evento',                   :url_path => '/tipo_eventos', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
@@ -304,7 +304,7 @@
         OptionMenu.find_or_create_by(:id_padre => 51,   :nombre => 'Servicios',             :url_path => '/servicios', :icono => 'fa-flask',            :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 51,   :nombre => 'Especialistas',         :url_path => '/especialistas', :icono => 'fa-user-md',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
       OptionMenu.find_or_create_by(:id_padre => 50,   :nombre => 'Catalogo de Eventos',     :url_path => '/eventos', :icono => 'fa-table',            :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-     
+
     OptionMenu.find_or_create_by(:id_padre => nil,   :nombre => 'Agenda',                  :url_path => '#', :icono => 'fa-calendar',         :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
       OptionMenu.find_or_create_by(:id_padre => 55,  :nombre => 'Ver Mi Horario',               :url_path => '/horarios/1', :icono => 'fa-search',           :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
       OptionMenu.find_or_create_by(:id_padre => 55,  :nombre => 'Horarios',                :url_path => '/horarios', :icono => 'fa-clock-o',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
@@ -313,26 +313,26 @@
 
   	OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Citas',                     :url_path => '#', :icono => 'fa-stethoscope',      :controlador => '', :accion => '', num_hijos: 4, :estatus => 'A')
     	OptionMenu.find_or_create_by(:id_padre => 59,   :nombre => 'Generar',              :url_path => '/citas/new', :icono => 'fa-plus',           :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-        OptionMenu.find_or_create_by(:id_padre => 59,   :nombre => 'Cancelar',              :url_path => '/cancelar_cita', :icono => 'fa-search',           :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')    	
+        OptionMenu.find_or_create_by(:id_padre => 59,   :nombre => 'Cancelar',              :url_path => '/cancelar_cita', :icono => 'fa-search',           :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
     	OptionMenu.find_or_create_by(:id_padre => 59,   :nombre => 'Historial',              :url_path => '/citas', :icono => 'fa-history',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-        OptionMenu.find_or_create_by(:id_padre => 59,   :nombre => 'Eventualidades',         :url_path => '/eventualidades', :icono => 'fa-exclamation-circle',           :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')  	
+        OptionMenu.find_or_create_by(:id_padre => 59,   :nombre => 'Eventualidades',         :url_path => '/eventualidades', :icono => 'fa-exclamation-circle',           :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
     OptionMenu.find_or_create_by(:id_padre => nil,   :nombre => 'Servicio Medico',    :url_path => '#', :icono => 'fa-hospital-o', :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 64,   :nombre => 'Atender Cita',    :url_path => '/chequear_cita', :icono => 'fa-id-card-o', :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
     	OptionMenu.find_or_create_by(:id_padre => 64,   :nombre => 'Evaluar Cita',    :url_path => '/finalizar_cita', :icono => 'fa-star-half-full', :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 64, :nombre => 'Consultar Pacientes',               :url_path => '#', :icono => 'fa-heartbeat',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-   
+
 
     OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Reportes',                  :url_path => '#', :icono => 'fa-bar-chart',        :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
       OptionMenu.find_or_create_by(:id_padre => 68, :nombre => 'Estructurados',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-      OptionMenu.find_or_create_by(:id_padre => 68, :nombre => 'No Estructurados',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')  
-      OptionMenu.find_or_create_by(:id_padre => 68, :nombre => 'Estadisticos',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 4, :estatus => 'A')  
+      OptionMenu.find_or_create_by(:id_padre => 68, :nombre => 'No Estructurados',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+      OptionMenu.find_or_create_by(:id_padre => 68, :nombre => 'Estadisticos',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 4, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 71,  :nombre => 'Citas por Especialidad', :url_path => '/grafico/ver', :icono => 'fa-file-text-o',      :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 71,  :nombre => 'Citas Concretadas',         :url_path => '#', :icono => 'fa-pie-chart',      :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 71,  :nombre => 'Efectos de Difusion',       :url_path => '#', :icono => 'fa-file-text-o',      :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 71,  :nombre => 'Eventualidades',            :url_path => '#', :icono => 'fa-file-text-o',      :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
-	OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Difusion y Escucha al Cliente',              :url_path => '#', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')    
+	OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Difusion y Escucha al Cliente',              :url_path => '#', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
 		OptionMenu.find_or_create_by(:id_padre => 76, :nombre => 'Difusion de Servicios',              :url_path => '/difusiones', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 		OptionMenu.find_or_create_by(:id_padre => 76, :nombre => 'Difusion de Eventos',              :url_path => '/difusiones', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 		OptionMenu.find_or_create_by(:id_padre => 76, :nombre => 'Opiniones',              :url_path => '/opiniones', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
@@ -353,16 +353,16 @@
     # Cargar la tabla auxiliar entre opcion de menu y usuario con todas las opciones para el usuario dueño
     $i = 1
     begin
-    	
+
         if $i > OptionMenu.count
            $i = -1
            puts 'if'
         else
-        	
-        	OptionRol.find_or_create_by(:option_menu => OptionMenu.find($i), :rol => Rol.find(1))        	
+
+        	OptionRol.find_or_create_by(:option_menu => OptionMenu.find($i), :rol => Rol.find(1))
         	$i = $i+1
         end
-        
+
     end while $i != -1
     TipoCriterio.find_or_create_by(:descripcion => 'Atencion al cliente')
     TipoCriterio.find_or_create_by(:descripcion => 'Higiene y Seguridad')
@@ -433,7 +433,7 @@
     Profesion.find_or_create_by(:descripcion => 'Medico', :estatus => 1)
     GrupoSanguineo.find_or_create_by(:descripcion => 'A', :estatus => 1)
     GrupoSanguineo.find_or_create_by(:descripcion => 'B', :estatus => 1)
-    GrupoSanguineo.find_or_create_by(:descripcion => 'AB', :estatus => 1)  
+    GrupoSanguineo.find_or_create_by(:descripcion => 'AB', :estatus => 1)
     GrupoSanguineo.find_or_create_by(:descripcion => 'O', :estatus => 1)
     Patologia.find_or_create_by(:descripcion => 'Hemofilia', :estatus => 1, :tipo_patologia => TipoPatologia.find(3))
     Patologia.find_or_create_by(:descripcion => 'Enfermedad granulomatosa cronica', :estatus => 1, :tipo_patologia => TipoPatologia.find(3))
@@ -463,8 +463,8 @@
     Motivo.find_or_create_by(:descripcion => 'Graduacion de un familiar', :estatus => 1, :tipo_motivo => TipoMotivo.find(3))
     Motivo.find_or_create_by(:descripcion => 'Gripe', :estatus => 1, :tipo_motivo => TipoMotivo.find(3))
     Motivo.find_or_create_by(:descripcion => 'Fumigacion', :estatus => 1, :tipo_motivo => TipoMotivo.find(1))
-    Eventualidad.find_or_create_by(:descripcion => 'Cierre de la clinica', :estatus => 1, :tipo_eventualidad_id => TipoEventualidad.find(1), :motivo_id => Motivo.find(3))
-    Eventualidad.find_or_create_by(:descripcion => 'Cancelacion de cita', :estatus => 1, :tipo_eventualidad_id => TipoEventualidad.find(3), :motivo_id => Motivo.find(2))
+   # Eventualidad.find_or_create_by(:descripcion => 'Cierre de la clinica', :estatus => 1, :tipo_eventualidad_id => TipoEventualidad.find(1), :motivo_id => Motivo.find(3))
+   # Eventualidad.find_or_create_by(:descripcion => 'Cancelacion de cita', :estatus => 1, :tipo_eventualidad_id => TipoEventualidad.find(3), :motivo_id => Motivo.find(2))
     TipoPago.find_or_create_by(:descripcion => 'Efectivo', :estatus => 1)
     TipoPago.find_or_create_by(:descripcion => 'Debito', :estatus => 1)
     TipoPago.find_or_create_by(:descripcion => 'Credito', :estatus => 1)
@@ -488,10 +488,3 @@
     NivelFormacion.find_or_create_by(:descripcion => 'Doctorado', :estatus => 1)
     FormacionAcademica.find_or_create_by(:descripcion => 'Maestria mencion salud mental publica', :estatus => 1, :nivel_formacion_id => NivelFormacion.find(2))
     FormacionAcademica.find_or_create_by(:descripcion => 'Doctorado mencion Epidemiologia Clinica', :estatus => 1, :nivel_formacion_id => NivelFormacion.find(2))
-    TipoTurno.find_or_create_by(:descripcion => "Mañana")
-    TipoTurno.find_or_create_by(:descripcion => "Tarde")
-    TipoDifusion.find_or_create_by(:descripcion => "General")
-    TipoDifusion.find_or_create_by(:descripcion => "Segmentada")
-    TipoEntidad.find_or_create_by(:descripcion => "Servicio")
-    TipoEntidad.find_or_create_by(:descripcion => "Evento")
-    TipoCita.find_or_create_by(:descripcion => "General")

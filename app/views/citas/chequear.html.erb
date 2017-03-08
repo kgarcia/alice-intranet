@@ -24,7 +24,7 @@
           <td><%= cita.turno.horario.servicio.especialista.persona.nombre %> <%= cita.turno.horario.servicio.especialista.persona.apellido %></td>
           <td><%= cita.persona.nombre %> <%= cita.persona.apellido%></td>
           <td>
-            <%= link_to '', 'chequear_cita/'+cita.id.to_s, :class => "btn btn-primary btn-sm fa fa-check" %>
+            <%= link_to 'Confirmar', 'chequear_cita/'+cita.id.to_s, :class => "btn btn-primary btn-sm " %>
         </tr>
     <% end %>
     </tbody>
