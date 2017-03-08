@@ -4,11 +4,8 @@ class EvaluacionesController < ApplicationController
   # GET /evaluaciones
   # GET /evaluaciones.json
   def index
-    @parametros = Evaluacion.all
-    respond_to do |format|
-      format.html {  render "parametros_select/index" }
-      format.json { render json: @parametros }
-    end
+    @parametros = Cita.where({:persona_id => 1 , :estatus => 4}) #current_usuario.persona_id
+    
   end
 
   # GET /evaluaciones/1
@@ -18,10 +15,31 @@ class EvaluacionesController < ApplicationController
 
   # GET /evaluaciones/new
   def new
-    @parametro = Evaluacion.new
-    @collection = TipoEvaluacion.all
-    @referencia = :tipo_evaluacion_id
-    render "parametros_select/new"
+    
+  end
+
+  def evaluarCita
+    @cita = Cita.find(params[:id])
+    puts @cita.turno.horario.servicio.tipo_servicio.criterio_ids.inspect
+    @criterios = Criterio.find(@cita.turno.horario.servicio.tipo_servicio.criterio_ids)
+    #puts @criterios.inspect
+    @evaluacion = Evaluacion.new
+    @evaluacion.descripcion = "Descripcion de la evaluacion"
+    #@calificaciones = []
+    if @evaluacion.new_record?
+      @criterios.each do |criterio|
+        @calificacion = Calificacion.new      
+        @calificacion.evaluacion_id = @evaluacion.id
+        @calificacion.criterio_id = criterio.id
+        @calificacion.estatus = 1    
+        
+        @evaluacion.calificaciones.push(@calificacion)        
+      end      
+    end
+    #@evaluacion.calificaciones.build 
+    @cita.estatus = 1
+    @cita.save
+    render "new"
   end
 
   # GET /evaluaciones/1/edit
@@ -51,6 +69,7 @@ class EvaluacionesController < ApplicationController
   # PATCH/PUT /evaluaciones/1
   # PATCH/PUT /evaluaciones/1.json
   def update
+    @evaluacion.estatus = 1
     respond_to do |format|
       if @evaluacion.update(evaluacion_params)
         format.html { redirect_to edit_evaluacion_path(@evaluacion), notice: 'Evaluacion was successfully updated.' }

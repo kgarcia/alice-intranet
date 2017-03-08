@@ -27,6 +27,7 @@ Myapp::Application.routes.draw do
   get 'finalizar_cita/:id', to: 'citas#finalizarCita'
   post 'finalizar_cita', to: 'citas#guardarFinalizarCita'
 
+  get 'evaluaciones/new/:id', to: 'evaluaciones#evaluarCita'
   resources :tipo_turnos
 
 

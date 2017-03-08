@@ -6,11 +6,10 @@
           </div>
       </div>
       <div class="ibox-content">
-         <%= form_for @evaluacion,:html => {:class => 'form-horizontal'} do |f| %>
+         <%= form_for @evaluacion, :html => {:class => 'form-horizontal'} do |f| %>
               <% if @evaluacion.errors.any? %>
                 <div id="error_explanation">
                   <h2><%= pluralize(@evaluacion.errors.count, "error") %> prohibited this evaluacion from being saved:</h2>
-
                   <ul>
                   <% @evaluacion.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
@@ -21,7 +20,6 @@
               Calificaciones:
               <ul>
                 <%= f.fields_for :calificaciones do |calificaciones_form| %>
-
                   <li>
                     <%= calificaciones_form.label "hola" %>
                     <%= calificaciones_form.hidden_field :id %>
@@ -29,7 +27,6 @@
                     Calificacion:
                     <%= calificaciones_form.text_field :descripcion %>                    
                   </li>
-
                 <% end %>
               </ul>
               

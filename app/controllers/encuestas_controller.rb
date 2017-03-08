@@ -30,8 +30,7 @@ class EncuestasController < ApplicationController
         #@calificacion.save
         #setear los atributos de relacion a la calificacion
         #@calificaciones.push(@calificacion)
-        @evaluacion.calificaciones << @calificacion
-        
+        @evaluacion.calificaciones << @calificacion        
       end
       @evaluacion.calificaciones.build 
     end
@@ -47,8 +46,6 @@ class EncuestasController < ApplicationController
   # POST /encuestas
   # POST /encuestas.json
   def create
-    #@person = Person.new(person_params)
-    #@evaluacion.update(evaluacion_params)
     @calificaciones = params[:calificaciones]
     puts @calificaciones
   end
