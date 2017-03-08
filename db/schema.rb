@@ -99,10 +99,8 @@ ActiveRecord::Schema.define(version: 20170308042707) do
     t.string   "descripcion"
     t.integer  "estatus"
     t.integer  "tipo_cirugia_id"
-    t.integer  "detalle_pefil_comun_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.index ["detalle_pefil_comun_id"], name: "index_cirugias_on_detalle_pefil_comun_id", using: :btree
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["tipo_cirugia_id"], name: "index_cirugias_on_tipo_cirugia_id", using: :btree
   end
 
@@ -112,6 +110,7 @@ ActiveRecord::Schema.define(version: 20170308042707) do
     t.integer  "usuario_id"
     t.datetime "fecha"
     t.integer  "tipo_pago_id"
+    t.integer  "tipo_cita_id"
     t.integer  "eventualidad_id"
     t.integer  "estatus"
     t.datetime "created_at",      null: false
@@ -119,6 +118,7 @@ ActiveRecord::Schema.define(version: 20170308042707) do
     t.text     "diagnostico"
     t.index ["eventualidad_id"], name: "index_citas_on_eventualidad_id", using: :btree
     t.index ["persona_id"], name: "index_citas_on_persona_id", using: :btree
+    t.index ["tipo_cita_id"], name: "index_citas_on_tipo_cita_id", using: :btree
     t.index ["tipo_pago_id"], name: "index_citas_on_tipo_pago_id", using: :btree
     t.index ["turno_id"], name: "index_citas_on_turno_id", using: :btree
     t.index ["usuario_id"], name: "index_citas_on_usuario_id", using: :btree
@@ -261,12 +261,8 @@ ActiveRecord::Schema.define(version: 20170308042707) do
   create_table "especialidades", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
-    t.integer  "tipo_especialidad_id"
-    t.integer  "especialista_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.index ["especialista_id"], name: "index_especialidades_on_especialista_id", using: :btree
-    t.index ["tipo_especialidad_id"], name: "index_especialidades_on_tipo_especialidad_id", using: :btree
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "especialistas", force: :cascade do |t|
@@ -830,6 +826,13 @@ ActiveRecord::Schema.define(version: 20170308042707) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tipo_citas", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "tipo_criterios", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
@@ -903,10 +906,8 @@ ActiveRecord::Schema.define(version: 20170308042707) do
   create_table "tipo_lesiones", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus"
-    t.integer  "detalle_pefil_comun_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.index ["detalle_pefil_comun_id"], name: "index_tipo_lesiones_on_detalle_pefil_comun_id", using: :btree
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "tipo_motivos", force: :cascade do |t|
@@ -1082,6 +1083,7 @@ ActiveRecord::Schema.define(version: 20170308042707) do
   add_foreign_key "cirugias", "tipo_cirugias"
   add_foreign_key "citas", "eventualidades"
   add_foreign_key "citas", "personas"
+  add_foreign_key "citas", "tipo_citas"
   add_foreign_key "citas", "tipo_pagos"
   add_foreign_key "citas", "turnos"
   add_foreign_key "citas", "usuarios"

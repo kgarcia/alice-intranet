@@ -8,7 +8,7 @@ class Turno < ApplicationRecord
     @citas = Cita.joins(:turno).group(:tipo_turno_id,:dia_id).count
   end
   
-def tipodia
+  def dia
   	return self.dia
   end
 

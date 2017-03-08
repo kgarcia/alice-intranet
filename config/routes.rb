@@ -33,6 +33,7 @@ Myapp::Application.routes.draw do
   get 'finalizar_cita/:id', to: 'citas#finalizarCita'
   post 'finalizar_cita', to: 'citas#guardarFinalizarCita'
 
+  get 'evaluaciones/new/:id', to: 'evaluaciones#evaluarCita'
   resources :tipo_turnos
 
 
@@ -172,4 +173,7 @@ root to: 'home#index'
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  resources :preguntas
+  resources :encuestas
 end
