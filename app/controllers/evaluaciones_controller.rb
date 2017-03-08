@@ -4,7 +4,7 @@ class EvaluacionesController < ApplicationController
   # GET /evaluaciones
   # GET /evaluaciones.json
   def index
-    @parametros = Cita.where({:persona_id => 1 , :estatus => 4}) #current_usuario.persona_id
+    @parametros = Cita.where({:persona_id => current_usuario.persona_id , :estatus => 4}) #current_usuario.persona_id
     
   end
 
@@ -20,7 +20,6 @@ class EvaluacionesController < ApplicationController
 
   def evaluarCita
     @cita = Cita.find(params[:id])
-    puts @cita.turno.horario.servicio.tipo_servicio.criterio_ids.inspect
     @criterios = Criterio.find(@cita.turno.horario.servicio.tipo_servicio.criterio_ids)
     #puts @criterios.inspect
     @evaluacion = Evaluacion.new
