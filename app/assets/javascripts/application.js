@@ -21,6 +21,16 @@
 //= require datapicker/bootstrap-datepicker.js
 //= require moment
 //= require moment/es
+//= require fullcalendar
 //= require bootstrap-datetimepicker
 
 //= require tinymce
+
+//= require dataTables/jquery.dataTables
+
+//= require highcharts
+//= require highcharts/modules/exporting
+
+$.extend(true, $.fn.dataTable.defaults, {
+    "language": {"url": "/js/datatables/Spanish.json"}
+});

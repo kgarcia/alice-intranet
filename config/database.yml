@@ -29,9 +29,8 @@ default: &default
   encoding: unicode
   host: localhost
   pool: 5
-  username: user
-  password: 1234
-
+  username: postgres
+  password: root
 
 development:
   <<: *default
@@ -45,4 +44,4 @@ production:
   <<: *default
   database: alice_production
  
- 
+

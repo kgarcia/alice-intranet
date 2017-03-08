@@ -1,0 +1,31 @@
+<%= form_for(rol) do |f| %>
+  <% if rol.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rol.errors.count, "error") %> prohibited this rol from being saved:</h2>
+
+      <ul>
+      <% rol.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+<%= f.label :Opciones_Disponibles %>
+  <div class="form-group">
+    <% @options.each do |opcion| %>
+    <div class="col-md-3">
+      <%= check_box_tag "option_menus[]",  opcion.id %> <%= opcion.nombre %>
+    </div>
+    <% end %>
+  </div>
+
+
+  <div class="form-group actions">
+    <%= f.submit %>
+  </div>
+<% end %>

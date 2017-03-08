@@ -20,30 +20,29 @@
                     </div>
                   <% end %>
                  
+                 <div class="form-group"><label class="col-lg-2 control-label">Ciudad</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select :ciudad_id, Ciudad.all, :id, :descripcion, {prompt: "Seleccione"}, {class: "form-control"} %>
+                     </div>
+                  </div>
+                  
+                  <div class="form-group"><label class="col-lg-2 control-label">Sector</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select :sector_id, Sector.all, :id, :descripcion, {prompt: "Seleccione", :selected => @parametro.sector_id}, {class: "form-control"} %>
+                     </div>
+                  </div>
+                  
+                  <div class="form-group"><label class="col-lg-2 control-label">Tipo de ubicación</label>
+                    <div class="col-lg-10">                        
+                      <%= f.collection_select :tipo_ubicacion_id, TipoUbicacion.all, :id, :descripcion, {prompt: "Seleccione"}, {class: "form-control"} %>
+                     </div>
+                  </div>                    
+
                   <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
                       <div class="col-lg-10"><%= f.text_field :descripcion , :class => "form-control"%> 
                       </div>
                   </div>
-                  <div class="form-group"><label class="col-lg-2 control-label">Sector</label>
-                      <div class="col-lg-10">
-                        <%= f.collection_select :sector_id, Sector.all, :id, :descripcion, {prompt: "Seleccione", :selected => @parametro.sector_id}, {class: "form-control"} %>
-                       </div>
-                    </div>
-                    <div class="form-group"><label class="col-lg-2 control-label">Ciudad</label>
-                      <div class="col-lg-10">
-                        <%= f.collection_select :ciudad_id, Ciudad.all, :id, :descripcion, {prompt: "Seleccione"}, {class: "form-control"} %>
-                       </div>
-                    </div>
-                    <div class="form-group"><label class="col-lg-2 control-label">Tipo de ubicación</label>
-                      <div class="col-lg-10">                        
-                        <%= f.collection_select :tipo_ubicacion_id, TipoUbicacion.all, :id, :descripcion, {prompt: "Seleccione"}, {class: "form-control"} %>
-                       </div>
-                    </div>
-                   <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
-                      <div class="col-lg-10">
-                      <%= f.text_field :estatus, :class => "form-control" %>
-                      </div>
-                  </div>
+                  
                   <div class="form-group">
                       <div class="col-lg-offset-2 col-lg-2">
                           <%= f.submit 'Guardar', :class => "btn btn-sm btn-primary" %>

@@ -5,8 +5,11 @@ class TipoHorariosController < ApplicationController
   # GET /tipo_horarios.json
   def index
     @parametros = TipoHorario.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_horarios/1
@@ -14,7 +17,7 @@ class TipoHorariosController < ApplicationController
   def show
     @parametro = TipoHorario.find(params[:id])
 
-    render "parametros/show"
+    render "parametros/edit"
   end
 
   # GET /tipo_horarios/new
@@ -38,7 +41,7 @@ class TipoHorariosController < ApplicationController
 
     respond_to do |format|
       if @tipo_horario.save
-        format.html { redirect_to action:"index", notice: 'Tipo horario was successfully created.' }
+        format.html { redirect_to edit_tipo_horario_path(@tipo_horario), notice: 'Tipo horario was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_horario }
       else
         format.html { render :new }
@@ -52,7 +55,7 @@ class TipoHorariosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_horario.update(tipo_horario_params)
-        format.html { redirect_to action:"index", notice: 'Tipo horario was successfully updated.' }
+        format.html { redirect_to edit_tipo_horario_path(@tipo_horario), notice: 'Tipo horario was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_horario }
       else
         format.html { render :edit }

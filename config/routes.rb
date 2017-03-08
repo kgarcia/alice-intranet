@@ -1,6 +1,73 @@
 Myapp::Application.routes.draw do
 
+  resources :perfiles
+  resources :tipo_especialidades
+  resources :rango_pesos
+  resources :rango_edades
+  resources :difusiones
+  resources :tipo_entidades
+  resources :parentescos
+  resources :tipo_parentescos
+  resources :tipo_difusiones
 
+  get 'grafico/generar'
+
+  get 'grafico/ver'
+
+  get 'agenda_servicio/', to: 'agenda_servicio#lista'
+
+  get 'cancelar_cita', to: 'citas#cancelar'
+
+  get 'cancelar_cita/:id', to: 'citas#cancelarCita'
+
+  get 'chequear_cita', to: 'citas#chequear'
+  get 'chequear_cita/:id', to: 'citas#chequearCita'
+  post 'chequear_cita', to: 'citas#guardarChequearCita'
+
+  get 'finalizar_cita', to: 'citas#finalizar'
+  get 'finalizar_cita/:id', to: 'citas#finalizarCita'
+  post 'finalizar_cita', to: 'citas#guardarFinalizarCita'
+
+  get 'evaluaciones/new/:id', to: 'evaluaciones#evaluarCita'
+  resources :tipo_turnos
+
+
+  resources :informacion_generals
+  resources :noticias
+  resources :opiniones
+  resources :tipo_opiniones
+  resources :tipo_preguntas
+  resources :tipo_noticias
+
+  get 'agenda_servicio/:id/detalle', to: 'agenda_servicio#detalle'
+
+  resources :notificaciones
+  resources :tipo_notificaciones
+  resources :servicio_eventos
+  resources :tipo_preguntas
+  resources :tipo_opiniones
+  resources :tipo_noticias
+  resources :preguntas
+  resources :opiniones
+  resources :noticias
+  resources :universidades
+  resources :formacion_academicas
+  resources :nivel_formaciones
+  resources :eventos
+  resources :tipo_eventos
+  resources :busquedas
+  resources :tipo_busquedas
+  resources :categorias
+  resources :citas
+  resources :evaluaciones
+  resources :criterio_tipo_servicios
+  resources :calificaciones
+  resources :criterios
+  resources :servicios
+  resources :sexos
+  resources :personas
+  resources :roles
+  devise_for :usuarios , :controllers => {registrations: "usuarios/registrations", sessions: "usuarios/sessions", confirmations: 'usuarios/confirmations'}
   resources :eventualidades
   resources :turnos
   resources :horarios
@@ -44,7 +111,6 @@ Myapp::Application.routes.draw do
   resources :habitos
   resources :tipo_habitos
   resources :option_menus
-  resources :sexos
 
   get "home/index"
   get "home/minor"
@@ -103,6 +169,6 @@ root to: 'home#index'
   #     resources :products
   #   end
 
-
   resources :preguntas
+  resources :encuestas
 end

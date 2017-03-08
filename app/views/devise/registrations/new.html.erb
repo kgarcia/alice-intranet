@@ -1,0 +1,50 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>  
+
+
+﻿    <div class=" text-center loginscreen   animated fadeInDown">
+        <div>
+            <h3>Registro de Usuario</h3>
+            <p>Crea una cuenta para verla en acción.</p>
+            <div class="m-t" >
+                <div class="col-md-6">
+                    <div class="row form-group"><label class="col-lg-2 control-label">Email</label>
+
+                          <div class="col-lg-10">  <%= f.email_field :email, autofocus: true, placeholder: "Email", placeholder: "usuario@mail.com", class: "form-control" %>
+                          </div>
+                      </div>   
+                      <div class="row form-group"><label class="col-lg-2 control-label">Contraseña</label>
+
+                          <div class="col-lg-10">        
+                          <%= f.password_field :password, autocomplete: "off", placeholder: "******", class: "form-control" %>
+                          </div>
+                      </div>            
+                      <div class="row form-group"><label class="col-lg-2 control-label">Confirmar Contraseña</label>
+
+                          <div class="col-lg-10">        
+                                           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "******", class: "form-control" %>
+                          </div>
+                      </div>         
+                   <br><br><br> 
+      
+                    <div class="row form-group">
+                        <label class="col-lg-2">Rol</label>
+                        <div class="col-lg-10"><%= f.collection_select(:rol_id, @roles, :id, :descripcion,{}, :class => "form-control" )%></div>
+                    </div>
+                </div>
+                </div>
+                    <div class="col-md-6">
+                      <%= render 'personas/datos_persona' %>
+                    </div>
+                   <br><br><br> 
+                <div class="actions">
+                  <%= f.submit t('.sign_up'), class: "btn btn-primary block full-width m-b" %>
+                </div>
+                
+                <p class="text-muted text-center"><small>¿Ya tienes una cuenta?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="#">Login</a>
+            
+            <p class="m-t"> <small>Alice Web-Desktop &copy; 2017</small> </p>
+        </div>
+    </div>
+<% end %>

@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+  <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Datos del paciente" %></h2>
+              </div>
+          </div>
+    <div class="ibox-content">
+      <%= form_tag "/chequear_cita", method: "post", :html => {:class => 'form-horizontal'} do |f| %>
+          <% if @persona.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@persona.errors.count, "error") %> prohibited this parametro from being
+                  saved:</h2>
+
+                <ul>
+                  <% @persona.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <div class="form-group row"><label class="col-lg-2 control-label">Cita</label>
+              <div class="col-lg-10">
+              <%= text_field_tag :cita_id, @cita.id, {:class => "form-control", readonly: true} %>
+              </div>
+          </div>
+
+          <%= render 'personas/datos_persona', persona: @persona %>
+
+          <div class="form-group row">
+              <div class="col-lg-offset-3 col-lg-2">
+                  <%= submit_tag 'Guardar', :class => "btn btn-sm btn-primary"  %>
+              </div>
+              <% if (@persona.new_record?) %>
+                <div class="col-lg-2">
+                <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning", :title => "Limpiar"  %>                          
+                </div>
+              <% end %>
+              <div class="col-lg-2">
+              <%= link_to 'Volver', '/chequear_cita', :class => "btn btn-sm btn-success", :title => "Atras" %>                          
+              </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

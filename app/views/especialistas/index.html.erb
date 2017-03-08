@@ -1,31 +1,48 @@
+<%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
 
-<h1>Especialistas</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Especialidad</th>
-      <th>Descripcion</th>
-      <th>Estatus</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @especialistas.each do |especialista| %>
+<div class="ibox-content">
+<%= link_to 'Especialista', new_especialista_path, :class => "btn btn-primary btn-sm fa fa-plus" %>
+ <br><br> 
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
       <tr>
-        <td><%= especialista.especialidad %></td>
-        <td><%= especialista.descripcion %></td>
-        <td><%= especialista.estatus %></td>
-        <td><%= link_to 'Show', especialista %></td>
-        <td><%= link_to 'Edit', edit_especialista_path(especialista) %></td>
-        <td><%= link_to 'Destroy', especialista, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th data-sorted="true">Especialidades</th>
+        <th>Apellidos</th>        
+        <th>Nombres</th>
+        <th>Descripcion</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @especialistas.each do |especialista| %>
+          <tr>
+            <td><%= especialista.especialidadesDescripcion%></td>
+            <td><%= link_to especialista.persona.nombre, edit_especialista_path(especialista) %></td>          
+            <td><%= link_to especialista.persona.apellido, edit_especialista_path(especialista) %></td>
+            <td>
+              <%= link_to '', edit_especialista_path(especialista), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+              <%= link_to '', especialista, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+          </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <ul class="pagination pull-right"></ul>
+                        </td>
+                    </tr>
+                    </tfoot>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Especialista', new_especialista_path %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+</script>
+
+

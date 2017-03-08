@@ -1,0 +1,179 @@
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+  <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Ficha del paciente" %></h2>
+              </div>
+          </div>
+    <div class="ibox-content">
+      <%= form_tag "/finalizar_cita", method: "post", :html => {:class => 'form-horizontal'} do |f| %>
+          <% if @persona.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@persona.errors.count, "error") %> prohibited this parametro from being
+                  saved:</h2>
+
+                <ul>
+                  <% @persona.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#basico">Datos Basicos</a></li>
+            <li><a data-toggle="tab" href="#medicos">Datos Medicos</a></li>
+            <li><a data-toggle="tab" href="#diagnostico">Diagnóstico</a></li>
+          </ul>
+          <br>
+          <div class="tab-content">
+            <div id="basico" class="tab-pane fade in active">
+                <div class="form-group row"><label class="col-lg-2 control-label">Cita</label>
+                  <div class="col-lg-10">
+                  <%= text_field_tag :cita_id, @cita.id, {:class => "form-control", readonly: true} %>
+                  </div>
+              </div>
+              <%= fields_for @persona do |u| %>
+              <div class="form-group row"><label class="col-lg-2 control-label">Nombre</label>
+                  <div class="col-lg-10">
+                  <%= u.text_field :nombre, {:class => "form-control", readonly: true} %>
+                  </div>
+              </div>
+
+              <div class="form-group row"><label class="col-lg-2 control-label">Apellido</label>
+                  <div class="col-lg-10">
+                  <%= u.text_field :apellido, {:class => "form-control", readonly: true} %>
+                  </div>
+              </div>
+
+              <div class="form-group row"><label class="col-lg-2 control-label">Fecha de Nacimiento</label>
+                  <div class="col-lg-10"><%= u.datetime_select :fecha_nacimiento, :class => "form-control" %>
+                  </div>
+              </div>
+        
+              <div class="field form-group row">
+                <label class="col-lg-2 control-label">Sexo</label>
+                <div class="col-lg-10"><%= u.collection_select(:sexo_id, @sexos, :id, :descripcion,{}, :class => "form-control" )%></div>
+              </div>
+              
+              <div class="form-group row"><label class="col-lg-2 control-label">Peso</label>
+                  <div class="col-lg-10">
+                  <%= text_field_tag :peso, "85", {:class => "form-control"} %>
+                  </div>
+              </div>
+              <div class="form-group row"><label class="col-lg-2 control-label">Altura</label>
+                  <div class="col-lg-10">
+                  <%= text_field_tag :altura, "1.81", {:class => "form-control"} %>
+                  </div>
+              </div>
+              <div class="field form-group row">
+                <label class="col-lg-2 control-label">Estado Civil</label>
+                <div class="col-lg-10"><%= collection_select(@persona,:estado_civil_id, @estado_civiles, :id, :descripcion,{}, :class => "form-control" )%></div>
+              </div>
+              <div class="field form-group row">
+                <label class="col-lg-2 control-label">Grupo Sanguineo</label>
+                <div class="col-lg-10"><%= collection_select(@persona,:grupo_sanguineo_id, @grupo_sanguineos, :id, :descripcion,{}, :class => "form-control" )%></div>
+              </div>
+            <% end %>
+            </div>
+
+            <div id="medicos" class="tab-pane fade in">
+              <br>
+                  <ul class="nav nav-tabs">
+                    <li><a data-toggle="tab" href="#cirugias">Cirugias</a></li>
+                    <li><a data-toggle="tab" href="#discapacidades">Discapacidades</a></li>
+                    <li><a data-toggle="tab" href="#lesiones">Lesiones</a></li>
+                    <li><a data-toggle="tab" href="#patologias">Patologias</a></li>
+                    <li><a data-toggle="tab" href="#vacunas">Vacunas</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+
+                    <div id="cirugias" class="tab-pane fade in">
+                      <div class="container-fluid">
+                        <% @cirugias.each do |cirugia| %>
+                          <div class="col-sm-3">
+                            <%= check_box_tag('cirugias[]', cirugia.id, @persona.cirugias.include?(cirugia)) %> <%= cirugia.descripcion %>
+                          </div>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                    <div id="discapacidades" class="tab-pane fade in">
+                      <div class="container-fluid">
+                        <% @discapacidades.each do |discapacidad| %>
+                          <div class="col-sm-3 ">
+                            <%= check_box_tag('discapacidades[]', discapacidad.id, @persona.discapacidades.include?(discapacidad)) %> <%= discapacidad.descripcion %>                        
+                          </div>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                    <div id="lesiones" class="tab-pane fade in">
+                      <div class="container-fluid">
+                        <% @lesiones.each do |lesion| %>
+                          <div class="col-sm-3">
+                            <%= check_box_tag('lesiones[]', lesion.id, @persona.lesiones.include?(lesion)) %> <%= lesion.descripcion %>
+                          </div>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                    <div id="patologias" class="tab-pane fade in">
+                      <div class="container-fluid">
+                        <% @patologias.each do |patologia| %>
+                          <div class="col-sm-3">
+                            <%= check_box_tag('patologias[]', patologia.id, @persona.patologias.include?(patologia)) %> <%= patologia.descripcion %>
+                          </div>
+                        <% end %>
+                      </div>  
+                    </div>
+
+
+                    <div id="vacunas" class="tab-pane fade in">
+                      <div class="container-fluid">
+                        <% @vacunas.each do |vacuna| %>
+                          <div class="col-sm-3">
+                            <%= check_box_tag('vacunas[]', vacuna.id, @persona.vacunas.include?(vacuna)) %> <%= vacuna.descripcion %>
+                          </div>
+                        <% end %>
+                      </div>  
+                    </div>
+
+                  </div>
+            </div>
+
+            <div id="diagnostico" class="tab-pane fade in">
+              <div class="form-group">
+                  <label class="col-lg-2 control-label">Diagnostico</label>
+
+                  <div class="col-lg-10"><%= text_area_tag @cita, :diagnostico, :class => "tinymce form-control" %>
+                   </div>
+
+                  <%= tinymce %>
+                </div>
+            </div>
+
+          </div>
+
+          
+
+          <div class="form-group row">
+              <div class="col-lg-offset-3 col-lg-2">
+                  <%= submit_tag 'Guardar', :class => "btn btn-sm btn-primary"  %>
+              </div>
+              <% if (@persona.new_record?) %>
+                <div class="col-lg-2">
+                <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning", :title => "Limpiar"  %>                          
+                </div>
+              <% end %>
+              <div class="col-lg-2">
+              <%= link_to 'Volver', '/chequear_cita', :class => "btn btn-sm btn-success", :title => "Atras" %>                          
+              </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

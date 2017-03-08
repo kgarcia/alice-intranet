@@ -2,7 +2,7 @@
    <div class="col-lg-10 col-lg-offset-1">
           <div class="ibox float-e-margins">
               <div class="ibox-title">
-                  <h5>Tipo de Servicio</h5>
+                  <h2 class="parametros-titulo"><%= "Tipo de Servicio" %></h2>
               </div>
           </div>
           <div class="ibox-content">
@@ -23,12 +23,38 @@
               <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#datos">Datos basicos</a></li>
                 <li><a data-toggle="tab" href="#texto">Texto</a></li>
-                <li><a data-toggle="tab" href="#perfil">Perfil</a></li>
+                <li><a data-toggle="tab" href="#perfiles">Perfiles</a></li>
+                <li><a data-toggle="tab" href="#criterios">Criterios de Evaluacion</a></li>
               </ul>
 
               <div class="tab-content">
+
                 <div id="datos" class="tab-pane fade in active">
-                  <h3>Datos Basicos</h3>
+                  <br>
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Tipo de Atencion</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select(:tipo_atencion_id, @tipos_atencion, :id, :descripcion, {},{:class => "form-control"}) %>
+                    </div>
+                    
+                  </div>
+
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Categoria</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select(:categoria_id, @categorias, :id, :descripcion, {},{:class => "form-control"}) %>
+                    </div>
+                    
+                  </div>
+
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Especialidad</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select(:especialidad_id, @especialidades, :id, :descripcion, {},{:class => "form-control"}) %>
+                    </div>
+                    
+                  </div> 
+
                   <div class="form-group">
                       <label class="col-lg-2 control-label">Nombre</label>
 
@@ -42,23 +68,10 @@
                       <div class="col-lg-10"><%= f.file_field :foto, :class => "form-control" %>
                        </div>
                     </div>
-
-                    <div class="field form-group">
-                      <label class="col-lg-2 control-label">Tipo de Atencion</label>
-                      <div class="col-lg-10">
-                        <%= f.collection_select(:tipo_atencion_id, @tipos_atencion, :id, :descripcion, {},{:class => "form-control"}) %>
-                      </div>
-                      
-                    </div> 
-
-                   <div class="form-group"><label class="col-lg-2 control-label">Estatus</label>
-
-                      <div class="col-lg-10"><%= f.text_field :estatus, :class => "form-control" %>
-                      </div>
-                  </div>
                 </div>
+
                 <div id="texto" class="tab-pane fade">
-                  <h3>Texto</h3>
+                  <br>
                   <div class="form-group">
                       <label class="col-lg-2 control-label">Texto</label>
 
@@ -68,34 +81,30 @@
                       <%= tinymce %>
                     </div>
                 </div>
-                <div id="perfil" class="tab-pane fade">
-                  <h3>Perfil del Tipo de Servicio</h3>
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#adicciones">Adicciones</a></li>
-                    <li><a data-toggle="tab" href="#cirugias">Cirugias</a></li>
-                  </ul>
 
-                  <div class="tab-content">
-                    <div id="adicciones" class="tab-pane fade in active">
-                      <h3>Adicciones</h3>
-                      <div>
-                        <% @adicciones.each do |adiccion| %>
-                            <%= check_box_tag('adicciones[]', adiccion.id, @tipo_servicio.adiccions.include?(adiccion)) %> <%= adiccion.descripcion %>
-                        <% end %>
-                      </div>
-                      
-                    </div>
-                    <div id="cirugias" class="tab-pane fade in">
-                      <h3>Cirugias</h3>
-                      <div>
-                        <% @cirugias.each do |cirugia| %>
-                            <%= check_box_tag('cirugias[]', cirugia.id, @tipo_servicio.cirugias.include?(cirugia)) %> <%= cirugia.descripcion %>
-                        <% end %>
-                      </div>
-                      
-                    </div>
-                  </div>
+                <div id="perfiles" class="tab-pane fade">
+                  <br>
+                    <div class="container-fluid">
+                      <% @perfiles.each do |perfil| %>
+                        <div class="col-sm-3">
+                            <%= check_box_tag('perfiles[]', perfil.id, @tipo_servicio.perfiles.include?(perfil)) %> <%= perfil.descripcion %>
+                        </div>
+                      <% end %>
+                    </div>  
                 </div>
+
+                <div id="criterios" class="tab-pane fade">
+                  <br>
+                  <div class="container-fluid">
+                        <% @criterios.each do |criterio| %>
+                          <div class="col-sm-3">
+                              <%= check_box_tag('criterios[]', criterio.id, @tipo_servicio.criterios.include?(criterio)) %> <%= criterio.descripcion %>
+                          </div>
+                        <% end %>
+                      </div>
+                  </div>
+
+
               </div>
 
           

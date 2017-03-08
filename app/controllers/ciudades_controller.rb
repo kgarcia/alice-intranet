@@ -4,21 +4,36 @@ class CiudadesController < ApplicationController
   # GET /ciudades
   # GET /ciudades.json
   def index
-    @ciudades = Ciudad.all
+    @parametros = Ciudad.all
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /ciudades/1
   # GET /ciudades/1.json
   def show
+    @parametro = Ciudad.find(params[:id])
+
+    render "parametros_select/edit"
   end
 
   # GET /ciudades/new
   def new
-    @ciudad = Ciudad.new
+    @parametro = Ciudad.new
+    @collection = Estado.all
+    @referencia = :estado_id
+
+    render "parametros_select/new"
   end
 
   # GET /ciudades/1/edit
   def edit
+    @parametro = Ciudad.find(params[:id])
+    @collection = Estado.all
+    @referencia = :estado_id
+    render "parametros_select/edit"
   end
 
   # POST /ciudades
@@ -28,7 +43,7 @@ class CiudadesController < ApplicationController
 
     respond_to do |format|
       if @ciudad.save
-        format.html { redirect_to @ciudad, notice: 'Ciudad was successfully created.' }
+        format.html { redirect_to edit_ciudad_path(@ciudad), notice: 'Ciudad was successfully created.' }
         format.json { render :show, status: :created, location: @ciudad }
       else
         format.html { render :new }
@@ -42,7 +57,7 @@ class CiudadesController < ApplicationController
   def update
     respond_to do |format|
       if @ciudad.update(ciudad_params)
-        format.html { redirect_to @ciudad, notice: 'Ciudad was successfully updated.' }
+        format.html { redirect_to edit_ciudad_path(@ciudad), notice: 'Ciudad was successfully updated.' }
         format.json { render :show, status: :ok, location: @ciudad }
       else
         format.html { render :edit }

@@ -26,4 +26,24 @@ Myapp::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  
+  config.i18n.default_locale = :es
+
+Paperclip.options[:image_magick_path] = "/opt/ImageMagick/bin"
+Paperclip.options[:command_path] = "/opt/ImageMagick/bin"
+
+config.action_mailer.default_url_options = { :host => "localhost:3000" }
+
+
+config.action_mailer.delivery_method = :smtp
+# SMTP settings for gmail
+config.action_mailer.smtp_settings = {
+ :address              => "smtp.gmail.com",
+ :port                 => 587,
+ :user_name            => 'kevin93ps@gmail.com',
+ :password             => 'Adgn16..',
+ :authentication       => "plain",
+:enable_starttls_auto => true
+}
+
 end

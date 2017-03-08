@@ -5,7 +5,11 @@ class HabitosController < ApplicationController
   # GET /habitos.json
   def index
     @parametros = Habito.all
-    render "parametros_select/index"
+       
+    respond_to do |format|
+      format.html {  render "parametros_select/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /habitos/1
@@ -27,7 +31,7 @@ class HabitosController < ApplicationController
 
   # GET /habitos/1/edit
   def edit
-    @parametro = Habito.new
+    @parametro = Habito.find(params[:id])
     @collection = TipoHabito.all
     @referencia = :tipo_habito_id
 

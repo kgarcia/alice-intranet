@@ -5,25 +5,33 @@ class TipoUbicacionesController < ApplicationController
   # GET /tipo_ubicaciones.json
   def index
     @parametros = TipoUbicacion.all
-    
-    render "parametros/index"
+        
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_ubicaciones/1
   # GET /tipo_ubicaciones/1.json
   def show
     @parametro = TipoUbicacion.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # GET /tipo_ubicaciones/new
   def new
     @parametro = TipoUbicacion.new
-    @parametros = TipoUbicacion.all
+
+    render "parametros/new"
   end
 
   # GET /tipo_ubicaciones/1/edit
   def edit
     @parametro = TipoUbicacion.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /tipo_ubicaciones
@@ -33,7 +41,7 @@ class TipoUbicacionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_ubicacion.save
-        format.html { redirect_to @tipo_ubicacion, notice: 'Tipo ubicacion was successfully created.' }
+        format.html { redirect_to edit_tipo_ubicacion_path(@tipo_ubicacion), notice: 'Tipo ubicacion was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_ubicacion }
       else
         format.html { render :new }
@@ -47,7 +55,7 @@ class TipoUbicacionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_ubicacion.update(tipo_ubicacion_params)
-        format.html { redirect_to @tipo_ubicacion, notice: 'Tipo ubicacion was successfully updated.' }
+        format.html { redirect_to edit_tipo_ubicacion_path(@tipo_ubicacion), notice: 'Tipo ubicacion was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_ubicacion }
       else
         format.html { render :edit }

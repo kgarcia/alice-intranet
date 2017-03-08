@@ -1,0 +1,1 @@
+json.array! @tipo_difusiones, partial: 'tipo_difusiones/tipo_difusion', as: :tipo_difusion

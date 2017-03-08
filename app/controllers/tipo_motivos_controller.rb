@@ -6,8 +6,11 @@ class TipoMotivosController < ApplicationController
 
   def index
     @parametros = TipoMotivo.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
 
@@ -17,7 +20,7 @@ class TipoMotivosController < ApplicationController
 
     @parametro = TipoMotivo.find(params[:id])
 
-    render "parametros/show"
+    render "parametros/edit"
   end
 
 
@@ -43,7 +46,7 @@ class TipoMotivosController < ApplicationController
 
     respond_to do |format|
       if @tipo_motivo.save
-        format.html { redirect_to @tipo_motivo, notice: 'Tipo motivo was successfully created.' }
+        format.html { redirect_to action:"index", notice: 'Tipo motivo was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_motivo }
       else
         format.html { render :new }
@@ -57,7 +60,7 @@ class TipoMotivosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_motivo.update(tipo_motivo_params)
-        format.html { redirect_to @tipo_motivo, notice: 'Tipo motivo was successfully updated.' }
+        format.html { redirect_to action:"index", notice: 'Tipo motivo was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_motivo }
       else
         format.html { render :edit }

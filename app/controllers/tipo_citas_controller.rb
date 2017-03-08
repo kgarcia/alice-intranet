@@ -5,8 +5,11 @@ class TipoCitasController < ApplicationController
   # GET /tipo_citas.json
   def index
     @parametros = TipoCita.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_citas/1
@@ -14,7 +17,7 @@ class TipoCitasController < ApplicationController
   def show
     @parametro = TipoCita.find(params[:id])
 
-    render "parametros/show"
+    render "parametros/edit"
   end
 
   # GET /tipo_citas/new
@@ -38,7 +41,7 @@ class TipoCitasController < ApplicationController
 
     respond_to do |format|
       if @tipo_cita.save
-        format.html { redirect_to action:"index", notice: 'Tipo cita was successfully created.' }
+        format.html { redirect_to edit_tipo_cita_path(@tipo_cita), notice: 'Tipo cita was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_cita }
       else
         format.html { render :new }
@@ -52,7 +55,7 @@ class TipoCitasController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_cita.update(tipo_cita_params)
-        format.html { redirect_to action:"index", notice: 'Tipo cita was successfully updated.' }
+        format.html { redirect_to edit_tipo_cita_path(@tipo_cita), notice: 'Tipo cita was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_cita }
       else
         format.html { render :edit }

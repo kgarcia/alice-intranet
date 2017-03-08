@@ -5,8 +5,11 @@ class TipoEventualidadesController < ApplicationController
   # GET /tipo_eventualidades.json
   def index
     @parametros = TipoEventualidad.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_eventualidades/1
@@ -14,7 +17,7 @@ class TipoEventualidadesController < ApplicationController
   def show
     @parametro = TipoEventualidad.find(params[:id])
 
-    render "parametros/show"
+    render "parametros/edit"
   end
 
   # GET /tipo_eventualidades/new

@@ -1,2 +1,0 @@
-class TipoCita < ApplicationRecord
-end

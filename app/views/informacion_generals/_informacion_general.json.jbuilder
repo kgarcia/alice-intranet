@@ -1,0 +1,2 @@
+json.extract! informacion_general, :id, :nombre, :rif, :direccion, :tlf, :email, :widgetFB, :widgetTW, :slogan, :logo, :latitud, :longitud, :created_at, :updated_at
+json.url informacion_general_url(informacion_general, format: :json)

@@ -1,0 +1,2 @@
+module TipoBusquedasHelper
+end

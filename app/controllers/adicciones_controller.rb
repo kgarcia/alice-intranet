@@ -5,14 +5,16 @@ class AdiccionesController < ApplicationController
   # GET /adicciones.json
   def index
     @parametros = Adiccion.all
-    render "parametros_select/index"
+    respond_to do |format|
+      format.html {  render "parametros_select/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /adicciones/1
   # GET /adicciones/1.json
   def show
     @parametro = Adiccion.find(params[:id])
-
     render "parametros_select/edit"
   end
 
@@ -21,7 +23,6 @@ class AdiccionesController < ApplicationController
     @parametro = Adiccion.new
     @collection = TipoAdiccion.all
     @referencia = :tipo_adiccion_id
-
     render "parametros_select/new"
   end
 

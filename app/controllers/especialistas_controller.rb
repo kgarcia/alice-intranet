@@ -4,38 +4,50 @@ class EspecialistasController < ApplicationController
   # GET /especialistas
   # GET /especialistas.json
   def index
-    @parametros = Especialista.all
-
-    render "parametros/index"
+    @especialistas = Especialista.all
   end
 
   # GET /especialistas/1
   # GET /especialistas/1.json
   def show
-    @parametro = Especialista.find(params[:id])
+   
 
-    render "parametros/show"
   end
 
   # GET /especialistas/new
   def new
-    @parametro = Especialista.new
+    @especialista = Especialista.new
+    @persona = Persona.new
+    @especialidades = Especialidad.all
+    @universidades = Universidad.all
+    @formacion_academicas = FormacionAcademica.all
+    @sexos = Sexo.all
 
-    render "parametros/new"
   end
 
   # GET /especialistas/1/edit
   def edit
+    @especialista = Especialista.find(params[:id])
+    @persona = @especialista.persona
+    @especialidades = Especialidad.all
+    @universidades = Universidad.all
+    @formacion_academicas = FormacionAcademica.all
+    @sexos = Sexo.all
   end
 
   # POST /especialistas
   # POST /especialistas.json
   def create
     @especialista = Especialista.new(especialista_params)
+    @persona = Persona.new(persona_params)
+    
+    @especialista.especialidadEspecialistas = params[:especialidades]
 
     respond_to do |format|
-      if @especialista.save
-        format.html { redirect_to @especialista, notice: 'Especialista was successfully created.' }
+      if @persona.save
+        @especialista.persona_id = @persona.id
+        @especialista.save
+        format.html { redirect_to especialistas_url, notice: 'Especialista was successfully created.' }
         format.json { render :show, status: :created, location: @especialista }
       else
         format.html { render :new }
@@ -47,9 +59,12 @@ class EspecialistasController < ApplicationController
   # PATCH/PUT /especialistas/1
   # PATCH/PUT /especialistas/1.json
   def update
+    @especialista.especialidadEspecialistas = params[:especialidades]
     respond_to do |format|
       if @especialista.update(especialista_params)
-        format.html { redirect_to @especialista, notice: 'Especialista was successfully updated.' }
+        @persona = @especialista.persona
+        @persona.update(persona_params)
+        format.html { redirect_to especialistas_url, notice: 'Especialista was successfully updated.' }
         format.json { render :show, status: :ok, location: @especialista }
       else
         format.html { render :edit }
@@ -76,6 +91,10 @@ class EspecialistasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def especialista_params
-      params.require(:especialista).permit(:especialidad_id, :descripcion, :estatus)
+      params.require(:especialista).permit(:especialidad_id, :descripcion, :estatus, :universidad_id, :formacion_academica_id, :persona_id)
+    end
+
+    def persona_params
+      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento,:sexo_id)
     end
 end

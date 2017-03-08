@@ -1,0 +1,147 @@
+<div class="row">   
+   <div class="col-lg-10 col-lg-offset-1">
+   <br>
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Detalles de la cita" %></h2>
+              </div>
+          </div>
+          <div class="ibox-content container-fluid">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="field form-group">
+                  <h2 class="parametros-titulo form-group"> <%= "Cita # 000"+@cita.id.to_s %></h2>
+                </div>
+              </div>
+              
+            </div>
+            <div class="container-fluid">
+              <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#cita">Detalles</a></li>
+                <% if @cita.estatus == 4 %>
+                  <li><a data-toggle="tab" href="#diagnostico">Diagnostico</a></li>
+                <% else %>
+                  <li class="disabled"><a>Diagnostico</a></li>
+                <% end %>
+                <% if @cita.estatus == 5 %>
+                  <li><a data-toggle="tab" href="#cancelacion">Cancelacion</a></li>
+                <% else %>
+                  <li class="disabled"><a>Cancelacion</a></li>
+                <% end %>
+              </ul>
+
+              <div class="tab-content">
+                <div id="cita" class="tab-pane fade in active">
+                  <br><br>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="field form-group">
+                          <div class="col-lg-6">Fecha:</div>
+                          <div class="col-lg-6">
+                            <%= label_tag(:fecha, @cita.fecha.strftime("%d/%m/%Y"), {}) %>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="field form-group">
+                          <div class="col-lg-6">Hora:</div>
+                          <div class="col-lg-6">
+                            <%= label_tag(:fecha, @cita.fecha.strftime("%I:%M %p"), {}) %>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="field form-group">
+                          <div class="col-lg-6">Ubicacion:</div>
+                          <div class="col-lg-6">
+                            <%= label_tag(:ubicacion, @cita.turno.horario.servicio.ubicacion.descripcion, {}) %>
+                          </div>
+                      </div>
+                    </div>   
+                  </div>
+                  <br><br>
+                  <div class="row">
+                   <div class="col-sm-4">
+                      <div class="field form-group">
+                          <div class="col-lg-6">Servicio:</div>
+                          <div class="col-lg-6">
+                            <%= label_tag(:servicio, @cita.turno.horario.servicio.descripcion, {}) %>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="field form-group">
+                          <div class="col-lg-6">Medico:</div>
+                          <div class="col-lg-6">
+                            <%= label_tag(:especialista, @cita.turno.horario.servicio.especialista.nombre, {}) %>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="field form-group">
+                          <div class="col-lg-6">Especialidad:</div>
+                          <div class="col-lg-6">
+                            <%= label_tag(:especialidad, @cita.turno.horario.servicio.especialista.especialidad.descripcion, {}) %>
+                          </div>
+                      </div>
+                    </div> 
+                  </div>
+                  <br><br>
+                  <div class="row">
+                   <div class="col-sm-4">
+                      <div class="field form-group">
+                          <div class="col-lg-6">Paciente:</div>
+                          <div class="col-lg-6">
+                            <%= label_tag(:paciente, @cita.persona.nombre+" "+@cita.persona.apellido, {}) %>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="field form-group">
+                          <div class="col-lg-6">Cedula:</div>
+                          <div class="col-lg-6">
+                            <%= label_tag(:cedula, @cita.persona.cedula, {}) %>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div class="field form-group">
+                          <div class="col-lg-6">Telefono:</div>
+                          <div class="col-lg-6">
+                            <%= label_tag(:telefono, @cita.persona.telefono, {}) %>
+                          </div>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+
+                <div id="diagnostico" class="tab-pane fade in">
+                  <div class="row">
+                    <div class="col-sm-2">
+                      Diagnostico:
+                    </div>
+                    <div class="col-sm-10">
+                      <%= @cita.diagnostico %>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="cancelacion" class="tab-pane fade in">
+
+                </div>
+            </div>
+            
+            
+          </div>
+          <br><br>
+
+          <div class="ibox float-e-margins">
+              <div class="">
+                  <%= link_to 'Volver', citas_path, :class => "btn btn-success btn-sm" %>
+              </div>
+          </div>
+  </div>
+</div>
+
+
+

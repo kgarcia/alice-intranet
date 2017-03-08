@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="ibox-content">
+      <%= form_for @cita, :html => {:class => 'form-horizontal'} do |f| %>
+          <% if @cita.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@cita.errors.count, "error") %> prohibited this parametro from being
+                  saved:</h2>
+
+                <ul>
+                  <% @cita.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+
+          <div class="field form-group">
+            <label class="col-lg-2 control-label">Tipo de Eventualidad</label>
+            <div class="col-lg-10"><%= f.collection_select(tipo_eventualidad_id:, @collection_tipo, :id, :descripcion, {}, :class => "form-control") %></div>
+          </div>
+          
+          <div class="field form-group">
+            <label class="col-lg-2 control-label">Motivo</label>
+            <div class="col-lg-10"><%= f.collection_select(@referencia_motivo, @collection_motivo, :id, :descripcion, {}, :class => "form-control") %></div>
+          </div>
+
+          <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
+            <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group"><label class="col-lg-2 control-label">Fecha inicio</label>
+            <div class="col-lg-10"><%= f.datetime_select :fecha_inicio %>
+            </div>
+          </div>
+
+          <div class="form-group"><label class="col-lg-2 control-label">Fecha fin</label>
+            <div class="col-lg-10"><%= f.datetime_select :fecha_fin %>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+              <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

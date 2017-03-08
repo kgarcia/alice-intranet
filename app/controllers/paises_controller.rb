@@ -4,21 +4,41 @@ class PaisesController < ApplicationController
   # GET /paises
   # GET /paises.json
   def index
+    @parametros = Pais.all
     @paises = Pais.all
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
+
   end
 
   # GET /paises/1
   # GET /paises/1.json
   def show
+   @parametro = Pais.find(1)
+    puts '##########################################'
+    puts @parametro.to_json
+    puts '##########################################'
+   # render "parametros/edit"
+   respond_to do |format|
+      
+      format.json { render json: @parametro.to_json }
+    end
   end
 
   # GET /paises/new
   def new
-    @pais = Pais.new
+    @parametro = Pais.new
+      render "parametros/new" 
   end
 
   # GET /paises/1/edit
   def edit
+    @parametro = Pais.find(params[:id])
+
+    render "parametros/edit"
   end
 
   # POST /paises
@@ -28,7 +48,7 @@ class PaisesController < ApplicationController
 
     respond_to do |format|
       if @pais.save
-        format.html { redirect_to @pais, notice: 'Pais was successfully created.' }
+        format.html { redirect_to edit_pais_path(@pais), notice: 'Pais was successfully created.' }
         format.json { render :show, status: :created, location: @pais }
       else
         format.html { render :new }
@@ -42,7 +62,7 @@ class PaisesController < ApplicationController
   def update
     respond_to do |format|
       if @pais.update(pais_params)
-        format.html { redirect_to @pais, notice: 'Pais was successfully updated.' }
+        format.html { redirect_to edit_pais_path(@pais), notice: 'Pais was successfully updated.' }
         format.json { render :show, status: :ok, location: @pais }
       else
         format.html { render :edit }

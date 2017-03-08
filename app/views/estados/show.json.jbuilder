@@ -1,1 +1,1 @@
-json.partial! "estados/estado", estado: @estado
+json.partial! "/resource", resource: @estado, relations: ["pais", "ciudad"]

@@ -1,0 +1,54 @@
+<%= csrf_meta_tag %>
+<p id="notice"><%= notice %></p>
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h2 class="parametros-titulo"><%= "Mis Citas" %></h2>
+  </div>
+</div>
+<div class="ibox-content">
+  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
+    <tr>
+      <th data-breakpoints="xs" data-sorted="true">Fecha</th>
+      <th data-breakpoints="xs"">Cita #</th>
+      <th>Servicio</th>
+      <th>Especialista</th>
+      <th>Paciente</th>
+      <th colspan="1"></th>
+      <th colspan="1"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @lista.each do |cita| %>
+        <tr>
+          <td><%= cita.fecha.strftime("%d/%m/%Y %H:%M %p")%></td>
+          <td>00<%= cita.id%></td>
+          <td><%= cita.turno.horario.servicio.descripcion %></td>
+          <td><%= cita.turno.horario.servicio.especialista.persona.nombre %> <%= cita.turno.horario.servicio.especialista.persona.apellido %></td>
+          <td><%= cita.persona.nombre %> <%= cita.persona.apellido%></td>
+          <td>
+            <%= link_to 'Ver Detalles', cita, :class => "btn btn-success btn-sm" %>
+            <%= link_to 'Cancelar', Cita, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
+        </tr>
+    <% end %>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="5">
+        <ul class="pagination pull-right"></ul>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+<br>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.table').footable();
+  });
+
+</script>
+
+

@@ -1,43 +1,51 @@
 class TipoServicio < ApplicationRecord
 	belongs_to :tipo_atencion
+  belongs_to :categoria
+  belongs_to :especialidad
+  has_many :servicios
 
-	has_many :adiccion_tipo_servicios
-  has_many :adiccions, :through => :adiccion_tipo_servicios
-  has_many :cirugia_tipo_servicios
-  has_many :cirugias, through: :cirugia_tipo_servicios
+  has_many :criterio_tipo_servicios
+  has_many :criterios, through: :criterio_tipo_servicios
+  has_many :perfil_tipo_servicios
+  has_many :perfiles, through: :perfil_tipo_servicios
 
 	has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   	validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
 
-  	after_save :save_adicciones, :save_cirugias
+  	after_save :save_criterios, :save_perfiles
 
-    attr_reader :adicciones, :cirugiasTipoServicio 
+    attr_reader :criteriosTipoServicio, :perfilesTipoServicio
 
-  	def adicciones=(value)
-	  	@adicciones = value
-	  end
+    def criteriosTipoServicio=(value)
+      @criteriosTipoServicio = value
+    end
 
-    def cirugiasTipoServicio=(value)
-      @cirugiasTipoServicio = value
+    def perfilesTipoServicio=(value)
+      @perfilesTipoServicio = value
     end
 
    private
-   def save_adicciones
-    AdiccionTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
-    if !@adicciones.nil?
-	      @adicciones.each do |adiccion_id|
-		      AdiccionTipoServicio.create(adiccion_id: adiccion_id, tipo_servicio_id: self.id )
-        end
-	   end
-   end
-
-   private
-   def save_cirugias
-    CirugiaTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
-    if !@cirugiasTipoServicio.nil?
-        @cirugiasTipoServicio.each do |cirugia_id|
-          CirugiaTipoServicio.create(cirugia_id: cirugia_id, tipo_servicio_id: self.id )
+   def save_criterios
+    CriterioTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@criteriosTipoServicio.nil?
+        @criteriosTipoServicio.each do |criterio_id|
+          CriterioTipoServicio.create(criterio_id: criterio_id, tipo_servicio_id: self.id )
         end
      end
    end
+
+   private
+   def save_perfiles
+    PerfilTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    if !@perfilesTipoServicio.nil?
+        @perfilesTipoServicio.each do |perfil_id|
+          PerfilTipoServicio.create(perfil_id: perfil_id, tipo_servicio_id: self.id )
+        end
+     end
+   end
+
+  def self.titulo
+    return "Tipos de Servicio"
+  end
+
 end

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/alice1802.iml" filepath="$PROJECT_DIR$/.idea/alice1802.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/alice-intranet.iml" filepath="$PROJECT_DIR$/.idea/alice-intranet.iml" />
     </modules>
   </component>
 </project>

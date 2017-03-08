@@ -5,8 +5,11 @@ class TipoAdiccionesController < ApplicationController
   # GET /tipo_adicciones.json
   def index
     @parametros = TipoAdiccion.all
-
-    render "parametros/index"
+        
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_adicciones/1

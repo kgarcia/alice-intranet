@@ -1,0 +1,1 @@
+json.partial! "criterio_tipo_servicios/criterio_tipo_servicio", criterio_tipo_servicio: @criterio_tipo_servicio

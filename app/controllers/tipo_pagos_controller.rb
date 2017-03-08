@@ -5,8 +5,11 @@ class TipoPagosController < ApplicationController
   # GET /tipo_pagos.json
   def index
     @parametros = TipoPago.all
-
-    render "parametros/index"
+    
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /tipo_pagos/1
@@ -14,7 +17,7 @@ class TipoPagosController < ApplicationController
   def show
     @parametro = TipoPago.find(params[:id])
 
-    render "parametros/show"
+    render "parametros/edit"
   end
 
   # GET /tipo_pagos/new
@@ -38,7 +41,7 @@ class TipoPagosController < ApplicationController
 
     respond_to do |format|
       if @tipo_pago.save
-        format.html { redirect_to action:"index", notice: 'Tipo pago was successfully created.' }
+        format.html { redirect_to edit_tipo_pago_path(@tipo_pago), notice: 'Tipo pago was successfully created.' }
         format.json { render :show, status: :created, location: @tipo_pago }
       else
         format.html { render :new }
@@ -52,7 +55,7 @@ class TipoPagosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_pago.update(tipo_pago_params)
-        format.html { redirect_to action:"index", notice: 'Tipo pago was successfully updated.' }
+        format.html { redirect_to edit_tipo_pago_path(@tipo_pago), notice: 'Tipo pago was successfully updated.' }
         format.json { render :show, status: :ok, location: @tipo_pago }
       else
         format.html { render :edit }

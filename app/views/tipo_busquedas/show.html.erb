@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @tipo_busqueda.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @tipo_busqueda.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_tipo_busqueda_path(@tipo_busqueda) %> |
+<%= link_to 'Back', tipo_busquedas_path %>

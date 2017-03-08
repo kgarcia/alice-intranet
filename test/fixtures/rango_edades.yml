@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  edad_inicial: 1
+  edad_final: 1
+  estatus: 1
+
+two:
+  descripcion: MyString
+  edad_inicial: 1
+  edad_final: 1
+  estatus: 1

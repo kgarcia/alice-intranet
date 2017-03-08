@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @busqueda.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @busqueda.estatus %>
+</p>
+
+<p>
+  <strong>Tipo busqueda:</strong>
+  <%= @busqueda.tipo_busqueda %>
+</p>
+
+<p>
+  <strong>Especialidad:</strong>
+  <%= @busqueda.especialidad %>
+</p>
+
+<p>
+  <strong>Especialista:</strong>
+  <%= @busqueda.especialista %>
+</p>
+
+<p>
+  <strong>Tipo servicio:</strong>
+  <%= @busqueda.tipo_servicio %>
+</p>
+
+<%= link_to 'Edit', edit_busqueda_path(@busqueda) %> |
+<%= link_to 'Back', busquedas_path %>

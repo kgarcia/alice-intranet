@@ -5,30 +5,36 @@ class EspecialidadesController < ApplicationController
   # GET /especialidades.json
   def index
     @parametros = Especialidad.all
-
-    render "parametros/index"
+    respond_to do |format|
+      format.html {  render "parametros_select/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /especialidades/1
   # GET /especialidades/1.json
   def show
     @parametro = Especialidad.find(params[:id])
-
-    render "parametros/show"
+    @collection = TipoEspecialidad.all
+    @referencia = :tipo_especialidad_id
+    render "parametros_select/edit"
   end
 
   # GET /especialidades/new
   def new
     @parametro = Especialidad.new
+    @collection = TipoEspecialidad.all
+    @referencia = :tipo_especialidad_id
 
-    render "parametros/new"
+    render "parametros_select/new"
   end
 
   # GET /especialidades/1/edit
   def edit
     @parametro = Especialidad.find(params[:id])
-
-    render "parametros/edit"
+    @collection = TipoEspecialidad.all
+    @referencia = :tipo_especialidad_id
+    render "parametros_select/edit"
   end
 
   # POST /especialidades
@@ -38,7 +44,7 @@ class EspecialidadesController < ApplicationController
 
     respond_to do |format|
       if @especialidad.save
-        format.html { redirect_to @especialidad, notice: 'Especialidad was successfully created.' }
+        format.html { redirect_to edit_especialidad_path(@especialidad), notice: 'Especialidad was successfully created.' }
         format.json { render :show, status: :created, location: @especialidad }
       else
         format.html { render :new }
@@ -52,7 +58,7 @@ class EspecialidadesController < ApplicationController
   def update
     respond_to do |format|
       if @especialidad.update(especialidad_params)
-        format.html { redirect_to @especialidad, notice: 'Especialidad was successfully updated.' }
+        format.html { redirect_to edit_especialidad_path(@especialidad), notice: 'Especialidad was successfully updated.' }
         format.json { render :show, status: :ok, location: @especialidad }
       else
         format.html { render :edit }
@@ -79,6 +85,6 @@ class EspecialidadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def especialidad_params
-      params.require(:especialidad).permit(:descripcion, :estatus)
+      params.require(:especialidad).permit(:descripcion, :tipo_especialidad_id, :estatus)
     end
 end

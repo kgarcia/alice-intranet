@@ -1,47 +1,148 @@
-<p id="notice"><%= notice %></p>
+      <p id="notice"><%= notice %></p>
+      <div class="ibox-content">
+        <p>
+          <strong>Servicio :</strong>
+          <%= @horario.servicio.descripcion %>
+        </p>
+        <p>
+          <strong>Tipo horario:</strong>
+          <%= @horario.tipo_horario.descripcion %>
+        </p>
+        <p>
+          <%  if @horario.tipo_horario.id == 1  then %>
+          <strong>Tiempo promedio de atencion(min):</strong>
+          <%= @horario.tiempo_cita %>
+          <%else %>
+       
+          <%end %>
+        </p>       
+        <p>
+             <%  if (!(@horario.servicio.especialista.nil? )) %>
+              <p>
+          <strong>Especialista :</strong>
+          <%= @horario.servicio.especialista.persona.nombre %> <%= @horario.servicio.especialista.persona.apellido %>
+        </p>
+       
+             <%end%>
+        </p>
+        <%= link_to link_to 'Horario', edit_horario_path(@horario) , :class => "btn btn-primary btn-sm fa fa-plus" %> <br><br> 
+        <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+            <h3>Turno de la Mañana </h3>
+          <thead>
+            <tr>
+              <th>Dia</th> 
+              <th>Hora Inicio</th>
+              <th>Hora Fin</th> 
+              <% if @horario.tipo_horario.id  == 1 %>
+              <th>Número max pacientes</th> 
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @horario.descripcion %>
-</p>
+              <% else %>
+              <th>Cantidad pacientes</th> 
+               <%end%> 
+            
+              <th colspan="1"></th>
+            
+            </tr>
+          </thead>
+          <tbody>
+            <%@turnosM.each do |turno| %>
+            <tr>
+              <td><%=turno.tipodia.descripcion%><%= turno.arreglo_horario_citas %></td>
+               <td>
+                <%if turno.hora_inicio == turno.hora_fin %>
+                  TURNO CERRADO
+                  <%else%>
+                  <%= turno.hora_inicio.strftime("%H:%M") %>
+                <%end%>
+              </td>
+               <td>
+                <%if turno.hora_inicio == turno.hora_fin %>
+                  TURNO CERRADO
+                  <%else%>
+                  <%= turno.hora_fin.strftime("%H:%M") %>
+                <%end%>
+              </td>
+                   <% if @horario.tipo_horario.id  == 1 %>
+                   <td><%= turno.numero_pacientes_por_turno %> </td>
+                   <%else%>
+                      <td><%= turno.cantidad_pacientes %> </td>
+                    <%end%>
+              <td><%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+                <%= link_to '', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+              </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5">
+                  <ul class="pagination pull-right"></ul>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+   <h3>Turno de la tarde </h3>
+        <div>
+           <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+          <thead>
+            <tr>
+              <th>Dia</th> 
+              <th>Hora Inicio</th>
+              <th>Hora Fin</th> 
+              <% if @horario.tipo_horario.id  == 1 %>
+              <th> <%=@horario.tipo_horario.descripcion%></th> 
 
-<p>
-  <strong>Tipo horario(Cantidad de personas/tiempo promedio):</strong>
-  <%= @horario.tipo_horario.descripcion %>
-</p>
-<div class="ibox-content">
+              <% else %>
+              <th>Cantidad pacientes</th> 
+               <%end%> 
+            
+              <th colspan="1"></th>
+            
+            </tr>
+          </thead>
+          <tbody>
+            <% @turnosT.each do |turno| %>
+            <tr>
+              <td><%=turno.tipodia.descripcion%><%= turno.arreglo_horario_citas %></td>
+              <td>
+                <%if turno.hora_inicio == turno.hora_fin %>
+                  TURNO CERRADO
+                  <%else%>
+                  <%= turno.hora_inicio.strftime("%H:%M") %>
+                <%end%>
+              </td>
+               <td>
+                <%if turno.hora_inicio == turno.hora_fin %>
+                  TURNO CERRADO
+                  <%else%>
+                  <%= turno.hora_fin.strftime("%H:%M") %>
+                <%end%>
+              </td>
+                 <% if @horario.tipo_horario.id  == 1 %>
+                   <td><%= turno.numero_pacientes_por_turno %> </td>
+                   <%else%>
+                      <td><%= turno.cantidad_pacientes %> </td>
+                    <%end%>
+       
+              <td><%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
+                <%= link_to '', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+              </tr>
+              <% end %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="5">
+                  <ul class="pagination pull-right"></ul>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>     </div>
+        <br>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('.table').footable();
+          });
 
- <table >
-  <thead>
-    <tr>
-      <th>Inicio</th>
-      <th>Fin</th>	
-      <th>LUNES</th>
-      <th>MARTES</th>
-      <th>MIERCOLES</th>
-      <th>JUEVES</th>
-      <th>VIERNES</th>
-      <th>SABADO</th>
-      <th>DOMINGO</th>
-      <th colspan="6"></th>
-    </tr>
-  </thead>
+        </script>
 
-  <tbody>
-    <% @turnos.each do |turno| %>
-      <tr>
-        <td><%= turno.hora_inicio.strftime("%H:%M") %></td>
-        <td><%= turno.hora_fin.strftime("%H:%M") %></td>
-        <td><%= turno.tipodia.descripcion %></td>
-        <td><%= turno.horario.descripcion %></td>
-        
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-</div>
-
-<%= link_to 'Edit', edit_horario_path(@horario) %> |
-<%= link_to 'Back', horarios_path %>
