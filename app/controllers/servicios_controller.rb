@@ -14,12 +14,9 @@ class ServiciosController < ApplicationController
   # GET /servicios/1
   # GET /servicios/1.json
   def show
-     @parametro = Servicio.find(params[:id])
-    puts '##########################################'
-    puts @parametro.as_json
-    puts '##########################################'
+    @parametro = Servicio.find(params[:id])
     respond_to do |format|
-      
+      format.html
       format.json { render json: @parametro.to_json }
     end
   end

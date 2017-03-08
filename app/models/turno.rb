@@ -3,6 +3,10 @@ class Turno < ApplicationRecord
   belongs_to :horario, foreign_key:"horario_id"
   belongs_to :tipo_turno, foreign_key:"tipo_turno_id"
   has_many :citas
+
+  def self.contarCitas
+    @citas = Cita.joins(:turno).group(:tipo_turno_id,:dia_id).count
+  end
   
 def tipodia
   	return self.dia

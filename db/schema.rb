@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307223955) do
+ActiveRecord::Schema.define(version: 20170308042707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -192,6 +192,15 @@ ActiveRecord::Schema.define(version: 20170307223955) do
     t.integer  "estatus"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "difusion_medio_difusiones", force: :cascade do |t|
+    t.integer  "difusion_id"
+    t.integer  "medio_difusion_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["difusion_id"], name: "index_difusion_medio_difusiones_on_difusion_id", using: :btree
+    t.index ["medio_difusion_id"], name: "index_difusion_medio_difusiones_on_medio_difusion_id", using: :btree
   end
 
   create_table "difusiones", force: :cascade do |t|
@@ -438,6 +447,13 @@ ActiveRecord::Schema.define(version: 20170307223955) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.index ["tipo_lesion_id"], name: "index_lesiones_on_tipo_lesion_id", using: :btree
+  end
+
+  create_table "medio_difusiones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "motivos", force: :cascade do |t|
@@ -1088,6 +1104,8 @@ ActiveRecord::Schema.define(version: 20170307223955) do
   add_foreign_key "detalle_perfil_comuns", "rango_pesos"
   add_foreign_key "detalle_perfil_comuns", "sexos"
   add_foreign_key "detalle_perfil_comuns", "vacunas"
+  add_foreign_key "difusion_medio_difusiones", "difusiones"
+  add_foreign_key "difusion_medio_difusiones", "medio_difusiones"
   add_foreign_key "difusiones", "tipo_difusiones"
   add_foreign_key "difusiones", "tipo_entidades"
   add_foreign_key "discapacidad_perfiles", "discapacidades"
