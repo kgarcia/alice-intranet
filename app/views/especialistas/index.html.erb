@@ -11,16 +11,18 @@
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
       <tr>
-        <th data-sorted="true">Especialidad</th>
-        <th>Nombres</th>        
-        <th>Apellidos</th>
+
+        <th data-sorted="true">Especialidades</th>
+        <th>Apellidos</th>        
+        <th>Nombres</th>
+        <th>Descripcion</th>
         <th colspan="1"></th>
       </tr>
     </thead>
     <tbody>
       <% @especialistas.each do |especialista| %>
           <tr>
-            <td><%= especialista.especialidad.descripcion %></td>
+            <td><%= especialista.especialidadesDescripcion%></td>
             <td><%= link_to especialista.persona.nombre, edit_especialista_path(especialista) %></td>          
             <td><%= link_to especialista.persona.apellido, edit_especialista_path(especialista) %></td>
             <td>

@@ -1,6 +1,8 @@
 Myapp::Application.routes.draw do
 
-
+  resources :medio_difusiones
+  resources :perfiles
+  resources :tipo_especialidades
   resources :rango_pesos
   resources :rango_edades
   resources :difusiones
@@ -11,7 +13,11 @@ Myapp::Application.routes.draw do
 
   get 'grafico/generar'
 
-  get 'grafico/ver'
+  get 'grafico/citas_por_especialidad'
+
+  get 'grafico/criterios_servicio'
+
+  get 'grafico/citas_por_turno'
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
@@ -27,6 +33,7 @@ Myapp::Application.routes.draw do
   get 'finalizar_cita/:id', to: 'citas#finalizarCita'
   post 'finalizar_cita', to: 'citas#guardarFinalizarCita'
 
+  get 'evaluaciones/new/:id', to: 'evaluaciones#evaluarCita'
   resources :tipo_turnos
 
 
@@ -166,4 +173,7 @@ root to: 'home#index'
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  resources :preguntas
+  resources :encuestas
 end

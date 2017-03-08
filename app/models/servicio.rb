@@ -8,6 +8,10 @@ class Servicio < ApplicationRecord
   has_many :eventos, through: :servicio_evento
   has_many :turnos, through: :horarios
   has_many :dia, through: :turnos
+  has_many :citas, through: :turnos
+  has_many :evaluaciones, through: :citas
+  has_many :calificaciones, through: :evaluaciones
+  has_many :criterios, through: :calificaciones
 
   has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   	validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
@@ -18,6 +22,11 @@ class Servicio < ApplicationRecord
   def self.titulo
 	  return "Servicio"
   end
+
+  def contarCalificaciones
+    return self.criterios.count
+  end
+
 
 
  def as_json(options={})

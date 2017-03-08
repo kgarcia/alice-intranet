@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @medio_difusion.descripcion %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @medio_difusion.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_medio_difusion_path(@medio_difusion) %> |
+<%= link_to 'Back', medio_difusiones_path %>

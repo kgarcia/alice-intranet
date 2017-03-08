@@ -2,7 +2,7 @@
   <div class="col-lg-6 col-lg-offset-3">
   <div class="ibox float-e-margins">
               <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Datos basicos paciente" %></h2>
+                  <h2 class="parametros-titulo"><%= "Datos del paciente" %></h2>
               </div>
           </div>
     <div class="ibox-content">
@@ -28,21 +28,19 @@
 
           <%= render 'personas/datos_persona', persona: @persona %>
 
-          <div class="form-group">
-                      <div class="col-lg-offset-3 col-lg-2">
-                          <%= button_tag( :class => "btn btn-primary", :title => "Guardar") do %>
-                            <span class="fa fa-check"></span>
-                          <% end %>
-                      </div>
-                      <% if (@persona.new_record?) %>
-                        <div class="col-lg-2">
-                        <%= link_to '', '', type: :reset, :class => "btn btn-sm btn-warning fa fa-recycle", :title => "Limpiar"  %>                          
-                        </div>
-                      <% end %>
-                      <div class="col-lg-2">
-                      <%= link_to '', '/chequear_cita', :class => "btn btn-sm btn-success fa fa-undo", :title => "Atras" %>                          
-                      </div>
-                  </div>
+          <div class="form-group row">
+              <div class="col-lg-offset-3 col-lg-2">
+                  <%= submit_tag 'Guardar', :class => "btn btn-sm btn-primary"  %>
+              </div>
+              <% if (@persona.new_record?) %>
+                <div class="col-lg-2">
+                <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning", :title => "Limpiar"  %>                          
+                </div>
+              <% end %>
+              <div class="col-lg-2">
+              <%= link_to 'Volver', '/chequear_cita', :class => "btn btn-sm btn-success", :title => "Atras" %>                          
+              </div>
+          </div>
       <% end %>
     </div>
   </div>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ocupacion: one
+  perfil: one
+
+two:
+  ocupacion: two
+  perfil: two
