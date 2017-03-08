@@ -13,7 +13,11 @@ Myapp::Application.routes.draw do
 
   get 'grafico/generar'
 
-  get 'grafico/ver'
+  get 'grafico/citas_por_especialidad'
+
+  get 'grafico/criterios_servicio'
+
+  get 'grafico/citas_por_turno'
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
