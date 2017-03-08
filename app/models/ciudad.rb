@@ -1,5 +1,6 @@
 class Ciudad < ApplicationRecord
   belongs_to :estado
+  has_many :ubicacion
 
   def tipo
   	return self.estado
@@ -7,6 +8,6 @@ class Ciudad < ApplicationRecord
 
 
   def self.titulo
-	 return "Ciudades"
+	 return "Ciudad"
   end
 end

@@ -10,7 +10,7 @@ class EspecialistasController < ApplicationController
   # GET /especialistas/1
   # GET /especialistas/1.json
   def show
-    @especialista = Especialista.find(params[:id])
+   
 
   end
 
@@ -41,13 +41,13 @@ class EspecialistasController < ApplicationController
     @especialista = Especialista.new(especialista_params)
     @persona = Persona.new(persona_params)
     
-
+    @especialista.especialidadEspecialistas = params[:especialidades]
 
     respond_to do |format|
       if @persona.save
         @especialista.persona_id = @persona.id
         @especialista.save
-        format.html { redirect_to @especialista, notice: 'Especialista was successfully created.' }
+        format.html { redirect_to especialistas_url, notice: 'Especialista was successfully created.' }
         format.json { render :show, status: :created, location: @especialista }
       else
         format.html { render :new }
@@ -59,9 +59,12 @@ class EspecialistasController < ApplicationController
   # PATCH/PUT /especialistas/1
   # PATCH/PUT /especialistas/1.json
   def update
+    @especialista.especialidadEspecialistas = params[:especialidades]
     respond_to do |format|
       if @especialista.update(especialista_params)
-        format.html { redirect_to @especialista, notice: 'Especialista was successfully updated.' }
+        @persona = @especialista.persona
+        @persona.update(persona_params)
+        format.html { redirect_to especialistas_url, notice: 'Especialista was successfully updated.' }
         format.json { render :show, status: :ok, location: @especialista }
       else
         format.html { render :edit }

@@ -1,7 +1,5 @@
 class TipoNotificacion < ApplicationRecord
 	def self.titulo
-	  return "Tipos de Notificacion"
-	end
-
-
+	  return "Tipo de Notificación"
+  end
 end

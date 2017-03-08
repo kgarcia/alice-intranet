@@ -17,22 +17,23 @@ class DifusionesController < ApplicationController
     @difusion = Difusion.new
     @tipo_entidades = TipoEntidad.all
     @tipo_difusiones = TipoDifusion.all
-    @servicios = Servicio.all
-
+    @entidades = Servicio.all
+    @medios = MedioDifusion.all
   end
 
   # GET /difusiones/1/edit
   def edit
-    @tiposEntidad = TipoEntidad.all
-    @tiposDifusion = TipoDifusion.all
-
+    @tipo_entidades = TipoEntidad.all
+    @tipo_difusiones = TipoDifusion.all
+    @entidades = Servicio.all
+    @medios = MedioDifusion.all
   end
 
   # POST /difusiones
   # POST /difusiones.json
   def create
     @difusion = Difusion.new(difusion_params)
-
+    @difusion.difusionesMedioDifusion = params[:medios]
     respond_to do |format|
       if @difusion.save
         format.html { redirect_to @difusion, notice: 'Difusion was successfully created.' }
@@ -47,6 +48,7 @@ class DifusionesController < ApplicationController
   # PATCH/PUT /difusiones/1
   # PATCH/PUT /difusiones/1.json
   def update
+    @difusion.difusionesMedioDifusion = params[:medios]
     respond_to do |format|
       if @difusion.update(difusion_params)
         format.html { redirect_to @difusion, notice: 'Difusion was successfully updated.' }

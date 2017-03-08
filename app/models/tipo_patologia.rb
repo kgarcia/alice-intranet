@@ -1,6 +1,6 @@
 class TipoPatologia < ApplicationRecord
 	has_many :patologias
   def self.titulo
-	  return "Tipos de Patologia"
+	  return "Tipo de Patología"
   end
 end

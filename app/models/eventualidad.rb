@@ -9,7 +9,7 @@ class Eventualidad < ApplicationRecord
   end
 
   def self.titulo
-	  return "Eventualidades"
+	  return "Eventualidad"
   end
 
   private

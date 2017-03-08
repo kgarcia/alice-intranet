@@ -5,6 +5,6 @@ class Ubicacion < ApplicationRecord
 
 
   def self.titulo
-	  return "Ubicaciones"
+	  return "Ubicación"
   end
 end

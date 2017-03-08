@@ -1,7 +1,7 @@
 class TipoPregunta < ApplicationRecord
 
   def self.titulo
-	  return "Tipos de Pregunta"
+	  return "Tipo de Pregunta"
   end
 
 end

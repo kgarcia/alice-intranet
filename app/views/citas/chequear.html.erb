@@ -2,14 +2,15 @@
 <p id="notice"><%= notice %></p>
 <div class="ibox float-e-margins">
   <div class="ibox-title">
-    <h2 class="parametros-titulo"><%= @citas.new.class.titulo %></h2>
+    <h2 class="parametros-titulo"><%= "Recepcion de Pacientes" %></h2>
   </div>
 </div>
 <div class="ibox-content">
   <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
     <tr>
-      <th data-breakpoints="xs" data-sorted="true">Referencia</th>
+      <th data-breakpoints="xs" data-sorted="true">Fecha</th>
+      <th data-breakpoints="xs">Referencia</th>
       <th>Servicio</th>
       <th>Especialista</th>
       <th>Paciente</th>
@@ -19,7 +20,8 @@
     <tbody>
     <% @citas.each do |cita| %>
         <tr>
-          <td><%= cita.id%></td>
+          <td><%= cita.fecha.strftime("%d/%m/%Y %H:%M %p")%></td>
+          <td>00<%= cita.id%></td>
           <td><%= cita.turno.horario.servicio.descripcion %></td>
           <td><%= cita.turno.horario.servicio.especialista.persona.nombre %> <%= cita.turno.horario.servicio.especialista.persona.apellido %></td>
           <td><%= cita.persona.nombre %> <%= cita.persona.apellido%></td>

@@ -19,7 +19,7 @@ class Usuario < ApplicationRecord
   end
 
   def self.titulo
-    return "Usuarios"
+    return "Usuario"
   end
 
 end

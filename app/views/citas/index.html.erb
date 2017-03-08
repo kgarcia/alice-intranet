@@ -2,15 +2,16 @@
 <p id="notice"><%= notice %></p>
 <div class="ibox float-e-margins">
   <div class="ibox-title">
-    <h2 class="parametros-titulo"><%= @lista.new.class.titulo %></h2>
+    <h2 class="parametros-titulo"><%= "Mis Citas" %></h2>
   </div>
 </div>
 <div class="ibox-content">
-  <br><br>
+<br><br>
   <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
     <tr>
-      <th data-breakpoints="xs" data-sorted="true">Referencia</th>
+      <th data-breakpoints="xs" data-sorted="true">Fecha</th>
+      <th data-breakpoints="xs"">Cita #</th>
       <th>Servicio</th>
       <th>Especialista</th>
       <th>Paciente</th>
@@ -21,12 +22,13 @@
     <tbody>
     <% @lista.each do |cita| %>
         <tr>
-          <td><%= cita.id%></td>
+          <td><%= cita.fecha.strftime("%d/%m/%Y %H:%M %p")%></td>
+          <td>00<%= cita.id%></td>
           <td><%= cita.turno.horario.servicio.descripcion %></td>
           <td><%= cita.turno.horario.servicio.especialista.persona.nombre %> <%= cita.turno.horario.servicio.especialista.persona.apellido %></td>
           <td><%= cita.persona.nombre %> <%= cita.persona.apellido%></td>
           <td>
-            <%= link_to 'Detalle', edit_cita_path(cita), :class => "btn btn-warning btn-sm" %>
+            <%= link_to 'Ver Detalles', cita, :class => "btn btn-success btn-sm" %>
             <%= link_to 'Cancelar','cancelar_cita/'+cita.id.to_s , :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
         </tr>
     <% end %>

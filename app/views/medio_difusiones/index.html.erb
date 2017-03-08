@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Medio Difusiones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Estatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medio_difusiones.each do |medio_difusion| %>
+      <tr>
+        <td><%= medio_difusion.descripcion %></td>
+        <td><%= medio_difusion.estatus %></td>
+        <td><%= link_to 'Show', medio_difusion %></td>
+        <td><%= link_to 'Edit', edit_medio_difusion_path(medio_difusion) %></td>
+        <td><%= link_to 'Destroy', medio_difusion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medio Difusion', new_medio_difusion_path %>

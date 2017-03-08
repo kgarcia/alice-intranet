@@ -1,7 +1,7 @@
 class TipoOpinion < ApplicationRecord
 
   def self.titulo
-	  return "Tipos de Opinion"
+	  return "Tipo de Opinión"
   end
 
 end

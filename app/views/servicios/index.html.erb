@@ -6,7 +6,7 @@
               </div>
           </div>
 <div class="ibox-content">
-<%= link_to 'Servicio', new_servicio_path, :class => "btn btn-primary btn-sm fa fa-plus" %>
+<%= link_to 'Servicio', new_servicio_path, :class => "btn btn-primary btn-sm" %>
  <br><br> 
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
@@ -14,7 +14,7 @@
         <th data-sorted="true">Tipo de Servicio</th>
         <th>Descripcion</th>
         <th>Especialista</th>
-        <th>Ubicacion</th>
+        <th>Ubicación</th>
         <th colspan="1"></th>
       </tr>
     </thead>
@@ -31,8 +31,8 @@
             <td><%= servicio.ubicacion.descripcion %></td>
 
             <td>
-              <%= link_to '', edit_servicio_path(servicio), :class => "btn btn-warning btn-sm fa fa-pencil" %>
-              <%= link_to '', servicio, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+              <%= link_to 'Editar', edit_servicio_path(servicio), :class => "btn btn-warning btn-sm" %>
+              <%= link_to 'Eliminar', servicio, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
           </tr>
       <% end %>
     </tbody>

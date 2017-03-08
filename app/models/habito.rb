@@ -7,6 +7,6 @@ class Habito < ApplicationRecord
   	return self.tipo_habito
   end
   def self.titulo
-	  return "Habitos"
+	  return "Hábito"
   end
 end

@@ -7,14 +7,14 @@
 </div>
 
 <div class="ibox-content">
-  <%= link_to "", new_eventualidad_path, :class => "btn btn-primary btn-sm fa fa-plus", :title => "Nuevo"%>
+  <%= link_to "Registrar", new_eventualidad_path, :class => "btn btn-primary btn-sm" %>
   <br><br>
   <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
     <tr>
       <th data-breakpoints="xs" data-sorted="true">Tipo</th>
       <th>Motivo</th>
-      <th>Descripcion</th>
+      <th>Descripción</th>
       <th>Fecha Inicio</th>
       <th>Fecha Fin</th>
       <th colspan="1"></th>
@@ -28,9 +28,6 @@
           <td><%= eventualidad.descripcion %></td>
           <td><%= eventualidad.fecha_inicio.to_s %></td>
           <td><%= eventualidad.fecha_fin %></td>
-          <td><%= link_to 'Show', eventualidad %></td>
-          <td><%= link_to 'Edit', edit_eventualidad_path(eventualidad) %></td>
-          <td><%= link_to 'Destroy', eventualidad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
     </tbody>

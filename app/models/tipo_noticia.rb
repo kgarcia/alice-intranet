@@ -1,7 +1,7 @@
 class TipoNoticia < ApplicationRecord
 
   def self.titulo
-	  return "Tipos de Noticia"
+	  return "Tipo de Noticia"
   end
 
 end

@@ -9,6 +9,6 @@ class Busqueda < ApplicationRecord
   end
 
   def self.titulo
-		return "Busquedas"
+		return "Búsqueda"
 	end
 end

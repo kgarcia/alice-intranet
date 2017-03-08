@@ -1,5 +1,5 @@
 class RangoEdad < ApplicationRecord
 	def self.titulo
-	  return "Rangos de Edad"
+	  return "Rango de Edad"
   end
 end

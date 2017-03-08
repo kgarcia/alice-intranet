@@ -74,4 +74,5 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'universidad', 'universidades'
 	inflect.irregular 'edad', 'edades'
 	inflect.irregular 'entidad', 'entidades'
+	inflect.irregular 'perfil', 'perfiles'
 end

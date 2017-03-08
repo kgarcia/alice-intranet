@@ -31,6 +31,7 @@
 
 //= require highcharts
 //= require highcharts/modules/exporting
+//= require highcharts/modules/heatmap
 
 $.extend(true, $.fn.dataTable.defaults, {
     "language": {"url": "/js/datatables/Spanish.json"}
