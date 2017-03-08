@@ -66,6 +66,21 @@ Myapp::Application.routes.draw do
   resources :personas
   resources :roles
   devise_for :usuarios , :controllers => {registrations: "usuarios/registrations", sessions: "usuarios/sessions", confirmations: 'usuarios/confirmations'}
+  
+  devise_scope :usuario do
+    get 'login', to: 'usuarios/sessions#new'
+    
+    authenticated :usuario do
+      root to: 'home#index', as: :authenticated_root
+    end
+    
+  end
+
+  
+
+  root to: 'usuarios/sessions#new'
+
+
   resources :eventualidades
   resources :turnos
   resources :horarios
@@ -117,7 +132,7 @@ Myapp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-root to: 'home#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

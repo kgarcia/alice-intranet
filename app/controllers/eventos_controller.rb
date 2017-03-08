@@ -4,15 +4,30 @@ class EventosController < ApplicationController
   # GET /eventos
   # GET /eventos.json
   def index
-    @eventos = Evento.all
     @referencia_tipo = "tipo_evento"
 
+    if params[:id].nil?
+      @eventos = Evento.all
+    else
+      @eventos = Evento.where(tipo_evento_id: params[:id])
+    end
+
+    respond_to do |format|
+      format.html 
+      format.json 
+    end
   end
 
   # GET /eventos/1
   # GET /eventos/1.json
   def show
+        @tipoNoticias = TipoNoticia.all
+
      @evento = Evento.find(params[:id])
+      respond_to do |format|
+      format.html
+      format.json 
+    end
   end
 
   # GET /eventos/new
