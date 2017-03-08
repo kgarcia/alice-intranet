@@ -1,4 +1,4 @@
 class CirugiaPerfil < ApplicationRecord
-  belongs_to :adiccion
+  belongs_to :cirugia
   belongs_to :perfil
 end

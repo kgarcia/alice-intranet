@@ -5,7 +5,7 @@ class TipoServicio < ApplicationRecord
   has_many :servicios
 
   has_many :criterio_tipo_servicios
-  has_many :criterio, through: :criterio_tipo_servicios
+  has_many :criterios, through: :criterio_tipo_servicios
   has_many :perfil_tipo_servicios
   has_many :perfiles, through: :perfil_tipo_servicios
 
@@ -16,12 +16,12 @@ class TipoServicio < ApplicationRecord
 
     attr_reader :criteriosTipoServicio, :perfilesTipoServicio
 
-    def criterioTipoServicio=(value)
+    def criteriosTipoServicio=(value)
       @criteriosTipoServicio = value
     end
 
-    def perfilTipoServicio=(value)
-      @perfilTipoServicio = value
+    def perfilesTipoServicio=(value)
+      @perfilesTipoServicio = value
     end
 
    private
@@ -36,7 +36,7 @@ class TipoServicio < ApplicationRecord
 
    private
    def save_perfiles
-    PerfilesTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
+    PerfilTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
     if !@perfilesTipoServicio.nil?
         @perfilesTipoServicio.each do |perfil_id|
           PerfilTipoServicio.create(perfil_id: perfil_id, tipo_servicio_id: self.id )

@@ -5,7 +5,7 @@ class PerfilesController < ApplicationController
     @parametros = Perfil.all
     
     respond_to do |format|
-      format.html {  render "parametros/index" }
+      format.html { render "parametros/index" }
       format.json { render json: @parametros }
     end
   end
@@ -13,28 +13,66 @@ class PerfilesController < ApplicationController
   # GET /tipo_especialidades/1
   # GET /tipo_especialidades/1.json
   def show
-    @parametro = Perfil.find(params[:id])
+    @perfil = Perfil.find(params[:id])
 
-    render "parametros/edit"
   end
 
   # GET /tipo_especialidades/new
   def new
-    @parametro = Perfil.new
-    render "parametros/new"
+    @perfil = Perfil.new
+    @adicciones = Adiccion.all
+    @cirugias = Cirugia.all
+    @discapacidades = Discapacidad.all
+    @estado_civiles = EstadoCivil.all
+    @grupo_sanguineos = GrupoSanguineo.all
+    @habitos = Habito.all
+    @lesiones = Lesion.all
+    @ocupaciones = Ocupacion.all
+    @patologias = Patologia.all
+    @profesiones = Profesion.all
+    @sexos = Sexo.all
+    @vacunas = Vacuna.all
+    @rangoEdades = RangoEdad.all
+    @rangoPesos = RangoPeso.all
   end
 
   # GET /tipo_especialidades/1/edit
   def edit
-    @parametro = Perfil.find(params[:id])
-
-    render "parametros/edit"
+    @perfil = Perfil.find(params[:id])
+    @adicciones = Adiccion.all
+    @cirugias = Cirugia.all
+    @discapacidades = Discapacidad.all
+    @estado_civiles = EstadoCivil.all
+    @grupo_sanguineos = GrupoSanguineo.all
+    @habitos = Habito.all
+    @lesiones = Lesion.all
+    @ocupaciones = Ocupacion.all
+    @patologias = Patologia.all
+    @profesiones = Profesion.all
+    @sexos = Sexo.all
+    @vacunas = Vacuna.all
+    @rangoEdades = RangoEdad.all
+    @rangoPesos = RangoPeso.all
   end
 
   # POST /perfiles
   # POST /perfiles.json
   def create
     @perfil = Perfil.new(perfil_params)
+    @perfil.adiccionesPerfil = params[:adicciones]
+    @perfil.cirugiasPerfil = params[:cirugias]
+    @perfil.discapacidadesPerfil = params[:discapacidades]
+    @perfil.estadoCivilesPerfil = params[:estado_civiles]
+    @perfil.grupoSanguineosPerfil = params[:grupo_sanguineos]
+    @perfil.habitosPerfil = params[:habitos]
+    @perfil.lesionesPerfil = params[:lesiones]
+    @perfil.ocupacionesPerfil = params[:ocupaciones]
+    @perfil.patologiasPerfil = params[:patologias]
+    @perfil.profesionesPerfil = params[:profesiones]
+    @perfil.sexosPerfil = params[:sexos]
+    @perfil.vacunasPerfil = params[:vacunas]
+    @perfil.rangoEdadesPerfil = params[:rango_edades]
+    @perfil.rangoPesosPerfil = params[:rango_pesos]
 
     respond_to do |format|
       if @perfil.save
@@ -50,8 +88,23 @@ class PerfilesController < ApplicationController
   # PATCH/PUT /perfiles/1
   # PATCH/PUT /perfiles/1.json
   def update
+        @perfil.adiccionesPerfil = params[:adicciones]
+        @perfil.cirugiasPerfil = params[:cirugias]
+        @perfil.discapacidadesPerfil = params[:discapacidades]
+        @perfil.estadoCivilesPerfil = params[:estado_civiles]
+        @perfil.grupoSanguineosPerfil = params[:grupo_sanguineos]
+        @perfil.habitosPerfil = params[:habitos]
+        @perfil.lesionesPerfil = params[:lesiones]
+        @perfil.ocupacionesPerfil = params[:ocupaciones]
+        @perfil.patologiasPerfil = params[:patologias]
+        @perfil.profesionesPerfil = params[:profesiones]
+        @perfil.sexosPerfil = params[:sexos]
+        @perfil.vacunasPerfil = params[:vacunas]
+        @perfil.rangoEdadesPerfil = params[:rango_edades]
+        @perfil.rangoPesosPerfil = params[:rango_pesos]
     respond_to do |format|
       if @perfil.update(perfil_params)
+        
         format.html { redirect_to @perfil, notice: 'Perfil was successfully updated.' }
         format.json { render :show, status: :ok, location: @perfil }
       else

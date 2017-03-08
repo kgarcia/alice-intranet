@@ -1,35 +1,35 @@
 class Perfil < ApplicationRecord
 
-  has_many :adiccion_perfil
-  has_many :adicciones, :through => :adiccion_perfil
-  has_many :cirugia_perfil
-  has_many :cirugias, through: :cirugia_perfil
-  has_many :profesion_perfil
-  has_many :profesiones, through: :profesion_perfil
-  has_many :discapacidad_perfil
-  has_many :discapacidades, through: :discapacidad_perfil
-  has_many :estado_civil_perfil
-  has_many :estado_civiles, through: :estado_civil_perfil
-  has_many :grupo_sanguineo_perfil
-  has_many :grupo_sanguineos, through: :grupo_sanguineo_perfil
-  has_many :habito_perfil
-  has_many :habitos, through: :habito_perfil
-  has_many :lesion_perfil
-  has_many :lesiones, through: :lesion_perfil
-  has_many :ocupacion_perfil
-  has_many :ocupaciones, through: :ocupacion_perfil
-  has_many :patologia_perfil
-  has_many :patologias, through: :patologia_perfil
-  has_many :profesion_perfil
-  has_many :profesiones, through: :profesion_perfil
-  has_many :sexo_perfil
-  has_many :sexos, through: :sexo_perfil
+  has_many :adiccion_perfiles
+  has_many :adicciones, :through => :adiccion_perfiles
+  has_many :cirugia_perfiles
+  has_many :cirugias, through: :cirugia_perfiles
+  has_many :profesion_perfiles
+  has_many :profesiones, through: :profesion_perfiles
+  has_many :discapacidad_perfiles
+  has_many :discapacidades, through: :discapacidad_perfiles
+  has_many :estado_civil_perfiles
+  has_many :estado_civiles, through: :estado_civil_perfiles
+  has_many :grupo_sanguineo_perfiles
+  has_many :grupo_sanguineos, through: :grupo_sanguineo_perfiles
+  has_many :habito_perfiles
+  has_many :habitos, through: :habito_perfiles
+  has_many :lesion_perfiles
+  has_many :lesiones, through: :lesion_perfiles
+  has_many :ocupacion_perfiles
+  has_many :ocupaciones, through: :ocupacion_perfiles
+  has_many :patologia_perfiles
+  has_many :patologias, through: :patologia_perfiles
+  has_many :profesion_perfiles
+  has_many :profesiones, through: :profesion_perfiles
+  has_many :sexo_perfiles
+  has_many :sexos, through: :sexo_perfiles
   has_many :perfil_vacunas
   has_many :vacunas, through: :perfil_vacunas
-  has_many :rango_edad_perfil
-  has_many :rango_edades, through: :rango_edad_perfil
-  has_many :rango_peso_perfil
-  has_many :rango_pesos, through: :rango_peso_perfil
+  has_many :rango_edad_perfiles
+  has_many :rango_edades, through: :rango_edad_perfiles
+  has_many :rango_peso_perfiles
+  has_many :rango_pesos, through: :rango_peso_perfiles
 
   after_save :save_adicciones, :save_cirugias, :save_discapacidades, :save_estado_civiles, :save_grupo_sanguineos,
                 :save_habitos, :save_lesiones, :save_ocupaciones, :save_patologias, :save_profesiones, :save_vacunas,
@@ -215,8 +215,8 @@ class Perfil < ApplicationRecord
    private
    def save_sexos
     SexoPerfil.where(:perfil_id => self.id).destroy_all
-    if !@sexoPerfil.nil?
-        @sexoPerfil.each do |sexo_id|
+    if !@sexosPerfil.nil?
+        @sexosPerfil.each do |sexo_id|
           SexoPerfil.create(sexo_id: sexo_id, perfil_id: self.id )
         end
      end

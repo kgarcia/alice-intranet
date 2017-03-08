@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307223118) do
+ActiveRecord::Schema.define(version: 20170307223955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -238,6 +238,15 @@ ActiveRecord::Schema.define(version: 20170307223118) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.index ["tipo_discapacidad_id"], name: "index_discapacidades_on_tipo_discapacidad_id", using: :btree
+  end
+
+  create_table "especialidad_especialistas", force: :cascade do |t|
+    t.integer  "especialidad_id"
+    t.integer  "especialista_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["especialidad_id"], name: "index_especialidad_especialistas_on_especialidad_id", using: :btree
+    t.index ["especialista_id"], name: "index_especialidad_especialistas_on_especialista_id", using: :btree
   end
 
   create_table "especialidades", force: :cascade do |t|
@@ -1086,6 +1095,8 @@ ActiveRecord::Schema.define(version: 20170307223118) do
   add_foreign_key "discapacidad_personas", "discapacidades"
   add_foreign_key "discapacidad_personas", "personas"
   add_foreign_key "discapacidades", "tipo_discapacidades"
+  add_foreign_key "especialidad_especialistas", "especialidades"
+  add_foreign_key "especialidad_especialistas", "especialistas"
   add_foreign_key "especialistas", "especialidades"
   add_foreign_key "especialistas", "formacion_academicas"
   add_foreign_key "especialistas", "personas"
