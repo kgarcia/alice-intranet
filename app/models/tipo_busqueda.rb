@@ -1,5 +1,5 @@
 class TipoBusqueda < ApplicationRecord
   def self.titulo
-	  return "Tipos de Busqueda"
+	  return "Tipo de Búsqueda"
   end
 end

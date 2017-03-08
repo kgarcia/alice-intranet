@@ -1,5 +1,5 @@
 class TipoDifusion < ApplicationRecord
 	def self.titulo
-	  return "Tipos de Difusion"
+	  return "Tipo de Difusión"
   end
 end

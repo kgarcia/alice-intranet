@@ -3,6 +3,6 @@ class Opinion < ApplicationRecord
   belongs_to :motivo
 
   def self.titulo
-	  return "Opiniones"
+	  return "Opinión"
   end
 end

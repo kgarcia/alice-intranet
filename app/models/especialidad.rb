@@ -6,7 +6,7 @@ class Especialidad < ApplicationRecord
   has_many :especialistas, through: :especialidad_especialistas
 
   def self.titulo
-	  return "Especialidades"
+	  return "Especialidad"
   end
 
   def tipo

@@ -7,6 +7,6 @@ class Calificacion < ApplicationRecord
   end
 
   def self.titulo
-		return "Calificaciones"
+		return "Calificación"
 	end
 end

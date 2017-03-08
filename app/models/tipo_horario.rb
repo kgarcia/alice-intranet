@@ -1,6 +1,6 @@
 class TipoHorario < ApplicationRecord
 	has_many :horarios
   def self.titulo
-	  return "Tipos de Horario"
+	  return "Tipo de Horario"
   end
 end

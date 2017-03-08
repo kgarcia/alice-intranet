@@ -8,7 +8,7 @@ class Discapacidad < ApplicationRecord
   end
 
   def self.titulo
-	  return "Discapacidades"
+	  return "Discapacidad"
   end
 
 end

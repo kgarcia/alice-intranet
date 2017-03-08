@@ -37,7 +37,7 @@ class Especialista < ApplicationRecord
   end
 
   def self.titulo
-	  return "Especialistas"
+	  return "Especialista"
   end
 
 

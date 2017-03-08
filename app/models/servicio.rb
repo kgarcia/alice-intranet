@@ -20,7 +20,7 @@ class Servicio < ApplicationRecord
     after_save :save_horario_turnos
 
   def self.titulo
-	  return "Servicios"
+	  return "Servicio"
   end
 
   def contarCalificaciones

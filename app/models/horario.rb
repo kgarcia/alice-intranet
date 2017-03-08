@@ -9,7 +9,7 @@ class Horario < ApplicationRecord
   end
 
   def self.titulo
-	  return "Tipos de horario"
+	  return "Tipo de Horario"
   end
   
   def cantidad_pacientes_turno

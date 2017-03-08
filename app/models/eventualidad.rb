@@ -5,11 +5,9 @@ class Eventualidad < ApplicationRecord
   def tipo
       self.tipo_eventualidad
   end
-  def motivo
-      self.motivo
-  end
+  
   def self.titulo
-	  return "Eventualidades"
+	  return "Eventualidad"
   end
 end
 
