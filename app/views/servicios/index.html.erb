@@ -12,9 +12,9 @@
     <thead>
       <tr>
         <th data-sorted="true">Tipo de Servicio</th>
+        <th>Descripcion</th>
         <th>Especialista</th>
         <th>Ubicación</th>
-        <th>Descripción</th>
         <th colspan="1"></th>
       </tr>
     </thead>
@@ -22,13 +22,14 @@
       <% @servicios.each do |servicio| %>
           <tr>
             <td><%= servicio.tipo_servicio.descripcion %></td>
-            <% if(servicio.especialista.nil?) %>
-              <td><%= servicio.especialista %></td>
-              <% else %>
-              <td></td>
+            <td><%= servicio.descripcion %></td>
+            <% if(!servicio.especialista.nil?) %>
+              <td><%= servicio.especialista.nombre %></td>
+            <%else %>
+            <td></td>
             <% end %>
             <td><%= servicio.ubicacion.descripcion %></td>
-            <td><%= link_to servicio.descripcion, polymorphic_url(servicio) %></td>
+
             <td>
               <%= link_to 'Editar', edit_servicio_path(servicio), :class => "btn btn-warning btn-sm" %>
               <%= link_to 'Eliminar', servicio, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
@@ -36,12 +37,12 @@
       <% end %>
     </tbody>
       <tfoot>
-                    <tr>
-                        <td colspan="5">
-                            <ul class="pagination pull-right"></ul>
-                        </td>
-                    </tr>
-                    </tfoot>
+      <tr>
+          <td colspan="5">
+              <ul class="pagination pull-right"></ul>
+          </td>
+      </tr>
+      </tfoot>
   </table>
 </div>
 <br>

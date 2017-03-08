@@ -4,8 +4,7 @@ class CitasController < ApplicationController
   # GET /citas
   # GET /citas.json
   def index
-    @citas = Cita.all
-    @lista = Cita.all
+    @lista = Cita.where({:persona_id => current_usuario.persona_id, :estatus => 1})
   end
 
   # GET /citas/1
@@ -63,8 +62,8 @@ class CitasController < ApplicationController
     end
   end
 
-  def cancelar
-    @citas = Cita.all.where(:estatus => 1)
+  def historial
+    @histo = Cita.where({:persona_id => current_usuario.persona_id, :estatus => 1})
   end
 
   def cancelarCita
@@ -73,12 +72,20 @@ class CitasController < ApplicationController
     @collection_motivo = Motivo.all
     @referencia_tipo ="tipo_eventualidad_id"
     @referencia_motivo = "motivo_id"
+    @eventualidad = Eventualidad.new
+
     render "cancelarCitas"
   end
 
-  def cancelar2
-    @cita = Cita.find(params[:id])
+  def confirmarCancelacion
+    @cita = Cita.find(params[:cita_id])
     @cita.estatus = 5
+    @eventualidad = Eventualidad.new(eventualidad_params)
+    @eventualidad.tipo_eventualidad_id = 1
+    @eventualidad.fecha_inicio = Date.today()
+    @eventualidad.fecha_fin = Date.today()
+    @eventualidad.save
+    @cita.eventualidad_id = @eventualidad.id
     @cita.save
     redirect_to citas_url
   end
@@ -148,4 +155,7 @@ class CitasController < ApplicationController
     def persona_params
       params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id)
     end
+  def eventualidad_params
+    params.require(:eventualidad).permit(:descripcion, :estatus, :tipo_eventualidad_id, :motivo_id, :fecha_inicio, :fecha_fin)
+  end
 end

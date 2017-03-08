@@ -7,7 +7,7 @@ class ServicioDatatable < AjaxDatatablesRails::Base
 
   def searchable_columns
     # Declare strings in this format: ModelName.column_name
-    @searchable_columns  ||= %w(Servicio.descripcion Especialista.descripcion)
+    @searchable_columns ||= %w(Servicio.descripcion Especialista.descripcion)
   end
 
   private
@@ -19,7 +19,8 @@ class ServicioDatatable < AjaxDatatablesRails::Base
           # example: record.attribute,
           '0' => record.descripcion,
           '1' => record.especialista.try(:descripcion) || 'Sin especialista',
-          'DT_RowId' => record.id
+          'DT_RowId' => record.id,
+          '3' => "/agenda_servicio/#{record.id}/detalle"
       }
     end
   end

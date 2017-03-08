@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170308042707) do
 
   # These are extensions that must be enabled in order to support this database
@@ -480,6 +481,8 @@ ActiveRecord::Schema.define(version: 20170308042707) do
 
   create_table "notificaciones", force: :cascade do |t|
     t.string   "descripcion"
+    t.string   "mensaje"
+    t.string   "url"
     t.integer  "estatus"
     t.integer  "tipo_notificacion_id"
     t.datetime "created_at",           null: false
@@ -1050,11 +1053,13 @@ ActiveRecord::Schema.define(version: 20170308042707) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.integer  "servicio_id"
     t.index ["confirmation_token"], name: "index_usuarios_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
     t.index ["persona_id"], name: "index_usuarios_on_persona_id", using: :btree
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
     t.index ["rol_id"], name: "index_usuarios_on_rol_id", using: :btree
+    t.index ["servicio_id"], name: "index_usuarios_on_servicio_id", using: :btree
   end
 
   create_table "vacunas", force: :cascade do |t|
@@ -1197,4 +1202,5 @@ ActiveRecord::Schema.define(version: 20170308042707) do
   add_foreign_key "ubicaciones", "tipo_ubicaciones"
   add_foreign_key "usuarios", "personas"
   add_foreign_key "usuarios", "roles"
+  add_foreign_key "usuarios", "servicios"
 end

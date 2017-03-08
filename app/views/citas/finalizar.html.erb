@@ -6,6 +6,9 @@
   </div>
 </div>
 <div class="ibox-content">
+
+<br><br>
+
   <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
     <tr>
@@ -27,7 +30,8 @@
           <td><%= cita.turno.horario.servicio.especialista.persona.nombre %> <%= cita.turno.horario.servicio.especialista.persona.apellido %></td>
           <td><%= cita.persona.nombre %> <%= cita.persona.apellido%></td>
           <td>
-            <%= link_to 'Atender', 'finalizar_cita/'+cita.id.to_s, :class => "btn btn-primary btn-sm" %>
+            <%= link_to 'Atender', 'finalizar_cita/'+cita.id.to_s, :class => "btn btn-primary btn-sm " %>
+
         </tr>
 
     <% end %>

@@ -58,3 +58,8 @@ bower.json
 
 /config/database.yml
 /db/schema.rb
+
+
+.idea/
+.idea
+/.idea

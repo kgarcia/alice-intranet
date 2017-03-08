@@ -1,4 +1,11 @@
-<h1>AgendaServicio#detalle</h1>
-<p>Find me in app/views/agenda_servicio/detalle.html.erb</p>
 
-<div id='calendar'></div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Calendario de citas para el servicio <%= @servicio.descripcion %></h1>
+      <p>Haga click en una cita para ver más detalles</p>
+
+      <div id='calendar' data-source="<%= agenda_servicio_detalle_path(:id => params[:id], :format => :json) %>"></div>
+
+
+    </div>
+  </div>

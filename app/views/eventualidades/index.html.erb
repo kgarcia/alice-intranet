@@ -23,10 +23,10 @@
     <tbody>
     <% @eventualidades.each do |eventualidad| %>
         <tr>
-          <td><%= eventualidad.tipo %></td>
-          <td><%= eventualidad.motivo%></td>
+          <td><%= eventualidad.tipo.descripcion %></td>
+          <td><%= eventualidad.motivo.descripcion%></td>
           <td><%= eventualidad.descripcion %></td>
-          <td><%= eventualidad.fecha_inicio %></td>
+          <td><%= eventualidad.fecha_inicio.to_s %></td>
           <td><%= eventualidad.fecha_fin %></td>
         </tr>
     <% end %>
