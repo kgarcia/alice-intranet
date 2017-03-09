@@ -7,6 +7,6 @@ class Lesion < ApplicationRecord
   	return self.tipo_lesion
   end
   def self.titulo
-	  return "Lesiones"
+	  return "Lesión"
   end
 end

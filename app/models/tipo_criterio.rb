@@ -1,5 +1,5 @@
 class TipoCriterio < ApplicationRecord
 	def self.titulo
-	  return "Tipos de Criterio"
+	  return "Tipo de Criterio"
   end
 end

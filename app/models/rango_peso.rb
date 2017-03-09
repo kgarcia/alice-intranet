@@ -1,5 +1,5 @@
 class RangoPeso < ApplicationRecord
 	def self.titulo
-	  return "Rangos de Peso"
+	  return "Rango de Peso"
   end
 end

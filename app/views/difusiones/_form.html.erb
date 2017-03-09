@@ -37,6 +37,33 @@
                     
                   </div>
 
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Tipo de Entidad</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select(:tipo_entidad_id, @tipo_entidades, :id, :descripcion, {},{:class => "form-control"}) %>
+                    </div>
+                    
+                  </div>
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Medio de Difusion</label>
+                    <div class="container-fluid col-lg-10">
+                    <% @medios.each do |medio| %>
+                      <div class="col-sm-3">
+                          <%= check_box_tag('medios[]', medio.id, @difusion.medio_difusiones.include?(medio)) %> <%= medio.descripcion %>
+                      </div>
+                    <% end %>
+                  </div>
+                    
+                  </div>
+
+                  <div class="field form-group">
+                    <label class="col-lg-2 control-label">Servicio</label>
+                    <div class="col-lg-10">
+                      <%= f.collection_select(:entidad_id, @entidades, :id, :descripcion, {},{:class => "form-control"}) %>
+                    </div>
+                    
+                  </div>
+
                   <div class="form-group">
                       <label class="col-lg-2 control-label">Asunto</label>
 

@@ -3,7 +3,7 @@ class Pais < ApplicationRecord
 	has_many :ciudad, through: :estado
 	has_many :ubicacion, through: :ciudad
   def self.titulo
-	  return "Paises"
+	  return "País"
   end
 
    def as_json(options={})

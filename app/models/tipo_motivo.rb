@@ -1,5 +1,5 @@
 class TipoMotivo < ApplicationRecord
   def self.titulo
-	  return "Tipos de Motivo"
+	  return "Tipo de Motivo"
   end
 end
