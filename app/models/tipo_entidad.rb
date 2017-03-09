@@ -1,5 +1,5 @@
 class TipoEntidad < ApplicationRecord
 	def self.titulo
-	  return "Tipos de Entidad"
+	  return "Tipo de Entidad"
   end
 end

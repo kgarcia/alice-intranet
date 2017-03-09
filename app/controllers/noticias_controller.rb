@@ -4,14 +4,26 @@ class NoticiasController < ApplicationController
   # GET /noticias
   # GET /noticias.json
   def index
-    @noticias = Noticia.all
+    if params[:id].nil?
+      @parametros = Noticia.all
+    else
+      @parametros = Noticia.where(tipo_noticia_id: params[:id])
+    end
+
+    respond_to do |format|
+      format.html {  render "parametros/index" }
+      format.json { render json: @parametros }
+    end
   end
 
   # GET /noticias/1
   # GET /noticias/1.json
   def show
     @tipoNoticias = TipoNoticia.all
-    render "edit"
+    respond_to do |format|
+      format.html
+      format.json 
+    end
   end
 
   # GET /noticias/new

@@ -6,7 +6,6 @@ class CreateCitas < ActiveRecord::Migration[5.0]
       t.references :usuario, foreign_key: true
       t.timestamp :fecha
       t.references :tipo_pago, foreign_key: true
-      t.references :tipo_cita, foreign_key: true
       t.references :eventualidad, foreign_key: true
       t.integer :estatus
 

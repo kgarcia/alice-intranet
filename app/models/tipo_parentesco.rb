@@ -1,5 +1,5 @@
 class TipoParentesco < ApplicationRecord
 	def self.titulo
-	  return "Tipos de Parentesco"
+	  return "Tipo de Parentesco"
   end
 end

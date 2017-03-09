@@ -20,8 +20,12 @@ class Evento < ApplicationRecord
   end
 
   def self.titulo
-    return "Eventos"
+    return "Evento"
   end
+
+  def foto_url
+        foto.url(:medium)
+    end
 
    private
     def save_servicios

@@ -1,5 +1,5 @@
 class TipoUbicacion < ApplicationRecord
   def self.titulo
-	  return "Tipos de Ubicacion"
+	  return "Tipo de Ubicación"
   end
 end

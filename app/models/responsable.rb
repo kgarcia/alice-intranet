@@ -1,0 +1,2 @@
+class Responsable < ApplicationRecord
+end

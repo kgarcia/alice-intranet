@@ -4,7 +4,13 @@ class CategoriasController < ApplicationController
   # GET /categorias
   # GET /categorias.json
   def index
-    @parametros = Categoria.all
+
+    if params[:id].nil?
+      @parametros = Categoria.all
+    else
+      @parametros = Categoria.where(id: params[:id])
+    end
+
     respond_to do |format|
       format.html {  render "parametros/index" }
       format.json { render json: @parametros }
@@ -15,8 +21,14 @@ class CategoriasController < ApplicationController
   # GET /categorias/1.json
   def show
     @parametro = Categoria.find(params[:id])
-
-    render "parametros/edit"
+    puts '##########################################'
+    puts @parametro.as_json
+    puts '##########################################'
+    respond_to do |format|
+      
+      format.json { render json: @parametro.to_json }
+    end
+    #render "parametros/edit"
   end
 
   # GET /categorias/new

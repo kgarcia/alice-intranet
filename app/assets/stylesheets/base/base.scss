@@ -7,6 +7,10 @@ body {
 
 }
 
+body .chip {
+  color: #ffffff;
+}
+
 html, body {
   height: 100%;
 
@@ -1427,4 +1431,8 @@ body.mini-navbar.fixed-sidebar .logo-element {
 .parametros-titulo{
   font-weight: bold;
     color: #3e495f;
+}
+
+.btn {
+  font-weight:bold;
 }

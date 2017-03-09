@@ -6,7 +6,7 @@
     </div>
 </div>
 <div class="ibox-content">
-<%= link_to "", new_polymorphic_url(@rango_pesos.new), :class => "btn btn-primary btn-sm fa fa-plus", :title => "Nuevo"%>
+<%= link_to "Registrar", new_polymorphic_url(@rango_pesos.new), :class => "btn btn-primary btn-sm" %>
 
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
@@ -25,8 +25,8 @@
           <td><%= rango_peso.peso_inicial %></td>
           <td><%= rango_peso.peso_final %></td>
           <td>
-            <%= link_to '', edit_polymorphic_url(rango_peso), :class => "btn btn-warning btn-sm fa fa-pencil", :title => "Editar" %>
-            <%= link_to '', polymorphic_url(rango_peso), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash", :title => "Eliminar" %>
+            <%= link_to 'Editar', edit_polymorphic_url(rango_peso), :class => "btn btn-warning btn-sm" %>
+            <%= link_to 'Eliminar', polymorphic_url(rango_peso), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm"%>
           </td>
         </tr>
       <% end %>

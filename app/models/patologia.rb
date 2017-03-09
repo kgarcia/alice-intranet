@@ -7,6 +7,6 @@ class Patologia < ApplicationRecord
   	return self.tipo_patologia
   end
   def self.titulo
-	  return "Patologias"
+	  return "Patología"
   end
 end

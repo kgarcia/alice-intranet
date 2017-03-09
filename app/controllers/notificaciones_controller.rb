@@ -83,6 +83,6 @@ class NotificacionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def notificacion_params
-      params.require(:notificacion).permit(:descripcion, :estatus, :tipo_notificacion_id)
+      params.require(:notificacion).permit(:descripcion, :mensaje, :url, :estatus, :tipo_notificacion_id)
     end
 end

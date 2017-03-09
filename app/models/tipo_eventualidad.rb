@@ -1,6 +1,6 @@
 class TipoEventualidad < ApplicationRecord
   has_many :eventualidades
   def self.titulo
-	  return "Tipos de Eventualidad"
+	  return "Tipo de Eventualidad"
   end
 end
