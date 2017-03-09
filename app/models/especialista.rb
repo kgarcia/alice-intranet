@@ -22,6 +22,14 @@ class Especialista < ApplicationRecord
     return @string
   end
 
+  def nombre
+    return self.persona.nombre + " "+ self.persona.apellido
+  end
+
+  def self.titulo
+    return "Especialista"
+  end
+
   private
    def save_especialidades
     EspecialidadEspecialista.where(:especialista_id => self.id).destroy_all
@@ -32,13 +40,7 @@ class Especialista < ApplicationRecord
      end
    end
 
-  def nombre
-  	return self.persona.nombre + " "+ self.persona.apellido
-  end
-
-  def self.titulo
-	  return "Especialista"
-  end
+  
 
 
 end
