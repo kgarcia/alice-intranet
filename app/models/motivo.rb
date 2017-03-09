@@ -7,6 +7,6 @@ class Motivo < ApplicationRecord
   end
 
   def self.titulo
-	  return "Motivos"
+	  return "Motivo"
   end
 end

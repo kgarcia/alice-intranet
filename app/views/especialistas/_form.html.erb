@@ -1,5 +1,10 @@
 <div class="row">
   <div class="col-lg-6 col-lg-offset-3">
+  <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Especialista" %></h2>
+              </div>
+          </div>
     <div class="ibox-content">
       <%= form_for @especialista, :html => {:class => 'form-horizontal'} do |f| %>
           <% if @especialista.errors.any? %>
@@ -15,28 +20,51 @@
               </div>
           <% end %>
 
-          <div class="field form-group">
-            <label class="col-lg-2 control-label">Especialidad</label>
-            <div class="col-lg-10"><%= f.collection_select(:especialidad_id, @especialidades, :id, :descripcion, {}, :class => "form-control") %></div>
-          </div>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#datos">Datos basicos</a></li>
+            <li><a data-toggle="tab" href="#especialidades">Especialidades</a></li>
+          </ul>
 
-          <div class="field form-group">
-            <label class="col-lg-2 control-label">Universidad</label>
-            <div class="col-lg-10"><%= f.collection_select(:universidad_id, @universidades, :id, :descripcion, {}, :class => "form-control") %></div>
-          </div>
+          <div class="tab-content">
+            <div id="datos" class="tab-pane fade in active">
+              <br>
+              <div class="field form-group">
+              <label class="col-lg-2 control-label">Universidad</label>
+              <div class="col-lg-10"><%= f.collection_select(:universidad_id, @universidades, :id, :descripcion, {}, :class => "form-control") %></div>
+            </div>
 
-          <div class="field form-group">
-            <label class="col-lg-2 control-label">Formacion Academica</label>
-            <div class="col-lg-10"><%= f.collection_select(:formacion_academica_id, @formacion_academicas, :id, :descripcion, {}, :class => "form-control") %></div>
-          </div>
+            <div class="field form-group">
+              <label class="col-lg-2 control-label">Formacion Academica</label>
+              <div class="col-lg-10"><%= f.collection_select(:formacion_academica_id, @formacion_academicas, :id, :descripcion, {}, :class => "form-control") %></div>
+            </div>
 
-          <%= render 'personas/datos_persona', persona: @persona %>
+            <%= render 'personas/datos_persona', persona: @persona %>
+            </div>
 
-          <div class="form-group">
-            <div class="col-lg-offset-2 col-lg-10">
-              <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>
+            <div id="especialidades" class="tab-pane fade in">
+              <br>
+              <div class="container-fluid">
+                <% @especialidades.each do |especialidad| %>
+                  <div class="col-sm-3">
+                      <%= check_box_tag('especialidades[]', especialidad.id, @especialista.especialidades.include?(especialidad)) %> <%= especialidad.descripcion %>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
+
+          <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-primary" %>
+                      </div>
+                        <div class="col-lg-2">
+                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                      <div class="col-lg-2">
+                      <%= link_to 'Atras',especialistas_path, :class => "btn btn-sm btn-success" %>                          
+                      </div>
+                  </div>
+                  
       <% end %>
     </div>
   </div>

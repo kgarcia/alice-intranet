@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rango_edad: one
+  perfil: one
+
+two:
+  rango_edad: two
+  perfil: two

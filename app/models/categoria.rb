@@ -9,7 +9,7 @@ class Categoria < ApplicationRecord
 	has_many :dias, through: :turnos
 
 	def self.titulo
-		return "Categorias"
+		return "Categoría"
 	end
 
  def as_json(options={})

@@ -12,4 +12,10 @@ class ExampleMailer < ApplicationMailer
     mail(to: "kevin93ps@gmail.com", subject: "Cita Registrada")
   end
 
+  def cita_cancelada#(email, cita)
+      #@email = email
+      #@cita = cita
+      mail(to: "kevin93ps@gmail.com", subject: "Cita Cancelada")
+  end
+
 end

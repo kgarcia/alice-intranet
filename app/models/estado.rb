@@ -7,7 +7,7 @@ class Estado < ApplicationRecord
   end
 
   def self.titulo
-	  return "Estados"
+	  return "Estado"
   end
 
 end

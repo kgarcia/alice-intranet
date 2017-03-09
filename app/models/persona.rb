@@ -36,6 +36,11 @@ class Persona < ApplicationRecord
 	  return "Personas"
   end
 
+
+  def nombre_identificacion
+    "[#{self.cedula}] #{self.nombre} #{self.apellido}"
+  end
+
   def adiccionesPersona=(value)
 	  	@adiccionesPersona = value
 	  end

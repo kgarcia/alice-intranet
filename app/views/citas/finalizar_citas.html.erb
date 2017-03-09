@@ -23,6 +23,7 @@
           <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#basico">Datos Basicos</a></li>
             <li><a data-toggle="tab" href="#medicos">Datos Medicos</a></li>
+            <li><a data-toggle="tab" href="#diagnostico">Diagnóstico</a></li>
           </ul>
           <br>
           <div class="tab-content">
@@ -35,26 +36,26 @@
               <%= fields_for @persona do |u| %>
               <div class="form-group row"><label class="col-lg-2 control-label">Nombre</label>
                   <div class="col-lg-10">
-                  <%= u.text_field :nombre, @persona.nombre, {:class => "form-control", readonly: true} %>
+                  <%= u.text_field :nombre, {:class => "form-control", readonly: true} %>
                   </div>
               </div>
 
               <div class="form-group row"><label class="col-lg-2 control-label">Apellido</label>
                   <div class="col-lg-10">
-                  <%= u.text_field :apellido, @persona.apellido, {:class => "form-control", readonly: true} %>
+                  <%= u.text_field :apellido, {:class => "form-control", readonly: true} %>
                   </div>
               </div>
 
               <div class="form-group row"><label class="col-lg-2 control-label">Fecha de Nacimiento</label>
-                  <div class="col-lg-10"><%= u.datetime_select @persona, :fecha_nacimiento, :class => "form-control" %>
+                  <div class="col-lg-10"><%= u.datetime_select :fecha_nacimiento, :class => "form-control" %>
                   </div>
               </div>
         
               <div class="field form-group row">
                 <label class="col-lg-2 control-label">Sexo</label>
-                <div class="col-lg-10"><%= u.collection_select(@persona,:sexo_id, @sexos, :id, :descripcion,{}, :class => "form-control" )%></div>
+                <div class="col-lg-10"><%= u.collection_select(:sexo_id, @sexos, :id, :descripcion,{}, :class => "form-control" )%></div>
               </div>
-              <% end %>
+              
               <div class="form-group row"><label class="col-lg-2 control-label">Peso</label>
                   <div class="col-lg-10">
                   <%= text_field_tag :peso, "85", {:class => "form-control"} %>
@@ -73,7 +74,7 @@
                 <label class="col-lg-2 control-label">Grupo Sanguineo</label>
                 <div class="col-lg-10"><%= collection_select(@persona,:grupo_sanguineo_id, @grupo_sanguineos, :id, :descripcion,{}, :class => "form-control" )%></div>
               </div>
-
+            <% end %>
             </div>
 
             <div id="medicos" class="tab-pane fade in">
@@ -142,23 +143,32 @@
                   </div>
             </div>
 
+            <div id="diagnostico" class="tab-pane fade in">
+              <div class="form-group">
+                  <label class="col-lg-2 control-label">Diagnostico</label>
+
+                  <div class="col-lg-10"><%= text_area_tag @cita, :diagnostico, :class => "tinymce form-control" %>
+                   </div>
+
+                  <%= tinymce %>
+                </div>
+            </div>
+
           </div>
 
           
 
-          <div class="form-group container-fluid">
+          <div class="form-group row">
               <div class="col-lg-offset-3 col-lg-2">
-                  <%= button_tag( :class => "btn btn-primary", :title => "Guardar") do %>
-                    <span class="fa fa-check"></span>
-                  <% end %>
+                  <%= submit_tag 'Guardar', :class => "btn btn-sm btn-primary"  %>
               </div>
               <% if (@persona.new_record?) %>
                 <div class="col-lg-2">
-                <%= link_to '', '', type: :reset, :class => "btn btn-sm btn-warning fa fa-recycle", :title => "Limpiar"  %>                          
+                <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning", :title => "Limpiar"  %>                          
                 </div>
               <% end %>
               <div class="col-lg-2">
-              <%= link_to '', '/chequear_cita', :class => "btn btn-sm btn-success fa fa-undo", :title => "Atras" %>                          
+              <%= link_to 'Volver', '/chequear_cita', :class => "btn btn-sm btn-success", :title => "Atras" %>                          
               </div>
           </div>
       <% end %>

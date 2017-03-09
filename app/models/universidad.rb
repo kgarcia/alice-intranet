@@ -1,5 +1,5 @@
 class Universidad < ApplicationRecord
   def self.titulo
-	  return "Universidades"
+	  return "Universidad"
   end
 end

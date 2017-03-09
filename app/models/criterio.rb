@@ -8,6 +8,6 @@ class Criterio < ApplicationRecord
   end
 
   def self.titulo
-	  return "Criterios"
+	  return "Criterio"
   end
 end

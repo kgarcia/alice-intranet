@@ -5,6 +5,8 @@ class Usuario < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :rol
   belongs_to :persona
+  belongs_to :servicio
+
   before_create :set_default_rol
   # or 
   # before_validation :set_default_role 
@@ -17,7 +19,7 @@ class Usuario < ApplicationRecord
   end
 
   def self.titulo
-    return "Usuarios"
+    return "Usuario"
   end
 
 end

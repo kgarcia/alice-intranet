@@ -1,0 +1,2 @@
+module TipoEspecialidadesHelper
+end

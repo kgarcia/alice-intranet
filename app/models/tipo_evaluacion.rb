@@ -1,5 +1,5 @@
 class TipoEvaluacion < ApplicationRecord
   def self.titulo
-	  return "Tipos de Evaluacion"
+	  return "Tipo de Evaluación"
   end
 end

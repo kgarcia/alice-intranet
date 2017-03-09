@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <div class="ibox-content">
-<%= link_to 'Pregunta', new_pregunta_path, :class => "btn btn-primary btn-sm fa fa-plus" %>
+<%= link_to 'Registrar', new_pregunta_path, :class => "btn btn-primary btn-sm" %>
  <br><br> 
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
       <tr>
         <th data-breakpoints="xs" data-sorted="true">Tipo de pregunta</th>
-        <th>Titulo</th>
-        <th>Descripcion</th>
+        <th>Descripción</th>
         <th>Respuesta</th>
         <th colspan="1"></th>
       </tr>
@@ -20,10 +19,8 @@
             <td><%= pregunta.titulo %></td>
             <td><%= pregunta.descripcion %></td>
             <td><%= pregunta.respuesta %></td>
-            <td><%= link_to '', edit_polymorphic_url(pregunta), :class => "btn btn-warning btn-sm fa fa-pencil" %></td>
-            <td><%= link_to 'Show', pregunta %></td>
-            <td><%= link_to 'Edit', edit_pregunta_path(pregunta) %></td>
-            <td><%= link_to 'Destroy', pregunta, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+            <td><%= link_to 'Editar', edit_polymorphic_url(pregunta), :class => "btn btn-warning btn-sm" %></td>
+            <td><%= link_to 'Eliminar', pregunta, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
           </tr>
         <% end %>
       </tbody>

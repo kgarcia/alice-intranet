@@ -1,0 +1,27 @@
+<%= form_for(medio_difusion) do |f| %>
+  <% if medio_difusion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medio_difusion.errors.count, "error") %> prohibited this medio_difusion from being saved:</h2>
+
+      <ul>
+      <% medio_difusion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

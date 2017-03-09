@@ -8,6 +8,6 @@ class Ciudad < ApplicationRecord
 
 
   def self.titulo
-	 return "Ciudades"
+	 return "Ciudad"
   end
 end
