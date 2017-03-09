@@ -23,6 +23,10 @@ class Evento < ApplicationRecord
     return "Evento"
   end
 
+  def foto_url
+        foto.url(:medium)
+    end
+
    private
     def save_servicios
      ServicioEvento.where(:evento_id => self.id).destroy_all

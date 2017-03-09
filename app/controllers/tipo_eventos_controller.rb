@@ -16,8 +16,11 @@ class TipoEventosController < ApplicationController
   # GET /tipo_eventos/1.json
   def show
     @parametro = TipoEvento.find(params[:id])
-
-    render "parametros/edit"
+ 
+    respond_to do |format|
+      format.html {  render "parametros/edit" }
+      format.json { render json: @parametro }
+    end
   end
 
   # GET /tipo_eventos/new

@@ -4,4 +4,6 @@ class Noticia < ApplicationRecord
   def self.titulo
 	  return "Noticia"
   end
+
+  
 end

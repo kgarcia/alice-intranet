@@ -30,7 +30,6 @@ class Categoria < ApplicationRecord
   end
 end
 #:include => [:posts, :roles]
-
 	#		Categoria
 	#				TipoServicio
 	#						Servicio
