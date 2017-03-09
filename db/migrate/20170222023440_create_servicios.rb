@@ -3,9 +3,9 @@ class CreateServicios < ActiveRecord::Migration[5.0]
     create_table :servicios do |t|
       t.text :descripcion
       t.references :ubicacion, foreign_key: true
-      t.references :tipo_servicio, foreign_key: true
-      t.references :especialista, foreign_key: true
-      t.integer :estatus
+      t.references :tipo_servicio, foreign_key: true, :null => false
+      t.references :especialista, foreign_key: true, :null => false
+      t.integer :estatus, :null => false, :default => 1
       t.attachment :foto
       t.float :precio
 

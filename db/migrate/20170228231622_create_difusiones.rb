@@ -7,8 +7,8 @@ class CreateDifusiones < ActiveRecord::Migration[5.0]
       t.references :tipo_entidad, foreign_key: true
       t.references :entidad
       t.string :token_facebook
-      t.references :tipo_difusion, foreign_key: true
-      t.integer :estatus
+      t.references :tipo_difusion, foreign_key: true, :null => false
+      t.integer :estatus, :null => false, :default => 1
 
       t.timestamps
     end

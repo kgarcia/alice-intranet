@@ -1,9 +1,9 @@
 class CreateDiscapacidades < ActiveRecord::Migration[5.0]
   def change
     create_table :discapacidades do |t|
-      t.string :descripcion
-      t.integer :estatus
-      t.references :tipo_discapacidad, foreign_key: true
+      t.string :descripcion, :null => false
+      t.integer :estatus, :null => false, :default => 1
+      t.references :tipo_discapacidad, foreign_key: true, :null => false
 
       t.timestamps
     end
