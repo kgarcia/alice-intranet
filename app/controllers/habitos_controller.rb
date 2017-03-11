@@ -4,7 +4,7 @@ class HabitosController < ApplicationController
   # GET /habitos
   # GET /habitos.json
   def index
-    @parametros = Habito.all
+    @parametros = Habito.where(:estatus => 1)
        
     respond_to do |format|
       format.html {  render "parametros_select/index" }
@@ -23,7 +23,7 @@ class HabitosController < ApplicationController
   # GET /habitos/new
   def new
     @parametro = Habito.new
-    @collection = TipoHabito.all
+    @collection = TipoHabito.where(:estatus => 1)
     @referencia = :tipo_habito_id
 
     render "parametros_select/new"
@@ -32,7 +32,7 @@ class HabitosController < ApplicationController
   # GET /habitos/1/edit
   def edit
     @parametro = Habito.find(params[:id])
-    @collection = TipoHabito.all
+    @collection = TipoHabito.where(:estatus => 1)
     @referencia = :tipo_habito_id
 
     render "parametros_select/edit"
@@ -71,7 +71,8 @@ class HabitosController < ApplicationController
   # DELETE /habitos/1
   # DELETE /habitos/1.json
   def destroy
-    @habito.destroy
+    @habito.estatus = 2
+    @habito.save
     respond_to do |format|
       format.html { redirect_to habitos_url, notice: 'Habito was successfully destroyed.' }
       format.json { head :no_content }

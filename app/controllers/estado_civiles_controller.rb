@@ -4,7 +4,7 @@ class EstadoCivilesController < ApplicationController
   # GET /estado_civiles
   # GET /estado_civiles.json
   def index
-    @parametros = EstadoCivil.all
+    @parametros = EstadoCivil.where(:estatus => 1)
 
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -66,7 +66,8 @@ class EstadoCivilesController < ApplicationController
   # DELETE /estado_civiles/1
   # DELETE /estado_civiles/1.json
   def destroy
-    @estado_civil.destroy
+    @estado_civil.estatus = 2
+    @estado_civil.save
     respond_to do |format|
       format.html { redirect_to estado_civiles_url, notice: 'Estado civil was successfully destroyed.' }
       format.json { head :no_content }

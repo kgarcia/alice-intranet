@@ -4,7 +4,7 @@ class TipoPatologiasController < ApplicationController
   # GET /tipo_patologias
   # GET /tipo_patologias.json
   def index
-    @parametros = TipoPatologia.all
+    @parametros = TipoPatologia.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -66,7 +66,8 @@ class TipoPatologiasController < ApplicationController
   # DELETE /tipo_patologias/1
   # DELETE /tipo_patologias/1.json
   def destroy
-    @tipo_patologia.destroy
+    @tipo_patologia.estatus = 2
+    @tipo_patologia.save
     respond_to do |format|
       format.html { redirect_to tipo_patologias_url, notice: 'Tipo patologia was successfully destroyed.' }
       format.json { head :no_content }

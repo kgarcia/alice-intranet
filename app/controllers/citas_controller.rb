@@ -55,7 +55,8 @@ class CitasController < ApplicationController
   # DELETE /citas/1
   # DELETE /citas/1.json
   def destroy
-    @cita.destroy
+    @cita.estatus = 2
+    @cita.save
     respond_to do |format|
       format.html { redirect_to citas_url, notice: 'Cita was successfully destroyed.' }
       format.json { head :no_content }

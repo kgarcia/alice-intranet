@@ -4,7 +4,7 @@ class PersonasController < ApplicationController
   # GET /personas
   # GET /personas.json
   def index
-    @personas = Persona.all
+    @personas = Persona.where(:estatus => 1)
   end
 
   # GET /personas/1
@@ -15,12 +15,12 @@ class PersonasController < ApplicationController
   # GET /personas/new
   def new
     @persona = Persona.new
-    @sexos = Sexo.all
+    @sexos = Sexo.where(:estatus => 1)
   end
 
   # GET /personas/1/edit
   def edit
-    @sexos = Sexo.all
+    @sexos = Sexo.where(:estatus => 1)
   end
 
   # POST /personas
@@ -56,7 +56,8 @@ class PersonasController < ApplicationController
   # DELETE /personas/1
   # DELETE /personas/1.json
   def destroy
-    @persona.destroy
+    @persona.estatus = 2
+    @persona.save
     respond_to do |format|
       format.html { redirect_to personas_url, notice: 'Persona was successfully destroyed.' }
       format.json { head :no_content }

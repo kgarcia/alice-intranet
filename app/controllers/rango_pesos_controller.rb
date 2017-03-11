@@ -4,7 +4,7 @@ class RangoPesosController < ApplicationController
   # GET /rango_pesos
   # GET /rango_pesos.json
   def index
-    @rango_pesos = RangoPeso.all
+    @rango_pesos = RangoPeso.where(:estatus => 1)
   end
 
   # GET /rango_pesos/1
@@ -54,7 +54,8 @@ class RangoPesosController < ApplicationController
   # DELETE /rango_pesos/1
   # DELETE /rango_pesos/1.json
   def destroy
-    @rango_peso.destroy
+    @rango_peso.estatus = 2
+    @rango_peso.save
     respond_to do |format|
       format.html { redirect_to rango_pesos_url, notice: 'Rango peso was successfully destroyed.' }
       format.json { head :no_content }

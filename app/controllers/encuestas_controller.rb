@@ -16,7 +16,7 @@ class EncuestasController < ApplicationController
   # GET /encuestas/new
   def new  
     @cita = Cita.find(1)
-    @criterios = Criterio.all
+    @criterios = Criterio.where(:estatus => 1)
     @evaluacion = Evaluacion.find(1)
 
     #@calificaciones = []

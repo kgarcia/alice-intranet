@@ -4,7 +4,7 @@ class UbicacionesController < ApplicationController
   # GET /ubicaciones
   # GET /ubicaciones.json
   def index
-    @parametros = Ubicacion.all
+    @parametros = Ubicacion.where(:estatus => 1)
   end
 
   # GET /ubicaciones/1
@@ -16,9 +16,9 @@ class UbicacionesController < ApplicationController
   # GET /ubicaciones/new
   def new
     @parametro = Ubicacion.new
-    @tipoUbicaciones = TipoUbicacion.all
-    @ciudades = Ciudad.all
-    @sectores = Sector.all
+    @tipoUbicaciones = TipoUbicacion.where(:estatus => 1)
+    @ciudades = Ciudad.where(:estatus => 1)
+    @sectores = Sector.where(:estatus => 1)
   end
 
   # GET /ubicaciones/1/edit
@@ -59,7 +59,8 @@ class UbicacionesController < ApplicationController
   # DELETE /ubicaciones/1
   # DELETE /ubicaciones/1.json
   def destroy
-    @ubicacion.destroy
+    @ubicacion.estatus = 2
+    @ubicacion.save
     respond_to do |format|
       format.html { redirect_to ubicaciones_url, notice: 'Ubicacion was successfully destroyed.' }
       format.json { head :no_content }

@@ -4,7 +4,7 @@ class ServiciosController < ApplicationController
   # GET /servicios
   # GET /servicios.json
   def index
-    @servicios = Servicio.all
+    @servicios = Servicio.where(:estatus => 1)
     respond_to do |format|
       format.html
       format.json { render json: @servicios.to_json }
@@ -24,17 +24,17 @@ class ServiciosController < ApplicationController
   # GET /servicios/new
   def new
     @servicio = Servicio.new
-    @tipo_servicios = TipoServicio.all
-    @ubicaciones = Ubicacion.all
-    @especialistas = Especialista.all
+    @tipo_servicios = TipoServicio.where(:estatus => 1)
+    @ubicaciones = Ubicacion.where(:estatus => 1)
+    @especialistas = Especialista.where(:estatus => 1)
   end
 
   # GET /servicios/1/edit
   def edit
     @servicio = Servicio.find(params[:id])
-    @tipo_servicios = TipoServicio.all
-    @ubicaciones = Ubicacion.all
-    @especialistas = Especialista.all
+    @tipo_servicios = TipoServicio.where(:estatus => 1)
+    @ubicaciones = Ubicacion.where(:estatus => 1)
+    @especialistas = Especialista.where(:estatus => 1)
   end
 
   # POST /servicios
@@ -69,7 +69,8 @@ class ServiciosController < ApplicationController
   # DELETE /servicios/1
   # DELETE /servicios/1.json
   def destroy
-    @servicio.destroy
+    @servicio.estatus = 2
+    @servicio.save
     respond_to do |format|
       format.html { redirect_to servicios_url, notice: 'Servicio was successfully destroyed.' }
       format.json { head :no_content }

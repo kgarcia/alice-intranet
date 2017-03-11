@@ -4,7 +4,7 @@ class LesionesController < ApplicationController
   # GET /lesiones
   # GET /lesiones.json
   def index
-    @parametros = Lesion.all
+    @parametros = Lesion.where(:estatus => 1)
         
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -23,7 +23,7 @@ class LesionesController < ApplicationController
   # GET /lesiones/new
   def new
     @parametro = Lesion.new
-    @collection = TipoLesion.all
+    @collection = TipoLesion.where(:estatus => 1)
     @referencia = :tipo_lesion_id
 
     render "parametros_select/new"
@@ -32,7 +32,7 @@ class LesionesController < ApplicationController
   # GET /lesiones/1/edit
   def edit
     @parametro = Lesion.new
-    @collection = TipoLesion.all
+    @collection = TipoLesion.where(:estatus => 1)
     @referencia = :tipo_lesion_id
 
     render "parametros_select/edit"
@@ -71,7 +71,8 @@ class LesionesController < ApplicationController
   # DELETE /lesiones/1
   # DELETE /lesiones/1.json
   def destroy
-    @lesion.destroy
+    @lesion.estatus = 2
+    @lesion.save
     respond_to do |format|
       format.html { redirect_to lesiones_url, notice: 'Lesion was successfully destroyed.' }
       format.json { head :no_content }

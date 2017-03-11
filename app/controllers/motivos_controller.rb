@@ -4,7 +4,7 @@ class MotivosController < ApplicationController
   # GET /motivos
   # GET /motivos.json
   def index
-    @parametros = Motivo.all
+    @parametros = Motivo.where(:estatus => 1)
     @referencia = "tipoMotivo"
     
     respond_to do |format|
@@ -24,7 +24,7 @@ class MotivosController < ApplicationController
   # GET /motivos/new
   def new
     @parametro = Motivo.new 
-    @collection = TipoMotivo.all
+    @collection = TipoMotivo.where(:estatus => 1)
     @referencia = :tipo_motivo_id
 
     render "parametros_select/new"
@@ -34,7 +34,7 @@ class MotivosController < ApplicationController
   def edit
 
     @parametro = Motivo.find(params[:id])
-    @collection = TipoMotivo.all
+    @collection = TipoMotivo.where(:estatus => 1)
     @referencia = :tipo_motivo_id
 
     render "parametros_select/edit"
@@ -74,7 +74,8 @@ class MotivosController < ApplicationController
   # DELETE /motivos/1
   # DELETE /motivos/1.json
   def destroy
-    @motivo.destroy
+    @motivo.estatus = 2
+    @motivo.save
     respond_to do |format|
       format.html { redirect_to motivos_url, notice: 'Motivo was successfully destroyed.' }
       format.json { head :no_content }

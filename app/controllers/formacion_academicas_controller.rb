@@ -4,7 +4,7 @@ class FormacionAcademicasController < ApplicationController
   # GET /formacion_academicas
   # GET /formacion_academicas.json
   def index
-    @parametros = FormacionAcademica.all
+    @parametros = FormacionAcademica.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros_select/index" }
@@ -23,7 +23,7 @@ class FormacionAcademicasController < ApplicationController
   # GET /formacion_academicas/new
   def new
     @parametro = FormacionAcademica.new
-    @collection = NivelFormacion.all
+    @collection = NivelFormacion.where(:estatus => 1)
     @referencia = :nivel_formacion_id
 
     render "parametros_select/new"
@@ -32,7 +32,7 @@ class FormacionAcademicasController < ApplicationController
   # GET /formacion_academicas/1/edit
   def edit
     @parametro = FormacionAcademica.find(params[:id])
-    @collection = NivelFormacion.all
+    @collection = NivelFormacion.where(:estatus => 1)
     @referencia = :nivel_formacion_id
 
     render "parametros_select/edit"
@@ -71,7 +71,8 @@ class FormacionAcademicasController < ApplicationController
   # DELETE /formacion_academicas/1
   # DELETE /formacion_academicas/1.json
   def destroy
-    @formacion_academica.destroy
+    @formacion_academica.estatus = 2
+    @formacion_academica.save
     respond_to do |format|
       format.html { redirect_to formacion_academicas_url, notice: 'Formacion academica was successfully destroyed.' }
       format.json { head :no_content }
