@@ -17,7 +17,7 @@ class DifusionesController < ApplicationController
     @difusion = Difusion.new
     @tipo_entidades = TipoEntidad.all
     @tipo_difusiones = TipoDifusion.all
-    @entidades = Servicio.all
+    @entidades = Evento.all
     @medios = MedioDifusion.all
   end
 

@@ -30,9 +30,11 @@
 
                   <div id="servicios" class="tab-pane fade in">
                       <h3>Servicios</h3>
-                      <div>
+                      <div class="container-fluid">
                         <% @servicios.each do |servicio| %>
+                          <div class="col-sm-6">
                             <%= check_box_tag('servicios[]', servicio.id, @evento.servicios.include?(servicio)) %> <%= servicio.descripcion %>
+                          </div>
                         <% end %>
                       </div>  
                     </div>
