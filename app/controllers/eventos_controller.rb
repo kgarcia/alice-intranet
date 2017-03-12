@@ -34,6 +34,7 @@ class EventosController < ApplicationController
   def new
     @evento = Evento.new
     @collection = TipoEvento.where(:estatus => 1)
+    @ubicaciones = Ubicacion.where(:estatus => 1)
     @referencia = :tipo_evento_id
     @servicios = Servicio.where(:estatus => 1)
   end
@@ -42,6 +43,7 @@ class EventosController < ApplicationController
   def edit
     @evento = Evento.find(params[:id])
     @collection = TipoEvento.where(:estatus => 1)
+    @ubicaciones = Ubicacion.where(:estatus => 1)
     @referencia = :tipo_evento_id
     @servicios = Servicio.where(:estatus => 1)
   end
@@ -50,7 +52,7 @@ class EventosController < ApplicationController
   # POST /eventos.json
   def create
     @evento = Evento.new(evento_params)
-    @evento.servicioEvento = params[:servicios]
+    @evento.tipoServicioEvento = params[:tipoServicios]
     respond_to do |format|
       if @evento.save
         format.html { redirect_to action:"index", notice: 'Evento was successfully created.' }
@@ -65,6 +67,7 @@ class EventosController < ApplicationController
   # PATCH/PUT /eventos/1
   # PATCH/PUT /eventos/1.json
   def update
+    @evento.tipoServicioEvento = params[:tipoServicios]
     respond_to do |format|
       if @evento.update(evento_params)
         format.html { redirect_to action:"index", notice: 'Evento was successfully updated.' }
@@ -95,6 +98,6 @@ class EventosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evento_params
-      params.require(:evento).permit(:descripcion, :estatus, :tipo_evento_id, :foto)
+      params.require(:evento).permit(:descripcion, :estatus, :tipo_evento_id, :foto, :ubicacion_id, :fecha, :contenido)
     end
 end
