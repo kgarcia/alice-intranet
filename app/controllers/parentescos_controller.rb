@@ -4,7 +4,7 @@ class ParentescosController < ApplicationController
   # GET /parentescos
   # GET /parentescos.json
   def index
-    @parentescos = Parentesco.all
+    @parentescos = Parentesco.where(:estatus => 1)
   end
 
   # GET /parentescos/1
@@ -54,7 +54,8 @@ class ParentescosController < ApplicationController
   # DELETE /parentescos/1
   # DELETE /parentescos/1.json
   def destroy
-    @parentesco.destroy
+    @parentesco.estatus = 2
+    @parentesco.save
     respond_to do |format|
       format.html { redirect_to parentescos_url, notice: 'Parentesco was successfully destroyed.' }
       format.json { head :no_content }

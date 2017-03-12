@@ -5,7 +5,7 @@ class NoticiasController < ApplicationController
   # GET /noticias.json
   def index
     if params[:id].nil?
-      @parametros = Noticia.all
+      @parametros = Noticia.where(:estatus => 1)
     else
       @parametros = Noticia.where(tipo_noticia_id: params[:id])
     end
@@ -29,12 +29,12 @@ class NoticiasController < ApplicationController
   # GET /noticias/new
   def new
     @noticia = Noticia.new
-    @tipoNoticias = TipoNoticia.all
+    @tipoNoticias = TipoNoticia.where(:estatus => 1)
   end
 
   # GET /noticias/1/edit
   def edit
-    @tipoNoticias = TipoNoticia.all
+    @tipoNoticias = TipoNoticia.where(:estatus => 1)
   end
 
   # POST /noticias
@@ -70,7 +70,8 @@ class NoticiasController < ApplicationController
   # DELETE /noticias/1
   # DELETE /noticias/1.json
   def destroy
-    @noticia.destroy
+    @noticia.estatus = 2
+    @noticia.save
     respond_to do |format|
       format.html { redirect_to noticias_url, notice: 'Noticia was successfully destroyed.' }
       format.json { head :no_content }

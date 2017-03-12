@@ -4,7 +4,7 @@ class EstadosController < ApplicationController
   # GET /estados
   # GET /estados.json
   def index
-    @parametros = Estado.all
+    @parametros = Estado.where(:estatus => 1)
      respond_to do |format|
       format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
@@ -22,7 +22,7 @@ class EstadosController < ApplicationController
   # GET /estados/new
   def new
     @parametro = Estado.new
-    @collection = Pais.all
+    @collection = Pais.where(:estatus => 1)
     @referencia = :pais_id
     @estado = Estado.new
     render "parametros_select/new"
@@ -68,7 +68,8 @@ class EstadosController < ApplicationController
   # DELETE /estados/1
   # DELETE /estados/1.json
   def destroy
-    @estado.destroy
+    @estado.estatus = 2
+    @estado.save
     respond_to do |format|
       format.html { redirect_to estados_url, notice: 'Estado was successfully destroyed.' }
       format.json { head :no_content }

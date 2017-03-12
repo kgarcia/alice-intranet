@@ -4,7 +4,7 @@ class UniversidadesController < ApplicationController
   # GET /universidades
   # GET /universidades.json
   def index
-    @parametros = Universidad.all
+    @parametros = Universidad.where(:estatus => 1)
     respond_to do |format|
       format.html { render "parametros/index" }
       format.json { render :index, location: @universidades }
@@ -65,7 +65,8 @@ class UniversidadesController < ApplicationController
   # DELETE /universidades/1
   # DELETE /universidades/1.json
   def destroy
-    @universidad.destroy
+    @universidad.estatus = 2
+    @universidad.save
     respond_to do |format|
       format.html { redirect_to universidades_url, notice: 'Universidad was successfully destroyed.' }
       format.json { head :no_content }

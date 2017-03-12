@@ -4,7 +4,7 @@ class ServicioEventosController < ApplicationController
   # GET /servicio_eventos
   # GET /servicio_eventos.json
   def index
-    @servicio_eventos = ServicioEvento.all
+    @servicio_eventos = ServicioEvento.where(:estatus => 1)
   end
 
   # GET /servicio_eventos/1
@@ -15,15 +15,15 @@ class ServicioEventosController < ApplicationController
   # GET /servicio_eventos/new
   def new
     @servicio_evento = ServicioEvento.new
-    @eventos = Evento.all
-    @servicios = Servicio.all
+    @eventos = Evento.where(:estatus => 1)
+    @servicios = Servicio.where(:estatus => 1)
   end
 
   # GET /servicio_eventos/1/edit
   def edit
     @servicio_evento = ServicioEvento.new
-    @eventos = Evento.all
-    @servicios = Servicio.all
+    @eventos = Evento.where(:estatus => 1)
+    @servicios = Servicio.where(:estatus => 1)
   end
 
   # POST /servicio_eventos
@@ -59,7 +59,8 @@ class ServicioEventosController < ApplicationController
   # DELETE /servicio_eventos/1
   # DELETE /servicio_eventos/1.json
   def destroy
-    @servicio_evento.destroy
+    @servicio_evento.estatus = 2
+    @servicio_evento.save
     respond_to do |format|
       format.html { redirect_to servicio_eventos_url, notice: 'Servicio evento was successfully destroyed.' }
       format.json { head :no_content }

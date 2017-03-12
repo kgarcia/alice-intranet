@@ -3,7 +3,7 @@ class HorariosController < ApplicationController
   # GET /horarios
   # GET /horarios.json
   def index
-    @horarios = Horario.all
+    @horarios = Horario.where(:estatus => 1)
     @tipoHorario = "tipo_horario"
   end
 
@@ -20,9 +20,9 @@ class HorariosController < ApplicationController
   def new
 
     @horario = Horario.new
-    @collection = TipoHorario.all
+    @collection = TipoHorario.where(:estatus => 1)
     @referencia = :tipo_horario_id
-    @collectionServ = Servicio.all
+    @collectionServ = Servicio.where(:estatus => 1)
     @referenciaServ = :servicio_id
 
   end
@@ -30,9 +30,9 @@ class HorariosController < ApplicationController
   # GET /horarios/1/edit
   def edit
     @horario = Horario.find(params[:id])
-    @collection = TipoHorario.all
+    @collection = TipoHorario.where(:estatus => 1)
     @referencia = :tipo_horario_id
-     @collectionServ = Servicio.all
+     @collectionServ = Servicio.where(:estatus => 1)
     @referenciaServ = :servicio_id
   end
 
@@ -69,7 +69,8 @@ class HorariosController < ApplicationController
   # DELETE /horarios/1
   # DELETE /horarios/1.json
   def destroy
-    @horario.destroy
+    @horario.estatus = 2
+    @horario.save
     respond_to do |format|
       format.html { redirect_to horarios_url, notice: 'Horario was successfully destroyed.' }
       format.json { head :no_content }

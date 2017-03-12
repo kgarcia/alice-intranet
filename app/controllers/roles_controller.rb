@@ -4,7 +4,7 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Rol.all
+    @roles = Rol.where(:estatus => 1)
   end
 
   # GET /roles/1
@@ -58,7 +58,8 @@ class RolesController < ApplicationController
   # DELETE /roles/1
   # DELETE /roles/1.json
   def destroy
-    @rol.destroy
+    @rol.estatus = 2
+    @rol.save
     respond_to do |format|
       format.html { redirect_to roles_url, notice: 'Rol was successfully destroyed.' }
       format.json { head :no_content }

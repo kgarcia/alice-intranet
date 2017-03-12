@@ -4,7 +4,7 @@ class TipoNotificacionesController < ApplicationController
   # GET /tipo_notificaciones
   # GET /tipo_notificaciones.json
   def index
-    @tipo_notificaciones = TipoNotificacion.all
+    @tipo_notificaciones = TipoNotificacion.where(:estatus => 1)
   end
 
   # GET /tipo_notificaciones/1
@@ -54,7 +54,8 @@ class TipoNotificacionesController < ApplicationController
   # DELETE /tipo_notificaciones/1
   # DELETE /tipo_notificaciones/1.json
   def destroy
-    @tipo_notificacion.destroy
+    @tipo_notificacion.estatus = 2
+    @tipo_notificacion.save
     respond_to do |format|
       format.html { redirect_to tipo_notificaciones_url, notice: 'Tipo notificacion was successfully destroyed.' }
       format.json { head :no_content }

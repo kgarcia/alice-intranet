@@ -4,7 +4,7 @@ class BusquedasController < ApplicationController
   # GET /busquedas
   # GET /busquedas.json
   def index
-    @parametros = Busqueda.all
+    @parametros = Busqueda.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros/index" }
       format.json { render json: @parametros }
@@ -66,7 +66,8 @@ class BusquedasController < ApplicationController
   # DELETE /busquedas/1
   # DELETE /busquedas/1.json
   def destroy
-    @busqueda.destroy
+    @busqueda.estatus = 2
+    @busqueda.save
     respond_to do |format|
       format.html { redirect_to busquedas_url, notice: 'Busqueda was successfully destroyed.' }
       format.json { head :no_content }
