@@ -4,7 +4,7 @@ class TipoCalificacionesController < ApplicationController
   # GET /tipo_calificaciones
   # GET /tipo_calificaciones.json
   def index
-      @parametros = TipoCalificacion.all
+      @parametros = TipoCalificacion.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -67,7 +67,8 @@ class TipoCalificacionesController < ApplicationController
   # DELETE /tipo_calificaciones/1
   # DELETE /tipo_calificaciones/1.json
   def destroy
-    @tipo_calificacion.destroy
+    @tipo_calificacion.estatus = 2
+    @tipo_calificacion.save
     respond_to do |format|
       format.html { redirect_to tipo_calificaciones_url, notice: 'Tipo calificacion was successfully destroyed.' }
       format.json { head :no_content }

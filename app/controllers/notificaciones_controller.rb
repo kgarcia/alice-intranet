@@ -4,7 +4,7 @@ class NotificacionesController < ApplicationController
   # GET /notificaciones
   # GET /notificaciones.json
   def index
-    @parametros = Notificacion.all
+    @parametros = Notificacion.where(:estatus => 1)
         
     respond_to do |format|
       format.html {  render "parametros_select/index" }
@@ -22,7 +22,7 @@ class NotificacionesController < ApplicationController
   # GET /notificaciones/new
   def new
     @parametro = Notificacion.new
-    @collection = TipoNotificacion.all
+    @collection = TipoNotificacion.where(:estatus => 1)
     @referencia = :tipo_notificacion_id
     render "parametros_select/new"
   end
@@ -30,7 +30,7 @@ class NotificacionesController < ApplicationController
   # GET /notificaciones/1/edit
   def edit
     @parametro = Notificacion.new
-    @collection = TipoNotificacion.all
+    @collection = TipoNotificacion.where(:estatus => 1)
     @referencia = :tipo_notificacion_id
     render "parametros_select/new"
   end
@@ -68,7 +68,8 @@ class NotificacionesController < ApplicationController
   # DELETE /notificaciones/1
   # DELETE /notificaciones/1.json
   def destroy
-    @notificacion.destroy
+    @notificacion.estatus = 2
+    @notificacion.save
     respond_to do |format|
       format.html { redirect_to notificaciones_url, notice: 'Notificacion was successfully destroyed.' }
       format.json { head :no_content }

@@ -4,7 +4,7 @@ class GrupoSanguineosController < ApplicationController
   # GET /grupo_sanguineos
   # GET /grupo_sanguineos.json
   def index
-    @parametros = GrupoSanguineo.all
+    @parametros = GrupoSanguineo.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -66,7 +66,8 @@ class GrupoSanguineosController < ApplicationController
   # DELETE /grupo_sanguineos/1
   # DELETE /grupo_sanguineos/1.json
   def destroy
-    @grupo_sanguineo.destroy
+    @grupo_sanguineo.estatus = 2
+    @grupo_sanguineo.save
     respond_to do |format|
       format.html { redirect_to grupo_sanguineos_url, notice: 'Grupo sanguineo was successfully destroyed.' }
       format.json { head :no_content }

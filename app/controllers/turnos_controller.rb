@@ -4,7 +4,7 @@ class TurnosController < ApplicationController
   # GET /turnos
   # GET /turnos.json
   def index
-    @turnos = Turno.all
+    @turnos = Turno.where(:estatus => 1)
     @dia ="dia"
 
   end
@@ -26,21 +26,21 @@ class TurnosController < ApplicationController
   # GET /turnos/new
   def new
     @turno = Turno.new
-    @dias = Dia.all
-    @horarios = Horario.all
+    @dias = Dia.where(:estatus => 1)
+    @horarios = Horario.where(:estatus => 1)
     @referencia = :horario_id
-    @collection_tipo_turno = TipoTurno.all 
+    @collection_tipo_turno = TipoTurno.where(:estatus => 1)
     @referencia_tipo = :tipo_turno_id
   end
 
   # GET /turnos/1/edit
   def edit
-    @horarios = Horario.all
+    @horarios = Horario.where(:estatus => 1)
     @turno = Turno.find(params[:id])
-    @dias = Dia.all
+    @dias = Dia.where(:estatus => 1)
     @dia = :dia_id
     @referencia = :horario_id
-    @collection_tipo_turno = TipoTurno.all 
+    @collection_tipo_turno = TipoTurno.where(:estatus => 1)
     @referencia_tipo = :tipo_turno_id
   end
 
@@ -84,7 +84,8 @@ class TurnosController < ApplicationController
   # DELETE /turnos/1
   # DELETE /turnos/1.json
   def destroy
-    @turno.destroy
+    @turno.estatus = 2
+    @turno.save
     respond_to do |format|
       format.html { redirect_to turnos_url, notice: 'Turno was successfully destroyed.' }
       format.json { head :no_content }

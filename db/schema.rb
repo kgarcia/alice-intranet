@@ -76,8 +76,6 @@ ActiveRecord::Schema.define(version: 20170312060644) do
     t.integer  "estatus",     default: 1, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-    t.string   "slug"
-    t.index ["slug"], name: "index_categorias_on_slug", unique: true, using: :btree
   end
 
   create_table "cirugia_perfiles", force: :cascade do |t|
@@ -314,18 +312,6 @@ ActiveRecord::Schema.define(version: 20170312060644) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.index ["nivel_formacion_id"], name: "index_formacion_academicas_on_nivel_formacion_id", using: :btree
-  end
-
-  create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",                      null: false
-    t.integer  "sluggable_id",              null: false
-    t.string   "sluggable_type", limit: 50
-    t.string   "scope"
-    t.datetime "created_at"
-    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
-    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
-    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
-    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
   create_table "grupo_sanguineo_perfiles", force: :cascade do |t|
@@ -942,10 +928,8 @@ ActiveRecord::Schema.define(version: 20170312060644) do
     t.integer  "tipo_atencion_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.string   "slug"
     t.index ["categoria_id"], name: "index_tipo_servicios_on_categoria_id", using: :btree
     t.index ["especialidad_id"], name: "index_tipo_servicios_on_especialidad_id", using: :btree
-    t.index ["slug"], name: "index_tipo_servicios_on_slug", unique: true, using: :btree
     t.index ["tipo_atencion_id"], name: "index_tipo_servicios_on_tipo_atencion_id", using: :btree
   end
 

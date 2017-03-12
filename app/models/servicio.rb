@@ -4,8 +4,6 @@ class Servicio < ApplicationRecord
   belongs_to :especialista
 
   has_many :horarios
-  has_many :servicio_evento
-  has_many :eventos, through: :servicio_evento
   has_many :usuarios
   has_many :turnos, through: :horarios
   has_many :dia, through: :turnos

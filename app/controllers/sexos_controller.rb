@@ -4,7 +4,7 @@ class SexosController < ApplicationController
   # GET /sexos
   # GET /sexos.json
   def index
-    @parametros = Sexo.all
+    @parametros = Sexo.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -66,7 +66,8 @@ class SexosController < ApplicationController
   # DELETE /sexos/1
   # DELETE /sexos/1.json
   def destroy
-    @sexo.destroy
+    @sexo.estatus = 2
+    @sexo.save
     respond_to do |format|
       format.html { redirect_to sexos_url, notice: 'Sexo was successfully destroyed.' }
       format.json { head :no_content }

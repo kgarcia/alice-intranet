@@ -4,7 +4,7 @@ class CalificacionesController < ApplicationController
   # GET /calificaciones
   # GET /calificaciones.json
   def index
-    @parametros = Calificacion.all
+    @parametros = Calificacion.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
@@ -18,7 +18,7 @@ class CalificacionesController < ApplicationController
   # GET /calificaciones/new
   def new
     @parametro = Calificacion.new
-    @collection = TipoCalificacion.all
+    @collection = TipoCalificacion.where(:estatus => 1)
     @referencia = :tipo_calificacion_id
     render "parametros_select/new"
   end
@@ -26,7 +26,7 @@ class CalificacionesController < ApplicationController
   # GET /calificaciones/1/edit
   def edit
     @parametro = Calificacion.find(params[:id])
-    @collection = TipoCalificacion.all
+    @collection = TipoCalificacion.where(:estatus => 1)
     @referencia = :tipo_calificacion_id
     render "parametros_select/edit"
   end
@@ -64,7 +64,8 @@ class CalificacionesController < ApplicationController
   # DELETE /calificaciones/1
   # DELETE /calificaciones/1.json
   def destroy
-    @calificacion.destroy
+    @calificacion.estatus = 2
+    @calificacion.save
     respond_to do |format|
       format.html { redirect_to calificaciones_url, notice: 'Calificacion was successfully destroyed.' }
       format.json { head :no_content }

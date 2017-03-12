@@ -4,7 +4,7 @@ before_action :set_tipo_pregunta, only: [:show, :edit, :update, :destroy]
   # GET /tipo_preguntaes
   # GET /tipo_preguntaes.json
   def index
-    @parametros = TipoPregunta.all
+    @parametros = TipoPregunta.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -67,7 +67,8 @@ before_action :set_tipo_pregunta, only: [:show, :edit, :update, :destroy]
   # DELETE /tipo_preguntaes/1
   # DELETE /tipo_preguntaes/1.json
   def destroy
-    @tipo_pregunta.destroy
+    @tipo_pregunta.estatus = 2
+    @tipo_pregunta.save
     respond_to do |format|
       format.html { redirect_to tipo_preguntaes_url, notice: 'Tipo noticia was successfully destroyed.' }
       format.json { head :no_content }

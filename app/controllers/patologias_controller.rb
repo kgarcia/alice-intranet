@@ -4,7 +4,7 @@ class PatologiasController < ApplicationController
   # GET /patologias
   # GET /patologias.json
   def index
-    @parametros = Patologia.all
+    @parametros = Patologia.where(:estatus => 1)
         
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -23,7 +23,7 @@ class PatologiasController < ApplicationController
   # GET /patologias/new
   def new
     @parametro = Patologia.new
-    @collection = TipoPatologia.all
+    @collection = TipoPatologia.where(:estatus => 1)
     @referencia = :tipo_patologia_id
 
     render "parametros_select/new"
@@ -32,7 +32,7 @@ class PatologiasController < ApplicationController
   # GET /patologias/1/edit
   def edit
     @parametro = Patologia.find(params[:id])
-    @collection = TipoPatologia.all
+    @collection = TipoPatologia.where(:estatus => 1)
     @referencia = :tipo_patologia_id
 
     render "parametros_select/edit"
@@ -71,7 +71,8 @@ class PatologiasController < ApplicationController
   # DELETE /patologias/1
   # DELETE /patologias/1.json
   def destroy
-    @patologia.destroy
+    @patologia.estatus = 2
+    @patologia.save
     respond_to do |format|
       format.html { redirect_to patologias_url, notice: 'Patologia was successfully destroyed.' }
       format.json { head :no_content }

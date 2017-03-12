@@ -4,7 +4,7 @@ class CriterioTipoServiciosController < ApplicationController
   # GET /criterio_tipo_servicios
   # GET /criterio_tipo_servicios.json
   def index
-    @criterio_tipo_servicios = CriterioTipoServicio.all
+    @criterio_tipo_servicios = CriterioTipoServicio.where(:estatus => 1)
   end
 
   # GET /criterio_tipo_servicios/1
@@ -54,7 +54,8 @@ class CriterioTipoServiciosController < ApplicationController
   # DELETE /criterio_tipo_servicios/1
   # DELETE /criterio_tipo_servicios/1.json
   def destroy
-    @criterio_tipo_servicio.destroy
+    @criterio_tipo_servicio.estatus = 2
+    @criterio_tipo_servicio.save
     respond_to do |format|
       format.html { redirect_to criterio_tipo_servicios_url, notice: 'Criterio tipo servicio was successfully destroyed.' }
       format.json { head :no_content }

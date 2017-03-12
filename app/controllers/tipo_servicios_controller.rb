@@ -4,7 +4,7 @@ class TipoServiciosController < ApplicationController
   # GET /tipo_servicios
   # GET /tipo_servicios.json
   def index
-    @tipo_servicios = TipoServicio.all
+    @tipo_servicios = TipoServicio.where(:estatus => 1)
   end
 
   # GET /tipo_servicios/1
@@ -16,20 +16,20 @@ class TipoServiciosController < ApplicationController
   # GET /tipo_servicios/new
   def new
     @tipo_servicio = TipoServicio.new
-    @tipos_atencion = TipoAtencion.all
-    @especialidades = Especialidad.all
-    @categorias = Categoria.all
-    @perfiles = Perfil.all
-    @criterios = Criterio.all
+    @tipos_atencion = TipoAtencion.where(:estatus => 1)
+    @especialidades = Especialidad.where(:estatus => 1)
+    @categorias = Categoria.where(:estatus => 1)
+    @perfiles = Perfil.where(:estatus => 1)
+    @criterios = Criterio.where(:estatus => 1)
   end
 
   # GET /tipo_servicios/1/edit
   def edit
-    @tipos_atencion = TipoAtencion.all
-    @especialidades = Especialidad.all
-    @categorias = Categoria.all
-    @perfiles = Perfil.all
-    @criterios = Criterio.all
+    @tipos_atencion = TipoAtencion.where(:estatus => 1)
+    @especialidades = Especialidad.where(:estatus => 1)
+    @categorias = Categoria.where(:estatus => 1)
+    @perfiles = Perfil.where(:estatus => 1)
+    @criterios = Criterio.where(:estatus => 1)
   end
 
   # POST /tipo_servicios
@@ -96,7 +96,8 @@ class TipoServiciosController < ApplicationController
   # DELETE /tipo_servicios/1
   # DELETE /tipo_servicios/1.json
   def destroy
-    @tipo_servicio.destroy
+    @tipo_servicio.estatus = 2
+    @tipo_servicio.save
     respond_to do |format|
       format.html { redirect_to tipo_servicios_url, notice: 'Tipo servicio was successfully destroyed.' }
       format.json { head :no_content }
