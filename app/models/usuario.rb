@@ -7,6 +7,8 @@ class Usuario < ApplicationRecord
   belongs_to :persona
   belongs_to :servicio
 
+  accepts_nested_attributes_for :persona
+
   before_create :set_default_rol
   # or 
   # before_validation :set_default_role 

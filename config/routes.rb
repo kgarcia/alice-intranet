@@ -11,6 +11,8 @@ Myapp::Application.routes.draw do
   resources :tipo_parentescos
   resources :tipo_difusiones
 
+  match '/search', to: "personas#search", via: "post"
+
   get 'grafico/generar'
 
   get 'grafico/citas_por_especialidad'
