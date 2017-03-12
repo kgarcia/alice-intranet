@@ -4,7 +4,7 @@ class SectoresController < ApplicationController
   # GET /sectores
   # GET /sectores.json
   def index
-    @parametros = Sector.all
+    @parametros = Sector.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -66,7 +66,8 @@ class SectoresController < ApplicationController
   # DELETE /sectores/1
   # DELETE /sectores/1.json
   def destroy
-    @sector.destroy
+    @sector.estatus = 2
+    @sector.save
     respond_to do |format|
       format.html { redirect_to sectores_url, notice: 'Sector was successfully destroyed.' }
       format.json { head :no_content }

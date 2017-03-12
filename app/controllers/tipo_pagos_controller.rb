@@ -4,7 +4,7 @@ class TipoPagosController < ApplicationController
   # GET /tipo_pagos
   # GET /tipo_pagos.json
   def index
-    @parametros = TipoPago.all
+    @parametros = TipoPago.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -67,7 +67,8 @@ class TipoPagosController < ApplicationController
   # DELETE /tipo_pagos/1
   # DELETE /tipo_pagos/1.json
   def destroy
-    @tipo_pago.destroy
+    @tipo_pago.estatus = 2
+    @tipo_pago.save
     respond_to do |format|
       format.html { redirect_to tipo_pagos_url, notice: 'Tipo pago was successfully destroyed.' }
       format.json { head :no_content }

@@ -4,7 +4,7 @@ class EspecialidadesController < ApplicationController
   # GET /especialidades
   # GET /especialidades.json
   def index
-    @parametros = Especialidad.all
+    @parametros = Especialidad.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
@@ -23,7 +23,7 @@ class EspecialidadesController < ApplicationController
   # GET /especialidades/new
   def new
     @parametro = Especialidad.new
-    @collection = TipoEspecialidad.all
+    @collection = TipoEspecialidad.where(:estatus => 1)
     @referencia = :tipo_especialidad_id
 
     render "parametros_select/new"
@@ -32,7 +32,7 @@ class EspecialidadesController < ApplicationController
   # GET /especialidades/1/edit
   def edit
     @parametro = Especialidad.find(params[:id])
-    @collection = TipoEspecialidad.all
+    @collection = TipoEspecialidad.where(:estatus => 1)
     @referencia = :tipo_especialidad_id
     render "parametros_select/edit"
   end
@@ -70,7 +70,8 @@ class EspecialidadesController < ApplicationController
   # DELETE /especialidades/1
   # DELETE /especialidades/1.json
   def destroy
-    @especialidad.destroy
+    @especialidad.estatus = 2
+    @especialidad.save
     respond_to do |format|
       format.html { redirect_to especialidades_url, notice: 'Especialidad was successfully destroyed.' }
       format.json { head :no_content }

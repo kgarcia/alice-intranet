@@ -4,7 +4,7 @@ class AdiccionesController < ApplicationController
   # GET /adicciones
   # GET /adicciones.json
   def index
-    @parametros = Adiccion.all
+    @parametros = Adiccion.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
@@ -21,7 +21,7 @@ class AdiccionesController < ApplicationController
   # GET /adicciones/new
   def new
     @parametro = Adiccion.new
-    @collection = TipoAdiccion.all
+    @collection = TipoAdiccion.where(:estatus => 1)
     @referencia = :tipo_adiccion_id
     render "parametros_select/new"
   end
@@ -29,7 +29,7 @@ class AdiccionesController < ApplicationController
   # GET /adicciones/1/edit
   def edit
     @parametro = Adiccion.find(params[:id])
-    @collection = TipoAdiccion.all
+    @collection = TipoAdiccion.where(:estatus => 1)
     @referencia = :tipo_adiccion_id
 
     render "parametros_select/edit"
@@ -68,7 +68,8 @@ class AdiccionesController < ApplicationController
   # DELETE /adicciones/1
   # DELETE /adicciones/1.json
   def destroy
-    @adiccion.destroy
+    @adiccion.estatus = 2
+    @adiccion.save
     respond_to do |format|
       format.html { redirect_to adicciones_url, notice: 'Adiccion was successfully destroyed.' }
       format.json { head :no_content }

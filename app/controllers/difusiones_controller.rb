@@ -4,7 +4,7 @@ class DifusionesController < ApplicationController
   # GET /difusiones
   # GET /difusiones.json
   def index
-    @difusiones = Difusion.all
+    @difusiones = Difusion.where(:estatus => 1)
   end
 
   # GET /difusiones/1
@@ -15,18 +15,22 @@ class DifusionesController < ApplicationController
   # GET /difusiones/new
   def new
     @difusion = Difusion.new
-    @tipo_entidades = TipoEntidad.all
-    @tipo_difusiones = TipoDifusion.all
-    @entidades = Servicio.all
-    @medios = MedioDifusion.all
+    @tipo_entidades = TipoEntidad.where(:estatus => 1)
+    @tipo_difusiones = TipoDifusion.where(:estatus => 1)
+    @entidades = Evento.where(:estatus => 1)
+    @medios = MedioDifusion.where(:estatus => 1)
   end
 
   # GET /difusiones/1/edit
   def edit
-    @tipo_entidades = TipoEntidad.all
-    @tipo_difusiones = TipoDifusion.all
-    @entidades = Servicio.all
-    @medios = MedioDifusion.all
+    @tipo_entidades = TipoEntidad.where(:estatus => 1)
+    @tipo_difusiones = TipoDifusion.where(:estatus => 1)
+    if(@difusion.tipo_entidad_id == 1)
+      @entidades = Servicio.where(:estatus => 1)
+    else
+      @entidades = Evento.where(:estatus => 1)
+    end
+    @medios = MedioDifusion.where(:estatus => 1)
   end
 
   # POST /difusiones
@@ -63,10 +67,24 @@ class DifusionesController < ApplicationController
   # DELETE /difusiones/1
   # DELETE /difusiones/1.json
   def destroy
-    @difusion.destroy
+    @difusion.estatus = 2
+    @difusion.save
     respond_to do |format|
       format.html { redirect_to difusiones_url, notice: 'Difusion was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def update_entidades
+    puts params[:tipo_entidad_id]
+    if (params[:tipo_entidad_id].to_i == 1)
+      @entidades = Servicio.where(:estatus => 1)
+    else
+      @entidades = Evento.where(:estatus => 1)
+    end
+    respond_to do |format|
+      format.js
+      render 'difusiones/update_entidades'
     end
   end
 

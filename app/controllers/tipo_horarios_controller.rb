@@ -4,7 +4,7 @@ class TipoHorariosController < ApplicationController
   # GET /tipo_horarios
   # GET /tipo_horarios.json
   def index
-    @parametros = TipoHorario.all
+    @parametros = TipoHorario.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -67,7 +67,8 @@ class TipoHorariosController < ApplicationController
   # DELETE /tipo_horarios/1
   # DELETE /tipo_horarios/1.json
   def destroy
-    @tipo_horario.destroy
+    @tipo_horario.estatus = 2
+    @tipo_horario.save
     respond_to do |format|
       format.html { redirect_to tipo_horarios_url, notice: 'Tipo horario was successfully destroyed.' }
       format.json { head :no_content }

@@ -4,7 +4,7 @@ class DiscapacidadesController < ApplicationController
   # GET /discapacidades
   # GET /discapacidades.json
   def index
-   @parametros = Discapacidad.all
+   @parametros = Discapacidad.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
@@ -22,7 +22,7 @@ class DiscapacidadesController < ApplicationController
   # GET /discapacidades/new
   def new
     @parametro = Discapacidad.new
-    @collection = TipoDiscapacidad.all
+    @collection = TipoDiscapacidad.where(:estatus => 1)
     @referencia = :tipo_discapacidad_id
 
     render "parametros_select/new"
@@ -31,7 +31,7 @@ class DiscapacidadesController < ApplicationController
   # GET /discapacidades/1/edit
   def edit
     @parametro = Discapacidad.find(params[:id])
-    @collection = TipoDiscapacidad.all
+    @collection = TipoDiscapacidad.where(:estatus => 1)
     @referencia = :tipo_discapacidad_id
 
     render "parametros_select/edit"
@@ -70,7 +70,8 @@ class DiscapacidadesController < ApplicationController
   # DELETE /discapacidades/1
   # DELETE /discapacidades/1.json
   def destroy
-    @discapacidad.destroy
+    @discapacidad.estatus = 2
+    @discapacidad.save
     respond_to do |format|
       format.html { redirect_to discapacidades_url, notice: 'Discapacidad was successfully destroyed.' }
       format.json { head :no_content }

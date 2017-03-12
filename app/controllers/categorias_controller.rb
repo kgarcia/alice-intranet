@@ -6,7 +6,7 @@ class CategoriasController < ApplicationController
   def index
 
     if params[:id].nil?
-      @parametros = Categoria.all
+      @parametros = Categoria.where(:estatus => 1)
     else
       @parametros = Categoria.where(id: params[:id])
     end
@@ -77,7 +77,8 @@ class CategoriasController < ApplicationController
   # DELETE /categorias/1
   # DELETE /categorias/1.json
   def destroy
-    @categoria.destroy
+    @categoria.estatus = 2
+    @categoria.save
     respond_to do |format|
       format.html { redirect_to categorias_url, notice: 'Categoria was successfully destroyed.' }
       format.json { head :no_content }

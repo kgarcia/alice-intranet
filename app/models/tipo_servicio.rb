@@ -3,7 +3,8 @@ class TipoServicio < ApplicationRecord
   belongs_to :categoria
   belongs_to :especialidad
   has_many :servicios
-
+  has_many :tipo_servicio_evento
+  has_many :eventos, through: :servicio_evento
   has_many :criterio_tipo_servicios
   has_many :criterios, through: :criterio_tipo_servicios
   has_many :perfil_tipo_servicios
@@ -15,6 +16,9 @@ class TipoServicio < ApplicationRecord
   	after_save :save_criterios, :save_perfiles
 
     attr_reader :criteriosTipoServicio, :perfilesTipoServicio
+   
+     extend FriendlyId
+     friendly_id :descripcion, use: :slugged
 
     def criteriosTipoServicio=(value)
       @criteriosTipoServicio = value
