@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311230749) do
+ActiveRecord::Schema.define(version: 20170312060644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -276,8 +276,6 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.integer  "tipo_evaluacion_id",             null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.integer  "cita_id"
-    t.index ["cita_id"], name: "index_evaluaciones_on_cita_id", using: :btree
     t.index ["tipo_evaluacion_id"], name: "index_evaluaciones_on_tipo_evaluacion_id", using: :btree
   end
 
@@ -285,17 +283,13 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.string   "descripcion",                   null: false
     t.integer  "estatus",           default: 1, null: false
     t.integer  "tipo_evento_id",                null: false
-    t.integer  "ubicacion_id",                  null: false
-    t.datetime "fecha"
     t.string   "foto_file_name"
     t.string   "foto_content_type"
     t.integer  "foto_file_size"
     t.datetime "foto_updated_at"
-    t.text     "contenido"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.index ["tipo_evento_id"], name: "index_eventos_on_tipo_evento_id", using: :btree
-    t.index ["ubicacion_id"], name: "index_eventos_on_ubicacion_id", using: :btree
   end
 
   create_table "eventualidades", force: :cascade do |t|
@@ -376,19 +370,13 @@ ActiveRecord::Schema.define(version: 20170311230749) do
   end
 
   create_table "informacion_generals", force: :cascade do |t|
-    t.string   "nombre",                 null: false
-    t.string   "rif",                    null: false
-    t.text     "direccion",              null: false
+    t.string   "nombre"
+    t.string   "rif"
+    t.text     "direccion"
     t.string   "tlf"
-    t.string   "tlf2"
     t.string   "email"
     t.text     "widgetFB"
     t.text     "widgetTW"
-    t.text     "url_fb"
-    t.text     "url_tw"
-    t.text     "url_ins"
-    t.text     "url_gp"
-    t.text     "url_app"
     t.string   "slogan"
     t.string   "logo"
     t.float    "latitud"
@@ -454,7 +442,6 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.string   "descripcion",                 null: false
     t.integer  "tipo_noticia_id"
     t.integer  "estatus",         default: 1, null: false
-    t.text     "contenido"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["tipo_noticia_id"], name: "index_noticias_on_tipo_noticia_id", using: :btree
@@ -715,11 +702,22 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "servicio_eventos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus",     default: 1, null: false
+    t.integer  "servicio_id",             null: false
+    t.integer  "evento_id",               null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["evento_id"], name: "index_servicio_eventos_on_evento_id", using: :btree
+    t.index ["servicio_id"], name: "index_servicio_eventos_on_servicio_id", using: :btree
+  end
+
   create_table "servicios", force: :cascade do |t|
     t.text     "descripcion"
     t.integer  "ubicacion_id"
     t.integer  "tipo_servicio_id",              null: false
-    t.integer  "especialista_id"
+    t.integer  "especialista_id",               null: false
     t.integer  "estatus",           default: 1, null: false
     t.string   "foto_file_name"
     t.string   "foto_content_type"
@@ -917,16 +915,6 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.datetime "updated_at",              null: false
   end
 
-  create_table "tipo_servicio_eventos", force: :cascade do |t|
-    t.integer  "estatus",          default: 1, null: false
-    t.integer  "tipo_servicio_id",             null: false
-    t.integer  "evento_id",                    null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.index ["evento_id"], name: "index_tipo_servicio_eventos_on_evento_id", using: :btree
-    t.index ["tipo_servicio_id"], name: "index_tipo_servicio_eventos_on_tipo_servicio_id", using: :btree
-  end
-
   create_table "tipo_servicios", force: :cascade do |t|
     t.string   "descripcion"
     t.text     "texto"
@@ -1005,7 +993,7 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.integer  "persona_id"
+    t.integer  "persona_id",                          null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "rol_id"
@@ -1071,10 +1059,8 @@ ActiveRecord::Schema.define(version: 20170311230749) do
   add_foreign_key "estado_civil_perfiles", "estado_civiles"
   add_foreign_key "estado_civil_perfiles", "perfiles"
   add_foreign_key "estados", "paises"
-  add_foreign_key "evaluaciones", "citas"
   add_foreign_key "evaluaciones", "tipo_evaluaciones"
   add_foreign_key "eventos", "tipo_eventos"
-  add_foreign_key "eventos", "ubicaciones"
   add_foreign_key "eventualidades", "motivos"
   add_foreign_key "eventualidades", "tipo_eventualidades"
   add_foreign_key "formacion_academicas", "nivel_formaciones"
@@ -1126,13 +1112,13 @@ ActiveRecord::Schema.define(version: 20170311230749) do
   add_foreign_key "rango_edad_perfiles", "rango_edades"
   add_foreign_key "rango_peso_perfiles", "perfiles"
   add_foreign_key "rango_peso_perfiles", "rango_pesos"
+  add_foreign_key "servicio_eventos", "eventos"
+  add_foreign_key "servicio_eventos", "servicios"
   add_foreign_key "servicios", "especialistas"
   add_foreign_key "servicios", "tipo_servicios"
   add_foreign_key "servicios", "ubicaciones"
   add_foreign_key "sexo_perfiles", "perfiles"
   add_foreign_key "sexo_perfiles", "sexos"
-  add_foreign_key "tipo_servicio_eventos", "eventos"
-  add_foreign_key "tipo_servicio_eventos", "tipo_servicios"
   add_foreign_key "tipo_servicios", "categorias"
   add_foreign_key "tipo_servicios", "especialidades"
   add_foreign_key "tipo_servicios", "tipo_atenciones"

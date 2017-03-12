@@ -37,6 +37,13 @@ class Persona < ApplicationRecord
   end
 
 
+def self.search(search)
+  where("cedula ILIKE ?", "%#{search}%") 
+  where("nombre ILIKE ?", "%#{search}%")
+  where("apellido ILIKE ?", "%#{search}%")
+end
+
+
   def nombre_identificacion
     "[#{self.cedula}] #{self.nombre} #{self.apellido}"
   end
