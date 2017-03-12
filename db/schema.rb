@@ -717,7 +717,7 @@ ActiveRecord::Schema.define(version: 20170308042707) do
     t.text     "descripcion"
     t.integer  "ubicacion_id"
     t.integer  "tipo_servicio_id",              null: false
-    t.integer  "especialista_id",               null: false
+    t.integer  "especialista_id"
     t.integer  "estatus",           default: 1, null: false
     t.string   "foto_file_name"
     t.string   "foto_content_type"

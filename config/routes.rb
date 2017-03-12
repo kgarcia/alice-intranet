@@ -45,6 +45,8 @@ Myapp::Application.routes.draw do
   resources :tipo_opiniones
   resources :tipo_preguntas
   resources :tipo_noticias
+  get 'usuarios', to: 'usuarios#index' 
+
 
   get 'agenda_servicio/:id/detalle', to: 'agenda_servicio#detalle', as: :agenda_servicio_detalle
 

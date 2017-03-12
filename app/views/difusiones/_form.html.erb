@@ -2,7 +2,7 @@
    <div class="col-lg-10 col-lg-offset-1">
           <div class="ibox float-e-margins">
               <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Difusion" %></h2>
+                  <h2 class="parametros-titulo"><%= "Difusión" %></h2>
               </div>
           </div>
           <div class="ibox-content">
@@ -94,14 +94,22 @@
 
               </div>
 
-          
-              <div class="form-group">
-                  <div class="col-lg-offset-2 col-lg-10">
-                      <%= f.submit 'Enviar', :class => "btn btn-sm btn-white" %>
-                     
+           
+          <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                      </div>
+                        <div class="col-lg-2">
+                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                      <div class="col-lg-2">
+                      <%= link_to 'Atras',difusiones_path, :class => "btn btn-sm btn-success" %>                          
+                      </div>
                   </div>
-              </div>
+                  
           <% end %>
           </div>
+         
   </div>
+
 </div>
