@@ -25,7 +25,11 @@ class DifusionesController < ApplicationController
   def edit
     @tipo_entidades = TipoEntidad.where(:estatus => 1)
     @tipo_difusiones = TipoDifusion.where(:estatus => 1)
-    @entidades = Servicio.where(:estatus => 1)
+    if(@difusion.tipo_entidad_id == 1)
+      @entidades = Servicio.where(:estatus => 1)
+    else
+      @entidades = Evento.where(:estatus => 1)
+    end
     @medios = MedioDifusion.where(:estatus => 1)
   end
 
@@ -68,6 +72,19 @@ class DifusionesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to difusiones_url, notice: 'Difusion was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def update_entidades
+    puts params[:tipo_entidad_id]
+    if (params[:tipo_entidad_id].to_i == 1)
+      @entidades = Servicio.where(:estatus => 1)
+    else
+      @entidades = Evento.where(:estatus => 1)
+    end
+    respond_to do |format|
+      format.js
+      render 'difusiones/update_entidades'
     end
   end
 

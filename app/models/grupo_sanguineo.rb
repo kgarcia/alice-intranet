@@ -1,6 +1,8 @@
 class GrupoSanguineo < ApplicationRecord
-  has_many :grupo_sanguineo_tipo_servicios
-  has_many :tipo_servicios, through: :grupo_sanguineo_tipo_servicios
+  has_many :grupo_sanguineo_perfiles
+  has_many :perfiles, through: :grupo_sanguineo_perfiles
+  has_many :personas
+  
   def self.titulo
 	  return "Grupo Sanguíneo"
   end
