@@ -1,5 +1,7 @@
 Myapp::Application.routes.draw do
 
+  get 'difusiones/update_entidades', as: 'update_entidades'
+
   resources :medio_difusiones
   resources :perfiles
   resources :tipo_especialidades
