@@ -1,7 +1,9 @@
 class Adiccion < ApplicationRecord
   belongs_to :tipo_adiccion
-  has_many :adiccion_tipo_servicios
-  has_many :tipo_servicios, through: :adiccion_tipo_servicios
+  has_many :adiccion_perfiles
+  has_many :perfiles, through: :adiccion_perfiles
+  has_many :adiccion_personas
+  has_many :personas, through: :adiccion_personas 
 
   def tipo
   	return self.tipo_adiccion
@@ -17,6 +19,7 @@ class Adiccion < ApplicationRecord
 	@page_graph.put_wall_post('post on page wall') # post as page, requires new publish_pages permission
 	@page_graph.put_connections(page_id, 'feed', :message => message, :picture => picture_url, :link => link_url)
   end
+  
   def self.titulo
 		return "Adicción"
 	end
