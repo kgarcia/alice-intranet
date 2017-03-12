@@ -4,7 +4,7 @@ class RangoEdadesController < ApplicationController
   # GET /rango_edades
   # GET /rango_edades.json
   def index
-    @rango_edades = RangoEdad.all
+    @rango_edades = RangoEdad.where(:estatus => 1)
   end
 
   # GET /rango_edades/1
@@ -54,7 +54,8 @@ class RangoEdadesController < ApplicationController
   # DELETE /rango_edades/1
   # DELETE /rango_edades/1.json
   def destroy
-    @rango_edad.destroy
+    @rango_edad.estatus = 2
+    @rango_edad.save
     respond_to do |format|
       format.html { redirect_to rango_edades_url, notice: 'Rango edad was successfully destroyed.' }
       format.json { head :no_content }

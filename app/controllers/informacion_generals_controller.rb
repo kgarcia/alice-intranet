@@ -56,7 +56,8 @@ class InformacionGeneralsController < ApplicationController
   # DELETE /informacion_generals/1
   # DELETE /informacion_generals/1.json
   def destroy
-    @informacion_general.destroy
+    @informacion_general.estatus = 2
+    @informacion_general.save
     respond_to do |format|
       format.html { redirect_to informacion_generals_url, notice: 'Informacion general was successfully destroyed.' }
       format.json { head :no_content }

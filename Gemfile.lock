@@ -87,6 +87,10 @@ GEM
       responders
       warden (~> 1.2.3)
     devise-i18n (1.1.1)
+    dumper (1.6.1)
+      multi_json (>= 1.0)
+      multipart-post (>= 1.1.5)
+      posix-spawn (>= 0.3.6)
     erubis (2.7.0)
     execjs (2.7.0)
     faraday (0.11.0)
@@ -147,6 +151,7 @@ GEM
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
     pg (0.19.0)
+    posix-spawn (0.3.13)
     public_suffix (2.0.5)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -248,6 +253,7 @@ DEPENDENCIES
   descriptive_statistics (~> 2.4.0)
   devise
   devise-i18n
+  dumper
   font-awesome-rails (= 4.7.0.1)
   footable-rails
   fullcalendar-rails

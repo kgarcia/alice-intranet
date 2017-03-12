@@ -4,7 +4,7 @@ class VacunasController < ApplicationController
   # GET /vacunas
   # GET /vacunas.json
   def index
-    @parametros = Vacuna.all
+    @parametros = Vacuna.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -66,7 +66,8 @@ class VacunasController < ApplicationController
   # DELETE /vacunas/1
   # DELETE /vacunas/1.json
   def destroy
-    @vacuna.destroy
+    @vacuna.estatus = 2
+    @vacuna.save
     respond_to do |format|
       format.html { redirect_to vacunas_url, notice: 'Vacuna was successfully destroyed.' }
       format.json { head :no_content }

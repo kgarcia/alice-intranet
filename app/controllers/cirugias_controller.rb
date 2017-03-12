@@ -4,7 +4,7 @@ class CirugiasController < ApplicationController
   # GET /cirugias
   # GET /cirugias.json
   def index
-    @parametros = Cirugia.all
+    @parametros = Cirugia.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
@@ -22,7 +22,7 @@ class CirugiasController < ApplicationController
   # GET /cirugias/new
   def new
     @parametro = Cirugia.new
-    @collection = TipoCirugia.all
+    @collection = TipoCirugia.where(:estatus => 1)
     @referencia = :tipo_cirugia_id
 
     render "parametros_select/new"
@@ -31,7 +31,7 @@ class CirugiasController < ApplicationController
   # GET /cirugias/1/edit
   def edit
     @parametro = Cirugia.find(params[:id])
-    @collection = TipoCirugia.all
+    @collection = TipoCirugia.where(:estatus => 1)
     @referencia = :tipo_cirugia_id
 
     render "parametros_select/edit"
@@ -70,7 +70,8 @@ class CirugiasController < ApplicationController
   # DELETE /cirugias/1
   # DELETE /cirugias/1.json
   def destroy
-    @cirugia.destroy
+    @cirugia.estatus = 2
+    @cirugia.save
     respond_to do |format|
       format.html { redirect_to cirugias_url, notice: 'Cirugia was successfully destroyed.' }
       format.json { head :no_content }

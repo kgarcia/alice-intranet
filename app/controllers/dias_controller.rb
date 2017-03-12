@@ -4,7 +4,7 @@ class DiasController < ApplicationController
   # GET /dias
   # GET /dias.json
   def index
-    @parametros = Dia.all
+    @parametros = Dia.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros/index" }
       format.json { render json: @parametros }
@@ -66,7 +66,8 @@ class DiasController < ApplicationController
   # DELETE /dias/1
   # DELETE /dias/1.json
   def destroy
-    @dia.destroy
+    @dia.estatus = 2
+    @dia.save
     respond_to do |format|
       format.html { redirect_to dias_url, notice: 'Dia was successfully destroyed.' }
       format.json { head :no_content }

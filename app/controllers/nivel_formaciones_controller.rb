@@ -4,7 +4,7 @@ class NivelFormacionesController < ApplicationController
   # GET /nivel_formaciones
   # GET /nivel_formaciones.json
   def index
-    @parametros = NivelFormacion.all
+    @parametros = NivelFormacion.where(:estatus => 1)
         
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -66,7 +66,8 @@ class NivelFormacionesController < ApplicationController
   # DELETE /nivel_formaciones/1
   # DELETE /nivel_formaciones/1.json
   def destroy
-    @nivel_formacion.destroy
+    @nivel_formacion.estatus = 2
+    @nivel_formacion.save
     respond_to do |format|
       format.html { redirect_to nivel_formaciones_url, notice: 'Nivel formacion was successfully destroyed.' }
       format.json { head :no_content }

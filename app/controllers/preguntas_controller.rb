@@ -4,7 +4,7 @@ class PreguntasController < ApplicationController
   # GET /preguntas
   # GET /preguntas.json
   def index
-    @preguntas = Pregunta.all
+    @preguntas = Pregunta.where(:estatus => 1)
    # render "preguntas/index"
   end
 
@@ -16,7 +16,7 @@ class PreguntasController < ApplicationController
   # GET /preguntas/new
   def new
     @pregunta = Pregunta.new
-    @tipoPreguntas = TipoPregunta.all
+    @tipoPreguntas = TipoPregunta.where(:estatus => 1)
   end
 
   # GET /preguntas/1/edit
@@ -56,7 +56,8 @@ class PreguntasController < ApplicationController
   # DELETE /preguntas/1
   # DELETE /preguntas/1.json
   def destroy
-    @pregunta.destroy
+    @pregunta.estatus = 2
+    @pregunta.save
     respond_to do |format|
       format.html { redirect_to preguntas_url, notice: 'Pregunta was successfully destroyed.' }
       format.json { head :no_content }

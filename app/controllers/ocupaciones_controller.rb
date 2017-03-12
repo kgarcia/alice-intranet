@@ -4,7 +4,7 @@ class OcupacionesController < ApplicationController
   # GET /ocupaciones
   # GET /ocupaciones.json
   def index
-    @parametros = Ocupacion.all
+    @parametros = Ocupacion.where(:estatus => 1)
 
         
     respond_to do |format|
@@ -67,7 +67,8 @@ class OcupacionesController < ApplicationController
   # DELETE /ocupaciones/1
   # DELETE /ocupaciones/1.json
   def destroy
-    @ocupacion.destroy
+    @ocupacion.estatus = 2
+    @ocupacion.save
     respond_to do |format|
       format.html { redirect_to ocupaciones_url, notice: 'Ocupacion was successfully destroyed.' }
       format.json { head :no_content }

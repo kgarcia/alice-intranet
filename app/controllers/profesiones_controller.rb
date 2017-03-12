@@ -4,7 +4,7 @@ class ProfesionesController < ApplicationController
   # GET /profesiones
   # GET /profesiones.json
   def index
-    @parametros = Profesion.all
+    @parametros = Profesion.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -66,7 +66,8 @@ class ProfesionesController < ApplicationController
   # DELETE /profesiones/1
   # DELETE /profesiones/1.json
   def destroy
-    @profesion.destroy
+    @profesion.estatus = 2
+    @profesion.save
     respond_to do |format|
       format.html { redirect_to profesiones_url, notice: 'Profesion was successfully destroyed.' }
       format.json { head :no_content }

@@ -7,7 +7,7 @@ class EventosController < ApplicationController
     @referencia_tipo = "tipo_evento"
 
     if params[:id].nil?
-      @eventos = Evento.all
+      @eventos = Evento.where(:estatus => 1)
     else
       @eventos = Evento.where(tipo_evento_id: params[:id])
     end
@@ -33,19 +33,19 @@ class EventosController < ApplicationController
   # GET /eventos/new
   def new
     @evento = Evento.new
-    @collection = TipoEvento.all
-    @ubicaciones = Ubicacion.all
+    @collection = TipoEvento.where(:estatus => 1)
+    @ubicaciones = Ubicacion.where(:estatus => 1)
     @referencia = :tipo_evento_id
-    @tipoServicios = TipoServicio.all
+    @servicios = Servicio.where(:estatus => 1)
   end
 
   # GET /eventos/1/edit
   def edit
     @evento = Evento.find(params[:id])
-    @collection = TipoEvento.all
-    @ubicaciones = Ubicacion.all
+    @collection = TipoEvento.where(:estatus => 1)
+    @ubicaciones = Ubicacion.where(:estatus => 1)
     @referencia = :tipo_evento_id
-    @tipoServicios = TipoServicio.all   
+    @servicios = Servicio.where(:estatus => 1)
   end
 
   # POST /eventos
@@ -82,7 +82,8 @@ class EventosController < ApplicationController
   # DELETE /eventos/1
   # DELETE /eventos/1.json
   def destroy
-    @evento.destroy
+    @evento.estatus = 2
+    @evento.save
     respond_to do |format|
       format.html { redirect_to eventos_url, notice: 'Evento was successfully destroyed.' }
       format.json { head :no_content }
