@@ -8,10 +8,6 @@ class Turno < ApplicationRecord
     @citas = Cita.joins(:turno).group(:tipo_turno_id,:dia_id).count
   end
   
-  def dia
-  	return self.dia
-  end
-
   def cantidad_horas
 	(((self.hora_fin).to_time-(self.hora_inicio).to_time )/60).round
   end
@@ -31,7 +27,7 @@ class Turno < ApplicationRecord
     end
   end
 
-  def arreglo_horario_citas
+  def arreglo_horario_citas #debe entrar parametro de servicio de web
     if ((self.hora_inicio < self.hora_fin)  and
         Horario.find(self.horario_id).tipo_horario_id ==1 ) #aca es el calculo de horarios para cita (tiempo promedio) por turno
         @turnos_cita = Array.new 
@@ -67,4 +63,28 @@ class Turno < ApplicationRecord
     end
   end
 
+  def disponibilidad_horas(fecha)  #fecha que entra
+   #falta el parametro que entra
+   #fecha_hora_inicio = "2017-03-06s*" #fecha exacta de 1 cita para prueba
+   #fecha_hora_inicio.to_date
+   #tipo eventualidad =! de 1 chequear fecha exacta
+   @d = fecha
+   #d = Date.new(2017,03 ,06) 
+   @horas_cita = Array.new 
+         self.arreglo_horario_citas.each do |hora|
+            #construir datetime a partir de la hora y la fecha que venga por parametro
+               @fecha = DateTime.new(@d.year, @d.month, @d.day, hora.hour, hora.min)  
+            #@fecha = (fecha_hora_inicio + hora.("%H:%M"))
+            if !Cita.where(:fecha => fecha).exists?
+              @horas_cita.push(@fecha)
+            end
+
+          end
+          return @horas_cita
+    end
+
+ 
+ 
+
 end
+

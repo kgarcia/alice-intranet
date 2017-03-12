@@ -11,6 +11,7 @@ Myapp::Application.routes.draw do
   resources :tipo_parentescos
   resources :tipo_difusiones
 
+  get 'disponibilidad', to: 'horarios#disponibilidad'
   get 'grafico/generar'
 
   get 'grafico/citas_por_especialidad'

@@ -1,0 +1,14 @@
+<h1>hola</h1>
+
+<h2>Mañana</h2>
+<div class="row">
+<% @horario.disponibles_mañana.each do |bloque| %>
+	<%= bloque %> 
+<% end %>
+</div>
+<h2>Tarde</h2>
+<div class="row">
+<% @horario.disponibles_tarde.each do |bloque| %>
+	<%= bloque %> 
+<% end %>
+</div>

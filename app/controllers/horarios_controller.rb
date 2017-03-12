@@ -16,6 +16,18 @@ class HorariosController < ApplicationController
     @dias = Dia.all    
   end
 
+def disponibilidad
+    d = Date.new(2017,03,06) 
+    @fecha = DateTime.new(d.year, d.month, d.day)
+  
+    @horario = Horario.where(servicio_id: 1).take
+    @horario.disponibilidad_semana_dia(@fecha)#params[:fecha1])
+    respond_to do |format|
+        format.html {  render "horarios/disponibilidad" }
+        format.json { render json:@horario.disponibilidad_semana_dia(@fecha)}#params[:fecha1])
+           
+    end
+end
   # GET /horarios/new
   def new
 

@@ -47,12 +47,12 @@
           <tbody>
             <%@turnosM.each do |turno| %>
             <tr>
-              <td><%=turno.tipodia.descripcion%><%= turno.arreglo_horario_citas %></td>
+              <td><%=turno.dia.descripcion%><%= turno.arreglo_horario_citas %></td>
                <td>
                 <%if turno.hora_inicio == turno.hora_fin %>
                   TURNO CERRADO
                   <%else%>
-                  <%= turno.hora_inicio.strftime("%H:%M") %>
+                  <%= turno.hora_inicio.strftime("%H:%M") %> 
                 <%end%>
               </td>
                <td>
@@ -65,7 +65,7 @@
                    <% if @horario.tipo_horario.id  == 1 %>
                    <td><%= turno.numero_pacientes_por_turno %> </td>
                    <%else%>
-                      <td><%= turno.cantidad_pacientes %> </td>
+                      <td><%= turno.cantidad_pacientes %>  </td>
                     <%end%>
               <td><%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
                 <%= link_to '', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
@@ -102,7 +102,7 @@
           <tbody>
             <% @turnosT.each do |turno| %>
             <tr>
-              <td><%=turno.tipodia.descripcion%><%= turno.arreglo_horario_citas %></td>
+              <td><%=turno.dia.descripcion%><%= turno.arreglo_horario_citas %></td>
               <td>
                 <%if turno.hora_inicio == turno.hora_fin %>
                   TURNO CERRADO
@@ -120,7 +120,7 @@
                  <% if @horario.tipo_horario.id  == 1 %>
                    <td><%= turno.numero_pacientes_por_turno %> </td>
                    <%else%>
-                      <td><%= turno.cantidad_pacientes %> </td>
+                      <td><%= turno.cantidad_pacientes %></td>
                     <%end%>
        
               <td><%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
