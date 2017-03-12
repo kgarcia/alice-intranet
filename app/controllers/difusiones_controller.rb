@@ -5,6 +5,12 @@ class DifusionesController < ApplicationController
   # GET /difusiones.json
   def index
     @difusiones = Difusion.where(:estatus => 1)
+    @difusiones1 = Difusion.where(:estatus => 1).map { |c| [c.id, c.asunto]  }.to_h
+    @difusiones2 = Difusion.where(:estatus => 2).map { |c| [c.id, c.asunto]  }.to_h
+    @difusiones3 = @difusiones1.merge(@difusiones2)
+    puts @difusiones1.as_json
+    puts @difusiones2.as_json
+    puts @difusiones3.as_json
   end
 
   # GET /difusiones/1
@@ -76,7 +82,6 @@ class DifusionesController < ApplicationController
   end
 
   def update_entidades
-    puts params[:tipo_entidad_id]
     if (params[:tipo_entidad_id].to_i == 1)
       @entidades = Servicio.where(:estatus => 1)
     else

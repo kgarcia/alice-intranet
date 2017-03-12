@@ -640,7 +640,6 @@ ActiveRecord::Schema.define(version: 20170311230749) do
   end
 
   create_table "preguntas", force: :cascade do |t|
-    t.string   "titulo"
     t.string   "descripcion",                  null: false
     t.string   "respuesta"
     t.integer  "tipo_pregunta_id"

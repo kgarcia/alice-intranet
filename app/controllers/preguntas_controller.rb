@@ -11,6 +11,8 @@ class PreguntasController < ApplicationController
   # GET /preguntas/1
   # GET /preguntas/1.json
   def show
+    @tipoPreguntas = TipoPregunta.where(:estatus => 1)
+    render 'edit'
   end
 
   # GET /preguntas/new
@@ -72,6 +74,6 @@ class PreguntasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pregunta_params
-      params.require(:pregunta).permit(:titulo, :descripcion, :respuesta, :tipo_pregunta_id, :estatus)
+      params.require(:pregunta).permit(:descripcion, :respuesta, :tipo_pregunta_id, :estatus)
     end
 end
