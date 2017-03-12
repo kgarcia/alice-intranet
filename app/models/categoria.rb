@@ -9,6 +9,9 @@ class Categoria < ApplicationRecord
 	has_many :turnos, through: :horarios
 	has_many :dias, through: :turnos
 
+	extend FriendlyId
+  	friendly_id :descripcion, use: :slugged
+
 	def self.titulo
 		return "Categoría"
 	end

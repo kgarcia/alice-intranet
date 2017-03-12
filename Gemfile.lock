@@ -96,6 +96,8 @@ GEM
       railties (>= 3.2, < 5.1)
     footable-rails (0.0.1)
       railties (>= 3.0)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     fullcalendar-rails (3.1.0.0)
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
@@ -245,6 +247,7 @@ DEPENDENCIES
   devise-i18n
   font-awesome-rails (= 4.7.0.1)
   footable-rails
+  friendly_id (~> 5.1.0)
   fullcalendar-rails
   highcharts-rails
   jbuilder (~> 2.5)
