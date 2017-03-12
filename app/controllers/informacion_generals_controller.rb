@@ -4,7 +4,8 @@ class InformacionGeneralsController < ApplicationController
   # GET /informacion_generals
   # GET /informacion_generals.json
   def index
-    @informacion_generals = InformacionGeneral.all
+    @informacion_general = InformacionGeneral.find(1)
+    render 'edit'
   end
 
   # GET /informacion_generals/1

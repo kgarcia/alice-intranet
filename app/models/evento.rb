@@ -1,18 +1,18 @@
 class Evento < ApplicationRecord
   belongs_to :tipo_evento
-  has_many :servicio_evento
-  has_many :servicios, through: :servicio_evento
+  has_many :tipo_servicio_evento
+  has_many :tipo_servicios, through: :tipo_servicio_evento
 
 
   has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
 
-  after_save :save_servicios
+  after_save :save_tipo_servicios
 
-  attr_reader :servicioEvento
+  attr_reader :tipoServicioEvento
 
-  	def servicioEvento=(value)
-	  	@servicioEvento = value
+  	def tipoServicioEvento=(value)
+	  	@tipoServicioEvento = value
 	  end
 
   def tipo
@@ -28,11 +28,11 @@ class Evento < ApplicationRecord
     end
 
    private
-    def save_servicios
-     ServicioEvento.where(:evento_id => self.id).destroy_all
-     if !@servicioEvento.nil?
-	      @servicioEvento.each do |servicio_id|
-		      ServicioEvento.create(servicio_id: servicio_id, evento_id: self.id )
+    def save_tipo_servicios
+     TipoServicioEvento.where(:evento_id => self.id).destroy_all
+     if !@tipoServicioEvento.nil?
+	      @tipoServicioEvento.each do |tipo_servicio_id|
+		      TipoServicioEvento.create(tipo_servicio_id: tipo_servicio_id, evento_id: self.id )
         end
 	   end
    end
