@@ -2,26 +2,27 @@
 <p id="notice"><%= notice %></p>
 <div class="ibox float-e-margins">
               <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Roles" %></h2>
+                  <h2 class="parametros-titulo"><%= "Usuarios" %></h2>
               </div>
           </div>
 <div class="ibox-content">
-<%= link_to 'Registrar', new_rol_path, :class => "btn btn-primary btn-sm" %>
+<%= link_to 'Registrar', "/usuarios/sign_up", :class => "btn btn-primary btn-sm" %>
  <br><br> 
 
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
       <tr>
-        <th data-breakpoints="xs">Descripción</th>
+        <th data-sorted="true">Rol</th>
+        <th data-breakpoints="xs">Email</th>
         <th colspan="1"></th>
       </tr>
     </thead>
     <tbody>
-       <% @roles.each do |rol| %>
+      <% @usuarios.each do |usuario| %>
           <tr>
-           <td><%= rol.descripcion %></td>
-            <td>  <%= link_to 'Editar', edit_rol_path(rol), :class => "btn btn-warning btn-sm " %>
-              <%= link_to 'Eliminar', rol, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm " %></td>
+            <td><%= usuario.rol.descripcion %></td>
+            <td><%= usuario.email%></td>
+        
           </tr>
       <% end %>
     </tbody>
@@ -35,11 +36,3 @@
   </table>
 </div>
 <br>
-
-
-<script type="text/javascript">
-$(document).ready(function(){
-$('.table').footable();
-});
-
-</script>

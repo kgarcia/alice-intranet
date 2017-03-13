@@ -6,9 +6,8 @@ class Evaluacion < ApplicationRecord
 
   def tipo
   	return self.tipo_evaluacion
-  end
-
+  end  
   def self.titulo
-	 return "Evaluaciones"
+	return "Evaluación"
   end
 end

@@ -26,7 +26,15 @@
     <%= f.text_field :nivel_formacion_id %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                      </div>
+                        <div class="col-lg-2">
+                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                      <div class="col-lg-2">
+                      <%= link_to 'Atras',formacion_academicas_path, :class => "btn btn-sm btn-success" %>                          
+                      </div>
+                  </div>
 <% end %>

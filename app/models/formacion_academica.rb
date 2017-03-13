@@ -5,6 +5,6 @@ class FormacionAcademica < ApplicationRecord
   	return self.nivel_formacion
   end
   def self.titulo
-	  return "Formacion Academica"
+	  return "Formación Academica"
   end
 end
