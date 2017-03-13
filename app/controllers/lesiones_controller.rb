@@ -31,7 +31,7 @@ class LesionesController < ApplicationController
 
   # GET /lesiones/1/edit
   def edit
-    @parametro = Lesion.new
+    @parametro = Lesion.find(params[:id])
     @collection = TipoLesion.where(:estatus => 1)
     @referencia = :tipo_lesion_id
 

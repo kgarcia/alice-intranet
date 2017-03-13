@@ -103,3 +103,5 @@ gem "highcharts-rails"
 gem 'descriptive_statistics', '~> 2.4.0', :require => 'descriptive_statistics/safe'
 
 gem 'toastr-rails'
+
+gem 'carrierwave', '~> 1.0'

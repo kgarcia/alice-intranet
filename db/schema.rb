@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311230749) do
+ActiveRecord::Schema.define(version: 20170313002220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.integer  "estatus",             default: 1, null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "avatar"
     t.index ["entidad_id"], name: "index_difusiones_on_entidad_id", using: :btree
     t.index ["tipo_difusion_id"], name: "index_difusiones_on_tipo_difusion_id", using: :btree
     t.index ["tipo_entidad_id"], name: "index_difusiones_on_tipo_entidad_id", using: :btree

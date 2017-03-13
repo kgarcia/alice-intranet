@@ -67,6 +67,10 @@ GEM
       momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (9.0.6)
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -249,6 +253,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.7)
   bootstrap3-datetimepicker-rails (~> 4.14.30)
   byebug
+  carrierwave (~> 1.0)
   coffee-rails (~> 4.2)
   descriptive_statistics (~> 2.4.0)
   devise

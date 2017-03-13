@@ -549,3 +549,8 @@
     MedioDifusion.find_or_create_by(:descripcion => 'Email', :estatus => 1)
     MedioDifusion.find_or_create_by(:descripcion => 'Facebook', :estatus => 1)
     MedioDifusion.find_or_create_by(:descripcion => 'App Movil', :estatus => 1)
+
+    TipoNotificacion.find_or_create_by(:descripcion => "Creacion de Citas")
+    TipoNotificacion.find_or_create_by(:descripcion => "Cancelacion de Citas")
+    TipoNotificacion.find_or_create_by(:descripcion => "Evaluacion de Citas")
+    TipoNotificacion.find_or_create_by(:descripcion => "Difusion de Servicio")

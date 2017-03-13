@@ -7,8 +7,10 @@ class CreatePersonas < ActiveRecord::Migration[5.0]
       t.string :telefono, :null => true
       t.string :direccion, :null => true
       t.date :fecha_nacimiento, :null => true
-      t.references :sexo, foreign_key: true, :null => false
-
+      t.float :peso, :null => true
+      t.references :sexo, foreign_key: true, :null => true
+      t.references :grupo_sanguineo, foreign_key: true, :null => true
+      t.references :estado_civil, foreign_key: true, :null => true
       t.timestamps
     end
   end
