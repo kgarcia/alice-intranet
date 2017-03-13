@@ -4,7 +4,7 @@ class VacunasController < ApplicationController
   # GET /vacunas
   # GET /vacunas.json
   def index
-    @parametros = Vacuna.all
+    @parametros = Vacuna.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -40,7 +40,7 @@ class VacunasController < ApplicationController
 
     respond_to do |format|
       if @vacuna.save
-        format.html { redirect_to edit_vacuna_path(@vacuna), notice: 'Vacuna was successfully created.' }
+        format.html { redirect_to vacunas_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @vacuna }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class VacunasController < ApplicationController
   def update
     respond_to do |format|
       if @vacuna.update(vacuna_params)
-        format.html { redirect_to edit_vacuna_path(@vacuna), notice: 'Vacuna was successfully updated.' }
+        format.html { redirect_to vacunas_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @vacuna }
       else
         format.html { render :edit }
@@ -66,9 +66,10 @@ class VacunasController < ApplicationController
   # DELETE /vacunas/1
   # DELETE /vacunas/1.json
   def destroy
-    @vacuna.destroy
+    @vacuna.estatus = 2
+    @vacuna.save
     respond_to do |format|
-      format.html { redirect_to vacunas_url, notice: 'Vacuna was successfully destroyed.' }
+      format.html { redirect_to vacunas_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

@@ -4,7 +4,7 @@ class SexosController < ApplicationController
   # GET /sexos
   # GET /sexos.json
   def index
-    @parametros = Sexo.all
+    @parametros = Sexo.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -40,7 +40,7 @@ class SexosController < ApplicationController
 
     respond_to do |format|
       if @sexo.save
-        format.html { redirect_to edit_sexo_path(@sexo), notice: 'Sexo was successfully created.' }
+        format.html { redirect_to sexos_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @sexo }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class SexosController < ApplicationController
   def update
     respond_to do |format|
       if @sexo.update(sexo_params)
-        format.html { redirect_to edit_sexo_path(@sexo), notice: 'Sexo was successfully updated.' }
+        format.html { redirect_to sexos_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @sexo }
       else
         format.html { render :edit }
@@ -66,9 +66,10 @@ class SexosController < ApplicationController
   # DELETE /sexos/1
   # DELETE /sexos/1.json
   def destroy
-    @sexo.destroy
+    @sexo.estatus = 2
+    @sexo.save
     respond_to do |format|
-      format.html { redirect_to sexos_url, notice: 'Sexo was successfully destroyed.' }
+      format.html { redirect_to sexos_path, notice: 'El registro ha sido eliminado exitosamente.'}
       format.json { head :no_content }
     end
   end

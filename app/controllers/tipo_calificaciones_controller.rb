@@ -4,7 +4,7 @@ class TipoCalificacionesController < ApplicationController
   # GET /tipo_calificaciones
   # GET /tipo_calificaciones.json
   def index
-      @parametros = TipoCalificacion.all
+      @parametros = TipoCalificacion.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -41,7 +41,7 @@ class TipoCalificacionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_calificacion.save
-        format.html { redirect_to edit_tipo_calificacion_path(@tipo_calificacion), notice: 'Tipo calificacion was successfully created.' }
+        format.html { redirect_to tipo_calificaciones_path, notice: 'El registro ha sido creado exitosamente.'}
         format.json { render :show, status: :created, location: @tipo_calificacion }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class TipoCalificacionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_calificacion.update(tipo_calificacion_params)
-        format.html { redirect_to edit_tipo_calificacion_path(@tipo_calificacion), notice: 'Tipo calificacion was successfully updated.' }
+        format.html { redirect_to tipo_calificaciones_path, notice: 'El registro ha sido actualizado exitosamente.'}
         format.json { render :show, status: :ok, location: @tipo_calificacion }
       else
         format.html { render :edit }
@@ -67,9 +67,10 @@ class TipoCalificacionesController < ApplicationController
   # DELETE /tipo_calificaciones/1
   # DELETE /tipo_calificaciones/1.json
   def destroy
-    @tipo_calificacion.destroy
+    @tipo_calificacion.estatus = 2
+    @tipo_calificacion.save
     respond_to do |format|
-      format.html { redirect_to tipo_calificaciones_url, notice: 'Tipo calificacion was successfully destroyed.' }
+      format.html { redirect_to tipo_calificaciones_path, notice: 'El registro ha sido creado exitosamente.' }
       format.json { head :no_content }
     end
   end

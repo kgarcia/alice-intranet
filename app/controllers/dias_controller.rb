@@ -4,7 +4,7 @@ class DiasController < ApplicationController
   # GET /dias
   # GET /dias.json
   def index
-    @parametros = Dia.all
+    @parametros = Dia.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros/index" }
       format.json { render json: @parametros }
@@ -40,7 +40,7 @@ class DiasController < ApplicationController
 
     respond_to do |format|
       if @dia.save
-        format.html { redirect_to edit_dia_path(@dia), notice: 'Dia was successfully created.' }
+        format.html { redirect_to dias_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @dia }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class DiasController < ApplicationController
   def update
     respond_to do |format|
       if @dia.update(dia_params)
-        format.html { redirect_to edit_dia_path(@dia), notice: 'Dia was successfully updated.' }
+        format.html { redirect_to dias_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @dia }
       else
         format.html { render :edit }
@@ -66,9 +66,10 @@ class DiasController < ApplicationController
   # DELETE /dias/1
   # DELETE /dias/1.json
   def destroy
-    @dia.destroy
+    @dia.estatus = 2
+    @dia.save
     respond_to do |format|
-      format.html { redirect_to dias_url, notice: 'Dia was successfully destroyed.' }
+      format.html { redirect_to dias_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

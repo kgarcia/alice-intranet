@@ -4,7 +4,7 @@ class EspecialistasController < ApplicationController
   # GET /especialistas
   # GET /especialistas.json
   def index
-    @especialistas = Especialista.all
+    @especialistas = Especialista.where(:estatus => 1)
   end
 
   # GET /especialistas/1
@@ -18,10 +18,10 @@ class EspecialistasController < ApplicationController
   def new
     @especialista = Especialista.new
     @persona = Persona.new
-    @especialidades = Especialidad.all
-    @universidades = Universidad.all
-    @formacion_academicas = FormacionAcademica.all
-    @sexos = Sexo.all
+    @especialidades = Especialidad.where(:estatus => 1)
+    @universidades = Universidad.where(:estatus => 1)
+    @formacion_academicas = FormacionAcademica.where(:estatus => 1)
+    @sexos = Sexo.where(:estatus => 1)
 
   end
 
@@ -29,10 +29,10 @@ class EspecialistasController < ApplicationController
   def edit
     @especialista = Especialista.find(params[:id])
     @persona = @especialista.persona
-    @especialidades = Especialidad.all
-    @universidades = Universidad.all
-    @formacion_academicas = FormacionAcademica.all
-    @sexos = Sexo.all
+    @especialidades = Especialidad.where(:estatus => 1)
+    @universidades = Universidad.where(:estatus => 1)
+    @formacion_academicas = FormacionAcademica.where(:estatus => 1)
+    @sexos = Sexo.where(:estatus => 1)
   end
 
   # POST /especialistas
@@ -47,7 +47,7 @@ class EspecialistasController < ApplicationController
       if @persona.save
         @especialista.persona_id = @persona.id
         @especialista.save
-        format.html { redirect_to especialistas_url, notice: 'Especialista was successfully created.' }
+        format.html { redirect_to especialistas_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @especialista }
       else
         format.html { render :new }
@@ -64,7 +64,7 @@ class EspecialistasController < ApplicationController
       if @especialista.update(especialista_params)
         @persona = @especialista.persona
         @persona.update(persona_params)
-        format.html { redirect_to especialistas_url, notice: 'Especialista was successfully updated.' }
+        format.html { redirect_to especialistas_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @especialista }
       else
         format.html { render :edit }
@@ -76,9 +76,10 @@ class EspecialistasController < ApplicationController
   # DELETE /especialistas/1
   # DELETE /especialistas/1.json
   def destroy
-    @especialista.destroy
+    @especialista.estatus = 2
+    @especialista.save
     respond_to do |format|
-      format.html { redirect_to especialistas_url, notice: 'Especialista was successfully destroyed.' }
+      format.html { redirect_to especialistas_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

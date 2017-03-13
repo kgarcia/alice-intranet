@@ -4,7 +4,7 @@ class MedioDifusionesController < ApplicationController
   # GET /medio_difusiones
   # GET /medio_difusiones.json
   def index
-    @parametros = MedioDifusion.all
+    @parametros = MedioDifusion.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros/index" }
       format.json { render json: @parametros }
@@ -39,7 +39,7 @@ class MedioDifusionesController < ApplicationController
 
     respond_to do |format|
       if @medio_difusion.save
-        format.html { redirect_to medio_difusiones_url, notice: 'Medio difusion was successfully created.' }
+        format.html { redirect_to medio_difusiones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @medio_difusion }
       else
         format.html { render :new }
@@ -53,21 +53,22 @@ class MedioDifusionesController < ApplicationController
   def update
     respond_to do |format|
       if @medio_difusion.update(medio_difusion_params)
-        format.html { redirect_to medio_difusiones_url, notice: 'Medio difusion was successfully updated.' }
+        format.html { redirect_to medio_difusiones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @medio_difusion }
       else
         format.html { render :edit }
         format.json { render json: @medio_difusion.errors, status: :unprocessable_entity }
       end
     end
-  end
+   end
 
   # DELETE /medio_difusiones/1
   # DELETE /medio_difusiones/1.json
   def destroy
-    @medio_difusion.destroy
+    @medio_difusion.estatus = 2
+    @medio_difusion.save
     respond_to do |format|
-      format.html { redirect_to medio_difusiones_url, notice: 'Medio difusion was successfully destroyed.' }
+      format.html { redirect_to medio_difusiones_path, notice: 'El registro ha sido eliminado exitosamente. ' }
       format.json { head :no_content }
     end
   end

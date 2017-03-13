@@ -1,3 +1,15 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $(document).on 'change', '#difusion_tipo_entidad_id', (evt) ->
+    $.ajax '/difusiones/update_entidades',
+      type: 'GET'
+      dataType: 'script'
+      data: {
+        tipo_entidad_id: $("#difusion_tipo_entidad_id option:selected").val()
+      }
+      error: (jqXHR, textStatus, errorThrown) ->
+        console.log("AJAX Error: #{textStatus}")
+      success: (data, textStatus, jqXHR) ->
+        console.log("Dynamic country select OK!")

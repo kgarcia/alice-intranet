@@ -5,11 +5,17 @@ class PersonasController < ApplicationController
   # GET /personas.json
   def index
     @personas = Persona.all
+
+    respond_to do |format|
+      format.html { render "personas/index" }
+      format.json { render json: @personas }
+    end
   end
 
   # GET /personas/1
   # GET /personas/1.json
   def show
+    @persona = Persona.find(params[:id])
   end
 
   # GET /personas/new
@@ -30,7 +36,7 @@ class PersonasController < ApplicationController
 
     respond_to do |format|
       if @persona.save
-        format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
+        format.html { redirect_to personas_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @persona }
       else
         format.html { render :new }
@@ -44,7 +50,7 @@ class PersonasController < ApplicationController
   def update
     respond_to do |format|
       if @persona.update(persona_params)
-        format.html { redirect_to @persona, notice: 'Persona was successfully updated.' }
+        format.html { redirect_to personas_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @persona }
       else
         format.html { render :edit }
@@ -56,9 +62,8 @@ class PersonasController < ApplicationController
   # DELETE /personas/1
   # DELETE /personas/1.json
   def destroy
-    @persona.destroy
     respond_to do |format|
-      format.html { redirect_to personas_url, notice: 'Persona was successfully destroyed.' }
+      format.html { redirect_to personas_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

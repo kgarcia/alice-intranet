@@ -4,7 +4,7 @@ class EspecialidadesController < ApplicationController
   # GET /especialidades
   # GET /especialidades.json
   def index
-    @parametros = Especialidad.all
+    @parametros = Especialidad.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
@@ -23,7 +23,7 @@ class EspecialidadesController < ApplicationController
   # GET /especialidades/new
   def new
     @parametro = Especialidad.new
-    @collection = TipoEspecialidad.all
+    @collection = TipoEspecialidad.where(:estatus => 1)
     @referencia = :tipo_especialidad_id
 
     render "parametros_select/new"
@@ -32,7 +32,7 @@ class EspecialidadesController < ApplicationController
   # GET /especialidades/1/edit
   def edit
     @parametro = Especialidad.find(params[:id])
-    @collection = TipoEspecialidad.all
+    @collection = TipoEspecialidad.where(:estatus => 1)
     @referencia = :tipo_especialidad_id
     render "parametros_select/edit"
   end
@@ -44,7 +44,7 @@ class EspecialidadesController < ApplicationController
 
     respond_to do |format|
       if @especialidad.save
-        format.html { redirect_to edit_especialidad_path(@especialidad), notice: 'Especialidad was successfully created.' }
+        format.html { redirect_to especialidades_path, notice: 'El registro ha sido creado exitosamente' }
         format.json { render :show, status: :created, location: @especialidad }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class EspecialidadesController < ApplicationController
   def update
     respond_to do |format|
       if @especialidad.update(especialidad_params)
-        format.html { redirect_to edit_especialidad_path(@especialidad), notice: 'Especialidad was successfully updated.' }
+        format.html { redirect_to especialidades_path, notice: 'El registro ha sido actualizado exitosamente' }
         format.json { render :show, status: :ok, location: @especialidad }
       else
         format.html { render :edit }
@@ -70,9 +70,10 @@ class EspecialidadesController < ApplicationController
   # DELETE /especialidades/1
   # DELETE /especialidades/1.json
   def destroy
-    @especialidad.destroy
+    @especialidad.estatus = 2
+    @especialidad.save
     respond_to do |format|
-      format.html { redirect_to especialidades_url, notice: 'Especialidad was successfully destroyed.' }
+      format.html { redirect_to especialidades_path, notice: 'El registro ha sido eliminado exitosamente' }
       format.json { head :no_content }
     end
   end

@@ -4,7 +4,7 @@ class MotivosController < ApplicationController
   # GET /motivos
   # GET /motivos.json
   def index
-    @parametros = Motivo.all
+    @parametros = Motivo.where(:estatus => 1)
     @referencia = "tipoMotivo"
     
     respond_to do |format|
@@ -24,7 +24,7 @@ class MotivosController < ApplicationController
   # GET /motivos/new
   def new
     @parametro = Motivo.new 
-    @collection = TipoMotivo.all
+    @collection = TipoMotivo.where(:estatus => 1)
     @referencia = :tipo_motivo_id
 
     render "parametros_select/new"
@@ -34,7 +34,7 @@ class MotivosController < ApplicationController
   def edit
 
     @parametro = Motivo.find(params[:id])
-    @collection = TipoMotivo.all
+    @collection = TipoMotivo.where(:estatus => 1)
     @referencia = :tipo_motivo_id
 
     render "parametros_select/edit"
@@ -48,7 +48,7 @@ class MotivosController < ApplicationController
 
     respond_to do |format|
       if @motivo.save
-        format.html { redirect_to action:"index", notice: 'Motivo was successfully created.' }
+        format.html { redirect_to motivos_path, notice: 'El registro ha sido creado exitosamente. ' }
         format.json { render :show, status: :created, location: @motivo }
       else
         format.html { render :new }
@@ -62,7 +62,7 @@ class MotivosController < ApplicationController
   def update
     respond_to do |format|
       if @motivo.update(motivo_params)
-        format.html { redirect_to action:"index", notice: 'Motivo was successfully updated.' }
+        format.html { redirect_to motivos_path, notice: 'El registro ha sido actualizado exitosamente. ' }
         format.json { render :show, status: :ok, location: @motivo }
       else
         format.html { render :edit }
@@ -74,9 +74,10 @@ class MotivosController < ApplicationController
   # DELETE /motivos/1
   # DELETE /motivos/1.json
   def destroy
-    @motivo.destroy
+    @motivo.estatus = 2
+    @motivo.save
     respond_to do |format|
-      format.html { redirect_to motivos_url, notice: 'Motivo was successfully destroyed.' }
+      format.html { redirect_to motivos_path, notice: 'El registro ha sido eliminado exitosamente. ' }
       format.json { head :no_content }
     end
   end

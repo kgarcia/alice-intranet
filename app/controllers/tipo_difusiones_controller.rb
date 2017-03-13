@@ -4,7 +4,7 @@ class TipoDifusionesController < ApplicationController
   # GET /tipo_difusiones
   # GET /tipo_difusiones.json
   def index
-    @parametros = TipoDifusion.all
+    @parametros = TipoDifusion.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros/index" }
       format.json { render json: @parametros }
@@ -39,7 +39,7 @@ class TipoDifusionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_difusion.save
-        format.html { redirect_to tipo_difusiones_url, notice: 'Tipo difusion was successfully created.' }
+        format.html { redirect_to tipo_difusiones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_difusion }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class TipoDifusionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_difusion.update(tipo_difusion_params)
-        format.html { redirect_to tipo_difusiones_url, notice: 'Tipo difusion was successfully updated.' }
+        format.html { redirect_to tipo_difusiones_path, notice: 'El registro ha sido actualizado exitosamente.'}
         format.json { render :show, status: :ok, location: @tipo_difusion }
       else
         format.html { render :edit }
@@ -65,9 +65,10 @@ class TipoDifusionesController < ApplicationController
   # DELETE /tipo_difusiones/1
   # DELETE /tipo_difusiones/1.json
   def destroy
-    @tipo_difusion.destroy
+    @tipo_difusion.estatus = 2
+    @tipo_difusion.save
     respond_to do |format|
-      format.html { redirect_to tipo_difusiones_url, notice: 'Tipo difusion was successfully destroyed.' }
+      format.html { redirect_to tipo_difusiones_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

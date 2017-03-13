@@ -4,7 +4,7 @@ class CiudadesController < ApplicationController
   # GET /ciudades
   # GET /ciudades.json
   def index
-    @parametros = Ciudad.all
+    @parametros = Ciudad.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros/index" }
       format.json { render json: @parametros }
@@ -22,7 +22,7 @@ class CiudadesController < ApplicationController
   # GET /ciudades/new
   def new
     @parametro = Ciudad.new
-    @collection = Estado.all
+    @collection = Estado.where(:estatus => 1)
     @referencia = :estado_id
 
     render "parametros_select/new"
@@ -31,7 +31,7 @@ class CiudadesController < ApplicationController
   # GET /ciudades/1/edit
   def edit
     @parametro = Ciudad.find(params[:id])
-    @collection = Estado.all
+    @collection = Estado.where(:estatus => 1)
     @referencia = :estado_id
     render "parametros_select/edit"
   end
@@ -43,7 +43,7 @@ class CiudadesController < ApplicationController
 
     respond_to do |format|
       if @ciudad.save
-        format.html { redirect_to edit_ciudad_path(@ciudad), notice: 'Ciudad was successfully created.' }
+        format.html { redirect_to ciudades_path, notice: 'El registro ha sido creado exitosamente. ' }
         format.json { render :show, status: :created, location: @ciudad }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class CiudadesController < ApplicationController
   def update
     respond_to do |format|
       if @ciudad.update(ciudad_params)
-        format.html { redirect_to edit_ciudad_path(@ciudad), notice: 'Ciudad was successfully updated.' }
+        format.html { redirect_to ciudades_path, notice: 'El registro ha sido actualizado exitosamente. ' }
         format.json { render :show, status: :ok, location: @ciudad }
       else
         format.html { render :edit }
@@ -69,9 +69,10 @@ class CiudadesController < ApplicationController
   # DELETE /ciudades/1
   # DELETE /ciudades/1.json
   def destroy
-    @ciudad.destroy
+    @ciudad.estatus = 2
+    @ciudad.save
     respond_to do |format|
-      format.html { redirect_to ciudades_url, notice: 'Ciudad was successfully destroyed.' }
+      format.html { redirect_to ciudades_url, notice: 'El registro ha sido eliminado exitosamente. ' }
       format.json { head :no_content }
     end
   end

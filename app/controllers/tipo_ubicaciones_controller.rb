@@ -4,7 +4,7 @@ class TipoUbicacionesController < ApplicationController
   # GET /tipo_ubicaciones
   # GET /tipo_ubicaciones.json
   def index
-    @parametros = TipoUbicacion.all
+    @parametros = TipoUbicacion.where(:estatus => 1)
         
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -41,7 +41,7 @@ class TipoUbicacionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_ubicacion.save
-        format.html { redirect_to edit_tipo_ubicacion_path(@tipo_ubicacion), notice: 'Tipo ubicacion was successfully created.' }
+        format.html { redirect_to tipo_ubicaciones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_ubicacion }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class TipoUbicacionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_ubicacion.update(tipo_ubicacion_params)
-        format.html { redirect_to edit_tipo_ubicacion_path(@tipo_ubicacion), notice: 'Tipo ubicacion was successfully updated.' }
+        format.html { redirect_to tipo_ubicaciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_ubicacion }
       else
         format.html { render :edit }
@@ -67,9 +67,10 @@ class TipoUbicacionesController < ApplicationController
   # DELETE /tipo_ubicaciones/1
   # DELETE /tipo_ubicaciones/1.json
   def destroy
-    @tipo_ubicacion.destroy
+    @tipo_ubicacion.estatus = 2
+    @tipo_ubicacion.save
     respond_to do |format|
-      format.html { redirect_to tipo_ubicaciones_url, notice: 'Tipo ubicacion was successfully destroyed.' }
+      format.html { redirect_to tipo_ubicaciones_path, notice: 'El registro ha sido eliminado exitosamente.'}
       format.json { head :no_content }
     end
   end

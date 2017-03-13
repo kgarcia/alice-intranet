@@ -4,7 +4,18 @@ class TipoServiciosController < ApplicationController
   # GET /tipo_servicios
   # GET /tipo_servicios.json
   def index
-    @tipo_servicios = TipoServicio.all
+    
+    if params[:slug].nil?
+      @tipo_servicios = Categoria.where(:estatus => 1)
+    else
+      @categoria_id = Categoria.where(slug: params["slug"]).id
+      @tipo_servicios = Categoria.where(categoria_id: @categoria_id, estatus: 1)
+    end
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @tipo_servicios }
+    end
   end
 
   # GET /tipo_servicios/1
@@ -16,20 +27,20 @@ class TipoServiciosController < ApplicationController
   # GET /tipo_servicios/new
   def new
     @tipo_servicio = TipoServicio.new
-    @tipos_atencion = TipoAtencion.all
-    @especialidades = Especialidad.all
-    @categorias = Categoria.all
-    @perfiles = Perfil.all
-    @criterios = Criterio.all
+    @tipos_atencion = TipoAtencion.where(:estatus => 1)
+    @especialidades = Especialidad.where(:estatus => 1)
+    @categorias = Categoria.where(:estatus => 1)
+    @perfiles = Perfil.where(:estatus => 1)
+    @criterios = Criterio.where(:estatus => 1)
   end
 
   # GET /tipo_servicios/1/edit
   def edit
-    @tipos_atencion = TipoAtencion.all
-    @especialidades = Especialidad.all
-    @categorias = Categoria.all
-    @perfiles = Perfil.all
-    @criterios = Criterio.all
+    @tipos_atencion = TipoAtencion.where(:estatus => 1)
+    @especialidades = Especialidad.where(:estatus => 1)
+    @categorias = Categoria.where(:estatus => 1)
+    @perfiles = Perfil.where(:estatus => 1)
+    @criterios = Criterio.where(:estatus => 1)
   end
 
   # POST /tipo_servicios
@@ -43,7 +54,7 @@ class TipoServiciosController < ApplicationController
     respond_to do |format|     
       if @tipo_servicio.save
         
-        format.html { redirect_to @tipo_servicio, notice: 'Tipo servicio was successfully created.' }
+        format.html { redirect_to tipo_servicios_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_servicio }
       else
         format.html { render :new }
@@ -71,7 +82,7 @@ class TipoServiciosController < ApplicationController
     @page_graph.get_connection('me', 'feed') # the page's wall
     #@page_graph.put_wall_post('Website') # post as page, requires new publish_pages permission
   #  @page_graph.put_connections("AliceLaTrinidad", 'feed', :message => message, :picture => picture_url, :link => link_url)
-  @tipo_servicio = TipoServicio.last
+    @tipo_servicio = TipoServicio.last
     #@page_graph.put_picture(Rails.public_path+'bardenova.jpg', ".jpg", {:caption => @tipo_servicio.descripcion}, "me")
 
   end
@@ -84,7 +95,7 @@ class TipoServiciosController < ApplicationController
 
     respond_to do |format|
       if @tipo_servicio.update(tipo_servicio_params)
-        format.html { redirect_to @tipo_servicio, notice: 'Tipo servicio was successfully updated.' }
+        format.html { redirect_to tipo_servicios_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_servicio }
       else
         format.html { render :edit }
@@ -96,9 +107,10 @@ class TipoServiciosController < ApplicationController
   # DELETE /tipo_servicios/1
   # DELETE /tipo_servicios/1.json
   def destroy
-    @tipo_servicio.destroy
+    @tipo_servicio.estatus = 2
+    @tipo_servicio.save
     respond_to do |format|
-      format.html { redirect_to tipo_servicios_url, notice: 'Tipo servicio was successfully destroyed.' }
+      format.html { redirect_to tipo_servicios_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -106,7 +118,7 @@ class TipoServiciosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tipo_servicio
-      @tipo_servicio = TipoServicio.find(params[:id])
+      @tipo_servicio = TipoServicio.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

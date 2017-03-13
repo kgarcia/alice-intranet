@@ -4,7 +4,7 @@ class ServiciosController < ApplicationController
   # GET /servicios
   # GET /servicios.json
   def index
-    @servicios = Servicio.all
+    @servicios = Servicio.where(:estatus => 1)
     respond_to do |format|
       format.html
       format.json { render json: @servicios.to_json }
@@ -24,17 +24,17 @@ class ServiciosController < ApplicationController
   # GET /servicios/new
   def new
     @servicio = Servicio.new
-    @tipo_servicios = TipoServicio.all
-    @ubicaciones = Ubicacion.all
-    @especialistas = Especialista.all
+    @tipo_servicios = TipoServicio.where(:estatus => 1)
+    @ubicaciones = Ubicacion.where(:estatus => 1)
+    @especialistas = Especialista.where(:estatus => 1)
   end
 
   # GET /servicios/1/edit
   def edit
     @servicio = Servicio.find(params[:id])
-    @tipo_servicios = TipoServicio.all
-    @ubicaciones = Ubicacion.all
-    @especialistas = Especialista.all
+    @tipo_servicios = TipoServicio.where(:estatus => 1)
+    @ubicaciones = Ubicacion.where(:estatus => 1)
+    @especialistas = Especialista.where(:estatus => 1)
   end
 
   # POST /servicios
@@ -43,7 +43,7 @@ class ServiciosController < ApplicationController
     @servicio = Servicio.new(servicio_params)
     respond_to do |format|
       if @servicio.save
-        format.html { redirect_to @servicio, notice: 'Servicio was successfully created.' }
+        format.html { redirect_to servicios_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @servicio }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class ServiciosController < ApplicationController
   def update
     respond_to do |format|
       if @servicio.update(servicio_params)
-        format.html { redirect_to @servicio, notice: 'Servicio was successfully updated.' }
+        format.html { redirect_to servicios_path, notice: 'El registro ha sido creado exitosamente.'}
         format.json { render :show, status: :ok, location: @servicio }
       else
         format.html { render :edit }
@@ -69,9 +69,10 @@ class ServiciosController < ApplicationController
   # DELETE /servicios/1
   # DELETE /servicios/1.json
   def destroy
-    @servicio.destroy
+    @servicio.estatus = 2
+    @servicio.save
     respond_to do |format|
-      format.html { redirect_to servicios_url, notice: 'Servicio was successfully destroyed.' }
+      format.html { redirect_to servicios_path, notice: 'El registro ha sido creado exitosamente.' }
       format.json { head :no_content }
     end
   end

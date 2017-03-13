@@ -1,27 +1,45 @@
+<%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
+<div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Roles" %></h2>
+              </div>
+          </div>
+<div class="ibox-content">
+<%= link_to 'Registrar', new_rol_path, :class => "btn btn-primary btn-sm" %>
+ <br><br> 
 
-<h1>Roles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Descripcion</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @roles.each do |rol| %>
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
       <tr>
-        <td><%= rol.descripcion %></td>
-        <td><%= link_to 'Show', rol %></td>
-        <td><%= link_to 'Edit', edit_rol_path(rol) %></td>
-        <td><%= link_to 'Destroy', rol, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th data-breakpoints="xs">Descripción</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+       <% @roles.each do |rol| %>
+          <tr>
+           <td><%= rol.descripcion %></td>
+            <td>  <%= link_to 'Editar', edit_rol_path(rol), :class => "btn btn-warning btn-sm " %>
+              <%= link_to 'Eliminar', rol, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm " %></td>
+          </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <ul class="pagination pull-right"></ul>
+                        </td>
+                    </tr>
+                    </tfoot>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Rol', new_rol_path %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+</script>

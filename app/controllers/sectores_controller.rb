@@ -4,7 +4,7 @@ class SectoresController < ApplicationController
   # GET /sectores
   # GET /sectores.json
   def index
-    @parametros = Sector.all
+    @parametros = Sector.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -40,7 +40,7 @@ class SectoresController < ApplicationController
 
     respond_to do |format|
       if @sector.save
-        format.html { redirect_to edit_sector_path(@sector), notice: 'Sector was successfully created.' }
+        format.html { redirect_to sectores_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @sector }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class SectoresController < ApplicationController
   def update
     respond_to do |format|
       if @sector.update(sector_params)
-        format.html { redirect_to edit_sector_path(@sector), notice: 'Sector was successfully updated.' }
+        format.html { redirect_to sectores_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @sector }
       else
         format.html { render :edit }
@@ -66,9 +66,10 @@ class SectoresController < ApplicationController
   # DELETE /sectores/1
   # DELETE /sectores/1.json
   def destroy
-    @sector.destroy
+    @sector.estatus = 2
+    @sector.save
     respond_to do |format|
-      format.html { redirect_to sectores_url, notice: 'Sector was successfully destroyed.' }
+      format.html { redirect_to sectores_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

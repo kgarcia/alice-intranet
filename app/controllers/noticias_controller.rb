@@ -5,13 +5,13 @@ class NoticiasController < ApplicationController
   # GET /noticias.json
   def index
     if params[:id].nil?
-      @parametros = Noticia.all
+      @parametros = Noticia.where(:estatus => 1)
     else
       @parametros = Noticia.where(tipo_noticia_id: params[:id])
     end
 
     respond_to do |format|
-      format.html {  render "parametros/index" }
+      format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
     end
   end
@@ -29,12 +29,12 @@ class NoticiasController < ApplicationController
   # GET /noticias/new
   def new
     @noticia = Noticia.new
-    @tipoNoticias = TipoNoticia.all
+    @tipoNoticias = TipoNoticia.where(:estatus => 1)
   end
 
   # GET /noticias/1/edit
   def edit
-    @tipoNoticias = TipoNoticia.all
+    @tipoNoticias = TipoNoticia.where(:estatus => 1)
   end
 
   # POST /noticias
@@ -44,7 +44,7 @@ class NoticiasController < ApplicationController
 
     respond_to do |format|
       if @noticia.save
-        format.html { redirect_to @noticia, notice: 'Noticia was successfully created.' }
+        format.html { redirect_to noticias_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @noticia }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class NoticiasController < ApplicationController
   def update
     respond_to do |format|
       if @noticia.update(noticia_params)
-        format.html { redirect_to @noticia, notice: 'Noticia was successfully updated.' }
+        format.html { redirect_to noticias_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @noticia }
       else
         format.html { render :edit }
@@ -70,9 +70,10 @@ class NoticiasController < ApplicationController
   # DELETE /noticias/1
   # DELETE /noticias/1.json
   def destroy
-    @noticia.destroy
+    @noticia.estatus = 2
+    @noticia.save
     respond_to do |format|
-      format.html { redirect_to noticias_url, notice: 'Noticia was successfully destroyed.' }
+      format.html { redirect_to noticias_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -80,11 +81,11 @@ class NoticiasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_noticia
-      @noticia = Noticia.find(params[:id])
+      @noticia = Noticia.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def noticia_params
-      params.require(:noticia).permit(:titulo, :descripcion, :tipo_noticia_id, :estatus)
+      params.require(:noticia).permit(:titulo, :descripcion, :tipo_noticia_id, :estatus, :contenido)
     end
 end

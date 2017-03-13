@@ -5,7 +5,7 @@ class CreateNoticias < ActiveRecord::Migration[5.0]
       t.string :descripcion, :null => false 
       t.references :tipo_noticia, foreign_key: true
       t.integer :estatus, :null => false, :default => 1
-
+      t.text :contenido
       t.timestamps
     end
   end

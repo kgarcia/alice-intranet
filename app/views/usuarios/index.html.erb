@@ -1,0 +1,38 @@
+<%= csrf_meta_tag %>
+<p id="notice"><%= notice %></p>
+<div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Usuarios" %></h2>
+              </div>
+          </div>
+<div class="ibox-content">
+<%= link_to 'Registrar', "/usuarios/sign_up", :class => "btn btn-primary btn-sm" %>
+ <br><br> 
+
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
+      <tr>
+        <th data-sorted="true">Rol</th>
+        <th data-breakpoints="xs">Email</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @usuarios.each do |usuario| %>
+          <tr>
+            <td><%= usuario.rol.descripcion %></td>
+            <td><%= usuario.email%></td>
+        
+          </tr>
+      <% end %>
+    </tbody>
+      <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <ul class="pagination pull-right"></ul>
+                        </td>
+                    </tr>
+                    </tfoot>
+  </table>
+</div>
+<br>

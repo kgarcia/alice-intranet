@@ -4,7 +4,7 @@ class EstadoCivilesController < ApplicationController
   # GET /estado_civiles
   # GET /estado_civiles.json
   def index
-    @parametros = EstadoCivil.all
+    @parametros = EstadoCivil.where(:estatus => 1)
 
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -40,7 +40,7 @@ class EstadoCivilesController < ApplicationController
 
     respond_to do |format|
       if @estado_civil.save
-        format.html { redirect_to edit_estado_civil_path(@estado_civil), notice: 'Estado civil was successfully created.' }
+        format.html { redirect_to estado_civiles_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @estado_civil }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class EstadoCivilesController < ApplicationController
   def update
     respond_to do |format|
       if @estado_civil.update(estado_civil_params)
-        format.html { redirect_to edit_estado_civil_path(@estado_civil), notice: 'Estado civil was successfully updated.' }
+        format.html { redirect_to estado_civiles_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @estado_civil }
       else
         format.html { render :edit }
@@ -66,9 +66,10 @@ class EstadoCivilesController < ApplicationController
   # DELETE /estado_civiles/1
   # DELETE /estado_civiles/1.json
   def destroy
-    @estado_civil.destroy
+    @estado_civil.estatus = 2
+    @estado_civil.save
     respond_to do |format|
-      format.html { redirect_to estado_civiles_url, notice: 'Estado civil was successfully destroyed.' }
+      format.html { redirect_to estado_civiles_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

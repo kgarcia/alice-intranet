@@ -4,7 +4,7 @@ class TipoNoticiasController < ApplicationController
   # GET /tipo_noticiaes
   # GET /tipo_noticiaes.json
   def index
-    @parametros = TipoNoticia.all
+    @parametros = TipoNoticia.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -15,7 +15,7 @@ class TipoNoticiasController < ApplicationController
   # GET /tipo_noticiaes/1
   # GET /tipo_noticiaes/1.json
   def show
-    @parametro = TipoNoticia.find(params[:id])
+    @parametro = TipoNoticia.friendly.find(params[:id])
 
     render "parametros/show"
   end
@@ -41,7 +41,7 @@ class TipoNoticiasController < ApplicationController
 
     respond_to do |format|
       if @tipo_noticia.save
-        format.html { redirect_to @tipo_noticia, notice: 'Tipo noticia was successfully created.' }
+        format.html { redirect_to tipo_noticias_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_noticia }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class TipoNoticiasController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_noticia.update(tipo_noticia_params)
-        format.html { redirect_to @tipo_noticia, notice: 'Tipo noticia was successfully updated.' }
+        format.html { redirect_to tipo_noticias_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_noticia }
       else
         format.html { render :edit }
@@ -67,9 +67,10 @@ class TipoNoticiasController < ApplicationController
   # DELETE /tipo_noticiaes/1
   # DELETE /tipo_noticiaes/1.json
   def destroy
-    @tipo_noticia.destroy
+    @tipo_noticia.estatus = 2
+    @tipo_noticia.save
     respond_to do |format|
-      format.html { redirect_to tipo_noticiaes_url, notice: 'Tipo noticia was successfully destroyed.' }
+      format.html { redirect_to tipo_noticias_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -77,7 +78,7 @@ class TipoNoticiasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tipo_noticia
-      @tipo_noticia = TipoNoticia.find(params[:id])
+      @tipo_noticia = TipoNoticia.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

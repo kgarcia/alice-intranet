@@ -4,7 +4,7 @@ class LesionesController < ApplicationController
   # GET /lesiones
   # GET /lesiones.json
   def index
-    @parametros = Lesion.all
+    @parametros = Lesion.where(:estatus => 1)
         
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -23,7 +23,7 @@ class LesionesController < ApplicationController
   # GET /lesiones/new
   def new
     @parametro = Lesion.new
-    @collection = TipoLesion.all
+    @collection = TipoLesion.where(:estatus => 1)
     @referencia = :tipo_lesion_id
 
     render "parametros_select/new"
@@ -31,8 +31,8 @@ class LesionesController < ApplicationController
 
   # GET /lesiones/1/edit
   def edit
-    @parametro = Lesion.new
-    @collection = TipoLesion.all
+    @parametro = Lesion.find(params[:id])
+    @collection = TipoLesion.where(:estatus => 1)
     @referencia = :tipo_lesion_id
 
     render "parametros_select/edit"
@@ -45,7 +45,7 @@ class LesionesController < ApplicationController
 
     respond_to do |format|
       if @lesion.save
-        format.html { redirect_to edit_lesion_path(@lesion), notice: 'Lesion was successfully created.' }
+        format.html { redirect_to lesiones_path, notice: 'El registro ha sido creado exitosamente. ' }
         format.json { render :show, status: :created, location: @lesion }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class LesionesController < ApplicationController
   def update
     respond_to do |format|
       if @lesion.update(lesion_params)
-        format.html { redirect_to edit_lesion_path(@lesion), notice: 'Lesion was successfully updated.' }
+        format.html { redirect_to lesiones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @lesion }
       else
         format.html { render :edit }
@@ -71,9 +71,10 @@ class LesionesController < ApplicationController
   # DELETE /lesiones/1
   # DELETE /lesiones/1.json
   def destroy
-    @lesion.destroy
+    @lesion.estatus = 2
+    @lesion.save
     respond_to do |format|
-      format.html { redirect_to lesiones_url, notice: 'Lesion was successfully destroyed.' }
+      format.html { redirect_to lesiones_path, notice: 'El registro ha sido eliminado exitosamente. ' }
       format.json { head :no_content }
     end
   end

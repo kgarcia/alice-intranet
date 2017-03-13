@@ -4,7 +4,7 @@ class AdiccionesController < ApplicationController
   # GET /adicciones
   # GET /adicciones.json
   def index
-    @parametros = Adiccion.all
+    @parametros = Adiccion.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
@@ -21,7 +21,7 @@ class AdiccionesController < ApplicationController
   # GET /adicciones/new
   def new
     @parametro = Adiccion.new
-    @collection = TipoAdiccion.all
+    @collection = TipoAdiccion.where(:estatus => 1)
     @referencia = :tipo_adiccion_id
     render "parametros_select/new"
   end
@@ -29,7 +29,7 @@ class AdiccionesController < ApplicationController
   # GET /adicciones/1/edit
   def edit
     @parametro = Adiccion.find(params[:id])
-    @collection = TipoAdiccion.all
+    @collection = TipoAdiccion.where(:estatus => 1)
     @referencia = :tipo_adiccion_id
 
     render "parametros_select/edit"
@@ -42,7 +42,7 @@ class AdiccionesController < ApplicationController
 
     respond_to do |format|
       if @adiccion.save
-        format.html { redirect_to edit_adiccion_path(@adiccion), notice: 'Adiccion was successfully created.' }
+        format.html { redirect_to adicciones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @adiccion }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class AdiccionesController < ApplicationController
   def update
     respond_to do |format|
       if @adiccion.update(adiccion_params)
-        format.html { redirect_to edit_adiccion_path(@adiccion), notice: 'Adiccion was successfully updated.' }
+        format.html { redirect_to adicciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @adiccion }
       else
         format.html { render :edit }
@@ -68,9 +68,10 @@ class AdiccionesController < ApplicationController
   # DELETE /adicciones/1
   # DELETE /adicciones/1.json
   def destroy
-    @adiccion.destroy
+    @adiccion.estatus = 2
+    @adiccion.save
     respond_to do |format|
-      format.html { redirect_to adicciones_url, notice: 'Adiccion was successfully destroyed.' }
+      format.html { redirect_to adicciones_url, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

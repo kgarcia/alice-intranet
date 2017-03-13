@@ -4,7 +4,7 @@ class OcupacionesController < ApplicationController
   # GET /ocupaciones
   # GET /ocupaciones.json
   def index
-    @parametros = Ocupacion.all
+    @parametros = Ocupacion.where(:estatus => 1)
 
         
     respond_to do |format|
@@ -41,7 +41,7 @@ class OcupacionesController < ApplicationController
 
     respond_to do |format|
       if @ocupacion.save
-        format.html { redirect_to edit_ocupacion_path(@ocupacion), notice: 'Ocupacion was successfully created.' }
+        format.html { redirect_to ocupaciones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @ocupacion }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class OcupacionesController < ApplicationController
   def update
     respond_to do |format|
       if @ocupacion.update(ocupacion_params)
-        format.html { redirect_to edit_ocupacion_path(@ocupacion), notice: 'Ocupacion was successfully updated.' }
+        format.html { redirect_to ocupaciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @ocupacion }
       else
         format.html { render :edit }
@@ -67,9 +67,10 @@ class OcupacionesController < ApplicationController
   # DELETE /ocupaciones/1
   # DELETE /ocupaciones/1.json
   def destroy
-    @ocupacion.destroy
+    @ocupacion.estatus = 2
+    @ocupacion.save
     respond_to do |format|
-      format.html { redirect_to ocupaciones_url, notice: 'Ocupacion was successfully destroyed.' }
+      format.html { redirect_to ocupaciones_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

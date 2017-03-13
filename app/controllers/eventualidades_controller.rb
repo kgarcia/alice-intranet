@@ -4,7 +4,7 @@ class EventualidadesController < ApplicationController
   # GET /eventualidades
   # GET /eventualidades.json
   def index
-    @eventualidades = Eventualidad.all
+    @eventualidades = Eventualidad.where(:estatus => 1)
     @referencia_tipo = "tipo_eventualidad"
     @referencia_motivo = "motivo"
   end
@@ -19,18 +19,18 @@ class EventualidadesController < ApplicationController
   def new
     @eventualidad = Eventualidad.new
     @referencia_tipo = :tipo_eventualidad_id
-    @collection_tipo = TipoEventualidad.all
+    @collection_tipo = TipoEventualidad.where(:estatus => 1)
     @referencia_motivo = :motivo_id
-    @collection_motivo= Motivo.all
+    @collection_motivo= Motivo.where(:estatus => 1)
   end
 
   # GET /eventualidades/1/edit
   def edit
     @eventualidad = Eventualidad.find(params[:id])
     @referencia_tipo = :tipo_eventualidad_id
-    @collection_tipo = TipoEventualidad.all
+    @collection_tipo = TipoEventualidad.where(:estatus => 1)
     @referencia_motivo = :motivo_id
-    @collection_motivo= Motivo.all
+    @collection_motivo= Motivo.where(:estatus => 1)
   end
 
   # POST /eventualidades
@@ -40,7 +40,7 @@ class EventualidadesController < ApplicationController
 
     respond_to do |format|
       if @eventualidad.save
-        format.html { redirect_to action: "index", notice: 'Eventualidad was successfully created.' }
+        format.html { redirect_to eventualidades_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @eventualidad }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class EventualidadesController < ApplicationController
   def update
     respond_to do |format|
       if @eventualidad.update(eventualidad_params)
-        format.html { redirect_to action:"index", notice: 'Eventualidad was successfully updated.' }
+        format.html { redirect_to eventualidades_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @eventualidad }
       else
         format.html { render :edit }
@@ -66,9 +66,10 @@ class EventualidadesController < ApplicationController
   # DELETE /eventualidades/1
   # DELETE /eventualidades/1.json
   def destroy
-    @eventualidad.destroy
+    @eventualidad.estatus = 2
+    @eventualidad.save
     respond_to do |format|
-      format.html { redirect_to eventualidades_url, notice: 'Eventualidad was successfully destroyed.' }
+      format.html { redirect_to eventualidades_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

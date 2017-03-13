@@ -4,7 +4,7 @@ class GrupoSanguineosController < ApplicationController
   # GET /grupo_sanguineos
   # GET /grupo_sanguineos.json
   def index
-    @parametros = GrupoSanguineo.all
+    @parametros = GrupoSanguineo.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -40,7 +40,7 @@ class GrupoSanguineosController < ApplicationController
 
     respond_to do |format|
       if @grupo_sanguineo.save
-        format.html { redirect_to edit_grupo_sanguineo_path(@grupo_sanguineo), notice: 'Grupo sanguineo was successfully created.' }
+        format.html { redirect_to grupo_sanguineos_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @grupo_sanguineo }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class GrupoSanguineosController < ApplicationController
   def update
     respond_to do |format|
       if @grupo_sanguineo.update(grupo_sanguineo_params)
-        format.html { redirect_to edit_grupo_sanguineo_path(@grupo_sanguineo), notice: 'Grupo sanguineo was successfully updated.' }
+        format.html { redirect_to grupo_sanguineos_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @grupo_sanguineo }
       else
         format.html { render :edit }
@@ -66,9 +66,10 @@ class GrupoSanguineosController < ApplicationController
   # DELETE /grupo_sanguineos/1
   # DELETE /grupo_sanguineos/1.json
   def destroy
-    @grupo_sanguineo.destroy
+    @grupo_sanguineo.estatus = 2
+    @grupo_sanguineo.save
     respond_to do |format|
-      format.html { redirect_to grupo_sanguineos_url, notice: 'Grupo sanguineo was successfully destroyed.' }
+      format.html { redirect_to grupo_sanguineos_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

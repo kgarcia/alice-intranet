@@ -4,7 +4,7 @@ class TipoPagosController < ApplicationController
   # GET /tipo_pagos
   # GET /tipo_pagos.json
   def index
-    @parametros = TipoPago.all
+    @parametros = TipoPago.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -41,7 +41,7 @@ class TipoPagosController < ApplicationController
 
     respond_to do |format|
       if @tipo_pago.save
-        format.html { redirect_to edit_tipo_pago_path(@tipo_pago), notice: 'Tipo pago was successfully created.' }
+        format.html { redirect_to tipo_pagos_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_pago }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class TipoPagosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_pago.update(tipo_pago_params)
-        format.html { redirect_to edit_tipo_pago_path(@tipo_pago), notice: 'Tipo pago was successfully updated.' }
+        format.html { redirect_to tipo_pagos_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_pago }
       else
         format.html { render :edit }
@@ -67,9 +67,10 @@ class TipoPagosController < ApplicationController
   # DELETE /tipo_pagos/1
   # DELETE /tipo_pagos/1.json
   def destroy
-    @tipo_pago.destroy
+    @tipo_pago.estatus = 2
+    @tipo_pago.save
     respond_to do |format|
-      format.html { redirect_to tipo_pagos_url, notice: 'Tipo pago was successfully destroyed.' }
+      format.html { redirect_to tipo_pagos_path, notice: 'El registro ha sido eliminado exitosamente.'}
       format.json { head :no_content }
     end
   end

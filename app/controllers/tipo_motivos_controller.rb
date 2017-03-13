@@ -5,7 +5,7 @@ class TipoMotivosController < ApplicationController
   # GET /tipo_motivos.json
 
   def index
-    @parametros = TipoMotivo.all
+    @parametros = TipoMotivo.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -46,7 +46,7 @@ class TipoMotivosController < ApplicationController
 
     respond_to do |format|
       if @tipo_motivo.save
-        format.html { redirect_to action:"index", notice: 'Tipo motivo was successfully created.' }
+        format.html { redirect_to tipo_motivos_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_motivo }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class TipoMotivosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_motivo.update(tipo_motivo_params)
-        format.html { redirect_to action:"index", notice: 'Tipo motivo was successfully updated.' }
+        format.html { redirect_to tipo_motivos_path, notice: 'El registro ha sido actualizado exitosamente.'  }
         format.json { render :show, status: :ok, location: @tipo_motivo }
       else
         format.html { render :edit }
@@ -72,9 +72,10 @@ class TipoMotivosController < ApplicationController
   # DELETE /tipo_motivos/1
   # DELETE /tipo_motivos/1.json
   def destroy
-    @tipo_motivo.destroy
+    @tipo_motivo.estatus = 2
+    @tipo_motivo.save
     respond_to do |format|
-      format.html { redirect_to tipo_motivos_url, notice: 'Tipo motivo was successfully destroyed.' }
+      format.html { redirect_to tipo_motivos_path, notice: 'El registro ha sido eliminado exitosamente.'  }
       format.json { head :no_content }
     end
   end

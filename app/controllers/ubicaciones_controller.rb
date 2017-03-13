@@ -4,7 +4,7 @@ class UbicacionesController < ApplicationController
   # GET /ubicaciones
   # GET /ubicaciones.json
   def index
-    @parametros = Ubicacion.all
+    @parametros = Ubicacion.where(:estatus => 1)
   end
 
   # GET /ubicaciones/1
@@ -16,9 +16,9 @@ class UbicacionesController < ApplicationController
   # GET /ubicaciones/new
   def new
     @parametro = Ubicacion.new
-    @tipoUbicaciones = TipoUbicacion.all
-    @ciudades = Ciudad.all
-    @sectores = Sector.all
+    @tipoUbicaciones = TipoUbicacion.where(:estatus => 1)
+    @ciudades = Ciudad.where(:estatus => 1)
+    @sectores = Sector.where(:estatus => 1)
   end
 
   # GET /ubicaciones/1/edit
@@ -33,7 +33,7 @@ class UbicacionesController < ApplicationController
 
     respond_to do |format|
       if @ubicacion.save
-        format.html { redirect_to @ubicacion, notice: 'Ubicacion was successfully created.' }
+        format.html { redirect_to ubicaciones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @ubicacion }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class UbicacionesController < ApplicationController
   def update
     respond_to do |format|
       if @ubicacion.update(ubicacion_params)
-        format.html { redirect_to @ubicacion, notice: 'Ubicacion was successfully updated.' }
+        format.html { redirect_to ubicaciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @ubicacion }
       else
         format.html { render :edit }
@@ -59,9 +59,10 @@ class UbicacionesController < ApplicationController
   # DELETE /ubicaciones/1
   # DELETE /ubicaciones/1.json
   def destroy
-    @ubicacion.destroy
+    @ubicacion.estatus = 2
+    @ubicacion.save
     respond_to do |format|
-      format.html { redirect_to ubicaciones_url, notice: 'Ubicacion was successfully destroyed.' }
+      format.html { redirect_to ubicaciones_path, notice: 'El registro ha sido eliminado exitosamente.'}
       format.json { head :no_content }
     end
   end

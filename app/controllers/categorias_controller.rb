@@ -6,9 +6,9 @@ class CategoriasController < ApplicationController
   def index
 
     if params[:id].nil?
-      @parametros = Categoria.all
+      @parametros = Categoria.where(:estatus => 1)
     else
-      @parametros = Categoria.where(id: params[:id])
+      @parametros = Categoria.where(id: params[:id], estatus: 1)
     end
 
     respond_to do |format|
@@ -51,7 +51,7 @@ class CategoriasController < ApplicationController
 
     respond_to do |format|
       if @categoria.save
-        format.html { redirect_to edit_categoria_path(@categoria), notice: 'Categoria was successfully created.' }
+        format.html { redirect_to categorias_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @categoria }
       else
         format.html { render :new }
@@ -65,7 +65,7 @@ class CategoriasController < ApplicationController
   def update
     respond_to do |format|
       if @categoria.update(categoria_params)
-        format.html { redirect_to edit_categoria_path(@categoria), notice: 'Categoria was successfully updated.' }
+        format.html { redirect_to categorias_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @categoria }
       else
         format.html { render :edit }
@@ -77,9 +77,10 @@ class CategoriasController < ApplicationController
   # DELETE /categorias/1
   # DELETE /categorias/1.json
   def destroy
-    @categoria.destroy
+    @categoria.estatus = 2
+    @categoria.save
     respond_to do |format|
-      format.html { redirect_to categorias_url, notice: 'Categoria was successfully destroyed.' }
+      format.html { redirect_to categorias_url, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

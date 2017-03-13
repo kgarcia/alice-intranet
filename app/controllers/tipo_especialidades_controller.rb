@@ -4,7 +4,7 @@ class TipoEspecialidadesController < ApplicationController
   # GET /tipo_especialidades
   # GET /tipo_especialidades.json
   def index
-    @parametros = TipoEspecialidad.all
+    @parametros = TipoEspecialidad.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -40,7 +40,7 @@ class TipoEspecialidadesController < ApplicationController
 
     respond_to do |format|
       if @tipo_especialidad.save
-        format.html { redirect_to edit_tipo_especialidad_path(@tipo_especialidad), notice: 'Tipo especialidad was successfully created.' }
+        format.html { redirect_to tipo_especialidades_path, notice: 'El registro ha sido creado exitosamente.'}
         format.json { render :show, status: :created, location: @tipo_especialidad }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class TipoEspecialidadesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_especialidad.update(tipo_especialidad_params)
-        format.html { redirect_to edit_tipo_especialidad_path(@tipo_especialidad), notice: 'Tipo especialidad was successfully updated.' }
+        format.html { redirect_to tipo_especialidades_path, notice: 'El registro ha sido actualizado exitosamente.'}
         format.json { render :show, status: :ok, location: @tipo_especialidad }
       else
         format.html { render :edit }
@@ -66,9 +66,10 @@ class TipoEspecialidadesController < ApplicationController
   # DELETE /tipo_especialidades/1
   # DELETE /tipo_especialidades/1.json
   def destroy
-    @tipo_especialidad.destroy
+    @tipo_especialidad.estatus = 2
+    @tipo_especialidad.save
     respond_to do |format|
-      format.html { redirect_to tipo_especialidades_url, notice: 'Tipo especialidad was successfully destroyed.' }
+      format.html { redirect_to tipo_especialidades_path, notice: 'El registro ha sido eliminado exitosamente.'}
       format.json { head :no_content }
     end
   end

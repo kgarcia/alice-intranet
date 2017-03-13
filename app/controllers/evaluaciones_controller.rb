@@ -20,8 +20,10 @@ class EvaluacionesController < ApplicationController
 
   def evaluarCita
     @cita = Cita.find(params[:id])
-    @criterios = Criterio.find(@cita.turno.horario.servicio.tipo_servicio.criterio_ids)
-    #puts @criterios.inspect
+    puts @cita
+    @criterios = @cita.turno.horario.servicio.tipo_servicio.criterios
+    puts @criterios
+
     @evaluacion = Evaluacion.new
     @evaluacion.descripcion = "Descripcion de la evaluacion"
     #@calificaciones = []
@@ -53,10 +55,11 @@ class EvaluacionesController < ApplicationController
   # POST /evaluaciones.json
   def create
     @evaluacion = Evaluacion.new(evaluacion_params)
+    @evaluacion.descripcion = "Evaluacion de la cita #" + @evaluacion.cita_id.to_s
 
     respond_to do |format|
       if @evaluacion.save
-        format.html { redirect_to edit_evaluacion_path(@evaluacion), notice: 'Evaluacion was successfully created.' }
+        format.html { redirect_to evaluaciones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @evaluacion }
       else
         format.html { render :new }
@@ -71,7 +74,7 @@ class EvaluacionesController < ApplicationController
     @evaluacion.estatus = 1
     respond_to do |format|
       if @evaluacion.update(evaluacion_params)
-        format.html { redirect_to edit_evaluacion_path(@evaluacion), notice: 'Evaluacion was successfully updated.' }
+        format.html { redirect_to evaluaciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @evaluacion }
       else
         format.html { render :edit }
@@ -85,7 +88,7 @@ class EvaluacionesController < ApplicationController
   def destroy
     @evaluacion.destroy
     respond_to do |format|
-      format.html { redirect_to evaluaciones_url, notice: 'Evaluacion was successfully destroyed.' }
+      format.html { redirect_to evaluaciones_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

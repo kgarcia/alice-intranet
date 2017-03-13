@@ -4,8 +4,8 @@ class PaisesController < ApplicationController
   # GET /paises
   # GET /paises.json
   def index
-    @parametros = Pais.all
-    @paises = Pais.all
+    @parametros = Pais.where(:estatus => 1)
+    @paises = Pais.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -31,7 +31,8 @@ class PaisesController < ApplicationController
   # GET /paises/new
   def new
     @parametro = Pais.new
-      render "parametros/new" 
+
+    render "parametros/new"
   end
 
   # GET /paises/1/edit
@@ -48,7 +49,7 @@ class PaisesController < ApplicationController
 
     respond_to do |format|
       if @pais.save
-        format.html { redirect_to edit_pais_path(@pais), notice: 'Pais was successfully created.' }
+        format.html { redirect_to paises_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @pais }
       else
         format.html { render :new }
@@ -62,7 +63,7 @@ class PaisesController < ApplicationController
   def update
     respond_to do |format|
       if @pais.update(pais_params)
-        format.html { redirect_to edit_pais_path(@pais), notice: 'Pais was successfully updated.' }
+        format.html { redirect_to paises_path, notice: 'El registro ha sido actualizado exitosamente. ' }
         format.json { render :show, status: :ok, location: @pais }
       else
         format.html { render :edit }
@@ -74,9 +75,10 @@ class PaisesController < ApplicationController
   # DELETE /paises/1
   # DELETE /paises/1.json
   def destroy
-    @pais.destroy
+    @pais.estatus = 2
+    @pais.save
     respond_to do |format|
-      format.html { redirect_to paises_url, notice: 'Pais was successfully destroyed.' }
+      format.html { redirect_to paises_path, notice: 'El registro ha sido eliminado exitosamente. ' }
       format.json { head :no_content }
     end
   end

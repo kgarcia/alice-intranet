@@ -4,7 +4,7 @@ class CriteriosController < ApplicationController
   # GET /criterios
   # GET /criterios.json
   def index
-    @parametros = Criterio.all
+    @parametros = Criterio.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
@@ -23,7 +23,7 @@ class CriteriosController < ApplicationController
   # GET /criterios/new
   def new
     @parametro = Criterio.new
-    @collection = TipoCriterio.all
+    @collection = TipoCriterio.where(:estatus => 1)
     @referencia = :tipo_criterio_id
     render "parametros_select/new"
   end
@@ -31,7 +31,7 @@ class CriteriosController < ApplicationController
   # GET /criterios/1/edit
   def edit
     @parametro = Criterio.find(params[:id])
-    @collection = TipoCriterio.all
+    @collection = TipoCriterio.where(:estatus => 1)
     @referencia = :tipo_criterio_id
     render "parametros_select/edit"
   end
@@ -43,7 +43,7 @@ class CriteriosController < ApplicationController
 
     respond_to do |format|
       if @criterio.save
-        format.html { redirect_to edit_criterio_path(@criterio), notice: 'Criterio was successfully created.' }
+        format.html { redirect_to criterios_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @criterio }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class CriteriosController < ApplicationController
   def update
     respond_to do |format|
       if @criterio.update(criterio_params)
-        format.html { redirect_to edit_criterio_path(@criterio), notice: 'Criterio was successfully updated.' }
+        format.html { redirect_to criterios_path, notice: 'El registro ha sido actualizado exitosamente. ' }
         format.json { render :show, status: :ok, location: @criterio }
       else
         format.html { render :edit }
@@ -69,9 +69,10 @@ class CriteriosController < ApplicationController
   # DELETE /criterios/1
   # DELETE /criterios/1.json
   def destroy
-    @criterio.destroy
+    @criterio.estatus = 2
+    @criterio.save
     respond_to do |format|
-      format.html { redirect_to criterios_url, notice: 'Criterio was successfully destroyed.' }
+      format.html { redirect_to criterios_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

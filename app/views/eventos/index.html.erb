@@ -2,11 +2,11 @@
 <p id="notice"><%= notice %></p>
 <div class="ibox float-e-margins">
   <div class="ibox-title">
-    <h2 class="parametros-titulo"><%= @eventos.new.class.titulo %></h2>
+    <h2 class="parametros-titulo"><%= "Eventos" %></h2>
   </div>
 </div>
 <div class="ibox-content">
-  <%= link_to "Registrar", new_polymorphic_url(@eventos.new), :class => "btn btn-primary btn-sm "%>
+  <%= link_to 'Registrar', new_evento_path, :class => "btn btn-primary btn-sm " %>
   <br><br>
   <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>

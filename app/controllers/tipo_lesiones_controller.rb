@@ -4,7 +4,7 @@ class TipoLesionesController < ApplicationController
   # GET /tipo_lesiones
   # GET /tipo_lesiones.json
   def index
-    @parametros = TipoLesion.all
+    @parametros = TipoLesion.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -40,7 +40,7 @@ class TipoLesionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_lesion.save
-        format.html { redirect_to edit_tipo_lesion_path(@tipo_lesion), notice: 'Tipo lesion was successfully created.' }
+        format.html { redirect_to tipo_lesiones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_lesion }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class TipoLesionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_lesion.update(tipo_lesion_params)
-        format.html { redirect_to edit_tipo_lesion_path(@tipo_lesion), notice: 'Tipo lesion was successfully updated.' }
+        format.html { redirect_to tipo_lesiones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_lesion }
       else
         format.html { render :edit }
@@ -66,9 +66,10 @@ class TipoLesionesController < ApplicationController
   # DELETE /tipo_lesiones/1
   # DELETE /tipo_lesiones/1.json
   def destroy
-    @tipo_lesion.destroy
+    @tipo_lesion.estatus = 2
+    @tipo_lesion.save
     respond_to do |format|
-      format.html { redirect_to tipo_lesiones_url, notice: 'Tipo lesion was successfully destroyed.' }
+      format.html { redirect_to tipo_lesiones_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

@@ -4,7 +4,7 @@ class UniversidadesController < ApplicationController
   # GET /universidades
   # GET /universidades.json
   def index
-    @parametros = Universidad.all
+    @parametros = Universidad.where(:estatus => 1)
     respond_to do |format|
       format.html { render "parametros/index" }
       format.json { render :index, location: @universidades }
@@ -39,7 +39,7 @@ class UniversidadesController < ApplicationController
 
     respond_to do |format|
       if @universidad.save
-        format.html { redirect_to @universidad, notice: 'Universidad was successfully created.' }
+        format.html { redirect_to universidades_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @universidad }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class UniversidadesController < ApplicationController
   def update
     respond_to do |format|
       if @universidad.update(universidad_params)
-        format.html { redirect_to @universidad, notice: 'Universidad was successfully updated.' }
+        format.html { redirect_to universidades_path, notice: 'El registro ha sido creado exitosamente.'}
         format.json { render :show, status: :ok, location: @universidad }
       else
         format.html { render :edit }
@@ -65,9 +65,10 @@ class UniversidadesController < ApplicationController
   # DELETE /universidades/1
   # DELETE /universidades/1.json
   def destroy
-    @universidad.destroy
+    @universidad.estatus = 2
+    @universidad.save
     respond_to do |format|
-      format.html { redirect_to universidades_url, notice: 'Universidad was successfully destroyed.' }
+      format.html { redirect_to universidades_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

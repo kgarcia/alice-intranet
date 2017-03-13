@@ -4,7 +4,7 @@ class ProfesionesController < ApplicationController
   # GET /profesiones
   # GET /profesiones.json
   def index
-    @parametros = Profesion.all
+    @parametros = Profesion.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -40,7 +40,7 @@ class ProfesionesController < ApplicationController
 
     respond_to do |format|
       if @profesion.save
-        format.html { redirect_to edit_profesion_path(@profesion), notice: 'Profesion was successfully created.' }
+        format.html { redirect_to profesiones_path, notice: 'El registro ha sido creado exitosamente. ' }
         format.json { render :show, status: :created, location: @profesion }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class ProfesionesController < ApplicationController
   def update
     respond_to do |format|
       if @profesion.update(profesion_params)
-        format.html { redirect_to edit_profesion_path(@profesion), notice: 'Profesion was successfully updated.' }
+        format.html { redirect_to profesiones_path, notice: 'El registro ha sido actualizado exitosamente. ' }
         format.json { render :show, status: :ok, location: @profesion }
       else
         format.html { render :edit }
@@ -66,9 +66,10 @@ class ProfesionesController < ApplicationController
   # DELETE /profesiones/1
   # DELETE /profesiones/1.json
   def destroy
-    @profesion.destroy
+    @profesion.estatus = 2
+    @profesion.save
     respond_to do |format|
-      format.html { redirect_to profesiones_url, notice: 'Profesion was successfully destroyed.' }
+      format.html { redirect_to profesiones_path, notice: 'El registro ha sido eliminado exitosamente. ' }
       format.json { head :no_content }
     end
   end

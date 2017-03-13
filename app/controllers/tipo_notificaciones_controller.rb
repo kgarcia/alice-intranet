@@ -4,7 +4,7 @@ class TipoNotificacionesController < ApplicationController
   # GET /tipo_notificaciones
   # GET /tipo_notificaciones.json
   def index
-    @tipo_notificaciones = TipoNotificacion.all
+    @tipo_notificaciones = TipoNotificacion.where(:estatus => 1)
   end
 
   # GET /tipo_notificaciones/1
@@ -28,7 +28,7 @@ class TipoNotificacionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_notificacion.save
-        format.html { redirect_to @tipo_notificacion, notice: 'Tipo notificacion was successfully created.' }
+        format.html { redirect_to tipo_notificaciones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_notificacion }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TipoNotificacionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_notificacion.update(tipo_notificacion_params)
-        format.html { redirect_to @tipo_notificacion, notice: 'Tipo notificacion was successfully updated.' }
+        format.html { redirect_to tipo_notificaciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_notificacion }
       else
         format.html { render :edit }
@@ -54,9 +54,10 @@ class TipoNotificacionesController < ApplicationController
   # DELETE /tipo_notificaciones/1
   # DELETE /tipo_notificaciones/1.json
   def destroy
-    @tipo_notificacion.destroy
+    @tipo_notificacion.estatus = 2
+    @tipo_notificacion.save
     respond_to do |format|
-      format.html { redirect_to tipo_notificaciones_url, notice: 'Tipo notificacion was successfully destroyed.' }
+      format.html { redirect_to tipo_notificaciones_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

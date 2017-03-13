@@ -4,7 +4,7 @@ class TipoEvaluacionesController < ApplicationController
   # GET /tipo_evaluaciones
   # GET /tipo_evaluaciones.json
   def index
-     @parametros = TipoEvaluacion.all
+     @parametros = TipoEvaluacion.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -42,7 +42,7 @@ class TipoEvaluacionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_evaluacion.save
-        format.html { redirect_to edit_tipo_evaluacion_path(@tipo_evaluacion), notice: 'Tipo evaluacion was successfully created.' }
+        format.html { redirect_to tipo_evaluaciones_path, notice: 'El registro ha sido creado exitosamente.'}
         format.json { render :show, status: :created, location: @tipo_evaluacion }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class TipoEvaluacionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_evaluacion.update(tipo_evaluacion_params)
-        format.html { redirect_to edit_tipo_evaluacion_path(@tipo_evaluacion), notice: 'Tipo evaluacion was successfully updated.' }
+        format.html { redirect_to tipo_evaluaciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_evaluacion }
       else
         format.html { render :edit }
@@ -68,9 +68,10 @@ class TipoEvaluacionesController < ApplicationController
   # DELETE /tipo_evaluaciones/1
   # DELETE /tipo_evaluaciones/1.json
   def destroy
-    @tipo_evaluacion.destroy
+    @tipo_evaluacion.estatus = 2
+    @tipo_evaluacion.save
     respond_to do |format|
-      format.html { redirect_to tipo_evaluaciones_url, notice: 'Tipo evaluacion was successfully destroyed.' }
+      format.html { redirect_to tipo_evaluaciones_path, notice: 'El registro ha sido creado exitosamente.' }
       format.json { head :no_content }
     end
   end
