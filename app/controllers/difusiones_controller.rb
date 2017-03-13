@@ -5,12 +5,6 @@ class DifusionesController < ApplicationController
   # GET /difusiones.json
   def index
     @difusiones = Difusion.where(:estatus => 1)
-    @difusiones1 = Difusion.where(:estatus => 1).map { |c| [c.id, c.asunto]  }.to_h
-    @difusiones2 = Difusion.where(:estatus => 2).map { |c| [c.id, c.asunto]  }.to_h
-    @difusiones3 = @difusiones1.merge(@difusiones2)
-    puts @difusiones1.as_json
-    puts @difusiones2.as_json
-    puts @difusiones3.as_json
   end
 
   # GET /difusiones/1
@@ -119,7 +113,7 @@ class DifusionesController < ApplicationController
         
         
         
-        format.html { redirect_to @difusion, notice: 'Difusion was successfully created.' }
+        format.html { redirect_to difusiones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @difusion }
       else
         format.html { render :new }
@@ -134,7 +128,7 @@ class DifusionesController < ApplicationController
     @difusion.difusionesMedioDifusion = params[:medios]
     respond_to do |format|
       if @difusion.update(difusion_params)
-        format.html { redirect_to @difusion, notice: 'Difusion was successfully updated.' }
+        format.html { redirect_to difusiones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @difusion }
       else
         format.html { render :edit }
@@ -149,12 +143,13 @@ class DifusionesController < ApplicationController
     @difusion.estatus = 2
     @difusion.save
     respond_to do |format|
-      format.html { redirect_to difusiones_url, notice: 'Difusion was successfully destroyed.' }
+      format.html { redirect_to difusiones_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
 
   def update_entidades
+
     if (params[:tipo_entidad_id].to_i == 1)
       @entidades = Servicio.where(:estatus => 1)
     else

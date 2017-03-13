@@ -54,7 +54,7 @@ class TipoServiciosController < ApplicationController
     respond_to do |format|     
       if @tipo_servicio.save
         
-        format.html { redirect_to @tipo_servicio, notice: 'Tipo servicio was successfully created.' }
+        format.html { redirect_to tipo_servicios_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_servicio }
       else
         format.html { render :new }
@@ -95,7 +95,7 @@ class TipoServiciosController < ApplicationController
 
     respond_to do |format|
       if @tipo_servicio.update(tipo_servicio_params)
-        format.html { redirect_to @tipo_servicio, notice: 'Tipo servicio was successfully updated.' }
+        format.html { redirect_to tipo_servicios_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_servicio }
       else
         format.html { render :edit }
@@ -110,7 +110,7 @@ class TipoServiciosController < ApplicationController
     @tipo_servicio.estatus = 2
     @tipo_servicio.save
     respond_to do |format|
-      format.html { redirect_to tipo_servicios_url, notice: 'Tipo servicio was successfully destroyed.' }
+      format.html { redirect_to tipo_servicios_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

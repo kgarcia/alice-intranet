@@ -11,7 +11,7 @@ class NoticiasController < ApplicationController
     end
 
     respond_to do |format|
-      format.html {  render "parametros/index" }
+      format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
     end
   end
@@ -44,7 +44,7 @@ class NoticiasController < ApplicationController
 
     respond_to do |format|
       if @noticia.save
-        format.html { redirect_to @noticia, notice: 'Noticia was successfully created.' }
+        format.html { redirect_to noticias_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @noticia }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class NoticiasController < ApplicationController
   def update
     respond_to do |format|
       if @noticia.update(noticia_params)
-        format.html { redirect_to @noticia, notice: 'Noticia was successfully updated.' }
+        format.html { redirect_to noticias_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @noticia }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class NoticiasController < ApplicationController
     @noticia.estatus = 2
     @noticia.save
     respond_to do |format|
-      format.html { redirect_to noticias_url, notice: 'Noticia was successfully destroyed.' }
+      format.html { redirect_to noticias_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

@@ -41,7 +41,7 @@ class TipoHorariosController < ApplicationController
 
     respond_to do |format|
       if @tipo_horario.save
-        format.html { redirect_to edit_tipo_horario_path(@tipo_horario), notice: 'Tipo horario was successfully created.' }
+        format.html { redirect_to tipo_horarios_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_horario }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class TipoHorariosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_horario.update(tipo_horario_params)
-        format.html { redirect_to edit_tipo_horario_path(@tipo_horario), notice: 'Tipo horario was successfully updated.' }
+        format.html { redirect_to tipo_horarios_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_horario }
       else
         format.html { render :edit }
@@ -70,7 +70,7 @@ class TipoHorariosController < ApplicationController
     @tipo_horario.estatus = 2
     @tipo_horario.save
     respond_to do |format|
-      format.html { redirect_to tipo_horarios_url, notice: 'Tipo horario was successfully destroyed.' }
+      format.html { redirect_to tipo_horarios_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

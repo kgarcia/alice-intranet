@@ -39,7 +39,7 @@ class TipoTurnosController < ApplicationController
 
     respond_to do |format|
       if @tipo_turno.save
-        format.html { redirect_to @tipo_turno, notice: 'Tipo turno was successfully created.' }
+        format.html { redirect_to tipo_turnos_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_turno }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class TipoTurnosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_turno.update(tipo_turno_params)
-        format.html { redirect_to @tipo_turno, notice: 'Tipo turno was successfully updated.' }
+        format.html { redirect_to  tipo_turnos_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_turno }
       else
         format.html { render :edit }
@@ -68,7 +68,7 @@ class TipoTurnosController < ApplicationController
     @tipo_turno.estatus = 2
     @tipo_turno.save
     respond_to do |format|
-      format.html { redirect_to tipo_turnos_url, notice: 'Tipo turno was successfully destroyed.' }
+      format.html { redirect_to  tipo_turnos_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

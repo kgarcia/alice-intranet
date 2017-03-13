@@ -44,7 +44,7 @@ class CirugiasController < ApplicationController
 
     respond_to do |format|
       if @cirugia.save
-        format.html { redirect_to edit_cirugia_path(@cirugia), notice: 'Cirugia was successfully created.' }
+        format.html { redirect_to cirugias_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @cirugia }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class CirugiasController < ApplicationController
   def update
     respond_to do |format|
       if @cirugia.update(cirugia_params)
-        format.html { redirect_to edit_cirugia_path(@cirugia), notice: 'Cirugia was successfully updated.' }
+        format.html { redirect_to cirugias_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @cirugia }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class CirugiasController < ApplicationController
     @cirugia.estatus = 2
     @cirugia.save
     respond_to do |format|
-      format.html { redirect_to cirugias_url, notice: 'Cirugia was successfully destroyed.' }
+      format.html { redirect_to cirugias_url, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

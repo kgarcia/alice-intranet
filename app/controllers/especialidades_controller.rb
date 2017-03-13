@@ -44,7 +44,7 @@ class EspecialidadesController < ApplicationController
 
     respond_to do |format|
       if @especialidad.save
-        format.html { redirect_to edit_especialidad_path(@especialidad), notice: 'Especialidad was successfully created.' }
+        format.html { redirect_to especialidades_path, notice: 'El registro ha sido creado exitosamente' }
         format.json { render :show, status: :created, location: @especialidad }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class EspecialidadesController < ApplicationController
   def update
     respond_to do |format|
       if @especialidad.update(especialidad_params)
-        format.html { redirect_to edit_especialidad_path(@especialidad), notice: 'Especialidad was successfully updated.' }
+        format.html { redirect_to especialidades_path, notice: 'El registro ha sido actualizado exitosamente' }
         format.json { render :show, status: :ok, location: @especialidad }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class EspecialidadesController < ApplicationController
     @especialidad.estatus = 2
     @especialidad.save
     respond_to do |format|
-      format.html { redirect_to especialidades_url, notice: 'Especialidad was successfully destroyed.' }
+      format.html { redirect_to especialidades_path, notice: 'El registro ha sido eliminado exitosamente' }
       format.json { head :no_content }
     end
   end

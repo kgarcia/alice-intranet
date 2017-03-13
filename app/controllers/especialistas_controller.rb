@@ -47,7 +47,7 @@ class EspecialistasController < ApplicationController
       if @persona.save
         @especialista.persona_id = @persona.id
         @especialista.save
-        format.html { redirect_to especialistas_url, notice: 'Especialista was successfully created.' }
+        format.html { redirect_to especialistas_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @especialista }
       else
         format.html { render :new }
@@ -64,7 +64,7 @@ class EspecialistasController < ApplicationController
       if @especialista.update(especialista_params)
         @persona = @especialista.persona
         @persona.update(persona_params)
-        format.html { redirect_to especialistas_url, notice: 'Especialista was successfully updated.' }
+        format.html { redirect_to especialistas_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @especialista }
       else
         format.html { render :edit }
@@ -79,7 +79,7 @@ class EspecialistasController < ApplicationController
     @especialista.estatus = 2
     @especialista.save
     respond_to do |format|
-      format.html { redirect_to especialistas_url, notice: 'Especialista was successfully destroyed.' }
+      format.html { redirect_to especialistas_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

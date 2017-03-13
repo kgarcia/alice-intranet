@@ -40,7 +40,7 @@ class TipoHabitosController < ApplicationController
 
     respond_to do |format|
       if @tipo_habito.save
-        format.html { redirect_to edit_tipo_habito_path(@tipo_habito), notice: 'Tipo habito was successfully created.' }
+        format.html { redirect_to tipo_habitos_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_habito }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class TipoHabitosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_habito.update(tipo_habito_params)
-        format.html { redirect_to edit_tipo_habito_path(@tipo_habito), notice: 'Tipo habito was successfully updated.' }
+        format.html { redirect_to tipo_habitos_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_habito }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class TipoHabitosController < ApplicationController
     @tipo_habito.estatus = 2
     @tipo_habito.save
     respond_to do |format|
-      format.html { redirect_to tipo_habitos_url, notice: 'Tipo habito was successfully destroyed.' }
+      format.html { redirect_to tipo_habitos_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
