@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require toastr
  *= require font-awesome
  *= require animate/animate.css
  *= require style
@@ -18,6 +19,5 @@
  *= require dataTables/jquery.dataTables
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require fullcalendar
- *= require toastr
  */
 

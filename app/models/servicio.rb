@@ -16,6 +16,9 @@ class Servicio < ApplicationRecord
   has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   	validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
 
+  extend FriendlyId
+  friendly_id :descripcion, use: :slugged
+
    
     after_save :save_horario_turnos
 
@@ -37,6 +40,7 @@ class Servicio < ApplicationRecord
                           }              
                )
   end
+
 private
 def save_horario_turnos
 
