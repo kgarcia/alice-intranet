@@ -64,23 +64,23 @@ end
   #   super(resource)
   # end
 
-def sign_up_params
-  devise_parameter_sanitizer.sanitize(:sign_up)
-end
+#def sign_up_params
+#  devise_parameter_sanitizer.sanitize(:sign_up)
+#end
 
-def account_update_params
-  devise_parameter_sanitizer.sanitize(:account_update)
-end
+#def account_update_params
+#  devise_parameter_sanitizer.sanitize(:account_update)
+#end
 
 private
 
-  def sign_up_params
-    params.require(:usuario).permit(:persona_id, :email, :password, :password_confirmation)
-  end
+ # def sign_up_params
+ #   params.require(:usuario).permit(:persona_id, :email, :password, :password_confirmation)
+ # end
 
-  def account_update_params
-    params.require(:usuario).permit(:email, :password, :password_confirmation:current_password)
-  end
+#  def account_update_params
+#    params.require(:usuario).permit(:email, :password, :password_confirmation:current_password)
+#  end
 
   def persona_params
       params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id, :edad)

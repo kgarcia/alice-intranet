@@ -52,7 +52,7 @@ end
 gem 'devise'
 
 #Jonnathan base de datos backup
-gem 'dumper'
+gem 'dumper', '~> 1.6'
 
 
 group :development, :test do
@@ -102,3 +102,7 @@ gem "highcharts-rails"
 
 gem 'descriptive_statistics', '~> 2.4.0', :require => 'descriptive_statistics/safe'
 
+gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+
+gem 'toastr_rails'
+gem 'toastr-rails'
