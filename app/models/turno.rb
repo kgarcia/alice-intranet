@@ -20,16 +20,16 @@ class Turno < ApplicationRecord
 	  return "Turnos"
   end
 
-   def numero_pacientes_por_turno
+   def numero_pacientes_por_turno #método que solo funciona para tiempo promedio de atención
     @horario = Horario.find(self.horario_id)
-    if @horario.tiempo_cita !=0
+    if (@horario.tiempo_cita !=0 and @horario.tipo_horario_id == 2) #2 es tiempo promedio de atencion
     return self.cantidad_horas/@horario.tiempo_cita
     end
   end
 
   def arreglo_horario_citas #debe entrar parametro de servicio de web
     if ((self.hora_inicio < self.hora_fin)  and
-        Horario.find(self.horario_id).tipo_horario_id ==1 ) #aca es el calculo de horarios para cita (tiempo promedio) por turno
+        Horario.find(self.horario_id).tipo_horario_id ==2 ) #aca es el calculo de horarios para cita (tiempo promedio) por turno
         @turnos_cita = Array.new 
         @horario = Horario.find(self.horario_id)
           for i in 1..self.numero_pacientes_por_turno do
@@ -45,7 +45,7 @@ class Turno < ApplicationRecord
       return      @turnos_cita 
 
     else  ((self.hora_inicio < self.hora_fin)  and
-        Horario.find(self.horario_id).tipo_horario_id ==2 ) #aca es el calculo de horarios para cita por cantidad de pacientes por turno
+        Horario.find(self.horario_id).tipo_horario_id ==1 ) #aca es el calculo de horarios para cita por cantidad de pacientes por turno
         @turnos_cita = Array.new 
         @horario = Horario.find(self.horario_id)
         for i in 1..self.cantidad_pacientes do
@@ -75,7 +75,7 @@ class Turno < ApplicationRecord
             #construir datetime a partir de la hora y la fecha que venga por parametro
                @fecha = DateTime.new(@d.year, @d.month, @d.day, hora.hour, hora.min)  
             #@fecha = (fecha_hora_inicio + hora.("%H:%M"))
-            if !Cita.where(:fecha => fecha).exists?
+            if !Cita.where(turno_id: self.id ,:fecha => fecha).exists?
               @horas_cita.push(@fecha)
             end
 
@@ -83,7 +83,12 @@ class Turno < ApplicationRecord
           return @horas_cita
     end
 
- 
+ def citas_disponibles_turno(fecha1)
+  if(Horario.find(self.horario_id).tipo_horario_id ==1)#tipo 1 es cantidad de pacientes 
+    @citas = Cita.where(turno_id: self.id , fecha: fecha1)
+      return (self.cantidad_pacientes - @citas.size)
+  end
+ end
  
 
 end

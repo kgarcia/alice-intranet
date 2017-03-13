@@ -9,7 +9,7 @@
           <%= @horario.tipo_horario.descripcion %>
         </p>
         <p>
-          <%  if @horario.tipo_horario.id == 1  then %>
+          <%  if @horario.tipo_horario.id == 2  then #2 es horario por tiempo promedio %> 
           <strong>Tiempo promedio de atencion(min):</strong>
           <%= @horario.tiempo_cita %>
           <%else %>
@@ -33,11 +33,11 @@
               <th>Dia</th> 
               <th>Hora Inicio</th>
               <th>Hora Fin</th> 
-              <% if @horario.tipo_horario.id  == 1 %>
-              <th>Número max pacientes</th> 
-
+              <% if @horario.tipo_horario.id  == 1 #tipo horario cantidad de pacientes%>
+              <th>Cantidad pacientes</th>
               <% else %>
-              <th>Cantidad pacientes</th> 
+               <th>Número max pacientes</th> 
+             
                <%end%> 
             
               <th colspan="1"></th>
@@ -62,7 +62,7 @@
                   <%= turno.hora_fin.strftime("%H:%M") %>
                 <%end%>
               </td>
-                   <% if @horario.tipo_horario.id  == 1 %>
+                   <% if @horario.tipo_horario.id  == 2 #tipo horario tiempo promedio %>
                    <td><%= turno.numero_pacientes_por_turno %> </td>
                    <%else%>
                       <td><%= turno.cantidad_pacientes %>  </td>
@@ -88,11 +88,11 @@
               <th>Dia</th> 
               <th>Hora Inicio</th>
               <th>Hora Fin</th> 
-              <% if @horario.tipo_horario.id  == 1 %>
-              <th> <%=@horario.tipo_horario.descripcion%></th> 
-
+              <% if @horario.tipo_horario.id  == 1 #cantidad de pacientes %>
+              <th>Cantidad pacientes</th>
               <% else %>
-              <th>Cantidad pacientes</th> 
+               <th>Número max pacientes</th> 
+             
                <%end%> 
             
               <th colspan="1"></th>
@@ -117,7 +117,7 @@
                   <%= turno.hora_fin.strftime("%H:%M") %>
                 <%end%>
               </td>
-                 <% if @horario.tipo_horario.id  == 1 %>
+                 <% if @horario.tipo_horario.id  == 2 #tiempo promedio de cita%>
                    <td><%= turno.numero_pacientes_por_turno %> </td>
                    <%else%>
                       <td><%= turno.cantidad_pacientes %></td>
