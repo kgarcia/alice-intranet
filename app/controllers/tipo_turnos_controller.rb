@@ -4,7 +4,7 @@ class TipoTurnosController < ApplicationController
   # GET /tipo_turnos
   # GET /tipo_turnos.json
   def index
-      @parametros = TipoTurno.all
+      @parametros = TipoTurno.where(:estatus => 1)
 
     render "parametros/index"
   end
@@ -65,7 +65,8 @@ class TipoTurnosController < ApplicationController
   # DELETE /tipo_turnos/1
   # DELETE /tipo_turnos/1.json
   def destroy
-    @tipo_turno.destroy
+    @tipo_turno.estatus = 2
+    @tipo_turno.save
     respond_to do |format|
       format.html { redirect_to tipo_turnos_url, notice: 'Tipo turno was successfully destroyed.' }
       format.json { head :no_content }

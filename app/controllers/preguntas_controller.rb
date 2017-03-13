@@ -4,19 +4,21 @@ class PreguntasController < ApplicationController
   # GET /preguntas
   # GET /preguntas.json
   def index
-    @preguntas = Pregunta.all
+    @preguntas = Pregunta.where(:estatus => 1)
    # render "preguntas/index"
   end
 
   # GET /preguntas/1
   # GET /preguntas/1.json
   def show
+    @tipoPreguntas = TipoPregunta.where(:estatus => 1)
+    render 'edit'
   end
 
   # GET /preguntas/new
   def new
     @pregunta = Pregunta.new
-    @tipoPreguntas = TipoPregunta.all
+    @tipoPreguntas = TipoPregunta.where(:estatus => 1)
   end
 
   # GET /preguntas/1/edit
@@ -56,7 +58,8 @@ class PreguntasController < ApplicationController
   # DELETE /preguntas/1
   # DELETE /preguntas/1.json
   def destroy
-    @pregunta.destroy
+    @pregunta.estatus = 2
+    @pregunta.save
     respond_to do |format|
       format.html { redirect_to preguntas_url, notice: 'Pregunta was successfully destroyed.' }
       format.json { head :no_content }
@@ -71,6 +74,6 @@ class PreguntasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pregunta_params
-      params.require(:pregunta).permit(:titulo, :descripcion, :respuesta, :tipo_pregunta_id, :estatus)
+      params.require(:pregunta).permit(:descripcion, :respuesta, :tipo_pregunta_id, :estatus)
     end
 end

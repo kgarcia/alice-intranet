@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: 7c81e7813e75950d111885b44d33c08358e5e46c
+  revision: 093b4da18444d883de826f58628089c2f480d461
   specs:
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
@@ -54,7 +54,7 @@ GEM
     ajax-datatables-rails (0.3.1)
       railties (>= 3.1)
     arel (7.1.4)
-    autoprefixer-rails (6.7.6)
+    autoprefixer-rails (6.7.7)
       execjs
     bcrypt (3.1.11)
     bootstrap (4.0.0.alpha6)
@@ -67,6 +67,10 @@ GEM
       momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (9.0.6)
+    carrierwave (1.0.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -87,6 +91,10 @@ GEM
       responders
       warden (~> 1.2.3)
     devise-i18n (1.1.1)
+    dumper (1.6.1)
+      multi_json (>= 1.0)
+      multipart-post (>= 1.1.5)
+      posix-spawn (>= 0.3.6)
     erubis (2.7.0)
     execjs (2.7.0)
     faraday (0.11.0)
@@ -96,7 +104,9 @@ GEM
       railties (>= 3.2, < 5.1)
     footable-rails (0.0.1)
       railties (>= 3.0)
-    fullcalendar-rails (3.1.0.0)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
+    fullcalendar-rails (3.2.0.0)
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
       momentjs-rails (>= 2.9.0)
@@ -119,11 +129,11 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
-    json (2.0.3)
-    koala (3.0.0.beta3)
+    json (1.8.6)
+    koala (3.0.0.rc2)
       addressable
       faraday
-      json (>= 2.0)
+      json (>= 1.8)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -146,7 +156,8 @@ GEM
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
-    pg (0.19.0)
+    pg (0.20.0)
+    posix-spawn (0.3.13)
     public_suffix (2.0.5)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -181,11 +192,9 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
-    rdoc (3.9.5)
+    rdoc (4.3.0)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
-    sanitize (2.1.0)
-      nokogiri (>= 1.4.4)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -193,10 +202,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    sdoc (0.3.11)
-      json (>= 1.1.3)
-      rdoc (~> 3)
-      sanitize (~> 2)
+    sdoc (0.4.2)
+      json (~> 1.7, >= 1.7.7)
+      rdoc (~> 4.0)
     spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -213,16 +221,17 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.6)
-    tinymce-rails (4.5.4)
+    tinymce-rails (4.5.5)
       railties (>= 3.1.1)
     toastr-rails (1.0.3)
       railties (>= 3.1.0)
+    toastr_rails (2.1.3)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.3)
+    uglifier (3.1.7)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -244,12 +253,15 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.7)
   bootstrap3-datetimepicker-rails (~> 4.14.30)
   byebug
+  carrierwave (~> 1.0)
   coffee-rails (~> 4.2)
   descriptive_statistics (~> 2.4.0)
   devise
   devise-i18n
+  dumper (~> 1.6)
   font-awesome-rails (= 4.7.0.1)
   footable-rails
+  friendly_id (~> 5.1.0)
   fullcalendar-rails
   highcharts-rails
   jbuilder (~> 2.5)
@@ -269,6 +281,7 @@ DEPENDENCIES
   sqlite3
   tinymce-rails
   toastr-rails
+  toastr_rails
   turbolinks
   tzinfo-data
   uglifier (>= 1.3.0)

@@ -6,7 +6,7 @@
               </div>
           </div>
           <div class="ibox-content">
-           <%= form_for @pregunta, :html => {:class => 'form-horizontal'} do |f| %>
+          <%= form_for @pregunta, :html => {:class => 'form-horizontal'} do |f| %>
             <% if pregunta.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(pregunta.errors.count, "error") %> prohibited this pregunta from being saved:</h2>
@@ -18,16 +18,13 @@
                 </ul>
               </div>
             <% end %>
-
-                <div class="field form-group">
+              <div class="field form-group">
                     <label class="col-lg-2 control-label">Tipo Pregunta</label>
-
-                <div class="col-lg-10">
-                    <%= f.collection_select(:tipo_pregunta_id, @tipoPreguntas, :id, :descripcion, {:prompt => "Seleccione"}, {:class => "form-control"}) %>
-                  </div>
-
-               </div>
-                    <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
+                     <div class="col-lg-10">
+                      <%= f.collection_select(:tipo_pregunta_id, @tipoPreguntas, :id, :descripcion, {:prompt => "Seleccione"}, {:class => "form-control"}) %>
+                    </div>
+              </div>
+                    <div class="form-group"><label class="col-lg-2 control-label">Descripcion</label>
 
                       <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
                        </div>
@@ -37,9 +34,16 @@
                       <div class="col-lg-10"><%= f.text_field :respuesta, :class => "form-control" %>
                        </div>
                     </div>
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label">Respuesta</label>
+
+                    <div class="col-lg-10"><%= f.text_area :respuesta, :class => "form-control" %>
+                     </div>
+                  </div>
+
                  <div class="form-group">
                       <div class="col-lg-offset-3 col-lg-2">
-                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                           <%= f.submit "Guardar", :class => "btn btn-primary" %>
                       </div>
                         <div class="col-lg-2">
                         <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          

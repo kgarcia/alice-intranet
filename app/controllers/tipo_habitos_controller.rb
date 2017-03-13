@@ -4,7 +4,7 @@ class TipoHabitosController < ApplicationController
   # GET /tipo_habitos
   # GET /tipo_habitos.json
   def index
-    @parametros = TipoHabito.all
+    @parametros = TipoHabito.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -66,7 +66,8 @@ class TipoHabitosController < ApplicationController
   # DELETE /tipo_habitos/1
   # DELETE /tipo_habitos/1.json
   def destroy
-    @tipo_habito.destroy
+    @tipo_habito.estatus = 2
+    @tipo_habito.save
     respond_to do |format|
       format.html { redirect_to tipo_habitos_url, notice: 'Tipo habito was successfully destroyed.' }
       format.json { head :no_content }

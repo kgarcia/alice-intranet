@@ -4,8 +4,8 @@ class PaisesController < ApplicationController
   # GET /paises
   # GET /paises.json
   def index
-    @parametros = Pais.all
-    @paises = Pais.all
+    @parametros = Pais.where(:estatus => 1)
+    @paises = Pais.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -74,7 +74,8 @@ class PaisesController < ApplicationController
   # DELETE /paises/1
   # DELETE /paises/1.json
   def destroy
-    @pais.destroy
+    @pais.estatus = 2
+    @pais.save
     respond_to do |format|
       format.html { redirect_to paises_url, notice: 'Pais was successfully destroyed.' }
       format.json { head :no_content }

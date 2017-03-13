@@ -4,7 +4,7 @@ class TipoEventosController < ApplicationController
   # GET /tipo_eventos
   # GET /tipo_eventos.json
   def index
-    @parametros = TipoEvento.all
+    @parametros = TipoEvento.where(:estatus => 1)
     
     respond_to do |format|
       format.html {  render "parametros/index" }
@@ -15,7 +15,7 @@ class TipoEventosController < ApplicationController
   # GET /tipo_eventos/1
   # GET /tipo_eventos/1.json
   def show
-    @parametro = TipoEvento.find(params[:id])
+    @parametro = TipoEvento.friendly.find(params[:id])
  
     respond_to do |format|
       format.html {  render "parametros/edit" }
@@ -69,7 +69,8 @@ class TipoEventosController < ApplicationController
   # DELETE /tipo_eventos/1
   # DELETE /tipo_eventos/1.json
   def destroy
-    @tipo_evento.destroy
+    @tipo_evento.estatus = 2
+    @tipo_evento.save
     respond_to do |format|
       format.html { redirect_to tipo_eventos_url, notice: 'Tipo evento was successfully destroyed.' }
       format.json { head :no_content }
@@ -79,7 +80,7 @@ class TipoEventosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tipo_evento
-      @tipo_evento = TipoEvento.find(params[:id])
+      @tipo_evento = TipoEvento.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

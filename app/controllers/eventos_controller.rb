@@ -7,7 +7,7 @@ class EventosController < ApplicationController
     @referencia_tipo = "tipo_evento"
 
     if params[:id].nil?
-      @eventos = Evento.all
+      @eventos = Evento.where(:estatus => 1)
     else
       @eventos = Evento.where(tipo_evento_id: params[:id])
     end
@@ -23,7 +23,7 @@ class EventosController < ApplicationController
   def show
         @tipoNoticias = TipoNoticia.all
 
-     @evento = Evento.find(params[:id])
+     @evento = Evento.friendly.find(params[:id])
       respond_to do |format|
       format.html
       format.json 
@@ -33,24 +33,26 @@ class EventosController < ApplicationController
   # GET /eventos/new
   def new
     @evento = Evento.new
-    @collection = TipoEvento.all
+    @collection = TipoEvento.where(:estatus => 1)
+    @ubicaciones = Ubicacion.where(:estatus => 1)
     @referencia = :tipo_evento_id
-    @servicios = Servicio.all
+    @tipoServicios = TipoServicio.where(:estatus => 1)
   end
 
   # GET /eventos/1/edit
   def edit
     @evento = Evento.find(params[:id])
-    @collection = TipoEvento.all
+    @collection = TipoEvento.where(:estatus => 1)
+    @ubicaciones = Ubicacion.where(:estatus => 1)
     @referencia = :tipo_evento_id
-    @servicios = Servicio.all   
+    @servicios = Servicio.where(:estatus => 1)
   end
 
   # POST /eventos
   # POST /eventos.json
   def create
     @evento = Evento.new(evento_params)
-    @evento.servicioEvento = params[:servicios]
+    @evento.tipoServicioEvento = params[:tipoServicios]
     respond_to do |format|
       if @evento.save
         format.html { redirect_to action:"index", notice: 'Evento was successfully created.' }
@@ -65,6 +67,7 @@ class EventosController < ApplicationController
   # PATCH/PUT /eventos/1
   # PATCH/PUT /eventos/1.json
   def update
+    @evento.tipoServicioEvento = params[:tipoServicios]
     respond_to do |format|
       if @evento.update(evento_params)
         format.html { redirect_to action:"index", notice: 'Evento was successfully updated.' }
@@ -79,7 +82,8 @@ class EventosController < ApplicationController
   # DELETE /eventos/1
   # DELETE /eventos/1.json
   def destroy
-    @evento.destroy
+    @evento.estatus = 2
+    @evento.save
     respond_to do |format|
       format.html { redirect_to eventos_url, notice: 'Evento was successfully destroyed.' }
       format.json { head :no_content }
@@ -89,11 +93,11 @@ class EventosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_evento
-      @evento = Evento.find(params[:id])
+      @evento = Evento.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evento_params
-      params.require(:evento).permit(:descripcion, :estatus, :tipo_evento_id, :foto)
+      params.require(:evento).permit(:descripcion, :estatus, :tipo_evento_id, :foto, :ubicacion_id, :fecha, :contenido)
     end
 end

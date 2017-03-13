@@ -4,7 +4,7 @@ class MedioDifusionesController < ApplicationController
   # GET /medio_difusiones
   # GET /medio_difusiones.json
   def index
-    @parametros = MedioDifusion.all
+    @parametros = MedioDifusion.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros/index" }
       format.json { render json: @parametros }
@@ -65,7 +65,8 @@ class MedioDifusionesController < ApplicationController
   # DELETE /medio_difusiones/1
   # DELETE /medio_difusiones/1.json
   def destroy
-    @medio_difusion.destroy
+    @medio_difusion.estatus = 2
+    @medio_difusion.save
     respond_to do |format|
       format.html { redirect_to medio_difusiones_url, notice: 'Medio difusion was successfully destroyed.' }
       format.json { head :no_content }

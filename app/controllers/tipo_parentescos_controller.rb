@@ -4,7 +4,7 @@ class TipoParentescosController < ApplicationController
   # GET /tipo_parentescos
   # GET /tipo_parentescos.json
   def index
-    @parametros = TipoParentesco.all
+    @parametros = TipoParentesco.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros/index" }
       format.json { render json: @parametros }
@@ -65,7 +65,8 @@ class TipoParentescosController < ApplicationController
   # DELETE /tipo_parentescos/1
   # DELETE /tipo_parentescos/1.json
   def destroy
-    @tipo_parentesco.destroy
+    @tipo_parentesco.estatus = 2
+    @tipo_parentesco.save
     respond_to do |format|
       format.html { redirect_to tipo_parentescos_url, notice: 'Tipo parentesco was successfully destroyed.' }
       format.json { head :no_content }

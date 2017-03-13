@@ -2,11 +2,10 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
+#
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 #   Tipo Horario linea 390 falta agregar con los cambios que tiene marcos
-
 	Pais.find_or_create_by(descripcion: 'Venezuela', codigo: 'VE',estatus: 1)
 	Pais.find_or_create_by(descripcion: 'Mexico', codigo: 'MX',estatus: 1)
 	Pais.find_or_create_by(descripcion: 'Antigua y Barbuda', codigo: 'AB',estatus: 1)
@@ -33,7 +32,6 @@
 	Pais.find_or_create_by(descripcion: 'Colombia', codigo: 'CO',estatus: 1)
 	Pais.find_or_create_by(descripcion: 'Ecuador', codigo: 'EC',estatus: 1)
 	Pais.find_or_create_by(descripcion: 'Uruguay', codigo: 'UR',estatus: 1)
-
 	Estado.find_or_create_by(descripcion: 'Amazonas',estatus: 1, :pais => Pais.find(1))
 	Estado.find_or_create_by(descripcion: 'Anzoátegui',estatus: 1, :pais => Pais.find(1))
 	Estado.find_or_create_by(descripcion: 'Apure',estatus: 1, :pais => Pais.find(1))
@@ -58,7 +56,6 @@
     Estado.find_or_create_by(descripcion: 'Nueva Esparta',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Delta Amacuro',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Bolivar',estatus: 1, :pais => Pais.find(1))
-
     Ciudad.find_or_create_by(descripcion: 'Puerto Ayacucho',estatus: 1, :estado => Estado.find(1))
     Ciudad.find_or_create_by(descripcion: 'Barcelona',estatus: 1, :estado => Estado.find(2))
     Ciudad.find_or_create_by(descripcion: 'San Fernando de Apure',estatus: 1, :estado => Estado.find(3))
@@ -83,7 +80,6 @@
     Ciudad.find_or_create_by(descripcion: 'San Felipe',estatus: 1, :estado => Estado.find(10))
     Ciudad.find_or_create_by(descripcion: 'Maracaibo',estatus: 1, :estado => Estado.find(4))
     Ciudad.find_or_create_by(descripcion: 'Caracas',estatus: 1, :estado => Estado.find(16))
-
 	TipoHabito.find_or_create_by(descripcion: 'Fisicos',estatus: 1)
 	TipoHabito.find_or_create_by(descripcion: 'Afectivos',estatus: 1)
 	TipoHabito.find_or_create_by(descripcion: 'Sociales',estatus: 1)
@@ -99,6 +95,7 @@
 
 	TipoPatologia.find_or_create_by(descripcion: 'Tumores',estatus: 1)
 	TipoPatologia.find_or_create_by(descripcion: 'Quirurgica',estatus: 1)
+	TipoPatologia.find_or_create_by(descripcion: 'Molecular',estatus: 1)
 	TipoPatologia.find_or_create_by(descripcion: 'Dermatologica',estatus: 1)
 	TipoPatologia.find_or_create_by(descripcion: 'Histopatologia',estatus: 1)
 
@@ -115,7 +112,7 @@
 	Categoria.find_or_create_by(descripcion: 'Laboratorio',estatus: 1)
 	Categoria.find_or_create_by(descripcion: 'Imagenologia',estatus: 1)
 	Categoria.find_or_create_by(descripcion: 'Atencion medica primaria',estatus: 1)
-
+	Categoria.find_or_create_by(descripcion: 'Quirofano',estatus: 1)
 	Sexo.find_or_create_by(:descripcion => 'Masculino', :estatus => 1)
     Sexo.find_or_create_by(:descripcion => 'Femenino', :estatus => 1)
 
@@ -155,7 +152,6 @@
 	Vacuna.find_or_create_by(descripcion: 'Rubeola',estatus: 1)
 	Vacuna.find_or_create_by(descripcion: 'Tetanos',estatus: 1)
 	Vacuna.find_or_create_by(descripcion: 'Difteria',estatus: 1)
-
 	TipoDiscapacidad.find_or_create_by(descripcion: 'Autismo',estatus: 1)
 	TipoDiscapacidad.find_or_create_by(descripcion: 'Enfermedades Cronicas',estatus: 1)
 	TipoDiscapacidad.find_or_create_by(descripcion: 'Deficiencia Auditiva y Sordera',estatus: 1)
@@ -166,7 +162,6 @@
 	TipoDiscapacidad.find_or_create_by(descripcion: 'Discapacidad Fisica',estatus: 1)
 	TipoDiscapacidad.find_or_create_by(descripcion: 'Trastornos del Habla y Lenguaje',estatus: 1)
 	TipoDiscapacidad.find_or_create_by(descripcion: 'Deficiencia Visual y Ceguera',estatus: 1)
-
 
     Discapacidad.find_or_create_by(descripcion: 'Dificultad para la interrelacion',estatus: 1, :tipo_discapacidad => TipoDiscapacidad.find(4))
     Discapacidad.find_or_create_by(descripcion: 'Sindrome de Down',estatus: 1, :tipo_discapacidad => TipoDiscapacidad.find(4))
@@ -353,14 +348,15 @@
     # Rol 1: DUEÑO
     $i = 1
     begin
+
         if $i > OptionMenu.count
            $i = -1
            puts 'if'
         else
+
         	OptionRol.find_or_create_by(:option_menu => OptionMenu.find($i), :rol => Rol.find(1))
         	$i = $i+1
         end
-    end while $i != -1
 
     # Rol 2: ESPECIALISTA
     OptionRol.find_or_create_by(:option_menu => OptionMenu.find(54), :rol => Rol.find(2)) # AGENDA
@@ -531,7 +527,6 @@
     TipoPago.find_or_create_by(:descripcion => 'Nota Credito', :estatus => 1)
     TipoPago.find_or_create_by(:descripcion => 'Nota Debito', :estatus => 1)
     TipoPago.find_or_create_by(:descripcion => 'Seguro', :estatus => 1)
-
     Persona.find_or_create_by(:cedula => '20473293', :nombre => 'Richard', :apellido => 'Gere', :telefono => '+584245126060', :direccion => 'Urb. Bararida Residencias Venezuela II Etapa', :fecha_nacimiento => '16/05/1991', :sexo => Sexo.find(1))
     Persona.find_or_create_by(:cedula => '20473294', :nombre => 'Demon', :apellido => 'Sars', :telefono => '+584249047270', :direccion => 'Urb. Colinas de Perija', :fecha_nacimiento => '16/02/1964', :sexo => Sexo.find(1))
     Persona.find_or_create_by(:cedula => '20473295', :nombre => 'Antonio', :apellido => 'Trap', :telefono => '+584248749267', :direccion => 'Urb. Altavista', :fecha_nacimiento => '27/09/1982', :sexo => Sexo.find(1))

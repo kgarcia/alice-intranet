@@ -4,7 +4,7 @@ class OpinionesController < ApplicationController
   # GET /opiniones
   # GET /opiniones.json
   def index
-    @opiniones = Opinion.all
+    @opiniones = Opinion.where(:estatus => 1)
   end
 
   # GET /opiniones/1
@@ -15,12 +15,12 @@ class OpinionesController < ApplicationController
   # GET /opiniones/new
   def new
     @opinion = Opinion.new
-    @tipoOpiniones = TipoOpinion.all
+    @tipoOpiniones = TipoOpinion.where(:estatus => 1)
   end
 
   # GET /opiniones/1/edit
   def edit
-    @tipoOpiniones = TipoOpinion.all
+    @tipoOpiniones = TipoOpinion.where(:estatus => 1)
   end
 
   # POST /opiniones
@@ -56,7 +56,8 @@ class OpinionesController < ApplicationController
   # DELETE /opiniones/1
   # DELETE /opiniones/1.json
   def destroy
-    @opinion.destroy
+    @opinion.estatus = 2
+    @opinion.save
     respond_to do |format|
       format.html { redirect_to opiniones_url, notice: 'Opinion was successfully destroyed.' }
       format.json { head :no_content }

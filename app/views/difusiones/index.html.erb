@@ -22,7 +22,7 @@
           <tr>
             <td><%= difusion.tipo_difusion.descripcion %></td>
             <td><%= link_to difusion.asunto, polymorphic_url(difusion) %></td>
-            <td><%= difusion.entidad.nombre %></td>            
+            <td><%= difusion.entidad.descripcion%></td>            
           </tr>
       <% end %>
     </tbody>

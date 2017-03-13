@@ -4,7 +4,13 @@ class DifusionesController < ApplicationController
   # GET /difusiones
   # GET /difusiones.json
   def index
-    @difusiones = Difusion.all
+    @difusiones = Difusion.where(:estatus => 1)
+    @difusiones1 = Difusion.where(:estatus => 1).map { |c| [c.id, c.asunto]  }.to_h
+    @difusiones2 = Difusion.where(:estatus => 2).map { |c| [c.id, c.asunto]  }.to_h
+    @difusiones3 = @difusiones1.merge(@difusiones2)
+    puts @difusiones1.as_json
+    puts @difusiones2.as_json
+    puts @difusiones3.as_json
   end
 
   # GET /difusiones/1
@@ -15,18 +21,22 @@ class DifusionesController < ApplicationController
   # GET /difusiones/new
   def new
     @difusion = Difusion.new
-    @tipo_entidades = TipoEntidad.all
-    @tipo_difusiones = TipoDifusion.all
-    @entidades = Evento.all
-    @medios = MedioDifusion.all
+    @tipo_entidades = TipoEntidad.where(:estatus => 1)
+    @tipo_difusiones = TipoDifusion.where(:estatus => 1)
+    @entidades = Servicio.where(:estatus => 1)
+    @medios = MedioDifusion.where(:estatus => 1)
   end
 
   # GET /difusiones/1/edit
   def edit
-    @tipo_entidades = TipoEntidad.all
-    @tipo_difusiones = TipoDifusion.all
-    @entidades = Servicio.all
-    @medios = MedioDifusion.all
+    @tipo_entidades = TipoEntidad.where(:estatus => 1)
+    @tipo_difusiones = TipoDifusion.where(:estatus => 1)
+    if(@difusion.tipo_entidad_id == 1)
+      @entidades = Servicio.where(:estatus => 1)
+    else
+      @entidades = Evento.where(:estatus => 1)
+    end
+    @medios = MedioDifusion.where(:estatus => 1)
   end
 
   # POST /difusiones
@@ -34,8 +44,81 @@ class DifusionesController < ApplicationController
   def create
     @difusion = Difusion.new(difusion_params)
     @difusion.difusionesMedioDifusion = params[:medios]
+
     respond_to do |format|
       if @difusion.save
+        if @difusion.tipo_difusion_id == 1 
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(1)) #email
+            if(@difusion.tipo_entidad_id == 1)
+              @tipoServicio = Servicio.find(@difusion.entidad_id).tipo_servicio
+              @tipoServicio.difundirGeneral(@difusion)
+            else
+              @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
+              @tipoServicios.each do |tipoServicio|
+                @tipoServicio.difundirGeneral(@difusion)
+              end
+            end  
+          end
+
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(2)) #fb
+            if(@difusion.tipo_entidad_id == 1)
+              @servicio = Servicio.find(@difusion.entidad_id)
+              @servicio.postearFb(@difusion)
+            else
+              @evento = Evento.find(@difusion.entidad_id)
+              @evento.postearFb(@difusion)
+            end  
+          end
+
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(3)) #notificacion movil
+            if(@difusion.tipo_entidad_id == 1)
+              @tipoServicio = Servicio.find(@difusion.entidad_id).tipo_servicio
+              @tipoServicio.notificarGeneral(@difusion)
+            else
+              @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
+              @tipoServicios.each do |tipoServicio|
+                @tipoServicio.notificarGeneral(@difusion)
+              end
+            end  
+          end
+        else
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(1)) #email
+            if(@difusion.tipo_entidad_id == 1)
+              @tipoServicio = Servicio.find(@difusion.entidad_id).tipo_servicio
+              @tipoServicio.difundirSegmentado(@difusion)
+            else
+              @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
+              @tipoServicios.each do |tipoServicio|
+                @tipoServicio.difundirSegmentado(@difusion)
+              end
+            end  
+          end
+
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(2)) #fb
+            if(@difusion.tipo_entidad_id == 1)
+              @servicio = Servicio.find(@difusion.entidad_id)
+              @servicio.postearFb(@difusion)
+            else
+              @evento = Evento.find(@difusion.entidad_id)
+              @evento.postearFb(@difusion)
+            end  
+          end
+
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(3)) #notificacion movil
+            if(@difusion.tipo_entidad_id == 1)
+              @tipoServicio = Servicio.find(@difusion.entidad_id).tipo_servicio
+              @tipoServicio.notificarSegmentado(@difusion)
+            else
+              @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
+              @tipoServicios.each do |tipoServicio|
+                @tipoServicio.notificarSegmentado(@difusion)
+              end
+            end  
+          end
+        end
+        
+        
+        
         format.html { redirect_to @difusion, notice: 'Difusion was successfully created.' }
         format.json { render :show, status: :created, location: @difusion }
       else
@@ -63,10 +146,23 @@ class DifusionesController < ApplicationController
   # DELETE /difusiones/1
   # DELETE /difusiones/1.json
   def destroy
-    @difusion.destroy
+    @difusion.estatus = 2
+    @difusion.save
     respond_to do |format|
       format.html { redirect_to difusiones_url, notice: 'Difusion was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def update_entidades
+    if (params[:tipo_entidad_id].to_i == 1)
+      @entidades = Servicio.where(:estatus => 1)
+    else
+      @entidades = Evento.where(:estatus => 1)
+    end
+    respond_to do |format|
+      format.js
+      render 'difusiones/update_entidades'
     end
   end
 
@@ -78,6 +174,6 @@ class DifusionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def difusion_params
-      params.require(:difusion).permit(:asunto, :texto, :imagen, :tipo_entidad_id, :entidad_id, :token_facebook, :tipo_difusion_id, :estatus)
+      params.require(:difusion).permit(:asunto, :texto, :imagen, :tipo_entidad_id, :entidad_id, :token_facebook, :tipo_difusion_id, :estatus, :avatar)
     end
 end
