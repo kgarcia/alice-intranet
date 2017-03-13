@@ -4,5 +4,12 @@ class RangoEdad < ApplicationRecord
 
 	def self.titulo
 	  return "Rango de Edad"
-  end
+    end
+
+    def personas
+    	personas = []
+        Persona.all.each { |persona| personas << persona if persona.edad.between?(self.edad_inicial,self.edad_final) }
+    	return personas
+    end
+
 end

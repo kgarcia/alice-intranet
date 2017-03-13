@@ -1,10 +1,11 @@
 <div class="row">   
-  <div class="col-lg-8 col-lg-offset-2">
+  <div class="col-lg-10 col-lg-offset-1">
 <div class="ibox float-e-margins">
               <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Turnos" %></h2>
+                  <h2 class="parametros-titulo"><%= "Turno" %></h2>
               </div>
           </div>
+  
     <div class="ibox-content">
 
       <%= form_for @turno, :html => {:class => 'form-horizontal'}  do |f| %>
@@ -44,13 +45,19 @@
           </div>
       </div>
 
-      <div class="form-group">                    
-                      <div class="col-lg-offset-3 col-lg-10">
-                          <%= f.submit 'Guardar', :class => "btn btn-sm btn-primary " %>
-                          <%= button_tag "Limpiar", type: :reset , :class => "btn btn-sm btn-white fa fa-paint-brush"%>
-                          <%= link_to 'Atras', @turno, :class => "btn btn-sm btn-white " %>
+      
+          
+                <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-primary" %>
                       </div>
- </div>
+                        <div class="col-lg-2">
+                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                      <div class="col-lg-2">
+                      <%= link_to 'Atras',turnos_path, :class => "btn btn-sm btn-success" %>                          
+                      </div>
+                  </div>
         <% end %>
 
     </div>

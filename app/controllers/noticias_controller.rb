@@ -81,7 +81,7 @@ class NoticiasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_noticia
-      @noticia = Noticia.find(params[:id])
+      @noticia = Noticia.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

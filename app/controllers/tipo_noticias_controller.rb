@@ -15,7 +15,7 @@ class TipoNoticiasController < ApplicationController
   # GET /tipo_noticiaes/1
   # GET /tipo_noticiaes/1.json
   def show
-    @parametro = TipoNoticia.find(params[:id])
+    @parametro = TipoNoticia.friendly.find(params[:id])
 
     render "parametros/show"
   end
@@ -78,7 +78,7 @@ class TipoNoticiasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tipo_noticia
-      @tipo_noticia = TipoNoticia.find(params[:id])
+      @tipo_noticia = TipoNoticia.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

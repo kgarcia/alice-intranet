@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311230749) do
+ActiveRecord::Schema.define(version: 20170313023746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.integer  "estatus",     default: 1, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_categorias_on_slug", unique: true, using: :btree
   end
 
   create_table "cirugia_perfiles", force: :cascade do |t|
@@ -294,6 +296,8 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.text     "contenido"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_eventos_on_slug", unique: true, using: :btree
     t.index ["tipo_evento_id"], name: "index_eventos_on_tipo_evento_id", using: :btree
     t.index ["ubicacion_id"], name: "index_eventos_on_ubicacion_id", using: :btree
   end
@@ -318,6 +322,18 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.index ["nivel_formacion_id"], name: "index_formacion_academicas_on_nivel_formacion_id", using: :btree
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
   create_table "grupo_sanguineo_perfiles", force: :cascade do |t|
@@ -457,6 +473,8 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.text     "contenido"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_noticias_on_slug", unique: true, using: :btree
     t.index ["tipo_noticia_id"], name: "index_noticias_on_tipo_noticia_id", using: :btree
   end
 
@@ -728,7 +746,9 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.float    "precio"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "slug"
     t.index ["especialista_id"], name: "index_servicios_on_especialista_id", using: :btree
+    t.index ["slug"], name: "index_servicios_on_slug", unique: true, using: :btree
     t.index ["tipo_servicio_id"], name: "index_servicios_on_tipo_servicio_id", using: :btree
     t.index ["ubicacion_id"], name: "index_servicios_on_ubicacion_id", using: :btree
   end
@@ -831,6 +851,8 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.integer  "estatus",     default: 1, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_tipo_eventos_on_slug", unique: true, using: :btree
   end
 
   create_table "tipo_eventualidades", force: :cascade do |t|
@@ -873,6 +895,8 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.integer  "estatus",     default: 1, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_tipo_noticias_on_slug", unique: true, using: :btree
   end
 
   create_table "tipo_notificaciones", force: :cascade do |t|
@@ -940,8 +964,10 @@ ActiveRecord::Schema.define(version: 20170311230749) do
     t.integer  "tipo_atencion_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "slug"
     t.index ["categoria_id"], name: "index_tipo_servicios_on_categoria_id", using: :btree
     t.index ["especialidad_id"], name: "index_tipo_servicios_on_especialidad_id", using: :btree
+    t.index ["slug"], name: "index_tipo_servicios_on_slug", unique: true, using: :btree
     t.index ["tipo_atencion_id"], name: "index_tipo_servicios_on_tipo_atencion_id", using: :btree
   end
 

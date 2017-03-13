@@ -8,10 +8,7 @@ class Turno < ApplicationRecord
     @citas = Cita.joins(:turno).group(:tipo_turno_id,:dia_id).count
   end
   
-  def dia
-  	return self.dia
-  end
-
+  
   def cantidad_horas
 	(((self.hora_fin).to_time-(self.hora_inicio).to_time )/60).round
   end

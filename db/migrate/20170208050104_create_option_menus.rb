@@ -10,7 +10,7 @@ class CreateOptionMenus < ActiveRecord::Migration
       t.integer :num_hijos, :null => true
       t.integer :estatus, :null => false, :default => 1
 
-      t.timestamps null: false
+      t.timestamps
     end
   end
 end

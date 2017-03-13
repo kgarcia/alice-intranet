@@ -30,18 +30,22 @@ default: &default
   host: localhost
   pool: 5
   username: postgres
+<<<<<<< HEAD
   password: postgres
+=======
+  password: 1234
+>>>>>>> master
 
 development:
   <<: *default
-  database: alice_development
+  database: prueba_development
 
 test:
   <<: *default
-  database: alice_test
+  database: prueba_test
  
 production:
   <<: *default
-  database: alice_production
+  database: prueba_production
  
 

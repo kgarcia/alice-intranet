@@ -17,7 +17,7 @@ class DifusionesController < ApplicationController
     @difusion = Difusion.new
     @tipo_entidades = TipoEntidad.where(:estatus => 1)
     @tipo_difusiones = TipoDifusion.where(:estatus => 1)
-    @entidades = Evento.where(:estatus => 1)
+    @entidades = Servicio.where(:estatus => 1)
     @medios = MedioDifusion.where(:estatus => 1)
   end
 
@@ -38,8 +38,81 @@ class DifusionesController < ApplicationController
   def create
     @difusion = Difusion.new(difusion_params)
     @difusion.difusionesMedioDifusion = params[:medios]
+
     respond_to do |format|
       if @difusion.save
+        if @difusion.tipo_difusion_id == 1 
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(1)) #email
+            if(@difusion.tipo_entidad_id == 1)
+              @tipoServicio = Servicio.find(@difusion.entidad_id).tipo_servicio
+              @tipoServicio.difundirGeneral(@difusion)
+            else
+              @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
+              @tipoServicios.each do |tipoServicio|
+                @tipoServicio.difundirGeneral(@difusion)
+              end
+            end  
+          end
+
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(2)) #fb
+            if(@difusion.tipo_entidad_id == 1)
+              @servicio = Servicio.find(@difusion.entidad_id)
+              @servicio.postearFb(@difusion)
+            else
+              @evento = Evento.find(@difusion.entidad_id)
+              @evento.postearFb(@difusion)
+            end  
+          end
+
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(3)) #notificacion movil
+            if(@difusion.tipo_entidad_id == 1)
+              @tipoServicio = Servicio.find(@difusion.entidad_id).tipo_servicio
+              @tipoServicio.notificarGeneral(@difusion)
+            else
+              @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
+              @tipoServicios.each do |tipoServicio|
+                @tipoServicio.notificarGeneral(@difusion)
+              end
+            end  
+          end
+        else
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(1)) #email
+            if(@difusion.tipo_entidad_id == 1)
+              @tipoServicio = Servicio.find(@difusion.entidad_id).tipo_servicio
+              @tipoServicio.difundirSegmentado(@difusion)
+            else
+              @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
+              @tipoServicios.each do |tipoServicio|
+                @tipoServicio.difundirSegmentado(@difusion)
+              end
+            end  
+          end
+
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(2)) #fb
+            if(@difusion.tipo_entidad_id == 1)
+              @servicio = Servicio.find(@difusion.entidad_id)
+              @servicio.postearFb(@difusion)
+            else
+              @evento = Evento.find(@difusion.entidad_id)
+              @evento.postearFb(@difusion)
+            end  
+          end
+
+          if @difusion.medio_difusiones.include?(MedioDifusion.find(3)) #notificacion movil
+            if(@difusion.tipo_entidad_id == 1)
+              @tipoServicio = Servicio.find(@difusion.entidad_id).tipo_servicio
+              @tipoServicio.notificarSegmentado(@difusion)
+            else
+              @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
+              @tipoServicios.each do |tipoServicio|
+                @tipoServicio.notificarSegmentado(@difusion)
+              end
+            end  
+          end
+        end
+        
+        
+        
         format.html { redirect_to difusiones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @difusion }
       else
@@ -76,7 +149,7 @@ class DifusionesController < ApplicationController
   end
 
   def update_entidades
-    puts params[:tipo_entidad_id]
+
     if (params[:tipo_entidad_id].to_i == 1)
       @entidades = Servicio.where(:estatus => 1)
     else
@@ -96,6 +169,6 @@ class DifusionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def difusion_params
-      params.require(:difusion).permit(:asunto, :texto, :imagen, :tipo_entidad_id, :entidad_id, :token_facebook, :tipo_difusion_id, :estatus)
+      params.require(:difusion).permit(:asunto, :texto, :imagen, :tipo_entidad_id, :entidad_id, :token_facebook, :tipo_difusion_id, :estatus, :avatar)
     end
 end

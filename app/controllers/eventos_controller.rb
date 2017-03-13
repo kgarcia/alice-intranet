@@ -23,7 +23,7 @@ class EventosController < ApplicationController
   def show
         @tipoNoticias = TipoNoticia.all
 
-     @evento = Evento.find(params[:id])
+     @evento = Evento.friendly.find(params[:id])
       respond_to do |format|
       format.html
       format.json 
@@ -36,7 +36,7 @@ class EventosController < ApplicationController
     @collection = TipoEvento.where(:estatus => 1)
     @ubicaciones = Ubicacion.where(:estatus => 1)
     @referencia = :tipo_evento_id
-    @servicios = Servicio.where(:estatus => 1)
+    @tipoServicios = TipoServicio.where(:estatus => 1)
   end
 
   # GET /eventos/1/edit
@@ -93,7 +93,7 @@ class EventosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_evento
-      @evento = Evento.find(params[:id])
+      @evento = Evento.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

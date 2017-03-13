@@ -4,7 +4,18 @@ class TipoServiciosController < ApplicationController
   # GET /tipo_servicios
   # GET /tipo_servicios.json
   def index
-    @tipo_servicios = TipoServicio.where(:estatus => 1)
+    
+    if params[:slug].nil?
+      @tipo_servicios = Categoria.where(:estatus => 1)
+    else
+      @categoria_id = Categoria.where(slug: params["slug"]).id
+      @tipo_servicios = Categoria.where(categoria_id: @categoria_id, estatus: 1)
+    end
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @tipo_servicios }
+    end
   end
 
   # GET /tipo_servicios/1
@@ -71,7 +82,7 @@ class TipoServiciosController < ApplicationController
     @page_graph.get_connection('me', 'feed') # the page's wall
     #@page_graph.put_wall_post('Website') # post as page, requires new publish_pages permission
   #  @page_graph.put_connections("AliceLaTrinidad", 'feed', :message => message, :picture => picture_url, :link => link_url)
-  @tipo_servicio = TipoServicio.last
+    @tipo_servicio = TipoServicio.last
     #@page_graph.put_picture(Rails.public_path+'bardenova.jpg', ".jpg", {:caption => @tipo_servicio.descripcion}, "me")
 
   end
@@ -107,7 +118,7 @@ class TipoServiciosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tipo_servicio
-      @tipo_servicio = TipoServicio.find(params[:id])
+      @tipo_servicio = TipoServicio.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

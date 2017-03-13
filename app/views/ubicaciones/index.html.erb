@@ -1,5 +1,10 @@
 <%= csrf_meta_tag %>
 <p id="notice"><%= notice %></p>
+<div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Ubicaciones" %></h2>
+              </div>
+          </div>
 
 <div class="ibox-content">
 <%= link_to "Registrar", new_polymorphic_url(@parametros.new), :class => "btn btn-primary btn-sm " %>
