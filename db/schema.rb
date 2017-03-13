@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313033916) do
+ActiveRecord::Schema.define(version: 20170313023746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.integer  "estatus",     default: 1, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_categorias_on_slug", unique: true, using: :btree
   end
 
   create_table "cirugia_perfiles", force: :cascade do |t|
@@ -182,7 +184,6 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.integer  "estatus",             default: 1, null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.string   "avatar"
     t.index ["entidad_id"], name: "index_difusiones_on_entidad_id", using: :btree
     t.index ["tipo_difusion_id"], name: "index_difusiones_on_tipo_difusion_id", using: :btree
     t.index ["tipo_entidad_id"], name: "index_difusiones_on_tipo_entidad_id", using: :btree
@@ -295,6 +296,8 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.text     "contenido"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_eventos_on_slug", unique: true, using: :btree
     t.index ["tipo_evento_id"], name: "index_eventos_on_tipo_evento_id", using: :btree
     t.index ["ubicacion_id"], name: "index_eventos_on_ubicacion_id", using: :btree
   end
@@ -319,6 +322,18 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.index ["nivel_formacion_id"], name: "index_formacion_academicas_on_nivel_formacion_id", using: :btree
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
   create_table "grupo_sanguineo_perfiles", force: :cascade do |t|
@@ -458,6 +473,8 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.text     "contenido"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_noticias_on_slug", unique: true, using: :btree
     t.index ["tipo_noticia_id"], name: "index_noticias_on_tipo_noticia_id", using: :btree
   end
 
@@ -469,9 +486,7 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.string   "url"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "usuario_id"
     t.index ["tipo_notificacion_id"], name: "index_notificaciones_on_tipo_notificacion_id", using: :btree
-    t.index ["usuario_id"], name: "index_notificaciones_on_usuario_id", using: :btree
   end
 
   create_table "ocupacion_perfiles", force: :cascade do |t|
@@ -643,6 +658,7 @@ ActiveRecord::Schema.define(version: 20170313033916) do
   end
 
   create_table "preguntas", force: :cascade do |t|
+    t.string   "titulo"
     t.string   "descripcion",                  null: false
     t.string   "respuesta"
     t.integer  "tipo_pregunta_id"
@@ -730,7 +746,9 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.float    "precio"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "slug"
     t.index ["especialista_id"], name: "index_servicios_on_especialista_id", using: :btree
+    t.index ["slug"], name: "index_servicios_on_slug", unique: true, using: :btree
     t.index ["tipo_servicio_id"], name: "index_servicios_on_tipo_servicio_id", using: :btree
     t.index ["ubicacion_id"], name: "index_servicios_on_ubicacion_id", using: :btree
   end
@@ -833,6 +851,8 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.integer  "estatus",     default: 1, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_tipo_eventos_on_slug", unique: true, using: :btree
   end
 
   create_table "tipo_eventualidades", force: :cascade do |t|
@@ -875,6 +895,8 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.integer  "estatus",     default: 1, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_tipo_noticias_on_slug", unique: true, using: :btree
   end
 
   create_table "tipo_notificaciones", force: :cascade do |t|
@@ -942,8 +964,10 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.integer  "tipo_atencion_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.string   "slug"
     t.index ["categoria_id"], name: "index_tipo_servicios_on_categoria_id", using: :btree
     t.index ["especialidad_id"], name: "index_tipo_servicios_on_especialidad_id", using: :btree
+    t.index ["slug"], name: "index_tipo_servicios_on_slug", unique: true, using: :btree
     t.index ["tipo_atencion_id"], name: "index_tipo_servicios_on_tipo_atencion_id", using: :btree
   end
 
@@ -1097,7 +1121,6 @@ ActiveRecord::Schema.define(version: 20170313033916) do
   add_foreign_key "motivos", "tipo_motivos"
   add_foreign_key "noticias", "tipo_noticias"
   add_foreign_key "notificaciones", "tipo_notificaciones"
-  add_foreign_key "notificaciones", "usuarios"
   add_foreign_key "ocupacion_perfiles", "ocupaciones"
   add_foreign_key "ocupacion_perfiles", "perfiles"
   add_foreign_key "ocupacion_personas", "ocupaciones"

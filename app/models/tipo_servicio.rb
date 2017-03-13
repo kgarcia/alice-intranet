@@ -16,6 +16,9 @@ class TipoServicio < ApplicationRecord
   	after_save :save_criterios, :save_perfiles
 
     attr_reader :criteriosTipoServicio, :perfilesTipoServicio
+   
+     extend FriendlyId
+     friendly_id :descripcion, use: :slugged
 
     def criteriosTipoServicio=(value)
       @criteriosTipoServicio = value

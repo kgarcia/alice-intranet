@@ -1,5 +1,6 @@
 class Evento < ApplicationRecord
   belongs_to :tipo_evento
+  belongs_to :ubicacion
   has_many :tipo_servicio_evento
   has_many :tipo_servicios, through: :tipo_servicio_evento
 
@@ -8,6 +9,10 @@ class Evento < ApplicationRecord
   validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
 
   after_save :save_tipo_servicios
+
+  extend FriendlyId
+  friendly_id :descripcion, use: :slugged
+
 
   attr_reader :tipoServicioEvento
 
@@ -24,7 +29,7 @@ class Evento < ApplicationRecord
   end
 
   def foto_url
-        foto.url(:medium)
+        url+foto.url(:medium)
     end
 
     def postearFb(difusion)

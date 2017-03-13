@@ -54,6 +54,7 @@ class Persona < ApplicationRecord
     end  
   end
 
+
   def adiccionesPersona=(value)
 	  	@adiccionesPersona = value
 	  end

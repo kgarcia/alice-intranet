@@ -15,7 +15,7 @@ class TipoEventosController < ApplicationController
   # GET /tipo_eventos/1
   # GET /tipo_eventos/1.json
   def show
-    @parametro = TipoEvento.find(params[:id])
+    @parametro = TipoEvento.friendly.find(params[:id])
  
     respond_to do |format|
       format.html {  render "parametros/edit" }
@@ -80,7 +80,7 @@ class TipoEventosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_tipo_evento
-      @tipo_evento = TipoEvento.find(params[:id])
+      @tipo_evento = TipoEvento.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

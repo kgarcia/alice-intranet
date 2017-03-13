@@ -8,7 +8,7 @@ class CategoriasController < ApplicationController
     if params[:id].nil?
       @parametros = Categoria.where(:estatus => 1)
     else
-      @parametros = Categoria.where(id: params[:id])
+      @parametros = Categoria.where(id: params[:id], estatus: 1)
     end
 
     respond_to do |format|
