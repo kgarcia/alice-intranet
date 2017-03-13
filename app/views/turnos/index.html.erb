@@ -16,14 +16,14 @@
         <th>Día</th>
         <th>Hora Inicio</th>
         <th>Hora Fin</th>
-        <th>Servicio</th>
+        <th>Horario</th>
         <th colspan="1"></th>
       </tr>
     </thead>
     <tbody>
       <% @turnos.each do |turno| %>
           <tr>
-        <td><%= turno.tipodia.descripcion %></td>
+        <td><%= turno.dia.descripcion %></td>
         <td><%= turno.hora_inicio.strftime("%H:%M") %></td>
         <td><%= turno.hora_fin.strftime("%H:%M") %></td>
 
