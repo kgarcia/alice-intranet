@@ -41,7 +41,7 @@ before_action :set_tipo_pregunta, only: [:show, :edit, :update, :destroy]
 
     respond_to do |format|
       if @tipo_pregunta.save
-        format.html { redirect_to @tipo_pregunta, notice: 'Tipo noticia was successfully created.' }
+        format.html { redirect_to tipo_preguntas_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_pregunta }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ before_action :set_tipo_pregunta, only: [:show, :edit, :update, :destroy]
   def update
     respond_to do |format|
       if @tipo_pregunta.update(tipo_pregunta_params)
-        format.html { redirect_to @tipo_pregunta, notice: 'Tipo noticia was successfully updated.' }
+        format.html { redirect_to tipo_preguntas_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_pregunta }
       else
         format.html { render :edit }
@@ -70,7 +70,7 @@ before_action :set_tipo_pregunta, only: [:show, :edit, :update, :destroy]
     @tipo_pregunta.estatus = 2
     @tipo_pregunta.save
     respond_to do |format|
-      format.html { redirect_to tipo_preguntaes_url, notice: 'Tipo noticia was successfully destroyed.' }
+      format.html { redirect_to tipo_preguntas_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

@@ -5,5 +5,8 @@ class Noticia < ApplicationRecord
 	  return "Noticia"
   end
 
-  
+  def tipo
+    return self.tipo_noticia
+  end
+
 end

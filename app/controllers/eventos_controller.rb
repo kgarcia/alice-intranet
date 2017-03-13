@@ -55,7 +55,7 @@ class EventosController < ApplicationController
     @evento.tipoServicioEvento = params[:tipoServicios]
     respond_to do |format|
       if @evento.save
-        format.html { redirect_to action:"index", notice: 'Evento was successfully created.' }
+        format.html { redirect_to eventos_path, notice: 'El registro ha sido creado exitosamente.   ' }
         format.json { render :show, status: :created, location: @evento }
       else
         format.html { render :new }
@@ -70,7 +70,7 @@ class EventosController < ApplicationController
     @evento.tipoServicioEvento = params[:tipoServicios]
     respond_to do |format|
       if @evento.update(evento_params)
-        format.html { redirect_to action:"index", notice: 'Evento was successfully updated.' }
+        format.html { redirect_to eventos_path, notice: 'El registro ha sido actualizado exitosamente.   ' }
         format.json { render :show, status: :ok, location: @evento }
       else
         format.html { render :edit }
@@ -85,7 +85,7 @@ class EventosController < ApplicationController
     @evento.estatus = 2
     @evento.save
     respond_to do |format|
-      format.html { redirect_to eventos_url, notice: 'Evento was successfully destroyed.' }
+      format.html { redirect_to eventos_path, notice: 'El registro ha sido eliminado exitosamente.   ' }
       format.json { head :no_content }
     end
   end

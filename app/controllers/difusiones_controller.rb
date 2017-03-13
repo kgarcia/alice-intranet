@@ -40,7 +40,7 @@ class DifusionesController < ApplicationController
     @difusion.difusionesMedioDifusion = params[:medios]
     respond_to do |format|
       if @difusion.save
-        format.html { redirect_to @difusion, notice: 'Difusion was successfully created.' }
+        format.html { redirect_to difusiones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @difusion }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class DifusionesController < ApplicationController
     @difusion.difusionesMedioDifusion = params[:medios]
     respond_to do |format|
       if @difusion.update(difusion_params)
-        format.html { redirect_to @difusion, notice: 'Difusion was successfully updated.' }
+        format.html { redirect_to difusiones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @difusion }
       else
         format.html { render :edit }
@@ -70,7 +70,7 @@ class DifusionesController < ApplicationController
     @difusion.estatus = 2
     @difusion.save
     respond_to do |format|
-      format.html { redirect_to difusiones_url, notice: 'Difusion was successfully destroyed.' }
+      format.html { redirect_to difusiones_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

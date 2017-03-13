@@ -28,7 +28,7 @@ class RangoEdadesController < ApplicationController
 
     respond_to do |format|
       if @rango_edad.save
-        format.html { redirect_to @rango_edad, notice: 'Rango edad was successfully created.' }
+        format.html { redirect_to rango_edades_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @rango_edad }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RangoEdadesController < ApplicationController
   def update
     respond_to do |format|
       if @rango_edad.update(rango_edad_params)
-        format.html { redirect_to @rango_edad, notice: 'Rango edad was successfully updated.' }
+        format.html { redirect_to rango_edades_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @rango_edad }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class RangoEdadesController < ApplicationController
     @rango_edad.estatus = 2
     @rango_edad.save
     respond_to do |format|
-      format.html { redirect_to rango_edades_url, notice: 'Rango edad was successfully destroyed.' }
+      format.html { redirect_to rango_edades_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

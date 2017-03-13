@@ -76,7 +76,7 @@ class PerfilesController < ApplicationController
 
     respond_to do |format|
       if @perfil.save
-        format.html { redirect_to @perfil, notice: 'Perfil was successfully created.' }
+        format.html { redirect_to perfiles_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @perfil }
       else
         format.html { render :new }
@@ -105,7 +105,7 @@ class PerfilesController < ApplicationController
     respond_to do |format|
       if @perfil.update(perfil_params)
         
-        format.html { redirect_to @perfil, notice: 'Perfil was successfully updated.' }
+        format.html { redirect_to perfiles_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @perfil }
       else
         format.html { render :edit }
@@ -120,7 +120,7 @@ class PerfilesController < ApplicationController
     @perfil.estatus = 2
     @perfil.save
     respond_to do |format|
-      format.html { redirect_to perfiles_url, notice: 'Perfil was successfully destroyed.' }
+      format.html { redirect_to perfiles_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

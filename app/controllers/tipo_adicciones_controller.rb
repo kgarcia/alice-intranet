@@ -40,7 +40,7 @@ class TipoAdiccionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_adiccion.save
-        format.html { redirect_to edit_tipo_adiccion_path(@tipo_adiccion), notice: 'Tipo adiccion was successfully created.' }
+        format.html { redirect_to tipo_adicciones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_adiccion }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class TipoAdiccionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_adiccion.update(tipo_adiccion_params)
-        format.html { redirect_to edit_tipo_adiccion_path(@tipo_adiccion), notice: 'Tipo adiccion was successfully updated.' }
+        format.html { redirect_to tipo_adicciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_adiccion }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class TipoAdiccionesController < ApplicationController
     @tipo_adiccion.estatus = 2
     @tipo_adiccion.save
     respond_to do |format|
-      format.html { redirect_to tipo_adicciones_url, notice: 'Tipo adiccion was successfully destroyed.' }
+      format.html { redirect_to tipo_adicciones_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

@@ -33,7 +33,7 @@ class UbicacionesController < ApplicationController
 
     respond_to do |format|
       if @ubicacion.save
-        format.html { redirect_to @ubicacion, notice: 'Ubicacion was successfully created.' }
+        format.html { redirect_to ubicaciones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @ubicacion }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class UbicacionesController < ApplicationController
   def update
     respond_to do |format|
       if @ubicacion.update(ubicacion_params)
-        format.html { redirect_to @ubicacion, notice: 'Ubicacion was successfully updated.' }
+        format.html { redirect_to ubicaciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @ubicacion }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class UbicacionesController < ApplicationController
     @ubicacion.estatus = 2
     @ubicacion.save
     respond_to do |format|
-      format.html { redirect_to ubicaciones_url, notice: 'Ubicacion was successfully destroyed.' }
+      format.html { redirect_to ubicaciones_path, notice: 'El registro ha sido eliminado exitosamente.'}
       format.json { head :no_content }
     end
   end

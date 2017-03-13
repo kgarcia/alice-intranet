@@ -48,7 +48,7 @@ class MotivosController < ApplicationController
 
     respond_to do |format|
       if @motivo.save
-        format.html { redirect_to action:"index", notice: 'Motivo was successfully created.' }
+        format.html { redirect_to motivos_path, notice: 'El registro ha sido creado exitosamente. ' }
         format.json { render :show, status: :created, location: @motivo }
       else
         format.html { render :new }
@@ -62,7 +62,7 @@ class MotivosController < ApplicationController
   def update
     respond_to do |format|
       if @motivo.update(motivo_params)
-        format.html { redirect_to action:"index", notice: 'Motivo was successfully updated.' }
+        format.html { redirect_to motivos_path, notice: 'El registro ha sido actualizado exitosamente. ' }
         format.json { render :show, status: :ok, location: @motivo }
       else
         format.html { render :edit }
@@ -77,7 +77,7 @@ class MotivosController < ApplicationController
     @motivo.estatus = 2
     @motivo.save
     respond_to do |format|
-      format.html { redirect_to motivos_url, notice: 'Motivo was successfully destroyed.' }
+      format.html { redirect_to motivos_path, notice: 'El registro ha sido eliminado exitosamente. ' }
       format.json { head :no_content }
     end
   end
