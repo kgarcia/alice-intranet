@@ -107,11 +107,11 @@ class DifusionesController < ApplicationController
           if @difusion.medio_difusiones.include?(MedioDifusion.find(3)) #notificacion movil
             if(@difusion.tipo_entidad_id == 1)
               @tipoServicio = Servicio.find(@difusion.entidad_id).tipo_servicio
-              @tipoServicio.notificarSegmentada(@difusion)
+              @tipoServicio.notificarSegmentado(@difusion)
             else
               @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
               @tipoServicios.each do |tipoServicio|
-                @tipoServicio.notificarSegmentada(@difusion)
+                @tipoServicio.notificarSegmentado(@difusion)
               end
             end  
           end

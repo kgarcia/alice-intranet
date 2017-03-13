@@ -39,13 +39,13 @@ class TipoServicio < ApplicationRecord
 
     def notificarSegmentado(difusion)
       self.destinatariosSegmentados.each do |destinatario|
-         Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:destinatario[0], tipo_notificacion_id: 4 )
+         Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 4 )
       end
     end
 
     def notificarGeneral(difusion)
       self.destinatariosGeneral.each do |destinatario|
-         Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:destinatario[0], tipo_notificacion_id: 4 )
+         Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 4 )
       end
     end
 
