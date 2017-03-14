@@ -4,11 +4,11 @@ class NotificacionesController < ApplicationController
   # GET /notificaciones
   # GET /notificaciones.json
   def index
-    @parametros = Notificacion.where(:estatus => 1)
+    @notificaciones = Notificacion.where(:estatus => 1, :usuario_id => params[:usuario_id])
         
     respond_to do |format|
       format.html {  render "parametros_select/index" }
-      format.json { render json: @parametros }
+      format.json { render json: @notificaciones }
     end
   end
 
