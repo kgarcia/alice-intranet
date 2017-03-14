@@ -357,7 +357,7 @@
         	OptionRol.find_or_create_by(:option_menu => OptionMenu.find($i), :rol => Rol.find(1))
         	$i = $i+1
         end
-
+    end while $i != -1
     # Rol 2: ESPECIALISTA
     OptionRol.find_or_create_by(:option_menu => OptionMenu.find(54), :rol => Rol.find(2)) # AGENDA
     OptionRol.find_or_create_by(:option_menu => OptionMenu.find(55), :rol => Rol.find(2)) # Mi Horario
@@ -607,15 +607,15 @@
     Turno.find_or_create_by(hora_inicio: Time.new(2016,9,8,10,35,0), hora_fin: Time.new(2016,9,8,12,35,0), estatus: 1, cantidad_pacientes: nil, :dia => Dia.find(1), :horario => Horario.find(1), :tipo_turno => TipoTurno.find(2))
     Turno.find_or_create_by(hora_inicio: nil, hora_fin: nil, estatus: 1, cantidad_pacientes: 5, :dia => Dia.find(1), :horario => Horario.find(1), :tipo_turno => TipoTurno.find(2))
 
-    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(4), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(5), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(6), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(2), :eventualidad_id => Eventualidad.find(2), estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(7), :usuario_id => nil, :fecha => '13/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(8), :usuario_id => nil, :fecha => '13/09/2016', :tipo_pago_id => TipoPago.find(3), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(9), :usuario_id => nil, :fecha => '13/09/2016', :tipo_pago_id => TipoPago.find(5), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(10), :usuario_id => nil, :fecha => '14/09/2016', :tipo_pago_id => TipoPago.find(2), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(11), :usuario_id => nil, :fecha => '14/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(12), :usuario_id => nil, :fecha => '14/09/2016', :tipo_pago_id => TipoPago.find(4), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(4), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(5), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(6), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(2), :eventualidad_id => Eventualidad.find(2), estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(7), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(8), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(3), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(9), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(5), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(10), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(2), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(11), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(12), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(4), :eventualidad_id => nil, estatus: 1)
 
     MedioDifusion.find_or_create_by(:descripcion => 'Email', :estatus => 1)
     MedioDifusion.find_or_create_by(:descripcion => 'Facebook', :estatus => 1)

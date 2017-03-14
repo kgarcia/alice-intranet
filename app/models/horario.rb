@@ -73,8 +73,8 @@ class Horario < ApplicationRecord
 
           (1..7).each do |dia|
               
-                @turnoM = Turno.where(horario_id: self.id,:dia_id => dia ,:tipo_turno_id => 1, :dia_id => dia).take
-                @turnoT = Turno.where(horario_id: self.id,:dia_id => dia , :tipo_turno_id => 2, :dia_id => dia).take
+                @turnoM = Turno.where(horario_id: self.id,:dia_id => dia ,:tipo_turno_id => 1).take
+                @turnoT = Turno.where(horario_id: self.id,:dia_id => dia , :tipo_turno_id => 2).take
                 if (dia == 1)
                   @disponibilidad_mañana.push(@disponibilidad_lunesM.push(@turnoM.disponibilidad_horas(@fecha_nueva)))
                   @disponibilidad_tarde.push(@disponibilidad_lunesT.push(@turnoT.disponibilidad_horas(@fecha_nueva)))
@@ -147,8 +147,8 @@ class Horario < ApplicationRecord
           (1..7).each do |dia|
               
 
-                @turnoM = Turno.where(horario_id: self.id,:dia_id => dia ,:tipo_turno_id => 1, :dia_id => dia).take
-                @turnoT = Turno.where(horario_id: self.id,:dia_id => dia , :tipo_turno_id => 2, :dia_id => dia).take
+                @turnoM = Turno.where(horario_id: self.id,:dia_id => dia ,:tipo_turno_id => 1).take
+                @turnoT = Turno.where(horario_id: self.id,:dia_id => dia , :tipo_turno_id => 2).take
                 
               if (self.tipo_horario_id == 2) #tiempo promedio
                 if (dia == 1)
