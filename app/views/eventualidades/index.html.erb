@@ -26,8 +26,8 @@
           <td><%= eventualidad.tipo.descripcion %></td>
           <td><%= eventualidad.motivo.descripcion%></td>
           <td><%= eventualidad.descripcion %></td>
-          <td><%= eventualidad.fecha_inicio.to_s %></td>
-          <td><%= eventualidad.fecha_fin %></td>
+          <td><%= eventualidad.fecha_inicio.strftime("%d/%m/%Y %H:%M %p") %></td>
+          <td><%= eventualidad.fecha_fin.strftime("%d/%m/%Y %H:%M %p") %></td>
         </tr>
     <% end %>
     </tbody>

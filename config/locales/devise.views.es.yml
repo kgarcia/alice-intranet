@@ -31,8 +31,8 @@ es:
     mailer:
       confirmation_instructions:
         action: Confirmar mi cuenta
-        greeting: "¡Bienvenido %{recipient}!"
-        instruction: 'Usted puede confirmar el correo electrónico de su cuenta a través de este enlace:'
+        greeting: "¡Bienvenido a Alice, %{recipient}!"
+        instruction: 'Para poder hacer uso de todas las funcionalidades de Alice debe confirmar el correo electrónico de su cuenta a través de este enlace: /n Si ud no es %{recipient}!, por favor ignore este mensaje '
         subject: Instrucciones de confirmación
       password_change:
         greeting: Hola %{recipient}!
@@ -80,7 +80,7 @@ es:
         update: Actualizar
         we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar los cambios
       new:
-        sign_up: Registrarse
+        sign_up: Registrar
       signed_up: Bienvenido. Tu cuenta fue creada.
       signed_up_but_inactive: Tu cuenta ha sido creada correctamente. Sin embargo, no hemos podido iniciar la sesión porque tu cuenta aún no está activada.
       signed_up_but_locked: Tu cuenta ha sido creada correctamente. Sin embargo, no hemos podido iniciar la sesión porque que tu cuenta está bloqueada.

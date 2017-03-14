@@ -6,7 +6,7 @@ class EstadosController < ApplicationController
   def index
     @parametros = Estado.where(:estatus => 1)
      respond_to do |format|
-      format.html {  render "parametros_select/index" }
+      format.html {  render "index" }
       format.json { render json: @parametros }
     end
   end
@@ -25,14 +25,16 @@ class EstadosController < ApplicationController
     @collection = Pais.where(:estatus => 1)
     @referencia = :pais_id
     @estado = Estado.new
-    render "parametros_select/new"
+    render "new"
   end
 
   # GET /estados/1/edit
   def edit
     @parametro = Estado.find(params[:id])
-
-    render "parametros_select/edit"
+    @collection = Pais.where(:estatus => 1)
+    @referencia = :pais_id
+    @estado = Estado.new
+    render "edit"
   end
 
   # POST /estados

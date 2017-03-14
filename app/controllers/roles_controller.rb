@@ -31,7 +31,7 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @rol.save
-        format.html { redirect_to @rol, notice: 'Rol was successfully created.' }
+        format.html { redirect_to @rol, notice: 'El registro se ha creado exitosamente.' }
         format.json { render :show, status: :created, location: @rol }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class RolesController < ApplicationController
     @rol.option_menus = params[:option_menus]
     respond_to do |format|
       if @rol.update(rol_params)
-        format.html { redirect_to @rol, notice: 'Rol was successfully updated.' }
+        format.html { redirect_to @rol, notice: 'El registro se ha actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @rol }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class RolesController < ApplicationController
   # DELETE /roles/1.json
   def destroy
     respond_to do |format|
-      format.html { redirect_to roles_url, notice: 'Rol was successfully destroyed.' }
+      format.html { redirect_to roles_url, notice: 'El registro se ha eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

@@ -1,31 +1,48 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Estados</h1>
-
-<table>
-  <thead>
+<%= csrf_meta_tag %>
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h2 class="parametros-titulo"><%= @parametros.new.class.titulo %></h2>
+  </div>
+</div>
+<div class="ibox-content">
+  <%= link_to "Registrar", new_polymorphic_url(@parametros.new), :class => "btn btn-primary btn-sm"%>
+  <br><br>
+  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
     <tr>
-      <th>Descripcion</th>
-      <th>Estatus</th>
-      <th>Pais</th>
-      <th colspan="3"></th>
+      <th data-breakpoints="xs" data-sorted="true">País</th>
+      <th>Descripción</th>
+      <th colspan="1"></th>
     </tr>
-  </thead>
-
-  <tbody>
-    <% @estados.each do |estado| %>
-      <tr>
-        <td><%= estado.descripcion %></td>
-        <td><%= estado.estatus %></td>
-        <td><%= estado.pais %></td>
-        <td><%= link_to 'Show', estado %></td>
-        <td><%= link_to 'Edit', edit_estado_path(estado) %></td>
-        <td><%= link_to 'Destroy', estado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    </thead>
+    <tbody>
+    <% @parametros.each do |parametro| %>
+        <tr>
+          <td><%= parametro.tipo.descripcion %></td>
+          <td><%= link_to parametro.descripcion, edit_polymorphic_url(parametro) %></td>
+          <td>
+            <%= link_to 'Editar', edit_polymorphic_url(parametro), :class => "btn btn-warning btn-sm " %>
+            <%= link_to 'Eliminar', polymorphic_url(parametro), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm"%></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
-
+    </tbody>
+    <tfoot>
+    <tr>
+      <td colspan="5">
+        <ul class="pagination pull-right"></ul>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Estado', new_estado_path %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.table').footable();
+  });
+
+</script>
+
+
