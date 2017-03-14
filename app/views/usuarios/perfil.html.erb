@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+  <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Mi Perfil" %></h2>
+              </div>
+          </div>
+    <div class="ibox-content">
+      <%= form_for '/perfil', :html => {:class => 'form-horizontal'} do |f| %>
+          <% if @usuario.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this parametro from being
+                  saved:</h2>
+
+                <ul>
+                  <% @usuario.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+          <%= hidden_field_tag :usuario_id, @usuario.id %>
+        
+            <%= render 'personas/datos_persona', persona: @persona %>
+
+
+          <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                      </div>
+                        <div class="col-lg-2">
+                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                      <div class="col-lg-2">
+                      <%= link_to 'Atras', '/citas', :class => "btn btn-sm btn-success" %>                          
+                      </div>
+                  </div>
+                  
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
