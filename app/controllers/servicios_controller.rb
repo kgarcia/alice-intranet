@@ -4,7 +4,14 @@ class ServiciosController < ApplicationController
   # GET /servicios
   # GET /servicios.json
   def index
-    @servicios = Servicio.where(:estatus => 1)
+
+if params[:slug].nil?
+      @servicios = Servicio.where(:estatus => 1)
+    else
+      @tipo_servicio_id = TipoServicio.where(slug: params["slug"]).take.id
+      @servicios = Servicio.where(tipo_servicio_id: @tipo_servicio_id, estatus: 1)
+    end
+
     respond_to do |format|
       format.html
       format.json { render json: @servicios.to_json }
@@ -14,7 +21,7 @@ class ServiciosController < ApplicationController
   # GET /servicios/1
   # GET /servicios/1.json
   def show
-    @parametro = Servicio.find(params[:id])
+    @parametro = Servicio.friendly.find(params[:id])
     respond_to do |format|
       format.html
       format.json { render json: @parametro.to_json }
@@ -31,7 +38,7 @@ class ServiciosController < ApplicationController
 
   # GET /servicios/1/edit
   def edit
-    @servicio = Servicio.find(params[:id])
+    @servicio = Servicio.friendly.find(params[:id])
     @tipo_servicios = TipoServicio.where(:estatus => 1)
     @ubicaciones = Ubicacion.where(:estatus => 1)
     @especialistas = Especialista.where(:estatus => 1)
@@ -80,7 +87,7 @@ class ServiciosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_servicio
-      @servicio = Servicio.find(params[:id])
+      @servicio = Servicio.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

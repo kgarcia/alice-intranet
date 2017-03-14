@@ -620,6 +620,7 @@
     Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(11), :usuario_id => nil, :fecha => '14/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
     Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(12), :usuario_id => nil, :fecha => '14/09/2016', :tipo_pago_id => TipoPago.find(4), :eventualidad_id => nil, estatus: 1)
 
+
     MedioDifusion.find_or_create_by(:descripcion => 'Email', :estatus => 1)
     MedioDifusion.find_or_create_by(:descripcion => 'Facebook', :estatus => 1)
     MedioDifusion.find_or_create_by(:descripcion => 'App Movil', :estatus => 1)
