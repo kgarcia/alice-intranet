@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="ibox-content">
 <%= link_to 'Registrar', new_noticia_path, :class => "btn btn-primary btn-sm" %>
  <br><br> 
@@ -20,7 +18,7 @@
             <td><%= noticia.descripcion %></td>
             <td><%= link_to 'Editar', edit_polymorphic_url(noticia), :class => "btn btn-warning btn-sm" %></td>
             <td><%= link_to 'Editar', edit_noticia_path(noticia) %></td>
-            <td><%= link_to 'Eliminar', noticia, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+            <td><%= link_to 'Eliminar', noticia, method: :delete, data: { confirm: '¿Está seguro que desea eliminar el registro?' } %></td>
           </tr>
         <% end %>
       </tbody>

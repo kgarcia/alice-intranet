@@ -44,7 +44,7 @@ class DiscapacidadesController < ApplicationController
 
     respond_to do |format|
       if @discapacidad.save
-        format.html { redirect_to edit_discapacidad_path(@discapacidad), notice: 'Discapacidad was successfully created.' }
+        format.html { redirect_to discapacidades_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @discapacidad }
       else
         format.html { render :new }
@@ -58,7 +58,7 @@ class DiscapacidadesController < ApplicationController
   def update
     respond_to do |format|
       if @discapacidad.update(discapacidad_params)
-        format.html { redirect_to edit_discapacidad_path(@discapacidad), notice: 'Discapacidad was successfully updated.' }
+        format.html { redirect_to discapacidades_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @discapacidad }
       else
         format.html { render :edit }
@@ -73,7 +73,7 @@ class DiscapacidadesController < ApplicationController
     @discapacidad.estatus = 2
     @discapacidad.save
     respond_to do |format|
-      format.html { redirect_to discapacidades_url, notice: 'Discapacidad was successfully destroyed.' }
+      format.html { redirect_to discapacidades_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

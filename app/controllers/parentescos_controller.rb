@@ -4,7 +4,13 @@ class ParentescosController < ApplicationController
   # GET /parentescos
   # GET /parentescos.json
   def index
-    @parentescos = Parentesco.where(:estatus => 1)
+    @parametros = Parentesco.where(:estatus => 1)
+
+    respond_to do |format|
+      format.html {  render "parametros_select/index" }
+      format.json { render json: @parametros }
+    end
+
   end
 
   # GET /parentescos/1
@@ -14,7 +20,8 @@ class ParentescosController < ApplicationController
 
   # GET /parentescos/new
   def new
-    @parentesco = Parentesco.new
+    @parametro = Parentesco.new
+    render "parametros/new"
   end
 
   # GET /parentescos/1/edit
@@ -28,7 +35,7 @@ class ParentescosController < ApplicationController
 
     respond_to do |format|
       if @parentesco.save
-        format.html { redirect_to @parentesco, notice: 'Parentesco was successfully created.' }
+        format.html { redirect_to parentescos_path, notice: 'El registro ha sido creado exitosamente. ' }
         format.json { render :show, status: :created, location: @parentesco }
       else
         format.html { render :new }
@@ -42,7 +49,7 @@ class ParentescosController < ApplicationController
   def update
     respond_to do |format|
       if @parentesco.update(parentesco_params)
-        format.html { redirect_to @parentesco, notice: 'Parentesco was successfully updated.' }
+        format.html { redirect_to parentescos_path, notice: 'El registro ha sido actualizado exitosamente. ' }
         format.json { render :show, status: :ok, location: @parentesco }
       else
         format.html { render :edit }
@@ -57,7 +64,7 @@ class ParentescosController < ApplicationController
     @parentesco.estatus = 2
     @parentesco.save
     respond_to do |format|
-      format.html { redirect_to parentescos_url, notice: 'Parentesco was successfully destroyed.' }
+      format.html { redirect_to parentescos_path, notice: 'El registro ha sido eliminado exitosamente. ' }
       format.json { head :no_content }
     end
   end

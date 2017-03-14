@@ -18,4 +18,10 @@ class ExampleMailer < ApplicationMailer
       mail(to: "kevin93ps@gmail.com", subject: "Cita Cancelada")
   end
 
+  def difusion(difusion,email)
+    @difusion = difusion
+    @email = email
+    mail(to: @email, subject: @difusion.asunto)
+  end
+
 end

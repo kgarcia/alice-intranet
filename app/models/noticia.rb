@@ -8,8 +8,11 @@ class Noticia < ApplicationRecord
 	  return "Noticia"
   end
 
-  
-  def foto_url
+  def tipo
+    return self.tipo_noticia
+  end
+
+ def foto_url
         foto.url(:medium)
     end
 

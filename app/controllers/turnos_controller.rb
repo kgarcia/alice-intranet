@@ -60,7 +60,7 @@ class TurnosController < ApplicationController
     end
     respond_to do |format|
    
-        format.html { redirect_to action:"index", notice: 'Turno was successfully created.' }
+        format.html { redirect_to turnos_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render action:"index" , status: :created, location: @turno }
      
  
@@ -72,7 +72,7 @@ class TurnosController < ApplicationController
   def update
     respond_to do |format|
       if @turno.update(turno_params)
-        format.html { redirect_to @turno, notice: 'Turno was successfully updated.' }
+        format.html { redirect_to turnos_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @turno }
       else
         format.html { render :edit }
@@ -87,7 +87,7 @@ class TurnosController < ApplicationController
     @turno.estatus = 2
     @turno.save
     respond_to do |format|
-      format.html { redirect_to turnos_url, notice: 'Turno was successfully destroyed.' }
+      format.html { redirect_to turnos_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

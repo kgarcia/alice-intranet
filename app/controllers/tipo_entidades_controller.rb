@@ -39,7 +39,7 @@ class TipoEntidadesController < ApplicationController
 
     respond_to do |format|
       if @tipo_entidad.save
-        format.html { redirect_to tipo_entidades_url, notice: 'Tipo entidad was successfully created.' }
+        format.html { redirect_to tipo_entidades_path, notice: 'El registro ha sido creado exitosamente. '}
         format.json { render :show, status: :created, location: @tipo_entidad }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class TipoEntidadesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_entidad.update(tipo_entidad_params)
-        format.html { redirect_to tipo_entidades_url, notice: 'Tipo entidad was successfully updated.' }
+        format.html { redirect_to tipo_entidades_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_entidad }
       else
         format.html { render :edit }
@@ -68,7 +68,7 @@ class TipoEntidadesController < ApplicationController
     @tipo_entidad.estatus = 2
     @tipo_entidad.save
     respond_to do |format|
-      format.html { redirect_to tipo_entidades_url, notice: 'Tipo entidad was successfully destroyed.' }
+      format.html { redirect_to tipo_entidades_path, notice: 'El registro ha sido eliminado exitosamente. ' }
       format.json { head :no_content }
     end
   end

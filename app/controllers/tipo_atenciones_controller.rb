@@ -41,7 +41,7 @@ class TipoAtencionesController < ApplicationController
 
     respond_to do |format|
       if @tipo_atencion.save
-        format.html { redirect_to edit_tipo_atencion_path(@tipo_atencion), notice: 'Tipo atencion was successfully created.' }
+        format.html { redirect_to tipo_atenciones_path, notice: 'El registro ha sido creado exitosamente.'}
         format.json { render :show, status: :created, location: @tipo_atencion }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class TipoAtencionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_atencion.update(tipo_atencion_params)
-        format.html { redirect_to edit_tipo_atencion_path(@tipo_atencion), notice: 'Tipo atencion was successfully updated.' }
+        format.html { redirect_to tipo_atenciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_atencion }
       else
         format.html { render :edit }
@@ -70,7 +70,7 @@ class TipoAtencionesController < ApplicationController
     @tipo_atencion.estatus = 2
     @tipo_atencion.save
     respond_to do |format|
-      format.html { redirect_to tipo_atenciones_url, notice: 'Tipo atencion was successfully destroyed.' }
+      format.html { redirect_to tipo_atenciones_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

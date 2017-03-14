@@ -45,7 +45,7 @@ class PatologiasController < ApplicationController
 
     respond_to do |format|
       if @patologia.save
-        format.html { redirect_to edit_patologia_path(@patologia), notice: 'Patologia was successfully created.' }
+        format.html { redirect_to patologias_path, notice: 'El registro ha sido creado exitosamente.  ' }
         format.json { render :show, status: :created, location: @patologia }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class PatologiasController < ApplicationController
   def update
     respond_to do |format|
       if @patologia.update(patologia_params)
-        format.html { redirect_to edit_patologia_path(@patologia), notice: 'Patologia was successfully updated.' }
+        format.html { redirect_to patologias_path, notice: 'El registro ha sido actualizados exitosamente.' }
         format.json { render :show, status: :ok, location: @patologia }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class PatologiasController < ApplicationController
     @patologia.estatus = 2
     @patologia.save
     respond_to do |format|
-      format.html { redirect_to patologias_url, notice: 'Patologia was successfully destroyed.' }
+      format.html { redirect_to patologias_path, notice: 'El registro ha sido eliminados exitosamente.  ' }
       format.json { head :no_content }
     end
   end

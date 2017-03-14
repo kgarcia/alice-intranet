@@ -31,7 +31,7 @@ class LesionesController < ApplicationController
 
   # GET /lesiones/1/edit
   def edit
-    @parametro = Lesion.new
+    @parametro = Lesion.find(params[:id])
     @collection = TipoLesion.where(:estatus => 1)
     @referencia = :tipo_lesion_id
 
@@ -45,7 +45,7 @@ class LesionesController < ApplicationController
 
     respond_to do |format|
       if @lesion.save
-        format.html { redirect_to edit_lesion_path(@lesion), notice: 'Lesion was successfully created.' }
+        format.html { redirect_to lesiones_path, notice: 'El registro ha sido creado exitosamente. ' }
         format.json { render :show, status: :created, location: @lesion }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class LesionesController < ApplicationController
   def update
     respond_to do |format|
       if @lesion.update(lesion_params)
-        format.html { redirect_to edit_lesion_path(@lesion), notice: 'Lesion was successfully updated.' }
+        format.html { redirect_to lesiones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @lesion }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class LesionesController < ApplicationController
     @lesion.estatus = 2
     @lesion.save
     respond_to do |format|
-      format.html { redirect_to lesiones_url, notice: 'Lesion was successfully destroyed.' }
+      format.html { redirect_to lesiones_path, notice: 'El registro ha sido eliminado exitosamente. ' }
       format.json { head :no_content }
     end
   end

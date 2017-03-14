@@ -36,17 +36,24 @@ class Persona < ApplicationRecord
 	  return "Personas"
   end
 
-
-def self.search(search)
-  where("cedula ILIKE ?", "%#{search}%") 
-  where("nombre ILIKE ?", "%#{search}%")
-  where("apellido ILIKE ?", "%#{search}%")
-end
-
-
   def nombre_identificacion
     "[#{self.cedula}] #{self.nombre} #{self.apellido}"
   end
+
+  def edad
+    dob = self.fecha_nacimiento.to_date
+    now = Time.now.utc.to_date
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
+
+  def email
+    if self.usuario.nil?
+      return ""
+    else
+      return self.usuario.email
+    end  
+  end
+
 
   def adiccionesPersona=(value)
 	  	@adiccionesPersona = value

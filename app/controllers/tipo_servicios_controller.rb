@@ -54,7 +54,7 @@ class TipoServiciosController < ApplicationController
     respond_to do |format|     
       if @tipo_servicio.save
         
-        format.html { redirect_to @tipo_servicio, notice: 'Tipo servicio was successfully created.' }
+        format.html { redirect_to tipo_servicios_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_servicio }
       else
         format.html { render :new }
@@ -82,7 +82,7 @@ class TipoServiciosController < ApplicationController
     @page_graph.get_connection('me', 'feed') # the page's wall
     #@page_graph.put_wall_post('Website') # post as page, requires new publish_pages permission
   #  @page_graph.put_connections("AliceLaTrinidad", 'feed', :message => message, :picture => picture_url, :link => link_url)
-  @tipo_servicio = TipoServicio.last
+    @tipo_servicio = TipoServicio.last
     #@page_graph.put_picture(Rails.public_path+'bardenova.jpg', ".jpg", {:caption => @tipo_servicio.descripcion}, "me")
 
   end
@@ -95,7 +95,7 @@ class TipoServiciosController < ApplicationController
 
     respond_to do |format|
       if @tipo_servicio.update(tipo_servicio_params)
-        format.html { redirect_to @tipo_servicio, notice: 'Tipo servicio was successfully updated.' }
+        format.html { redirect_to tipo_servicios_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_servicio }
       else
         format.html { render :edit }
@@ -110,7 +110,7 @@ class TipoServiciosController < ApplicationController
     @tipo_servicio.estatus = 2
     @tipo_servicio.save
     respond_to do |format|
-      format.html { redirect_to tipo_servicios_url, notice: 'Tipo servicio was successfully destroyed.' }
+      format.html { redirect_to tipo_servicios_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

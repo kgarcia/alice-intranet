@@ -106,3 +106,5 @@ gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.
 
 gem 'toastr_rails'
 gem 'toastr-rails'
+
+gem 'carrierwave', '~> 1.0'

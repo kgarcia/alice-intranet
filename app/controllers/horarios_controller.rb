@@ -16,6 +16,18 @@ class HorariosController < ApplicationController
     @dias = Dia.all    
   end
 
+def disponibilidad
+    d = Date.new(2017,03,06) 
+    @fecha = DateTime.new(d.year, d.month, d.day)
+  
+    @horario = Horario.where(servicio_id: 1).take
+    @horario.disponibilidad_cantidad_tiempo(@fecha)#params[:fecha1])
+    respond_to do |format|
+        format.html {  render "horarios/disponibilidad" }
+        format.json { render json:@horario.disponibilidad_semana_dia(@fecha)}#params[:fecha1])
+           
+    end
+end
   # GET /horarios/new
   def new
 
@@ -55,7 +67,18 @@ class HorariosController < ApplicationController
   # PATCH/PUT /horarios/1
   # PATCH/PUT /horarios/1.json
   def update
+    @horario = Horario.find(params[:id])
+    @turnos = Turno.where(horario_id: @horario.id)
     respond_to do |format|
+       if(@horario.tipo_horario_id==1)
+        params[:tiempo_cita] = 0
+            #@horario.tiempo_cita = 0
+       else
+             @horario.tiempo_cita = params[:tiempo_cita]
+               @turnos.each do |turno|
+                turno.update(cantidad_pacientes: 0,hora_inicio: "08:00:00" , hora_fin: "08:00:00")
+                end 
+      end
       if @horario.update(horario_params)
         format.html { redirect_to @horario, notice: 'Horario was successfully updated.' }
         format.json { render :show, status: :ok, location: @horario }

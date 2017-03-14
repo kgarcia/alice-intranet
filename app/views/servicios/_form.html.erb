@@ -1,13 +1,12 @@
 <div class="row">   
    <div class="col-lg-10 col-lg-offset-1">
-          <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h5>Servicio</h5>
+   <div class="ibox float-e-margins">
+          <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Servicio" %></h2>
               </div>
-          </div>
+              </div>
           <div class="ibox-content">
-
-              <%= form_for @servicio, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
+             <%= form_for @servicio, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
                   <% if @servicio.errors.any? %>
                     <div id="error_explanation">
                       <h2><%= pluralize(@servicio.errors.count, "error") %> prohibited this parametro from being saved:</h2>
@@ -64,7 +63,7 @@
                        </div>
                     </div>
 
-                </div>
+                
 
           
               <div class="form-group">
@@ -77,6 +76,7 @@
                       <div class="col-lg-2">
                       <%= link_to 'Atras',eventualidades_path, :class => "btn btn-sm btn-success" %>                          
                       </div>
+                  </div>
                   </div>
           <% end %>
           </div>

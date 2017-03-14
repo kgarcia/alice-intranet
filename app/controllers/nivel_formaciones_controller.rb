@@ -40,7 +40,7 @@ class NivelFormacionesController < ApplicationController
 
     respond_to do |format|
       if @nivel_formacion.save
-        format.html { redirect_to @nivel_formacion, notice: 'Nivel formacion was successfully created.' }
+        format.html { redirect_to nivel_formaciones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @nivel_formacion }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class NivelFormacionesController < ApplicationController
   def update
     respond_to do |format|
       if @nivel_formacion.update(nivel_formacion_params)
-        format.html { redirect_to @nivel_formacion, notice: 'Nivel formacion was successfully updated.' }
+        format.html { redirect_to nivel_formaciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @nivel_formacion }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class NivelFormacionesController < ApplicationController
     @nivel_formacion.estatus = 2
     @nivel_formacion.save
     respond_to do |format|
-      format.html { redirect_to nivel_formaciones_url, notice: 'Nivel formacion was successfully destroyed.' }
+      format.html { redirect_to nivel_formaciones_path, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

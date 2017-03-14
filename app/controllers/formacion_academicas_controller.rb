@@ -45,7 +45,7 @@ class FormacionAcademicasController < ApplicationController
 
     respond_to do |format|
       if @formacion_academica.save
-        format.html { redirect_to @formacion_academica, notice: 'Formacion academica was successfully created.' }
+        format.html { redirect_to formacion_academicas_path, notice: 'El registro ha sido creado exitosamente' }
         format.json { render :show, status: :created, location: @formacion_academica }
       else
         format.html { render :new }
@@ -59,7 +59,7 @@ class FormacionAcademicasController < ApplicationController
   def update
     respond_to do |format|
       if @formacion_academica.update(formacion_academica_params)
-        format.html { redirect_to @formacion_academica, notice: 'Formacion academica was successfully updated.' }
+        format.html { redirect_to formacion_academicas_path, notice: 'El registro ha sido actualizado exitosamente' }
         format.json { render :show, status: :ok, location: @formacion_academica }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class FormacionAcademicasController < ApplicationController
     @formacion_academica.estatus = 2
     @formacion_academica.save
     respond_to do |format|
-      format.html { redirect_to formacion_academicas_url, notice: 'Formacion academica was successfully destroyed.' }
+      format.html { redirect_to formacion_academicas_path, notice: 'El registro ha sido eliminado exitosamente' }
       format.json { head :no_content }
     end
   end

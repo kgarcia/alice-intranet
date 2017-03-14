@@ -1,7 +1,5 @@
 Myapp::Application.routes.draw do
 
-  get 'difusiones/update_entidades', as: 'update_entidades'
-
   resources :medio_difusiones
   resources :perfiles
   resources :tipo_especialidades
@@ -13,6 +11,8 @@ Myapp::Application.routes.draw do
   resources :tipo_parentescos
   resources :tipo_difusiones
 
+  get 'disponibilidad', to: 'horarios#disponibilidad'
+  
   match '/search', to: "personas#search", via: "post"
 
   get 'grafico/generar'
@@ -49,6 +49,8 @@ Myapp::Application.routes.draw do
   resources :tipo_opiniones
   resources :tipo_preguntas
   resources :tipo_noticias
+  get 'usuarios', to: 'usuarios#index' 
+
 
   get 'agenda_servicio/:id/detalle', to: 'agenda_servicio#detalle', as: :agenda_servicio_detalle
 

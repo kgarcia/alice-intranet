@@ -42,7 +42,7 @@ class AdiccionesController < ApplicationController
 
     respond_to do |format|
       if @adiccion.save
-        format.html { redirect_to edit_adiccion_path(@adiccion), notice: 'Adiccion was successfully created.' }
+        format.html { redirect_to adicciones_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @adiccion }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class AdiccionesController < ApplicationController
   def update
     respond_to do |format|
       if @adiccion.update(adiccion_params)
-        format.html { redirect_to edit_adiccion_path(@adiccion), notice: 'Adiccion was successfully updated.' }
+        format.html { redirect_to adicciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @adiccion }
       else
         format.html { render :edit }
@@ -71,7 +71,7 @@ class AdiccionesController < ApplicationController
     @adiccion.estatus = 2
     @adiccion.save
     respond_to do |format|
-      format.html { redirect_to adicciones_url, notice: 'Adiccion was successfully destroyed.' }
+      format.html { redirect_to adicciones_url, notice: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
