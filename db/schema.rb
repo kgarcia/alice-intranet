@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313023746) do
+ActiveRecord::Schema.define(version: 20170314012620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,16 @@ ActiveRecord::Schema.define(version: 20170313023746) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.index ["estado_id"], name: "index_ciudades_on_estado_id", using: :btree
+  end
+
+  create_table "contactos", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "email"
+    t.integer  "tipo_opinion_id"
+    t.text     "mensaje"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["tipo_opinion_id"], name: "index_contactos_on_tipo_opinion_id", using: :btree
   end
 
   create_table "criterio_tipo_servicios", force: :cascade do |t|
@@ -1077,6 +1087,7 @@ ActiveRecord::Schema.define(version: 20170313023746) do
   add_foreign_key "citas", "turnos"
   add_foreign_key "citas", "usuarios"
   add_foreign_key "ciudades", "estados"
+  add_foreign_key "contactos", "tipo_opiniones"
   add_foreign_key "criterio_tipo_servicios", "criterios"
   add_foreign_key "criterio_tipo_servicios", "tipo_servicios"
   add_foreign_key "criterios", "tipo_criterios"
