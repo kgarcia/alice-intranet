@@ -13,7 +13,7 @@
                 <div class="col-md-6">
                     <div class="row form-group"><label class="col-lg-2 control-label">Email</label>
 
-                          <div class="col-lg-10">  <%= f.email_field :email, autofocus: true, placeholder: "Email", placeholder: "usuario@mail.com", class: "form-control" %>
+                          <div class="col-lg-10">  <%= f.email_field :email, autofocus: true, placeholder: "usuario@mail.com", class: "form-control" %>
                           </div>
                       </div>   
                       <div class="row form-group"><label class="col-lg-2 control-label">Contraseña</label>
@@ -33,6 +33,11 @@
                     <div class="row form-group">
                         <label class="col-lg-2">Rol</label>
                         <div class="col-lg-10"><%= f.collection_select(:rol_id, @roles, :id, :descripcion,{}, :class => "form-control" )%></div>
+                    </div>
+
+                    <div class="row form-group">
+                        <label class="col-lg-2">Servicio asociado</label>
+                        <div class="col-lg-10"><%= f.collection_select(:servicio_id, @servicios, :id, :descripcion,{}, :class => "form-control" )%></div>
                     </div>
                 </div>
                 </div>

@@ -5,7 +5,8 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
 def new
   @roles = Rol.all
-  @sexos = Sexo.all
+  @servicios = Servicio.where(:estatus => 1)
+  @sexos = Sexo.where(:estatus => 1)
   @persona = Persona.new
   super
 end

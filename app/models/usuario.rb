@@ -10,6 +10,8 @@ class Usuario < ApplicationRecord
   accepts_nested_attributes_for :persona
 
   before_create :set_default_rol
+
+  after_save :save_persona
   # or 
   # before_validation :set_default_role 
 
@@ -23,5 +25,11 @@ class Usuario < ApplicationRecord
   def self.titulo
     return "Usuario"
   end
+
+  private
+   def save_persona
+    self.persona = Persona.last
+    self.save
+   end
 
 end
