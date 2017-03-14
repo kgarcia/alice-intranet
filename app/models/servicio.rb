@@ -33,11 +33,8 @@ class Servicio < ApplicationRecord
 
 
  def as_json(options={})
-    super(include: { horarios: {include: 
-                                    {turnos: {include: :dia}
-                                    }                             
-                              }
-                          }              
+    super(:include => { :especialista => {include: :persona} ,:tipo_servicio => {include: :especialidad}, :horarios => {:include => :turnos} , :ubicacion => {}} 
+
                )
   end
 

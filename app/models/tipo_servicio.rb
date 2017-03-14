@@ -28,6 +28,9 @@ class TipoServicio < ApplicationRecord
       @perfilesTipoServicio = value
     end
 
+  def self.titulo
+    return "Tipo de Servicio"
+  end
    private
    def save_criterios
     CriterioTipoServicio.where(:tipo_servicio_id => self.id).destroy_all
@@ -48,8 +51,6 @@ class TipoServicio < ApplicationRecord
      end
    end
 
-  def self.titulo
-    return "Tipo de Servicio"
-  end
+  
 
 end
