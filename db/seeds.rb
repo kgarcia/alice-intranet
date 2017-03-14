@@ -627,4 +627,6 @@
 
     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(1), estatus: 1)
     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(1), estatus: 1)
+
     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(1), estatus: 1)
+
