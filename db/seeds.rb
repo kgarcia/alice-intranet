@@ -602,11 +602,6 @@
     Horario.find_or_create_by(:tiempo_cita => 2, estatus: 1, :tipo_horario_id => 2, :servicio => Servicio.find(1))
     Horario.find_or_create_by(:tiempo_cita => 2, estatus: 1, :tipo_horario_id => 2, :servicio => Servicio.find(1))
 
-    Turno.find_or_create_by(hora_inicio: Time.new(2016,9,6,10,35,0), hora_fin: Time.new(2016,9,6,10,50,0), estatus: 1, cantidad_pacientes: nil,:dia => Dia.find(1), :horario => Horario.find(1), :tipo_turno => TipoTurno.find(2))
-    Turno.find_or_create_by(hora_inicio: Time.new(2016,9,7,10,35,0), hora_fin: Time.new(2016,9,7,12,0,0), estatus: 1, cantidad_pacientes: nil, :dia => Dia.find(1), :horario => Horario.find(1), :tipo_turno => TipoTurno.find(2))
-    Turno.find_or_create_by(hora_inicio: Time.new(2016,9,8,10,35,0), hora_fin: Time.new(2016,9,8,12,35,0), estatus: 1, cantidad_pacientes: nil, :dia => Dia.find(1), :horario => Horario.find(1), :tipo_turno => TipoTurno.find(2))
-    Turno.find_or_create_by(hora_inicio: nil, hora_fin: nil, estatus: 1, cantidad_pacientes: 5, :dia => Dia.find(1), :horario => Horario.find(1), :tipo_turno => TipoTurno.find(2))
-
     Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(4), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
     Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(5), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
     Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(6), :usuario_id => nil, :fecha => DateTime.now, :tipo_pago_id => TipoPago.find(2), :eventualidad_id => Eventualidad.find(2), estatus: 1)
