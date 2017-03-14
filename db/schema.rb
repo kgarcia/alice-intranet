@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314012620) do
+ActiveRecord::Schema.define(version: 20170313033916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,16 +135,6 @@ ActiveRecord::Schema.define(version: 20170314012620) do
     t.index ["estado_id"], name: "index_ciudades_on_estado_id", using: :btree
   end
 
-  create_table "contactos", force: :cascade do |t|
-    t.string   "nombre"
-    t.string   "email"
-    t.integer  "tipo_opinion_id"
-    t.text     "mensaje"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["tipo_opinion_id"], name: "index_contactos_on_tipo_opinion_id", using: :btree
-  end
-
   create_table "criterio_tipo_servicios", force: :cascade do |t|
     t.integer  "criterio_id",                  null: false
     t.integer  "tipo_servicio_id",             null: false
@@ -194,6 +184,7 @@ ActiveRecord::Schema.define(version: 20170314012620) do
     t.integer  "estatus",             default: 1, null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "avatar"
     t.index ["entidad_id"], name: "index_difusiones_on_entidad_id", using: :btree
     t.index ["tipo_difusion_id"], name: "index_difusiones_on_tipo_difusion_id", using: :btree
     t.index ["tipo_entidad_id"], name: "index_difusiones_on_tipo_entidad_id", using: :btree
@@ -454,9 +445,9 @@ ActiveRecord::Schema.define(version: 20170314012620) do
 
   create_table "medio_difusiones", force: :cascade do |t|
     t.string   "descripcion"
-    t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "estatus",     default: 1, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "motivos", force: :cascade do |t|
@@ -496,7 +487,9 @@ ActiveRecord::Schema.define(version: 20170314012620) do
     t.string   "url"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.integer  "usuario_id"
     t.index ["tipo_notificacion_id"], name: "index_notificaciones_on_tipo_notificacion_id", using: :btree
+    t.index ["usuario_id"], name: "index_notificaciones_on_usuario_id", using: :btree
   end
 
   create_table "ocupacion_perfiles", force: :cascade do |t|
@@ -547,8 +540,8 @@ ActiveRecord::Schema.define(version: 20170314012620) do
     t.string   "accion"
     t.integer  "num_hijos"
     t.integer  "estatus",     default: 1, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "option_roles", force: :cascade do |t|
@@ -629,9 +622,9 @@ ActiveRecord::Schema.define(version: 20170314012620) do
 
   create_table "perfiles", force: :cascade do |t|
     t.string   "descripcion"
-    t.integer  "estatus"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "estatus",     default: 1, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "persona_profesiones", force: :cascade do |t|
@@ -661,14 +654,18 @@ ActiveRecord::Schema.define(version: 20170314012620) do
     t.string   "telefono"
     t.string   "direccion"
     t.date     "fecha_nacimiento"
-    t.integer  "sexo_id",          null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.float    "peso"
+    t.integer  "sexo_id"
+    t.integer  "grupo_sanguineo_id"
+    t.integer  "estado_civil_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["estado_civil_id"], name: "index_personas_on_estado_civil_id", using: :btree
+    t.index ["grupo_sanguineo_id"], name: "index_personas_on_grupo_sanguineo_id", using: :btree
     t.index ["sexo_id"], name: "index_personas_on_sexo_id", using: :btree
   end
 
   create_table "preguntas", force: :cascade do |t|
-    t.string   "titulo"
     t.string   "descripcion",                  null: false
     t.string   "respuesta"
     t.integer  "tipo_pregunta_id"
@@ -1087,7 +1084,6 @@ ActiveRecord::Schema.define(version: 20170314012620) do
   add_foreign_key "citas", "turnos"
   add_foreign_key "citas", "usuarios"
   add_foreign_key "ciudades", "estados"
-  add_foreign_key "contactos", "tipo_opiniones"
   add_foreign_key "criterio_tipo_servicios", "criterios"
   add_foreign_key "criterio_tipo_servicios", "tipo_servicios"
   add_foreign_key "criterios", "tipo_criterios"
@@ -1132,6 +1128,7 @@ ActiveRecord::Schema.define(version: 20170314012620) do
   add_foreign_key "motivos", "tipo_motivos"
   add_foreign_key "noticias", "tipo_noticias"
   add_foreign_key "notificaciones", "tipo_notificaciones"
+  add_foreign_key "notificaciones", "usuarios"
   add_foreign_key "ocupacion_perfiles", "ocupaciones"
   add_foreign_key "ocupacion_perfiles", "perfiles"
   add_foreign_key "ocupacion_personas", "ocupaciones"
@@ -1155,6 +1152,8 @@ ActiveRecord::Schema.define(version: 20170314012620) do
   add_foreign_key "persona_profesiones", "profesiones"
   add_foreign_key "persona_vacunas", "personas"
   add_foreign_key "persona_vacunas", "vacunas"
+  add_foreign_key "personas", "estado_civiles"
+  add_foreign_key "personas", "grupo_sanguineos"
   add_foreign_key "personas", "sexos"
   add_foreign_key "preguntas", "tipo_preguntas"
   add_foreign_key "profesion_perfiles", "perfiles"
