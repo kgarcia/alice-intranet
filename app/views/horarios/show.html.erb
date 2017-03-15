@@ -25,7 +25,7 @@
        
              <%end%>
         </p>
-        <%= link_to link_to 'Horario', edit_horario_path(@horario) , :class => "btn btn-primary btn-sm fa fa-plus" %> <br><br> 
+        <%= link_to link_to 'Editar Horario', edit_horario_path(@horario) , :class => "btn btn-primary btn-sm" %> <br><br> 
         <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
             <h3>Turno de la Mañana </h3>
           <thead>
@@ -47,7 +47,7 @@
           <tbody>
             <%@turnosM.each do |turno| %>
             <tr>
-              <td><%=turno.dia.descripcion%><%= turno.arreglo_horario_citas %></td>
+              <td><%=turno.dia.descripcion%><%#= turno.arreglo_horario_citas %></td>
                <td>
                 <%if turno.hora_inicio == turno.hora_fin %>
                   TURNO CERRADO
@@ -67,8 +67,8 @@
                    <%else%>
                       <td><%= turno.cantidad_pacientes %>  </td>
                     <%end%>
-              <td><%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
-                <%= link_to '', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+              <td><%= link_to 'Editar', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm" %>
+                <%= link_to 'Eliminar', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
               </tr>
               <% end %>
             </tbody>
@@ -102,7 +102,7 @@
           <tbody>
             <% @turnosT.each do |turno| %>
             <tr>
-              <td><%=turno.dia.descripcion%><%= turno.arreglo_horario_citas %></td>
+              <td><%=turno.dia.descripcion%><%#= turno.arreglo_horario_citas %></td>
               <td>
                 <%if turno.hora_inicio == turno.hora_fin %>
                   TURNO CERRADO
@@ -123,8 +123,8 @@
                       <td><%= turno.cantidad_pacientes %></td>
                     <%end%>
        
-              <td><%= link_to '', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm fa fa-pencil" %>
-                <%= link_to '', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm fa fa-trash" %></td>
+              <td><%= link_to 'Editar', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm" %>
+                <%= link_to 'Eliminar', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
               </tr>
               <% end %>
             </tbody>

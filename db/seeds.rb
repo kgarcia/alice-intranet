@@ -339,15 +339,15 @@
     Eventualidad.find_or_create_by(:descripcion => 'Cierre de la clinica', :estatus => 1, :tipo_eventualidad_id => 1, :motivo => Motivo.find(1), fecha_inicio: '01/03/2017', fecha_fin: '01/03/2017')
     Eventualidad.find_or_create_by(:descripcion => 'Cancelacion de cita', :estatus => 1, :tipo_eventualidad_id => 3, :motivo=> Motivo.find(2), fecha_inicio: '01/03/2017', fecha_fin: '01/03/2017')
 
-    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(4), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(4), :usuario_id => nil, :fecha => '2/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
     Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(5), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
     Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(6), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(2), :eventualidad_id => Eventualidad.find(2).id, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(7), :usuario_id => nil, :fecha => '13/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(8), :usuario_id => nil, :fecha => '13/09/2016', :tipo_pago_id => TipoPago.find(3), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(9), :usuario_id => nil, :fecha => '13/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(10), :usuario_id => nil, :fecha => '14/09/2016', :tipo_pago_id => TipoPago.find(2), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(11), :usuario_id => nil, :fecha => '14/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(12), :usuario_id => nil, :fecha => '14/09/2016', :tipo_pago_id => TipoPago.find(4), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(7), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(8), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(3), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(9), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(10), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(2), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(11), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(12), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(4), :eventualidad_id => nil, estatus: 1)
 
 
     TipoCalificacion.find_or_create_by(:descripcion => 'Numerica', :estatus => 1)
