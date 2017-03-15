@@ -29,7 +29,7 @@ class TipoNoticiasController < ApplicationController
 
   # GET /tipo_noticiaes/1/edit
   def edit
-    @parametro = TipoNoticia.find(params[:id])
+    @parametro = TipoNoticia.friendly.find(params[:id])
 
     render "parametros/edit"
   end

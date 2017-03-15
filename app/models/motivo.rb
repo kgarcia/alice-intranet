@@ -9,4 +9,10 @@ class Motivo < ApplicationRecord
   def self.titulo
 	  return "Motivo"
   end
+
+  def self.contarCitas
+    @citas = Motivo.joins(eventualidad: :citas).group("motivos.descripcion").count
+    return @citas
+  end
+
 end

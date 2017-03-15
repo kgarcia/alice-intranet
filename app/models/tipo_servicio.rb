@@ -42,13 +42,21 @@ class TipoServicio < ApplicationRecord
 
     def notificarSegmentado(difusion)
       self.destinatariosSegmentados.each do |destinatario|
-         Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 4 )
+         if difusion.tipo_entidad_id == 1
+            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 2 )
+          else
+            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 3 )
+          end
       end
     end
 
     def notificarGeneral(difusion)
       self.destinatariosGeneral.each do |destinatario|
-         Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 4 )
+         if difusion.tipo_entidad_id == 1
+          Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 2 )
+        else
+          Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 3 )
+        end
       end
     end
 
@@ -126,6 +134,13 @@ class TipoServicio < ApplicationRecord
       return destinatarios
     end
 
+
+   def self.contarCitas
+      @citas = TipoServicio.joins(servicios: { horarios: { turnos: :citas } } ).group("tipo_servicios.descripcion").count
+      return @citas
+    end
+
+    
 
 
    private
