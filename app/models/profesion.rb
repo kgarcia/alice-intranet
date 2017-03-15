@@ -7,4 +7,10 @@ class Profesion < ApplicationRecord
   def self.titulo
 	  return "Profesión"
   end
+
+  def self.contarCitas
+    @citas = Profesion.joins(personas: :citas).group("profesiones.descripcion").count
+    return @citas
+  end
+
 end

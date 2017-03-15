@@ -11,4 +11,9 @@ class Patologia < ApplicationRecord
   def self.titulo
 	  return "Patología"
   end
+
+  def self.contarCitas
+    @citas = Patologia.joins(personas: :citas).group("patologias.descripcion").count
+    return @citas
+  end
 end

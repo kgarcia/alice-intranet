@@ -25,7 +25,7 @@
             <td><%= tipoServicio.tipo_atencion.descripcion %></td>
             <td><%= tipoServicio.categoria.descripcion %></td>
             <td><%= tipoServicio.especialidad.descripcion %></td>          
-            <td><%= link_to tipoServicio.descripcion, polymorphic_url(tipoServicio) %></td>
+            <td><%= link_to tipoServicio.descripcion, edit_tipo_servicio_path(tipoServicio) %></td>
             <td>
               <%= link_to 'Editar', edit_tipo_servicio_path(tipoServicio), :class => "btn btn-warning btn-sm " %>
               <%= link_to 'Eliminar', tipoServicio, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm " %></td>

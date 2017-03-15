@@ -1,0 +1,546 @@
+<div class="row">   
+   <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+          <div class="ibox-title">
+              <h2 class="parametros-titulo"><%= "Reportes Estadisticos" %></h2>
+          </div>
+      </div>
+      <div class="ibox-content">
+      	  <h2>Especialidades</h2>
+      	  <div class="container col-sm-6">
+			  <table class="table table-hover">
+			    <tbody>
+			      <tr>
+			        <td><strong>Cantidad de Especialidades</strong></td>
+			        <td><%= @especialidades.number %></td>
+			      </tr>
+			      <tr>
+			        <td><strong>Total de citas registradas</strong></td>
+			        <td><%= @especialidades.sum %></td>
+			      </tr>
+			      <tr>
+			        <td><strong>Promedio de citas por cada especialidad</strong></td>
+			        <td><%= @especialidades.mean %></td>
+			      </tr>
+			    </tbody>
+			  </table>
+			</div>
+			<div class="container col-sm-6">
+			  <table class="table table-hover">
+			    <tbody>
+				      <tr>
+				        <td><strong>Especialidad con mayor cantidad de citas</strong></td>
+				        <td><%= @especialidades.min[0] %>: <%= @especialidades.min[1] %></td>
+				      </tr>
+				      <tr>
+				        <td><strong>Especialdad con menor cantidad de citas</strong></td>
+				        <td><%= @especialidades.max[0] %>: <%= @especialidades.max[1] %></td>
+				      </tr>  
+				      <tr>
+				        <td><strong>Diferencia entre la especialidad con mas citas y la menor</strong></td>
+				        <td><%= @especialidades.range %></td>
+				      </tr>     
+			    </tbody>
+			  </table>
+			</div>
+		  <div id="citas-especialidad" width="500px" height="300px"></div>
+      </div>
+
+      <div class="ibox-content">
+      	  <h2>Tipos de Servicio</h2>
+      	  <div class="container col-sm-6">
+			  <table class="table table-hover">
+			    <tbody>
+			      <tr>
+			        <td><strong>Cantidad de Tipos de Servicio</strong></td>
+			        <td><%= @tipoServicios.number %></td>
+			      </tr>
+			      <tr>
+			        <td><strong>Total de citas registradas</strong></td>
+			        <td><%= @tipoServicios.sum %></td>
+			      </tr>
+			      <tr>
+			        <td><strong>Promedio de citas por cada Tipo de Servicio</strong></td>
+			        <td><%= @tipoServicios.mean %></td>
+			      </tr>
+			    </tbody>
+			  </table>
+			</div>
+			<div class="container col-sm-6">
+			  <table class="table table-hover">
+			    <tbody>
+				      <tr>
+				        <td><strong>TIpo de Servicio con mayor cantidad de citas</strong></td>
+				        <td><%= @tipoServicios.min[0] %>: <%= @tipoServicios.min[1] %></td>
+				      </tr>
+				      <tr>
+				        <td><strong>Tipo de Servicio con menor cantidad de citas</strong></td>
+				        <td><%= @tipoServicios.max[0] %>: <%= @tipoServicios.max[1] %></td>
+				      </tr>  
+				      <tr>
+				        <td><strong>Diferencia entre el tipo de servicio con mas citas y el menor</strong></td>
+				        <td><%= @tipoServicios.range %></td>
+				      </tr>     
+			    </tbody>
+			  </table>
+			</div>
+		  <div id="citas-tipo-servicio" width="500px" height="300px"></div>
+      </div>
+
+      <div class="ibox-content">
+      	<div class="container-fluid">
+	      	<h2>Horarios</h2>
+	      	<div class="col-sm-6">
+				<div id="citas-dia" width="100%" height="300px"></div>
+			</div> 
+			<div class="col-sm-6">
+				<div id="citas-turno" width="100%" height="300px"></div>
+			</div> 
+		</div>
+      </div>
+
+      <div class="ibox-content">
+      	<div class="container-fluid">
+	      	<h2>Estatus</h2>
+	      	<div class="col-sm-6">
+				<div id="citas-estatus" width="100%" height="300px"></div>
+			</div> 
+			<div class="col-sm-6">
+				<div id="citas-motivo" width="100%" height="300px"></div>
+			</div> 
+		</div>
+      </div>
+
+      <div class="ibox-content">
+      	<div class="container-fluid">
+	      	<h2>Datos demograficos</h2>
+	      	<div class="col-sm-6">
+				<div id="citas-sexo" width="100%" height="300px"></div>
+			</div> 
+			<div class="col-sm-6">
+				<div id="citas-patologia" width="100%" height="300px"></div>
+			</div>
+			<div class="col-sm-6">
+				<div id="citas-profesion" width="100%" height="300px"></div>
+			</div> 
+			<div class="col-sm-6">
+				<div id="citas-ocupacion" width="100%" height="300px"></div>
+			</div> 
+		</div>
+      </div>
+
+
+
+  </div>
+</div>
+
+<script type="text/javascript">
+	//Citas por especialidad
+	Highcharts.chart('citas-especialidad', {
+	    chart: {
+	        type: 'column'
+	    },
+	    title: {
+	        text: '<%= "Especialidades" %>'
+	    },
+	    xAxis: {
+	        type: 'category',
+	        labels: {
+	            rotation: -45,
+	            style: {
+	                fontSize: '13px',
+	                fontFamily: 'Verdana, sans-serif'
+	            }
+	        }
+	    },
+	    yAxis: {
+	        min: 0,
+	        title: {
+	            text: 'Citas'
+	        }
+	    },
+	    legend: {
+	        enabled: false
+	    },
+	    tooltip: {
+	        pointFormat: 'Citas: <b>{point.y:.1f}</b>'
+	    },
+	    series: [{
+	        name: 'Citas',
+	        data: [
+	        <% @especialidades.each do |especialidad|%>
+	            ['<%= especialidad[0] %>', <%= especialidad[1] %>],
+	        <% end %>
+	        ],
+	        dataLabels: {
+	            enabled: true,
+	            rotation: -90,
+	            color: '#FFFFFF',
+	            align: 'right',
+	            format: '{point.y:.1f}', // one decimal
+	            y: 10, // 10 pixels down from the top
+	            style: {
+	                fontSize: '13px',
+	                fontFamily: 'Verdana, sans-serif'
+	            }
+	        }
+	    }]
+	});
+	//Citas por tipo de servicio
+	Highcharts.chart('citas-tipo-servicio', {
+	    chart: {
+	        type: 'column'
+	    },
+	    title: {
+	        text: '<%= "Tipos de Servicio" %>'
+	    },
+	    xAxis: {
+	        type: 'category',
+	        labels: {
+	            rotation: -45,
+	            style: {
+	                fontSize: '13px',
+	                fontFamily: 'Verdana, sans-serif'
+	            }
+	        }
+	    },
+	    yAxis: {
+	        min: 0,
+	        title: {
+	            text: 'Citas'
+	        }
+	    },
+	    legend: {
+	        enabled: false
+	    },
+	    tooltip: {
+	        pointFormat: 'Citas: <b>{point.y:.1f}</b>'
+	    },
+	    series: [{
+	        name: 'Citas',
+	        data: [
+	        <% @tipoServicios.each do |tipoServicio|%>
+	            ['<%= tipoServicio[0] %>', <%= tipoServicio[1] %>],
+	        <% end %>
+	        ],
+	        dataLabels: {
+	            enabled: true,
+	            rotation: -90,
+	            color: '#FFFFFF',
+	            align: 'right',
+	            format: '{point.y:.1f}', // one decimal
+	            y: 10, // 10 pixels down from the top
+	            style: {
+	                fontSize: '13px',
+	                fontFamily: 'Verdana, sans-serif'
+	            }
+	        }
+	    }]
+	});
+
+	//Citas por Estatus
+	Highcharts.chart('citas-estatus', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Estatus'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Estatus',
+            colorByPoint: true,
+            data: [
+            <% @estatuses.each do |estatus| %>
+            <% puts estatus[0]%>
+            {
+                name: '<%= Cita.where(:estatus => estatus[0]).last.estatusString %>',
+                y: <%= estatus[1] %>
+            },
+            <% end %>
+            ]
+        }]
+    });
+
+    //Citas por Motivo
+    Highcharts.chart('citas-motivo', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Motivos de Cancelacion'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Motivos',
+            colorByPoint: true,
+            data: [
+            <% @motivos.each do |motivo| %>
+            {
+                name: '<%= motivo[0] %>',
+                y: <%= motivo[1] %>
+            },
+            <% end %>
+            ]
+        }]
+    });
+
+    //Citas por Turno
+    Highcharts.chart('citas-turno', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Turnos'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Turnos',
+            colorByPoint: true,
+            data: [
+            	<% @turnos.each do |turno| %>
+	            {
+	                name: '<%= turno[0] %>',
+	                y: <%= turno[1] %>
+	            },
+	            <% end %>
+            ]
+        }]
+    });
+
+    //Citas por Dia
+    Highcharts.chart('citas-dia', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Dias'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Dias',
+            colorByPoint: true,
+            data: [
+	            <% @dias.each do |dia| %>
+	            {
+	                name: '<%= dia[0] %>',
+	                y: <%= dia[1] %>
+	            },
+	            <% end %>
+            ]
+        }]
+    });
+
+    //Citas por Sexo
+    Highcharts.chart('citas-sexo', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Sexo'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Sexo',
+            colorByPoint: true,
+            data: [
+	            <% @sexos.each do |sexo| %>
+	            {
+	                name: '<%= sexo[0] %>',
+	                y: <%= sexo[1] %>
+	            },
+	            <% end %>
+            ]
+        }]
+    });
+
+    //Citas por Edad
+    Highcharts.chart('citas-patologia', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Patologias'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Patologias',
+            colorByPoint: true,
+            data: [
+	            <% @patologias.each do |patologia| %>
+	            {
+	                name: '<%= patologia[0] %>',
+	                y: <%= patologia[1] %>
+	            },
+	            <% end %>
+            ]
+        }]
+    });
+
+    //Citas por Profesion
+    Highcharts.chart('citas-profesion', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Profesiones'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Profesiones',
+            colorByPoint: true,
+            data: [
+	            <% @profesiones.each do |profesion| %>
+	            {
+	                name: '<%= profesion[0] %>',
+	                y: <%= profesion[1] %>
+	            },
+	            <% end %>
+            ]
+        }]
+    });
+
+    //Citas por Ocupacion
+    Highcharts.chart('citas-ocupacion', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Ocupaciones'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Ocupacion',
+            colorByPoint: true,
+            data: [
+	            <% @ocupaciones.each do |ocupacion| %>
+	            {
+	                name: '<%= ocupacion[0] %>',
+	                y: <%= ocupacion[1] %>
+	            },
+	            <% end %>
+            ]
+        }]
+    });
+
+</script>

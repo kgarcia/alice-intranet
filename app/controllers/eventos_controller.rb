@@ -21,7 +21,6 @@ class EventosController < ApplicationController
   # GET /eventos/1
   # GET /eventos/1.json
   def show
-        @tipoNoticias = TipoNoticia.all
 
      @evento = Evento.friendly.find(params[:id])
       respond_to do |format|
