@@ -89,9 +89,12 @@
 	TipoHabito.find_or_create_by(descripcion: 'Cognitivos',estatus: 1)
 	TipoHabito.find_or_create_by(descripcion: 'Alimentacion',estatus: 1)
 
-	Pregunta.find_or_create_by(descripcion: 'Como ha parecido el servicio?',estatus: 1)
-	Pregunta.find_or_create_by(descripcion: 'Como ha sido la atencion?',estatus: 1)
-	Pregunta.find_or_create_by(descripcion: 'Califique el tiempo de espera',estatus: 1)
+	TipoPregunta.find_or_create_by(descripcion: 'Sobre el Sistema Alice',estatus: 1)
+	TipoPregunta.find_or_create_by(descripcion: 'Sobre U. Q. La Trinidad',estatus: 1)
+	TipoPregunta.find_or_create_by(descripcion: 'Dudas Generales',estatus: 1)
+
+	Pregunta.find_or_create_by(descripcion: 'Que significa Alice?',estatus: 1, respuesta: "Real, verdadero y sincero. Asi como las cualidades de los profesionales de la medicina que trabajan con nosotros.", tipo_pregunta:TipoPregunta.find(1))
+	Pregunta.find_or_create_by(descripcion: 'Donde se encuentra ubicada la U. Q. La Trinidad?', respuesta: "Carrera 28 entre calles 9 y 10",estatus: 1, tipo_pregunta:TipoPregunta.find(2))
 
 	TipoPatologia.find_or_create_by(descripcion: 'Tumores',estatus: 1)
 	TipoPatologia.find_or_create_by(descripcion: 'Quirurgica',estatus: 1)
@@ -313,7 +316,7 @@
 
   	OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Citas',                     :url_path => '#', :icono => 'fa-stethoscope',      :controlador => '', :accion => '', num_hijos: 4, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 58,   :nombre => 'Mis Citas',              :url_path => '/citas', :icono => 'fa-search',           :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-    	OptionMenu.find_or_create_by(:id_padre => 58,   :nombre => 'Historial',              :url_path => '/historial_citas', :icono => 'fa-history',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+    	OptionMenu.find_or_create_by(:id_padre => 58,   :nombre => 'Historial',              :url_path => '/historial_cita', :icono => 'fa-history',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
         
     OptionMenu.find_or_create_by(:id_padre => nil,   :nombre => 'Servicios Médicos',    :url_path => '#', :icono => 'fa-hospital-o', :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 61,   :nombre => 'Confirmar Cita',    :url_path => '/chequear_cita', :icono => 'fa-id-card-o', :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
@@ -351,12 +354,12 @@
 
         if $i > OptionMenu.count
            $i = -1
-           puts 'if'
         else
 
         	OptionRol.find_or_create_by(:option_menu => OptionMenu.find($i), :rol => Rol.find(1))
         	$i = $i+1
         end
+    end while $i != -1
 
     # Rol 2: ESPECIALISTA
     OptionRol.find_or_create_by(:option_menu => OptionMenu.find(54), :rol => Rol.find(2)) # AGENDA
@@ -599,8 +602,8 @@
     Servicio.find_or_create_by(descripcion: 'Consulta de hematologia especial', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(4), :especialista => Especialista.find(3), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 50555.55)
 
     Horario.find_or_create_by(:tiempo_cita => 2, estatus: 1, :tipo_horario_id => 2, :servicio => Servicio.find(1))
-    Horario.find_or_create_by(:tiempo_cita => 2, estatus: 1, :tipo_horario_id => 2, :servicio => Servicio.find(1))
-    Horario.find_or_create_by(:tiempo_cita => 2, estatus: 1, :tipo_horario_id => 2, :servicio => Servicio.find(1))
+    Horario.find_or_create_by(:tiempo_cita => 2, estatus: 1, :tipo_horario_id => 2, :servicio => Servicio.find(2))
+    Horario.find_or_create_by(:tiempo_cita => 2, estatus: 1, :tipo_horario_id => 2, :servicio => Servicio.find(3))
 
     Turno.find_or_create_by(hora_inicio: Time.new(2016,9,6,10,35,0), hora_fin: Time.new(2016,9,6,10,50,0), estatus: 1, cantidad_pacientes: nil,:dia => Dia.find(1), :horario => Horario.find(1), :tipo_turno => TipoTurno.find(2))
     Turno.find_or_create_by(hora_inicio: Time.new(2016,9,7,10,35,0), hora_fin: Time.new(2016,9,7,12,0,0), estatus: 1, cantidad_pacientes: nil, :dia => Dia.find(1), :horario => Horario.find(1), :tipo_turno => TipoTurno.find(2))
@@ -609,7 +612,7 @@
 
     Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(4), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
     Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(5), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(6), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(2), :eventualidad_id => Eventualidad.find(2), estatus: 1)
+    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(6), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(2), :eventualidad_id => Eventualidad.find(2).id, estatus: 1)
     Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(7), :usuario_id => nil, :fecha => '13/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
     Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(8), :usuario_id => nil, :fecha => '13/09/2016', :tipo_pago_id => TipoPago.find(3), :eventualidad_id => nil, estatus: 1)
     Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(9), :usuario_id => nil, :fecha => '13/09/2016', :tipo_pago_id => TipoPago.find(5), :eventualidad_id => nil, estatus: 1)
@@ -617,14 +620,13 @@
     Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(11), :usuario_id => nil, :fecha => '14/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
     Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(12), :usuario_id => nil, :fecha => '14/09/2016', :tipo_pago_id => TipoPago.find(4), :eventualidad_id => nil, estatus: 1)
 
+
     MedioDifusion.find_or_create_by(:descripcion => 'Email', :estatus => 1)
     MedioDifusion.find_or_create_by(:descripcion => 'Facebook', :estatus => 1)
     MedioDifusion.find_or_create_by(:descripcion => 'App Movil', :estatus => 1)
 
     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(1), estatus: 1)
     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(1), estatus: 1)
+
     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(1), estatus: 1)
 
-
-   
-    

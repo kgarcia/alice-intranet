@@ -15,7 +15,8 @@
         <th data-sorted="true">Tipo de Servicio</th>
         <th>Descripcion</th>
         <th>Especialista</th>
-        <th>Ubicación</th>
+
+        <th colspan="1"></th>
         <th colspan="1"></th>
 
       </tr>
@@ -30,11 +31,11 @@
             <%else %>
             <td></td>
             <% end %>
-            <td><%= servicio.ubicacion.descripcion %></td>
+
 
             <td>
-              <%= link_to 'Editar', edit_servicio_path(servicio), :class => "btn btn-warning btn-sm" %>
-              <%= link_to 'Eliminar', servicio, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el registro?' } , :class => "btn btn-danger btn-sm" %></td>
+              <%= link_to 'Editar', edit_servicio_path(servicio), :class => "btn btn-warning btn-sm" %></td>
+            <td>  <%= link_to 'Eliminar', servicio, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el registro?' } , :class => "btn btn-danger btn-sm" %></td>
           </tr>
       <% end %>
     </tbody>

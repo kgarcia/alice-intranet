@@ -64,7 +64,7 @@ class CitasController < ApplicationController
   end
 
   def historial
-    @histo = Cita.where({:persona_id => current_usuario.persona_id, :estatus => 1})
+    @histo = Cita.where({:persona_id => current_usuario.persona_id, :estatus => [4,5]})
   end
 
   def cancelarCita

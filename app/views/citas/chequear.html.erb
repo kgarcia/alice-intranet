@@ -21,7 +21,7 @@
     <% @citas.each do |cita| %>
         <tr>
           <td><%= cita.fecha.strftime("%d/%m/%Y %H:%M %p")%></td>
-          <td>00<%= cita.id%></td>
+          <td><%= cita.id%></td>
           <td><%= cita.turno.horario.servicio.descripcion %></td>
           <td><%= cita.turno.horario.servicio.especialista.persona.nombre %> <%= cita.turno.horario.servicio.especialista.persona.apellido %></td>
           <td><%= cita.persona.nombre %> <%= cita.persona.apellido%></td>

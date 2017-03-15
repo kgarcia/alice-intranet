@@ -11,6 +11,10 @@ Myapp::Application.routes.draw do
   resources :tipo_parentescos
   resources :tipo_difusiones
 
+  get 'perfil', to: 'usuarios#perfil'
+
+  post 'perfil', to: 'usuarios#actualizarPerfil'
+
   get 'disponibilidad', to: 'horarios#disponibilidad'
   
   match '/search', to: "personas#search", via: "post"
