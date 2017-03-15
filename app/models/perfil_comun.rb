@@ -1,2 +1,0 @@
-class PerfilComun < ApplicationRecord
-end

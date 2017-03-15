@@ -6,4 +6,9 @@ class Sexo < ApplicationRecord
   def self.titulo
 	  return "Sexo"
   end
+
+  def self.contarCitas
+    @citas = Sexo.joins(personas: :citas).group("sexos.descripcion").count
+    return @citas
+  end
 end

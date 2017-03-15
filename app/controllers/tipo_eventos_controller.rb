@@ -31,7 +31,7 @@ class TipoEventosController < ApplicationController
 
   # GET /tipo_eventos/1/edit
   def edit
-    @parametro = TipoEvento.find(params[:id])
+    @parametro = TipoEvento.friendly.find(params[:id])
 
     render "parametros/edit"
   end

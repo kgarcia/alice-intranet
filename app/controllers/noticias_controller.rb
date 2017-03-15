@@ -34,7 +34,7 @@ class NoticiasController < ApplicationController
 
   # GET /noticias/1/edit
   def edit
-    @tipoNoticias = TipoNoticia.where(:estatus => 1)
+    @tipoNoticias = TipoNoticia.friendly.where(:estatus => 1)
   end
 
   # POST /noticias

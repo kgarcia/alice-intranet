@@ -1,7 +1,7 @@
 class Eventualidad < ApplicationRecord
   belongs_to :tipo_eventualidad, foreign_key: "tipo_eventualidad_id"
   belongs_to :motivo, foreign_key: "motivo_id"
-
+  has_many :citas
   after_save :cancelar_citas
 
   def tipo

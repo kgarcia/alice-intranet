@@ -21,7 +21,6 @@ class EventosController < ApplicationController
   # GET /eventos/1
   # GET /eventos/1.json
   def show
-        @tipoNoticias = TipoNoticia.all
 
      @evento = Evento.friendly.find(params[:id])
       respond_to do |format|
@@ -41,7 +40,7 @@ class EventosController < ApplicationController
 
   # GET /eventos/1/edit
   def edit
-    @evento = Evento.find(params[:id])
+    @evento = Evento.friendly.find(params[:id])
     @collection = TipoEvento.where(:estatus => 1)
     @ubicaciones = Ubicacion.where(:estatus => 1)
     @referencia = :tipo_evento_id
