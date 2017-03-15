@@ -25,7 +25,9 @@ class SuscriptoresController < ApplicationController
   # POST /suscriptores.json
   def create
     @suscriptor = Suscriptor.new(suscriptor_params)
-
+    @persona = Persona.new(persona_params)
+    @persona.save
+    @suscriptor.persona_id = @persona.id
     respond_to do |format|
       if @suscriptor.save
         format.html { redirect_to @suscriptor, notice: 'Suscriptor was successfully created.' }
@@ -70,5 +72,9 @@ class SuscriptoresController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def suscriptor_params
       params.require(:suscriptor).permit(:email, :persona_id, :estatus)
+    end
+
+    def persona_params
+      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento,:sexo_id)
     end
 end
