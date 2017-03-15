@@ -22,7 +22,7 @@
             <td><%= parametro.fecha %></td>
             <td><%= link_to parametro.persona.nombre + ' ' + parametro.persona.apellido, edit_polymorphic_url(parametro) %></td>
             <td>
-              <%= link_to '', 'new/'+parametro.id.to_s, :class => "btn btn-success btn-sm fa fa-check", :title => "Evaluar cita" %>
+              <%= link_to '',  'evaluar_cita/'+parametro.id.to_s, :class => "btn btn-success btn-sm fa fa-check", :title => "Evaluar cita" %>
             </td>
           </tr>
       <% end %>
