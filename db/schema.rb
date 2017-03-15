@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.index ["tipo_adiccion_id"], name: "index_adicciones_on_tipo_adiccion_id", using: :btree
   end
 
+  create_table "average_caches", force: :cascade do |t|
+    t.integer  "rater_id"
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "avg",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "busquedas", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus",          default: 1, null: false
@@ -59,15 +68,27 @@ ActiveRecord::Schema.define(version: 20170313033916) do
   end
 
   create_table "calificaciones", force: :cascade do |t|
-    t.string   "descripcion",                      null: false
-    t.integer  "estatus",              default: 1, null: false
-    t.integer  "tipo_calificacion_id",             null: false
-    t.integer  "criterio_id",                      null: false
-    t.integer  "evaluacion_id",                    null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.string   "descripcion",                         null: false
+    t.integer  "estatus",                default: 1,  null: false
+    t.integer  "tipo_calificacion_id",                null: false
+    t.integer  "criterio_id",                         null: false
+    t.integer  "evaluacion_id",                       null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
     t.index ["criterio_id"], name: "index_calificaciones_on_criterio_id", using: :btree
+    t.index ["email"], name: "index_calificaciones_on_email", unique: true, using: :btree
     t.index ["evaluacion_id"], name: "index_calificaciones_on_evaluacion_id", using: :btree
+    t.index ["reset_password_token"], name: "index_calificaciones_on_reset_password_token", unique: true, using: :btree
     t.index ["tipo_calificacion_id"], name: "index_calificaciones_on_tipo_calificacion_id", using: :btree
   end
 
@@ -288,19 +309,15 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.string   "descripcion",                   null: false
     t.integer  "estatus",           default: 1, null: false
     t.integer  "tipo_evento_id",                null: false
-    t.integer  "ubicacion_id",                  null: false
-    t.datetime "fecha"
     t.string   "foto_file_name"
     t.string   "foto_content_type"
     t.integer  "foto_file_size"
     t.datetime "foto_updated_at"
-    t.text     "contenido"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.string   "slug"
     t.index ["slug"], name: "index_eventos_on_slug", unique: true, using: :btree
     t.index ["tipo_evento_id"], name: "index_eventos_on_tipo_evento_id", using: :btree
-    t.index ["ubicacion_id"], name: "index_eventos_on_ubicacion_id", using: :btree
   end
 
   create_table "eventualidades", force: :cascade do |t|
@@ -393,19 +410,13 @@ ActiveRecord::Schema.define(version: 20170313033916) do
   end
 
   create_table "informacion_generals", force: :cascade do |t|
-    t.string   "nombre",                 null: false
-    t.string   "rif",                    null: false
-    t.text     "direccion",              null: false
+    t.string   "nombre"
+    t.string   "rif"
+    t.text     "direccion"
     t.string   "tlf"
-    t.string   "tlf2"
     t.string   "email"
     t.text     "widgetFB"
     t.text     "widgetTW"
-    t.text     "url_fb"
-    t.text     "url_tw"
-    t.text     "url_ins"
-    t.text     "url_gp"
-    t.text     "url_app"
     t.string   "slogan"
     t.string   "logo"
     t.float    "latitud"
@@ -471,7 +482,6 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.string   "descripcion",                 null: false
     t.integer  "tipo_noticia_id"
     t.integer  "estatus",         default: 1, null: false
-    t.text     "contenido"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "slug"
@@ -551,6 +561,14 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.datetime "updated_at",     null: false
     t.index ["option_menu_id"], name: "index_option_roles_on_option_menu_id", using: :btree
     t.index ["rol_id"], name: "index_option_roles_on_rol_id", using: :btree
+  end
+
+  create_table "overall_averages", force: :cascade do |t|
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "overall_avg",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "paises", force: :cascade do |t|
@@ -727,6 +745,29 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.datetime "updated_at",               null: false
   end
 
+  create_table "rates", force: :cascade do |t|
+    t.integer  "rater_id"
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "stars",         null: false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type", using: :btree
+    t.index ["rater_id"], name: "index_rates_on_rater_id", using: :btree
+  end
+
+  create_table "rating_caches", force: :cascade do |t|
+    t.string   "cacheable_type"
+    t.integer  "cacheable_id"
+    t.float    "avg",            null: false
+    t.integer  "qty",            null: false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string   "descripcion", null: false
     t.datetime "created_at",  null: false
@@ -738,6 +779,17 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.integer  "estatus",     default: 1, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "servicio_eventos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus",     default: 1, null: false
+    t.integer  "servicio_id",             null: false
+    t.integer  "evento_id",               null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["evento_id"], name: "index_servicio_eventos_on_evento_id", using: :btree
+    t.index ["servicio_id"], name: "index_servicio_eventos_on_servicio_id", using: :btree
   end
 
   create_table "servicios", force: :cascade do |t|
@@ -948,16 +1000,6 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.datetime "updated_at",              null: false
   end
 
-  create_table "tipo_servicio_eventos", force: :cascade do |t|
-    t.integer  "estatus",          default: 1, null: false
-    t.integer  "tipo_servicio_id",             null: false
-    t.integer  "evento_id",                    null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.index ["evento_id"], name: "index_tipo_servicio_eventos_on_evento_id", using: :btree
-    t.index ["tipo_servicio_id"], name: "index_tipo_servicio_eventos_on_tipo_servicio_id", using: :btree
-  end
-
   create_table "tipo_servicios", force: :cascade do |t|
     t.string   "descripcion"
     t.text     "texto"
@@ -1107,7 +1149,6 @@ ActiveRecord::Schema.define(version: 20170313033916) do
   add_foreign_key "evaluaciones", "citas"
   add_foreign_key "evaluaciones", "tipo_evaluaciones"
   add_foreign_key "eventos", "tipo_eventos"
-  add_foreign_key "eventos", "ubicaciones"
   add_foreign_key "eventualidades", "motivos"
   add_foreign_key "eventualidades", "tipo_eventualidades"
   add_foreign_key "formacion_academicas", "nivel_formaciones"
@@ -1162,13 +1203,13 @@ ActiveRecord::Schema.define(version: 20170313033916) do
   add_foreign_key "rango_edad_perfiles", "rango_edades"
   add_foreign_key "rango_peso_perfiles", "perfiles"
   add_foreign_key "rango_peso_perfiles", "rango_pesos"
+  add_foreign_key "servicio_eventos", "eventos"
+  add_foreign_key "servicio_eventos", "servicios"
   add_foreign_key "servicios", "especialistas"
   add_foreign_key "servicios", "tipo_servicios"
   add_foreign_key "servicios", "ubicaciones"
   add_foreign_key "sexo_perfiles", "perfiles"
   add_foreign_key "sexo_perfiles", "sexos"
-  add_foreign_key "tipo_servicio_eventos", "eventos"
-  add_foreign_key "tipo_servicio_eventos", "tipo_servicios"
   add_foreign_key "tipo_servicios", "categorias"
   add_foreign_key "tipo_servicios", "especialidades"
   add_foreign_key "tipo_servicios", "tipo_atenciones"

@@ -33,6 +33,7 @@
 //= require highcharts/modules/exporting
 //= require highcharts/modules/heatmap
 //= require toastr
+//= require rating.min.js
 
 $.extend(true, $.fn.dataTable.defaults, {
     "language": {"url": "/js/datatables/Spanish.json"}
