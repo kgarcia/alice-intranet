@@ -1,5 +1,6 @@
 Myapp::Application.routes.draw do
 
+  resources :suscriptores
   resources :medio_difusiones
   resources :perfiles
   resources :tipo_especialidades
