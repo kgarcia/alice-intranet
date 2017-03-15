@@ -24,7 +24,7 @@ def disponibilidad
     @horario.disponibilidad_cantidad_tiempo(@fecha)#params[:fecha1])
     respond_to do |format|
         format.html {  render "horarios/disponibilidad" }
-        format.json { render json:@horario.disponibilidad_semana_dia(@fecha)}#params[:fecha1])
+        format.json { render json: {diponibles: @horario.disponibilidad_cantidad_tiempo(@fecha)}}#params[:fecha1])
            
     end
 end
