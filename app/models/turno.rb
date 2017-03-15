@@ -78,7 +78,7 @@ class Turno < ApplicationRecord
                @fecha = DateTime.new(@d.year, @d.month, @d.day, hora.hour, hora.min)  
             #@fecha = (fecha_hora_inicio + hora.("%H:%M"))
             if !Cita.where(turno_id: self.id ,:fecha => fecha).exists?
-              @horas_cita.push(@fecha)
+              @horas_cita.push(hora: @fecha)
             end
 
           end

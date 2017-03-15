@@ -4,8 +4,11 @@ class NotificacionesController < ApplicationController
   # GET /notificaciones
   # GET /notificaciones.json
   def index
+    if params[:usuario_id].nil?
     @parametros = Notificacion.where(:estatus => 1)
-        
+    else
+      @parametros = Notificacion.where(usuario_id: params[:usuario_id], :estatus => 1)
+    end        
     respond_to do |format|
       format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
@@ -16,7 +19,10 @@ class NotificacionesController < ApplicationController
   # GET /notificaciones/1.json
   def show
     @parametro = Notificacion.find(params[:id])
-    render "parametros_select/edit"
+    respond_to do |format|
+      format.html {  render "parametros_select/edit" }
+      format.json { render json: @parametro }
+    end
   end
 
   # GET /notificaciones/new
