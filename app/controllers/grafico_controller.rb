@@ -7,8 +7,28 @@ class GraficoController < ApplicationController
   def citas_por_especialidad
   	@especialidades = Especialidad.contarCitas
   	@estadisticas =  @especialidades.descriptive_statistics
+    
+    @tipoServicios = TipoServicio.contarCitas
+    @estadisticasTipoServicios =  @tipoServicios.descriptive_statistics
+
+    @estatuses = Cita.contarEstatus
+
+    @motivos = Motivo.contarCitas
+
+    @dias = Dia.contarCitas
+
+    @turnos = TipoTurno.contarCitas
+
+    @sexos = Sexo.contarCitas
+
+    @patologias = Patologia.contarCitas
+
+    @ocupaciones = Ocupacion.contarCitas
+
+    @profesiones = Profesion.contarCitas
+
   	@titulo = "Citas por especialidad"
-  	render "grafico/barra"
+  	render "grafico/citas_por_especialidad"
   end
 
   def criterios_servicio
@@ -19,7 +39,7 @@ class GraficoController < ApplicationController
   end
 
   def citas_por_turno
-  	@citas = Turno.contarCitas
+  	@citas = Turno.contarCitasTurno
   	@titulo = "Citas por Turno"
   	render "grafico/heat"
   end

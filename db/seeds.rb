@@ -39,7 +39,8 @@
     Estado.find_or_create_by(descripcion: 'Nueva Esparta',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Delta Amacuro',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Bolivar',estatus: 1, :pais => Pais.find(1))
-    Ciudad.find_or_create_by(descripcion: 'Puerto Ayacucho',estatus: 1, :estado => Estado.find(1))
+
+    Ciudad.find_or_create_by(descripcion: 'Barquisimeto',estatus: 1, :estado => Estado.find(8))
     Ciudad.find_or_create_by(descripcion: 'Barcelona',estatus: 1, :estado => Estado.find(2))
     Ciudad.find_or_create_by(descripcion: 'San Fernando de Apure',estatus: 1, :estado => Estado.find(3))
     Ciudad.find_or_create_by(descripcion: 'Maracay',estatus: 1, :estado => Estado.find(15))
@@ -50,7 +51,6 @@
     Ciudad.find_or_create_by(descripcion: 'Tucupita',estatus: 1, :estado => Estado.find(23))
     Ciudad.find_or_create_by(descripcion: 'Coro',estatus: 1, :estado => Estado.find(9))
     Ciudad.find_or_create_by(descripcion: 'San Juan de los Morros',estatus: 1, :estado => Estado.find(19))
-    Ciudad.find_or_create_by(descripcion: 'Barquisimeto',estatus: 1, :estado => Estado.find(8))
     Ciudad.find_or_create_by(descripcion: 'Merida',estatus: 1, :estado => Estado.find(6))
     Ciudad.find_or_create_by(descripcion: 'Los Teques',estatus: 1, :estado => Estado.find(17))
     Ciudad.find_or_create_by(descripcion: 'Maturin',estatus: 1, :estado => Estado.find(20))
@@ -101,8 +101,8 @@
     Especialidad.find_or_create_by(descripcion: ' Ginecología General', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(4))
     Especialidad.find_or_create_by(descripcion: ' Medicina meterno-fetal', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(4))
 
-    TipoAtencion.find_or_create_by(:descripcion => 'Con especialidad', :estatus => 1)
-    TipoAtencion.find_or_create_by(:descripcion => 'Sin especialidad', :estatus => 1)
+    TipoAtencion.find_or_create_by(:descripcion => 'Especializada', :estatus => 1)
+    TipoAtencion.find_or_create_by(:descripcion => 'General', :estatus => 1)
 
     Categoria.find_or_create_by(descripcion: 'Laboratorio',estatus: 1)
 	Categoria.find_or_create_by(descripcion: 'Imagenología',estatus: 1)
@@ -123,6 +123,13 @@
     NivelFormacion.find_or_create_by(:descripcion => 'Pregrado', :estatus => 1)
     NivelFormacion.find_or_create_by(:descripcion => 'Postgrado', :estatus => 1)
     NivelFormacion.find_or_create_by(:descripcion => 'Doctorado', :estatus => 1)
+
+    FormacionAcademica.find_or_create_by(:descripcion => 'Doctorado', :estatus => 1,:nivel_formacion => NivelFormacion.find(3))
+    FormacionAcademica.find_or_create_by(:descripcion => 'Postgrado', :estatus => 1,:nivel_formacion => NivelFormacion.find(2))
+    FormacionAcademica.find_or_create_by(:descripcion => 'Pregrado', :estatus => 1,:nivel_formacion => NivelFormacion.find(1))
+    
+    
+    
 
     Universidad.find_or_create_by(:descripcion => 'Universidad Centroccidental Lisandro Alvarado - UCLA', :estatus => 1)
     Universidad.find_or_create_by(:descripcion => 'Universidad Central de Venezuela - UCV', :estatus => 1)
@@ -354,8 +361,6 @@
 	Pregunta.find_or_create_by(descripcion: 'Que significa Alice?',estatus: 1, respuesta: "Real, verdadero y sincero. Asi como las cualidades de los profesionales de la medicina que trabajan con nosotros.", tipo_pregunta:TipoPregunta.find(1))
 	Pregunta.find_or_create_by(descripcion: 'Donde se encuentra ubicada la U. Q. La Trinidad?', respuesta: "Carrera 28 entre calles 9 y 10",estatus: 1, tipo_pregunta:TipoPregunta.find(2))
 
-
-    
     Rol.find_or_create_by(descripcion: 'Dueño')
     Rol.find_or_create_by(descripcion: 'Especialista')
     Rol.find_or_create_by(descripcion: 'Recepcionista')
@@ -489,6 +494,7 @@
     OptionRol.find_or_create_by(:option_menu => OptionMenu.find(65), :rol => Rol.find(4)) # Evaluar
 
     #Rol 5:Seguridad
+    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(73), :rol => Rol.find(5))
     OptionRol.find_or_create_by(:option_menu => OptionMenu.find(83), :rol => Rol.find(5)) # Seguridad Funcional
     OptionRol.find_or_create_by(:option_menu => OptionMenu.find(84), :rol => Rol.find(5)) # Usuarios
     OptionRol.find_or_create_by(:option_menu => OptionMenu.find(85), :rol => Rol.find(5)) # Roles
@@ -512,7 +518,35 @@
     MedioDifusion.find_or_create_by(:descripcion => 'Facebook', :estatus => 1)
     MedioDifusion.find_or_create_by(:descripcion => 'App Movil', :estatus => 1)
 
-    CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(1), estatus: 1)
-    CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(1), estatus: 1)
-    CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(1), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(1), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(1), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(1), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(2), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(2), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(2), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(3), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(3), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(3), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(4), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(4), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(4), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(5), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(5), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(5), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(6), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(6), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(6), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(7), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(7), estatus: 1)
+     CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(7), estatus: 1)
+
+
+
+
+
+
+
+
+
+
 
