@@ -75,13 +75,13 @@ end
 
 private
 
- # def sign_up_params
- #   params.require(:usuario).permit(:persona_id, :email, :password, :password_confirmation)
- # end
+  def sign_up_params
+    params.require(:usuario).permit(:persona_id, :email, :password, :password_confirmation, :rol_id, :servicio_id)
+  end
 
-#  def account_update_params
-#    params.require(:usuario).permit(:email, :password, :password_confirmation:current_password)
-#  end
+  #def account_update_params
+    #params.require(:usuario).permit(:email, :password, :password_confirmation:current_password)
+  #end
 
   def persona_params
       params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id, :edad)

@@ -20,26 +20,24 @@ class EvaluacionesController < ApplicationController
 
   def evaluarCita
     @cita = Cita.find(params[:id])
-    puts @cita
     @criterios = @cita.turno.horario.servicio.tipo_servicio.criterios
-    puts @criterios
 
     @evaluacion = Evaluacion.new
+    @evaluacion.cita_id =@cita.id
     @evaluacion.descripcion = "Descripcion de la evaluacion"
-    #@calificaciones = []
+    
     if @evaluacion.new_record?
       @criterios.each do |criterio|
         @calificacion = Calificacion.new      
         @calificacion.evaluacion_id = @evaluacion.id
         @calificacion.criterio_id = criterio.id
-        @calificacion.estatus = 1    
+        @calificacion.estatus = 1
+        @calificacion.tipo_calificacion_id = 1
         
         @evaluacion.calificaciones.push(@calificacion)        
       end      
     end
-    #@evaluacion.calificaciones.build 
-    @cita.estatus = 1
-    @cita.save
+    
     render "new"
   end
 
@@ -56,6 +54,12 @@ class EvaluacionesController < ApplicationController
   def create
     @evaluacion = Evaluacion.new(evaluacion_params)
     @evaluacion.descripcion = "Evaluacion de la cita #" + @evaluacion.cita_id.to_s
+
+    @cita = Cita.find_by_id(params[:cita])
+    @cita.estatus = 1
+    @cita.save
+    @evaluacion.cita_id = @cita.id
+    @evaluacion.tipo_evaluacion_id = 2
 
     respond_to do |format|
       if @evaluacion.save
@@ -101,7 +105,7 @@ class EvaluacionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluacion_params
-      params.require(:evaluacion).permit(:descripcion, :estatus, :tipo_evaluacion_id, calificaciones_attributes: [:id, :criterio_id, :descripcion])
+      params.require(:evaluacion).permit(:descripcion, :estatus, :tipo_evaluacion_id, calificaciones_attributes: [:id, :criterio_id, :descripcion, :tipo_calificacion_id])
     end
 
 end

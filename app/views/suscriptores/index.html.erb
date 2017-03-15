@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Suscriptores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Persona</th>
+      <th>Estatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @suscriptores.each do |suscriptor| %>
+      <tr>
+        <td><%= suscriptor.email %></td>
+        <td><%= suscriptor.persona %></td>
+        <td><%= suscriptor.estatus %></td>
+        <td><%= link_to 'Show', suscriptor %></td>
+        <td><%= link_to 'Edit', edit_suscriptor_path(suscriptor) %></td>
+        <td><%= link_to 'Destroy', suscriptor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Suscriptor', new_suscriptor_path %>

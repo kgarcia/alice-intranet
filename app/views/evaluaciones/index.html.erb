@@ -1,5 +1,5 @@
 <%= csrf_meta_tag %>
-<p id="notice"><%= notice %></p>
+
 <div class="ibox float-e-margins">
     <div class="ibox-title">
         <h2 class="parametros-titulo"><%= @parametros.new.class.titulo %></h2>
@@ -22,7 +22,7 @@
             <td><%= parametro.fecha.strftime("%d/%m/%Y %H:%M %p") %></td>
             <td><%= link_to parametro.persona.nombre + ' ' + parametro.persona.apellido, edit_polymorphic_url(parametro) %></td>
             <td>
-              <%= link_to '', 'new/'+parametro.id.to_s, :class => "btn btn-success btn-sm fa fa-check", :title => "Evaluar cita" %>
+              <%= link_to '',  'evaluar_cita/'+parametro.id.to_s, :class => "btn btn-success btn-sm fa fa-check", :title => "Evaluar cita" %>
             </td>
           </tr>
       <% end %>

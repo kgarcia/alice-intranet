@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313033916) do
+ActiveRecord::Schema.define(version: 20170315030326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -776,6 +776,15 @@ ActiveRecord::Schema.define(version: 20170313033916) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "suscriptores", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "persona_id"
+    t.integer  "estatus"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["persona_id"], name: "index_suscriptores_on_persona_id", using: :btree
+  end
+
   create_table "tipo_adicciones", force: :cascade do |t|
     t.string   "descripcion",             null: false
     t.integer  "estatus",     default: 1, null: false
@@ -1167,6 +1176,7 @@ ActiveRecord::Schema.define(version: 20170313033916) do
   add_foreign_key "servicios", "ubicaciones"
   add_foreign_key "sexo_perfiles", "perfiles"
   add_foreign_key "sexo_perfiles", "sexos"
+  add_foreign_key "suscriptores", "personas"
   add_foreign_key "tipo_servicio_eventos", "eventos"
   add_foreign_key "tipo_servicio_eventos", "tipo_servicios"
   add_foreign_key "tipo_servicios", "categorias"

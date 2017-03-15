@@ -11,7 +11,7 @@ class Usuario < ApplicationRecord
 
   before_create :set_default_rol
 
-  after_save :save_persona
+  before_save :save_persona
   # or 
   # before_validation :set_default_role 
 
@@ -29,7 +29,6 @@ class Usuario < ApplicationRecord
   private
    def save_persona
     self.persona = Persona.last
-    self.save
    end
 
 end

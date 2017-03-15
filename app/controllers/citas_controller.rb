@@ -154,7 +154,7 @@ class CitasController < ApplicationController
     end
 
     def persona_params
-      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id)
+      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id, :grupo_sanguineo_id, :estado_civil_id)
     end
   def eventualidad_params
     params.require(:eventualidad).permit(:descripcion, :estatus, :tipo_eventualidad_id, :motivo_id, :fecha_inicio, :fecha_fin)
