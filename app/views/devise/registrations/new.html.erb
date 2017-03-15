@@ -7,6 +7,9 @@
             <h3>Registro de Usuario</h3>
         
             <div class="m-t" >
+              <div class="col-md-6">
+                <%= render 'personas/datos_persona' %>
+              </div>
                 <div class="col-md-6">
                     <div class="row form-group"><label class="col-lg-2 control-label">Email</label>
 
@@ -31,11 +34,14 @@
                         <label class="col-lg-2">Rol</label>
                         <div class="col-lg-10"><%= f.collection_select(:rol_id, @roles, :id, :descripcion,{}, :class => "form-control" )%></div>
                     </div>
-                </div>
-                </div>
-                    <div class="col-md-6">
-                      <%= render 'personas/datos_persona' %>
+
+                    <div class="row form-group">
+                        <label class="col-lg-2">Servicio asociado</label>
+                        <div class="col-lg-10"><%= f.collection_select(:servicio_id, @servicios, :id, :descripcion,{:prompt => "Sin servicio asociado"}, {:class => "form-control"} )%></div>
                     </div>
+                </div>
+                </div>
+
                    <br><br><br> 
                 <div class="actions">
                   <%= f.submit t('.sign_up'), class: "btn btn-primary block full-width m-b" %>

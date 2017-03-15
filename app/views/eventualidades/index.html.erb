@@ -1,5 +1,5 @@
 <%= csrf_meta_tag %>
-<p id="notice"><%= notice %></p>
+
 <div class="ibox float-e-margins">
   <div class="ibox-title">
     <h2 class="parametros-titulo">Eventualidades</h2>
@@ -26,8 +26,8 @@
           <td><%= eventualidad.tipo.descripcion %></td>
           <td><%= eventualidad.motivo.descripcion%></td>
           <td><%= eventualidad.descripcion %></td>
-          <td><%= eventualidad.fecha_inicio.to_s %></td>
-          <td><%= eventualidad.fecha_fin %></td>
+          <td><%= eventualidad.fecha_inicio.strftime("%d/%m/%Y %H:%M %p") %></td>
+          <td><%= eventualidad.fecha_fin.strftime("%d/%m/%Y %H:%M %p") %></td>
         </tr>
     <% end %>
     </tbody>

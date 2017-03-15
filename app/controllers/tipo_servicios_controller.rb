@@ -8,7 +8,9 @@ class TipoServiciosController < ApplicationController
     if params[:slug].nil?
       @tipo_servicios = TipoServicio.where(:estatus => 1)
     else
+
       @categoria_id = Categoria.where(slug: params["slug"]).take.id
+
       @tipo_servicios = TipoServicio.where(categoria_id: @categoria_id, estatus: 1)
     end
 

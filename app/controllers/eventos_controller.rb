@@ -45,7 +45,7 @@ class EventosController < ApplicationController
     @collection = TipoEvento.where(:estatus => 1)
     @ubicaciones = Ubicacion.where(:estatus => 1)
     @referencia = :tipo_evento_id
-    @servicios = Servicio.where(:estatus => 1)
+    @tipoServicios = TipoServicio.where(:estatus => 1)
   end
 
   # POST /eventos

@@ -10,7 +10,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="field form-group">
-                  <h2 class="parametros-titulo form-group"> <%= "Cita # 000"+@cita.id.to_s %></h2>
+                  <h2 class="parametros-titulo form-group"> <%= "Cita #"+@cita.id.to_s %></h2>
                 </div>
               </div>
               
@@ -88,14 +88,14 @@
                   </div>
                   <br><br>
                   <div class="row">
-                   <div class="col-sm-4">
-                      <div class="field form-group">
-                          <div class="col-lg-6">Paciente:</div>
-                          <div class="col-lg-6">
-                            <%= label_tag(:paciente, @cita.persona.nombre+" "+@cita.persona.apellido, {}) %>
+                       <div class="col-sm-4">
+                          <div class="field form-group">
+                              <div class="col-lg-6">Paciente:</div>
+                              <div class="col-lg-6">
+                                <%= label_tag(:paciente, @cita.persona.nombre+" "+@cita.persona.apellido, {}) %>
+                              </div>
                           </div>
-                      </div>
-                    </div>
+                        </div>
                     <div class="col-sm-4">
                       <div class="field form-group">
                           <div class="col-lg-6">Cedula:</div>
@@ -116,6 +116,7 @@
                 </div>
 
                 <div id="diagnostico" class="tab-pane fade in">
+                <br><br>
                   <div class="row">
                     <div class="col-sm-2">
                       Diagnostico:
@@ -127,7 +128,25 @@
                 </div>
 
                 <div id="cancelacion" class="tab-pane fade in">
-
+                <br><br>
+                  <% if !@cita.eventualidad.nil? %>
+                    <div class="col-sm-6">
+                      <div class="field form-group">
+                          <div class="col-lg-6">Fecha de Cancelacion:</div>
+                          <div class="col-lg-6">
+                            <%= label_tag(:fecha_eventualidad, @cita.eventualidad.created_at, {}) %>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="field form-group">
+                          <div class="col-lg-6">Motivo:</div>
+                          <div class="col-lg-6">
+                            <%= label_tag(:motivo_cancelacion, @cita.eventualidad.motivo.descripcion, {}) %>
+                          </div>
+                      </div>
+                    </div>
+                  <% end %>
                 </div>
             </div>
             

@@ -5,7 +5,7 @@ class Cita < ApplicationRecord
   belongs_to :tipo_pago
   belongs_to :tipo_cita
   belongs_to :eventualidad
-  belongs_to :evaluacion
+  has_many :evaluacion
   has_many :horario, through: :turno
   has_many :servicio, through: :horarios
   has_many :ubicacion, through: :servicio

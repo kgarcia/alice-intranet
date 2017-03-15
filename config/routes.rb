@@ -1,5 +1,6 @@
 Myapp::Application.routes.draw do
 
+  resources :suscriptores
   resources :medio_difusiones
   resources :perfiles
   resources :tipo_especialidades
@@ -10,6 +11,10 @@ Myapp::Application.routes.draw do
   resources :parentescos
   resources :tipo_parentescos
   resources :tipo_difusiones
+
+  get 'perfil', to: 'usuarios#perfil'
+
+  post 'perfil', to: 'usuarios#actualizarPerfil'
 
   get 'disponibilidad', to: 'horarios#disponibilidad'
   
@@ -39,7 +44,7 @@ Myapp::Application.routes.draw do
   get 'finalizar_cita/:id', to: 'citas#finalizarCita'
   post 'finalizar_cita', to: 'citas#guardarFinalizarCita'
 
-  get 'evaluaciones/new/:id', to: 'evaluaciones#evaluarCita'
+  get 'evaluar_cita/:id', to: 'evaluaciones#evaluarCita', as: "evaluar_cita"
   resources :tipo_turnos
 
 

@@ -11,7 +11,6 @@
                   <% if @tipo_servicio.errors.any? %>
                     <div id="error_explanation">
                       <h2><%= pluralize(@tipo_servicio.errors.count, "error") %> prohibited this parametro from being saved:</h2>
-
                       <ul>
                       <% @tipo_servicio.errors.full_messages.each do |message| %>
                         <li><%= message %></li>

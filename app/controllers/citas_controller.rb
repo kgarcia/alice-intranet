@@ -71,7 +71,7 @@ class CitasController < ApplicationController
   end
 
   def historial
-    @histo = Cita.where({:persona_id => current_usuario.persona_id, :estatus => 1})
+    @histo = Cita.where({:persona_id => current_usuario.persona_id, :estatus => [4,5]})
   end
 
   def cancelarCita
@@ -161,7 +161,7 @@ class CitasController < ApplicationController
     end
 
     def persona_params
-      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id)
+      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id, :grupo_sanguineo_id, :estado_civil_id)
     end
   def eventualidad_params
     params.require(:eventualidad).permit(:descripcion, :estatus, :tipo_eventualidad_id, :motivo_id, :fecha_inicio, :fecha_fin)
