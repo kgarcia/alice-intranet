@@ -37,7 +37,7 @@
 
                     <div class="row form-group">
                         <label class="col-lg-2">Servicio asociado</label>
-                        <div class="col-lg-10"><%= f.collection_select(:servicio_id, @servicios, :id, :descripcion,{}, :class => "form-control" )%></div>
+                        <div class="col-lg-10"><%= f.collection_select(:servicio_id, @servicios, :id, :descripcion,{:prompt => "Sin servicio asociado"}, {:class => "form-control"} )%></div>
                     </div>
                 </div>
                 </div>

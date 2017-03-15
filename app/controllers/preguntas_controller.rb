@@ -23,6 +23,7 @@ class PreguntasController < ApplicationController
 
   # GET /preguntas/1/edit
   def edit
+    @tipoPreguntas = TipoPregunta.where(:estatus => 1)
   end
 
   # POST /preguntas
