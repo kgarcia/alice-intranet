@@ -5,7 +5,12 @@ class InformacionGeneralsController < ApplicationController
   # GET /informacion_generals.json
   def index
     @informacion_general = InformacionGeneral.find(1)
-    render 'edit'
+    
+    respond_to do |format|
+      format.html {  render "edit" }
+      format.json { render json: @informacion_general }
+    end
+    
   end
 
   # GET /informacion_generals/1

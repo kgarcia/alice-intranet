@@ -26,4 +26,6 @@ class UsuariosController < ApplicationController
   	def persona_params
       params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento,:sexo_id)
     end
+
+    
 end

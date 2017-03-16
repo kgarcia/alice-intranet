@@ -4,8 +4,13 @@ class Turno < ApplicationRecord
   belongs_to :tipo_turno, foreign_key:"tipo_turno_id"
   has_many :citas
 
-  def self.contarCitas
+  def self.contarCitasTurno
     @citas = Cita.joins(:turno).group(:tipo_turno_id,:dia_id).count
+  end
+
+  def self.contarCitas
+    @citas = Turno.joins(:citas).group("turnos.tipo_turno_id").count
+    return @citas
   end
   
 
@@ -78,7 +83,7 @@ class Turno < ApplicationRecord
                @fecha = DateTime.new(@d.year, @d.month, @d.day, hora.hour, hora.min)  
             #@fecha = (fecha_hora_inicio + hora.("%H:%M"))
             if !Cita.where(turno_id: self.id ,:fecha => fecha).exists?
-              @horas_cita.push(@fecha)
+              @horas_cita.push(hora: @fecha)
             end
 
           end

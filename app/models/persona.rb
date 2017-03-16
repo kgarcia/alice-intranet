@@ -4,6 +4,7 @@ class Persona < ApplicationRecord
   belongs_to :grupo_sanguineo
   has_one :usuario
   has_one :especialista
+  has_many :citas
 
   has_many :adiccion_personas
   has_many :adicciones, :through => :adiccion_personas

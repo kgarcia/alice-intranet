@@ -10,4 +10,8 @@ class Notificacion < ApplicationRecord
     self.tipo_notificacion
   end
 
+  def enlace
+  	return self.url
+  end
+
 end

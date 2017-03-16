@@ -9,7 +9,14 @@ class CitasController < ApplicationController
 
   # GET /citas/1
   # GET /citas/1.json
-  def show
+  def show 
+    @parametro = Cita.find(params[:id])
+    puts '##########################################'
+    puts @parametro.as_json
+    puts '##########################################'
+    respond_to do |format|
+      format.json { render json: @parametro.to_json }
+    end
   end
 
   # GET /citas/new

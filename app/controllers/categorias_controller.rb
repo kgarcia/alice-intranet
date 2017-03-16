@@ -20,7 +20,7 @@ class CategoriasController < ApplicationController
   # GET /categorias/1
   # GET /categorias/1.json
   def show
-    @parametro = Categoria.find(params[:id])
+    @parametro = Categoria.friendly.find(params[:id])
     puts '##########################################'
     puts @parametro.as_json
     puts '##########################################'
@@ -39,7 +39,7 @@ class CategoriasController < ApplicationController
 
   # GET /categorias/1/edit
   def edit
-    @parametro = Categoria.find(params[:id])
+    @parametro = Categoria.friendly.find(params[:id])
 
     render "parametros/edit"
   end
@@ -88,7 +88,7 @@ class CategoriasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_categoria
-      @categoria = Categoria.find(params[:id])
+      @categoria = Categoria.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

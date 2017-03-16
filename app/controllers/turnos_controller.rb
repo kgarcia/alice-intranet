@@ -72,7 +72,7 @@ class TurnosController < ApplicationController
   def update
     respond_to do |format|
       if @turno.update(turno_params)
-        format.html { redirect_to turnos_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to polymorphic_url(Horario.find(@turno.horario_id)), notice: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @turno }
       else
         format.html { render :edit }
