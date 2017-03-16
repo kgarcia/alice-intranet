@@ -23,4 +23,9 @@ class GraficoController < ApplicationController
   	@titulo = "Citas por Turno"
   	render "grafico/heat"
   end
+
+  def evaluaciones_por_paciente
+    @titulo = "Evaluaciones por paciente"
+    render "grafico/pie-basic"
+  end
 end

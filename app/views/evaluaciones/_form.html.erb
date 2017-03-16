@@ -37,47 +37,36 @@
                       </div>
                       <div class="col-lg-9">
                       <!--<input type="radio" name="prueba" onclick="calificar(2);" />-->
-                        <fieldset class="rating">
-                          <%= calificaciones_form.radio_button(:descripcion, "5", {:id => "radio5", :onclick => 'calificar(5);'}) %>
-                          <label title="Muy bueno">5 stars</label>
+                        <fieldset class="rating" >
+                          <%= calificaciones_form.radio_button(:descripcion, "5", :id =>  cal.criterio_id.to_s + '-5') %>
+                          <%= calificaciones_form.label "5", {:id => cal.criterio_id, :title => "Muy bueno", :onclick => "calificar(this.id, '5')"} %>
 
-                          <%= calificaciones_form.radio_button(:descripcion, "4") %>
-                          <label title="Bueno">4 stars</label>
+                          <%= calificaciones_form.radio_button(:descripcion, "4", :id => cal.criterio_id.to_s + '-4') %>
+                          <%= calificaciones_form.label "4", {:id => cal.criterio_id, :title => "Bueno", :onclick => "calificar(this.id, '4')"} %>
 
-                          <%= calificaciones_form.radio_button(:descripcion, "3", :checked => true) %>
-                          <label title="Normal">3 stars</label>
+                          <%= calificaciones_form.radio_button(:descripcion, "3", :id => cal.criterio_id.to_s + '-3') %>
+                          <%= calificaciones_form.label "3", {:id => cal.criterio_id, :title => "Normal", :onclick => "calificar(this.id, '3')"} %>
 
-                          <%= calificaciones_form.radio_button(:descripcion, "2") %>
-                          <label title="Mal">2 stars</label>
+                          <%= calificaciones_form.radio_button(:descripcion, "2", :id => cal.criterio_id.to_s + '-2') %>
+                          <%= calificaciones_form.label "2", {:id => cal.criterio_id, :title => "Mal", :onclick => "calificar(this.id, '2')"} %>
 
-                          <%= calificaciones_form.radio_button(:descripcion, "1") %>
-                          <label title="Muy mal">1 stars</label>
+                          <%= calificaciones_form.radio_button(:descripcion, "1", :id => cal.criterio_id.to_s + '-1') %>
+                          <%= calificaciones_form.label "1", {:id => cal.criterio_id, :title => "Muy mal", :onclick => "calificar(this.id, '1')"} %>
                       </fieldset>
 
+
                     </div>
-                    <style type="text/css">
-                      .rating{float:left}.rating:not(:checked) > input{position:absolute;top:-9999px;clip:rect(0,0,0,0)}.rating:not(:checked) > label{float:right;width:1.2em;padding:0 .1em;overflow:hidden;white-space:nowrap;cursor:pointer;font-size:200%;line-height:1.2;color:#ddd;text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5)}.rating:not(:checked) > label:before{content:'★ '}.rating > input:checked ~ label{color:#f70;text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5)}.rating:not(:checked) > label:hover,.rating:not(:checked) > label:hover ~ label{color:gold;text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5)}.rating > input:checked + label:hover,.rating > input:checked + label:hover ~ label,.rating > input:checked ~ label:hover,.rating > input:checked ~ label:hover ~ label,.rating > label:hover ~ input:checked ~ label{color:#ea0;text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5)}.rating > label:active{position:relative;top:2px;left:2px}
-                    </style>
-                    <script type="text/javascript">
-                      function calificar(i) {
-                        var array = [1, 2, 3, 4, 5];
-                        for (var j in array) { 
-                          alert(array[j]);
-                          if (i === array[j]) {
-                            alert("radio" + i);
-                            document.getElementById("radio" + i).checked = true;
-                          } else {
-                            alert('falso');
-                            alert("radio" + i);
-                            document.getElementById("radio" + i).checked = true;
-                            document.getElementById("radio1").checked = false;
-                            document.getElementById("radio3").checked = false;
-                            document.getElementById("radio4").checked = false;
-                            document.getElementById("radio5").checked = false;
-                          }
-                        }
+                    <script type="text/javascript">                       
+                      function calificar(id, pos) {
+                        console.log("Comenzando ejecucion...");
+                        console.log(id + '-' + pos);
+                        $( "#" + id + '-' + pos ).prop( "checked", true );
                       }
                     </script>
+                    <style type="text/css">
+                      .rating{float:left}.rating:not(:checked) > input{position:absolute;top:-9999px;clip:rect(0, 0, 0, 0)}.rating:not(:checked) > label{float:right;width:1.2em;padding:0 .1em;overflow:hidden;white-space:nowrap;cursor:pointer;font-size:200%;line-height:1.2;color:#ddd;text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0, 0, 0, .5)}.rating:not(:checked) > label:before{content:'★ '}.rating > input:checked ~ label{color:#f70;text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0, 0, 0, .5)}.rating:not(:checked) > label:hover,.rating:not(:checked) > label:hover ~ label{color:gold;text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0, 0, 0, .5)}.rating > input:checked + label:hover,.rating > input:checked + label:hover ~ label,.rating > input:checked ~ label:hover,.rating > input:checked ~ label:hover ~ label,.rating > label:hover ~ input:checked ~ label{color:#ea0;text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0, 0, 0, .5)}.rating > label:active{position:relative;top:2px;left:2px}
+                    </style>
+                    
                     </div>
 
                   <% end %>
