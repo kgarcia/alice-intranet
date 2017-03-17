@@ -46,6 +46,7 @@ class GraficoController < ApplicationController
 
   def evaluaciones_por_paciente
     @titulo = "Evaluaciones por paciente"
+    @especialidades = Especialidad.all
     render "grafico/pie-basic"
   end
 end

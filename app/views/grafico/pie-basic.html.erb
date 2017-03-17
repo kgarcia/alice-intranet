@@ -1,126 +1,135 @@
+<%= csrf_meta_tag %>
+<br>
 <div class="row">   
    <div class="col-lg-12">
       <div class="ibox float-e-margins">
           <div class="ibox-title">
-              <h2 class="parametros-titulo"><%= "Evaluaciones por paciente" %></h2>
+              <h2 class="parametros-titulo"><%= "Evaluaciones de los pacientes" %></h2>
           </div>
       </div>
-      <div class="container-fluid">
-      		<div class="col-sm-12" style="margin-left: 140px;">
-	      		<div id="container-1" style="height: 500px; width: 700px;"></div>
-	      	</div>
-	      	<script type="text/javascript">
-				Highcharts.chart('container-1', {
-				    chart: {
-				        plotBackgroundColor: null,
-				        plotBorderWidth: null,
-				        plotShadow: false,
-				        type: 'pie'
-				    },
-				    title: {
-				        text: 'Citas de Cardiologia'
-				    },
-				    tooltip: {
-				        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-				    },
-				    plotOptions: {
-				        pie: {
-				            allowPointSelect: true,
-				            cursor: 'pointer',
-				            dataLabels: {
-				                enabled: true,
-				                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-				                style: {
-				                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-				                }
-				            }
-				        }
-				    },
-				    series: [{
-				        name: 'Brands',
-				        colorByPoint: true,
-				        data: [{
-				            name: 'Microsoft Internet Explorer',
-				            y: 56.33
-				        }, {
-				            name: 'Chrome',
-				            y: 24.03,
-				            sliced: true,
-				            selected: true
-				        }, {
-				            name: 'Firefox',
-				            y: 10.38
-				        }, {
-				            name: 'Safari',
-				            y: 4.77
-				        }, {
-				            name: 'Opera',
-				            y: 0.91
-				        }, {
-				            name: 'Proprietary or Undetectable',
-				            y: 0.2
-				        }]
-				    }]
-				});
-			</script>
+        <div class="ibox-content" style="padding-bottom: 15px">
+	      <div class="container-fluid">	      		
+	      		<div class="col-sm-12">
+		      		<div class="col-sm-4">
+		      			<label class="col-sm-12" style="padding: 0px">Especialidades:</label>
+		      			<%= collection_select(:especialidad_ids, :especialidad_ids, 
+	              			@especialidades, :id, :descripcion, {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
+		      		</div>	      		
+		      		<div class="col-sm-4">
+		      			<label class="col-sm-12" style="padding: 0px">Turnos:</label>
+		      			<%= collection_select(:turno_ids, :turno_ids, 
+	              			TipoTurno.all, :id, :descripcion, {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
+		      		</div>
+		      		<div class="col-sm-4">
+		      			<label class="col-sm-12" style="padding: 0px">Criterios:</label>
+		      			<%= collection_select(:criterio_ids, :criterio_ids, 
+	              			Criterio.all, :id, :descripcion, {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
+		      		</div>		      		
+	      		</div>
+	      		<div class="col-sm-12" style="margin-top: 15px">
+	      			<div class="col-sm-4">
+	      				<label style="margin-right: 10px">Desde</label>
+						<%= select_date Date.today, prefix: :start_date %>
+		      		</div>
+		      		<div class="col-sm-4">
+		      			<label style="margin-right: 10px">Hasta</label>
+						<%= select_date Date.today, prefix: :start_date %>
+		      		</div>
+		      		<div>
+		      			<%= link_to 'Generar', '', :class => "btn btn-success btn-sm" %>
+		      		</div>
+	      		</div>
+	      		<div class="col-sm-12" style="margin-left: 140px;">
+		      		<div id="container-1" style="height: 500px; width: 700px;"></div>
+		      	</div>
+		      	<script type="text/javascript">
+					Highcharts.chart('container-1', {
+					    chart: {
+					        plotBackgroundColor: null,
+					        plotBorderWidth: null,
+					        plotShadow: false,
+					        type: 'pie'
+					    },
+					    title: {
+					        text: 'Citas de Cardiologia'
+					    },
+					    tooltip: {
+					        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+					    },
+					    plotOptions: {
+					        pie: {
+					            allowPointSelect: true,
+					            cursor: 'pointer',
+					            dataLabels: {
+					                enabled: true,
+					                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+					                style: {
+					                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+					                }
+					            }
+					        }
+					    },
+					    series: [{
+					        name: 'Brands',
+					        colorByPoint: true,
+					        data: [{
+					            name: 'Microsoft Internet Explorer',
+					            y: 56.33
+					        }, {
+					            name: 'Chrome',
+					            y: 24.03,
+					            sliced: true,
+					            selected: true
+					        }, {
+					            name: 'Firefox',
+					            y: 10.38
+					        }, {
+					            name: 'Safari',
+					            y: 4.77
+					        }, {
+					            name: 'Opera',
+					            y: 0.91
+					        }, {
+					            name: 'Proprietary or Undetectable',
+					            y: 0.2
+					        }]
+					    }]
+					});
+				</script>
 
-			<div class="col-sm-12" style="margin-left: 140px; margin-top: 15px">
-	      		<div id="container-2" style="height: 500px; width: 700px;"></div>
+				<div class="col-sm-12" style="margin-top: 15px">
+		      		<table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+					    <thead>
+					      <tr>
+					        <th data-sorted="true">Descripción</th>
+					        <th colspan="1"></th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <% @especialidades.each do |parametro| %>
+					        <tr>
+					          <td><%= link_to parametro.descripcion, edit_polymorphic_url(parametro) %></td>
+					          <td>
+					            
+					          </td>
+					        </tr>
+					      <% end %>
+					    </tbody>
+					    <tfoot>
+					        <tr>
+					            <td colspan="5">
+					                <ul class="pagination pull-right"></ul>
+					            </td>
+					        </tr>
+					    </tfoot>
+	  				</table>
+		      	</div>	      	
 	      	</div>
-	      	<script type="text/javascript">
-				Highcharts.chart('container-2', {
-				    chart: {
-				        plotBackgroundColor: null,
-				        plotBorderWidth: null,
-				        plotShadow: false,
-				        type: 'pie'
-				    },
-				    title: {
-				        text: 'Citas de Traumatologia'
-				    },
-				    tooltip: {
-				        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-				    },
-				    plotOptions: {
-				        pie: {
-				            allowPointSelect: true,
-				            cursor: 'pointer',
-				            dataLabels: {
-				                enabled: true,
-				                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-				                style: {
-				                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-				                }
-				            }
-				        }
-				    },
-				    series: [{
-				        name: 'Brands',
-				        colorByPoint: true,
-				        data: [{
-				            name: 'Microsoft Internet Explorer',
-				            y: 56.33
-				        }, {
-				            name: 'Chrome',
-				            y: 24.03,
-				            sliced: true,
-				            selected: true
-				        }, {
-				            name: 'Firefox',
-				            y: 10.38
-				        }, {
-				            name: 'Safari',
-				            y: 4.77
-				        }, {
-				            name: 'Opera',
-				            y: 0.91
-				        }, {
-				            name: 'Proprietary or Undetectable',
-				            y: 0.2
-				        }]
-				    }]
-				});
-			</script>			
-      </div>
-  </div>
+	  	</div>
+	  </div>
+    <script type="text/javascript">
+		$(document).ready(function(){
+			$('.table').footable();
+		});
+	</script>
 </div>
