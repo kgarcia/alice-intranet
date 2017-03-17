@@ -28,6 +28,8 @@ Myapp::Application.routes.draw do
 
   get 'grafico/citas_por_turno'
 
+  get 'grafico/evaluaciones_por_paciente'
+
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
   get 'historial_cita', to: 'citas#historial'
