@@ -15,6 +15,7 @@ class CitasController < ApplicationController
     puts @parametro.as_json
     puts '##########################################'
     respond_to do |format|
+      format.html
       format.json { render json: @parametro.to_json }
     end
   end

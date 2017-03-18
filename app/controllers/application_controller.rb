@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   #skip_before_action :verify_authenticity_token
  #protect_from_forgery with: :exception
   #protect_from_forgery with: :null_session
-  protect_from_forgery with: :null_session, if: ->{request.format.json?}
+  #protect_from_forgery with: :null_session, if: ->{request.format.json?}
 
  # before_action :koala
 
