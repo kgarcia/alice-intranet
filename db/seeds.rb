@@ -540,7 +540,7 @@
      CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(7), estatus: 1)
      CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(7), estatus: 1)
 
-
+     puts 'seed'
 
 
 
