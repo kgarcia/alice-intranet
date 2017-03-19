@@ -1,0 +1,2 @@
+class HisEspecialista < ApplicationRecord
+end

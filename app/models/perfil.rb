@@ -1,35 +1,35 @@
 class Perfil < ApplicationRecord
 
-  has_many :adiccion_perfiles
-  has_many :adicciones, :through => :adiccion_perfiles
-  has_many :cirugia_perfiles
-  has_many :cirugias, through: :cirugia_perfiles
-  has_many :profesion_perfiles
-  has_many :profesiones, through: :profesion_perfiles
-  has_many :discapacidad_perfiles
-  has_many :discapacidades, through: :discapacidad_perfiles
-  has_many :estado_civil_perfiles
-  has_many :estado_civiles, through: :estado_civil_perfiles
-  has_many :grupo_sanguineo_perfiles
-  has_many :grupo_sanguineos, through: :grupo_sanguineo_perfiles
-  has_many :habito_perfiles
-  has_many :habitos, through: :habito_perfiles
-  has_many :lesion_perfiles
-  has_many :lesiones, through: :lesion_perfiles
-  has_many :ocupacion_perfiles
-  has_many :ocupaciones, through: :ocupacion_perfiles
-  has_many :patologia_perfiles
-  has_many :patologias, through: :patologia_perfiles
-  has_many :profesion_perfiles
-  has_many :profesiones, through: :profesion_perfiles
-  has_many :sexo_perfiles
-  has_many :sexos, through: :sexo_perfiles
-  has_many :perfil_vacunas
-  has_many :vacunas, through: :perfil_vacunas
-  has_many :rango_edad_perfiles
-  has_many :rango_edades, through: :rango_edad_perfiles
-  has_many :rango_peso_perfiles
-  has_many :rango_pesos, through: :rango_peso_perfiles
+  has_many :adiccion_perfiles, dependent: :destroy
+  has_many :adicciones, :through => :adiccion_perfiles, dependent: :destroy
+  has_many :cirugia_perfiles, dependent: :destroy
+  has_many :cirugias, through: :cirugia_perfiles, dependent: :destroy
+  has_many :profesion_perfiles, dependent: :destroy
+  has_many :profesiones, through: :profesion_perfiles, dependent: :destroy
+  has_many :discapacidad_perfiles, dependent: :destroy
+  has_many :discapacidades, through: :discapacidad_perfiles, dependent: :destroy
+  has_many :estado_civil_perfiles, dependent: :destroy
+  has_many :estado_civiles, through: :estado_civil_perfiles, dependent: :destroy
+  has_many :grupo_sanguineo_perfiles, dependent: :destroy
+  has_many :grupo_sanguineos, through: :grupo_sanguineo_perfiles, dependent: :destroy
+  has_many :habito_perfiles, dependent: :destroy
+  has_many :habitos, through: :habito_perfiles, dependent: :destroy
+  has_many :lesion_perfiles, dependent: :destroy
+  has_many :lesiones, through: :lesion_perfiles, dependent: :destroy
+  has_many :ocupacion_perfiles, dependent: :destroy
+  has_many :ocupaciones, through: :ocupacion_perfiles, dependent: :destroy
+  has_many :patologia_perfiles, dependent: :destroy
+  has_many :patologias, through: :patologia_perfiles, dependent: :destroy
+  has_many :profesion_perfiles, dependent: :destroy
+  has_many :profesiones, through: :profesion_perfiles, dependent: :destroy
+  has_many :sexo_perfiles, dependent: :destroy
+  has_many :sexos, through: :sexo_perfiles, dependent: :destroy
+  has_many :perfil_vacunas, dependent: :destroy
+  has_many :vacunas, through: :perfil_vacunas, dependent: :destroy
+  has_many :rango_edad_perfiles, dependent: :destroy
+  has_many :rango_edades, through: :rango_edad_perfiles, dependent: :destroy
+  has_many :rango_peso_perfiles, dependent: :destroy
+  has_many :rango_pesos, through: :rango_peso_perfiles, dependent: :destroy
 
   after_save :save_adicciones, :save_cirugias, :save_discapacidades, :save_estado_civiles, :save_grupo_sanguineos,
                 :save_habitos, :save_lesiones, :save_ocupaciones, :save_patologias, :save_profesiones, :save_vacunas,

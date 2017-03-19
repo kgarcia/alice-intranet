@@ -3,8 +3,8 @@ class Especialista < ApplicationRecord
   belongs_to :formacion_academica
   belongs_to :persona
 
-  has_many :especialidad_especialistas
-  has_many :especialidades, through: :especialidad_especialistas
+  has_many :especialidad_especialistas, dependent: :destroy
+  has_many :especialidades, through: :especialidad_especialistas, dependent: :destroy
 
   after_save :save_especialidades
 

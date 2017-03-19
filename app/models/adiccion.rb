@@ -1,9 +1,9 @@
 class Adiccion < ApplicationRecord
   belongs_to :tipo_adiccion
-  has_many :adiccion_perfiles
-  has_many :perfiles, through: :adiccion_perfiles
-  has_many :adiccion_personas
-  has_many :personas, through: :adiccion_personas 
+  has_many :adiccion_perfiles, dependent: :destroy
+  has_many :perfiles, through: :adiccion_perfiles, dependent: :destroy
+  has_many :adiccion_personas, dependent: :destroy
+  has_many :personas, through: :adiccion_personas, dependent: :destroy
 
   def tipo
   	return self.tipo_adiccion

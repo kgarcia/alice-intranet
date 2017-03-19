@@ -1,5 +1,5 @@
 class TipoEvento < ApplicationRecord
-	has_many :eventos
+	has_many :eventos, dependent: :destroy
 
 
   extend FriendlyId

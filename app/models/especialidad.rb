@@ -1,9 +1,9 @@
 class Especialidad < ApplicationRecord
-  has_many :tipo_servicios
+  has_many :tipo_servicios, dependent: :destroy
   belongs_to :tipo_especialidad
 
-  has_many :especialidad_especialistas
-  has_many :especialistas, through: :especialidad_especialistas
+  has_many :especialidad_especialistas, dependent: :destroy
+  has_many :especialistas, through: :especialidad_especialistas, dependent: :destroy
 
   def self.titulo
 	  return "Especialidad"

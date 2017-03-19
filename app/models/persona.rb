@@ -4,30 +4,30 @@ class Persona < ApplicationRecord
   belongs_to :grupo_sanguineo
   has_one :usuario
   has_one :especialista
-  has_many :citas
+  has_many :citas, dependent: :destroy
 
-  has_many :adiccion_personas
-  has_many :adicciones, :through => :adiccion_personas
-  has_many :cirugia_personas
-  has_many :cirugias, through: :cirugia_personas
-  has_many :profesion_personas
-  has_many :profesiones, through: :profesion_personas
-  has_many :patologia_personas
-  has_many :patologias, through: :patologia_personas
-  has_many :discapacidad_personas
-  has_many :discapacidades, through: :discapacidad_personas
-  has_many :habito_personas
-  has_many :habitos, through: :habito_personas
-  has_many :lesion_personas
-  has_many :lesiones, through: :lesion_personas
-  has_many :ocupacion_personas
-  has_many :ocupaciones, through: :ocupacion_personas
-  has_many :patologia_personas
-  has_many :patologias, through: :patologia_personas
-  has_many :persona_profesiones
-  has_many :profesiones, through: :persona_profesiones
-  has_many :persona_vacunas
-  has_many :vacunas, through: :persona_vacunas
+  has_many :adiccion_personas, dependent: :destroy
+  has_many :adicciones, :through => :adiccion_personas, dependent: :destroy
+  has_many :cirugia_personas, dependent: :destroy
+  has_many :cirugias, through: :cirugia_personas, dependent: :destroy
+  has_many :profesion_personas, dependent: :destroy
+  has_many :profesiones, through: :profesion_personas, dependent: :destroy
+  has_many :patologia_personas, dependent: :destroy
+  has_many :patologias, through: :patologia_personas, dependent: :destroy
+  has_many :discapacidad_personas, dependent: :destroy
+  has_many :discapacidades, through: :discapacidad_personas, dependent: :destroy
+  has_many :habito_personas, dependent: :destroy
+  has_many :habitos, through: :habito_personas, dependent: :destroy
+  has_many :lesion_personas, dependent: :destroy
+  has_many :lesiones, through: :lesion_personas, dependent: :destroy
+  has_many :ocupacion_personas, dependent: :destroy
+  has_many :ocupaciones, through: :ocupacion_personas, dependent: :destroy
+  has_many :patologia_personas, dependent: :destroy
+  has_many :patologias, through: :patologia_personas, dependent: :destroy
+  has_many :persona_profesiones, dependent: :destroy
+  has_many :profesiones, through: :persona_profesiones, dependent: :destroy
+  has_many :persona_vacunas, dependent: :destroy
+  has_many :vacunas, through: :persona_vacunas, dependent: :destroy
 
   after_save :save_adicciones, :save_cirugias, :save_discapacidades, :save_habitos, :save_lesiones, :save_ocupaciones, :save_patologias, :save_profesiones, :save_vacunas
 

@@ -1,8 +1,8 @@
 class Evento < ApplicationRecord
   belongs_to :tipo_evento
   belongs_to :ubicacion
-  has_many :tipo_servicio_evento
-  has_many :tipo_servicios, through: :tipo_servicio_evento
+  has_many :tipo_servicio_evento, dependent: :destroy
+  has_many :tipo_servicios, through: :tipo_servicio_evento, dependent: :destroy
 
 
   has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
