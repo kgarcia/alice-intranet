@@ -22,7 +22,7 @@ class AgendaServicioController < ApplicationController
               :title => "#{cita.persona.nombre} #{cita.persona.apellido}",
               :start => cita.fecha,
               :cedula_persona => cita.persona.cedula,
-              :tipo_cita => cita.tipo_cita.descripcion,
+              #:tipo_cita => cita.tipo_cita.descripcion,
               :eventualidad => (cita.eventualidad.nil?) ? 'Sin eventualidad.' : cita.eventualidad.descripcion,
               :color => (cita.estatus == 5) ? 'red' : 'green',
               :tipo => 'cita'

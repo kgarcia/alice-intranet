@@ -34,6 +34,7 @@
 //= require highcharts/modules/heatmap
 //= require toastr
 //= require rating.min.js
+//= require jasny/jasny-bootstrap.min.js
 
 $.extend(true, $.fn.dataTable.defaults, {
     "language": {"url": "/js/datatables/Spanish.json"}
