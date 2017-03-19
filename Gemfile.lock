@@ -60,6 +60,8 @@ GEM
     bootstrap (4.0.0.alpha6)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    bootstrap-daterangepicker-rails (0.1.5)
+      railties (>= 4.0, < 5.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -84,7 +86,7 @@ GEM
     concurrent-ruby (1.0.5)
     debug_inspector (0.0.2)
     descriptive_statistics (2.4.0)
-    devise (4.2.0)
+    devise (4.2.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.1)
@@ -130,7 +132,7 @@ GEM
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
     json (1.8.6)
-    koala (3.0.0.rc2)
+    koala (3.0.0)
       addressable
       faraday
       json (>= 1.8)
@@ -233,7 +235,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.7)
+    uglifier (3.1.8)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -252,6 +254,7 @@ PLATFORMS
 DEPENDENCIES
   ajax-datatables-rails
   bootstrap (~> 4.0.0.alpha6)
+  bootstrap-daterangepicker-rails
   bootstrap-sass (~> 3.3.7)
   bootstrap3-datetimepicker-rails (~> 4.14.30)
   byebug

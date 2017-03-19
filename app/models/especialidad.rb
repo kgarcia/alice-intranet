@@ -35,7 +35,9 @@ class Especialidad < ApplicationRecord
   end
 
   def self.contarCitas
-    @citas = Especialidad.joins(tipo_servicios: { servicios: { horarios: { turnos: :citas } } } ).group("especialidades.descripcion").count
-    return @citas
+    @citas = Especialidad.joins(tipo_servicios: { servicios: { horarios: { turnos: :citas } } } ).group("especialidades.descripcion")
+    @citas = @citas.where('tipo_servicios.id' => 4)
+    @citas.where('turnos.tipo_turno_id' => 2)
+    return @citas.count
   end
 end

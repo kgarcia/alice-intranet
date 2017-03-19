@@ -1,5 +1,13 @@
 Myapp::Application.routes.draw do
 
+  get 'grafico/citas_solicitadas'
+
+  post 'grafico/citas_solicitadas', to: 'grafico#generar_citas_solicitadas'
+
+  get '/difusiones/update_entidades', to: 'difusiones#update_entidades'
+
+  get '/grafico/update_entidades', to: 'grafico#update_entidades'
+
   resources :suscriptores
   resources :medio_difusiones
   resources :perfiles
@@ -11,6 +19,8 @@ Myapp::Application.routes.draw do
   resources :parentescos
   resources :tipo_parentescos
   resources :tipo_difusiones
+
+
 
   get 'perfil', to: 'usuarios#perfil'
 

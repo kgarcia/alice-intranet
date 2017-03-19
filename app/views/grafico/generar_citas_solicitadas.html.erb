@@ -1,0 +1,130 @@
+<div class="row">   
+   <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+          <div class="ibox-title">
+              <h2 class="parametros-titulo"><%= "Reportes Estadisticos" %></h2>
+          </div>
+      </div>
+      <div class="ibox-content row">
+      	  <h2>Especialidades</h2>
+      	  <div class="container col-sm-6">
+			  <table class="table table-hover">
+			    <tbody>
+			      <tr>
+			        <td><strong>Cantidad de Especialidades</strong></td>
+			        <td><%= @especialidades.number %></td>
+			      </tr>
+			      <tr>
+			        <td><strong>Total de citas registradas</strong></td>
+			        <td><%= @especialidades.sum %></td>
+			      </tr>
+			      <tr>
+			        <td><strong>Promedio de citas por cada especialidad</strong></td>
+			        <td><%= @especialidades.mean %></td>
+			      </tr>
+			    </tbody>
+			  </table>
+			</div>
+			<div class="container col-sm-6">
+			  <table class="table table-hover">
+			    <tbody>
+				      <tr>
+				        <td><strong>Especialidad con mayor cantidad de citas</strong></td>
+				        <td><%= @especialidades.min[0] %>: <%= @especialidades.min[1] %></td>
+				      </tr>
+				      <tr>
+				        <td><strong>Especialdad con menor cantidad de citas</strong></td>
+				        <td><%= @especialidades.max[0] %>: <%= @especialidades.max[1] %></td>
+				      </tr>  
+				      <tr>
+				        <td><strong>Diferencia entre la especialidad con mas citas y la menor</strong></td>
+				        <td><%= @especialidades.range %></td>
+				      </tr>     
+			    </tbody>
+			  </table>
+			</div>
+		  <div id="citas-especialidad" width="500px" height="300px"></div>
+      </div>
+
+
+
+
+  </div>
+</div>
+
+<script type="text/javascript">
+	Highcharts.chart('citas-especialidad', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Efectividad de las Citas'
+        },
+        xAxis: {
+            categories: [
+                <% @especialidades.each do |especialidad|%>
+                    '<%= especialidad[0] %>',
+                <% end %>
+            ]
+        },
+        yAxis: [{
+            min: 0,
+            title: {
+                text: 'Employees'
+            }
+        }, {
+            title: {
+                text: 'Profit (millions)'
+            },
+            opposite: true
+        }],
+        legend: {
+            shadow: false
+        },
+        tooltip: {
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Employees',
+            color: 'rgba(165,170,217,1)',
+            data: [150, 73, 20],
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+        }, {
+            name: 'Employees Optimized',
+            color: 'rgba(126,86,134,.9)',
+            data: [140, 90, 40],
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+        }, {
+            name: 'Profit',
+            color: 'rgba(248,161,63,1)',
+            data: [183.6, 178.8, 198.5],
+            tooltip: {
+                valuePrefix: '$',
+                valueSuffix: ' M'
+            },
+            pointPadding: 0.3,
+            pointPlacement: 0.2,
+            yAxis: 1
+        }, {
+            name: 'Profit Optimized',
+            color: 'rgba(186,60,61,.9)',
+            data: [203.6, 198.8, 208.5],
+            tooltip: {
+                valuePrefix: '$',
+                valueSuffix: ' M'
+            },
+            pointPadding: 0.4,
+            pointPlacement: 0.2,
+            yAxis: 1
+        }]
+    });
+</script>

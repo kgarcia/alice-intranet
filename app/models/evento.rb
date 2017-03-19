@@ -8,11 +8,12 @@ class Evento < ApplicationRecord
   has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
 
+
   after_save :save_tipo_servicios
+  before_save :save_foto_64
 
   extend FriendlyId
   friendly_id :descripcion, use: :slugged
-
 
   attr_reader :tipoServicioEvento
 
@@ -59,6 +60,10 @@ class Evento < ApplicationRecord
       #@tipo_servicio = self
       
 
+    end
+
+    def save_foto_64  
+      self.contenido = Base64.encode64(File.open self.foto_url) 
     end
 
    private
