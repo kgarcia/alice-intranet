@@ -16,10 +16,12 @@ class Eventualidad < ApplicationRecord
   def cancelar_citas
     @citas = Cita.where(:fecha => self.fecha_inicio..self.fecha_fin)
     @citas.each do |cita|
+      @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: @cita.estatus, estatus_nuevo: 5, cita:@cita)
       cita.estatus = 5 #Con estatus 5 se cancelaran las citas
       cita.eventualidad_id = self.id
       @notificacion = Notificacion.create(descripcion:"Hola", mensaje: "Su cita ha sido cancelado. Disculpe las molestias ocasionadas", url:"google.com" )
       cita.save
+      @historialCita.save
       ExampleMailer.cita_cancelada.deliver_now#(cita.persona.email, @cita)
     end
   end
