@@ -68,7 +68,7 @@
                       <td><%= turno.cantidad_pacientes %>  </td>
                     <%end%>
               <td><%= link_to 'Editar', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm" %>
-                <%= link_to 'Eliminar', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
+                <%= link_to 'Cerrar', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
               </tr>
               <% end %>
             </tbody>
@@ -124,7 +124,7 @@
                     <%end%>
        
               <td><%= link_to 'Editar', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm" %>
-                <%= link_to 'Eliminar', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
+                <%= link_to 'Cerrar', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
               </tr>
               <% end %>
             </tbody>
