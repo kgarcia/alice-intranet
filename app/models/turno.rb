@@ -85,7 +85,7 @@ class Turno < ApplicationRecord
             #construir datetime a partir de la hora y la fecha que venga por parametro
                @fecha = DateTime.new(@d.year, @d.month, @d.day, hora.hour, hora.min)  
             #@fecha = (fecha_hora_inicio + hora.("%H:%M"))
-            if !Cita.where(turno_id: self.id ,:fecha => fecha).exists?
+            if !Cita.where(turno_id: self.id ,:fecha => fecha,:estatus => 1).exists?
               @horas_cita.push(hora: @fecha)
             end
 
@@ -99,6 +99,35 @@ class Turno < ApplicationRecord
       return (self.cantidad_pacientes - @citas.size)
   end
  end
- 
+ def disponibilidad_horas_eventualidad(fecha)  #fecha que entra
+   #falta el parametro que entra
+   #fecha_hora_inicio = "2017-03-06s*" #fecha exacta de 1 cita para prueba
+   #fecha_hora_inicio.to_date
+   #tipo eventualidad =! de 1 chequear fecha exacta
+      puts "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"  
 
+   @d = fecha
+   puts "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"  
+   puts @d
+   #d = Date.new(2017,03 ,06) 
+   @horas_cita = Array.new 
+   puts "arreglo"
+   puts self.arreglo_horario_citas
+         self.arreglo_horario_citas.each do |hora|
+            #construir datetime a partir de la hora y la fecha que venga por parametro
+            puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"  
+            puts hora
+            puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            @fecha = DateTime.new(@d.year, @d.month, @d.day, hora.hour, hora.min)
+            #@fecha = @fecha.strftime '%Y-%m-%d %H:%M:%S'
+            #@fecha = (fecha_hora_inicio + hora.("%H:%M"))
+            if ((!Cita.where(turno_id: self.id ,:fecha => @fecha,:estatus => 1).exists?)) 
+            if ( !(Eventualidad.where('fecha_inicio <=?', @fecha).where('fecha_fin >=?',@fecha)).exists?)
+                @horas_cita.push(hora: @fecha) 
+            end
+
+          end
+  end
+
+end
 end

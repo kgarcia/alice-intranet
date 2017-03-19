@@ -17,7 +17,7 @@ class HorariosController < ApplicationController
   end
 
 def disponibilidad
-    d = Date.new(2017,03,06) 
+    d = Date.new(2017,03,13) 
     @fecha = DateTime.new(d.year, d.month, d.day)
   
     @horario = Horario.where(servicio_id: 1).take

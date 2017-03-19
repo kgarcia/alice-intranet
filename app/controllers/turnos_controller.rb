@@ -66,17 +66,6 @@ class TurnosController < ApplicationController
  
     end
   end
-  def cerrar_turno
-    respond_to do |format|
-      if @turno.update(turno_params)
-        format.html { redirect_to polymorphic_url(Horario.find(@turno.horario_id)), notice: 'El registro ha sido actualizado exitosamente.' }
-        format.json { render :show, status: :ok, location: @turno }
-      else
-        format.html { render :edit }
-        format.json { render json: @turno.errors, status: :unprocessable_entity }
-      end
-    end
-  end
  
   # PATCH/PUT /turnos/1
   # PATCH/PUT /turnos/1.json
