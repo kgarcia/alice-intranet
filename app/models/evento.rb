@@ -10,7 +10,6 @@ class Evento < ApplicationRecord
 
 
   after_save :save_tipo_servicios
-  before_save :save_foto_64
 
   extend FriendlyId
   friendly_id :descripcion, use: :slugged
@@ -60,10 +59,6 @@ class Evento < ApplicationRecord
       #@tipo_servicio = self
       
 
-    end
-
-    def save_foto_64  
-      self.contenido = Base64.encode64(File.open self.foto_url) 
     end
 
    private
