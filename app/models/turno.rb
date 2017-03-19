@@ -1,4 +1,5 @@
 class Turno < ApplicationRecord
+
   belongs_to :dia, foreign_key:"dia_id"
   belongs_to :horario, foreign_key:"horario_id"
   belongs_to :tipo_turno, foreign_key:"tipo_turno_id"
@@ -13,7 +14,9 @@ class Turno < ApplicationRecord
     return @citas
   end
   
-
+  def dia_descripcion
+    puts self.dia.descripcion
+  end
 
   def cantidad_horas
 	(((self.hora_fin).to_time-(self.hora_inicio).to_time )/60).round
@@ -70,32 +73,43 @@ class Turno < ApplicationRecord
     end
   end
 
-  def disponibilidad_horas(fecha)  #fecha que entra
-   #falta el parametro que entra
-   #fecha_hora_inicio = "2017-03-06s*" #fecha exacta de 1 cita para prueba
-   #fecha_hora_inicio.to_date
-   #tipo eventualidad =! de 1 chequear fecha exacta
-   @d = fecha
-   #d = Date.new(2017,03 ,06) 
+  def disponibilidad_horas(fecha)  
+   @d = fecha 
    @horas_cita = Array.new 
          self.arreglo_horario_citas.each do |hora|
-            #construir datetime a partir de la hora y la fecha que venga por parametro
                @fecha = DateTime.new(@d.year, @d.month, @d.day, hora.hour, hora.min)  
-            #@fecha = (fecha_hora_inicio + hora.("%H:%M"))
-            if !Cita.where(turno_id: self.id ,:fecha => fecha).exists?
+            if !Cita.where(turno_id: self.id ,:fecha => @fecha,:estatus => 1).exists?
               @horas_cita.push(hora: @fecha)
             end
-
+            
           end
           return @horas_cita
     end
 
- def citas_disponibles_turno(fecha1)
-  if(Horario.find(self.horario_id).tipo_horario_id ==1)#tipo 1 es cantidad de pacientes 
-    @citas = Cita.where(turno_id: self.id , fecha: fecha1)
-      return (self.cantidad_pacientes - @citas.size)
-  end
- end
+     def citas_disponibles_turno(fecha1)
+      if(Horario.find(self.horario_id).tipo_horario_id ==1)#tipo 1 es cantidad de pacientes 
+        @citas = Cita.where(turno_id: self.id , fecha: fecha1)
+          return (self.cantidad_pacientes - @citas.size)
+      end
+     end
+
  
+ def disponibilidad_horas_eventualidad(fecha)  #metodo que se usa
+   @d = fecha
+   @horas_cita = Array.new 
+   puts self.arreglo_horario_citas
+         self.arreglo_horario_citas.each do |hora|
+              @fecha = DateTime.new(@d.year, @d.month, @d.day, hora.hour, hora.min)
+              if ((!Cita.where(turno_id: self.id ,:fecha => @fecha,:estatus => 1).exists?)) 
+                if ( !(Eventualidad.where('fecha_inicio <=?', @fecha).where('fecha_fin >=?',@fecha).where('tipo_eventualidad_id =?',3)).exists?)
+                  @horas_cita.push(hora: @fecha) 
+                end
+
+              end
+         end
+          return @horas_cita
+
+end
+
 
 end
