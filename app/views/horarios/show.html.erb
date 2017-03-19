@@ -1,4 +1,3 @@
-      <p id="notice"><%= notice %></p>
       <div class="ibox-content">
         <p>
           <strong>Servicio :</strong>
@@ -68,7 +67,9 @@
                       <td><%= turno.cantidad_pacientes %>  </td>
                     <%end%>
               <td><%= link_to 'Editar', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm" %>
-                <%= link_to 'Cerrar', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
+               
+
+                  <%= link_to 'Cerrar', '/cerrar_turno/'+turno.id.to_s, :class => "btn btn-danger btn-sm " %>
               </tr>
               <% end %>
             </tbody>
@@ -124,7 +125,7 @@
                     <%end%>
        
               <td><%= link_to 'Editar', edit_polymorphic_url(turno), :class => "btn btn-warning btn-sm" %>
-                <%= link_to 'Cerrar', polymorphic_url(@horario), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
+                        <%= link_to 'Cerrar', '/cerrar_turno/'+turno.id.to_s, :class => "btn btn-danger btn-sm " %></td>
               </tr>
               <% end %>
             </tbody>
