@@ -26,7 +26,7 @@
           <td><%= rango_edad.edad_final %></td>
           <td>
             <%= link_to 'Editar', edit_polymorphic_url(rango_edad), :class => "btn btn-warning btn-sm" %>
-            <%= link_to 'Eliminar', polymorphic_url(rango_edad), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %>
+            <%= link_to 'Eliminar', polymorphic_url(rango_edad), :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el rango de edades?' } , :class => "btn btn-danger btn-sm" %>
           </td>
         </tr>
       <% end %>
