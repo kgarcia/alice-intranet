@@ -56,8 +56,10 @@ class EvaluacionesController < ApplicationController
     @evaluacion.descripcion = "Evaluacion de la cita #" + @evaluacion.cita_id.to_s
 
     @cita = Cita.find_by_id(params[:cita])
-    @cita.estatus = 1
+    @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: 3, estatus_nuevo: 4, cita:@cita)
+    @cita.estatus = 4
     @cita.save
+    @historialCita.save
     @evaluacion.cita_id = @cita.id
     @evaluacion.tipo_evaluacion_id = 2
 

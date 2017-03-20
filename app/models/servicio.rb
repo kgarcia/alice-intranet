@@ -66,6 +66,20 @@ class Servicio < ApplicationRecord
       
 
     end
+
+    def self.contarCitas
+      @citas = Servicio.joins( horarios: { turnos: :citas } ).group("servicios.descripcion").count
+      return @citas
+    end
+
+    def contarCitas(estatus_nuevo, fecha_inicio, fecha_fin)
+        @citas = Cita.joins(:historial_citas, turno: { horario: :servicio }).where( "horarios.servicio_id" => self.id ).where('citas.fecha' => fecha_inicio..fecha_fin)
+        if estatus_nuevo != nil
+           @citas = @citas.where("historial_citas.estatus_nuevo" =>  estatus_nuevo) 
+        end
+        return @citas.count
+      end
+
 private
 def save_horario_turnos
 

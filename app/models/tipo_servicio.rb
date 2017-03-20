@@ -140,6 +140,14 @@ class TipoServicio < ApplicationRecord
       return @citas
     end
 
+    def contarCitas(estatus_nuevo, fecha_inicio, fecha_fin)
+      @citas = Cita.joins(:historial_citas, turno: { horario: {servicio: :tipo_servicio } }).where( "tipo_servicios.id"=> self.id ).where('citas.fecha' => fecha_inicio..fecha_fin)
+      if estatus_nuevo != nil
+         @citas = @citas.where("historial_citas.estatus_nuevo" =>  estatus_nuevo) 
+      end
+      return @citas.count
+    end
+
     
 
 

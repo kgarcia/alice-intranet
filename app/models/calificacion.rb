@@ -54,4 +54,5 @@ class Calificacion < ApplicationRecord
     return @calificaciones.count
   end
 
+
 end
