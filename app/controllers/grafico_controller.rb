@@ -73,4 +73,9 @@ class GraficoController < ApplicationController
     render "grafico/calificaciones_por_criterio"
   end
 
+  def reporte_tipo_servicios
+    @especialidades = Especialidad.all
+    render "grafico/reporte-tipo-servicio"
+  end
+
 end
