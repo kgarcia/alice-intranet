@@ -1,6 +1,9 @@
 class Categoria < ApplicationRecord
 	has_many :tipo_servicios
 	has_many :servicios, through: :tipo_servicios
+	has_many :criterios_tipo_servicios, through: :servicios
+	has_many :criterios, through: :criterios_tipo_servicios
+	has_many :tipo_criterio, through: :criterios
 	has_many :especialistas, through: :servicios
 	has_many :especialidad_especialistas, through: :especialistas
   	has_many :especialidades, through: :especialidad_especialistas
@@ -18,15 +21,7 @@ class Categoria < ApplicationRecord
 	end
 
  def as_json(options={})
-    super(include: { tipo_servicios: 
-    					{ include:  {servicios: 
- {:include => { :especialista => {include: [:persona,:especialidades]}, :horarios => {:include => :turnos} , :ubicacion => {}}} 
-
-
-    									
-									} 
-    					} 
-    				})
+    super(include: { tipo_servicios: { :include => {:criterios => {:include => :tipo_criterio}, :servicios => {:include => { :especialista => {include: [:persona,:especialidades]}, :horarios => {:include => :turnos}, :ubicacion => {}}}}}})
   end
 end
 #:include => [:posts, :roles]

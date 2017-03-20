@@ -211,10 +211,14 @@ class Horario < ApplicationRecord
  
                   @fecha_nueva = (@fecha_nueva + 1.day)
              
+                  
+
+                @fecha_nueva = @fecha_nueva + 1.day
               end
         
 
           end
+         
             @disponibilidad_total.push(manana: @disponibilidad_mañana)
             @disponibilidad_total.push(tarde: @disponibilidad_tarde)
             

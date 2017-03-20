@@ -100,7 +100,7 @@ Myapp::Application.routes.draw do
     
   end
 
-  
+  get 'login_movil', to: 'usuarios#login_movil'
 
   root to: 'usuarios/sessions#new'
 

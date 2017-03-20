@@ -5,9 +5,9 @@ class NotificacionesController < ApplicationController
   # GET /notificaciones.json
   def index
     if params[:usuario_id].nil?
-    @parametros = Notificacion.where(:estatus => 1)
+    @parametros = Notificacion.where(:estatus => 1).or(Notificacion.where(:estatus => 2))
     else
-      @parametros = Notificacion.where(usuario_id: params[:usuario_id], :estatus => 1)
+      @parametros = Notificacion.where(usuario_id: params[:usuario_id], :estatus => 1).or(Notificacion.where(usuario_id: params[:usuario_id], :estatus => 2))
     end        
     respond_to do |format|
       format.html {  render "parametros_select/index" }
@@ -60,8 +60,12 @@ class NotificacionesController < ApplicationController
   # PATCH/PUT /notificaciones/1
   # PATCH/PUT /notificaciones/1.json
   def update
+    @notificacion = Notificacion.find(params[:id])
+    #@descripcion = params[:descripcion]
+    #@estatus = 2
+
     respond_to do |format|
-      if @notificacion.update(notificacion_params)
+      if @notificacion.update(estatus: 2)
         format.html { redirect_to action:"index", notice: 'Notificacion was successfully updated.' }
         format.json { render :show, status: :ok, location: @notificacion }
       else

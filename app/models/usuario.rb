@@ -15,6 +15,12 @@ class Usuario < ApplicationRecord
   # or 
   # before_validation :set_default_role 
 
+
+  def as_json(options={})
+    super(include:  :persona)
+  end 
+
+
   private
   def set_default_rol
   	#raise params.yml

@@ -17,16 +17,16 @@ class HorariosController < ApplicationController
   end
 
 def disponibilidad
-    d = Date.new(2017,03,13) 
+    d = params[:fecha].to_date #Date.new(2017,03,06) 
     @fecha = DateTime.new(d.year, d.month, d.day)
   
-    @horario = Horario.where(servicio_id: 1).take
+    @horario = Horario.where(servicio_id: params[:servicio_id]).take
     @horario.disponibilidad_cantidad_tiempo(@fecha)#params[:fecha1])
     respond_to do |format|
         format.html {  render "horarios/disponibilidad" }
         format.json { render json: {diponibles: @horario.disponibilidad_cantidad_tiempo(@fecha)}}#params[:fecha1])
            
-    end 
+    end
 end
 
   def cerrar_turno

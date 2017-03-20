@@ -9,6 +9,17 @@ class UsuariosController < ApplicationController
   		@sexos = Sexo.where(:estatus => 1)
   	end
 
+    def login_movil
+      @usuario = Usuario.find_by_email(params[:email])
+       respond_to do |format|
+          if @usuario.valid_password?(params[:password])
+              format.json {render json: @usuario}
+          else
+              format.json {render json: @usuario.errors, status: :unprocessable_entity }
+          end
+        end
+    end
+
   	def actualizarPerfil
   		@usuario = Usuario.find(params[:usuario_id])
   		@persona = @usuario.persona
