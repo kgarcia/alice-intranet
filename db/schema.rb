@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315030326) do
+ActiveRecord::Schema.define(version: 20170319044855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,13 +116,11 @@ ActiveRecord::Schema.define(version: 20170315030326) do
     t.integer  "tipo_pago_id"
     t.integer  "eventualidad_id"
     t.integer  "estatus",         default: 1, null: false
-    t.integer  "tipo_cita_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.text     "diagnostico"
     t.index ["eventualidad_id"], name: "index_citas_on_eventualidad_id", using: :btree
     t.index ["persona_id"], name: "index_citas_on_persona_id", using: :btree
-    t.index ["tipo_cita_id"], name: "index_citas_on_tipo_cita_id", using: :btree
     t.index ["tipo_pago_id"], name: "index_citas_on_tipo_pago_id", using: :btree
     t.index ["turno_id"], name: "index_citas_on_turno_id", using: :btree
     t.index ["usuario_id"], name: "index_citas_on_usuario_id", using: :btree
@@ -381,6 +379,16 @@ ActiveRecord::Schema.define(version: 20170315030326) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.index ["tipo_habito_id"], name: "index_habitos_on_tipo_habito_id", using: :btree
+  end
+
+  create_table "historial_citas", force: :cascade do |t|
+    t.integer  "estatus_nuevo",    null: false
+    t.integer  "estatus_anterior", null: false
+    t.datetime "fecha",            null: false
+    t.integer  "cita_id",          null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["cita_id"], name: "index_historial_citas_on_cita_id", using: :btree
   end
 
   create_table "horarios", force: :cascade do |t|
@@ -1098,7 +1106,6 @@ ActiveRecord::Schema.define(version: 20170315030326) do
   add_foreign_key "cirugias", "tipo_cirugias"
   add_foreign_key "citas", "eventualidades"
   add_foreign_key "citas", "personas"
-  add_foreign_key "citas", "tipo_citas"
   add_foreign_key "citas", "tipo_pagos"
   add_foreign_key "citas", "turnos"
   add_foreign_key "citas", "usuarios"
@@ -1137,6 +1144,7 @@ ActiveRecord::Schema.define(version: 20170315030326) do
   add_foreign_key "habito_personas", "habitos"
   add_foreign_key "habito_personas", "personas"
   add_foreign_key "habitos", "tipo_habitos"
+  add_foreign_key "historial_citas", "citas"
   add_foreign_key "horarios", "servicios"
   add_foreign_key "horarios", "tipo_horarios"
   add_foreign_key "lesion_perfiles", "lesiones"

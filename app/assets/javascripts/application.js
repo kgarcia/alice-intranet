@@ -26,6 +26,7 @@
 //= require fullcalendar
 //= require fullcalendar/lang/es
 //= require bootstrap-datetimepicker
+//= require daterangepicker/daterangepicker
 
 //= require tinymce
 

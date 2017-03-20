@@ -1,0 +1,84 @@
+<%= csrf_meta_tag %>
+<br>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h2 class="parametros-titulo"><%= "Reporte de calificaciones por criterios" %></h2>
+            </div>
+        </div>
+        <%= form_tag({controller: "grafico", action: "generar_citas_evaluadas"}, method: "post") do %>
+        <div class="ibox-content" style="padding-bottom: 15px">
+            <div class="container-fluid">
+                <div class="col-sm-12">
+                    <div class="col-sm-4">
+                        <label class="col-sm-12" style="padding: 0px">Especialidades:</label>
+                        <%= collection_select( :id, :especialidad, @especialidades, :id,
+                        :descripcion, {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
+                        <%= hidden_field_tag :especialidad_id, :especialidad_id %>
+                        <script>
+                            $(function () {
+                                $(document).on('change', '#id_especialidad', function () {
+                                    var select_value = $(this).val();
+                                    $('#especialidad_id').val(select_value);
+                                });
+                            });
+                        </script>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="col-sm-12" style="padding: 0px">Turnos:</label>
+                        <%= collection_select(:id, :tipo_turno, TipoTurno.all, :id, :descripcion,
+                          {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
+                        <%= hidden_field_tag :tipo_turno_id, :tipo_turno_id %>
+                        <script>
+                            $(function () {
+                                $(document).on('change', '#id_tipo_turno', function () {
+                                    var select_value = $(this).val();
+                                    $('#tipo_turno_id').val(select_value);
+                                });
+                            });
+                        </script>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="col-sm-12" style="padding: 0px">Criterio:</label>
+                        <%= collection_select(:id, :criterio, Criterio.all, :id, :descripcion,
+                        {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
+                        <%= hidden_field_tag :criterio_id, :criterio_id %>
+                        <script>
+                            $(function () {
+                                $(document).on('change', '#id_criterio', function () {
+                                    var select_value = $(this).val();
+                                    $('#criterio_id').val(select_value);
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <div class="field form-group row">
+                  <label class="col-lg-2 control-label">Rango de Fechas:</label>
+                  <div class="col-lg-10">
+                    <%= text_field_tag "fecha","" ,:class => "daterange form-control" %>
+                  </div>
+                  
+                </div>
+                    
+                <div class="col-sm-12" style="margin-top: 15px">
+                    <div>
+                        <%= submit_tag "Generar", method: "generar_citas_evaluadas", :class => "btn btn-sm btn-primary" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#fecha').daterangepicker({
+    "locale": {
+      "format": "DD-MM-YYYY"
+    }
+  });
+});
+</script>
