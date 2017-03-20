@@ -2,79 +2,363 @@
 <div class="row">   
   <div class="col-lg-10 col-lg-offset-1">
    <div class="ibox float-e-margins">
-              <div class="ibox-title">
-               <h2 class="parametros-titulo"><%= "Turno" %></h2>
-              </div>
-          </div>    
+      <div class="ibox-title">
+        <h2 class="parametros-titulo"><%= "Turno" %></h2>
+      </div>
+    </div>    
     <div class="ibox-content">
 
-      <%= form_for @turno, :html => {:class => 'form-horizontal'}  do |f| %>
-      <% if @turno.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(turno.errors.count, "error") %> prohibited this turno from being saved:</h2>
-
-        <ul>
-          <% turno.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
+    <%= form_for @turno, :html => {:class => 'form-horizontal', :id => 'form_turno'}, :form_to_validate => 'turno'  do |f| %>
+     <div class="form-group">
+        <label class="col-lg-3 control-label">Dias</label>           
+        <div class="col-lg-8"> 
+          <%= f.collection_select(@referencia, @dias, :id, :descripcion,{},:class =>"form-control",:disabled=>true)%>             
+        </div>
       </div>
-      <% end %>
-            <div class="form-group"><label class="col-lg-3 control-label">Tipo Turno</label>           
+    <div class="form-group"><label class="col-lg-3 control-label">Tipo Turno</label>           
           <div class="col-lg-8"> 
             <%= f.collection_select(@referencia_tipo, @collection_tipo_turno, :id, :descripcion,{},:class =>"form-control",:disabled=>true)%>             </div>
       </div>
-
-      <div class="form-group"><label class="col-lg-3 control-label">Hora Inicio</label>           
-          <div class="col-lg-8"><%= f.text_field :hora_inicio, :class => "form-control" %></div>
+      <div class="form-group">
+        <label class="col-lg-3 control-label">Hora Inicio</label>    
+        <div class="col-lg-8">
+          <%= f.text_field :hora_inicio, :required => true , :class => "form-control", value: :hora_inicio %>
+        </div>
       </div>
-     <div class="form-group"><label class="col-lg-3 control-label">Hora Fin</label>           
-          <div class="col-lg-8"><%= f.text_field :hora_fin, :class => "form-control" %></div>
+      <div class="form-group">
+        <label class="col-lg-3 control-label">Hora Fin</label>           
+        <div class="col-lg-8">
+          <%= f.text_field :hora_fin, :required => true , :class => "form-control" %>
+        </div>
       </div>
-     
-     
-      <div class="field form-group"><label class="col-lg-3 control-label">Servicio</label>
-                    <div class="col-lg-8"><%= f.collection_select(@referencia, @horarios, :id, :id,{}, :class =>"form-control",:disabled=>true) %></div>
-      </div>
-      <div class="form-group"><label class="col-lg-3 control-label">Dias</label>           
-          <div class="col-lg-8"> 
-            <%= f.collection_select(@referencia, @dias, :id, :descripcion,{},:class =>"form-control",:disabled=>true)%>             </div>
-      </div>
-        <% if @turno.horario.tipo_horario_id== 1%>
-        <div class="field form-group"><label class="col-lg-3 control-label">Cantidad de pacientes</label>
-      <div class="col-lg-8"><%= f.text_field :cantidad_pacientes, :class => "form-control" %></div>
-      </div>
+      <% if @turno.horario.tipo_horario_id== 1%>
+        <div class="field form-group">
+          <label class="col-lg-3 control-label">Cantidad de pacientes</label>
+          <div class="col-lg-8">
+            <%= f.number_field :cantidad_pacientes, :class => "form-control" %>
+          </div>
+        </div>
         <%else%>
-
       <% end %>
-      
-          
-                <div class="form-group">
-                      <div class="col-lg-offset-3 col-lg-2">
-                           <%= f.submit "Guardar", :class => "btn btn-primary" %>
-                      </div>
-                      <div class="col-lg-2">
-                      <%= link_to 'Atras',turnos_path, :class => "btn btn-sm btn-success" %>                          
-                      </div>
-                  </div>
-        <% end %>
+      <div class="form-group">
+        <div class="col-lg-offset-3 col-lg-2">
+          <%= f.submit "Guardar", :class => "btn btn-primary" %>
+        </div>
+        <div class="col-lg-2">
+      <%= link_to 'Atras',@horario_show, :class => "btn btn-sm btn-success" %>        </div>
+      </div>
+    <% end %>
 
     </div>
   </div>
 </div>
 
 <script type="text/javascript">
-            $(function () {
-                $('#turno_hora_inicio').datetimepicker({
-                    format: 'LT',
-                     format :'hh:mm a'  
+  
+  $(function () {
+    $('#turno_hora_inicio').datetimepicker({
+      format :'hh:mm A'
+    });
+    var fecha = '<%= @turno.hora_inicio.strftime("%I:%M %p") %>';
+    $('#turno_hora_inicio').datetimepicker('setDate', fecha );
+    $('#turno_hora_inicio').datetimepicker('update' );
+    $('#turno_hora_inicio').val(fecha);
+  });
 
-                });
-            });
-               $(function () {
-                $('#turno_hora_fin').datetimepicker({
-                    format: 'LT',
-                    format:'hh:mm a'
-                });
-            });
-        </script>
+   $(function () {
+    
+    var dia = '<%= @turno.dia_id %>';
+    $('#turno_horario_id').val(dia);
+
+  });
+
+  $(function () {
+    $('#turno_hora_fin').datetimepicker({
+      format:'hh:mm A'
+    });
+      var fecha = '<%= @turno.hora_fin.strftime("%I:%M %p") %>';
+      $('#turno_hora_fin').datetimepicker('setDate', fecha );
+      $('#turno_hora_fin').datetimepicker('update' );
+      $('#turno_hora_fin').val(fecha);
+  });
+  var isAfterStartDate = function(startDateStr, endDateStr) {
+            
+    var int_star = 0;
+    var int_end = 0;
+
+    if (startDateStr.search("PM") > 0){
+      startDateStr = startDateStr.replace("PM", "").replace(":","");
+      
+      if ((parseInt(startDateStr) >= 1201) && (parseInt(startDateStr) <= 1259)){
+        int_star = parseInt(startDateStr);
+      }
+      else{
+
+        int_star = parseInt(startDateStr) + 1200;  
+      }
+    }
+    else{
+      startDateStr = startDateStr.replace("AM", "").replace(":","");
+      
+      if ((parseInt(startDateStr) >= 1200) && (parseInt(startDateStr) <= 1259)){
+        int_star = parseInt(startDateStr) - 1200;
+      }
+      else{
+        int_star = parseInt(startDateStr);  
+      }
+    }
+
+    if (endDateStr.search("PM") > 0){
+      endDateStr = endDateStr.replace("PM", "").replace(":","");
+      
+      if ((parseInt(endDateStr) >= 1201) && (parseInt(endDateStr) <= 1259)){
+        int_end = parseInt(endDateStr);
+      }
+      else{
+
+        int_end = parseInt(endDateStr) + 1200;  
+      }
+      
+    }
+    else{
+      endDateStr = endDateStr.replace("AM", "").replace(":","");
+      
+      if ((parseInt(endDateStr) >= 1200) && (parseInt(endDateStr) <= 1259)){
+        int_end = parseInt(endDateStr) - 1200;
+      }
+      else{
+        int_end = parseInt(endDateStr);  
+      }
+    }
+    
+    if(int_star > int_end) {
+      return false;
+    }
+    else{
+      return true;
+    }
+
+  };
+  var isValidateDiaTarde = function(time) {
+  
+    var int_star = 0;
+
+    if (time.search("PM") > 0){
+      time = time.replace("PM", "").replace(":","");
+      
+      if ((parseInt(time) >= 1200) && (parseInt(time) <= 1259)){
+        int_star = parseInt(time);
+      }
+      else{
+
+        int_star = parseInt(time) + 1200;  
+      }
+    }
+    else{
+      time = time.replace("AM", "").replace(":","");
+      
+      if ((parseInt(time) >= 1200) && (parseInt(time) <= 1259)){
+        int_star = parseInt(time) - 1200;
+      }
+      else{
+        int_star = parseInt(time);  
+      }
+    }
+
+    if ($('#turno_tipo_turno_id').val() == 1){
+      
+      if(int_star > 1200){
+        return false;
+      }
+      else{
+        return true;
+      }
+    } 
+    else{
+      
+      if(int_star < 1200){
+        return false;
+      }
+      else{
+        return true;
+      }
+    }   
+  };
+    var cantidad_valida = function(inicio, fin, cantidad) {
+
+        var int_star = 0;
+        var int_end = 0;
+
+        if (inicio.search("PM") > 0){
+          inicio = inicio.replace("PM", "").replace(":","");
+          
+          if ((parseInt(inicio) >= 1201) && (parseInt(inicio) <= 1259)){
+            int_star = parseInt(inicio);
+          }
+          else{
+
+            int_star = parseInt(inicio) + 1200;  
+          }
+        }
+        else{
+          inicio = inicio.replace("AM", "").replace(":","");
+          
+          if ((parseInt(inicio) >= 1200) && (parseInt(inicio) <= 1259)){
+            int_star = parseInt(inicio) - 1200;
+          }
+          else{
+            int_star = parseInt(inicio);  
+          }
+        }
+
+        if (fin.search("PM") > 0){
+          fin = fin.replace("PM", "").replace(":","");
+          
+          if ((parseInt(fin) >= 1201) && (parseInt(fin) <= 1259)){
+            int_end = parseInt(fin);
+          }
+          else{
+
+            int_end = parseInt(fin) + 1200;  
+          }
+          
+        }
+        else{
+          fin = fin.replace("AM", "").replace(":","");
+          
+          if ((parseInt(fin) >= 1200) && (parseInt(fin) <= 1259)){
+            int_end = parseInt(fin) - 1200;
+          }
+          else{
+            int_end = parseInt(fin);  
+          }
+        }
+          if(int_star == int_end){
+            return true;
+          }
+          else{
+           if((cantidad == 0) || (cantidad < 0)){
+              return false;
+            }
+            else
+            {
+              return true;
+            }
+          }
+    };
+
+    var cantidad_turno = function(inicio, fin, cantidad) {
+
+        var int_star = 0;
+        var int_end = 0;
+
+        if (inicio.search("PM") > 0){
+          inicio = inicio.replace("PM", "").replace(":","");
+          
+          if ((parseInt(inicio) >= 1201) && (parseInt(inicio) <= 1259)){
+            int_star = parseInt(inicio);
+          }
+          else{
+
+            int_star = parseInt(inicio) + 1200;  
+          }
+        }
+        else{
+          inicio = inicio.replace("AM", "").replace(":","");
+          
+          if ((parseInt(inicio) >= 1200) && (parseInt(inicio) <= 1259)){
+            int_star = parseInt(inicio) - 1200;
+          }
+          else{
+            int_star = parseInt(inicio);  
+          }
+        }
+
+        if (fin.search("PM") > 0){
+          fin = fin.replace("PM", "").replace(":","");
+          
+          if ((parseInt(fin) >= 1201) && (parseInt(fin) <= 1259)){
+            int_end = parseInt(fin);
+          }
+          else{
+
+            int_end = parseInt(fin) + 1200;  
+          }
+          
+        }
+        else{
+          fin = fin.replace("AM", "").replace(":","");
+          
+          if ((parseInt(fin) >= 1200) && (parseInt(fin) <= 1259)){
+            int_end = parseInt(fin) - 1200;
+          }
+          else{
+            int_end = parseInt(fin);  
+          }
+        }
+          if(int_star == int_end){
+
+            if(cantidad == 0){
+              return true;
+            }
+            else
+            {
+              return false;
+            }
+          }
+          else{
+            return true;
+          }
+    };
+
+    function validacion_cantidad(inicio, fin, int_star, int_end) {
+      
+    }
+
+  jQuery.validator.addMethod("cantidad_valida", function(value, element) {
+
+        return cantidad_valida($('#turno_hora_inicio').val(),$('#turno_hora_fin').val(), value);
+    }, "Cantidad de pacientes no válida");
+
+  jQuery.validator.addMethod("cantidad_turno", function(value, element) {
+
+        return cantidad_turno($('#turno_hora_inicio').val(),$('#turno_hora_fin').val(), value);
+    }, "Turno Cerrado no puede indicar una cantidad");
+
+  jQuery.validator.addMethod("isAfterStartDate", function(value, element) {
+
+        return isAfterStartDate($('#turno_hora_inicio').val(), value);
+    }, "Hora de Inicio mayor a hora Final");
+
+  jQuery.validator.addMethod("isValidateDiaTarde", function(value, element) {
+
+        return isValidateDiaTarde(value);
+    }, "Hora no corresponde al Turno");
+
+  $('#form_turno').validate({
+    rules: {
+      'turno[hora_inicio]': { required: true,
+                              isValidateDiaTarde: true
+                            },
+      'turno[hora_fin]' :{  required: true,
+                            isAfterStartDate: true,
+                            isValidateDiaTarde: true
+                          },
+      'turno[cantidad_pacientes]':{
+                            required: true,
+                            cantidad_valida: true,
+                            cantidad_turno: true
+      },
+    invalidHandler: function(event, validator) {
+        // 'this' refers to the form
+        var errors = validator.numberOfInvalids();
+        if (errors) {
+          var message = errors == 1
+            ? 'You missed 1 field. It has been highlighted'
+            : 'You missed ' + errors + ' fields. They have been highlighted';
+          toastr.error(message, "Advertencia de  Validación: ");
+         } 
+      }
+    }
+  });
+ </script>

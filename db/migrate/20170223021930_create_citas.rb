@@ -8,6 +8,7 @@ class CreateCitas < ActiveRecord::Migration[5.0]
       t.references :tipo_pago, foreign_key: true, :null => true
       t.references :eventualidad, foreign_key: true, :null => true
       t.integer :estatus, :null => false, :default => 1
+      t.references :tipo_cita, foreign_key: true, :null => true
 
       t.timestamps
     end

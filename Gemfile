@@ -54,6 +54,7 @@ gem 'devise'
 #Jonnathan base de datos backup
 gem 'dumper', '~> 1.6'
 
+gem 'jquery-validation-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

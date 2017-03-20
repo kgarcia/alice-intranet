@@ -38,7 +38,7 @@ class TipoCitasController < ApplicationController
   # POST /tipo_citas.json
   def create
     @tipo_cita = TipoCita.new(tipo_cita_params)
-
+    @tipo_cita.estatus = 1
     respond_to do |format|
       if @tipo_cita.save
         format.html { redirect_to edit_tipo_cita_path(@tipo_cita), notice: 'Tipo cita was successfully created.' }
