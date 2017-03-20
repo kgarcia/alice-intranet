@@ -11,11 +11,12 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery2.js
+//= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
-//= require_tree .
 //= require footable/footable.min.js
 
 //= require datapicker/bootstrap-datepicker.js
@@ -34,6 +35,8 @@
 //= require highcharts/modules/heatmap
 //= require toastr
 //= require rating.min.js
+//= require turbolinks
+//= require_tree .
 
 $.extend(true, $.fn.dataTable.defaults, {
     "language": {"url": "/js/datatables/Spanish.json"}
