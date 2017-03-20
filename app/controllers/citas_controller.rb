@@ -72,7 +72,7 @@ class CitasController < ApplicationController
   end
 
   def historial
-    @histo = Cita.where({:persona_id => current_usuario.persona_id, :estatus => [4,5]})
+    @histo = Cita.where({:persona_id => current_usuario.persona_id, :estatus => [3,4,5]})
   end
 
   def cancelarCita
@@ -88,6 +88,7 @@ class CitasController < ApplicationController
 
   def confirmarCancelacion
     @cita = Cita.find(params[:cita_id])
+    @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: @cita.estatus, estatus_nuevo: 5, cita:@cita)
     @cita.estatus = 5
     @eventualidad = Eventualidad.new(eventualidad_params)
     @eventualidad.tipo_eventualidad_id = 1
@@ -96,6 +97,7 @@ class CitasController < ApplicationController
     @eventualidad.save
     @cita.eventualidad_id = @eventualidad.id
     @cita.save
+    @historialCita.save
     redirect_to citas_url
   end
 
@@ -117,6 +119,8 @@ class CitasController < ApplicationController
     @persona.update(persona_params)
     @cita.estatus = 2
     @cita.save
+    @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: 1, estatus_nuevo: 2, cita:@cita)
+    @historialCita.save
     redirect_to "/chequear_cita"
   end
 
@@ -147,6 +151,8 @@ class CitasController < ApplicationController
     @persona.update(persona_params)
     @cita.estatus = 3
     @cita.save
+    @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: 2, estatus_nuevo: 3, cita:@cita)
+    @historialCita.save
     redirect_to "/finalizar_cita"
   end
 

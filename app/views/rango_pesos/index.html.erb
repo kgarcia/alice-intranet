@@ -26,7 +26,7 @@
           <td><%= rango_peso.peso_final %></td>
           <td>
             <%= link_to 'Editar', edit_polymorphic_url(rango_peso), :class => "btn btn-warning btn-sm" %>
-            <%= link_to 'Eliminar', polymorphic_url(rango_peso), :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm"%>
+            <%= link_to 'Eliminar', polymorphic_url(rango_peso), :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el rango de pesos?' } , :class => "btn btn-danger btn-sm"%>
           </td>
         </tr>
       <% end %>

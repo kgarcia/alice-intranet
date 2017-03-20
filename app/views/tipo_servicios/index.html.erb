@@ -28,7 +28,7 @@
             <td><%= link_to tipoServicio.descripcion, edit_tipo_servicio_path(tipoServicio) %></td>
             <td>
               <%= link_to 'Editar', edit_tipo_servicio_path(tipoServicio), :class => "btn btn-warning btn-sm " %>
-              <%= link_to 'Eliminar', tipoServicio, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm " %></td>
+              <%= link_to 'Eliminar', tipoServicio, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el tipo de servicio?' } , :class => "btn btn-danger btn-sm " %></td>
           </tr>
       <% end %>
     </tbody>

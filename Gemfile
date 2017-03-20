@@ -88,6 +88,8 @@ gem 'devise-i18n'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'fullcalendar-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+gem 'bootstrap-daterangepicker-rails'
+
 
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
