@@ -28,7 +28,7 @@ class GraficoController < ApplicationController
           @titulo = "Efectividad de Citas por Especialidad: "+@especialidad.descripcion
 
         end
-        
+
       when 2.to_s
         if @entidad == ""
           @titulo = "Efectividad de Citas por Tipo de Servicio"
@@ -38,7 +38,7 @@ class GraficoController < ApplicationController
         else
           @tipoServicio = TipoServicio.find(@entidad.to_i)
           @titulo = "Efectividad de Citas por Tipo de Servicio: "+@tipoServicio.descripcion
-          
+
         end
       when 3.to_s
         if @entidad == ""
@@ -49,8 +49,8 @@ class GraficoController < ApplicationController
         else
           @servicio = Servicio.find(@entidad.to_i)
           @titulo = "Efectividad de Citas por Servicio: "+@servicio.descripcion
-          
-        end    
+
+        end
     end
 
   end
@@ -124,7 +124,7 @@ class GraficoController < ApplicationController
     @cal_estado_civiles.descriptive_statistics
     render "grafico/calificaciones_por_criterio"
   end
-  
+
   def update_entidades
 
     case params[:tipo_entidad].to_i
@@ -133,7 +133,7 @@ class GraficoController < ApplicationController
       when 2
         @entidades = TipoServicio.where(:estatus => 1)
       when 3
-        @entidades = Servicio.where(:estatus => 1)        
+        @entidades = Servicio.where(:estatus => 1)
     end
     respond_to do |format|
       format.js
@@ -141,9 +141,18 @@ class GraficoController < ApplicationController
     end
   end
 
-  def reporte_tipo_servicios
+  def calificaciones_por_especialidad
+    render "grafico/reporte-calificaciones-especialidades"
+  end
+
+  def calcular_calificaciones_por_especialidad
+    @tipo_turno = TipoTurno.find(params[:tipo_turno_id])
+    @rango = params['fecha'].split(' - ')
+    @fecha_inicio =  @rango[0].to_date.beginning_of_day()
+    @fecha_fin =  @rango[1].to_date.end_of_day()
+    
     @especialidades = Especialidad.all
-    render "grafico/reporte-tipo-servicio"
+    render "grafico/calificaciones_por_especialidad"
   end
 
 end

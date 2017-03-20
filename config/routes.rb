@@ -30,6 +30,7 @@ Myapp::Application.routes.draw do
 
   match '/search', to: "personas#search", via: "post"
   match '/generar_citas_evaluadas', to: "grafico#generar_citas_evaluadas", via: "post"
+  match '/calcular_calificaciones_por_especialidad', to: "grafico#calcular_calificaciones_por_especialidad", via: "post"
 
   get 'grafico/generar'
 
@@ -41,6 +42,7 @@ Myapp::Application.routes.draw do
 
   get 'grafico/reporte_por_criterios'
   get 'grafico/calificaciones_por_criterio'
+  get 'grafico/calificaciones_por_especialidad'
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
