@@ -17,9 +17,16 @@
  *= require _bootstrap-sprockets
  *= require bootstrap-datetimepicker.css
  *= require daterangepicker/daterangepicker-bs3
+ *= require datapicker/datepicker3.css
  *= require dataTables/jquery.dataTables
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require fullcalendar
  *= require rating.min.css
+ *= require jasny/jasny-bootstrap.min.css
  */
 
+ 
+   table.tabla-horarios.table-bordered > thead > tr > th{
+        background-color: #354c9e;	
+        color: #FFFFFF;
+}

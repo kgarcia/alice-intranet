@@ -59,6 +59,8 @@ Myapp::Application.routes.draw do
   get 'evaluar_cita/:id', to: 'evaluaciones#evaluarCita', as: "evaluar_cita"
   resources :tipo_turnos
 
+  get 'cerrar_turno/:id', to: 'horarios#cerrar_turno'
+
 
   resources :informacion_generals
   resources :noticias
@@ -108,7 +110,7 @@ Myapp::Application.routes.draw do
     
   end
 
-  
+  get 'login_movil', to: 'usuarios#login_movil'
 
   root to: 'usuarios/sessions#new'
 

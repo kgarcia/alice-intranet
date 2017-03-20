@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
  #before_action :authenticate
  
-  protected
+    protected
   
   def authenticate
     token_str = params[:token]

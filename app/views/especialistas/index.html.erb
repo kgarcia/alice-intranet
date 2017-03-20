@@ -12,10 +12,8 @@
     <thead>
       <tr>
 
-        <th data-sorted="true">Especialidades</th>
-        <th>Apellidos</th>        
-        <th>Nombres</th>
-        <th>Descripcion</th>
+        <th data-sorted="true">Especialidad</th>
+        <th>Nombre y Apellido</th>
         <th colspan="1"></th>
       </tr>
     </thead>
@@ -23,11 +21,10 @@
       <% @especialistas.each do |especialista| %>
           <tr>
             <td><%= especialista.especialidadesDescripcion%></td>
-            <td><%= link_to especialista.persona.nombre, edit_especialista_path(especialista) %></td>          
-            <td><%= link_to especialista.persona.apellido, edit_especialista_path(especialista) %></td>
+            <td><%= link_to especialista.persona.nombre, edit_especialista_path(especialista) %> <%= link_to especialista.persona.apellido, edit_especialista_path(especialista) %></td>
             <td>
               <%= link_to 'Editar', edit_especialista_path(especialista), :class => "btn btn-warning btn-sm " %>
-              <%= link_to 'Eliminar', especialista, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
+              <%= link_to 'Eliminar', especialista, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el especialista?' } , :class => "btn btn-danger btn-sm" %></td>
           </tr>
       <% end %>
     </tbody>
