@@ -150,17 +150,25 @@
 
                   </div>
             </div>
+            
 
             <div id="diagnostico" class="tab-pane fade in">
               <div class="form-group">
                   <label class="col-lg-2 control-label">Diagnóstico</label>
 
-                  <div class="col-lg-10"><%= text_area_tag @cita, :diagnostico, :class => "tinymce form-control" %>
+                  <div class="col-lg-10"><%= text_area :cita, :diagnostico, :class => "tinymce form-control" %>
                    </div>
 
-                  <%= tinymce %>
+
+                  <%= tinymce :language => "es_MX"  %>
+
+                  <br><br>
                 </div>
+                
             </div>
+
+            
+
 
           </div>
 

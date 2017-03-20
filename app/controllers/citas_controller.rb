@@ -137,15 +137,17 @@ class CitasController < ApplicationController
     @patologias = Patologia.all
     @sexos = Sexo.all
     @vacunas = Vacuna.all
-
+    
     render "finalizar_citas"
   end
 
   def guardarFinalizarCita
+   
     @cita = Cita.find(params[:cita_id])
     @persona = @cita.persona
     @persona.update(persona_params)
     @cita.estatus = 3
+    @cita.update(cita_params)
     @cita.save
     redirect_to "/finalizar_cita"
   end
@@ -158,7 +160,7 @@ class CitasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cita_params
-      params.require(:cita).permit(:turno_id, :persona_id, :usuario_id, :fecha, :tipo_pago_id, :tipo_cita_id, :eventualidad_id, :estatus)
+      params.require(:cita).permit(:turno_id, :persona_id, :usuario_id, :fecha, :tipo_pago_id, :tipo_cita_id, :eventualidad_id, :estatus, :diagnostico)
     end
 
     def persona_params

@@ -11,7 +11,7 @@ class NoticiasController < ApplicationController
     end
 
     respond_to do |format|
-      format.html {  render "parametros_select/index" }
+      format.html {  render "index" }
       format.json { render json: @parametros }
     end
   end

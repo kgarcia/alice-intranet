@@ -1,5 +1,5 @@
-<div class="row">   
-   <div class="col-lg-10 col-lg-offset-1">
+<div class="row" >
+   <div class="col-lg-10 col-lg-offset-1"  id="section-to-print">
    <br>
           <div class="ibox float-e-margins">
               <div class="ibox-title">
@@ -15,7 +15,7 @@
               </div>
               
             </div>
-            <div class="container-fluid">
+            <div class="container-fluid" >
               <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#cita">Detalles</a></li>
                 <% if @cita.estatus == 4 %>
@@ -30,16 +30,16 @@
                 <% end %>
               </ul>
 
-              <div class="tab-content">
+              <div class="tab-content" >
                 <div id="cita" class="tab-pane fade in active">
                   <br><br>
 
 
                    <div class="row">
-                      <h3>Comprobante N° <%= label_tag(:id, @cita.id, {}) %></h3>
+                     
                       <div class="col-lg-12">
                           <div class="ibox float-e-margins">
-                              <div class="ibox-content">
+                              <div class="ibox-content " >
                                   <table class="tabla-horarios table table-bordered table-hover" width="100%">
                                       <thead>
                                           <tr>
@@ -47,14 +47,16 @@
                                               <th>Cedula</th>
                                               <th>Fecha de Solicitud</th>
                                               <th>Fecha de la Cita</th>
+                                              <th>Hora</th>
                                           </tr>
                                       </thead>
                                       <tbody>
                                           <tr>
                                               <td><%= label_tag(:paciente, @cita.persona.nombre+" "+@cita.persona.apellido, {}) %></td>
                                               <td><%= label_tag(:cedula, @cita.persona.cedula, {}) %></td>
-                                              <td>03/03/2017</td>
+                                              <td><%= label_tag(:fecha_solicitud, @cita.created_at.strftime("%d/%m/%Y"), {}) %></td>
                                               <td> <%= label_tag(:fecha, @cita.fecha.strftime("%d/%m/%Y"), {}) %></td>
+                                                <td><%= label_tag(:fecha, @cita.fecha.strftime("%H:%M %p "), {}) %></td>
                                           </tr>
                                       </tbody>
                                   </table>
@@ -64,15 +66,15 @@
                                               <th>Nombre y Apellido del Especialista</th>
                                               <th>Especialidad</th>
                                               <th>Razón de Cita</th>
-                                              <th>Hora</th>
+                                            
                                           </tr>
                                       </thead>
                                       <tbody>
                                           <tr>
                                               <td><%= label_tag(:especialista, @cita.turno.horario.servicio.especialista.nombre, {}) %></td>
                                               <td><%= label_tag(:especialidad, @cita.turno.horario.servicio.tipo_servicio.especialidad.descripcion, {}) %></td>
-                                              <td>Tipo de cita</td>
-                                              <td><%= label_tag(:fecha, @cita.fecha.strftime("%h:%m"), {}) %></td>
+                                              <td><%= label_tag(:tipo_cita_id, @cita.tipo_cita.descripcion, {}) %></td>
+                                            
                                           </tr>
                                       </tbody>
                                   </table>
@@ -136,10 +138,13 @@
           </div>
           <br><br>
 
-          <div class="ibox float-e-margins">
-              <div class="">
-                  <%= link_to 'Volver', citas_path, :class => "btn btn-success btn-sm" %>
+
+ <div class="form-group">
+              <div class="col-lg-offset-5 col-lg-2">
+                 <%= link_to 'Atrás', citas_path, :class => "btn btn-success btn-sm" %>
               </div>
+   <div class="col-lg-2"><a href="#" onclick="window.print();" class="btn btn-primary btn-sm">Imprimir comprobante</a>
+   </div>
           </div>
   </div>
 </div>
