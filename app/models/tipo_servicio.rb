@@ -42,20 +42,24 @@ class TipoServicio < ApplicationRecord
 
     def notificarSegmentado(difusion)
       self.destinatariosSegmentados.each do |destinatario|
+        if Persona.find(destinatario[0]).usuario != nil
          if difusion.tipo_entidad_id == 1
-            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 2 )
+            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 2, entidad_id: difusion.entidad_id )
           else
-            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 3 )
+            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 3, entidad_id: difusion.entidad_id )
           end
+        end
       end
     end
 
     def notificarGeneral(difusion)
       self.destinatariosGeneral.each do |destinatario|
-         if difusion.tipo_entidad_id == 1
-          Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 2 )
-        else
-          Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 3 )
+        if Persona.find(destinatario[0]).usuario != nil
+           if difusion.tipo_entidad_id == 1
+            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 2, entidad_id: difusion.entidad_id )
+          else
+            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 3, , entidad_id: difusion.entidad_id )
+          end
         end
       end
     end
