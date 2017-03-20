@@ -114,8 +114,9 @@ class GraficoController < ApplicationController
     @criterio = Criterio.find(params[:criterio_id])
     @tipo_turno = TipoTurno.find(params[:tipo_turno_id])
     @especialidad = Especialidad.find(params[:especialidad_id])
-    @fecha_inicio = params[:fecha_inicio]['day'] + "/" + params[:fecha_inicio]['month'] + "/" + params[:fecha_inicio]['year']
-    @fecha_fin = params[:fecha_fin]['day'] + "/" + params[:fecha_fin]['month'] + "/" + params[:fecha_fin]['year']
+    @rango = params['fecha'].split(' - ')
+    @fecha_inicio =  @rango[0].to_date.beginning_of_day()
+    @fecha_fin =  @rango[1].to_date.end_of_day()
 
     @cal_sexos =  { "Hombres" => Calificacion.cantidadCalificacionesPorSexo(1), "Mujeres" => Calificacion.cantidadCalificacionesPorSexo(2)}
     @cal_estado_civiles = { "Soltero/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(1), "Casado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(2), "Divorciado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(3), "Viudo/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(4), "Comprometido/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(5)}
