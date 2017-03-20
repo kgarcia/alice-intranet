@@ -118,8 +118,8 @@ class GraficoController < ApplicationController
     @fecha_inicio =  @rango[0].to_date.beginning_of_day()
     @fecha_fin =  @rango[1].to_date.end_of_day()
 
-    @cal_sexos =  { "Hombres" => Calificacion.cantidadCalificacionesPorSexo(1), "Mujeres" => Calificacion.cantidadCalificacionesPorSexo(2)}
-    @cal_estado_civiles = { "Soltero/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(1), "Casado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(2), "Divorciado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(3), "Viudo/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(4), "Comprometido/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(5)}
+    @cal_sexos =  { "Hombres" => Calificacion.cantidadCalificacionesPorSexo(1, @fecha_inicio, @fecha_fin), "Mujeres" => Calificacion.cantidadCalificacionesPorSexo(2, @fecha_inicio, @fecha_fin)}
+    @cal_estado_civiles = { "Soltero/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(1, @fecha_inicio, @fecha_fin), "Casado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(2, @fecha_inicio, @fecha_fin), "Divorciado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(3, @fecha_inicio, @fecha_fin), "Viudo/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(4, @fecha_inicio, @fecha_fin), "Comprometido/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(5, @fecha_inicio, @fecha_fin)}
     @estadisticas =  @cal_sexos.descriptive_statistics
     @cal_estado_civiles.descriptive_statistics
     render "grafico/calificaciones_por_criterio"
@@ -150,7 +150,7 @@ class GraficoController < ApplicationController
     @rango = params['fecha'].split(' - ')
     @fecha_inicio =  @rango[0].to_date.beginning_of_day()
     @fecha_fin =  @rango[1].to_date.end_of_day()
-    
+
     @especialidades = Especialidad.all
     render "grafico/calificaciones_por_especialidad"
   end
