@@ -36,7 +36,7 @@
               <%= link_to 'Horario', horario_path(Horario.find(servicio.id)), :class => "btn btn-primary btn-sm" %></td>
             <td>
               <%= link_to 'Editar', edit_servicio_path(servicio), :class => "btn btn-warning btn-sm" %></td>
-            <td>  <%= link_to 'Eliminar', servicio, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el registro?' } , :class => "btn btn-danger btn-sm" %></td>
+            <td>  <%= link_to 'Eliminar', servicio, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el servicio?' } , :class => "btn btn-danger btn-sm" %></td>
           </tr>
       <% end %>
     </tbody>

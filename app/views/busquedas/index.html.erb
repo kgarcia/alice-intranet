@@ -25,7 +25,7 @@
         <td><%= busqueda.especialista %></td>
         <td><%= busqueda.tipo_servicio %></td>
         <td><%= link_to 'Editar', edit_busqueda_path(busqueda),:class => "btn btn-warning btn-sm" %></td>
-        <td><%= link_to 'Eliminar', busqueda, method: :delete, data: { confirm: '¿Estás seguro?',:class => "btn btn-danger btn-sm" } %></td>
+        <td><%= link_to 'Eliminar', busqueda, method: :delete, data: { confirm: '¿Está seguro que desea eliminar el registro?',:class => "btn btn-danger btn-sm" } %></td>
       </tr>
     <% end %>
   </tbody>

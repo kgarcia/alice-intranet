@@ -19,7 +19,7 @@
           <td><%= sector.estatus %></td>
           <td>
             <%= link_to 'Editar', edit_polymorphic_url(sector), :class => "btn btn-warning btn-sm" %>
-            <%= link_to 'Eliminar', sector, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm " %>            
+            <%= link_to 'Eliminar', sector, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el sector?' } , :class => "btn btn-danger btn-sm " %>            
           </td>
         </tr>
       <% end %>
