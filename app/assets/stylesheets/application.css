@@ -23,3 +23,8 @@
  *= require jasny/jasny-bootstrap.min.css
  */
 
+ 
+   table.tabla-horarios.table-bordered > thead > tr > th{
+        background-color: #354c9e;	
+        color: #FFFFFF;
+}
