@@ -33,7 +33,6 @@ default: &default
   password: 
 
 
-
 development:
   <<: *default
   database: alice_development
@@ -41,9 +40,7 @@ development:
 test:
   <<: *default
   database: alice_test
- 
+
 production:
   <<: *default
   database: alice_production
- 
-

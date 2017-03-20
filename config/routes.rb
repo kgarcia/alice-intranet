@@ -27,8 +27,9 @@ Myapp::Application.routes.draw do
   post 'perfil', to: 'usuarios#actualizarPerfil'
 
   get 'disponibilidad', to: 'horarios#disponibilidad'
-  
+
   match '/search', to: "personas#search", via: "post"
+  match '/generar_citas_evaluadas', to: "grafico#generar_citas_evaluadas", via: "post"
 
   get 'grafico/generar'
 
@@ -38,7 +39,8 @@ Myapp::Application.routes.draw do
 
   get 'grafico/citas_por_turno'
 
-  get 'grafico/evaluaciones_por_paciente'
+  get 'grafico/reporte_por_criterios'
+  get 'grafico/calificaciones_por_criterio'
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
@@ -68,7 +70,7 @@ Myapp::Application.routes.draw do
   resources :tipo_opiniones
   resources :tipo_preguntas
   resources :tipo_noticias
-  get 'usuarios', to: 'usuarios#index' 
+  get 'usuarios', to: 'usuarios#index'
 
 
   get 'agenda_servicio/:id/detalle', to: 'agenda_servicio#detalle', as: :agenda_servicio_detalle
@@ -100,14 +102,14 @@ Myapp::Application.routes.draw do
   resources :personas
   resources :roles
   devise_for :usuarios , :controllers => {registrations: "usuarios/registrations", sessions: "usuarios/sessions", confirmations: 'usuarios/confirmations'}
-  
+
   devise_scope :usuario do
     get 'login', to: 'usuarios/sessions#new'
-    
+
     authenticated :usuario do
       root to: 'home#index', as: :authenticated_root
     end
-    
+
   end
 
   get 'login_movil', to: 'usuarios#login_movil'
@@ -161,7 +163,7 @@ Myapp::Application.routes.draw do
 
   get "home/index"
   get "home/minor"
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
