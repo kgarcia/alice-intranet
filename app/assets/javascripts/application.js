@@ -10,9 +10,10 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery2.js
+
 //= require jquery
 //= require jquery_ujs
+//= require jquery2.js
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
@@ -35,9 +36,14 @@
 //= require highcharts/modules/heatmap
 //= require toastr
 //= require rating.min.js
+//= require jasny/jasny-bootstrap.min.js
+
+//= require jquery.validate
+//= require jquery.validate.additional-methods
+//= require jquery.validate.localization/messages_es
+//= require dateFormat/dateFormat.js
 //= require turbolinks
 //= require_tree .
-
 $.extend(true, $.fn.dataTable.defaults, {
     "language": {"url": "/js/datatables/Spanish.json"}
 });

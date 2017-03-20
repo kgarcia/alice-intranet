@@ -37,6 +37,8 @@ class TurnosController < ApplicationController
   def edit
     @horarios = Horario.where(:estatus => 1)
     @turno = Turno.find(params[:id])
+        @horario_show = Horario.find(@turno.horario_id)
+
     @dias = Dia.where(:estatus => 1)
     @dia = :dia_id
     @referencia = :horario_id

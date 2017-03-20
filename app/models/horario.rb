@@ -106,15 +106,10 @@ class Horario < ApplicationRecord
 
                 @fecha_nueva = @fecha_nueva + 1.day
           end
-            puts 'MAÑANA TODO LAFHJSGHJAGHASJHGJASGHJASGHSJGHSJGHJGHJAGHSJGH'
             @disponibilidad_total.push(@disponibilidad_mañana)
             @disponibilidad_total.push(@disponibilidad_tarde)
-            puts @disponibilidad_mañana
-            puts 'TARDE TODO LAFHJSGHJAGHASJHGJASGHJASGHSJGHSJGHJGHJAGHSJGH'
-            puts @disponibilidad_tarde
-            puts 'SEMANA LAFHJSGHJAGHASJHGJASGHJASGHSJGHSJGHJGHJAGHSJGH'
-            puts @disponibilidad_total
-            puts 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaLAFHJSGHJAGHASJHGJASGHJASGHSJGHSJGHJGHJAGHSJGH'
+         
+           
      return @disponibilidad_total
                            
   end
@@ -123,7 +118,7 @@ class Horario < ApplicationRecord
  
         @fecha1 = fecha1.to_datetime
 
-        @fecha_nueva = @fecha1.at_beginning_of_week
+        @fecha_nueva = @fecha1.at_beginning_of_week.to_datetime
         
         @disponibilidad_total = Array.new
         @disponibilidad_mañana =  Array.new
@@ -152,66 +147,69 @@ class Horario < ApplicationRecord
                 
               if (self.tipo_horario_id == 2) #tiempo promedio
                 if (dia == 1)
-                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                  @disponibilidad_tarde.push(turno:@turnoT.disponibilidad_horas(@fecha_nueva))
+                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                  @disponibilidad_tarde.push(turno:@turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                 end
                 if(dia == 2)
-                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                 end
                 if(dia == 3)
-                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                 end
                 if(dia == 4)
-                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                 end
                 if(dia == 5)
-                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                 end
                 if(dia == 6)
-                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                 end
                 if(dia == 7)
-                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                  @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                  @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                 end
 
-                @fecha_nueva = @fecha_nueva + 1.day
+                @fecha_nueva = (@fecha_nueva + 1.day)
+            
               end
 
                 if (self.tipo_horario_id == 1)
                   if (dia == 1)
-                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                   end
                   if(dia == 2)
-                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                   end
                   if(dia == 3)
-                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                   end
                   if(dia == 4)
-                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                   end
                   if(dia == 5)
-                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                   end
                   if(dia == 6)
-                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                   end
                   if(dia == 7)
-                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas(@fecha_nueva))
-                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas(@fecha_nueva))
+                    @disponibilidad_mañana.push(turno: @turnoM.disponibilidad_horas_eventualidad(@fecha_nueva))
+                    @disponibilidad_tarde.push(turno: @turnoT.disponibilidad_horas_eventualidad(@fecha_nueva))
                   end
+ 
+                  @fecha_nueva = (@fecha_nueva + 1.day)
              
                   
 
@@ -220,17 +218,10 @@ class Horario < ApplicationRecord
         
 
           end
-             puts 'MAÑANA TODO LAFHJSGHJAGHASJHGJASGHJASGHSJGHSJGHJGHJAGHSJGH'
-          
+         
             @disponibilidad_total.push(manana: @disponibilidad_mañana)
             @disponibilidad_total.push(tarde: @disponibilidad_tarde)
-              puts @disponibilidad_mañana
-              puts 'TARDE TODO LAFHJSGHJAGHASJHGJASGHJASGHSJGHSJGHJGHJAGHSJGH'
-              puts @disponibilidad_tarde
-              puts 'SEMANA LAFHJSGHJAGHASJHGJASGHJASGHSJGHSJGHJGHJAGHSJGH'
-              puts @disponibilidad_total
-              puts 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaLAFHJSGHJAGHASJHGJASGHJASGHSJGHSJGHJGHJAGHSJGH'
-     
+            
         return @disponibilidad_total
                            
   end

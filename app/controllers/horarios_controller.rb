@@ -11,8 +11,8 @@ class HorariosController < ApplicationController
   # GET /horarios/1.json
   def show
     @horario = Horario.find(params[:id])
-    @turnosM = Turno.where(horario_id: @horario.id).rewhere(tipo_turno_id: 1)
-    @turnosT = Turno.where(horario_id: @horario.id).rewhere(tipo_turno_id: 2)
+    @turnosM = Turno.where(horario_id: @horario.id).rewhere(tipo_turno_id: 1).order(:dia_id)
+    @turnosT = Turno.where(horario_id: @horario.id).rewhere(tipo_turno_id: 2).order(:dia_id)
     @dias = Dia.all    
   end
 
@@ -28,6 +28,19 @@ def disponibilidad
            
     end
 end
+
+  def cerrar_turno
+    @turno = Turno.find(params[:id])
+      @horario = Horario.find(@turno.horario_id)
+        if(@turno.tipo_turno_id == 1)
+        @turno.update(cantidad_pacientes: 0 ,hora_inicio: "08:00:00" , hora_fin: "08:00:00")
+         else
+          @turno.update(cantidad_pacientes: 0 ,hora_inicio: "13:00:00",hora_fin: "13:00:00")
+     end
+     respond_to do |format|
+        format.html { redirect_to '/horarios/'+@horario.id.to_s, notice: 'Turno Cerrado.' }
+      end
+  end
   # GET /horarios/new
   def new
 
@@ -80,7 +93,7 @@ end
                 end 
       end
       if @horario.update(horario_params)
-        format.html { redirect_to @horario, notice: 'Horario was successfully updated.' }
+        format.html { redirect_to @horario, notice: 'EL registro fue modificado exitosamente.' }
         format.json { render :show, status: :ok, location: @horario }
       else
         format.html { render :edit }
