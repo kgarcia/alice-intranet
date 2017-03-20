@@ -11,6 +11,7 @@ class GraficoController < ApplicationController
   def generar_citas_solicitadas
     #@especialidades = Especialidad.where(:estatus => 1)
     @especialidades = Especialidad.contarCitas
+    @especialidades2 = Especialidad.all
     @estadisticas =  @especialidades.descriptive_statistics
     @rango = params['fecha'].split(' - ')
     @fecha_inicio =  @rango[0].to_date.beginning_of_day()

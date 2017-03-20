@@ -53,78 +53,83 @@
 </div>
 
 <script type="text/javascript">
-	Highcharts.chart('citas-especialidad', {
+	       
+
+    Highcharts.chart('citas-especialidad', {
         chart: {
             type: 'column'
         },
         title: {
-            text: 'Efectividad de las Citas'
+            text: 'Citas por Estatus'
         },
         xAxis: {
             categories: [
-                <% @especialidades.each do |especialidad|%>
-                    '<%= especialidad[0] %>',
+                <% @especialidades2.each do |especialidad| %>
+                    '<%= especialidad.descripcion %>',
                 <% end %>
-            ]
+            ],
+            crosshair: true
         },
-        yAxis: [{
+        yAxis: {
             min: 0,
             title: {
-                text: 'Employees'
+                text: 'Citas'
             }
-        }, {
-            title: {
-                text: 'Profit (millions)'
-            },
-            opposite: true
-        }],
-        legend: {
-            shadow: false
         },
         tooltip: {
-            shared: true
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
         },
         plotOptions: {
             column: {
-                grouping: false,
-                shadow: false,
+                pointPadding: 0.2,
                 borderWidth: 0
             }
         },
         series: [{
-            name: 'Employees',
-            color: 'rgba(165,170,217,1)',
-            data: [150, 73, 20],
-            pointPadding: 0.3,
-            pointPlacement: -0.2
+            name: 'Solicitadas',
+            data: [
+                <% @especialidades2.each do |especialidad| %>
+                    <%= especialidad.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
+                <% end %>
+            ]
+
         }, {
-            name: 'Employees Optimized',
-            color: 'rgba(126,86,134,.9)',
-            data: [140, 90, 40],
-            pointPadding: 0.4,
-            pointPlacement: -0.2
+            name: 'Confirmadas',
+            data: [
+                <% @especialidades2.each do |especialidad| %>
+                    <%= especialidad.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
+                <% end %>
+            ]
+
         }, {
-            name: 'Profit',
-            color: 'rgba(248,161,63,1)',
-            data: [183.6, 178.8, 198.5],
-            tooltip: {
-                valuePrefix: '$',
-                valueSuffix: ' M'
-            },
-            pointPadding: 0.3,
-            pointPlacement: 0.2,
-            yAxis: 1
+            name: 'Atendidas',
+            data: [
+                <% @especialidades2.each do |especialidad| %>
+                    <%= especialidad.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
+                <% end %>
+            ]
+
         }, {
-            name: 'Profit Optimized',
-            color: 'rgba(186,60,61,.9)',
-            data: [203.6, 198.8, 208.5],
-            tooltip: {
-                valuePrefix: '$',
-                valueSuffix: ' M'
-            },
-            pointPadding: 0.4,
-            pointPlacement: 0.2,
-            yAxis: 1
+            name: 'Evaluadas',
+            data: [
+                <% @especialidades2.each do |especialidad| %>
+                    <%= especialidad.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
+                <% end %>
+            ]
+
+        },{
+            name: 'Canceladas',
+            data: [
+                <% @especialidades2.each do |especialidad| %>
+                    <%= especialidad.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                <% end %>
+            ]
+
         }]
     });
 </script>
