@@ -37,26 +37,6 @@ class Especialidad < ApplicationRecord
     return @citas.count
   end
 
-  def contarCitasChequeadas
-    @citas = Cita.joins(:historial_citas, turno: { horario: {servicio: {tipo_servicio: :especialidad } } } ).where( "tipo_servicios.especialidad_id"=> self.id).where( "historial_citas.estatus_nuevo"=>  2)
-    return @citas.count
-  end
-
-  def contarCitasAtendidas
-    @citas = Cita.joins(:historial_citas, turno: { horario: {servicio: {tipo_servicio: :especialidad } } } ).where( "tipo_servicios.especialidad_id"=> self.id).where( "historial_citas.estatus_nuevo"=>  3)
-    return @citas.count
-  end
-
-  def contarCitasEvaluadas
-    @citas = Cita.joins(:historial_citas, turno: { horario: {servicio: {tipo_servicio: :especialidad } } } ).where( "tipo_servicios.especialidad_id"=> self.id).where( "historial_citas.estatus_nuevo"=>  4)
-    return @citas.count
-  end
-
-  def contarCitasCanceladas
-    @citas = Cita.joins(:historial_citas, turno: { horario: {servicio: {tipo_servicio: :especialidad } } } ).where( "tipo_servicios.especialidad_id"=> self.id).where( "historial_citas.estatus_nuevo"=>  5)
-    return @citas.count
-  end
-
   def self.contarCitas
     @citas = Especialidad.joins(tipo_servicios: { servicios: { horarios: { turnos: :citas } } } ).group("especialidades.descripcion")
     return @citas.count

@@ -10,9 +10,6 @@ class GraficoController < ApplicationController
 
   def generar_citas_solicitadas
     #@especialidades = Especialidad.where(:estatus => 1)
-    @especialidades = Especialidad.contarCitas
-    @especialidades2 = Especialidad.all
-    @estadisticas =  @especialidades.descriptive_statistics
     @rango = params['fecha'].split(' - ')
     @fecha_inicio =  @rango[0].to_date.beginning_of_day()
     @fecha_fin =  @rango[1].to_date.end_of_day()
@@ -21,13 +18,39 @@ class GraficoController < ApplicationController
 
     case @tipo_entidad
       when 1.to_s
-        puts "Especialidad"
+        if @entidad == ""
+          @titulo = "Efectividad de Citas por Especialidad"
+          @especialidades2 = Especialidad.contarCitas
+          @especialidades = Especialidad.all
+          @estadisticas =  @especialidades2.descriptive_statistics
+        else
+          @especialidad = Especialidad.find(@entidad.to_i)
+          @titulo = "Efectividad de Citas por Especialidad: "+@especialidad.descripcion
+
+        end
         
       when 2.to_s
-        puts "TipoServicio"
-        
+        if @entidad == ""
+          @titulo = "Efectividad de Citas por Tipo de Servicio"
+          @tipoServicios2 = TipoServicio.contarCitas
+          @tipoServicios = TipoServicio.all
+          @estadisticas =  @tipoServicios2.descriptive_statistics
+        else
+          @tipoServicio = TipoServicio.find(@entidad.to_i)
+          @titulo = "Efectividad de Citas por Tipo de Servicio: "+@tipoServicio.descripcion
+          
+        end
       when 3.to_s
-        puts "Servicio"    
+        if @entidad == ""
+          @titulo = "Efectividad de Citas por Servicio"
+          @servicios2 = Servicio.contarCitas
+          @servicios = Servicio.all
+          @estadisticas =  @servicios2.descriptive_statistics
+        else
+          @servicio = Servicio.find(@entidad.to_i)
+          @titulo = "Efectividad de Citas por Servicio: "+@servicio.descripcion
+          
+        end    
     end
 
   end
