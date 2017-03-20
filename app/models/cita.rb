@@ -9,6 +9,7 @@ class Cita < ApplicationRecord
   has_many :horario, through: :turno
   has_many :servicio, through: :horarios
   has_many :ubicacion, through: :servicio
+  has_many :historial_citas
 
 
   def self.titulo
