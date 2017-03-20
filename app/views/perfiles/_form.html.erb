@@ -8,17 +8,6 @@
           <div class="ibox-content">
 
           <%= form_for @perfil, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
-                  <% if @perfil.errors.any? %>
-                    <div id="error_explanation">
-                      <h2><%= pluralize(@perfil.errors.count, "error") %> prohibited this parametro from being saved:</h2>
-
-                      <ul>
-                      <% @perfil.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                      <% end %>
-                      </ul>
-                    </div>
-                  <% end %>
 
               <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#datos">Descripcion</a></li>
@@ -34,7 +23,7 @@
                   <div class="form-group">
                       <label class="col-lg-2 control-label">Descripción</label>
 
-                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control", :required => true %>
                        </div>
                     </div>
 

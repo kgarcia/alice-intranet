@@ -34,7 +34,7 @@
                   <% else %>
                     <div class="form-group" style="display: none;"><label class="col-lg-2 control-label">Tiempo Cita(Minutos)</label>
 
-                          <div class="col-lg-10"><%= f.number_field :tiempo_cita, :class => "form-control" %>
+                          <div class="col-lg-10"><%= f.number_field :tiempo_cita, :class => "form-control", :required => true %>
                           </div>
                       </div>
                   <% end %>

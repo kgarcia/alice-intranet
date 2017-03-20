@@ -7,17 +7,6 @@
           </div>
           <div class="ibox-content">
              <%= form_for @parametro, :html => {:class => 'form-horizontal'} do |f| %>
-                  <% if @parametro.errors.any? %>
-                    <div id="error_explanation">
-                      <h2><%= pluralize(@parametro.errors.count, "error") %> prohibited this parametro from being saved:</h2>
-
-                      <ul>
-                      <% @parametro.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                      <% end %>
-                      </ul>
-                    </div>
-                  <% end %>
 
                   <div class="field form-group">
                     <label class="col-lg-2 control-label">Tipo</label>
@@ -30,7 +19,7 @@
 
                   <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
 
-                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control", :required => true %>
                        </div>
                     </div>
 

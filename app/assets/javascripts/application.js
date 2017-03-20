@@ -11,6 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery2.js
+//= require jquery
+//= require jquery_ujs
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
@@ -24,6 +26,11 @@
 //= require fullcalendar
 //= require fullcalendar/lang/es
 //= require bootstrap-datetimepicker
+
+//= require jquery.validate
+//= require jquery.validate.additional-methods
+//= require jquery.validate.localization/messages_es
+
 
 //= require tinymce
 

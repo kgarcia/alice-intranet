@@ -1,19 +1,8 @@
 <%= form_for(discapacidad) do |f| %>
-  <% if discapacidad.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(discapacidad.errors.count, "error") %> prohibited this discapacidad from being saved:</h2>
-
-      <ul>
-      <% discapacidad.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion, :required => true %>
   </div>
 
   <div class="field">

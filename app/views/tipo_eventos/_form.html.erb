@@ -1,19 +1,8 @@
 <%= form_for(tipo_evento) do |f| %>
-  <% if tipo_evento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tipo_evento.errors.count, "error") %> prohibited this tipo_evento from being saved:</h2>
-
-      <ul>
-      <% tipo_evento.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion, :required => true %>
   </div>
 
   <div class="field">

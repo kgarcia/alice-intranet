@@ -1,15 +1,4 @@
 <%= form_for(criterio_tipo_servicio) do |f| %>
-  <% if criterio_tipo_servicio.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(criterio_tipo_servicio.errors.count, "error") %> prohibited this criterio_tipo_servicio from being saved:</h2>
-
-      <ul>
-      <% criterio_tipo_servicio.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :criterio_id %>

@@ -1,19 +1,8 @@
 <%= form_for(motivo) do |f| %>
-  <% if motivo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(motivo.errors.count, "error") %> prohibited this motivo from being saved:</h2>
-
-      <ul>
-      <% motivo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion, :required => true %>
   </div>
 
   <div class="field">

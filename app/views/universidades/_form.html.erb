@@ -1,19 +1,8 @@
 <%= form_for(universidad) do |f| %>
-  <% if universidad.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(universidad.errors.count, "error") %> prohibited this universidad from being saved:</h2>
-
-      <ul>
-      <% universidad.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion, :required => true %>
   </div>
 
   <div class="field">

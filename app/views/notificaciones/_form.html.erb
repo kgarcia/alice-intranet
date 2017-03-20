@@ -1,19 +1,8 @@
 <%= form_for(notificacion) do |f| %>
-  <% if notificacion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(notificacion.errors.count, "error") %> prohibited this notificacion from being saved:</h2>
-
-      <ul>
-      <% notificacion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion, :required => true %>
   </div>
 
   <div class="field">

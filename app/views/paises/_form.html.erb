@@ -1,19 +1,8 @@
 <%= form_for(pais) do |f| %>
-  <% if pais.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pais.errors.count, "error") %> prohibited this pais from being saved:</h2>
-
-      <ul>
-      <% pais.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion, :required => true %>
   </div>
 
   <div class="field">

@@ -1,19 +1,8 @@
 <%= form_for(grupo_sanguineo) do |f| %>
-  <% if grupo_sanguineo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(grupo_sanguineo.errors.count, "error") %> prohibited this grupo_sanguineo from being saved:</h2>
-
-      <ul>
-      <% grupo_sanguineo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion, :required => true %>
   </div>
 
   <div class="field">

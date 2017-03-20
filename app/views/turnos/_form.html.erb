@@ -9,27 +9,16 @@
     <div class="ibox-content">
 
       <%= form_for @turno, :html => {:class => 'form-horizontal'}  do |f| %>
-      <% if turno.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(turno.errors.count, "error") %> prohibited this turno from being saved:</h2>
-
-        <ul>
-          <% turno.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-      <% end %>
 
      <div class="field form-group"><label class="col-lg-3 control-label">Tipo Turno</label>
                     <div class="col-lg-8"><%= f.collection_select(@referencia_tipo, @collection_tipo_turno,:id, :descripcion,{}, :class =>"form-control") %></div>
                   </div>
 
       <div class="form-group"><label class="col-lg-3 control-label">Hora Inicio</label>           
-          <div class="col-lg-8"><%= f.text_field :hora_inicio, :class => "form-control" %></div>
+          <div class="col-lg-8"><%= f.text_field :hora_inicio, :class => "form-control", :required => true %></div>
       </div>
    <div class="form-group"><label class="col-lg-3 control-label">Hora Fin</label>           
-          <div class="col-lg-8"><%= f.text_field :hora_fin, :class => "form-control" %></div>
+          <div class="col-lg-8"><%= f.text_field :hora_fin, :class => "form-control", :required => true %></div>
       </div>
     
       <div class="field form-group"><label class="col-lg-3 control-label">codigo Horario :(viene por defecto)</label>

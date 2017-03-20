@@ -1,19 +1,8 @@
 <%= form_for(tipo_evaluacion) do |f| %>
-  <% if tipo_evaluacion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tipo_evaluacion.errors.count, "error") %> prohibited this tipo_evaluacion from being saved:</h2>
-
-      <ul>
-      <% tipo_evaluacion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion, :required => true %>
   </div>
 
   <div class="field">

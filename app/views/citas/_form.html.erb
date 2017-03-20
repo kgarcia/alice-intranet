@@ -1,15 +1,4 @@
 <%= form_for(cita) do |f| %>
-  <% if cita.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cita.errors.count, "error") %> prohibited this cita from being saved:</h2>
-
-      <ul>
-      <% cita.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :turno_id %>

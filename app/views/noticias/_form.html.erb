@@ -7,17 +7,6 @@
           </div>
           <div class="ibox-content">
           <%= form_for @noticia, :html => {:class => 'form-horizontal'} do |f| %>
-            <% if noticia.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(noticia.errors.count, "error") %> prohibited this noticia from being saved:</h2>
-
-                <ul>
-                <% noticia.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-                </ul>
-              </div>
-            <% end %>
               <div class="field form-group">
                     <label class="col-lg-2 control-label">Tipo Noticia</label>
                      <div class="col-lg-10">
@@ -28,12 +17,12 @@
                   <div class="form-group">
                   <label class="col-lg-2 control-label">Titulo</label>
 
-                      <div class="col-lg-10"><%= f.text_field :titulo, :class => "form-control" %>
+                      <div class="col-lg-10"><%= f.text_field :titulo, :class => "form-control", :required => true %>
                        </div>
                     </div>
                     <div class="form-group"><label class="col-lg-2 control-label">Descripcion</label>
 
-                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control", :required => true %>
                        </div>
                     </div>
 
