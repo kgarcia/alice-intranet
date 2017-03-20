@@ -10,18 +10,31 @@
         <div class="ibox-content" style="padding-bottom: 15px">
             <div class="container-fluid">
                 <div class="col-sm-12" style="padding-top: 15px">
-                    <div class="col-sm-12">Aqui los criterios de filtros seleccionado</div>
+                    <div class="col-sm-4">
+                        <%= label_tag :id, "Especialidad: " %>
+                        <%= label_tag :id, @especialidad.descripcion %>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= label_tag :id, "Tipo de turno: " %>
+                        <%= label_tag :id, @tipo_turno.descripcion %>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= label_tag :id, "Criterio: " %>
+                        <%= label_tag :id, @criterio.descripcion %>
+                    </div>
                 </div>
                 <div class="col-sm-12" style="padding-top: 15px">
-                    <label style="margin-right: 10px">Total de calificaciónes realizadas:
-                        <%= label_tag :id, @totalCalificaciones %></label>
+                    <div class="col-sm-4">
+                        <%= label_tag :id, "Desde: " %>
+                        <%= label_tag :id, @fecha_inicio %>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= label_tag :id, "Hasta: " %>
+                        <%= label_tag :id, @fecha_fin %>
+                    </div>
+                    <div class="col-sm-4"></div>
                 </div>
                 <div class="col-sm-12" style="padding-top: 15px">
-                    <label style="margin-right: 10px">Porcentaje de calificaciones respecto al global:
-                        <%= label_tag :id, @totalSeleccionado %>
-                        %</label>
-                </div>
-                <div class="col-sm-12">
                     <script src="https://code.highcharts.com/highcharts.js"></script>
                     <script src="https://code.highcharts.com/modules/exporting.js"></script>
                     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
@@ -39,11 +52,7 @@
                         },
                         xAxis: {
                             categories: [
-                                'Muy mal',
-                                'Mal',
-                                'Regular',
-                                'Bueno',
-                                'Muy bueno'
+                                'Muy mal', 'Mal', 'Regular', 'Bueno', 'Muy bueno'
                             ],
                             crosshair: true
                         },
@@ -69,60 +78,74 @@
                         series: [
                             {
                                 name: 'Todas las Especialidades',
-                                data: [
-                                    49.9,
-                                    71.5,
-                                    106.4,
-                                    129.2,
-                                    35.3
-                                ]
+                                data: [<%= Calificacion.promedioEspecialidades(@especialidad.id, 1, @tipo_turno.id) %>,
+                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 2,@tipo_turno.id) %>,
+                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 3, @tipo_turno.id) %>,
+                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 4, @tipo_turno.id) %>,
+                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 5, @tipo_turno.id) %>]
                             }, {
                                 name: '<%= @criterio.descripcion %>',
-                                data: [
-                                    83.6,
-                                    78.8,
-                                    98.5,
-                                    93.4,
-                                    40.6
-                                ]
+                                data: [<%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 1, @tipo_turno.id) %>,
+                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 2, @tipo_turno.id) %>,
+                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 3, @tipo_turno.id) %>,
+                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 4, @tipo_turno.id) %>,
+                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 5, @tipo_turno.id) %>]
                             }, {
                                 name: 'Todos los Criterios',
-                                data: [
-                                    48.9,
-                                    38.8,
-                                    39.3,
-                                    41.4,
-                                    60.5
-                                ]
+                                data: [<%= Calificacion.promedioCriterios(@criterio.id, 1, @tipo_turno.id) %>,
+                                        <%= Calificacion.promedioCriterios(@criterio.id, 2, @tipo_turno.id) %>,
+                                        <%= Calificacion.promedioCriterios(@criterio.id, 3, @tipo_turno.id) %>,
+                                        <%= Calificacion.promedioCriterios(@criterio.id, 4, @tipo_turno.id) %>,
+                                        <%= Calificacion.promedioCriterios(@criterio.id, 5, @tipo_turno.id) %>]
                             }
                         ]
                     });
                 </script>
-
-
                 <div class="col-sm-12" style="margin-top: 15px">
-                    <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
-                        <thead>
-                            <tr>
-                                <th data-sorted="true">Descripción</th>
-                                <th colspan="1"></th>
-                            </tr>
-                        </thead>
+                    <table class="table table-hover">
                         <tbody>
-                            <% @especialidades.each do |parametro| %>
                             <tr>
-                                <td><%= link_to parametro.descripcion, edit_polymorphic_url(parametro) %></td>
-                                <td></td>
-                            </tr>
-                            <% end %>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="5">
-                                    <ul class="pagination pull-right"></ul>
+                                <td>
+                                    <strong>Total de calificaciones registradas</strong>
                                 </td>
+                                <td><%= @cal_sexos.sum %></td>
                             </tr>
-                        </tfoot>
+                            <tr>
+                                <td>
+                                    <strong>Sexo con mayor cantidad de calificaciones</strong>
+                                </td>
+                                <td><%= @cal_sexos.min[0] %>:
+                                    <%= @cal_sexos.min[1] %></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Sexo con menor cantidad de calificaciones</strong>
+                                </td>
+                                <td><%= @cal_sexos.max[0] %>:
+                                    <%= @cal_sexos.max[1] %></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Diferencia de calificaciones entre ambos sexos</strong>
+                                </td>
+                                <td><%= @cal_sexos.range %></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>Estado civil con mayor cantidad de calificaciones</strong>
+                                </td>
+                                <td><%= @cal_estado_civiles.min[0] %>:
+                                    <%= @cal_estado_civiles.min[1] %></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Estado civil con menor cantidad de calificaciones</strong>
+                                </td>
+                                <td><%= @cal_estado_civiles.max[0] %>:
+                                    <%= @cal_estado_civiles.max[1] %></td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

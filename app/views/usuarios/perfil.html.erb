@@ -42,3 +42,92 @@
 </div>
 
 
+
+
+
+<div class="row">   
+   <div class="col-lg-6 col-lg-offset-3">
+   <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Evento" %></h2>
+              </div>
+          </div>
+          <div class="ibox-content">
+            
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#datos">Datos Básicos</a></li>
+                    <li><a data-toggle="tab" href="#texto">Cuenta</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <div id="datos" class="tab-pane fade in active">
+
+                     <%= render 'personas/datos_persona', persona: @persona %>
+
+             ###################################################33
+                    </div>
+
+                    <div id="texto" class="tab-pane fade in">
+
+<h2><%= t('.title', resource: resource_class.model_name.human) %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <p>
+      <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
+    </p>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
+    <%= f.password_field :current_password %>
+  </div>
+
+  <div><%= f.submit t('.update') %></div>
+<% end %>
+
+<h3><%= t('.cancel_my_account') %></h3>
+
+<p><%= t('.unhappy') %> <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %>.</p>
+
+<%= link_to t('devise.shared.links.back'), :back %>
+
+
+
+
+                      ####################################################
+                    </div>
+                  </div>
+
+                 <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-sm  btn-primary" %>
+                      </div>
+                        <div class="col-lg-2">
+                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                      <div class="col-lg-2">
+                      <%= link_to 'Atras', :class => "btn btn-sm btn-success" %>                          
+                      </div>
+                  </div>
+</div>
+  </div>
+</div>
+

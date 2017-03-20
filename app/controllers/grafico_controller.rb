@@ -44,9 +44,9 @@ class GraficoController < ApplicationController
   	render "grafico/heat"
   end
 
-  def evaluaciones_por_paciente
+  def reporte_por_criterios
     @especialidades = Especialidad.all
-    render "grafico/pie-basic"
+    render "grafico/reporte-criterios"
   end
 
   def calificaciones_por_criterio
@@ -60,61 +60,16 @@ class GraficoController < ApplicationController
   end
 
   def generar_citas_evaluadas
-    #puts :especialidad_id.inspect
-    @calificacionesOK = []
-    @calificaciones = Calificacion.all
-    @calificacionesEspecialidades = []
-    @calificacionesCriterios = []
     @criterio = Criterio.find(params[:criterio_id])
-    @data = Hash.new
-    @data["muymal"] = 0
-    @data["mal"] = 0
-    @data["regular"] = 0
-    @data["bueno"] = 0
-    @data["muybueno"] = 0
-    @calificaciones.each do |calificacion|
-      #validando data segun parametros seleccionados
-      @evaluacion = Evaluacion.find(calificacion.evaluacion_id)
-      @cita = Cita.find(@evaluacion.cita_id)
-      @turno = Turno.find(@cita.turno_id)
-      if @turno.tipo_turno_id.to_s.eql?(params[:tipo_turno_id])
-        @horario = Horario.find(@turno.horario_id)
-        @servicio = Servicio.find(@horario.servicio_id)
-        @tipo_servicio = TipoServicio.find(@servicio.tipo_servicio_id)
-        @calificacionesEspecialidades.push(calificacion)
-        if @tipo_servicio.especialidad_id.to_s.eql?(params[:especialidad_id])
-          @calificacionesCriterios.push(calificacion)
-          if calificacion.criterio_id.to_s.eql?(params[:criterio_id])
-            #preparando data de la grafica...
-            if calificacion.descripcion.eql? "1"
-              @data["muymal"] = @data["muymal"] + 1
-            end
-            if calificacion.descripcion.eql? "2"
-              @data["mal"] = @data["mal"] + 1
-            end
-            if calificacion.descripcion.eql? "3"
-              @data["regular"] = @data["regular"] + 1
-            end
-            if calificacion.descripcion.eql? "4"
-              @data["bueno"] = @data["bueno"] + 1
-            end
-            if calificacion.descripcion.eql? "5"
-              @data["muybueno"] = @data["muybueno"] + 1
-            end
-            @calificacionesOK.push(calificacion)
-          end
-          #FALTA EVALUAR QUE LAS CITAS TENGAN LA FECHA EN EL RANGO SELECCIONADO
-        end
-      end
-    end
-    puts "total grafica: " + @data.inspect
-    puts "Calificaciones totales: " + @calificaciones.length.to_s
-    puts "Calificaciones especificas: " + @calificacionesOK.length.to_s
-    puts "Calificaciones por especialidades: " + @calificacionesEspecialidades.length.to_s
-    puts "Calificaciones por criterios: " + @calificacionesCriterios.length.to_s
-    @totalCalificaciones = @calificaciones.length
-    @totalSeleccionado = ((@calificacionesOK.length.to_f / @totalCalificaciones) * 100).round(2)
-    @especialidades = Especialidad.all
+    @tipo_turno = TipoTurno.find(params[:tipo_turno_id])
+    @especialidad = Especialidad.find(params[:especialidad_id])
+    @fecha_inicio = params[:fecha_inicio]['day'] + "/" + params[:fecha_inicio]['month'] + "/" + params[:fecha_inicio]['year']
+    @fecha_fin = params[:fecha_fin]['day'] + "/" + params[:fecha_fin]['month'] + "/" + params[:fecha_fin]['year']
+
+    @cal_sexos =  { "Hombres" => Calificacion.cantidadCalificacionesPorSexo(1), "Mujeres" => Calificacion.cantidadCalificacionesPorSexo(2)}
+    @cal_estado_civiles = { "Soltero/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(1), "Casado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(2), "Divorciado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(3), "Viudo/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(4), "Comprometido/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(5)}
+    @estadisticas =  @cal_sexos.descriptive_statistics
+    @cal_estado_civiles.descriptive_statistics
     render "grafico/calificaciones_por_criterio"
   end
 

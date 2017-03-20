@@ -29,7 +29,7 @@ Myapp::Application.routes.draw do
 
   get 'grafico/citas_por_turno'
 
-  get 'grafico/evaluaciones_por_paciente'
+  get 'grafico/reporte_por_criterios'
   get 'grafico/calificaciones_por_criterio'
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
