@@ -54,6 +54,7 @@ class EvaluacionesController < ApplicationController
   def create
     @evaluacion = Evaluacion.new(evaluacion_params)
     @evaluacion.descripcion = "Evaluacion de la cita #" + @evaluacion.cita_id.to_s
+
     puts params.to_json
     if !params[:cita].nil?
       @cita = Cita.find_by_id(params[:cita])
@@ -74,9 +75,13 @@ class EvaluacionesController < ApplicationController
         end   
       end
     end
-    @cita.estatus = 1
+
+    @cita = Cita.find_by_id(params[:cita])
+    @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: 3, estatus_nuevo: 4, cita:@cita)
+    @cita.estatus = 4
     @cita.save
-    puts 'paso2'
+    @historialCita.save
+
     @evaluacion.cita_id = @cita.id
     @evaluacion.tipo_evaluacion_id = 2
     puts 'paso3'
