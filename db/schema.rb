@@ -665,6 +665,7 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.string   "direccion"
     t.date     "fecha_nacimiento"
     t.float    "peso"
+    t.float    "altura"
     t.integer  "sexo_id"
     t.integer  "grupo_sanguineo_id"
     t.integer  "estado_civil_id"

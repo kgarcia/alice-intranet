@@ -6,34 +6,23 @@
               </div>
           </div>
           <div class="ibox-content">
-             <%= form_for rango_edad, :html => {:class => 'form-horizontal'} do |f| %>
-                  <% if rango_edad.errors.any? %>
-                    <div id="error_explanation">
-                      <h2><%= pluralize(rango_edad.errors.count, "error") %> prohibited this parametro from being saved:</h2>
-
-                      <ul>
-                      <% rango_edad.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                      <% end %>
-                      </ul>
-                    </div>
-                  <% end %>
+          <%= form_for @rango_edad, :html => {:class => 'form-horizontal', :id => 'form_rango'}, :form_to_validate => 'rango_edad'  do |f| %>
 
                   <div class="form-group"><label class="col-lg-2 control-label">Descripcion</label>
 
-                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                      <div class="col-lg-10"><%= f.text_field :descripcion,:required => true, :class => "form-control" %>
                        </div>
                    </div>
 
                   <div class="form-group"><label class="col-lg-2 control-label">Edad Inicial</label>
 
-                      <div class="col-lg-10"><%= f.number_field :edad_inicial, :class => "form-control" %>
+                      <div class="col-lg-10"><%= f.number_field :edad_inicial,:required => true, :class => "form-control" %>
                        </div>
                   </div>
 
                   <div class="form-group"><label class="col-lg-2 control-label">Edad Final</label>
 
-                      <div class="col-lg-10"><%= f.number_field :edad_final, :class => "form-control" %>
+                      <div class="col-lg-10"><%= f.number_field :edad_final,:required => true, :class => "form-control" %>
                        </div>
                   </div>                  
 
@@ -53,3 +42,63 @@
           </div>
   </div>
 </div>
+
+
+
+<script type="text/javascript">
+
+
+  var valor_negativo = function(e_inicio) {
+
+        var inicio = 0;
+        inicio = parseInt(e_inicio);
+        if( inicio <= 0)
+        {
+          return false;
+        }
+        else{
+          return true;
+        }
+    };
+
+  var rango_valido = function(e_inicio, e_fin) {
+
+        var inicio = 0;
+        var fin = 0;
+        fin = parseInt(e_fin);
+        inicio = parseInt(e_inicio);
+        if( inicio < fin)
+        {
+          return false;
+        }
+        else{
+          return true;
+        }
+    };
+
+$('#form_rango').validate({
+    rules: {
+      'rango_edad[edad_inicial]': { required: true,
+                              valor_negativo: true,
+                              rango_valido: true
+                            },
+      'rango_edad[edad_final]' :{  required: true,
+                            valor_negativo: true,
+                            rango_valido: true
+                          }
+    }
+  });
+  jQuery.validator.addMethod("valor_negativo", function(value, element) {
+
+        return valor_negativo(value);
+    }, "Edad no puede ser un valor negativo o cero ");
+
+  jQuery.validator.addMethod("rango_valido", function(value, element) {
+
+        return rango_valido(value);
+    }, "Rango inválido ");
+
+
+
+      </script>
+
