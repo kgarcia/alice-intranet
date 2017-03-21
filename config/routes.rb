@@ -26,6 +26,10 @@ Myapp::Application.routes.draw do
 
   get '/grafico/update_eventos', to: 'grafico#update_eventos'
 
+  get 'grafico/motivos_cancelacion'
+
+  post 'grafico/motivos_cancelacion', to: 'grafico#generar_motivos_cancelacion'
+
   resources :suscriptores
   resources :medio_difusiones
   resources :perfiles
