@@ -54,13 +54,32 @@ class EvaluacionesController < ApplicationController
   def create
     @evaluacion = Evaluacion.new(evaluacion_params)
     @evaluacion.descripcion = "Evaluacion de la cita #" + @evaluacion.cita_id.to_s
-
-    @cita = Cita.find_by_id(params[:cita])
+    puts params.to_json
+    if !params[:cita].nil?
+      @cita = Cita.find_by_id(params[:cita])
+    else 
+      if !params[:cita_id].nil?
+        @cita = Cita.find_by_id(params[:cita_id])
+        @criterios = params[:calificaciones]
+        
+        @criterios.each do |criterio|
+          @calificacion = Calificacion.new      
+          @calificacion.evaluacion_id = @evaluacion.id
+          @calificacion.criterio_id = criterio["criterio_id"]
+          @calificacion.estatus = 1
+          @calificacion.tipo_calificacion_id = 1
+          @calificacion.descripcion = criterio[:descripcion]
+          
+          @evaluacion.calificaciones.push(@calificacion)        
+        end   
+      end
+    end
     @cita.estatus = 1
     @cita.save
+    puts 'paso2'
     @evaluacion.cita_id = @cita.id
     @evaluacion.tipo_evaluacion_id = 2
-
+    puts 'paso3'
     respond_to do |format|
       if @evaluacion.save
         format.html { redirect_to evaluaciones_path, notice: 'El registro ha sido creado exitosamente.' }
@@ -105,7 +124,7 @@ class EvaluacionesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evaluacion_params
-      params.require(:evaluacion).permit(:descripcion, :estatus, :tipo_evaluacion_id, calificaciones_attributes: [:id, :criterio_id, :descripcion, :tipo_calificacion_id])
+      params.require(:evaluacion).permit(:descripcion, :estatus, :cita_id, :tipo_evaluacion_id, calificaciones_attributes: [:id, :criterio_id, :descripcion, :tipo_calificacion_id])
     end
 
 end

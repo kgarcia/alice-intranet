@@ -24,7 +24,7 @@
             <td><%= opinion.correo %></td>
             <td><%= opinion.nombre %></td>
             <td><%= opinion.descripcion %></td>
-            <td><%= link_to 'Editar', edit_polymorphic_url(opinion), :class => "btn btn-warning btn-sm" %></td>
+
             <td><%= link_to 'Eliminar', opinion, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
           </tr>
         <% end %>

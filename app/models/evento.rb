@@ -32,6 +32,12 @@ class Evento < ApplicationRecord
         url+foto.url(:medium)
     end
 
+
+  def foto_small
+        url+foto.url(:small)
+    end
+
+
     def postearFb(difusion)
 
       @user_graph = Koala::Facebook::API.new('EAANVgP46xeoBAPQYTJZArDgzsX2GEuPMCJJXIJmMW5ZCrFtZC0AYGkVhs8EZB4V4rRQZCZCoWHIppy1JWGXEPT7mzwMHI9bwpTruMAYE4XPbTyuv1t9wwcCBvkJEsj6C6s84nYEq8Q2AHaeUm6odG8vZAatv4HqcEQZD')
