@@ -1,0 +1,56 @@
+// Place all the styles related to the TipoServicios controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*  STEPS WIZARD    */
+//= require steps/jquery.steps.css
+
+@import "base/variables";
+@import "base/skins";
+
+#form-tipo-servicio.wizard > .content{
+	min-height: 350px;
+}
+
+#form-tipo-servicio.wizard > .actions{
+
+	.disabled a, 
+	.disabled a:hover, 
+	.disabled a:active{
+		min-width: 80px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 12px;
+		height: 30px;
+	}
+	a, 
+	a:hover, 
+	a:active{
+		min-width: 80px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 12px;
+		height: 30px;
+	}
+	a[href="#finish"]{
+		background-color: $navy;
+	}
+}
+#form-tipo-servicio.wizard > .steps{
+	.done a, 
+	.done a:hover, 
+	.done a:active{
+		font-weight: bold;
+	}
+	.current a, 
+	.current a:hover, 
+	.current a:active{
+		font-weight: bold;
+	}
+
+	.disabled a, 
+	.disabled a:hover, 
+	.disabled a:active{
+		font-weight: bold;
+	}
+}

@@ -54,7 +54,7 @@ class SectoresController < ApplicationController
   def update
     respond_to do |format|
       if @sector.update(sector_params)
-        format.html { redirect_to sectores_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to sectores_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @sector }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class SectoresController < ApplicationController
     @sector.estatus = 2
     @sector.save
     respond_to do |format|
-      format.html { redirect_to sectores_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to sectores_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

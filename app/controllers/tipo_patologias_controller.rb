@@ -54,7 +54,7 @@ class TipoPatologiasController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_patologia.update(tipo_patologia_params)
-        format.html { redirect_to tipo_patologias_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to tipo_patologias_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_patologia }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class TipoPatologiasController < ApplicationController
     @tipo_patologia.estatus = 2
     @tipo_patologia.save
     respond_to do |format|
-      format.html { redirect_to tipo_patologias_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to tipo_patologias_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

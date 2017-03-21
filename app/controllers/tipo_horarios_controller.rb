@@ -55,7 +55,7 @@ class TipoHorariosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_horario.update(tipo_horario_params)
-        format.html { redirect_to tipo_horarios_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to tipo_horarios_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_horario }
       else
         format.html { render :edit }
@@ -70,7 +70,7 @@ class TipoHorariosController < ApplicationController
     @tipo_horario.estatus = 2
     @tipo_horario.save
     respond_to do |format|
-      format.html { redirect_to tipo_horarios_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to tipo_horarios_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

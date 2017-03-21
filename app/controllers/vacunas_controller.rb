@@ -54,7 +54,7 @@ class VacunasController < ApplicationController
   def update
     respond_to do |format|
       if @vacuna.update(vacuna_params)
-        format.html { redirect_to vacunas_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to vacunas_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @vacuna }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class VacunasController < ApplicationController
     @vacuna.estatus = 2
     @vacuna.save
     respond_to do |format|
-      format.html { redirect_to vacunas_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to vacunas_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

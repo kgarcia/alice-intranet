@@ -55,7 +55,7 @@ class OcupacionesController < ApplicationController
   def update
     respond_to do |format|
       if @ocupacion.update(ocupacion_params)
-        format.html { redirect_to ocupaciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to ocupaciones_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @ocupacion }
       else
         format.html { render :edit }
@@ -70,7 +70,7 @@ class OcupacionesController < ApplicationController
     @ocupacion.estatus = 2
     @ocupacion.save
     respond_to do |format|
-      format.html { redirect_to ocupaciones_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to ocupaciones_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

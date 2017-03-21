@@ -4,6 +4,7 @@ class CriteriosController < ApplicationController
   # GET /criterios
   # GET /criterios.json
   def index
+    @tipo = TipoCriterio.titulo
     @parametros = Criterio.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
@@ -57,7 +58,7 @@ class CriteriosController < ApplicationController
   def update
     respond_to do |format|
       if @criterio.update(criterio_params)
-        format.html { redirect_to criterios_path, notice: 'El registro ha sido actualizado exitosamente. ' }
+        format.html { redirect_to criterios_path, info: 'El registro ha sido actualizado exitosamente. ' }
         format.json { render :show, status: :ok, location: @criterio }
       else
         format.html { render :edit }
@@ -72,7 +73,7 @@ class CriteriosController < ApplicationController
     @criterio.estatus = 2
     @criterio.save
     respond_to do |format|
-      format.html { redirect_to criterios_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to criterios_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

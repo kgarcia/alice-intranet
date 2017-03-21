@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require toastr
+ *= require toastr_rails
  *= require font-awesome
  *= require animate/animate.css
  *= require style
@@ -31,8 +31,15 @@
         background-color: #354c9e;	
         color: #FFFFFF;
 }
-
-
+.footable-filtering-search .input-group .input-group-btn .btn-primary{
+	min-width: 0px;
+}
+.text-blue{
+	color: #167ac6;
+}
+.text-dark-blue{
+	color: #354c9e;
+}
 @media print {
 
     body * {

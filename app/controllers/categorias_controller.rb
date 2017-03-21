@@ -65,7 +65,7 @@ class CategoriasController < ApplicationController
   def update
     respond_to do |format|
       if @categoria.update(categoria_params)
-        format.html { redirect_to categorias_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to categorias_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @categoria }
       else
         format.html { render :edit }
@@ -80,7 +80,7 @@ class CategoriasController < ApplicationController
     @categoria.estatus = 2
     @categoria.save
     respond_to do |format|
-      format.html { redirect_to categorias_url, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to categorias_url, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

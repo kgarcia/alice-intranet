@@ -69,6 +69,7 @@ $skin-1-page-bg: #f4f6fa;
 .skin-1 .navbar-minimalize {
   background: $skin-1-color;
   border-color: $skin-1-color;
+  min-width: 0px;
 }
 
 body.skin-1 {

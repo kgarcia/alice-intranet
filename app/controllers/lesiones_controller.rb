@@ -4,10 +4,10 @@ class LesionesController < ApplicationController
   # GET /lesiones
   # GET /lesiones.json
   def index
+    @tipo = TipoLesion.titulo
     @parametros = Lesion.where(:estatus => 1)
-        
     respond_to do |format|
-      format.html {  render "parametros/index" }
+      format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
     end
   end
@@ -59,7 +59,7 @@ class LesionesController < ApplicationController
   def update
     respond_to do |format|
       if @lesion.update(lesion_params)
-        format.html { redirect_to lesiones_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to lesiones_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @lesion }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class LesionesController < ApplicationController
     @lesion.estatus = 2
     @lesion.save
     respond_to do |format|
-      format.html { redirect_to lesiones_path, notice: 'El registro ha sido eliminado exitosamente. ' }
+      format.html { redirect_to lesiones_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
