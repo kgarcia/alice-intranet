@@ -23,10 +23,6 @@ class CitasController < ApplicationController
     else
       @parametro = Cita.new
     end
-    
-    puts '##########################################'
-    puts @parametro.as_json
-    puts '##########################################'
     respond_to do |format|
       if !@parametro.id.nil?
         format.html

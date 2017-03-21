@@ -3,6 +3,14 @@ class UsuariosController < ApplicationController
     	@usuarios = Usuario.all
   	end
 
+    def solicitante
+      @usuario = Usuario.find(:id)
+      @persona = Persona.find(@usuario.persona_id)
+      respond_to do |format|
+        format.json {render json: @persona}
+      end
+    end
+
   	def perfil
   		@usuario = current_usuario
   		@persona = @usuario.persona
