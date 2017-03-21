@@ -26,11 +26,11 @@
                 <div class="col-sm-12" style="padding-top: 15px">
                     <div class="col-sm-4">
                         <%= label_tag :id, "Desde: " %>
-                        <%= label_tag :id, @fecha_inicio %>
+                        <%= label_tag :id, @fecha_inicio.strftime("%d/%m/%Y") %>
                     </div>
                     <div class="col-sm-4">
                         <%= label_tag :id, "Hasta: " %>
-                        <%= label_tag :id, @fecha_fin %>
+                        <%= label_tag :id, @fecha_fin.strftime("%d/%m/%Y") %>
                     </div>
                     <div class="col-sm-4"></div>
                 </div>
