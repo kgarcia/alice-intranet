@@ -16,6 +16,11 @@ class PersonasController < ApplicationController
   # GET /personas/1.json
   def show
     @persona = Persona.find(params[:id])
+
+    respond_to do |format|
+      format.html 
+      format.json { render json: @persona }
+    end
   end
 
   # GET /personas/new

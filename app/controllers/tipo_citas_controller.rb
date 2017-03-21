@@ -16,8 +16,10 @@ class TipoCitasController < ApplicationController
   # GET /tipo_citas/1.json
   def show
     @parametro = TipoCita.find(params[:id])
-
-    render "parametros/edit"
+    respond_to do |format|
+      format.html {  render "parametros/edit" }
+      format.json { render json: @parametro }
+    end
   end
 
   # GET /tipo_citas/new

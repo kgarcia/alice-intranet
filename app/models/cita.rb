@@ -20,12 +20,13 @@ class Cita < ApplicationRecord
     super(include: { turno: 
                        { include:  {horario: 
                                       { include:  {servicio: 
-                                                       { include:  :ubicacion
+                                                       { include:  [:ubicacion,:tipo_servicio]
                                                        }
                                                    }  
                                       }
                                     }
-                        }
+                        },
+                        :persona => {}
                       }
                       )
   end
