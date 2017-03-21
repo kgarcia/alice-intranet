@@ -191,4 +191,16 @@ class Especialidad < ApplicationRecord
     @citas = Especialidad.joins(tipo_servicios: { servicios: { horarios: { turnos: :citas } } } ).group("especialidades.descripcion")
     return @citas.count
   end
+
+  def contarCitasCanceladasDeTipoMotivo(tipo_motivo,fecha_inicio,fecha_fin)
+    @citas = Cita.joins(eventualidad: { motivo: :tipo_motivo}, turno: { horario: {servicio: {tipo_servicio: :especialidad } } }).where( "tipo_servicios.especialidad_id"=> self.id ).where('citas.fecha' => fecha_inicio..fecha_fin).where('citas.estatus' => 5).where('motivos.tipo_motivo_id' => tipo_motivo)
+
+    return @citas.count
+  end
+
+  def promedioDeCitasCanceladasPorTipoMotivo(fecha_inicio, fecha_fin)
+    @citas = Cita.joins(eventualidad: { motivo: :tipo_motivo}, turno: { horario: {servicio: {tipo_servicio: :especialidad } } }).where( "tipo_servicios.especialidad_id"=> self.id ).where('citas.fecha' => fecha_inicio..fecha_fin).where('citas.estatus' => 5)
+    @tipoMotivos = TipoMotivo.all
+    return (@citas.count.to_f / @tipoMotivos.count.to_f)
+  end
 end

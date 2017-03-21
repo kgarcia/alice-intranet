@@ -26,6 +26,8 @@ Myapp::Application.routes.draw do
 
   get '/grafico/update_eventos', to: 'grafico#update_eventos'
 
+get '/grafico/update_servicios', to: 'grafico#update_servicios'
+
   get 'grafico/motivos_cancelacion'
 
   post 'grafico/motivos_cancelacion', to: 'grafico#generar_motivos_cancelacion'
@@ -54,6 +56,8 @@ get 'tipo_servicios/filtrar', to: 'tipo_servicios#filtrar'
   match 'grafico/calificaciones_por_criterio', to: "grafico#generar_citas_evaluadas", via: "post"
   match 'grafico/calificaciones_por_especialidad', to: "grafico#calcular_calificaciones_por_especialidad", via: "post"
   match 'grafico/citas_por_evento', to: "grafico#calcular_citas_por_evento", via: "post"
+  match 'grafico/citas_por_difusion', to: "grafico#calcular_citas_por_difusion", via: "post"
+  match 'grafico/calificaciones_por_servicio', to: "grafico#calcular_calificaciones_por_servicio", via: "post"
 
   get 'grafico/generar'
 
@@ -67,6 +71,8 @@ get 'tipo_servicios/filtrar', to: 'tipo_servicios#filtrar'
   get 'grafico/calificaciones_por_criterio'
   get 'grafico/calificaciones_por_especialidad'
   get 'grafico/citas_por_evento'
+  get 'grafico/citas_por_difusion'
+  get 'grafico/calificaciones_por_servicio'
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
