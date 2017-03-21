@@ -2,45 +2,31 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h2 class="parametros-titulo"><%= "Citas por eventos" %></h2>
+                <h2 class="parametros-titulo"><%= "Citas por difusión" %></h2>
             </div>
         </div>
-        <%= form_tag({controller: "grafico", action: "calcular_citas_por_evento"}, method: "post") do %>
+        <%= form_tag({controller: "grafico", action: "calcular_citas_por_difusion"}, method: "post") do %>
         <div class="ibox-content" style="padding-bottom: 15px">
             <div class="container-fluid">
                 <div class="field form-group row">
-                    <label class="col-lg-2 control-label">Eventos:</label>
+                    <label class="col-lg-2 control-label">Difusión:</label>
                     <div class="col-lg-10">
-                        <%= collection_select( :id, :evento, @eventos, :id,
-                          :descripcion, {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
-                        <%= hidden_field_tag :evento_id, :evento_id %>
+                        <%= collection_select( :id, :difusion, @difusiones, :id,
+                          :asunto, {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
+                        <%= hidden_field_tag :difusion, :difusion %>
                         <script>
                             $(function () {
-                                $(document).on('change', '#id_evento', function () {
+                                $(document).on('change', '#id_difusion', function () {
                                     var select_value = $(this).val();
-                                    $('#evento_id').val(select_value);
+                                    $('#difusion').val(select_value);
                                 });
                             });
                         </script>
                     </div>
                 </div>
+
                 <div class="field form-group row">
-                    <label class="col-lg-2 control-label">Tipo de servicio:</label>
-                    <div class="col-lg-10">
-                        <%= select_tag("tipo_servicio_id", options_from_collection_for_select(@tipo_servicios, :id, :descripcion), {:class => "form-control", :prompt => "Seleccione"}) %>
-                        <%= hidden_field_tag :tipo_servicio, :tipo_servicio %>
-                        <script>
-                            $(function () {
-                                $(document).on('change', '#tipo_servicio_id', function () {
-                                    var select_value = $(this).val();
-                                    $('#tipo_servicio').val(select_value);
-                                });
-                            });
-                        </script>
-                    </div>
-                </div>
-                <div class="field form-group row">
-                    <label class="col-lg-2 control-label">Rango de meses:</label>
+                    <label class="col-lg-2 control-label">Rango de semanas:</label>
                     <div class="col-lg-10">
                       <%= number_field_tag( :semanas, nil, min: 1, max: 200, :class => "form-control") %>
                       <%= hidden_field_tag :cantidad_semanas, :cantidad_semanas %>
@@ -56,7 +42,7 @@
                 </div>
                 <div class="col-sm-12" style="margin-top: 15px">
                     <div class="col-lg-offset-3 col-lg-2">
-                         <%= submit_tag "Generar", method: "calcular_citas_por_evento", :class => "btn btn-sm btn-primary" %>
+                         <%= submit_tag "Generar", method: "calcular_citas_por_difusion", :class => "btn btn-sm btn-primary" %>
                     </div>
                       <div class="col-lg-2">
                       <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>

@@ -1,62 +1,55 @@
+<%= csrf_meta_tag %>
+<br>
 <div class="row">
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h2 class="parametros-titulo"><%= "Citas por eventos" %></h2>
+                <h2 class="parametros-titulo"><%= "Calificaciones por servicio" %></h2>
             </div>
         </div>
-        <%= form_tag({controller: "grafico", action: "calcular_citas_por_evento"}, method: "post") do %>
+        <%= form_tag({controller: "grafico", action: "calcular_calificaciones_por_servicio"}, method: "post") do %>
         <div class="ibox-content" style="padding-bottom: 15px">
             <div class="container-fluid">
                 <div class="field form-group row">
-                    <label class="col-lg-2 control-label">Eventos:</label>
-                    <div class="col-lg-10">
-                        <%= collection_select( :id, :evento, @eventos, :id,
-                          :descripcion, {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
-                        <%= hidden_field_tag :evento_id, :evento_id %>
-                        <script>
-                            $(function () {
-                                $(document).on('change', '#id_evento', function () {
-                                    var select_value = $(this).val();
-                                    $('#evento_id').val(select_value);
-                                });
-                            });
-                        </script>
-                    </div>
-                </div>
-                <div class="field form-group row">
                     <label class="col-lg-2 control-label">Tipo de servicio:</label>
                     <div class="col-lg-10">
-                        <%= select_tag("tipo_servicio_id", options_from_collection_for_select(@tipo_servicios, :id, :descripcion), {:class => "form-control", :prompt => "Seleccione"}) %>
-                        <%= hidden_field_tag :tipo_servicio, :tipo_servicio %>
+                        <%= collection_select(:id, "tipo_servicio", TipoServicio.all, :id, :descripcion,
+                            {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
+                        <%= hidden_field_tag :tipo_servicio_id, :tipo_servicio_id %>
                         <script>
                             $(function () {
-                                $(document).on('change', '#tipo_servicio_id', function () {
+                                $(document).on('change', '#id_tipo_servicio', function () {
                                     var select_value = $(this).val();
-                                    $('#tipo_servicio').val(select_value);
+                                    $('#tipo_servicio_id').val(select_value);
                                 });
                             });
                         </script>
                     </div>
                 </div>
                 <div class="field form-group row">
-                    <label class="col-lg-2 control-label">Rango de meses:</label>
+                    <label class="col-lg-2 control-label">Servicio:</label>
                     <div class="col-lg-10">
-                      <%= number_field_tag( :semanas, nil, min: 1, max: 200, :class => "form-control") %>
-                      <%= hidden_field_tag :cantidad_semanas, :cantidad_semanas %>
-                      <script>
-                          $(function () {
-                              $(document).on('change', '#semanas', function () {
-                                  var select_value = $(this).val();
-                                  $('#cantidad_semanas').val(select_value);
-                              });
-                          });
-                      </script>
+                        <%= select_tag("servicio", options_from_collection_for_select(@servicios, :id, :descripcion), {:class => "form-control", :prompt => "Seleccione"}) %>
+                        <%= hidden_field_tag :servicio_id, :servicio_id %>
+                        <script>
+                            $(function () {
+                                $(document).on('change', '#servicio', function () {
+                                    var select_value = $(this).val();
+                                    $('#servicio_id').val(select_value);
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="field form-group row">
+                    <label class="col-lg-2 control-label">Rango de Fechas:</label>
+                    <div class="col-lg-10">
+                        <%= text_field_tag "fecha","" ,:class => "daterange form-control" %>
                     </div>
                 </div>
                 <div class="col-sm-12" style="margin-top: 15px">
                     <div class="col-lg-offset-3 col-lg-2">
-                         <%= submit_tag "Generar", method: "calcular_citas_por_evento", :class => "btn btn-sm btn-primary" %>
+                         <%= submit_tag "Generar", :class => "btn btn-sm btn-primary" %>
                     </div>
                       <div class="col-lg-2">
                       <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>

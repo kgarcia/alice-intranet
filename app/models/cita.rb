@@ -64,4 +64,15 @@ class Cita < ApplicationRecord
     return @citas.count
   end
 
+  def self.contarCitasPorDifusionYRangoSemanas(difusion, fecha_inicio, fecha_fin)
+    @difusion = Difusion.find(difusion)
+    puts "Entidad: " + @difusion.entidad_id.inspect
+    if @difusion.tipo_entidad_id == 1
+      @citas = Cita.joins( turno: { horario: :servicio } ).where("horarios.servicio_id" => @difusion.entidad_id)
+    else
+      @citas = Cita.joins( turno: { horario: { servicio: { tipo_servicio: :eventos } } } ).where("eventos.id" => @difusion.entidad_id)
+    end
+    return @citas.count
+  end
+
 end

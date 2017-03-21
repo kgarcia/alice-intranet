@@ -1,0 +1,99 @@
+<%= csrf_meta_tag %>
+<br>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h2 class="parametros-titulo"><%= "Citas por difusión" %></h2>
+            </div>
+        </div>
+        <div class="ibox-content" style="padding-bottom: 15px">
+            <div class="container-fluid">
+                <div class="col-sm-12" style="padding-top: 15px">
+                    <div class="col-sm-4">
+                        <%= label_tag :id, "Difusión: " %>
+                        <h4><%= @difusion.asunto %></h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= label_tag :id, @difusion.tipo_entidad == 1 ? "Servicio: " : "Evento: " %>
+                        <h4><%= @entidad.descripcion %></h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= label_tag :id, "Fecha de la difusión: " %>
+                        <h4><%= @difusion.created_at.strftime("%d/%m/%Y") %></h4>
+                    </div>
+                </div>
+                <div class="col-sm-12" style="padding-top: 15px">
+                  <div class="col-sm-4">
+                      <%= label_tag :id, "Cantidad de semanas: " %>
+                      <h4><%= @cantidad_semanas %></h4>
+                  </div>
+                  <div class="col-sm-4">
+                      <%= label_tag :id, "Rango de fecha antes de la difusión: " %>
+                      <h4><%= @fecha_inicio.strftime("%d/%m/%Y") %>
+                          -
+                          <%= @difusion.created_at.strftime("%d/%m/%Y") %></h4>
+                  </div>
+                  <div class="col-sm-4">
+                      <%= label_tag :id, "Rango de fecha despues de la difusión: " %>
+                      <h4><%= @difusion.created_at.strftime("%d/%m/%Y") %>
+                          -
+                          <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
+                  </div>
+                </div>
+                <div class="col-sm-12" style="padding-top: 15px">
+                    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                </div>
+                <script>
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        xAxis: {
+                            categories: [
+                                 '<%= @entidad.descripcion %>'
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Cantidad de citas'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} %</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [
+                            {
+                                name: 'Antes de la difusión',
+                                data: [ <%= Cita.contarCitasPorDifusionYRangoSemanas(@difusion.id, @fecha_inicio, @difusion.created_at) %> ],
+                                color: '#90ed7d'
+                            }, {
+                                name: 'Despues de la difusión',
+                                data: [ <%= Cita.contarCitasPorDifusionYRangoSemanas(@difusion.id, @difusion.created_at, @fecha_fin) %> ],
+                                color: '#8085e9'
+                            }
+                        ]
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</div>

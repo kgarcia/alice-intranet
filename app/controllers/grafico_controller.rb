@@ -78,7 +78,7 @@ class GraficoController < ApplicationController
           @titulo = "Tiempo promedio de espera por atencion por Especialidad: "+@especialidad.descripcion
 
         end
-        
+
       when 2.to_s
         if @entidad == ""
           @titulo = "Tiempo promedio de espera por atencion por Tipo de Servicio"
@@ -88,7 +88,7 @@ class GraficoController < ApplicationController
         else
           @tipoServicio = TipoServicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por atencion por Tipo de Servicio: "+@tipoServicio.descripcion
-          
+
         end
       when 3.to_s
         if @entidad == ""
@@ -99,8 +99,8 @@ class GraficoController < ApplicationController
         else
           @servicio = Servicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por atencion por Servicio: "+@servicio.descripcion
-          
-        end    
+
+        end
     end
   end
 
@@ -154,7 +154,7 @@ class GraficoController < ApplicationController
           @titulo = "Tiempo promedio de espera por evaluacion del paciente por Especialidad: "+@especialidad.descripcion
 
         end
-        
+
       when 2.to_s
         if @entidad == ""
           @titulo = "Tiempo promedio de espera por evaluacion del paciente por Tipo de Servicio"
@@ -164,7 +164,7 @@ class GraficoController < ApplicationController
         else
           @tipoServicio = TipoServicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por evaluacion del paciente por Tipo de Servicio: "+@tipoServicio.descripcion
-          
+
         end
       when 3.to_s
         if @entidad == ""
@@ -175,8 +175,8 @@ class GraficoController < ApplicationController
         else
           @servicio = Servicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por evaluacion del paciente por Servicio: "+@servicio.descripcion
-          
-        end    
+
+        end
     end
   end
 
@@ -203,7 +203,7 @@ class GraficoController < ApplicationController
           @titulo = "Tiempo promedio de espera por recepcion por Especialidad: "+@especialidad.descripcion
 
         end
-        
+
       when 2.to_s
         if @entidad == ""
           @titulo = "Tiempo promedio de espera por recepcion por Tipo de Servicio"
@@ -213,7 +213,7 @@ class GraficoController < ApplicationController
         else
           @tipoServicio = TipoServicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por recepcion por Tipo de Servicio: "+@tipoServicio.descripcion
-          
+
         end
       when 3.to_s
         if @entidad == ""
@@ -224,8 +224,8 @@ class GraficoController < ApplicationController
         else
           @servicio = Servicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por recepcion por Servicio: "+@servicio.descripcion
-          
-        end    
+
+        end
     end
   end
 
@@ -252,7 +252,7 @@ class GraficoController < ApplicationController
           @titulo = "Tiempo promedio de espera por solicitud por Especialidad: "+@especialidad.descripcion
 
         end
-        
+
       when 2.to_s
         if @entidad == ""
           @titulo = "Tiempo promedio de espera por asignacion de cita por Tipo de Servicio"
@@ -262,7 +262,7 @@ class GraficoController < ApplicationController
         else
           @tipoServicio = TipoServicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por solicitud por Tipo de Servicio: "+@tipoServicio.descripcion
-          
+
         end
       when 3.to_s
         if @entidad == ""
@@ -273,8 +273,8 @@ class GraficoController < ApplicationController
         else
           @servicio = Servicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por solicitud por Servicio: "+@servicio.descripcion
-          
-        end    
+
+        end
     end
   end
 
@@ -303,7 +303,7 @@ class GraficoController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def citas_evaluadas_params
-    params.permit(:descripcion, :especialidad_id, :tipo_turno_id, :criterio_id, :fecha_inicio, :fecha_fin, :tipo_servicio_id)
+    params.permit(:descripcion, :especialidad_id, :tipo_turno_id, :criterio_id, :fecha_inicio, :fecha_fin, :tipo_servicio_id, :difusion)
   end
 
   def generar_citas_evaluadas
@@ -373,6 +373,48 @@ class GraficoController < ApplicationController
     @fecha_fin = @evento.fecha + params[:cantidad_semanas].to_i.week
 
     render "grafico/citas_por_evento"
+  end
+
+  def citas_por_difusion
+    @difusiones = Difusion.all
+
+    render "grafico/reporte-citas-difusiones"
+  end
+
+  def calcular_citas_por_difusion
+    @difusion = Difusion.find(params[:difusion])
+    if @difusion.tipo_entidad == 1
+      @entidad = Servicio.find(@difusion.entidad)
+    else
+      @entidad = Evento.find(@difusion.entidad)
+    end
+    @cantidad_semanas = params[:cantidad_semanas].to_s
+    @fecha_inicio = @difusion.created_at - params[:cantidad_semanas].to_i.week
+    @fecha_fin = @difusion.created_at + params[:cantidad_semanas].to_i.week
+
+    render "grafico/citas_por_difusion"
+  end
+
+  def calificaciones_por_servicio
+    @servicios = []
+    render "grafico/reporte-calificaciones-servicios"
+  end
+
+  def calcular_calificaciones_por_servicio
+    @tipo_servicio = TipoServicio.find(params[:tipo_servicio_id].to_i)
+    @servicio = Servicio.find(params[:servicio_id].to_i)
+    @rango = params['fecha'].split(' - ')
+    @fecha_inicio =  @rango[0].to_date.beginning_of_day()
+    @fecha_fin =  @rango[1].to_date.end_of_day()
+    render "grafico/calificaciones_por_servicio"
+  end
+
+  def update_servicios
+    @servicios = TipoServicio.find(params[:servicio].to_i).servicios
+    respond_to do |format|
+      format.js
+      render 'grafico/update_servicios'
+    end
   end
 
 end
