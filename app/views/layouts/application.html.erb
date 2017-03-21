@@ -6,24 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Alice | Administrador</title>
 
-    <!-- Main css styles -->
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-
+    <%= stylesheet_link_tag 'application' if ::Rails.application.assets.find_asset("application.css") %>
+    <!-- Include style per-controller - vendor plugins -->
+    <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>
+        
     <!-- Main javascript files -->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+    <%= javascript_include_tag 'application' if ::Rails.application.assets.find_asset("application.js") %>
     <%= csrf_meta_tags %>
 
 </head>
 <body class="skin-1">
-<% unless flash.empty? %>
-  <script type="text/javascript">
-    <% flash.each do |f| %>
-      <% type = f[0].gsub('alert', 'error').gsub('notice', 'info') %>
-      toastr['<%= type %>']('<%= f[1] %>', '<%= type %>');
-    <% end %>
-  </script>
-<% end %>
     <!-- Wrapper-->
     <div id="wrapper">
 
@@ -32,9 +24,17 @@
 
         <!-- Page wraper -->
         <div id="page-wrapper" class="gray-bg">
-
+     
             <!-- Page wrapper -->
             <%= render 'layouts/topnavbar' %>
+            <% unless flash.empty? %>
+              <script type="text/javascript">
+                  <% flash.each do |f| %>
+                  <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'success').gsub('warning','warning').gsub('info','info') %>
+                     toastr['<%= type %>']('<%= f[1] %>');
+                  <% end %>
+              </script>
+             <% end %>
             <!-- Main view  -->
             <%= yield %>
 
@@ -47,11 +47,14 @@
 
     </div>
     <!-- End wrapper-->
-    <script type="text/javascript">
-      $(function () {
-        $('.datetimepicker').datetimepicker();
-      });
-    </script>
+        <!-- Main javascript files -->
+        <%= javascript_include_tag 'style' if ::Rails.application.assets.find_asset("style.js") %>
+        <!-- Include javascript per-controller - vendor plugins -->
+        <%= javascript_include_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.js") %>
+
+        <!-- Include javascript per-view -->
+        <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
+        <%= yield :javascript %>
 </body>
 
 

@@ -9,9 +9,10 @@ class CreatePersonas < ActiveRecord::Migration[5.0]
       t.date :fecha_nacimiento, :null => true
       t.float :peso, :null => true
       t.float :altura, :null => true
-      t.references :sexo, foreign_key: true, :null => true
-      t.references :grupo_sanguineo, foreign_key: true, :null => true
-      t.references :estado_civil, foreign_key: true, :null => true
+      t.references :sexo, foreign_key: true, :null => false, on_delete: :cascade
+      t.references :grupo_sanguineo, foreign_key: true, :null => true, on_delete: :cascade
+      t.references :estado_civil, foreign_key: true, :null => true, on_delete: :cascade
+
       t.timestamps
     end
   end

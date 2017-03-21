@@ -1,0 +1,2 @@
+class HisTipoServicio < ApplicationRecord
+end

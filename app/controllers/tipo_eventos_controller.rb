@@ -57,7 +57,7 @@ class TipoEventosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_evento.update(tipo_evento_params)
-        format.html { redirect_to tipo_eventos_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to tipo_eventos_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_evento }
       else
         format.html { render :edit }
@@ -72,7 +72,7 @@ class TipoEventosController < ApplicationController
     @tipo_evento.estatus = 2
     @tipo_evento.save
     respond_to do |format|
-      format.html { redirect_to tipo_eventos_path, notice: 'El registro ha sido eliminado exitosamente.'}
+      format.html { redirect_to tipo_eventos_path, alert: 'El registro ha sido eliminado exitosamente.'}
       format.json { head :no_content }
     end
   end

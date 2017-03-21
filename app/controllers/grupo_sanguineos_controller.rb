@@ -54,7 +54,7 @@ class GrupoSanguineosController < ApplicationController
   def update
     respond_to do |format|
       if @grupo_sanguineo.update(grupo_sanguineo_params)
-        format.html { redirect_to grupo_sanguineos_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to grupo_sanguineos_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @grupo_sanguineo }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class GrupoSanguineosController < ApplicationController
     @grupo_sanguineo.estatus = 2
     @grupo_sanguineo.save
     respond_to do |format|
-      format.html { redirect_to grupo_sanguineos_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to grupo_sanguineos_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

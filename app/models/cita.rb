@@ -17,15 +17,16 @@ class Cita < ApplicationRecord
 	end
 
   def as_json(options={})
-    super(include: { turno:
-                       { include:  {horario:
-                                      { include:  {servicio:
-                                                       { include:  :ubicacion
+    super(include: { turno: 
+                       { include:  {horario: 
+                                      { include:  {servicio: 
+                                                       { include:  [:ubicacion,:tipo_servicio]
                                                        }
                                                    }
                                       }
                                     }
-                        }
+                        },
+                        :persona => {}
                       }
                       )
   end

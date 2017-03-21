@@ -42,7 +42,7 @@ class RangoEdadesController < ApplicationController
   def update
     respond_to do |format|
       if @rango_edad.update(rango_edad_params)
-        format.html { redirect_to rango_edades_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to rango_edades_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @rango_edad }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class RangoEdadesController < ApplicationController
     @rango_edad.estatus = 2
     @rango_edad.save
     respond_to do |format|
-      format.html { redirect_to rango_edades_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to rango_edades_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

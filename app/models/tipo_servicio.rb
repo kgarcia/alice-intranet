@@ -2,13 +2,13 @@ class TipoServicio < ApplicationRecord
 	belongs_to :tipo_atencion
   belongs_to :categoria
   belongs_to :especialidad
-  has_many :servicios
-  has_many :tipo_servicio_evento
-  has_many :eventos, through: :tipo_servicio_evento
-  has_many :criterio_tipo_servicios
-  has_many :criterios, through: :criterio_tipo_servicios
-  has_many :perfil_tipo_servicios
-  has_many :perfiles, through: :perfil_tipo_servicios
+  has_many :servicios, dependent: :destroy
+  has_many :tipo_servicio_evento, dependent: :destroy
+  has_many :eventos, through: :tipo_servicio_evento, dependent: :destroy
+  has_many :criterio_tipo_servicios, dependent: :destroy
+  has_many :criterios, through: :criterio_tipo_servicios, dependent: :destroy
+  has_many :perfil_tipo_servicios, dependent: :destroy
+  has_many :perfiles, through: :perfil_tipo_servicios, dependent: :destroy
 
 	has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   	validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
@@ -298,6 +298,18 @@ class TipoServicio < ApplicationRecord
       return (tiempoEvaluacion / citasEvaluadas)
     end
     
+  end
+
+  def contarCitasCanceladasDeTipoMotivo(tipo_motivo,fecha_inicio,fecha_fin)
+    @citas = Cita.joins(eventualidad: { motivo: :tipo_motivo}, turno: { horario: {servicio: :tipo_servicio } }).where( "tipo_servicios.id"=> self.id ).where('citas.fecha' => fecha_inicio..fecha_fin).where('citas.estatus' => 5).where('motivos.tipo_motivo_id' => tipo_motivo)
+
+    return @citas.count
+  end
+
+  def promedioDeCitasCanceladasPorTipoMotivo(fecha_inicio, fecha_fin)
+    @citas = Cita.joins(eventualidad: { motivo: :tipo_motivo}, turno: { horario: {servicio: :tipo_servicio } }).where( "tipo_servicios.id"=> self.id ).where('citas.fecha' => fecha_inicio..fecha_fin).where('citas.estatus' => 5)
+    @tipoMotivos = TipoMotivo.all
+    return (@citas.count.to_f / @tipoMotivos.count.to_f)
   end
     
 

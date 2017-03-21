@@ -1,0 +1,298 @@
+<div class="row">   
+   <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+          <div class="ibox-title">
+              <h2 class="parametros-titulo"><%= "Reportes Estadisticos" %></h2>
+          </div>
+      </div>
+      <div class="ibox-content row">
+      	  <h2 class="parametros-titulo"><%= @titulo %></h2>
+          <h4>Desde el <%= @fecha_inicio.strftime("%d/%m/%Y") %> hasta el <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
+		  <div id="container" width="500px" height="300px"></div>
+          <div class="row">
+            <%= link_to 'Atrás', "/grafico/motivos_cancelacion", :class => "btn btn-sm btn-success " %>
+          </div>
+      </div>
+
+
+
+
+  </div>
+</div>
+
+<script type="text/javascript">
+	       
+    <% if @tipo_entidad == 1.to_s %>
+        <% if @entidad == "" %>
+            Highcharts.chart('container', {
+                title: {
+                    text: '<%= @titulo %>'
+                },
+                xAxis: {
+                    categories: [
+                        <% @especialidades.each do |especialidad| %>
+                            '<%= especialidad.descripcion%>',
+                        <% end %>
+                    ]
+                },
+                labels: {
+                    items: [{
+                        html: 'Total de citas canceladas',
+                        style: {
+                            left: '50px',
+                            top: '18px',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                        }
+                    }]
+                },
+                series: [
+                <% @tipoMotivos.each do |tipoMotivo| %>
+                    {
+                       type: 'column',
+                        name: '<%= tipoMotivo.descripcion %>',
+                        data: [
+                        <% @especialidades.each do |especialidad| %>
+                            <%= especialidad.contarCitasCanceladasDeTipoMotivo(tipoMotivo.id,@fecha_inicio,@fecha_fin) %>,
+                        <% end %>
+                        ] 
+                    },
+                <% end %>
+                {
+                    type: 'spline',
+                    name: 'Promedio de Motivos de cancelacion',
+                    data: [
+                    <% @especialidades.each do |especialidad| %>
+                        <%= especialidad.promedioDeCitasCanceladasPorTipoMotivo(@fecha_inicio,@fecha_fin) %>,
+                    <% end %>
+                    ],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'pie',
+                    name: 'Total de Motivos de Cancelacion',
+                    data: [
+                        <% @tipoMotivos.each do |tipoMotivo| %>
+                            {
+                                name: '<%= tipoMotivo.descripcion %>',
+                                y: <%= tipoMotivo.citasCanceladasPorTipoMotivo(@fecha_inicio, @fecha_fin)%>,
+                            },
+                        <% end %>
+                     ],
+                    center: [100, 80],
+                    size: 100,
+                    showInLegend: false,
+                    dataLabels: {
+                        enabled: false
+                    }
+                }]
+            });
+
+        <% else %>
+            Highcharts.chart('container', {
+                title: {
+                    text: '<%= @titulo %>'
+                },
+                xAxis: {
+                    categories: [
+                            '<%= @especialidad.descripcion%>','Promedio de especialidades'
+                    ]
+                },
+                series: [
+                <% @tipoMotivos.each do |tipoMotivo| %>
+                    {
+                       type: 'column',
+                        name: '<%= tipoMotivo.descripcion %>',
+                        data: [
+                            <%= @especialidad.contarCitasCanceladasDeTipoMotivo(tipoMotivo.id,@fecha_inicio,@fecha_fin) %>, <%= tipoMotivo.promedioDeCitasCanceladasPorTipoMotivo(@fecha_inicio,@fecha_fin) %>
+                        ] 
+                    },
+                <% end %>
+                ],
+            });
+        <% end %>
+
+    <% elsif @tipo_entidad == 2.to_s %>
+        <% if @entidad == "" %>
+            Highcharts.chart('container', {
+                title: {
+                    text: '<%= @titulo %>'
+                },
+                xAxis: {
+                    categories: [
+                        <% @tipoServicios.each do |tipoServicio| %>
+                            '<%= tipoServicio.descripcion%>',
+                        <% end %>
+                    ]
+                },
+                labels: {
+                    items: [{
+                        html: 'Total de citas canceladas',
+                        style: {
+                            left: '50px',
+                            top: '18px',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                        }
+                    }]
+                },
+                series: [
+                <% @tipoMotivos.each do |tipoMotivo| %>
+                    {
+                       type: 'column',
+                        name: '<%= tipoMotivo.descripcion %>',
+                        data: [
+                        <% @tipoServicios.each do |tipoServicio| %>
+                            <%= tipoServicio.contarCitasCanceladasDeTipoMotivo(tipoMotivo.id,@fecha_inicio,@fecha_fin) %>,
+                        <% end %>
+                        ] 
+                    },
+                <% end %>
+                {
+                    type: 'spline',
+                    name: 'Promedio de Motivos de cancelacion',
+                    data: [
+                    <% @tipoServicios.each do |tipoServicio| %>
+                        <%= tipoServicio.promedioDeCitasCanceladasPorTipoMotivo(@fecha_inicio,@fecha_fin) %>,
+                    <% end %>
+                    ],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'pie',
+                    name: 'Total de Motivos de Cancelacion',
+                    data: [
+                        <% @tipoMotivos.each do |tipoMotivo| %>
+                            {
+                                name: '<%= tipoMotivo.descripcion %>',
+                                y: <%= tipoMotivo.citasCanceladasPorTipoMotivo(@fecha_inicio, @fecha_fin)%>,
+                            },
+                        <% end %>
+                     ],
+                    center: [100, 80],
+                    size: 100,
+                    showInLegend: false,
+                    dataLabels: {
+                        enabled: false
+                    }
+                }]
+            });
+        <% else %>
+            Highcharts.chart('container', {
+                title: {
+                    text: '<%= @titulo %>'
+                },
+                xAxis: {
+                    categories: [
+                            '<%= @tipoServicio.descripcion%>','Promedio del tipo de servicio'
+                    ]
+                },
+                series: [
+                <% @tipoMotivos.each do |tipoMotivo| %>
+                    {
+                       type: 'column',
+                        name: '<%= tipoMotivo.descripcion %>',
+                        data: [
+                            <%= @tipoServicio.contarCitasCanceladasDeTipoMotivo(tipoMotivo.id,@fecha_inicio,@fecha_fin) %>, <%= tipoMotivo.promedioDeCitasCanceladasPorTipoMotivo(@fecha_inicio,@fecha_fin) %>
+                        ] 
+                    },
+                <% end %>
+                ],
+            });
+        <% end %>
+    <% else %>
+        <% if @entidad == "" %>
+            Highcharts.chart('container', {
+                title: {
+                    text: '<%= @titulo %>'
+                },
+                xAxis: {
+                    categories: [
+                        <% @servicios.each do |servicio| %>
+                            '<%= servicio.descripcion%>',
+                        <% end %>
+                    ]
+                },
+                labels: {
+                    items: [{
+                        html: 'Total de citas canceladas',
+                        style: {
+                            left: '50px',
+                            top: '18px',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                        }
+                    }]
+                },
+                series: [
+                <% @tipoMotivos.each do |tipoMotivo| %>
+                    {
+                       type: 'column',
+                        name: '<%= tipoMotivo.descripcion %>',
+                        data: [
+                        <% @servicios.each do |servicio| %>
+                            <%= servicio.contarCitasCanceladasDeTipoMotivo(tipoMotivo.id,@fecha_inicio,@fecha_fin) %>,
+                        <% end %>
+                        ] 
+                    },
+                <% end %>
+                {
+                    type: 'spline',
+                    name: 'Promedio de Motivos de cancelacion',
+                    data: [
+                    <% @servicios.each do |servicio| %>
+                        <%= servicio.promedioDeCitasCanceladasPorTipoMotivo(@fecha_inicio,@fecha_fin) %>,
+                    <% end %>
+                    ],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'pie',
+                    name: 'Total de Motivos de Cancelacion',
+                    data: [
+                        <% @tipoMotivos.each do |tipoMotivo| %>
+                            {
+                                name: '<%= tipoMotivo.descripcion %>',
+                                y: <%= tipoMotivo.citasCanceladasPorTipoMotivo(@fecha_inicio, @fecha_fin)%>,
+                            },
+                        <% end %>
+                     ],
+                    center: [100, 80],
+                    size: 100,
+                    showInLegend: false,
+                    dataLabels: {
+                        enabled: false
+                    }
+                }]
+            });
+        <% else %>
+            Highcharts.chart('container', {
+                title: {
+                    text: '<%= @titulo %>'
+                },
+                xAxis: {
+                    categories: [
+                            '<%= @servicio.descripcion%>','Promedio de servicios'
+                    ]
+                },
+                series: [
+                <% @tipoMotivos.each do |tipoMotivo| %>
+                    {
+                       type: 'column',
+                        name: '<%= tipoMotivo.descripcion %>',
+                        data: [
+                            <%= @servicio.contarCitasCanceladasDeTipoMotivo(tipoMotivo.id,@fecha_inicio,@fecha_fin) %>, <%= tipoMotivo.promedioDeCitasCanceladasPorTipoMotivo(@fecha_inicio,@fecha_fin) %>
+                        ] 
+                    },
+                <% end %>
+                ],
+            });
+        <% end %>
+    <% end %> 
+</script>

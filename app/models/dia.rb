@@ -1,5 +1,5 @@
 class Dia < ApplicationRecord
-has_many :turnos
+has_many :turnos, dependent: :destroy
 
   def self.titulo
 	  return "Día"

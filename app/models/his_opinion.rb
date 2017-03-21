@@ -1,0 +1,2 @@
+class HisOpinion < ApplicationRecord
+end

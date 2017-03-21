@@ -3,8 +3,8 @@ class CreateHorarios < ActiveRecord::Migration[5.0]
     create_table :horarios do |t|
       t.integer :tiempo_cita
       t.integer :estatus, :null => false, :default => 1
-      t.references :tipo_horario, foreign_key: true, :null => false
-      t.references :servicio, foreign_key: true
+      t.references :tipo_horario, foreign_key: true, :null => false, on_delete: :cascade
+      t.references :servicio, foreign_key: true, on_delete: :cascade
       t.timestamps
     end
   end

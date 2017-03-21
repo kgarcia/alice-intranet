@@ -78,7 +78,7 @@ class GraficoController < ApplicationController
           @titulo = "Tiempo promedio de espera por atencion por Especialidad: "+@especialidad.descripcion
 
         end
-
+        
       when 2.to_s
         if @entidad == ""
           @titulo = "Tiempo promedio de espera por atencion por Tipo de Servicio"
@@ -88,7 +88,7 @@ class GraficoController < ApplicationController
         else
           @tipoServicio = TipoServicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por atencion por Tipo de Servicio: "+@tipoServicio.descripcion
-
+          
         end
       when 3.to_s
         if @entidad == ""
@@ -99,8 +99,8 @@ class GraficoController < ApplicationController
         else
           @servicio = Servicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por atencion por Servicio: "+@servicio.descripcion
-
-        end
+          
+        end    
     end
   end
 
@@ -154,7 +154,7 @@ class GraficoController < ApplicationController
           @titulo = "Tiempo promedio de espera por evaluacion del paciente por Especialidad: "+@especialidad.descripcion
 
         end
-
+        
       when 2.to_s
         if @entidad == ""
           @titulo = "Tiempo promedio de espera por evaluacion del paciente por Tipo de Servicio"
@@ -164,7 +164,7 @@ class GraficoController < ApplicationController
         else
           @tipoServicio = TipoServicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por evaluacion del paciente por Tipo de Servicio: "+@tipoServicio.descripcion
-
+          
         end
       when 3.to_s
         if @entidad == ""
@@ -175,8 +175,8 @@ class GraficoController < ApplicationController
         else
           @servicio = Servicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por evaluacion del paciente por Servicio: "+@servicio.descripcion
-
-        end
+          
+        end    
     end
   end
 
@@ -203,7 +203,7 @@ class GraficoController < ApplicationController
           @titulo = "Tiempo promedio de espera por recepcion por Especialidad: "+@especialidad.descripcion
 
         end
-
+        
       when 2.to_s
         if @entidad == ""
           @titulo = "Tiempo promedio de espera por recepcion por Tipo de Servicio"
@@ -213,7 +213,7 @@ class GraficoController < ApplicationController
         else
           @tipoServicio = TipoServicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por recepcion por Tipo de Servicio: "+@tipoServicio.descripcion
-
+          
         end
       when 3.to_s
         if @entidad == ""
@@ -224,8 +224,8 @@ class GraficoController < ApplicationController
         else
           @servicio = Servicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por recepcion por Servicio: "+@servicio.descripcion
-
-        end
+          
+        end    
     end
   end
 
@@ -252,7 +252,7 @@ class GraficoController < ApplicationController
           @titulo = "Tiempo promedio de espera por solicitud por Especialidad: "+@especialidad.descripcion
 
         end
-
+        
       when 2.to_s
         if @entidad == ""
           @titulo = "Tiempo promedio de espera por asignacion de cita por Tipo de Servicio"
@@ -262,7 +262,7 @@ class GraficoController < ApplicationController
         else
           @tipoServicio = TipoServicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por solicitud por Tipo de Servicio: "+@tipoServicio.descripcion
-
+          
         end
       when 3.to_s
         if @entidad == ""
@@ -273,8 +273,8 @@ class GraficoController < ApplicationController
         else
           @servicio = Servicio.find(@entidad.to_i)
           @titulo = "Tiempo promedio de espera por solicitud por Servicio: "+@servicio.descripcion
-
-        end
+          
+        end    
     end
   end
 
@@ -298,12 +298,12 @@ class GraficoController < ApplicationController
 
   def calificaciones_por_criterio
     @especialidades = Especialidad.all
-    render "grafico/reporte-criterios"
+    #render "grafico/calificaciones_por_criterio"
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def citas_evaluadas_params
-    params.permit(:descripcion, :especialidad_id, :tipo_turno_id, :criterio_id, :fecha_inicio, :fecha_fin, :tipo_servicio_id, :difusion)
+    params.permit(:descripcion, :especialidad_id, :tipo_turno_id, :criterio_id, :fecha_inicio, :fecha_fin, :tipo_servicio_id)
   end
 
   def generar_citas_evaluadas
@@ -414,6 +414,56 @@ class GraficoController < ApplicationController
     respond_to do |format|
       format.js
       render 'grafico/update_servicios'
+    end
+  end
+
+def motivos_cancelacion
+    @especialidades = Especialidad.where(:estatus => 1)
+  end
+
+  def generar_motivos_cancelacion
+    @rango = params['fecha'].split(' - ')
+    @fecha_inicio =  @rango[0].to_date.beginning_of_day()
+    @fecha_fin =  @rango[1].to_date.end_of_day()
+    @tipo_entidad = params[:tipo_entidad]
+    @entidad = params[:entidad]
+    @tipoMotivos = TipoMotivo.all
+
+    case @tipo_entidad
+      when 1.to_s
+        if @entidad == ""
+          @titulo = "Motivos de cancelacion de citas por Especialidad"
+          @especialidades2 = Especialidad.contarCitas
+          @especialidades = Especialidad.all
+          @estadisticas =  @especialidades2.descriptive_statistics
+        else
+          @especialidad = Especialidad.find(@entidad.to_i)
+          @titulo = "Motivos de cancelacion de citas de la Especialidad: "+@especialidad.descripcion
+
+        end
+        
+      when 2.to_s
+        if @entidad == ""
+          @titulo = "Motivos de cancelacion de citas por Tipo de Servicio"
+          @tipoServicios2 = TipoServicio.contarCitas
+          @tipoServicios = TipoServicio.all
+          @estadisticas =  @tipoServicios2.descriptive_statistics
+        else
+          @tipoServicio = TipoServicio.find(@entidad.to_i)
+          @titulo = "Motivos de cancelacion de citas del Tipo de Servicio: "+@tipoServicio.descripcion
+          
+        end
+      when 3.to_s
+        if @entidad == ""
+          @titulo = "Motivos de cancelacion de citas por Servicio"
+          @servicios2 = Servicio.contarCitas
+          @servicios = Servicio.all
+          @estadisticas =  @servicios2.descriptive_statistics
+        else
+          @servicio = Servicio.find(@entidad.to_i)
+          @titulo = "Motivos de cancelacion de citas del Servicio: "+@servicio.descripcion
+          
+        end    
     end
   end
 

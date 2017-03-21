@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.index ["tipo_adiccion_id"], name: "index_adicciones_on_tipo_adiccion_id", using: :btree
   end
 
+  create_table "bd_admins", force: :cascade do |t|
+    t.string   "historico",      default: [],              array: true
+    t.datetime "hora_backup"
+    t.integer  "opcion_estatus"
+    t.datetime "fecha_inicio"
+    t.integer  "estatus"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "busquedas", force: :cascade do |t|
     t.string   "descripcion"
     t.integer  "estatus",          default: 1, null: false
@@ -383,6 +393,125 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.index ["tipo_habito_id"], name: "index_habitos_on_tipo_habito_id", using: :btree
   end
 
+  create_table "his_calificaciones", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.integer  "tipo_calificacion"
+    t.integer  "criterio"
+    t.integer  "evaluacion"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "his_citas", force: :cascade do |t|
+    t.integer  "turno"
+    t.integer  "persona"
+    t.integer  "usuario"
+    t.datetime "fecha"
+    t.integer  "tipo_pago"
+    t.integer  "eventualidad"
+    t.integer  "cita"
+    t.integer  "estatus"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "his_difusiones", force: :cascade do |t|
+    t.text     "asunto"
+    t.text     "texto"
+    t.string   "imagen_file_name"
+    t.string   "imagen_content_type"
+    t.integer  "imagen_file_size"
+    t.datetime "imagen_updated_at"
+    t.integer  "tipo_entidad"
+    t.integer  "entidad"
+    t.string   "token"
+    t.integer  "tipo_difusion"
+    t.integer  "estatus"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "his_especialistas", force: :cascade do |t|
+    t.integer  "universidad"
+    t.integer  "formacion_academica"
+    t.integer  "persona"
+    t.integer  "estatus"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "his_opiniones", force: :cascade do |t|
+    t.string   "correo"
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.integer  "tipo_opinion"
+    t.integer  "motivo"
+    t.integer  "estatus"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "his_personas", force: :cascade do |t|
+    t.string   "cedula"
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "telefono"
+    t.string   "direccion"
+    t.date     "fecha_nacimiento"
+    t.integer  "sexo"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "his_servicios", force: :cascade do |t|
+    t.text     "descripcion"
+    t.integer  "ubicacion"
+    t.integer  "tipo_servicio"
+    t.integer  "especialista"
+    t.integer  "estatus"
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
+    t.float    "precio"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "his_tipo_servicios", force: :cascade do |t|
+    t.string   "descripcion"
+    t.text     "texto"
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
+    t.integer  "estatus"
+    t.integer  "categoria"
+    t.integer  "especialidad"
+    t.integer  "tipo_atencion"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "his_usuarios", force: :cascade do |t|
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.integer  "persona"
+    t.integer  "rol"
+    t.integer  "servicio"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "historial_citas", force: :cascade do |t|
     t.integer  "estatus_nuevo",    null: false
     t.integer  "estatus_anterior", null: false
@@ -497,7 +626,6 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.integer  "tipo_notificacion_id",             null: false
     t.string   "mensaje"
     t.string   "url"
-    t.integer  "entidad_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "usuario_id"
@@ -668,7 +796,6 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.string   "direccion"
     t.date     "fecha_nacimiento"
     t.float    "peso"
-    t.float    "altura"
     t.integer  "sexo_id"
     t.integer  "grupo_sanguineo_id"
     t.integer  "estado_civil_id"
@@ -1058,24 +1185,27 @@ ActiveRecord::Schema.define(version: 20170319044855) do
   end
 
   create_table "usuarios", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                             default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.integer  "persona_id"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.json     "tokens"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.integer  "rol_id"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.integer  "servicio_id"
+    t.string   "authentication_token",   limit: 30
+    t.index ["authentication_token"], name: "index_usuarios_on_authentication_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_usuarios_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
     t.index ["persona_id"], name: "index_usuarios_on_persona_id", using: :btree
