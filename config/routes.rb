@@ -43,7 +43,7 @@ Myapp::Application.routes.draw do
   resources :tipo_difusiones
 
 
-
+get 'tipo_servicios/filtrar', to: 'tipo_servicios#filtrar'
   get 'perfil', to: 'usuarios#perfil'
 
   post 'perfil', to: 'usuarios#actualizarPerfil'
