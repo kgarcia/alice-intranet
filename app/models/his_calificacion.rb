@@ -1,0 +1,2 @@
+class HisCalificacion < ApplicationRecord
+end

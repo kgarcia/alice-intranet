@@ -1,4 +1,9 @@
-
+<br>
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h2 class="parametros-titulo"><%= "Preguntas" %></h2>
+  </div>
+</div>
 <div class="ibox-content">
 <%= link_to 'Registrar', new_pregunta_path, :class => "btn btn-primary btn-sm" %>
  <br><br> 
@@ -18,7 +23,7 @@
             <td><%= pregunta.descripcion %></td>
             <td><%= pregunta.respuesta %></td>
             <td><%= link_to 'Editar', edit_polymorphic_url(pregunta), :class => "btn btn-warning btn-sm" %></td>
-            <td><%= link_to 'Eliminar', pregunta, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+            <td><%= link_to 'Eliminar', pregunta, method: :delete, data: { confirm: '¿Está seguro que desea eliminar la pregunta?' } %></td>
           </tr>
         <% end %>
       </tbody>

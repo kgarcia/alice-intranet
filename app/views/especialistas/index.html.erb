@@ -1,5 +1,5 @@
 <%= csrf_meta_tag %>
-
+<br>
 <div class="ibox float-e-margins">
               <div class="ibox-title">
                   <h2 class="parametros-titulo"><%= "Especialistas" %></h2>
@@ -24,7 +24,7 @@
             <td><%= link_to especialista.persona.nombre, edit_especialista_path(especialista) %> <%= link_to especialista.persona.apellido, edit_especialista_path(especialista) %></td>
             <td>
               <%= link_to 'Editar', edit_especialista_path(especialista), :class => "btn btn-warning btn-sm " %>
-              <%= link_to 'Eliminar', especialista, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
+              <%= link_to 'Eliminar', especialista, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el especialista?' } , :class => "btn btn-danger btn-sm" %></td>
           </tr>
       <% end %>
     </tbody>

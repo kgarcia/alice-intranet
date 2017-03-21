@@ -1,7 +1,7 @@
 class RangoEdad < ApplicationRecord
-	has_many :rango_edad_perfiles
-  	has_many :perfiles, through: :rango_edad_perfiles
-    has_many :personas
+	has_many :rango_edad_perfiles, dependent: :destroy
+  	has_many :perfiles, through: :rango_edad_perfiles, dependent: :destroy
+    has_many :personas, dependent: :destroy
 
 	def self.titulo
 	  return "Rango de Edad"

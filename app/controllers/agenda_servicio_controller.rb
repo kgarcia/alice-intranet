@@ -15,8 +15,8 @@ class AgendaServicioController < ApplicationController
         @horario = Horario.find_by(:servicio_id => @servicio.id)
         @items = []
 
-        @citas = Cita.where("turno_id IN (?)", @horario.turno.pluck(:id))
-        @eventos = @servicio.eventos
+        @citas = Cita.where("turno_id IN (?)", @horario.turnos.pluck(:id))
+        @eventos = []#@servicio.eventos
         @items = @citas.map do |cita|
           {
               :title => "#{cita.persona.nombre} #{cita.persona.apellido}",

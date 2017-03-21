@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Historico:</strong>
+  <%= @bd_admin.historico %>
+</p>
+
+<p>
+  <strong>Hora backup:</strong>
+  <%= @bd_admin.hora_backup %>
+</p>
+
+<p>
+  <strong>Opcion estatus:</strong>
+  <%= @bd_admin.opcion_estatus %>
+</p>
+
+<p>
+  <strong>Fecha inicio:</strong>
+  <%= @bd_admin.fecha_inicio %>
+</p>
+
+<p>
+  <strong>Estatus:</strong>
+  <%= @bd_admin.estatus %>
+</p>
+
+<%= link_to 'Edit', edit_bd_admin_path(@bd_admin) %> |
+<%= link_to 'Back', bd_admins_path %>

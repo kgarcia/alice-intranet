@@ -34,7 +34,7 @@
           <td><%= persona.sexo.descripcion %></td>
           <td><%= link_to 'Registrar Cuenta', new_usuario_registration_path, :persona_id => persona.id  %></td>
           <td><%= link_to 'Editar', edit_persona_path(persona) %></td>
-          <td><%= link_to 'Eliminar', persona, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Eliminar', persona, method: :delete, data: { confirm: '¿Está seguro que desea eliminar esta persona?' } %></td>
         </tr>
     <% end %>
     </tbody>

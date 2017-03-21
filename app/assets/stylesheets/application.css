@@ -15,15 +15,21 @@
  *= require style
  *= require footable/footable.bootstrap.min.css
  *= require _bootstrap-sprockets
+ *= require bootstrap-datetimepicker.css
+ *= require daterangepicker/daterangepicker-bs3
  *= require datapicker/datepicker3.css
  *= require dataTables/jquery.dataTables
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+ *= require fullcalendar
  *= require rating.min.css
+ *= require select2
  *= require jasny/jasny-bootstrap.min.css
  */
-table.tabla-horarios.table-bordered > thead > tr > th{
-	background-color: #354c9e;	
-    color: #FFFFFF;
+
+ 
+   table.tabla-horarios.table-bordered > thead > tr > th{
+        background-color: #354c9e;	
+        color: #FFFFFF;
 }
 .footable-filtering-search .input-group .input-group-btn .btn-primary{
 	min-width: 0px;
@@ -33,4 +39,25 @@ table.tabla-horarios.table-bordered > thead > tr > th{
 }
 .text-dark-blue{
 	color: #354c9e;
+}
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+    .nav-tabs, a.btn
+    {
+        display: none;
+    }
+    #section-to-print, #section-to-print *:not(.nav-tabs) {
+        visibility: visible;
+
+    }
+
+
+    #section-to-print {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
 }

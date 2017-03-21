@@ -50,7 +50,7 @@
 
                       <div class="form-group">
                         <label class="control-label">Descripción <label for="<%= @parametro.class.name.underscore %>_descripcion" class="control-label error" style="margin-bottom: 0px;"></label></label>
-                        <%= f.text_field :descripcion , :class => "form-control"%> 
+                        <%= f.text_field :descripcion,:required => true, , :class => "form-control"%> 
                       </div>
                     </div>
                   </div>   
@@ -69,6 +69,8 @@
                       <%= link_to 'Atras',ubicaciones_path, :class => "btn btn-sm btn-success" %>                          
                       </div>
                   </div>
+
+                 
               <% end %>
             </div>
           </div>

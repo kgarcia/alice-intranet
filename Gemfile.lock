@@ -60,6 +60,8 @@ GEM
     bootstrap (4.0.0.alpha6)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    bootstrap-daterangepicker-rails (0.1.5)
+      railties (>= 4.0, < 5.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -90,7 +92,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.1.2)
+    devise-i18n (1.1.1)
     dumper (1.6.1)
       multi_json (>= 1.0)
       multipart-post (>= 1.1.5)
@@ -131,7 +133,7 @@ GEM
       railties (>= 3.2.16)
     jquery-validation-rails (1.16.0)
     json (1.8.6)
-    koala (3.0.0)
+    koala (3.0.0.rc2)
       addressable
       faraday
       json (>= 1.8)
@@ -153,11 +155,11 @@ GEM
       railties (>= 3.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    mysql2 (0.4.5)
     nio4r (2.0.0)
-    nokogiri (1.7.1)
+    nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    pg (0.20.0)
     posix-spawn (0.3.13)
     public_suffix (2.0.5)
     rack (2.0.1)
@@ -206,6 +208,8 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    select2-rails (4.0.3)
+      thor (~> 0.14)
     spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -221,7 +225,9 @@ GEM
     sqlite3 (1.3.13)
     thor (0.19.4)
     thread_safe (0.3.6)
-    tilt (2.0.7)
+    tilt (2.0.6)
+    time_difference (0.5.0)
+      activesupport
     tinymce-rails (4.5.5)
       railties (>= 3.1.1)
     tinymce-rails-langs (4.20160310)
@@ -234,7 +240,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.9)
+    uglifier (3.1.7)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -253,6 +259,7 @@ PLATFORMS
 DEPENDENCIES
   ajax-datatables-rails
   bootstrap (~> 4.0.0.alpha6)
+  bootstrap-daterangepicker-rails
   bootstrap-sass (~> 3.3.7)
   bootstrap3-datetimepicker-rails (~> 4.14.30)
   byebug
@@ -274,15 +281,17 @@ DEPENDENCIES
   koala (~> 3.0.0.beta2)
   listen (~> 3.0.5)
   momentjs-rails (>= 2.9.0)
-  mysql2
   paperclip!
+  pg (~> 0.19)
   rails (~> 5.0.1)
   rails-i18n (~> 5.0.0)
   sass-rails (~> 5.0.4)
   sdoc
+  select2-rails
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  time_difference (~> 0.5.0)
   tinymce-rails
   tinymce-rails-langs
   toastr-rails

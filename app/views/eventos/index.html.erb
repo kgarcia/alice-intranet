@@ -1,5 +1,5 @@
 <%= csrf_meta_tag %>
-
+<br>
 <div class="ibox float-e-margins">
   <div class="ibox-title">
     <h2 class="parametros-titulo"><%= "Eventos" %></h2>
@@ -20,10 +20,10 @@
     <% @eventos.each do |evento| %>
         <tr>
           <td><%= evento.tipo_evento.descripcion %></td>
-          <td><%= link_to evento.descripcion, polymorphic_url(evento) %></td>
+          <td><%= link_to evento.descripcion, edit_polymorphic_url(evento) %></td>
           <td>
             <%= link_to 'Editar', edit_evento_path(evento), :class => "btn btn-warning btn-sm" %>
-            <%= link_to 'Eliminar', Evento, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm" %></td>
+            <%= link_to 'Eliminar', Evento, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el evento?' } , :class => "btn btn-danger btn-sm" %></td>
         </tr>
     <% end %>
     </tbody>

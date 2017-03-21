@@ -55,6 +55,9 @@ gem 'devise'
 #Jonnathan base de datos backup
 gem 'dumper', '~> 1.6'
 
+#select2
+gem 'select2-rails'
+
 gem 'jquery-validation-rails'
 
 group :development, :test do
@@ -89,6 +92,8 @@ gem 'devise-i18n'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'fullcalendar-rails'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
+gem 'bootstrap-daterangepicker-rails'
+
 
 gem 'bootstrap', '~> 4.0.0.alpha6'
 
@@ -112,3 +117,4 @@ gem 'toastr_rails'
 gem 'toastr-rails'
 
 gem 'carrierwave', '~> 1.0'
+gem 'time_difference', '~> 0.5.0'

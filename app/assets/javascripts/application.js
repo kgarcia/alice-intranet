@@ -27,6 +27,7 @@
 //= require moment
 //= require moment/es
 //= require bootstrap-datetimepicker
+//= require daterangepicker/daterangepicker
 
 //= require tinymce
 
@@ -37,6 +38,7 @@
 //= require highcharts/modules/heatmap
 //= require toastr_rails
 //= require rating.min.js
+//= require select2
 //= require jasny/jasny-bootstrap.min.js
 //= require jquery.validate
 //= require jquery.validate.additional-methods

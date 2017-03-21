@@ -25,26 +25,22 @@
 #  timeout: 5000
 
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
   pool: 5
-  username: root
-  password: 1234
-  socket: /var/run/mysqld/mysqld.sock
+  username: postgres
+  password: postgres
+
 
 development:
   <<: *default
-  database: AliceIntranet_development
+  database: alice_development
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: AliceIntranet_test
+  database: alice_test
 
 production:
   <<: *default
-  database: AliceIntranet_production
-  username: AliceIntranet
-  password: <%= ENV['ATLASCRM_DATABASE_PASSWORD'] %>
+  database: alice_production

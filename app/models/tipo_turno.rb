@@ -1,5 +1,5 @@
 class TipoTurno < ApplicationRecord
-	has_many :turnos
+	has_many :turnos, dependent: :destroy
 
 	  def self.titulo
 		  return "Tipo Turno"
