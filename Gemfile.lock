@@ -208,6 +208,8 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    select2-rails (4.0.3)
+      thor (~> 0.14)
     spring (2.0.1)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -224,6 +226,8 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.6)
+    time_difference (0.5.0)
+      activesupport
     tinymce-rails (4.5.5)
       railties (>= 3.1.1)
     tinymce-rails-langs (4.20160310)
@@ -283,9 +287,11 @@ DEPENDENCIES
   rails-i18n (~> 5.0.0)
   sass-rails (~> 5.0.4)
   sdoc
+  select2-rails
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  time_difference (~> 0.5.0)
   tinymce-rails
   tinymce-rails-langs
   toastr-rails

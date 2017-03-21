@@ -626,6 +626,7 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.integer  "tipo_notificacion_id",             null: false
     t.string   "mensaje"
     t.string   "url"
+    t.integer  "entidad_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "usuario_id"
@@ -796,7 +797,8 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.string   "direccion"
     t.date     "fecha_nacimiento"
     t.float    "peso"
-    t.integer  "sexo_id"
+    t.float    "altura"
+    t.integer  "sexo_id",            null: false
     t.integer  "grupo_sanguineo_id"
     t.integer  "estado_civil_id"
     t.datetime "created_at",         null: false
@@ -1185,27 +1187,24 @@ ActiveRecord::Schema.define(version: 20170319044855) do
   end
 
   create_table "usuarios", force: :cascade do |t|
-    t.string   "email",                             default: "", null: false
-    t.string   "encrypted_password",                default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.integer  "persona_id"
-    t.json     "tokens"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "rol_id"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.integer  "servicio_id"
-    t.string   "authentication_token",   limit: 30
-    t.index ["authentication_token"], name: "index_usuarios_on_authentication_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_usuarios_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
     t.index ["persona_id"], name: "index_usuarios_on_persona_id", using: :btree
