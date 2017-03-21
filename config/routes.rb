@@ -1,5 +1,21 @@
 Myapp::Application.routes.draw do
 
+  get 'grafico/tiempo_atencion'
+
+  post 'grafico/tiempo_atencion', to: 'grafico#generar_tiempo_atencion'
+
+  get 'grafico/tiempo_recepcion'
+
+  post 'grafico/tiempo_recepcion', to: 'grafico#generar_tiempo_recepcion'
+
+  get 'grafico/tiempo_solicitud'
+
+  post 'grafico/tiempo_solicitud', to: 'grafico#generar_tiempo_solicitud'
+
+  get 'grafico/tiempo_evaluacion'
+
+  post 'grafico/tiempo_evaluacion', to: 'grafico#generar_tiempo_evaluacion'
+
   get 'grafico/citas_solicitadas'
 
   post 'grafico/citas_solicitadas', to: 'grafico#generar_citas_solicitadas'

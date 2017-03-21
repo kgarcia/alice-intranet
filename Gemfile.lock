@@ -224,6 +224,8 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.6)
+    time_difference (0.5.0)
+      activesupport
     tinymce-rails (4.5.5)
       railties (>= 3.1.1)
     tinymce-rails-langs (4.20160310)
@@ -286,6 +288,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  time_difference (~> 0.5.0)
   tinymce-rails
   tinymce-rails-langs
   toastr-rails
