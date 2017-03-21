@@ -1,7 +1,7 @@
 class Criterio < ApplicationRecord
   belongs_to :tipo_criterio
-  has_many :criterio_tipo_servicios
-  has_many :tipo_servicios, through: :criterio_tipo_servicios
+  has_many :criterio_tipo_servicios, dependent: :destroy
+  has_many :tipo_servicios, through: :criterio_tipo_servicios, dependent: :destroy
   
   def tipo
   	return self.tipo_criterio

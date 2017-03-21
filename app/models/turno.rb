@@ -3,7 +3,7 @@ class Turno < ApplicationRecord
   belongs_to :dia, foreign_key:"dia_id"
   belongs_to :horario, foreign_key:"horario_id"
   belongs_to :tipo_turno, foreign_key:"tipo_turno_id"
-  has_many :citas
+  has_many :citas, dependent: :destroy
 
   def self.contarCitasTurno
     @citas = Cita.joins(:turno).group(:tipo_turno_id,:dia_id).count

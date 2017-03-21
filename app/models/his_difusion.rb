@@ -1,0 +1,2 @@
+class HisDifusion < ApplicationRecord
+end

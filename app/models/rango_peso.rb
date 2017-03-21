@@ -1,6 +1,6 @@
 class RangoPeso < ApplicationRecord
-	has_many :rango_peso_perfiles
-  	has_many :perfiles, through: :rango_peso_perfiles
+	has_many :rango_peso_perfiles, dependent: :destroy
+  	has_many :perfiles, through: :rango_peso_perfiles, dependent: :destroy
 
 	def self.titulo
 	  return "Rango de Peso"

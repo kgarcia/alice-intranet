@@ -2,13 +2,13 @@ class TipoServicio < ApplicationRecord
 	belongs_to :tipo_atencion
   belongs_to :categoria
   belongs_to :especialidad
-  has_many :servicios
-  has_many :tipo_servicio_evento
-  has_many :eventos, through: :tipo_servicio_evento
-  has_many :criterio_tipo_servicios
-  has_many :criterios, through: :criterio_tipo_servicios
-  has_many :perfil_tipo_servicios
-  has_many :perfiles, through: :perfil_tipo_servicios
+  has_many :servicios, dependent: :destroy
+  has_many :tipo_servicio_evento, dependent: :destroy
+  has_many :eventos, through: :tipo_servicio_evento, dependent: :destroy
+  has_many :criterio_tipo_servicios, dependent: :destroy
+  has_many :criterios, through: :criterio_tipo_servicios, dependent: :destroy
+  has_many :perfil_tipo_servicios, dependent: :destroy
+  has_many :perfiles, through: :perfil_tipo_servicios, dependent: :destroy
 
 	has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   	validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/

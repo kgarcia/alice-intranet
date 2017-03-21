@@ -54,6 +54,9 @@ gem 'devise'
 #Jonnathan base de datos backup
 gem 'dumper', '~> 1.6'
 
+#select2
+gem 'select2-rails'
+
 gem 'jquery-validation-rails'
 
 group :development, :test do

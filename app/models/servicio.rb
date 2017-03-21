@@ -3,14 +3,14 @@ class Servicio < ApplicationRecord
   belongs_to :tipo_servicio
   belongs_to :especialista
 
-  has_many :horarios
-  has_many :usuarios
-  has_many :turnos, through: :horarios
-  has_many :dia, through: :turnos
-  has_many :citas, through: :turnos
-  has_many :evaluaciones, through: :citas
-  has_many :calificaciones, through: :evaluaciones
-  has_many :criterios, through: :calificaciones
+  has_many :horarios, dependent: :destroy
+  has_many :usuarios, dependent: :destroy
+  has_many :turnos, through: :horarios, dependent: :destroy
+  has_many :dia, through: :turnos, dependent: :destroy
+  has_many :citas, through: :turnos, dependent: :destroy
+  has_many :evaluaciones, through: :citas, dependent: :destroy
+  has_many :calificaciones, through: :evaluaciones, dependent: :destroy
+  has_many :criterios, through: :calificaciones, dependent: :destroy
 
 
   has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }

@@ -1,5 +1,5 @@
 class TipoNoticia < ApplicationRecord
-	has_many :noticias
+	has_many :noticias, dependent: :destroy
 
 	
   extend FriendlyId

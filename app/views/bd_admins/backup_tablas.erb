@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+  <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Ordenar Backup de Base de Datos" %></h2>
+              </div>
+          </div>
+    <div class="ibox-content">
+      <%= form_tag "/guardarback", method: "post", :html => {:class => 'form-horizontal'} do |f| %>
+
+  <br> 
+            <br> <br>
+
+          <div class="col-sm-6 ">
+                <spam>Generar un respaldo de base de datos ahora</spam>
+          </div>
+
+          <div class="col-sm-6 ">
+
+          <%= submit_tag 'Generar', :class => "btn btn-sm btn-primary"  %>
+
+          </div>
+
+          <br><br><br><br>
+
+          <div class="row">
+
+          <div class="col-sm-6 ">
+                <spam>Generar o programar un respaldo en la nube Amazon S3</spam>
+          </div>
+
+          <div class="col-sm-6 ">
+
+          <%= link_to "DUMPER", "http://dumper.io/", target: "_blank", class: 'btn btn-sm btn-info' %>
+
+          </div>
+
+          </div>
+
+          <% end %>
+    </div>
+  </div>
+</div>

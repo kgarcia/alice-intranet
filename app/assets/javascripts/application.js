@@ -37,6 +37,7 @@
 //= require highcharts/modules/heatmap
 //= require toastr
 //= require rating.min.js
+//= require select2
 //= require jasny/jasny-bootstrap.min.js
 
 //= require jquery.validate
