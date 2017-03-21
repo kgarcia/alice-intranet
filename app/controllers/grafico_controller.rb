@@ -375,8 +375,49 @@ class GraficoController < ApplicationController
     render "grafico/citas_por_evento"
   end
 
+  def citas_por_difusion
+    @difusiones = Difusion.all
 
-  def motivos_cancelacion
+    render "grafico/reporte-citas-difusiones"
+  end
+
+  def calcular_citas_por_difusion
+    @difusion = Difusion.find(params[:difusion])
+    if @difusion.tipo_entidad == 1
+      @entidad = Servicio.find(@difusion.entidad)
+    else
+      @entidad = Evento.find(@difusion.entidad)
+    end
+    @cantidad_semanas = params[:cantidad_semanas].to_s
+    @fecha_inicio = @difusion.created_at - params[:cantidad_semanas].to_i.week
+    @fecha_fin = @difusion.created_at + params[:cantidad_semanas].to_i.week
+
+    render "grafico/citas_por_difusion"
+  end
+
+  def calificaciones_por_servicio
+    @servicios = []
+    render "grafico/reporte-calificaciones-servicios"
+  end
+
+  def calcular_calificaciones_por_servicio
+    @tipo_servicio = TipoServicio.find(params[:tipo_servicio_id].to_i)
+    @servicio = Servicio.find(params[:servicio_id].to_i)
+    @rango = params['fecha'].split(' - ')
+    @fecha_inicio =  @rango[0].to_date.beginning_of_day()
+    @fecha_fin =  @rango[1].to_date.end_of_day()
+    render "grafico/calificaciones_por_servicio"
+  end
+
+  def update_servicios
+    @servicios = TipoServicio.find(params[:servicio].to_i).servicios
+    respond_to do |format|
+      format.js
+      render 'grafico/update_servicios'
+    end
+  end
+
+def motivos_cancelacion
     @especialidades = Especialidad.where(:estatus => 1)
   end
 
