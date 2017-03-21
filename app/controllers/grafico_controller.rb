@@ -28,7 +28,7 @@ class GraficoController < ApplicationController
           @titulo = "Efectividad de Citas por Especialidad: "+@especialidad.descripcion
 
         end
-        
+
       when 2.to_s
         if @entidad == ""
           @titulo = "Efectividad de Citas por Tipo de Servicio"
@@ -38,7 +38,7 @@ class GraficoController < ApplicationController
         else
           @tipoServicio = TipoServicio.find(@entidad.to_i)
           @titulo = "Efectividad de Citas por Tipo de Servicio: "+@tipoServicio.descripcion
-          
+
         end
       when 3.to_s
         if @entidad == ""
@@ -49,8 +49,8 @@ class GraficoController < ApplicationController
         else
           @servicio = Servicio.find(@entidad.to_i)
           @titulo = "Efectividad de Citas por Servicio: "+@servicio.descripcion
-          
-        end    
+
+        end
     end
 
   end
@@ -303,7 +303,7 @@ class GraficoController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def citas_evaluadas_params
-    params.permit(:descripcion, :especialidad_id, :tipo_turno_id, :criterio_id, :fecha_inicio, :fecha_fin)
+    params.permit(:descripcion, :especialidad_id, :tipo_turno_id, :criterio_id, :fecha_inicio, :fecha_fin, :tipo_servicio_id)
   end
 
   def generar_citas_evaluadas
@@ -314,13 +314,13 @@ class GraficoController < ApplicationController
     @fecha_inicio =  @rango[0].to_date.beginning_of_day()
     @fecha_fin =  @rango[1].to_date.end_of_day()
 
-    @cal_sexos =  { "Hombres" => Calificacion.cantidadCalificacionesPorSexo(1), "Mujeres" => Calificacion.cantidadCalificacionesPorSexo(2)}
-    @cal_estado_civiles = { "Soltero/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(1), "Casado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(2), "Divorciado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(3), "Viudo/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(4), "Comprometido/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(5)}
+    @cal_sexos =  { "Hombres" => Calificacion.cantidadCalificacionesPorSexo(1, @fecha_inicio, @fecha_fin), "Mujeres" => Calificacion.cantidadCalificacionesPorSexo(2, @fecha_inicio, @fecha_fin)}
+    @cal_estado_civiles = { "Soltero/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(1, @fecha_inicio, @fecha_fin), "Casado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(2, @fecha_inicio, @fecha_fin), "Divorciado/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(3, @fecha_inicio, @fecha_fin), "Viudo/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(4, @fecha_inicio, @fecha_fin), "Comprometido/a" => Calificacion.cantidadCalificacionesPorEstadoCivil(5, @fecha_inicio, @fecha_fin)}
     @estadisticas =  @cal_sexos.descriptive_statistics
     @cal_estado_civiles.descriptive_statistics
     render "grafico/calificaciones_por_criterio"
   end
-  
+
   def update_entidades
 
     case params[:tipo_entidad].to_i
@@ -329,12 +329,50 @@ class GraficoController < ApplicationController
       when 2
         @entidades = TipoServicio.where(:estatus => 1)
       when 3
-        @entidades = Servicio.where(:estatus => 1)        
+        @entidades = Servicio.where(:estatus => 1)
     end
     respond_to do |format|
       format.js
       render 'grafico/update_entidades'
     end
+  end
+
+  def calificaciones_por_especialidad
+    render "grafico/reporte-calificaciones-especialidades"
+  end
+
+  def calcular_calificaciones_por_especialidad
+    @tipo_turno = TipoTurno.find(params[:tipo_turno_id])
+    @rango = params['fecha'].split(' - ')
+    @fecha_inicio =  @rango[0].to_date.beginning_of_day()
+    @fecha_fin =  @rango[1].to_date.end_of_day()
+
+    @especialidades = Especialidad.all
+    render "grafico/calificaciones_por_especialidad"
+  end
+
+  def update_eventos
+    @tipo_servicios = Evento.find(params[:evento_id].to_i).tipo_servicios
+    respond_to do |format|
+      format.js
+      render 'grafico/update_eventos'
+    end
+  end
+
+  def citas_por_evento
+    @eventos = Evento.all
+    @tipo_servicios = []
+    render "grafico/reporte-citas-eventos"
+  end
+
+  def calcular_citas_por_evento
+    @evento = Evento.find(params[:evento_id])
+    @tipo_servicio = TipoServicio.find(params[:tipo_servicio])
+    @cantidad_semanas = params[:cantidad_semanas].to_s
+    @fecha_inicio = @evento.fecha - params[:cantidad_semanas].to_i.week
+    @fecha_fin = @evento.fecha + params[:cantidad_semanas].to_i.week
+
+    render "grafico/citas_por_evento"
   end
 
 end

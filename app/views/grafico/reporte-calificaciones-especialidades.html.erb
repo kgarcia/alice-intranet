@@ -4,28 +4,12 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h2 class="parametros-titulo"><%= "Calificaciones por criterios" %></h2>
+                <h2 class="parametros-titulo"><%= "Calificaciones por especialidades" %></h2>
             </div>
         </div>
-        <%= form_tag({controller: "grafico", action: "generar_citas_evaluadas"}, method: "post") do %>
+        <%= form_tag({controller: "grafico", action: "calcular_calificaciones_por_especialidad"}, method: "post") do %>
         <div class="ibox-content" style="padding-bottom: 15px">
             <div class="container-fluid">
-                <div class="field form-group row">
-                    <label class="col-lg-2 control-label">Especialidades:</label>
-                    <div class="col-lg-10">
-                        <%= collection_select( :id, :especialidad, @especialidades, :id,
-                          :descripcion, {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
-                        <%= hidden_field_tag :especialidad_id, :especialidad_id %>
-                        <script>
-                            $(function () {
-                                $(document).on('change', '#id_especialidad', function () {
-                                    var select_value = $(this).val();
-                                    $('#especialidad_id').val(select_value);
-                                });
-                            });
-                        </script>
-                    </div>
-                </div>
                 <div class="field form-group row">
                     <label class="col-lg-2 control-label">Tipo de turno:</label>
                     <div class="col-lg-10">
@@ -42,7 +26,7 @@
                         </script>
                     </div>
                 </div>
-                <div class="field form-group row">
+                <!--<div class="field form-group row">
                     <label class="col-lg-2 control-label">Criterio:</label>
                     <div class="col-lg-10">
                         <%= collection_select(:id, :criterio, Criterio.all, :id, :descripcion,
@@ -57,7 +41,7 @@
                             });
                         </script>
                     </div>
-                </div>
+                </div>-->
                 <div class="field form-group row">
                     <label class="col-lg-2 control-label">Rango de Fechas:</label>
                     <div class="col-lg-10">
@@ -66,13 +50,13 @@
                 </div>
                 <div class="col-sm-12" style="margin-top: 15px">
                     <div class="col-lg-offset-3 col-lg-2">
-                         <%= submit_tag "Generar", method: "generar_citas_evaluadas", :class => "btn btn-sm btn-primary" %>
+                         <%= submit_tag "Generar", :class => "btn btn-sm btn-primary" %>
                     </div>
                       <div class="col-lg-2">
                       <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>
                       </div>
                     <div class="col-lg-2">
-                    <%= link_to 'Atras',"grafico/citas_solicitadas", :class => "btn btn-sm btn-success" %>
+                    <%= link_to 'Atras',"", :class => "btn btn-sm btn-success" %>
                     </div>
                 </div>
             </div>

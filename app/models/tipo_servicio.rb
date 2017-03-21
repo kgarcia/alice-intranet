@@ -4,7 +4,7 @@ class TipoServicio < ApplicationRecord
   belongs_to :especialidad
   has_many :servicios
   has_many :tipo_servicio_evento
-  has_many :eventos, through: :servicio_evento
+  has_many :eventos, through: :tipo_servicio_evento
   has_many :criterio_tipo_servicios
   has_many :criterios, through: :criterio_tipo_servicios
   has_many :perfil_tipo_servicios
@@ -16,7 +16,7 @@ class TipoServicio < ApplicationRecord
   	after_save :save_criterios, :save_perfiles
 
     attr_reader :criteriosTipoServicio, :perfilesTipoServicio
-   
+
      extend FriendlyId
      friendly_id :descripcion, use: :slugged
 
@@ -64,7 +64,7 @@ class TipoServicio < ApplicationRecord
       end
     end
 
-    
+
 
     def destinatariosSegmentados
       destinatarios = {}
@@ -128,7 +128,7 @@ class TipoServicio < ApplicationRecord
       end
 
       destinatarios.delete_if{|key,value| value == ""}
-      
+
       return destinatarios
     end
 
@@ -147,7 +147,7 @@ class TipoServicio < ApplicationRecord
     def contarCitas(estatus_nuevo, fecha_inicio, fecha_fin)
       @citas = Cita.joins(:historial_citas, turno: { horario: {servicio: :tipo_servicio } }).where( "tipo_servicios.id"=> self.id ).where('citas.fecha' => fecha_inicio..fecha_fin)
       if estatus_nuevo != nil
-         @citas = @citas.where("historial_citas.estatus_nuevo" =>  estatus_nuevo) 
+         @citas = @citas.where("historial_citas.estatus_nuevo" =>  estatus_nuevo)
       end
       return @citas.count
     end

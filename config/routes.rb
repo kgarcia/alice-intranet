@@ -24,6 +24,8 @@ Myapp::Application.routes.draw do
 
   get '/grafico/update_entidades', to: 'grafico#update_entidades'
 
+  get '/grafico/update_eventos', to: 'grafico#update_eventos'
+
   resources :suscriptores
   resources :medio_difusiones
   resources :perfiles
@@ -45,7 +47,9 @@ Myapp::Application.routes.draw do
   get 'disponibilidad', to: 'horarios#disponibilidad'
 
   match '/search', to: "personas#search", via: "post"
-  match '/generar_citas_evaluadas', to: "grafico#generar_citas_evaluadas", via: "post"
+  match 'grafico/calificaciones_por_criterio', to: "grafico#generar_citas_evaluadas", via: "post"
+  match 'grafico/calificaciones_por_especialidad', to: "grafico#calcular_calificaciones_por_especialidad", via: "post"
+  match 'grafico/citas_por_evento', to: "grafico#calcular_citas_por_evento", via: "post"
 
   get 'grafico/generar'
 
@@ -57,6 +61,8 @@ Myapp::Application.routes.draw do
 
   get 'grafico/reporte_por_criterios'
   get 'grafico/calificaciones_por_criterio'
+  get 'grafico/calificaciones_por_especialidad'
+  get 'grafico/citas_por_evento'
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
