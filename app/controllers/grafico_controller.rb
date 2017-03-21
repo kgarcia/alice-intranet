@@ -375,4 +375,55 @@ class GraficoController < ApplicationController
     render "grafico/citas_por_evento"
   end
 
+
+  def motivos_cancelacion
+    @especialidades = Especialidad.where(:estatus => 1)
+  end
+
+  def generar_motivos_cancelacion
+    @rango = params['fecha'].split(' - ')
+    @fecha_inicio =  @rango[0].to_date.beginning_of_day()
+    @fecha_fin =  @rango[1].to_date.end_of_day()
+    @tipo_entidad = params[:tipo_entidad]
+    @entidad = params[:entidad]
+    @tipoMotivos = TipoMotivo.all
+
+    case @tipo_entidad
+      when 1.to_s
+        if @entidad == ""
+          @titulo = "Motivos de cancelacion de citas por Especialidad"
+          @especialidades2 = Especialidad.contarCitas
+          @especialidades = Especialidad.all
+          @estadisticas =  @especialidades2.descriptive_statistics
+        else
+          @especialidad = Especialidad.find(@entidad.to_i)
+          @titulo = "Motivos de cancelacion de citas de la Especialidad: "+@especialidad.descripcion
+
+        end
+        
+      when 2.to_s
+        if @entidad == ""
+          @titulo = "Motivos de cancelacion de citas por Tipo de Servicio"
+          @tipoServicios2 = TipoServicio.contarCitas
+          @tipoServicios = TipoServicio.all
+          @estadisticas =  @tipoServicios2.descriptive_statistics
+        else
+          @tipoServicio = TipoServicio.find(@entidad.to_i)
+          @titulo = "Motivos de cancelacion de citas del Tipo de Servicio: "+@tipoServicio.descripcion
+          
+        end
+      when 3.to_s
+        if @entidad == ""
+          @titulo = "Motivos de cancelacion de citas por Servicio"
+          @servicios2 = Servicio.contarCitas
+          @servicios = Servicio.all
+          @estadisticas =  @servicios2.descriptive_statistics
+        else
+          @servicio = Servicio.find(@entidad.to_i)
+          @titulo = "Motivos de cancelacion de citas del Servicio: "+@servicio.descripcion
+          
+        end    
+    end
+  end
+
 end
