@@ -50,6 +50,8 @@ Myapp::Application.routes.draw do
   get 'cancelar_cita/:id', to: 'citas#cancelarCita'
   post 'cancelar_cita', to: 'citas#confirmarCancelacion'
 
+  put 'cancelar_movil/:id', to: 'citas#cancelar_movil'
+
   get 'chequear_cita', to: 'citas#chequear'
   get 'chequear_cita/:id', to: 'citas#chequearCita'
   post 'chequear_cita', to: 'citas#guardarChequearCita'

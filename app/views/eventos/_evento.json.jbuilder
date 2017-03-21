@@ -1,2 +1,2 @@
-json.extract! evento, :id,:slug, :descripcion, :contenido, :fecha, :ubicacion, :foto_url, :estatus, :tipo_evento, :tipo_servicios,  :created_at, :updated_at, :foto_url
+json.extract! evento, :id,:slug, :descripcion, :contenido, :fecha, :ubicacion, :foto_url,:foto_small, :estatus, :tipo_evento, :tipo_servicios,  :created_at, :updated_at, :foto_url
 json.url evento_url(evento, format: :json)

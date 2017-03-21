@@ -4,7 +4,7 @@ class InformacionGeneralsController < ApplicationController
   # GET /informacion_generals
   # GET /informacion_generals.json
   def index
-    @informacion_general = InformacionGeneral.find(1)
+    @informacion_general = InformacionGeneral.find_or_create_by(id: 1)
     
     respond_to do |format|
       format.html {  render "edit" }
