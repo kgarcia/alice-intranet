@@ -4,6 +4,7 @@ class AdiccionesController < ApplicationController
   # GET /adicciones
   # GET /adicciones.json
   def index
+    @tipo = TipoAdiccion.titulo
     @parametros = Adiccion.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
@@ -56,7 +57,7 @@ class AdiccionesController < ApplicationController
   def update
     respond_to do |format|
       if @adiccion.update(adiccion_params)
-        format.html { redirect_to adicciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to adicciones_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @adiccion }
       else
         format.html { render :edit }
@@ -71,7 +72,7 @@ class AdiccionesController < ApplicationController
     @adiccion.estatus = 2
     @adiccion.save
     respond_to do |format|
-      format.html { redirect_to adicciones_url, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to adicciones_url, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

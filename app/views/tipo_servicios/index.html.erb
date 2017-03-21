@@ -1,54 +1,74 @@
-<%= csrf_meta_tag %>
-
-<div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Tipo de Servicio" %></h2>
-              </div>
-          </div>
-<div class="ibox-content">
-<%= link_to 'Registrar', new_tipo_servicio_path, :class => "btn btn-primary btn-sm" %>
- <br><br> 
-
- <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
-    <thead>
-      <tr>
-        <th data-sorted="true">Tipos de Atención</th>
-        <th data-breakpoints="xs">Categoría</th>
-        <th data-breakpoints="xs">Especialidad</th>
-        <th>Descripción</th>
-        <th colspan="1"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @tipo_servicios.each do |tipoServicio| %>
-          <tr>
-            <td><%= tipoServicio.tipo_atencion.descripcion %></td>
-            <td><%= tipoServicio.categoria.descripcion %></td>
-            <td><%= tipoServicio.especialidad.descripcion %></td>          
-            <td><%= link_to tipoServicio.descripcion, edit_tipo_servicio_path(tipoServicio) %></td>
-            <td>
-              <%= link_to 'Editar', edit_tipo_servicio_path(tipoServicio), :class => "btn btn-warning btn-sm " %>
-              <%= link_to 'Eliminar', tipoServicio, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el tipo de servicio?' } , :class => "btn btn-danger btn-sm " %></td>
-          </tr>
-      <% end %>
-    </tbody>
-      <tfoot>
-                    <tr>
-                        <td colspan="5">
-                            <ul class="pagination pull-right"></ul>
-                        </td>
-                    </tr>
-                    </tfoot>
-  </table>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong><%= @tipo_servicios.new.class.titulo %></strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li class="active">
+            <strong class="text-blue">Listado</strong>
+        </li>
+    </ol>
+  </div>
 </div>
-<br>
-
+<div class="wrapper wrapper-content">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+              <h4 class="text-dark-blue">
+                <strong>Listado: <%= @tipo_servicios.new.class.titulo %></strong>
+              </h4>
+          </div>
+          <div class="ibox-content">
+            <%= link_to "Registrar", new_tipo_servicio_path, :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: 10px;'%>
+            <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+              <thead>
+                <tr>
+                  <th data-sorted="true">Tipos de Atención</th>
+                  <th data-breakpoints="xs">Categoría</th>
+                  <th data-breakpoints="xs">Especialidad</th>
+                  <th>Descripción</th>
+                  <th colspan="1"></th>
+                </tr>
+              </thead>
+              <tbody>
+              <% @tipo_servicios.each do |tipoServicio| %>
+                <tr>
+                  <td><%= tipoServicio.tipo_atencion.descripcion %></td>
+                  <td><%= tipoServicio.categoria.descripcion %></td>
+                  <td><%= tipoServicio.especialidad.descripcion %></td>          
+                        <td><%= link_to tipoServicio.descripcion, edit_tipo_servicio_path(tipoServicio) %></td>
+                  <td>
+                    <%= link_to 'Editar', edit_tipo_servicio_path(tipoServicio), :class => "btn btn-warning btn-sm " %>
+                    <%= link_to 'Eliminar', tipoServicio, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm " %>
+                  </td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% content_for :javascript do %>
 
 <script type="text/javascript">
-$(document).ready(function(){
-$('.table').footable();
-});
+  $(document).ready(function(){
+    $('.table').footable({
+      "paging": {
+        "enabled": true,
+        "size": 5
+      },
+      "filtering": {
+        "enabled": true
+      }
+    });
+  });
 
 </script>
+
+<% end %>
 
 

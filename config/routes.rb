@@ -1,5 +1,21 @@
 Myapp::Application.routes.draw do
 
+  get 'grafico/tiempo_atencion'
+
+  post 'grafico/tiempo_atencion', to: 'grafico#generar_tiempo_atencion'
+
+  get 'grafico/tiempo_recepcion'
+
+  post 'grafico/tiempo_recepcion', to: 'grafico#generar_tiempo_recepcion'
+
+  get 'grafico/tiempo_solicitud'
+
+  post 'grafico/tiempo_solicitud', to: 'grafico#generar_tiempo_solicitud'
+
+  get 'grafico/tiempo_evaluacion'
+
+  post 'grafico/tiempo_evaluacion', to: 'grafico#generar_tiempo_evaluacion'
+
   get 'grafico/citas_solicitadas'
 
   post 'grafico/citas_solicitadas', to: 'grafico#generar_citas_solicitadas'
@@ -7,6 +23,12 @@ Myapp::Application.routes.draw do
   get '/difusiones/update_entidades', to: 'difusiones#update_entidades'
 
   get '/grafico/update_entidades', to: 'grafico#update_entidades'
+
+  get '/grafico/update_eventos', to: 'grafico#update_eventos'
+
+  get 'grafico/motivos_cancelacion'
+
+  post 'grafico/motivos_cancelacion', to: 'grafico#generar_motivos_cancelacion'
 
   resources :suscriptores
   resources :medio_difusiones
@@ -29,7 +51,9 @@ Myapp::Application.routes.draw do
   get 'disponibilidad', to: 'horarios#disponibilidad'
 
   match '/search', to: "personas#search", via: "post"
-  match '/generar_citas_evaluadas', to: "grafico#generar_citas_evaluadas", via: "post"
+  match 'grafico/calificaciones_por_criterio', to: "grafico#generar_citas_evaluadas", via: "post"
+  match 'grafico/calificaciones_por_especialidad', to: "grafico#calcular_calificaciones_por_especialidad", via: "post"
+  match 'grafico/citas_por_evento', to: "grafico#calcular_citas_por_evento", via: "post"
 
   get 'grafico/generar'
 
@@ -41,6 +65,8 @@ Myapp::Application.routes.draw do
 
   get 'grafico/reporte_por_criterios'
   get 'grafico/calificaciones_por_criterio'
+  get 'grafico/calificaciones_por_especialidad'
+  get 'grafico/citas_por_evento'
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
@@ -59,6 +85,15 @@ Myapp::Application.routes.draw do
   get 'finalizar_cita', to: 'citas#finalizar'
   get 'finalizar_cita/:id', to: 'citas#finalizarCita'
   post 'finalizar_cita', to: 'citas#guardarFinalizarCita'
+
+  get 'historico', to: 'bd_admins#historico'
+  post 'finalizar_migracion', to: 'bd_admins#cambiarInformacion'
+
+  get 'guardarback', to: 'bd_admins#guardarback'
+  post 'guardarback', to: 'bd_admins#guardarback'
+
+  get 'restauracion', to: 'bd_admins#restauration'
+  post 'restauracion', to: 'bd_admins#restauration'
 
   get 'evaluar_cita/:id', to: 'evaluaciones#evaluarCita', as: "evaluar_cita"
   resources :tipo_turnos

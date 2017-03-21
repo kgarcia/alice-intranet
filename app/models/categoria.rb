@@ -1,17 +1,18 @@
 class Categoria < ApplicationRecord
-	has_many :tipo_servicios
-	has_many :servicios, through: :tipo_servicios
-	has_many :criterios_tipo_servicios, through: :servicios
-	has_many :criterios, through: :criterios_tipo_servicios
-	has_many :tipo_criterio, through: :criterios
-	has_many :especialistas, through: :servicios
-	has_many :especialidad_especialistas, through: :especialistas
-  	has_many :especialidades, through: :especialidad_especialistas
-	has_many :persona, through: :especialistas
-	has_many :horarios, through: :servicios
-	has_many :turnos, through: :horarios
-	has_many :dias, through: :turnos
-	has_many :ubicacion, through: :servicios
+	has_many :tipo_servicios, dependent: :destroy
+	has_many :servicios, through: :tipo_servicios, dependent: :destroy
+  has_many :criterios_tipo_servicios, through: :servicios, dependent: :destroy
+	has_many :criterios, through: :criterios_tipo_servicios, dependent: :destroy
+  has_many :tipo_criterio, through: :criterios, dependent: :destroy
+	has_many :especialistas, through: :servicios, dependent: :destroy
+	has_many :especialidad_especialistas, through: :especialistas, dependent: :destroy
+  has_many :especialidades, through: :especialidad_especialistas, dependent: :destroy
+	has_many :persona, through: :especialistas, dependent: :destroy
+	has_many :horarios, through: :servicios, dependent: :destroy
+	has_many :turnos, through: :horarios, dependent: :destroy
+	has_many :dias, through: :turnos, dependent: :destroy
+	has_many :ubicacion, through: :servicios, dependent: :destroy
+
 
 	extend FriendlyId
   	friendly_id :descripcion, use: :slugged

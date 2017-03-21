@@ -54,6 +54,9 @@ gem 'devise'
 #Jonnathan base de datos backup
 gem 'dumper', '~> 1.6'
 
+#select2
+gem 'select2-rails'
+
 gem 'jquery-validation-rails'
 
 group :development, :test do
@@ -113,3 +116,4 @@ gem 'toastr_rails'
 gem 'toastr-rails'
 
 gem 'carrierwave', '~> 1.0'
+gem 'time_difference', '~> 0.5.0'

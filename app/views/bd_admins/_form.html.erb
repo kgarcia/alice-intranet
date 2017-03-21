@@ -1,0 +1,42 @@
+<%= form_for(bd_admin) do |f| %>
+  <% if bd_admin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bd_admin.errors.count, "error") %> prohibited this bd_admin from being saved:</h2>
+
+      <ul>
+      <% bd_admin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :historico %>
+    <%= f.text_field :historico %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hora_backup %>
+    <%= f.datetime_select :hora_backup %>
+  </div>
+
+  <div class="field">
+    <%= f.label :opcion_estatus %>
+    <%= f.number_field :opcion_estatus %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_inicio %>
+    <%= f.datetime_select :fecha_inicio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

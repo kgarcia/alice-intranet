@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+  <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Orden de Restauracion de Base de Datos" %></h2>
+              </div>
+          </div>
+    <div class="ibox-content">
+      <%= form_tag "/restauracion", method: "post", :html => {:class => 'form-horizontal'} do |f| %>
+          
+
+          <div class="form-group">
+            <label class="col-lg-5 control-label">Seleccione el respaldo a utilizar</label>
+
+            <div class="col-lg-7"><%= select_tag('foos', @f) %>
+            </div>
+          </div>
+
+          <br> <br>
+
+          <table class="table">
+              <tr>
+                <th><%= if !@obj.nil? then "Respaldo" else "y" end %></th>
+                <th><%= if !@obj.nil? then "Fecha" else "z" end %></th>
+                <th><%= if !@obj.nil? then "Numero de Respaldo" else "2" end %></th>
+              </tr>
+              <tr>
+                <td><%= if @obj.nil? then "" else "Primero" end %></td>
+                <td><%= if @obj.nil? then "" else @obj.fecha_inicio.to_s end %></td>
+                <td><%= if @obj.nil? then "" else @obj.id.to_s end %></td>
+              </tr>
+              <tr>
+                <td><%= if @obj2.nil? then "" else "Segundo" end %></td>
+                <td><%= if @obj2.nil? then "" else @obj2.fecha_inicio.to_s end %></td>
+                <td><%= if @obj2.nil? then "" else @obj2.id.to_s end %></td>
+              </tr>
+              <tr>
+                <td><%= if @obj3.nil? then "" else "Tercero" end %></td>
+                <td><%= if @obj3.nil? then "" else @obj3.fecha_inicio.to_s end %></td>
+                <td><%= if @obj3.nil? then "" else @obj3.id.to_s end %></td>
+              </tr>
+          </table>
+           <br> <br>
+
+          <div class="form-group row">
+              <div class="col-lg-offset-3 col-lg-2">
+                  <%= submit_tag 'Generar', :class => "btn btn-sm btn-primary"  %>
+              </div>
+              <div class="col-lg-2">
+              <%= link_to 'Volver', '/chequear_cita', :class => "btn btn-sm btn-success", :title => "Atras" %>                          
+              </div>
+          </div>
+
+          <% end %>
+    </div>
+  </div>
+</div>

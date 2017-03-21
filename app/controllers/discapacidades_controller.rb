@@ -4,6 +4,7 @@ class DiscapacidadesController < ApplicationController
   # GET /discapacidades
   # GET /discapacidades.json
   def index
+    @tipo = TipoDiscapacidad.titulo
    @parametros = Discapacidad.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
@@ -58,7 +59,7 @@ class DiscapacidadesController < ApplicationController
   def update
     respond_to do |format|
       if @discapacidad.update(discapacidad_params)
-        format.html { redirect_to discapacidades_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to discapacidades_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @discapacidad }
       else
         format.html { render :edit }
@@ -73,7 +74,7 @@ class DiscapacidadesController < ApplicationController
     @discapacidad.estatus = 2
     @discapacidad.save
     respond_to do |format|
-      format.html { redirect_to discapacidades_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to discapacidades_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

@@ -33,7 +33,7 @@ class UsuariosController < ApplicationController
   		@persona = @usuario.persona
   		respond_to do |format|
 	      if @persona.update(persona_params)
-	        format.html { redirect_to '/perfil', notice: 'El registro ha sido actualizado exitosamente.' }
+	        format.html { redirect_to '/perfil', info: 'El registro ha sido actualizado exitosamente.' }
 	        format.json { render :show, status: :ok, location: @persona }
 	      else
 	        format.html { render :edit }

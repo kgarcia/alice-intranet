@@ -8,11 +8,13 @@
               <li>
                     <div class="chip">
                         <%= image_tag "a6.jpg" , :style => " width: 20px; heigth: 20px;" %>
-                         <%= link_to current_usuario.email, edit_usuario_registration_path %>
+                         <%= link_to current_usuario.email, edit_usuario_registration_path, :style => 'color: #FFFFFF;' %>
                     </div>
                  </li>
                 <li>
-                    <%= link_to 'Cerrar Sesión', destroy_usuario_session_path, :class =>"fa fa-sign-out" %> 
+                    <%= link_to destroy_usuario_session_path, style: 'font-family: inherit;' do %>
+                        <i class="fa fa-sign-out"></i> Cerrar Sesión
+                    <% end %> 
                 </li>
             </ul>
             <% end %>

@@ -9,6 +9,9 @@
       	  <h2 class="parametros-titulo"><%= @titulo %></h2>
           <h4>Desde el <%= @fecha_inicio.strftime("%d/%m/%Y") %> hasta el <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
 		  <div id="container" width="500px" height="300px"></div>
+          <div class="row">
+            <%= link_to 'Atrás', "/grafico/tiempo_atencion", :class => "btn btn-sm btn-success " %>
+          </div>
       </div>
 
 

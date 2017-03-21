@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+  <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Historico de Base de Datos" %></h2>
+              </div>
+          </div>
+    <div class="ibox-content">
+      <%= form_tag "/finalizar_migracion", method: "post", :html => {:class => 'form-horizontal'} do |f| %>
+
+            <script>
+              $(document).ready(function() { $("#e1_").select2(); });
+            </script>
+
+            <%= select("e1", nil, @stringnes, { include_blank: false }, html_options = {:multiple => "multiple", :style => "width: 800px"}) %>
+
+            <br> <br> 
+
+              <div class="row">
+              <div class="col-sm-6 ">
+                  <spam>Seleccione la fecha hasta la cual requiere que se migre la informacion:</spam>
+              </div>
+              <div class="col-sm-6 ">
+                  <%= date_select("BdAdmin", "fecha_inicio", min: 50.year.ago, end_year: Time.now.year) %>
+              </div>
+              </div>
+
+            <br> <br>
+
+            <div class="row">
+               <div class="col-sm-6 "></div>
+               <div class="col-sm-6 "></div>
+            </div>
+            
+            <p>Seleccione el estatus de los registros que desea migrar:</p>
+            <div id="estatus_guardado" class="tab-pane fade in">
+              <div class="container-fluid">
+              <div class="row">
+              <div class="col-sm-3 ">
+              <spam>Activo</spam>
+              </div>
+                  <div class="col-sm-3 ">
+                    <%= check_box_tag 'Activo', 1, false %> 
+                  </div>
+              </div>
+              <div class="row">
+              <div class="col-sm-3 ">
+              <spam>Inactivo</spam>
+              </div>
+                  <div class="col-sm-3 ">
+                    <%= check_box_tag 'Inactivo', 0, true %>
+                  </div>
+              </div>
+              </div>  
+            </div>
+
+
+
+          <div class="form-group row">
+              <div class="col-lg-offset-3 col-lg-2">
+                  <%= submit_tag 'Guardar', :class => "btn btn-sm btn-primary"  %>
+              </div>
+              <div class="col-lg-2">
+              <%= link_to 'Volver', '/chequear_cita', :class => "btn btn-sm btn-success", :title => "Atras" %>                          
+              </div>
+          </div>
+
+
+
+
+            <% end %>
+    </div>
+  </div>
+</div>

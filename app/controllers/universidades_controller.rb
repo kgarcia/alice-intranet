@@ -68,7 +68,7 @@ class UniversidadesController < ApplicationController
     @universidad.estatus = 2
     @universidad.save
     respond_to do |format|
-      format.html { redirect_to universidades_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to universidades_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

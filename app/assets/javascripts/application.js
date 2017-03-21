@@ -11,20 +11,21 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 
+//= require jquery/jquery-3.1.1.min.js
 //= require jquery
 //= require jquery_ujs
-//= require jquery2.js
 //= require bootstrap-sprockets
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
+//= require peity/jquery.peity.min.js
 //= require slimscroll/jquery.slimscroll.min.js
+//= require inspinia.js
+
 //= require footable/footable.min.js
 
 //= require datapicker/bootstrap-datepicker.js
 //= require moment
 //= require moment/es
-//= require fullcalendar
-//= require fullcalendar/lang/es
 //= require bootstrap-datetimepicker
 //= require daterangepicker/daterangepicker
 
@@ -35,22 +36,14 @@
 //= require highcharts
 //= require highcharts/modules/exporting
 //= require highcharts/modules/heatmap
-//= require toastr
+//= require toastr_rails
 //= require rating.min.js
+//= require select2
 //= require jasny/jasny-bootstrap.min.js
-
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require jquery.validate.localization/messages_es
 //= require dateFormat/dateFormat.js
-//= require turbolinks
-//= require_tree .
-$.extend(true, $.fn.dataTable.defaults, {
-    "language": {"url": "/js/datatables/Spanish.json"}
-});
-
-
-
 
 
 

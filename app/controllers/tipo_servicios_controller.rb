@@ -97,7 +97,7 @@ class TipoServiciosController < ApplicationController
 
     respond_to do |format|
       if @tipo_servicio.update(tipo_servicio_params)
-        format.html { redirect_to tipo_servicios_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to tipo_servicios_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_servicio }
       else
         format.html { render :edit }
@@ -112,7 +112,7 @@ class TipoServiciosController < ApplicationController
     @tipo_servicio.estatus = 2
     @tipo_servicio.save
     respond_to do |format|
-      format.html { redirect_to tipo_servicios_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to tipo_servicios_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

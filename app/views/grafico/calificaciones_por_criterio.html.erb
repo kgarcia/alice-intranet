@@ -4,7 +4,7 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h2 class="parametros-titulo"><%= "Reporte de calificaciones por criterios" %></h2>
+                <h2 class="parametros-titulo"><%= "Calificaciones por criterios" %></h2>
             </div>
         </div>
         <div class="ibox-content" style="padding-bottom: 15px">
@@ -26,11 +26,11 @@
                 <div class="col-sm-12" style="padding-top: 15px">
                     <div class="col-sm-4">
                         <%= label_tag :id, "Desde: " %>
-                        <%= label_tag :id, @fecha_inicio %>
+                        <%= label_tag :id, @fecha_inicio.strftime("%d/%m/%Y") %>
                     </div>
                     <div class="col-sm-4">
                         <%= label_tag :id, "Hasta: " %>
-                        <%= label_tag :id, @fecha_fin %>
+                        <%= label_tag :id, @fecha_fin.strftime("%d/%m/%Y") %>
                     </div>
                     <div class="col-sm-4"></div>
                 </div>
@@ -77,25 +77,25 @@
                         series: [
                             {
                                 name: 'Todas las Especialidades',
-                                data: [<%= Calificacion.promedioEspecialidades(@especialidad.id, 1, @tipo_turno.id) %>,
-                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 2,@tipo_turno.id) %>,
-                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 3, @tipo_turno.id) %>,
-                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 4, @tipo_turno.id) %>,
-                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 5, @tipo_turno.id) %>]
+                                data: [<%= Calificacion.promedioEspecialidades(@especialidad.id, 1, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 2,@tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 3, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 4, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioEspecialidades(@especialidad.id, 5, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>]
                             }, {
                                 name: '<%= @criterio.descripcion %>',
-                                data: [<%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 1, @tipo_turno.id) %>,
-                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 2, @tipo_turno.id) %>,
-                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 3, @tipo_turno.id) %>,
-                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 4, @tipo_turno.id) %>,
-                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 5, @tipo_turno.id) %>]
+                                data: [<%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 1, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 2, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 3, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 4, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioCriterioEspecifico(@especialidad.id, @criterio.id, 5, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>]
                             }, {
                                 name: 'Todos los Criterios',
-                                data: [<%= Calificacion.promedioCriterios(@criterio.id, 1, @tipo_turno.id) %>,
-                                        <%= Calificacion.promedioCriterios(@criterio.id, 2, @tipo_turno.id) %>,
-                                        <%= Calificacion.promedioCriterios(@criterio.id, 3, @tipo_turno.id) %>,
-                                        <%= Calificacion.promedioCriterios(@criterio.id, 4, @tipo_turno.id) %>,
-                                        <%= Calificacion.promedioCriterios(@criterio.id, 5, @tipo_turno.id) %>]
+                                data: [<%= Calificacion.promedioCriterios(@criterio.id, 1, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioCriterios(@criterio.id, 2, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioCriterios(@criterio.id, 3, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioCriterios(@criterio.id, 4, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>,
+                                        <%= Calificacion.promedioCriterios(@criterio.id, 5, @tipo_turno.id, @fecha_inicio, @fecha_fin) %>]
                             }
                         ]
                     });

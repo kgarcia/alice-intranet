@@ -4,6 +4,7 @@ class CirugiasController < ApplicationController
   # GET /cirugias
   # GET /cirugias.json
   def index
+    @tipo = TipoCirugia.titulo
     @parametros = Cirugia.where(:estatus => 1)
     respond_to do |format|
       format.html {  render "parametros_select/index" }
@@ -58,7 +59,7 @@ class CirugiasController < ApplicationController
   def update
     respond_to do |format|
       if @cirugia.update(cirugia_params)
-        format.html { redirect_to cirugias_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to cirugias_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @cirugia }
       else
         format.html { render :edit }
@@ -73,7 +74,7 @@ class CirugiasController < ApplicationController
     @cirugia.estatus = 2
     @cirugia.save
     respond_to do |format|
-      format.html { redirect_to cirugias_url, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to cirugias_url, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

@@ -55,7 +55,7 @@ class PersonasController < ApplicationController
   def update
     respond_to do |format|
       if @persona.update(persona_params)
-        format.html { redirect_to personas_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to personas_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @persona }
       else
         format.html { render :edit }
@@ -68,7 +68,7 @@ class PersonasController < ApplicationController
   # DELETE /personas/1.json
   def destroy
     respond_to do |format|
-      format.html { redirect_to personas_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to personas_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -81,6 +81,6 @@ class PersonasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def persona_params
-      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id, :edad)
+      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id, :edad, :peso, :altura)
     end
 end
