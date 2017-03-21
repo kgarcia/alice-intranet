@@ -430,28 +430,37 @@
     	OptionMenu.find_or_create_by(:id_padre => 62,   :nombre => 'Atender Cita',    :url_path => '/finalizar_cita', :icono => 'fa-id-card-o', :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
     	OptionMenu.find_or_create_by(:id_padre => 62,   :nombre => 'Evaluar Cita',    :url_path => '/evaluaciones', :icono => 'fa-star-half-full', :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
-    OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Reportes Estadísticos',   :url_path => '#', :icono => 'fa-bar-chart',        :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
-	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => '1',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => '2',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => '3',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 4, :estatus => 'A')
+    OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Reportes Estadísticos',   :url_path => '#', :icono => 'fa-bar-chart',        :controlador => '', :accion => '', num_hijos: 12, :estatus => 'A')
+	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Citas por Estatus',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Tiempo Promedio de Solicitud',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Tiempo Promedio de Recepción',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Tiempo Promedio de Atención',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Tiempo Promedio de Evaluación',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Motivos de Cancelación',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Calificaciones por Especialidades',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Calificaciones por Servicio',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Calificaciones por Criterio',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Efectividad de Eventos',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Efectividad de Difusión',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Opiniones',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
 	OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Difusión y Escucha al Cliente',              :url_path => '#', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
-		OptionMenu.find_or_create_by(:id_padre => 70, :nombre => 'Difundir Servicios y Eventos',              :url_path => '/difusiones', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-		OptionMenu.find_or_create_by(:id_padre => 70, :nombre => 'Atender opiniones',              :url_path => '/opiniones', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+		OptionMenu.find_or_create_by(:id_padre => 79, :nombre => 'Difundir Servicios y Eventos',              :url_path => '/difusiones', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+		OptionMenu.find_or_create_by(:id_padre => 79, :nombre => 'Atender opiniones',              :url_path => '/opiniones', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
     OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Administración',              :url_path => '#', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 4, :estatus => 'A')
-        OptionMenu.find_or_create_by(:id_padre => 73, :nombre => 'General',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-        OptionMenu.find_or_create_by(:id_padre => 73, :nombre => 'Base de Datos',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-    	OptionMenu.find_or_create_by(:id_padre => 73, :nombre => 'Sitio Web',              :url_path => '#', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 6, :estatus => 'A')
-	  	    OptionMenu.find_or_create_by(:id_padre => 76,  :nombre => 'Organización',                       :url_path => '/informacion_generals', :icono => 'fa-at',               :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	        OptionMenu.find_or_create_by(:id_padre => 76,  :nombre => 'Tipos de Noticia',                  :url_path => '/tipo_noticias', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	        OptionMenu.find_or_create_by(:id_padre => 76,  :nombre => 'Noticias',                  :url_path => '/noticias', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	  	    OptionMenu.find_or_create_by(:id_padre => 76,  :nombre => 'Tipos de Pregunta',                  :url_path => '/tipo_preguntas', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	  	    OptionMenu.find_or_create_by(:id_padre => 76,  :nombre => 'Preguntas',                  :url_path => '/preguntas', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	        OptionMenu.find_or_create_by(:id_padre => 76, :nombre => 'Tipos de Opinión',                   :url_path => '/tipo_opiniones', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-		OptionMenu.find_or_create_by(:id_padre => 73, :nombre => 'Seguridad Funcional',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 2, :estatus => 'A')
-	        OptionMenu.find_or_create_by(:id_padre => 83, :nombre => 'Usuarios',               :url_path => '#', :icono => 'fa-user-plus',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	        OptionMenu.find_or_create_by(:id_padre => 83, :nombre => 'Roles',                      :url_path => '/roles', :icono => 'fa-bookmark-o',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 82, :nombre => 'General',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 82, :nombre => 'Base de Datos',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+    	OptionMenu.find_or_create_by(:id_padre => 82, :nombre => 'Sitio Web',              :url_path => '#', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 6, :estatus => 'A')
+	  	    OptionMenu.find_or_create_by(:id_padre => 85,  :nombre => 'Organización',                       :url_path => '/informacion_generals', :icono => 'fa-at',               :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	        OptionMenu.find_or_create_by(:id_padre => 85,  :nombre => 'Tipos de Noticia',                  :url_path => '/tipo_noticias', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	        OptionMenu.find_or_create_by(:id_padre => 85,  :nombre => 'Noticias',                  :url_path => '/noticias', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	  	    OptionMenu.find_or_create_by(:id_padre => 85,  :nombre => 'Tipos de Pregunta',                  :url_path => '/tipo_preguntas', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	  	    OptionMenu.find_or_create_by(:id_padre => 85,  :nombre => 'Preguntas',                  :url_path => '/preguntas', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	        OptionMenu.find_or_create_by(:id_padre => 85, :nombre => 'Tipos de Opinión',                   :url_path => '/tipo_opiniones', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+		OptionMenu.find_or_create_by(:id_padre => 82, :nombre => 'Seguridad Funcional',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 2, :estatus => 'A')
+	        OptionMenu.find_or_create_by(:id_padre => 92, :nombre => 'Usuarios',               :url_path => '/usuarios', :icono => 'fa-user-plus',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	        OptionMenu.find_or_create_by(:id_padre => 92, :nombre => 'Roles',                      :url_path => '/roles', :icono => 'fa-bookmark-o',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
 # DATOS POR DEFECTO - PARA UTILIZAR EN EL EJEMPLO, ETC...
 
@@ -488,10 +497,10 @@
     OptionRol.find_or_create_by(:option_menu => OptionMenu.find(65), :rol => Rol.find(4)) # Evaluar
 
     #Rol 5:Seguridad
-    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(73), :rol => Rol.find(5))
-    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(83), :rol => Rol.find(5)) # Seguridad Funcional
-    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(84), :rol => Rol.find(5)) # Usuarios
-    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(85), :rol => Rol.find(5)) # Roles
+    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(82), :rol => Rol.find(5))
+    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(92), :rol => Rol.find(5)) # Seguridad Funcional
+    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(93), :rol => Rol.find(5)) # Usuarios
+    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(94), :rol => Rol.find(5)) # Roles
 
 
     TipoEvaluacion.find_or_create_by(:descripcion => 'Médico', :estatus => 1)
