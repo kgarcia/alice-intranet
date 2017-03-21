@@ -1,5 +1,5 @@
 <%= csrf_meta_tag %>
-
+<br>
 <div class="ibox float-e-margins">
               <div class="ibox-title">
                   <h2 class="parametros-titulo"><%= "Difusiones" %></h2>
@@ -21,7 +21,7 @@
       <% @difusiones.each do |difusion| %>
           <tr>
             <td><%= difusion.tipo_difusion.descripcion %></td>
-            <td><%= link_to difusion.asunto, polymorphic_url(difusion) %></td>
+            <td><%= difusion.asunto %></td>
             <td><%= difusion.entidad.descripcion%></td>            
           </tr>
       <% end %>

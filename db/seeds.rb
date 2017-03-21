@@ -355,12 +355,6 @@
     TipoCalificacion.find_or_create_by(:descripcion => 'Lista', :estatus => 1)
 
 
-	TipoPregunta.find_or_create_by(descripcion: 'Sobre el Sistema Alice',estatus: 1)
-	TipoPregunta.find_or_create_by(descripcion: 'Sobre U. Q. La Trinidad',estatus: 1)
-
-	Pregunta.find_or_create_by(descripcion: 'Qué significa Alice?',estatus: 1, respuesta: "Real, verdadero y sincero. Asi como las cualidades de los profesionales de la medicina que trabajan con nosotros.", tipo_pregunta:TipoPregunta.find(1))
-	Pregunta.find_or_create_by(descripcion: 'Dénde se encuentra ubicada la U. Q. La Trinidad?', respuesta: "Carrera 28 entre calles 9 y 10",estatus: 1, tipo_pregunta:TipoPregunta.find(2))
-
     Rol.find_or_create_by(descripcion: 'Dueño')
     Rol.find_or_create_by(descripcion: 'Especialista')
     Rol.find_or_create_by(descripcion: 'Recepcionista')
@@ -516,7 +510,7 @@
 
     MedioDifusion.find_or_create_by(:descripcion => 'Email', :estatus => 1)
     MedioDifusion.find_or_create_by(:descripcion => 'Facebook', :estatus => 1)
-    MedioDifusion.find_or_create_by(:descripcion => 'App Movil', :estatus => 1)
+    MedioDifusion.find_or_create_by(:descripcion => 'App Móvil', :estatus => 1)
 
      CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(1), estatus: 1)
      CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(1), estatus: 1)
@@ -539,6 +533,30 @@
      CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(7), estatus: 1)
      CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(7), estatus: 1)
      CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(7), estatus: 1)
+
+TipoNoticia.find_or_create_by(:descripcion => 'Sobre Servicio', :estatus => 1)
+TipoNoticia.find_or_create_by(:descripcion => 'Informativa', :estatus => 1)
+TipoNoticia.find_or_create_by(:descripcion => 'Especiales', :estatus => 1)
+
+Noticia.find_or_create_by(:titulo => 'Beneficios del ejercicio físico', :descripcion => 'El ejercicio físico vigoroso aporta mayores beneficios para la salud cardiovascular que la práctica de ejercicio leve o moderado ', :tipo_noticia => TipoNoticia.find(2), :estatus => 1, :contenido => 'Los resultados de la investigación, realizada por especialistas de la Unidad Quirúrgica “La Trinidad“ y de la Universidad Controocidental “Lisandro Alvarado“ con una muestra de más de 10.000 personas, se han publicado en la revista científica American Journal of Preventive Medicine')
+Noticia.find_or_create_by(:titulo => 'Congreso Nacional de Periodismo Sanitario', :descripcion => 'La Unidad Quirúrgica “La Trinidad“, sede del próximo Congreso Nacional de Periodismo Sanitario', :tipo_noticia => TipoNoticia.find(2), :estatus => 1, :contenido => 'Del próximo 31 de marzo al 2 de abril, Barquisimeto acogerá el simposio que organiza anualmente la Asociación Nacional de Informadores de la Salud ')
+Noticia.find_or_create_by(:titulo => 'Nuevo anticuerpo para tratar el mieloma múltiple', :descripcion => 'Desarrollan un nuevo anticuerpo para tratar el mieloma múltiple con elevada eficacia demostrada en estudios pre-clínicos', :tipo_noticia => TipoNoticia.find(1), :estatus => 1, :contenido => 'Investigadores del Laboratorio “Alemán Giménez“ desarrollan un fármaco altamente especifico que estimula la acción antitumoral de las células T del sistema inmune en pacientes con mieloma múltiple')
+
+TipoPregunta.find_or_create_by(:descripcion => 'Sobre la Organización', :estatus => 1)
+TipoPregunta.find_or_create_by(:descripcion => 'Sobre el Sistema Alice', :estatus => 1)
+TipoPregunta.find_or_create_by(:descripcion => 'Sobre los Servicios', :estatus => 1)
+
+Pregunta.find_or_create_by(descripcion: '¿Qué significa Alice?',estatus: 1, respuesta: "Real, verdadero y sincero. Asi como las cualidades de los profesionales de la medicina que trabajan con nosotros.", :tipo_pregunta => TipoPregunta.find(2))
+Pregunta.find_or_create_by(descripcion: '¿Dónde se encuentra ubicada la Unidad Quirúrgica “La Trinidad“?', respuesta: "Carrera 28 entre calles 9 y 10",estatus: 1, :tipo_pregunta => TipoPregunta.find(1))
+Pregunta.find_or_create_by(descripcion: '¿Cuáles son los servicios que ofrece la Unidad Quirúrgica “La Trinidad“?', respuesta: "Consulta de Atención Primaria, Laboratorio e Imagenología",estatus: 1, :tipo_pregunta => TipoPregunta.find(3))
+Pregunta.find_or_create_by(descripcion: '¿Qué exámenes ofrece el Laboratorio Alemán Giménez?',estatus: 1, respuesta: "Hematología completa, Glicemia en ayunas, Orina, Urea, entre otros", :tipo_pregunta => TipoPregunta.find(2))
+Pregunta.find_or_create_by(descripcion: '¿Qué imágenes ofrece el Centro de Imágenes “La Trinidad“ (CEDILAT)?',estatus: 1, respuesta: "Resonancia magnética, Tomografía Axial Computarizada, Desintometría Ósea, Ecosonograma, Mamografía, Radiología, entre otros. ", :tipo_pregunta => TipoPregunta.find(2))
+
+
+
+
+
+
 
      puts 'seed'
 
