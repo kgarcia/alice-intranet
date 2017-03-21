@@ -1,5 +1,3 @@
-<%= csrf_meta_tag %>
-<br>
 <div class="row">
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
@@ -9,19 +7,22 @@
         </div>
         <div class="ibox-content" style="padding-bottom: 15px">
             <div class="container-fluid">
-              <div class="col-sm-12" style="padding-top: 15px">
-                  <div class="col-sm-4">
-                      <%= label_tag :id, "Tipo de turno: " %>
-                      <h4>En la <%= @tipo_turno.descripcion %> </h4>
-                  </div>
-                  <div class="col-sm-4">
-                      <%= label_tag :id, "Rango de fechas: " %>
-                      <h4>Desde el <%= @fecha_inicio.strftime("%d/%m/%Y") %> hasta el <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
-                  </div>
-                  <div class="col-sm-4">
-
-                  </div>
-              </div>
+                <div class="col-sm-12" style="padding-top: 15px">
+                    <div class="col-sm-4">
+                        <%= label_tag :id, "Tipo de turno: " %>
+                        <h4>En la
+                            <%= @tipo_turno.descripcion %>
+                        </h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= label_tag :id, "Rango de fechas: " %>
+                        <h4>Desde el
+                            <%= @fecha_inicio.strftime("%d/%m/%Y") %>
+                            hasta el
+                            <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
                 <div class="col-sm-12" style="padding-top: 15px">
                     <script src="https://code.highcharts.com/highcharts.js"></script>
                     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -33,11 +34,8 @@
                             text: ''
                         },
                         xAxis: {
-                            categories: [
-                              <% @especialidades.each do |especialidad| %>
-                                '<%= especialidad.descripcion %>',
-                              <% end %>
-                            ]
+                            categories: [<% @especialidades.each do |especialidad| %>
+                                '<%= especialidad.descripcion %>', <% end %>]
                         },
                         labels: {
                             items: [
@@ -55,50 +53,34 @@
                             {
                                 type: 'column',
                                 name: 'Muy mal',
-                                data: [
-                                  <% @especialidades.each do |especialidad| %>
-                                    <%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 1, @fecha_inicio, @fecha_fin) %>,
-                                  <% end %>
-                                ]
+                                data: [<% @especialidades.each do |especialidad| %>
+                                    <%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 1, @fecha_inicio, @fecha_fin) %>, <% end %>]
                             }, {
                                 type: 'column',
                                 name: 'Mal',
-                                data: [
-                                  <% @especialidades.each do |especialidad| %>
-                                    <%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 2, @fecha_inicio, @fecha_fin) %>,
-                                  <% end %>
-                                ]
+                                data: [<% @especialidades.each do |especialidad| %>
+                                    <%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 2, @fecha_inicio, @fecha_fin) %>, <% end %>]
                             }, {
                                 type: 'column',
                                 name: 'Regular',
-                                data: [
-                                  <% @especialidades.each do |especialidad| %>
-                                    <%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 3, @fecha_inicio, @fecha_fin) %>,
-                                  <% end %>
-                                ]
+                                data: [<% @especialidades.each do |especialidad| %>
+                                    <%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 3, @fecha_inicio, @fecha_fin) %>, <% end %>]
                             }, {
                                 type: 'column',
                                 name: 'Bueno',
-                                data: [
-                                  <% @especialidades.each do |especialidad| %>
-                                    <%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 4, @fecha_inicio, @fecha_fin) %>,
-                                  <% end %>
-                                ]
+                                data: [<% @especialidades.each do |especialidad| %>
+                                    <%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 4, @fecha_inicio, @fecha_fin) %>, <% end %>]
                             }, {
                                 type: 'column',
                                 name: 'Muy bueno',
-                                data: [
-                                  <% @especialidades.each do |especialidad| %>
-                                    <%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 5, @fecha_inicio, @fecha_fin) %>,
-                                  <% end %>
-                                ]
+                                data: [<% @especialidades.each do |especialidad| %>
+                                    <%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 5, @fecha_inicio, @fecha_fin) %>, <% end %>]
                             }, {
                                 type: 'spline',
                                 name: 'Promedio',
                                 data: [
-                                  <% @especialidades.each do |especialidad| %>
-                                    <%= Calificacion.promedioCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, @fecha_inicio, @fecha_fin) %>,
-                                  <% end %>
+                                    <% @especialidades.each do |especialidad| %>
+                                    <%= Calificacion.promedioCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, @fecha_inicio, @fecha_fin) %>, <% end %>
                                 ],
                                 marker: {
                                     lineWidth: 2,
@@ -143,6 +125,7 @@
                         ]
                     });
                 </script>
+            </div>
         </div>
     </div>
 </div>

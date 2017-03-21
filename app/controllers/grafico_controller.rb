@@ -107,7 +107,7 @@ class GraficoController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def citas_evaluadas_params
-    params.permit(:descripcion, :especialidad_id, :tipo_turno_id, :criterio_id, :fecha_inicio, :fecha_fin)
+    params.permit(:descripcion, :especialidad_id, :tipo_turno_id, :criterio_id, :fecha_inicio, :fecha_fin, :tipo_servicio_id)
   end
 
   def generar_citas_evaluadas
@@ -153,6 +153,30 @@ class GraficoController < ApplicationController
 
     @especialidades = Especialidad.all
     render "grafico/calificaciones_por_especialidad"
+  end
+
+  def update_eventos
+    @tipo_servicios = Evento.find(params[:evento_id].to_i).tipo_servicios
+    respond_to do |format|
+      format.js
+      render 'grafico/update_eventos'
+    end
+  end
+
+  def citas_por_evento
+    @eventos = Evento.all
+    @tipo_servicios = []
+    render "grafico/reporte-citas-eventos"
+  end
+
+  def calcular_citas_por_evento
+    @evento = Evento.find(params[:evento_id])
+    @tipo_servicio = TipoServicio.find(params[:tipo_servicio])
+    @cantidad_semanas = params[:cantidad_semanas].to_s
+    @fecha_inicio = @evento.fecha - params[:cantidad_semanas].to_i.week
+    @fecha_fin = @evento.fecha + params[:cantidad_semanas].to_i.week
+
+    render "grafico/citas_por_evento"
   end
 
 end

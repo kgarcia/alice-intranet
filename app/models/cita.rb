@@ -17,12 +17,12 @@ class Cita < ApplicationRecord
 	end
 
   def as_json(options={})
-    super(include: { turno: 
-                       { include:  {horario: 
-                                      { include:  {servicio: 
+    super(include: { turno:
+                       { include:  {horario:
+                                      { include:  {servicio:
                                                        { include:  :ubicacion
                                                        }
-                                                   }  
+                                                   }
                                       }
                                     }
                         }
@@ -52,5 +52,16 @@ class Cita < ApplicationRecord
       puts @citas
       return @citas
     end
+
+  def self.contarCitasPorEventoYRangoMeses(tipo_servicio, fecha_inicio, fecha_fin)
+    @citas = Cita.joins( turno: { horario: { servicio: { tipo_servicio: :eventos } } } )
+    if tipo_servicio != nil
+      @citas = @citas.where("tipo_servicios.id" => tipo_servicio)
+    end
+    if fecha_inicio != nil and fecha_fin != nil
+      @citas = @citas.where('citas.fecha' => fecha_inicio..fecha_fin)
+    end
+    return @citas.count
+  end
 
 end
