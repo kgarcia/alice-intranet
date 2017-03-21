@@ -1,3 +1,4 @@
+<br>
 <div class="row">   
    <div class="col-lg-10 col-lg-offset-1">
           <div class="ibox float-e-margins">
@@ -21,7 +22,7 @@
                   <% end %>
 
               <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#datos">Difusion</a></li>
+                <li class="active"><a data-toggle="tab" href="#datos">Difusión</a></li>
                 <li><a data-toggle="tab" href="#texto">Texto</a></li>
               </ul>
 
@@ -30,7 +31,7 @@
                 <div id="datos" class="tab-pane fade in active">
                   <br>
                   <div class="field form-group">
-                    <label class="col-lg-2 control-label">Tipo de Difusion</label>
+                    <label class="col-lg-2 control-label">Tipo de Difusión</label>
                     <div class="col-lg-10">
                       <%= f.collection_select(:tipo_difusion_id, @tipo_difusiones, :id, :descripcion, {},{:class => "form-control"}) %>
                     </div>
@@ -55,7 +56,7 @@
                   </div>
 
                   <div class="field form-group">
-                    <label class="col-lg-2 control-label">Medio de Difusion</label>
+                    <label class="col-lg-2 control-label">Medio de Difusión</label>
                     <div class="container-fluid col-lg-10">
                     <% @medios.each do |medio| %>
                       <div class="col-sm-3">

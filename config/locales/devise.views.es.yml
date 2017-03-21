@@ -32,8 +32,7 @@ es:
       confirmation_instructions:
         action: Confirmar mi cuenta
         greeting: "¡Bienvenido a Alice, %{recipient}!"
-        instruction: 'Para poder hacer uso de todas las funcionalidades de Alice debe confirmar el correo electrónico de su cuenta a través de este enlace:
-         Si ud. no requiere esta confirmación por favor ignore este mensaje '
+        instruction: 'Para poder hacer uso de todas las funcionalidades de Alice debe confirmar el correo electrónico de su cuenta a través de este enlace:'
         subject: Instrucciones de confirmación
       password_change:
         greeting: Hola %{recipient}!

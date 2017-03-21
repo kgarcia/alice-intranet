@@ -116,11 +116,13 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.integer  "tipo_pago_id"
     t.integer  "eventualidad_id"
     t.integer  "estatus",         default: 1, null: false
+    t.integer  "tipo_cita_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.text     "diagnostico"
     t.index ["eventualidad_id"], name: "index_citas_on_eventualidad_id", using: :btree
     t.index ["persona_id"], name: "index_citas_on_persona_id", using: :btree
+    t.index ["tipo_cita_id"], name: "index_citas_on_tipo_cita_id", using: :btree
     t.index ["tipo_pago_id"], name: "index_citas_on_tipo_pago_id", using: :btree
     t.index ["turno_id"], name: "index_citas_on_turno_id", using: :btree
     t.index ["usuario_id"], name: "index_citas_on_usuario_id", using: :btree
@@ -495,6 +497,7 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.integer  "tipo_notificacion_id",             null: false
     t.string   "mensaje"
     t.string   "url"
+    t.integer  "entidad_id"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "usuario_id"
@@ -1107,6 +1110,7 @@ ActiveRecord::Schema.define(version: 20170319044855) do
   add_foreign_key "cirugias", "tipo_cirugias"
   add_foreign_key "citas", "eventualidades"
   add_foreign_key "citas", "personas"
+  add_foreign_key "citas", "tipo_citas"
   add_foreign_key "citas", "tipo_pagos"
   add_foreign_key "citas", "turnos"
   add_foreign_key "citas", "usuarios"
