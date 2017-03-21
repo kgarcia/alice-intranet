@@ -10,7 +10,7 @@
           <h4>Desde el <%= @fecha_inicio.strftime("%d/%m/%Y") %> hasta el <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
 		  <div id="container" width="500px" height="300px"></div>
           <div class="row">
-            <%= link_to 'Atrás', "/grafico/tiempo_atencion", :class => "btn btn-sm btn-success " %>
+            <%= link_to 'Atrás', "/grafico/tiempo_solicitud", :class => "btn btn-sm btn-success " %>
           </div>
       </div>
 
@@ -29,7 +29,7 @@
                     type: 'column'
                 },
                 title: {
-                    text: 'Citas por Estatus'
+                    text: 'Tiempo promedio de Solicitud'
                 },
                 xAxis: {
                     categories: [
@@ -42,7 +42,7 @@
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Citas'
+                        text: 'Horas'
                     }
                 },
                 tooltip: {
@@ -60,42 +60,10 @@
                     }
                 },
                 series: [{
-                    name: 'Solicitadas',
+                    name: 'Tiempo promedio de Solicitud',
                     data: [
                         <% @especialidades.each do |especialidad| %>
-                            <%= especialidad.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-                        <% @especialidades.each do |especialidad| %>
-                            <%= especialidad.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                        <% @especialidades.each do |especialidad| %>
-                            <%= especialidad.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                        <% @especialidades.each do |especialidad| %>
-                            <%= especialidad.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                },{
-                    name: 'Canceladas',
-                    data: [
-                        <% @especialidades.each do |especialidad| %>
-                            <%= especialidad.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                            <%= especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
                         <% end %>
                     ]
 
@@ -107,7 +75,7 @@
                     type: 'column'
                 },
                 title: {
-                    text: 'Citas por Estatus'
+                    text: 'Tiempo promedio de Solicitud'
                 },
                 xAxis: {
                     categories: [
@@ -118,7 +86,7 @@
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Citas'
+                        text: 'Horas'
                     }
                 },
                 tooltip: {
@@ -136,35 +104,15 @@
                     }
                 },
                 series: [{
-                    name: 'Solicitadas',
+                    name: 'Tiempo promedio de Solicitud de <%= @especialidad.descripcion %>',
                     data: [
-                            <%= @especialidad.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-
-                            <%= @especialidad.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                            <%= @especialidad.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                            <%= @especialidad.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
+                            <%= @especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
                     ]
 
                 },{
-                    name: 'Canceladas',
+                    name: 'Tiempo promedio de Solicitud general',
                     data: [
-                            <%= @especialidad.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                        <%= Especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
                     ]
 
                 }]
@@ -178,7 +126,7 @@
                     type: 'column'
                 },
                 title: {
-                    text: 'Citas por Estatus'
+                    text: 'Tiempo promedio de Solicitud'
                 },
                 xAxis: {
                     categories: [
@@ -191,7 +139,7 @@
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Citas'
+                        text: 'Horas'
                     }
                 },
                 tooltip: {
@@ -209,42 +157,10 @@
                     }
                 },
                 series: [{
-                    name: 'Solicitadas',
+                    name: 'Tiempo promedio de Solicitud',
                     data: [
                         <% @tipoServicios.each do |tipoServicio| %>
-                            <%= tipoServicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            <%= tipoServicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            <%= tipoServicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            <%= tipoServicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                },{
-                    name: 'Canceladas',
-                    data: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            <%= tipoServicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                            <%= tipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
                         <% end %>
                     ]
 
@@ -256,7 +172,7 @@
                     type: 'column'
                 },
                 title: {
-                    text: 'Citas por Estatus'
+                    text: 'Tiempo promedio de Solicitud'
                 },
                 xAxis: {
                     categories: [
@@ -267,7 +183,7 @@
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Citas'
+                        text: 'Horas'
                     }
                 },
                 tooltip: {
@@ -285,35 +201,15 @@
                     }
                 },
                 series: [{
-                    name: 'Solicitadas',
+                    name: 'Tiempo promedio de Solicitud de <%= @tipoServicio.descripcion%>',
                     data: [
-                            <%= @tipoServicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-
-                            <%= @tipoServicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                            <%= @tipoServicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                            <%= @tipoServicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
+                            <%= @tipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
                     ]
 
                 },{
-                    name: 'Canceladas',
+                    name: 'Tiempo promedio de Solicitud general',
                     data: [
-                            <%= @tipoServicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                        <%= TipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
                     ]
 
                 }]
@@ -326,7 +222,7 @@
                     type: 'column'
                 },
                 title: {
-                    text: 'Citas por Estatus'
+                    text: 'Tiempo promedio de Solicitud'
                 },
                 xAxis: {
                     categories: [
@@ -339,7 +235,7 @@
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Citas'
+                        text: 'Horas'
                     }
                 },
                 tooltip: {
@@ -357,42 +253,10 @@
                     }
                 },
                 series: [{
-                    name: 'Solicitadas',
+                    name: 'Tiempo promedio de Solicitud',
                     data: [
                         <% @servicios.each do |servicio| %>
-                            <%= servicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-                        <% @servicios.each do |servicio| %>
-                            <%= servicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                        <% @servicios.each do |servicio| %>
-                            <%= servicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                        <% @servicios.each do |servicio| %>
-                            <%= servicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                },{
-                    name: 'Canceladas',
-                    data: [
-                        <% @servicios.each do |servicio| %>
-                            <%= servicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                            <%= servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
                         <% end %>
                     ]
 
@@ -404,7 +268,7 @@
                     type: 'column'
                 },
                 title: {
-                    text: 'Citas por Estatus'
+                    text: 'Tiempo promedio de Solicitud'
                 },
                 xAxis: {
                     categories: [
@@ -415,7 +279,7 @@
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Citas'
+                        text: 'Horas'
                     }
                 },
                 tooltip: {
@@ -433,35 +297,15 @@
                     }
                 },
                 series: [{
-                    name: 'Solicitadas',
+                    name: 'Tiempo promedio de Solicitud de <%= @servicio.descripcion %>',
                     data: [
-                            <%= @servicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-
-                            <%= @servicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                            <%= @servicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                            <%= @servicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
+                            <%= @servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
                     ]
 
                 },{
-                    name: 'Canceladas',
+                    name: 'Tiempo promedio de Solicitud general',
                     data: [
-                            <%= @servicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                        <%= Servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
                     ]
 
                 }]

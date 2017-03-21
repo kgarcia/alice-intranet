@@ -8,6 +8,7 @@ class CreatePersonas < ActiveRecord::Migration[5.0]
       t.string :direccion, :null => true
       t.date :fecha_nacimiento, :null => true
       t.float :peso, :null => true
+      t.float :altura, :null => true
       t.references :sexo, foreign_key: true, :null => true
       t.references :grupo_sanguineo, foreign_key: true, :null => true
       t.references :estado_civil, foreign_key: true, :null => true
