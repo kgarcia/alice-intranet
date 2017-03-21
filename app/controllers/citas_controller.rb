@@ -7,7 +7,7 @@ class CitasController < ApplicationController
     if params[:persona].nil?
       @lista = Cita.where({:persona_id => current_usuario.persona_id, :estatus => 1})
     else
-      @lista = Cita.where({:persona_id => params[:persona], :estatus => 1})
+      @lista = Cita.where({:persona_id => params[:persona]})
     end
       respond_to do |format|
       format.html

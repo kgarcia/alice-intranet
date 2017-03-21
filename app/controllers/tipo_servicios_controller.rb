@@ -19,7 +19,14 @@ class TipoServiciosController < ApplicationController
       format.json { render json: @tipo_servicios }
     end
   end
-
+  
+ def filtrar
+    @servicios = Servicio.where(tipo_servicio_id: params[:tipo_servicio_id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @servicios.to_json }
+    end
+  end
   # GET /tipo_servicios/1
   # GET /tipo_servicios/1.json
   def show
