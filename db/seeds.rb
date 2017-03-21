@@ -82,7 +82,6 @@
     Ubicacion.find_or_create_by(:descripcion => 'Av Venezuela entre 12 y 13', :estatus => 1, :sector => Sector.find(3), :ciudad => Ciudad.find(1), :tipo_ubicacion => TipoUbicacion.find(3))
 
    
-  
 
     TipoHorario.find_or_create_by(:descripcion => 'Cantidad de pacientes', :estatus => 1)
     TipoHorario.find_or_create_by(:descripcion => 'Tiempo promedio', :estatus => 1)
@@ -110,7 +109,7 @@
 
 	TipoServicio.find_or_create_by(descripcion: 'Consulta de Ginecología', texto: 'Ofrece a sus pacientes un cuidado integral que incluye un amplio rango de opciones de consulta y tratamientos que comprenden desde la revisión preventiva habitual hasta las más avanzadas', foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(3), :especialidad => Especialidad.find(7), :tipo_atencion => TipoAtencion.find(1))
     TipoServicio.find_or_create_by(descripcion: 'Consulta de Dermatología', texto: 'Cuenta con una amplia experiencia en el diagnóstico y tratamiento de las enfemedades dermatológicas', foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(3), :especialidad => Especialidad.find(3), :tipo_atencion => TipoAtencion.find(1))
-    TipoServicio.find_or_create_by(descripcion: 'Consulta de Urologia', texto: 'Ofrece a sus pacientes un equipo médico, compuesto por profesionales de primer nivel, y medios diagnósticos y terapéuticos de última generación', foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(3), :especialidad => Especialidad.find(5) ,:tipo_atencion => TipoAtencion.find(1))
+    TipoServicio.find_or_create_by(descripcion: 'Consulta de Urología', texto: 'Ofrece a sus pacientes un equipo médico, compuesto por profesionales de primer nivel, y medios diagnósticos y terapéuticos de última generación', foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(3), :especialidad => Especialidad.find(5) ,:tipo_atencion => TipoAtencion.find(1))
     TipoServicio.find_or_create_by(descripcion: 'Consulta de Cardiología', texto:'Ofrece a sus pacientes un cuidado integral que incluye un amplio rango de opciones de consulta y tratamientos que comprenden desde la revisión preventiva habitual hasta las más avanzadas', foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(3), :especialidad => Especialidad.find(1), :tipo_atencion => TipoAtencion.find(1))
     TipoServicio.find_or_create_by(descripcion: 'Tomografía', texto: nil, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(2), :especialidad => Especialidad.find(1), :tipo_atencion => TipoAtencion.find(2))
     TipoServicio.find_or_create_by(descripcion: 'Ecografía', texto: nil, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(2), :especialidad => Especialidad.find(2), :tipo_atencion => TipoAtencion.find(2))
@@ -226,7 +225,7 @@
 	Habito.find_or_create_by(descripcion: 'Trotar',estatus: 1,:tipo_habito => TipoHabito.find(1))
 	Habito.find_or_create_by(descripcion: 'Caminar',estatus: 1,:tipo_habito => TipoHabito.find(1))
 	Habito.find_or_create_by(descripcion: 'Actividad Física',estatus: 1,:tipo_habito => TipoHabito.find(1))
-	Habito.find_or_create_by(descripcion: 'Balanceada',estatus: 1,:tipo_habito => TipoHabito.find(2))
+	Habito.find_or_create_by(descripcion: 'Alimentación Balanceada',estatus: 1,:tipo_habito => TipoHabito.find(2))
 	Habito.find_or_create_by(descripcion: 'Consumo de Carnes Rojas',estatus: 1,:tipo_habito => TipoHabito.find(2))
 	Habito.find_or_create_by(descripcion: 'Consumo de Comida Rápida',estatus: 1,:tipo_habito => TipoHabito.find(2))
 
@@ -339,15 +338,19 @@
     Eventualidad.find_or_create_by(:descripcion => 'Cierre de la clínica', :estatus => 1, :tipo_eventualidad_id => 1, :motivo => Motivo.find(1), fecha_inicio: '01/03/2017', fecha_fin: '01/03/2017')
     Eventualidad.find_or_create_by(:descripcion => 'Cancelación de cita', :estatus => 1, :tipo_eventualidad_id => 3, :motivo=> Motivo.find(2), fecha_inicio: '01/03/2017', fecha_fin: '01/03/2017')
 
-    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(4), :usuario_id => nil, :fecha => '2/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(5), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(6), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(2), :eventualidad_id => Eventualidad.find(2).id, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(7), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(8), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(3), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(9), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(10), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(2), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(11), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(12), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(4), :eventualidad_id => nil, estatus: 1)
+    TipoCita.find_or_create_by(:descripcion => 'Chequeo', :estatus => 1)
+    TipoCita.find_or_create_by(:descripcion => 'Entrega de Exámenes', :estatus => 1)
+    TipoCita.find_or_create_by(:descripcion => 'Control', :estatus => 1)
+
+    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(4), :usuario_id => nil, :fecha => '2/09/2016', :tipo_pago_id => TipoPago.find(1).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(1))
+    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(5), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(2))
+    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(6), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(2).id, :eventualidad_id => Eventualidad.find(2).id, estatus: 1, :tipo_cita => TipoCita.find(3))
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(7), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(1))
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(8), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(3).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(2))
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(9), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(3))
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(10), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(2).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(1))
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(11), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(2))
+    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(12), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(4).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(3))
 
 
     TipoCalificacion.find_or_create_by(:descripcion => 'Numérica', :estatus => 1)
