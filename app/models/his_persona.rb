@@ -1,0 +1,2 @@
+class HisPersona < ApplicationRecord
+end

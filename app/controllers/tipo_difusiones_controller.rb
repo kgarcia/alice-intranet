@@ -53,7 +53,7 @@ class TipoDifusionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_difusion.update(tipo_difusion_params)
-        format.html { redirect_to tipo_difusiones_path, notice: 'El registro ha sido actualizado exitosamente.'}
+        format.html { redirect_to tipo_difusiones_path, info: 'El registro ha sido actualizado exitosamente.'}
         format.json { render :show, status: :ok, location: @tipo_difusion }
       else
         format.html { render :edit }
@@ -68,7 +68,7 @@ class TipoDifusionesController < ApplicationController
     @tipo_difusion.estatus = 2
     @tipo_difusion.save
     respond_to do |format|
-      format.html { redirect_to tipo_difusiones_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to tipo_difusiones_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

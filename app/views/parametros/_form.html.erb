@@ -1,43 +1,73 @@
-<div class="row">   
-   <div class="col-lg-6 col-lg-offset-3">
-          <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= @parametro.class.titulo %></h2>
-              </div>
-          </div>
-          <div class="ibox-content">
-             <%= form_for @parametro, :html => {:class => 'form-horizontal'} do |f| %>
-                  <% if @parametro.errors.any? %>
-                    <div id="error_explanation">
-                      <h2><%= pluralize(@parametro.errors.count, "error") %> prohibited this parametro from being saved:</h2>
-
-                      <ul>
-                      <% @parametro.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                      <% end %>
-                      </ul>
-                    </div>
-                  <% end %>
-
-                  <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
-
-                      <div class="col-lg-10"><%= f.text_field :descripcion,:required => true, :class => "form-control" %>
-                       </div>
-                    </div>
-                  <div class="form-group">
-                      <div class="col-lg-offset-3 col-lg-2">
-                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
-                      </div>
-                      <% if (@parametro.new_record?) %>
-                        <div class="col-lg-2">
-                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
-                        </div>
-                      <% end %>
-                      <div class="col-lg-2">
-                      <%= link_to 'Atrás', polymorphic_url(@parametro.class), :class => "btn btn-sm btn-success" %>
-                      </div>
-                  </div>
-              <% end %>
-          </div>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong><%= @parametro.class.titulo %></strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li>
+          <a href="/<%= @parametro.class.name.underscore.pluralize %>">Listado</a>
+        </li>
+        <li class="active">
+          <% if @parametro.new_record? %>
+            <strong class="text-blue">Registrar <%= @parametro.class.titulo %></strong>
+          <% else %>
+            <strong class="text-blue">Editar <%= @parametro.class.titulo %></strong>
+          <% end %>
+        </li>
+    </ol>
   </div>
 </div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong><%= @parametro.class.titulo %></strong></h4>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+              <%= form_for @parametro, :html => {:id => 'form-generic'}, :form_to_validate => @parametro.class, role: 'form' do |f| %>
+                <div class="form-group">
+                  <label class="control-label">Descripción <label for="<%= @parametro.class.name.underscore %>_descripcion" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                  <%= f.text_field :descripcion,:required => true, :class => "form-control" %>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-offset-3 col-lg-2">
+                    <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                  </div>
+                  <% if (@parametro.new_record?) %>
+                    <div class="col-lg-2">
+                      <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                    </div>
+                  <% end %>
+                  <div class="col-lg-2">
+                    <%= link_to 'Atrás', polymorphic_url(@parametro.class), :class => "btn btn-sm btn-success" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+
+    $('#form-generic').validate({
+      rules: {
+        '<%= @parametro.class.to_s.downcase %>[descripcion]': {  
+            required: true,
+            solo_letras: true
+        }
+      }
+    });
+
+  </script>
+<% end %>

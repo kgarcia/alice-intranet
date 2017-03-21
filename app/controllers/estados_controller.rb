@@ -4,9 +4,10 @@ class EstadosController < ApplicationController
   # GET /estados
   # GET /estados.json
   def index
+    @tipo = Pais.titulo
     @parametros = Estado.where(:estatus => 1)
      respond_to do |format|
-      format.html {  render "index" }
+      format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
     end
   end
@@ -25,7 +26,7 @@ class EstadosController < ApplicationController
     @collection = Pais.where(:estatus => 1)
     @referencia = :pais_id
     @estado = Estado.new
-    render "new"
+    render "parametros_select/new"
   end
 
   # GET /estados/1/edit
@@ -34,7 +35,7 @@ class EstadosController < ApplicationController
     @collection = Pais.where(:estatus => 1)
     @referencia = :pais_id
     @estado = Estado.new
-    render "edit"
+    render "parametros_select/edit"
   end
 
   # POST /estados
@@ -58,7 +59,7 @@ class EstadosController < ApplicationController
   def update
     respond_to do |format|
       if @estado.update(estado_params)
-        format.html { redirect_to estados_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to estados_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @estado }
       else
         format.html { render :edit }
@@ -73,7 +74,7 @@ class EstadosController < ApplicationController
     @estado.estatus = 2
     @estado.save
     respond_to do |format|
-      format.html { redirect_to estados_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to estados_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

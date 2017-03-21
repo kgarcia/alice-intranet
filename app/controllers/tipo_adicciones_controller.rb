@@ -54,7 +54,7 @@ class TipoAdiccionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_adiccion.update(tipo_adiccion_params)
-        format.html { redirect_to tipo_adicciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to tipo_adicciones_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_adiccion }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class TipoAdiccionesController < ApplicationController
     @tipo_adiccion.estatus = 2
     @tipo_adiccion.save
     respond_to do |format|
-      format.html { redirect_to tipo_adicciones_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to tipo_adicciones_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

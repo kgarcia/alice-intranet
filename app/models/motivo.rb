@@ -1,6 +1,6 @@
 class Motivo < ApplicationRecord
   belongs_to :tipo_motivo, foreign_key: "tipo_motivo_id"
-  has_many :eventualidad
+  has_many :eventualidad, dependent: :destroy
 
   def tipo
     return self.tipo_motivo

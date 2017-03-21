@@ -1,7 +1,7 @@
 class Sexo < ApplicationRecord
-  has_many :sexo_perfiles
-  has_many :perfiles, through: :sexo_perfiles
-  has_many :personas
+  has_many :sexo_perfiles, dependent: :destroy
+  has_many :perfiles, through: :sexo_perfiles, dependent: :destroy
+  has_many :personas, dependent: :destroy
   
   def self.titulo
 	  return "Sexo"

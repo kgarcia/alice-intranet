@@ -55,7 +55,7 @@ class TipoUbicacionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_ubicacion.update(tipo_ubicacion_params)
-        format.html { redirect_to tipo_ubicaciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to tipo_ubicaciones_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_ubicacion }
       else
         format.html { render :edit }
@@ -70,7 +70,7 @@ class TipoUbicacionesController < ApplicationController
     @tipo_ubicacion.estatus = 2
     @tipo_ubicacion.save
     respond_to do |format|
-      format.html { redirect_to tipo_ubicaciones_path, notice: 'El registro ha sido eliminado exitosamente.'}
+      format.html { redirect_to tipo_ubicaciones_path, alert: 'El registro ha sido eliminado exitosamente.'}
       format.json { head :no_content }
     end
   end

@@ -54,6 +54,7 @@ class CitasController < ApplicationController
     respond_to do |format|
       if @cita.save
         ExampleMailer.cita_registrada.deliver_now#('kevin93ps@gmail.com', @cita)
+        Notificacion.create(descripcion:"Solicitud de cita.", mensaje: "Haz solicitado una cita para el servicio "+@cita.turno.horario.servicio.descripcion, url:"", usuario_id:@cita.usuario_id, tipo_notificacion_id: 1, entidad_id: @cita.id )
         format.html { redirect_to @cita, notice: 'Cita was successfully created.' }
         format.json { render :show, status: :created, location: @cita }
       else
@@ -187,6 +188,7 @@ class CitasController < ApplicationController
     @cita.save
     @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: 2, estatus_nuevo: 3, cita:@cita)
     @historialCita.save
+    Notificacion.create(descripcion:"Evaluacion de cita.", mensaje: "Por favor, envianos tu evaluacion sobre tu cita sobre el servicio "+@cita.turno.horario.servicio.descripcion, url:"", usuario_id:@cita.usuario_id, tipo_notificacion_id: 1, entidad_id: @cita.id )
     redirect_to "/finalizar_cita"
   end
 

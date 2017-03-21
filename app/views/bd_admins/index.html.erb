@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bd Admins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Historico</th>
+      <th>Hora backup</th>
+      <th>Opcion estatus</th>
+      <th>Fecha inicio</th>
+      <th>Estatus</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bd_admins.each do |bd_admin| %>
+      <tr>
+        <td><%= bd_admin.historico %></td>
+        <td><%= bd_admin.hora_backup %></td>
+        <td><%= bd_admin.opcion_estatus %></td>
+        <td><%= bd_admin.fecha_inicio %></td>
+        <td><%= bd_admin.estatus %></td>
+        <td><%= link_to 'Show', bd_admin %></td>
+        <td><%= link_to 'Edit', edit_bd_admin_path(bd_admin) %></td>
+        <td><%= link_to 'Destroy', bd_admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bd Admin', new_bd_admin_path %>

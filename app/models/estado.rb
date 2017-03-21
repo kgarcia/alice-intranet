@@ -1,6 +1,6 @@
 class Estado < ApplicationRecord
   belongs_to :pais
-  has_many :ciudad
+  has_many :ciudad, dependent: :destroy
 
   def tipo
   	return self.pais

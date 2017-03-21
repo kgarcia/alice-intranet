@@ -4,10 +4,10 @@ class PatologiasController < ApplicationController
   # GET /patologias
   # GET /patologias.json
   def index
+    @tipo = TipoPatologia.titulo
     @parametros = Patologia.where(:estatus => 1)
-        
     respond_to do |format|
-      format.html {  render "parametros/index" }
+      format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
     end
   end

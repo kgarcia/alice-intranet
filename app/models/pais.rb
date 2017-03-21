@@ -1,7 +1,7 @@
 class Pais < ApplicationRecord
-	has_many :estado
-	has_many :ciudad, through: :estado
-	has_many :ubicacion, through: :ciudad
+	has_many :estado, dependent: :destroy
+	has_many :ciudad, through: :estado, dependent: :destroy
+	has_many :ubicacion, through: :ciudad, dependent: :destroy
 
   def self.titulo
 	  return "País"
