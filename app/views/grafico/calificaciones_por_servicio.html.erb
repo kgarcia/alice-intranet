@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h2 class="parametros-titulo"><%= "Calificaciones por servicio" %></h2>
+                <h2 class="parametros-titulo"><%= "Calificaciones por Servicio" %></h2>
             </div>
         </div>
         <div class="ibox-content" style="padding-bottom: 15px">
@@ -124,6 +124,41 @@
                         ]
                     });
                 </script>
+                <div class="col-sm-12" style="margin-top: 15px">
+                  <h3>Tabla de resultados</h3>
+                </div>
+                <div class="col-sm-12" style="margin-top: 15px">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <td><strong>Categoria</strong></td>
+                            <td><strong>Muy mal</strong></td>
+                            <td><strong>Mal</strong></td>
+                            <td><strong>Regular</strong></td>
+                            <td><strong>Bueno</strong></td>
+                            <td><strong>Muy bueno</strong></td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Promedio de calificacines del servicio </strong></td>
+                                <td><%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 1, @fecha_inicio, @fecha_fin).round(2) %> %</td>
+                                <td><%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 2, @fecha_inicio, @fecha_fin).round(2) %> %</td>
+                                <td><%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 3, @fecha_inicio, @fecha_fin).round(2) %> %</td>
+                                <td><%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 4, @fecha_inicio, @fecha_fin).round(2) %> %</td>
+                                <td><%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 5, @fecha_inicio, @fecha_fin).round(2) %> %</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total de calificaciones del servicio</strong></td>
+                                <td><%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 1, @fecha_inicio, @fecha_fin) %></td>
+                                <td><%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 2, @fecha_inicio, @fecha_fin) %></td>
+                                <td><%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 3, @fecha_inicio, @fecha_fin) %>%</td>
+                                <td><%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 4, @fecha_inicio, @fecha_fin) %></td>
+                                <td><%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 5, @fecha_inicio, @fecha_fin) %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

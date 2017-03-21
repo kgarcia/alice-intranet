@@ -298,7 +298,7 @@ class GraficoController < ApplicationController
 
   def calificaciones_por_criterio
     @especialidades = Especialidad.all
-    #render "grafico/calificaciones_por_criterio"
+    render "grafico/reporte-criterios"
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

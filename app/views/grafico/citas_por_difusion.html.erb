@@ -93,6 +93,29 @@
                         ]
                     });
                 </script>
+                <div class="col-sm-12" style="margin-top: 15px">
+                  <h3>Tabla de resultados</h3>
+                </div>
+                <div class="col-sm-12" style="margin-top: 15px">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <td><strong>Categoría</strong></td>
+                            <td><strong>Total de citas</strong></td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Antes de la Difusión</strong></td>
+                                <td><%= Cita.contarCitasPorDifusionYRangoSemanas(@difusion.id, @fecha_inicio, @difusion.created_at) %></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Despues de la Difusión</strong></td>
+                                <td><%= Cita.contarCitasPorDifusionYRangoSemanas(@difusion.id, @difusion.created_at, @fecha_fin) %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

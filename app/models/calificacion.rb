@@ -28,17 +28,29 @@ class Calificacion < ApplicationRecord
   end
 
   def self.promedioEspecialidades(especialidad, calificacion, tipo_turno, fecha_inicio, fecha_fin)
-    promedio = (Calificacion.contarCalificaciones(especialidad, nil, calificacion, tipo_turno, fecha_inicio, fecha_fin).to_f / Calificacion.contarCalificaciones(nil, nil, calificacion, tipo_turno, fecha_inicio, fecha_fin)) *100
+    denominador = Calificacion.contarCalificaciones(nil, nil, calificacion, tipo_turno, fecha_inicio, fecha_fin)
+    promedio = 0
+    if denominador > 0
+      promedio = (Calificacion.contarCalificaciones(especialidad, nil, calificacion, tipo_turno, fecha_inicio, fecha_fin).to_f / denominador) *100
+    end
     return promedio
   end
 
   def self.promedioCriterios(criterio, calificacion, tipo_turno, fecha_inicio, fecha_fin)
-    promedio = (Calificacion.contarCalificaciones(nil, criterio, calificacion, tipo_turno, fecha_inicio, fecha_fin).to_f / Calificacion.contarCalificaciones(nil, nil, calificacion, tipo_turno, fecha_inicio, fecha_fin)) *100
+    denominador = Calificacion.contarCalificaciones(nil, nil, calificacion, tipo_turno, fecha_inicio, fecha_fin)
+    promedio = 0
+    if denominador > 0
+      promedio = (Calificacion.contarCalificaciones(nil, criterio, calificacion, tipo_turno, fecha_inicio, fecha_fin).to_f / denominador) *100
+    end
     return promedio
   end
 
   def self.promedioCriterioEspecifico(especialidad, criterio, calificacion, tipo_turno, fecha_inicio, fecha_fin)
-    promedio = (Calificacion.contarCalificaciones(especialidad, criterio, calificacion, tipo_turno, fecha_inicio, fecha_fin).to_f / Calificacion.contarCalificaciones(especialidad, criterio, nil, tipo_turno, fecha_inicio, fecha_fin)) *100
+    denominador = Calificacion.contarCalificaciones(especialidad, criterio, nil, tipo_turno, fecha_inicio, fecha_fin)
+    promedio = 0
+    if denominador > 0
+      promedio = (Calificacion.contarCalificaciones(especialidad, criterio, calificacion, tipo_turno, fecha_inicio, fecha_fin).to_f / denominador) *100
+    end
     return promedio
   end
 

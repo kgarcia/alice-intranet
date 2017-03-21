@@ -2,14 +2,14 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h2 class="parametros-titulo"><%= "Citas por eventos" %></h2>
+                <h2 class="parametros-titulo"><%= "Citas por Evento" %></h2>
             </div>
         </div>
         <%= form_tag({controller: "grafico", action: "calcular_citas_por_evento"}, method: "post") do %>
         <div class="ibox-content" style="padding-bottom: 15px">
             <div class="container-fluid">
                 <div class="field form-group row">
-                    <label class="col-lg-2 control-label">Eventos:</label>
+                    <label class="col-lg-2 control-label">Evento:</label>
                     <div class="col-lg-10">
                         <%= collection_select( :id, :evento, @eventos, :id,
                           :descripcion, {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
