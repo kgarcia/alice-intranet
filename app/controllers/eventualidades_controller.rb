@@ -54,7 +54,7 @@ class EventualidadesController < ApplicationController
   def update
     respond_to do |format|
       if @eventualidad.update(eventualidad_params)
-        format.html { redirect_to eventualidades_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to eventualidades_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @eventualidad }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class EventualidadesController < ApplicationController
     @eventualidad.estatus = 2
     @eventualidad.save
     respond_to do |format|
-      format.html { redirect_to eventualidades_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to eventualidades_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

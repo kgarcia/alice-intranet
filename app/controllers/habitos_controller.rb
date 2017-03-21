@@ -4,8 +4,8 @@ class HabitosController < ApplicationController
   # GET /habitos
   # GET /habitos.json
   def index
+    @tipo = TipoHabito.titulo
     @parametros = Habito.where(:estatus => 1)
-       
     respond_to do |format|
       format.html {  render "parametros_select/index" }
       format.json { render json: @parametros }
@@ -59,7 +59,7 @@ class HabitosController < ApplicationController
   def update
     respond_to do |format|
       if @habito.update(habito_params)
-        format.html { redirect_to habitos_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to habitos_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @habito }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class HabitosController < ApplicationController
     @habito.estatus = 2
     @habito.save
     respond_to do |format|
-      format.html { redirect_to habitos_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to habitos_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

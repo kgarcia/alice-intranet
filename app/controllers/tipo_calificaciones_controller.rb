@@ -55,7 +55,7 @@ class TipoCalificacionesController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_calificacion.update(tipo_calificacion_params)
-        format.html { redirect_to tipo_calificaciones_path, notice: 'El registro ha sido actualizado exitosamente.'}
+        format.html { redirect_to tipo_calificaciones_path, info: 'El registro ha sido actualizado exitosamente.'}
         format.json { render :show, status: :ok, location: @tipo_calificacion }
       else
         format.html { render :edit }

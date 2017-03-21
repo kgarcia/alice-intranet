@@ -1,62 +1,114 @@
-<div class="row">   
-   <div class="col-lg-6 col-lg-offset-3">
-          <div class="ibox float-e-margins">
-             <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Ubicación" %></h2>
-              </div>
-          </div>
-          <div class="ibox-content">
-             <%= form_for @parametro, :html => {:class => 'form-horizontal'} do |f| %>
-                  <% if @parametro.errors.any? %>
-                    <div id="error_explanation">
-                        <h2>
-                          <%= pluralize(@parametro.errors.count, "error") %> prohibited this parametro from being saved:
-                        </h2>
-                      <ul>
-                      <% @parametro.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                      <% end %>
-                      </ul>
-                    </div>
-                  <% end %>
-                 
-                 <div class="form-group"><label class="col-lg-2 control-label">Ciudad</label>
-                    <div class="col-lg-10">
-                      <%= f.collection_select :ciudad_id, Ciudad.all, :id, :descripcion, {prompt: "Seleccione"}, {class: "form-control"} %>
-                     </div>
-                  </div>
-                  
-                  <div class="form-group"><label class="col-lg-2 control-label">Sector</label>
-                    <div class="col-lg-10">
-                      <%= f.collection_select :sector_id, Sector.all, :id, :descripcion, {prompt: "Seleccione", :selected => @parametro.sector_id}, {class: "form-control"} %>
-                     </div>
-                  </div>
-                  
-                  <div class="form-group"><label class="col-lg-2 control-label">Tipo de ubicación</label>
-                    <div class="col-lg-10">                        
-                      <%= f.collection_select :tipo_ubicacion_id, TipoUbicacion.all, :id, :descripcion, {prompt: "Seleccione"}, {class: "form-control"} %>
-                     </div>
-                  </div>                    
-
-                  <div class="form-group"><label class="col-lg-2 control-label">Descripción</label>
-                      <div class="col-lg-10"><%= f.text_field :descripcion , :class => "form-control"%> 
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong><%= @parametro.class.titulo %></strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li>
+          <a href="/<%= @parametro.class.name.underscore.pluralize %>">Listado</a>
+        </li>
+        <li class="active">
+          <% if @parametro.new_record? %>
+            <strong class="text-blue">Registrar <%= @parametro.class.titulo %></strong>
+          <% else %>
+            <strong class="text-blue">Editar <%= @parametro.class.titulo %></strong>
+          <% end %>
+        </li>
+      </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong><%= @parametro.class.titulo %></strong></h4>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+              <%= form_for @parametro, :html => {:id => 'form-ubicacion'}, :form_to_validate => @parametro.class, role: 'form' do |f| %>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="control-label">Ciudad <label for="<%= @parametro.class.name.underscore %>_ciudad_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <%= f.collection_select :ciudad_id, Ciudad.all, :id, :descripcion, {prompt: "Seleccione"}, {class: "form-control"} %>
                       </div>
-                  </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label">Sector <label for="<%= @parametro.class.name.underscore %>_sector_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <%= f.collection_select :sector_id, Sector.all, :id, :descripcion, {prompt: "Seleccione", :selected => @parametro.sector_id}, {class: "form-control"} %>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="control-label">Tipo de ubicación <label for="<%= @parametro.class.name.underscore %>_tipo_ubicacion_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <%= f.collection_select :tipo_ubicacion_id, TipoUbicacion.all, :id, :descripcion, {prompt: "Seleccione"}, {class: "form-control"} %>
+                      </div>                    
+
+                      <div class="form-group">
+                        <label class="control-label">Descripción <label for="<%= @parametro.class.name.underscore %>_descripcion" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                        <%= f.text_field :descripcion , :class => "form-control"%> 
+                      </div>
+                    </div>
+                  </div>   
+                  
                   
                   <div class="form-group">
                       <div class="col-lg-offset-3 col-lg-2">
                            <%= f.submit "Guardar", :class => "btn  btn-sm btn-primary" %>
                       </div>
+                      <% if (@parametro.new_record?) %>
                         <div class="col-lg-2">
                         <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
                         </div>
+                      <% end %>
                       <div class="col-lg-2">
                       <%= link_to 'Atras',ubicaciones_path, :class => "btn btn-sm btn-success" %>                          
                       </div>
                   </div>
-
-                 
               <% end %>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
   </div>
 </div>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+
+    $('#form-ubicacion').validate({
+      rules: {
+        '<%= @parametro.class.to_s.downcase %>[ciudad_id]': {
+          required: true
+        },
+        '<%= @parametro.class.to_s.downcase %>[sector_id]': {
+          required: true
+        },
+        '<%= @parametro.class.to_s.downcase %>[tipo_ubicacion_id]': {
+          required: true
+        },
+        '<%= @parametro.class.to_s.downcase %>[descripcion]': {  
+          required: true
+        }
+      },
+      messages: {
+        '<%= @parametro.class.to_s.downcase %>[ciudad_id]': {
+          required: "Por favor Seleccione una opción"
+        },
+        '<%= @parametro.class.to_s.downcase %>[sector_id]': {
+          required: "Por favor Seleccione una opción"
+        },
+        '<%= @parametro.class.to_s.downcase %>[tipo_ubicacion_id]': {
+          required: "Por favor Seleccione una opción"
+        }
+      }
+    });
+
+  </script>
+<% end %>

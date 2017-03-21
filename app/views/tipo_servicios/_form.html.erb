@@ -1,124 +1,246 @@
-<div class="row">   
-   <div class="col-lg-10 col-lg-offset-1">
-          <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Tipo de Servicio" %></h2>
-              </div>
-          </div>
-          <div class="ibox-content">
-
-          <%= form_for @tipo_servicio, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
-                  <% if @tipo_servicio.errors.any? %>
-                    <div id="error_explanation">
-                      <h2><%= pluralize(@tipo_servicio.errors.count, "error") %> prohibited this parametro from being saved:</h2>
-                      <ul>
-                      <% @tipo_servicio.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                      <% end %>
-                      </ul>
-                    </div>
-                  <% end %>
-
-              <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#datos">Datos basicos</a></li>
-                <li><a data-toggle="tab" href="#texto">Texto</a></li>
-                <li><a data-toggle="tab" href="#perfiles">Perfiles</a></li>
-                <li><a data-toggle="tab" href="#criterios">Criterios de Evaluacion</a></li>
-              </ul>
-
-              <div class="tab-content">
-
-                <div id="datos" class="tab-pane fade in active">
-                  <br>
-                  <div class="field form-group">
-                    <label class="col-lg-2 control-label">Tipo de Atencion</label>
-                    <div class="col-lg-10">
-                      <%= f.collection_select(:tipo_atencion_id, @tipos_atencion, :id, :descripcion, {},{:class => "form-control"}) %>
-                    </div>
-                    
-                  </div>
-
-                  <div class="field form-group">
-                    <label class="col-lg-2 control-label">Categoria</label>
-                    <div class="col-lg-10">
-                      <%= f.collection_select(:categoria_id, @categorias, :id, :descripcion, {},{:class => "form-control"}) %>
-                    </div>
-                    
-                  </div>
-
-                  <div class="field form-group">
-                    <label class="col-lg-2 control-label">Especialidad</label>
-                    <div class="col-lg-10">
-                      <%= f.collection_select(:especialidad_id, @especialidades, :id, :descripcion, {},{:class => "form-control"}) %>
-                    </div>
-                    
-                  </div> 
-
-                  <div class="form-group">
-                      <label class="col-lg-2 control-label">Nombre</label>
-
-                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
-                       </div>
-                    </div>
-
-                   <div class="form-group">
-                      <label class="col-lg-2 control-label">Foto</label>
-
-                      <div class="col-lg-10"><%= f.file_field :foto, :class => "form-control" %>
-                       </div>
-                    </div>
-                </div>
-
-                <div id="texto" class="tab-pane fade">
-                  <br>
-                  <div class="form-group">
-                      <label class="col-lg-2 control-label">Texto</label>
-
-                      <div class="col-lg-10"><%= f.text_area :texto, :class => "tinymce form-control" %>
-                       </div>
-
-                      <%= tinymce :language => "es_MX"  %>
-                    </div>
-                </div>
-
-                <div id="perfiles" class="tab-pane fade">
-                  <br>
-                    <div class="container-fluid">
-                      <% @perfiles.each do |perfil| %>
-                        <div class="col-sm-3">
-                            <%= check_box_tag('perfiles[]', perfil.id, @tipo_servicio.perfiles.include?(perfil)) %> <%= perfil.descripcion %>
-                        </div>
-                      <% end %>
-                    </div>  
-                </div>
-
-                <div id="criterios" class="tab-pane fade">
-                  <br>
-                  <div class="container-fluid">
-                        <% @criterios.each do |criterio| %>
-                          <div class="col-sm-3">
-                              <%= check_box_tag('criterios[]', criterio.id, @tipo_servicio.criterios.include?(criterio)) %> <%= criterio.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>
-                  </div>
-
-
-              </div>
-
-          
-              <div class="form-group">
-                      <div class="col-lg-offset-3 col-lg-2">
-                           <%= f.submit "Guardar", :class => "btn  btn-sm btn-primary" %>
-                      </div>
-                        <div class="col-lg-2">
-                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
-                        </div>
-                      <div class="col-lg-2">
-                      <%= link_to 'Atras',tipo_servicios_path, :class => "btn btn-sm btn-success" %>                          
-                      </div>
-                  </div>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong><%= @tipo_servicio.class.titulo %></strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li>
+          <a href="/<%= tipo_servicios_path %>">Listado</a>
+        </li>
+        <li class="active">
+          <% if @tipo_servicio.new_record? %>
+            <strong class="text-blue">Registrar <%= @tipo_servicio.class.titulo %></strong>
+          <% else %>
+            <strong class="text-blue">Editar <%= @tipo_servicio.class.titulo %></strong>
           <% end %>
-          </div>
+        </li>
+    </ol>
   </div>
 </div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong><%= @tipo_servicio.class.titulo %></strong></h4>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+
+              <%= form_for @tipo_servicio, :html => {:class => '', :multipart => true , :id => 'form-tipo-servicio'}, :form_to_validate => @tipo_servicio.class, role: 'form' do |f| %>
+                          
+                  <h3>Datos Basicos</h3>
+                  <fieldset class="step-content">
+
+                    <div class="row">
+                      <div class="col-sm-6" style="padding-top: 10px;">
+                        <div class="form-group">
+                          <label class="control-label">Tipo de Atención <label for="<%= @tipo_servicio.class.name.underscore %>_tipo_atencion_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                          <%= f.collection_select(:tipo_atencion_id, @tipos_atencion, :id, :descripcion, {:prompt => "Seleccione"},{:class => "form-control", :required => true}) %>
+                        </div>
+
+                        <div class="form-group">
+                          <label class="control-label">Categoría <label for="<%= @tipo_servicio.class.name.underscore %>_categoria_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                            <%= f.collection_select(:categoria_id, @categorias, :id, :descripcion, {:prompt => "Seleccione"},{:class => "form-control", :required => true}) %>
+                        </div>
+
+                      </div>
+                      <div class="col-sm-6" style="padding-top: 10px;">
+                        
+                        <div class="form-group">
+                          <label class="control-label">Especialidad <label for="<%= @tipo_servicio.class.name.underscore %>_especialidad_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                            <%= f.collection_select(:especialidad_id, @especialidades, :id, :descripcion, {:prompt => "Seleccione"},{:class => "form-control", :required => true}) %>
+                        </div> 
+
+                        <div class="form-group">
+                            <label class="control-label">Nombre <label for="<%= @tipo_servicio.class.name.underscore %>_descripcion" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                            <%= f.text_field :descripcion, :class => "form-control", :required => true %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Foto <label for="<%= @tipo_servicio.class.name.underscore %>_foto" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                            <%= f.file_field :foto, :class => "form-control", :required => true %>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <h3>Textos</h3>
+                  <fieldset class="step-content">
+                    <div class="row">
+                      <div class="col-sm-12" style="padding-top: 10px;">
+                        <div class="form-group">
+                          <label class="control-label">Texto <label for="<%= @tipo_servicio.class.name.underscore %>_texto" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                          <%= f.text_area :texto, :class => "tinymce form-control", :required => true %>
+                          <%= tinymce :language => "es_MX", :required => true  %>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <h3>Perfiles</h3>
+                  <fieldset class="step-content">
+                    <div class="row">
+                      <div class="col-sm-12" style="padding-top: 10px;">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <label class="control-label">Seleccione un Perfil para el Servicio: <label for="perfiles[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                          </div>
+                        </div>
+                        <div class="container-fluid">
+                          <% @perfiles.each do |perfil| %>
+                            <div class="col-sm-3">
+                              <%= check_box_tag('perfiles[]', perfil.id, @tipo_servicio.perfiles.include?(perfil)) %> <%= perfil.descripcion %>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>  
+                  </fieldset>
+                  <h3>Criterios de Evaluación</h3>
+                  <fieldset class="step-content">
+                    <div class="row">
+                      <div class="col-sm-12" style="padding-top: 10px;">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <label class="control-label">Seleccione un Criterio de Evaluación: <label for="criterios[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                          </div>
+                        </div>
+                        <div class="container-fluid">
+                          <% @criterios.each do |criterio| %>
+                            <div class="col-sm-3">
+                              <%= check_box_tag('criterios[]', criterio.id, @tipo_servicio.criterios.include?(criterio)) %> <%= criterio.descripcion %>
+                            </div>
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                        
+              <% end %>
+
+                  <div class="form-group" style="position: relative; bottom: 35px;">
+
+                    <% if @tipo_servicio.new_record? %>
+                    <div class="col-lg-2">
+                      <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>
+                    </div>
+                    <% end %>
+                    <div class="col-lg-2">
+                      <%= link_to 'Atras',tipo_servicios_path, :class => "btn btn-sm btn-success" %>
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    var form = $("#form-tipo-servicio").show();
+                    
+    <% if @tipo_servicio.new_record? %>
+      var accion = "Guardar";
+    <% else %>
+      var accion = "Editar";
+    <% end %>
+
+    form.steps({
+        headerTag: "h3",
+        bodyTag: "fieldset",
+        transitionEffect: "slideLeft",
+        labels: {
+            cancel: "Cancelar",
+            current: "Paso comun:",
+            pagination: "Paginacion",
+            finish: accion,
+            next: "Siguiente",
+            previous: "Anterior",
+            loading: "Cargando ..."
+        },
+        onStepChanging: function (event, currentIndex, newIndex)
+        {
+            // Allways allow previous action even if the current form is not valid!
+            if (currentIndex > newIndex)
+            {
+                return true;
+            }
+            // Forbid next action on "Warning" step if the user is to young
+            if (newIndex === 3 && Number($("#age-2").val()) < 18)
+            {
+                return false;
+            }
+            
+           // Needed in some cases if the user went back (clean up)
+            if (currentIndex < newIndex)
+            {
+                // To remove error styles
+            }
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onStepChanged: function (event, currentIndex, priorIndex)
+        {
+            if (currentIndex === 2 && priorIndex === 3)
+            {
+                form.steps("previous");
+            }
+        },
+        onFinishing: function (event, currentIndex)
+        {
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onFinished: function (event, currentIndex)
+        {
+            form.submit();
+        }
+    }).validate({
+        rules: {
+        '<%= @tipo_servicio.class.to_s.downcase %>[tipo_atencion_id]': {
+          required: true
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[categoria_id]': {
+          required: true
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[especialidad_id]': {
+          required: true
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[descripcion]': {
+          required: true,
+          solo_letras: true
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[foto]': {
+          required: true
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[texto]': {
+          required: true
+        },
+        'criterios[]': {
+          required: true
+        }
+      },
+      messages: {
+        '<%= @tipo_servicio.class.to_s.downcase %>[tipo_atencion_id]': {
+          required: "Por favor Seleccione una opción"
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[categoria_id]': {
+          required: "Por favor Seleccione una opción"
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[especialidad_id]': {
+          required: "Por favor Seleccione una opción"
+        }
+      }
+    });
+
+
+  </script>
+<% end %>

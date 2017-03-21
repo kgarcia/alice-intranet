@@ -78,7 +78,7 @@ class EvaluacionesController < ApplicationController
     @evaluacion.estatus = 1
     respond_to do |format|
       if @evaluacion.update(evaluacion_params)
-        format.html { redirect_to evaluaciones_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to evaluaciones_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @evaluacion }
       else
         format.html { render :edit }
@@ -92,7 +92,7 @@ class EvaluacionesController < ApplicationController
   def destroy
     @evaluacion.destroy
     respond_to do |format|
-      format.html { redirect_to evaluaciones_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to evaluaciones_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

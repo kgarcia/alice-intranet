@@ -54,7 +54,7 @@ class EstadoCivilesController < ApplicationController
   def update
     respond_to do |format|
       if @estado_civil.update(estado_civil_params)
-        format.html { redirect_to estado_civiles_path, notice: 'El registro ha sido actualizado exitosamente.' }
+        format.html { redirect_to estado_civiles_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @estado_civil }
       else
         format.html { render :edit }
@@ -69,7 +69,7 @@ class EstadoCivilesController < ApplicationController
     @estado_civil.estatus = 2
     @estado_civil.save
     respond_to do |format|
-      format.html { redirect_to estado_civiles_path, notice: 'El registro ha sido eliminado exitosamente.' }
+      format.html { redirect_to estado_civiles_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

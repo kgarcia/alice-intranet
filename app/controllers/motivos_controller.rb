@@ -4,6 +4,7 @@ class MotivosController < ApplicationController
   # GET /motivos
   # GET /motivos.json
   def index
+    @tipo = TipoMotivo.titulo
     @parametros = Motivo.where(:estatus => 1)
     @referencia = "tipoMotivo"
     
@@ -62,7 +63,7 @@ class MotivosController < ApplicationController
   def update
     respond_to do |format|
       if @motivo.update(motivo_params)
-        format.html { redirect_to motivos_path, notice: 'El registro ha sido actualizado exitosamente. ' }
+        format.html { redirect_to motivos_path, info: 'El registro ha sido actualizado exitosamente. ' }
         format.json { render :show, status: :ok, location: @motivo }
       else
         format.html { render :edit }
@@ -77,7 +78,7 @@ class MotivosController < ApplicationController
     @motivo.estatus = 2
     @motivo.save
     respond_to do |format|
-      format.html { redirect_to motivos_path, notice: 'El registro ha sido eliminado exitosamente. ' }
+      format.html { redirect_to motivos_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end

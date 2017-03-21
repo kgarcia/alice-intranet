@@ -49,7 +49,7 @@ class ParentescosController < ApplicationController
   def update
     respond_to do |format|
       if @parentesco.update(parentesco_params)
-        format.html { redirect_to parentescos_path, notice: 'El registro ha sido actualizado exitosamente. ' }
+        format.html { redirect_to parentescos_path, info: 'El registro ha sido actualizado exitosamente. ' }
         format.json { render :show, status: :ok, location: @parentesco }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class ParentescosController < ApplicationController
     @parentesco.estatus = 2
     @parentesco.save
     respond_to do |format|
-      format.html { redirect_to parentescos_path, notice: 'El registro ha sido eliminado exitosamente. ' }
+      format.html { redirect_to parentescos_path, alert: 'El registro ha sido eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
