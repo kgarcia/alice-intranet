@@ -4,8 +4,8 @@ class Perfil < ApplicationRecord
   has_many :adicciones, :through => :adiccion_perfiles, dependent: :destroy
   has_many :cirugia_perfiles, dependent: :destroy
   has_many :cirugias, through: :cirugia_perfiles, dependent: :destroy
-  has_many :profesion_perfiles, dependent: :destroy
-  has_many :profesiones, through: :profesion_perfiles, dependent: :destroy
+  #has_many :profesion_perfiles, dependent: :destroy
+  #has_many :profesiones, through: :profesion_perfiles, dependent: :destroy
   has_many :discapacidad_perfiles, dependent: :destroy
   has_many :discapacidades, through: :discapacidad_perfiles, dependent: :destroy
   has_many :estado_civil_perfiles, dependent: :destroy
@@ -20,8 +20,8 @@ class Perfil < ApplicationRecord
   has_many :ocupaciones, through: :ocupacion_perfiles, dependent: :destroy
   has_many :patologia_perfiles, dependent: :destroy
   has_many :patologias, through: :patologia_perfiles, dependent: :destroy
-  has_many :profesion_perfiles, dependent: :destroy
-  has_many :profesiones, through: :profesion_perfiles, dependent: :destroy
+  #has_many :profesion_perfiles, dependent: :destroy
+  #has_many :profesiones, through: :profesion_perfiles, dependent: :destroy
   has_many :sexo_perfiles, dependent: :destroy
   has_many :sexos, through: :sexo_perfiles, dependent: :destroy
   has_many :perfil_vacunas, dependent: :destroy

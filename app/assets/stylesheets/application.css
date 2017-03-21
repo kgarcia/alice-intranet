@@ -20,5 +20,6 @@
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require fullcalendar
  *= require rating.min.css
+ *= require select2
  */
 

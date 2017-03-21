@@ -20,24 +20,24 @@
 
           <table class="table">
               <tr>
-                <th>Respaldo</th>
-                <th>Fecha</th>
-                <th>Numero de Respaldo</th>
+                <th><%= if !@obj.nil? then "Respaldo" else "y" end %></th>
+                <th><%= if !@obj.nil? then "Fecha" else "z" end %></th>
+                <th><%= if !@obj.nil? then "Numero de Respaldo" else "2" end %></th>
               </tr>
               <tr>
-                <td>Primero</td>
-                <td><%= if $obj.nil? then "" else $obj.fecha_inicio.to_s end %></td>
-                <td><%= if $obj.nil? then "" else $obj.id.to_s end %></td>
+                <td><%= if @obj.nil? then "" else "Primero" end %></td>
+                <td><%= if @obj.nil? then "" else @obj.fecha_inicio.to_s end %></td>
+                <td><%= if @obj.nil? then "" else @obj.id.to_s end %></td>
               </tr>
               <tr>
-                <td>Segundo</td>
-                <td><%= if $obj.nil? then "" else $obj2.fecha_inicio.to_s end %></td>
-                <td><%= if $obj.nil? then "" else $obj2.id.to_s end %></td>
+                <td><%= if @obj2.nil? then "" else "Segundo" end %></td>
+                <td><%= if @obj2.nil? then "" else @obj2.fecha_inicio.to_s end %></td>
+                <td><%= if @obj2.nil? then "" else @obj2.id.to_s end %></td>
               </tr>
               <tr>
-                <td>Tercero</td>
-                <td><%= if $obj.nil? then "" else $obj3.fecha_inicio.to_s end %></td>
-                <td><%= if $obj.nil? then "" else $obj3.id.to_s end %></td>
+                <td><%= if @obj3.nil? then "" else "Tercero" end %></td>
+                <td><%= if @obj3.nil? then "" else @obj3.fecha_inicio.to_s end %></td>
+                <td><%= if @obj3.nil? then "" else @obj3.id.to_s end %></td>
               </tr>
           </table>
            <br> <br>

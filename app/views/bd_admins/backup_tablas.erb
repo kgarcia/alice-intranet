@@ -9,29 +9,19 @@
       <%= form_tag "/guardarback", method: "post", :html => {:class => 'form-horizontal'} do |f| %>
 
   <br> 
-
-      <div class="row">
-
-          <div class="col-sm-9 ">
-              <spam>El archivo se guardara en la carpeta de backups, desea guardar una copia adicional en el escritorio</spam>
-          </div>
-          <div>
-              <div class="col-sm-3 ">
-                <%= check_box_tag 'escri', 1, false %> 
-              </div>
-          </div>
-
-      </div>
-
             <br> <br>
 
-          <div class="form-group row">
-              <div class="col-lg-offset-3 col-lg-2">
-                  <%= submit_tag 'Generar', :class => "btn btn-sm btn-primary"  %>
-              </div>
+          <div class="col-sm-6 ">
+                <spam>Generar un respaldo de base de datos ahora</spam>
           </div>
 
-          <br>
+          <div class="col-sm-6 ">
+
+          <%= submit_tag 'Generar', :class => "btn btn-sm btn-primary"  %>
+
+          </div>
+
+          <br><br><br><br>
 
           <div class="row">
 

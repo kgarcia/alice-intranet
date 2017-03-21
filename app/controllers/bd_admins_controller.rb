@@ -63,7 +63,46 @@ class BdAdminsController < ApplicationController
 
   def historico
     @BdAdmins = BdAdmin.new
-    @stringnes = ["Servicio", "Cita", "Especialista", "Tipo Servicio", "Persona", "Usuario", "Calificacion", "Difusion", "Opinion"]
+
+    @stringnes = []
+
+        if Servicio.count > 0
+      @stringnes.push("Servicio")
+    else
+      if Cita.count > 0
+        @stringnes.push("Cita")
+      else
+        if Especialista.count > 0
+          @stringnes.push("Especialista")
+        else
+          if TipoServicio.count > 0
+            @stringnes.push("Tipo Servicio")
+          else 
+            if Persona.count > 0
+              @stringnes.push("Persona")
+            else
+              if Usuario.count > 0
+                @stringnes.push("Usuario")
+              else
+                if Calificacion.count > 0
+                  @stringnes.push("Calificacion")
+                else 
+                  if Difusion.count > 0
+                    @stringnes.push("Difusion")
+                  else
+                    if Opinion.count > 0
+                      @stringnes.push("Opinion")
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+
+    #@stringnes = ["Servicio", "Cita", "Especialista", "Tipo Servicio", "Persona", "Usuario", "Calificacion", "Difusion", "Opinion"]
     
     render "historico_tablas"
   end
@@ -75,7 +114,6 @@ class BdAdminsController < ApplicationController
     #puts params['BdAdmin']['fecha_inicio(1i)']
     #puts params['BdAdmin']['fecha_inicio(2i)']
     #puts params['BdAdmin']['fecha_inicio(3i)']
-
     
     @d = Date.new(params['BdAdmin']['fecha_inicio(1i)'].to_i,params['BdAdmin']['fecha_inicio(2i)'].to_i,params['BdAdmin']['fecha_inicio(3i)'].to_i)
     @fecha = DateTime.new(@d.year, @d.month, @d.day)
@@ -93,7 +131,7 @@ class BdAdminsController < ApplicationController
         @servicios = Servicio.all
         @servicios.each do |servicio|
           his_servicio = HisServicio.new
-          if (!params['Activo'].nil? and !params['Inactivo'].nil? and servicio.created_at > @fecha)
+          if (!params['Activo'].nil? and !params['Inactivo'].nil? and servicio.created_at < @fecha)
               his_servicio.descripcion = servicio.descripcion
               his_servicio.ubicacion = servicio.ubicacion.id
               his_servicio.tipo_servicio = servicio.tipo_servicio.id
@@ -102,7 +140,7 @@ class BdAdminsController < ApplicationController
               his_servicio.precio = servicio.precio
               his_servicio.save          
           else
-            if (params['Activo'].nil? and servicio.created_at > @fecha and servicio.estatus == 0)
+            if (params['Activo'].nil? and servicio.created_at < @fecha and servicio.estatus == 0)
               his_servicio.descripcion = servicio.descripcion
               his_servicio.ubicacion = servicio.ubicacion.id
               his_servicio.tipo_servicio = servicio.tipo_servicio.id
@@ -111,7 +149,7 @@ class BdAdminsController < ApplicationController
               his_servicio.precio = servicio.precio
               his_servicio.save    
             else
-              if (servicio.created_at > @fecha and servicio.estatus == 1)
+              if (servicio.created_at < @fecha and servicio.estatus == 1)
               his_servicio.descripcion = servicio.descripcion
               his_servicio.ubicacion = servicio.ubicacion.id
               his_servicio.tipo_servicio = servicio.tipo_servicio.id
@@ -129,7 +167,7 @@ class BdAdminsController < ApplicationController
         @citas = Cita.all
         @citas.each do |cita|
           his_cita = HisCita.new
-          if (!params['Activo'].nil? and !params['Inactivo'].nil? and cita.created_at > @fecha)
+          if (!params['Activo'].nil? and !params['Inactivo'].nil? and cita.created_at < @fecha)
               his_cita.turno = cita.turno.id
               his_cita.persona = cita.persona.id
               his_cita.usuario = cita.usuario.id
@@ -139,7 +177,7 @@ class BdAdminsController < ApplicationController
               his_cita.estatus = cita.estatus
               his_cita.save          
           else
-            if (params['Activo'].nil? and cita.created_at > @fecha and cita.estatus == 0)
+            if (params['Activo'].nil? and cita.created_at < @fecha and cita.estatus == 5)
               his_cita.turno = cita.turno.id
               his_cita.persona = cita.persona.id
               his_cita.usuario = cita.usuario.id
@@ -149,7 +187,7 @@ class BdAdminsController < ApplicationController
               his_cita.estatus = cita.estatus
               his_cita.save          
             else
-              if (cita.created_at > @fecha and cita.estatus == 1)
+              if (cita.created_at < @fecha and cita.estatus == 1)
               his_cita.turno = cita.turno.id
               his_cita.persona = cita.persona.id
               his_cita.usuario = cita.usuario.id
@@ -169,21 +207,21 @@ class BdAdminsController < ApplicationController
         @especialistas = Especialista.all
         @especialistas.each do |especialista|
           his_especialista = HisEspecialista.new
-          if (!params['Activo'].nil? and !params['Inactivo'].nil? and especialista.created_at > @fecha)
+          if (!params['Activo'].nil? and !params['Inactivo'].nil? and especialista.created_at < @fecha)
                 #his_especialista.universidad = especialista.universidad.id
                 #his_especialista.formacion_academica = especialista.formacion_academica.id
                 his_especialista.persona = especialista.persona.id
                 his_especialista.estatus = especialista.estatus
                 his_especialista.save          
           else
-            if (params['Activo'].nil? and especialista.created_at > @fecha and especialista.estatus == 0)
+            if (params['Activo'].nil? and especialista.created_at < @fecha and especialista.estatus == 0)
                 #his_especialista.universidad = especialista.universidad.id
                 #his_especialista.formacion_academica = especialista.formacion_academica.id
                 his_especialista.persona = especialista.persona.id
                 his_especialista.estatus = especialista.estatus
                 his_especialista.save            
             else
-              if (especialista.created_at > @fecha and especialista.estatus == 1)
+              if (especialista.created_at < @fecha and especialista.estatus == 1)
                 #his_especialista.universidad = especialista.universidad.id
                 #his_especialista.formacion_academica = especialista.formacion_academica.id
                 his_especialista.persona = especialista.persona.id
@@ -214,7 +252,7 @@ class BdAdminsController < ApplicationController
         @tipos_servicios = TipoServicio.all
         @tipos_servicios.each do |tipo_servicio|
           his_tipoServicio = HisTipoServicio.new
-          if (!params['Activo'].nil? and !params['Inactivo'].nil? and tipo_servicio.created_at > @fecha)
+          if (!params['Activo'].nil? and !params['Inactivo'].nil? and tipo_servicio.created_at < @fecha)
                 his_tipoServicio.descripcion = tipo_servicio.descripcion
                 his_tipoServicio.texto = tipo_servicio.texto
                 his_tipoServicio.estatus = tipo_servicio.estatus
@@ -223,7 +261,7 @@ class BdAdminsController < ApplicationController
                 his_tipoServicio.tipo_atencion = tipo_servicio.tipo_atencion.id
                 his_tipoServicio.save          
           else
-            if (params['Activo'].nil? and tipo_servicio.created_at > @fecha and tipo_servicio.estatus == 0)
+            if (params['Activo'].nil? and tipo_servicio.created_at < @fecha and tipo_servicio.estatus == 0)
                 his_tipoServicio.descripcion = tipo_servicio.descripcion
                 his_tipoServicio.texto = tipo_servicio.texto
                 his_tipoServicio.estatus = tipo_servicio.estatus
@@ -232,7 +270,7 @@ class BdAdminsController < ApplicationController
                 his_tipoServicio.tipo_atencion = tipo_servicio.tipo_atencion.id
                 his_tipoServicio.save          
             else
-              if (tipo_servicio.created_at > @fecha and tipo_servicio.estatus == 1)
+              if (tipo_servicio.created_at < @fecha and tipo_servicio.estatus == 1)
                 his_tipoServicio.descripcion = tipo_servicio.descripcion
                 his_tipoServicio.texto = tipo_servicio.texto
                 his_tipoServicio.estatus = tipo_servicio.estatus
@@ -252,7 +290,7 @@ class BdAdminsController < ApplicationController
         @personas = Persona.all
         @personas.each do |persona|
           his_persona = HisPersona.new
-          if (!params['Activo'].nil? and !params['Inactivo'].nil? and persona.created_at > @fecha)
+          if (!params['Activo'].nil? and !params['Inactivo'].nil? and persona.created_at < @fecha)
                 his_persona.cedula = persona.cedula
                 his_persona.nombre = persona.nombre
                 his_persona.apellido = persona.apellido
@@ -262,7 +300,7 @@ class BdAdminsController < ApplicationController
                 his_persona.sexo = persona.sexo.id
                 his_persona.save          
           else
-            if (params['Activo'].nil? and persona.created_at > @fecha and persona.estatus == 0)
+            if (params['Activo'].nil? and persona.created_at < @fecha and persona.estatus == 0)
                 his_persona.cedula = persona.cedula
                 his_persona.nombre = persona.nombre
                 his_persona.apellido = persona.apellido
@@ -272,7 +310,7 @@ class BdAdminsController < ApplicationController
                 his_persona.sexo = persona.sexo.id
                 his_persona.save  
             else
-              if (persona.created_at > @fecha and persona.estatus == 1)
+              if (persona.created_at < @fecha and persona.estatus == 1)
                 his_persona.cedula = persona.cedula
                 his_persona.nombre = persona.nombre
                 his_persona.apellido = persona.apellido
@@ -310,7 +348,7 @@ class BdAdminsController < ApplicationController
       @usuarios = Usuario.all
       @usuarios.each do |usuario|
         his_usuario = HisUsuario.new
-          if (!params['Activo'].nil? and !params['Inactivo'].nil? and usuario.created_at > @fecha)
+          if (!params['Activo'].nil? and !params['Inactivo'].nil? and usuario.created_at < @fecha)
                 his_usuario.email = usuario.email
                 his_usuario.encrypted_password = usuario.encrypted_password
                 his_usuario.reset_password_token = usuario.reset_password_token
@@ -326,7 +364,7 @@ class BdAdminsController < ApplicationController
                 his_usuario.servicio = usuario.servicio.id
                 his_usuario.save          
           else
-            if (params['Activo'].nil? and usuario.created_at > @fecha and usuario.estatus == 0)
+            if (params['Activo'].nil? and usuario.created_at < @fecha and usuario.estatus == 0)
                 his_usuario.email = usuario.email
                 his_usuario.encrypted_password = usuario.encrypted_password
                 his_usuario.reset_password_token = usuario.reset_password_token
@@ -342,7 +380,7 @@ class BdAdminsController < ApplicationController
                 his_usuario.servicio = usuario.servicio.id
                 his_usuario.save        
             else
-              if (usuario.created_at > @fecha and usuario.estatus == 1)
+              if (usuario.created_at < @fecha and usuario.estatus == 1)
                 his_usuario.email = usuario.email
                 his_usuario.encrypted_password = usuario.encrypted_password
                 his_usuario.reset_password_token = usuario.reset_password_token
@@ -369,7 +407,7 @@ class BdAdminsController < ApplicationController
       @calificaciones = Calificacion.all
       @calificaciones.each do |calificacion|
         his_calificacion = HisCalificacion.new
-          if (!params['Activo'].nil? and !params['Inactivo'].nil? and calificacion.created_at > @fecha)
+          if (!params['Activo'].nil? and !params['Inactivo'].nil? and calificacion.created_at < @fecha)
                 his_calificacion.descripcion = calificacion.descripcion
                 his_calificacion.estatus = calificacion.estatus
                 his_calificacion.tipo_calificacion = calificacion.tipo_calificacion
@@ -377,7 +415,7 @@ class BdAdminsController < ApplicationController
                 his_calificacion.evaluacion = calificacion.evaluacion.id
                 his_calificacion.save          
           else
-            if (params['Activo'].nil? and calificacion.created_at > @fecha and calificacion.estatus == 0)
+            if (params['Activo'].nil? and calificacion.created_at < @fecha and calificacion.estatus == 0)
                 his_calificacion.descripcion = calificacion.descripcion
                 his_calificacion.estatus = calificacion.estatus
                 his_calificacion.tipo_calificacion = calificacion.tipo_calificacion
@@ -385,7 +423,7 @@ class BdAdminsController < ApplicationController
                 his_calificacion.evaluacion = calificacion.evaluacion.id
                 his_calificacion.save               
             else
-              if (calificacion.created_at > @fecha and calificacion.estatus == 1)
+              if (calificacion.created_at < @fecha and calificacion.estatus == 1)
                 his_calificacion.descripcion = calificacion.descripcion
                 his_calificacion.estatus = calificacion.estatus
                 his_calificacion.tipo_calificacion = calificacion.tipo_calificacion
@@ -404,7 +442,7 @@ class BdAdminsController < ApplicationController
       @difusion = Difusion.all
       @difusion.each do |difusion|
         his_difusion = HisDifusion.new
-          if (!params['Activo'].nil? and !params['Inactivo'].nil? and difusion.created_at > @fecha)
+          if (!params['Activo'].nil? and !params['Inactivo'].nil? and difusion.created_at < @fecha)
                 his_difusion.asunto = difusion.asunto
                 his_difusion.texto = difusion.texto
                 his_difusion.tipo_entidad = difusion.tipo_entidad.id
@@ -414,7 +452,7 @@ class BdAdminsController < ApplicationController
                 his_difusion.estatus = difusion.estatus
                 his_difusion.save          
           else
-            if (params['Activo'].nil? and difusion.created_at > @fecha and difusion.estatus == 0)
+            if (params['Activo'].nil? and difusion.created_at < @fecha and difusion.estatus == 0)
                 his_difusion.asunto = difusion.asunto
                 his_difusion.texto = difusion.texto
                 his_difusion.tipo_entidad = difusion.tipo_entidad.id
@@ -424,7 +462,7 @@ class BdAdminsController < ApplicationController
                 his_difusion.estatus = difusion.estatus
                 his_difusion.save          
             else
-              if (difusion.created_at > @fecha and difusion.estatus == 1)
+              if (difusion.created_at < @fecha and difusion.estatus == 1)
                 his_difusion.asunto = difusion.asunto
                 his_difusion.texto = difusion.texto
                 his_difusion.tipo_entidad = difusion.tipo_entidad.id
@@ -445,7 +483,7 @@ class BdAdminsController < ApplicationController
       @opiniones = Opinion.all
       @opiniones.each do |opinion|
         his_opinion = HisOpinion.new
-          if (!params['Activo'].nil? and !params['Inactivo'].nil? and opinion.created_at > @fecha)
+          if (!params['Activo'].nil? and !params['Inactivo'].nil? and opinion.created_at < @fecha)
                 his_opinion.correo = opinion.correo
                 his_opinion.nombre = opinion.nombre
                 his_opinion.descripcion = opinion.descripcion
@@ -454,7 +492,7 @@ class BdAdminsController < ApplicationController
                 his_opinion.estatus = opinion
                 his_opinion.save          
           else
-            if (params['Activo'].nil? and difusion.created_at > @fecha and difusion.estatus == 0)
+            if (params['Activo'].nil? and difusion.created_at < @fecha and difusion.estatus == 0)
                 his_opinion.correo = opinion.correo
                 his_opinion.nombre = opinion.nombre
                 his_opinion.descripcion = opinion.descripcion
@@ -463,7 +501,7 @@ class BdAdminsController < ApplicationController
                 his_opinion.estatus = opinion
                 his_opinion.save   
             else
-              if (difusion.created_at > @fecha and difusion.estatus == 1)
+              if (difusion.created_at < @fecha and difusion.estatus == 1)
                 his_opinion.correo = opinion.correo
                 his_opinion.nombre = opinion.nombre
                 his_opinion.descripcion = opinion.descripcion
@@ -481,6 +519,9 @@ class BdAdminsController < ApplicationController
       end
 
     end
+
+    format.html { redirect_to historico, notice: 'Datos eliminados correctamente' }
+    format.json { render :show, status: :ok, location: @bd_admin }
 
   end
 
@@ -522,6 +563,32 @@ class BdAdminsController < ApplicationController
 
     @f = "<option value='1'> Primero </option><option value='2'> Segundo </option><option value='3'> Tercero</option>".html_safe    
 
+    if BdAdmin.count >= 3
+      $ultimos = BdAdmin.last(3)
+      @obj = $ultimos[0]
+      @obj2 = $ultimos[1]
+      @obj3 = $ultimos[2] 
+      $id_primero = @obj.id   
+      else
+        if BdAdmin.count == 2
+        $ultimos = BdAdmin.last(3)
+        @obj = $ultimos[0]
+        @obj2 = $ultimos[1]
+        @obj3 = nil
+        $id_primero = @obj.id
+        else 
+        if BdAdmin.count == 1
+          $ultimos = BdAdmin.last
+          @obj = $ultimos
+          @obj2 = nil
+          @obj3 = nil
+          #$id_primero = @obj.id  
+          puts 'Aquiiiiiiiiiiiiiiii Obj'
+          puts @obj.id                  
+            end          
+        end
+    end
+
     if BdAdmin.count <= 0
 
       head :no_content
@@ -529,13 +596,6 @@ class BdAdminsController < ApplicationController
     else
 
     if request.post?
-
-
-           $ultimos = BdAdmin.last(3)
-           @obj = $ultimos[0]
-           @obj2 = $ultimos[1]
-           @obj3 = $ultimos[2] 
-           $id_primero = $obj.id
 
       case params['foos']
       when "Primero"

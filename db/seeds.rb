@@ -447,7 +447,7 @@
 
     OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Administración',              :url_path => '#', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 4, :estatus => 'A')
         OptionMenu.find_or_create_by(:id_padre => 73, :nombre => 'General',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-        OptionMenu.find_or_create_by(:id_padre => 73, :nombre => 'Base de Datos',                   :url_path => '', :icono => 'fa-circle-thin',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 73, :nombre => 'Base de Datos',                   :url_path => '', :icono => 'fa-circle-thin',             :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
             OptionMenu.find_or_create_by(:id_padre => 75, :nombre => 'Respaldo',               :url_path => '/guardarback', :icono => 'cloud',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
             OptionMenu.find_or_create_by(:id_padre => 75, :nombre => 'Recuperacion',               :url_path => '/restauracion', :icono => 'window-restore',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
             OptionMenu.find_or_create_by(:id_padre => 75, :nombre => 'Historico',               :url_path => '/historico', :icono => '',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')

@@ -6,9 +6,9 @@ class Cita < ApplicationRecord
   belongs_to :tipo_cita
   belongs_to :eventualidad
   has_many :evaluacion, dependent: :destroy
-  has_many :horario, through: :turno, dependent: :destroy
-  has_many :servicio, through: :horarios, dependent: :destroy
-  has_many :ubicacion, through: :servicio, dependent: :destroy
+  has_many :horario, through: :turno
+  has_many :servicio, through: :horarios
+  has_many :ubicacion, through: :servicio
 
 
   def self.titulo

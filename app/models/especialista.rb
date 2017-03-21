@@ -1,6 +1,4 @@
 class Especialista < ApplicationRecord
-  belongs_to :universidad
-  belongs_to :formacion_academica
   belongs_to :persona
 
   has_many :especialidad_especialistas, dependent: :destroy

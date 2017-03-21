@@ -18,10 +18,10 @@
 
               <div class="row">
               <div class="col-sm-6 ">
-                  <spam>Seleccione la fecha desde la cual requiere que se migre la informacion:</spam>
+                  <spam>Seleccione la fecha hasta la cual requiere que se migre la informacion:</spam>
               </div>
               <div class="col-sm-6 ">
-                  <%= date_select("BdAdmin", "fecha_inicio") %>
+                  <%= date_select("BdAdmin", "fecha_inicio", min: 50.year.ago, end_year: Time.now.year) %>
               </div>
               </div>
 

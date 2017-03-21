@@ -2,16 +2,16 @@ class Persona < ApplicationRecord
   belongs_to :sexo
   belongs_to :estado_civil
   belongs_to :grupo_sanguineo
-  has_one :usuario
-  has_one :especialista
-  has_many :citas, dependent: :destroy
+  has_one :usuario, dependent: :destroy
+  has_one :especialista, dependent: :destroy
+  has_many :citas
 
   has_many :adiccion_personas, dependent: :destroy
   has_many :adicciones, :through => :adiccion_personas, dependent: :destroy
   has_many :cirugia_personas, dependent: :destroy
   has_many :cirugias, through: :cirugia_personas, dependent: :destroy
-  has_many :profesion_personas, dependent: :destroy
-  has_many :profesiones, through: :profesion_personas, dependent: :destroy
+  #has_many :profesion_personas, dependent: :destroy
+  #has_many :profesiones, through: :profesion_personas, dependent: :destroy
   has_many :patologia_personas, dependent: :destroy
   has_many :patologias, through: :patologia_personas, dependent: :destroy
   has_many :discapacidad_personas, dependent: :destroy
@@ -24,8 +24,8 @@ class Persona < ApplicationRecord
   has_many :ocupaciones, through: :ocupacion_personas, dependent: :destroy
   has_many :patologia_personas, dependent: :destroy
   has_many :patologias, through: :patologia_personas, dependent: :destroy
-  has_many :persona_profesiones, dependent: :destroy
-  has_many :profesiones, through: :persona_profesiones, dependent: :destroy
+  #has_many :persona_profesiones, dependent: :destroy
+  #has_many :profesiones, through: :persona_profesiones, dependent: :destroy
   has_many :persona_vacunas, dependent: :destroy
   has_many :vacunas, through: :persona_vacunas, dependent: :destroy
 
