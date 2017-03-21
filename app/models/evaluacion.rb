@@ -10,4 +10,5 @@ class Evaluacion < ApplicationRecord
   def self.titulo
 	return "Evaluación"
   end
+  
 end

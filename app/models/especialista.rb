@@ -15,7 +15,7 @@ class Especialista < ApplicationRecord
   def especialidadesDescripcion
     @string = ""
     self.especialidades.each do |especialidad|
-      @string = @string + " -" + especialidad.descripcion
+      @string = @string + " " + especialidad.descripcion
     end
     return @string
   end

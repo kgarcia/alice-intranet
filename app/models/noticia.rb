@@ -12,9 +12,6 @@ class Noticia < ApplicationRecord
     return self.tipo_noticia
   end
 
- def foto_url
-        foto.url(:medium)
-    end
 
   def as_json(options={})
     super(include:  :tipo_noticia)

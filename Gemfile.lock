@@ -60,6 +60,8 @@ GEM
     bootstrap (4.0.0.alpha6)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    bootstrap-daterangepicker-rails (0.1.5)
+      railties (>= 4.0, < 5.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -84,7 +86,7 @@ GEM
     concurrent-ruby (1.0.5)
     debug_inspector (0.0.2)
     descriptive_statistics (2.4.0)
-    devise (4.2.0)
+    devise (4.2.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.1)
@@ -129,8 +131,9 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
+    jquery-validation-rails (1.16.0)
     json (1.8.6)
-    koala (3.0.0.rc2)
+    koala (3.0.0)
       addressable
       faraday
       json (>= 1.8)
@@ -223,6 +226,8 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.6)
+    time_difference (0.5.0)
+      activesupport
     tinymce-rails (4.5.5)
       railties (>= 3.1.1)
     tinymce-rails-langs (4.20160310)
@@ -235,7 +240,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.7)
+    uglifier (3.1.8)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -254,6 +259,7 @@ PLATFORMS
 DEPENDENCIES
   ajax-datatables-rails
   bootstrap (~> 4.0.0.alpha6)
+  bootstrap-daterangepicker-rails
   bootstrap-sass (~> 3.3.7)
   bootstrap3-datetimepicker-rails (~> 4.14.30)
   byebug
@@ -271,6 +277,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-datatables-rails (~> 3.4.0)
   jquery-rails
+  jquery-validation-rails
   koala (~> 3.0.0.beta2)
   listen (~> 3.0.5)
   momentjs-rails (>= 2.9.0)
@@ -284,6 +291,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  time_difference (~> 0.5.0)
   tinymce-rails
   tinymce-rails-langs
   toastr-rails

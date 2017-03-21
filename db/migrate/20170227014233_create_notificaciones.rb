@@ -6,6 +6,7 @@ class CreateNotificaciones < ActiveRecord::Migration[5.0]
       t.references :tipo_notificacion, foreign_key: true, :null => false, on_delete: :cascade
       t.string :mensaje
       t.string :url
+      t.integer :entidad_id
 
       t.timestamps
     end

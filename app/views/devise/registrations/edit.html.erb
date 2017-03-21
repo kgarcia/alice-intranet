@@ -1,39 +1,105 @@
-<h2><%= t('.title', resource: resource_class.model_name.human) %></h2>
+<br>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h2 class="parametros-titulo"><%= "Mi Perfil" %></h2>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <div class="ibox-content">
+
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#datos">Datos Básicos</a></li>
+        <li><a data-toggle="tab" href="#texto">Cuenta</a></li>
+      </ul>
+
+      <div class="tab-content">
+
+
+        <div id="datos" class="tab-pane fade in active">
+          <br>
+          <% @persona = current_usuario.persona %>
+          <% @sexos = Sexo.all %>
+          <%= render 'personas/datos_persona', persona: @persona %>
+
+
+          <div class="form-group row">
+            <div class="col-lg-offset-3 col-lg-2">
+              <%= submit_tag "Guardar", :class => "btn btn-sm  btn-primary" %>
+            </div>
+
+            <div class="col-lg-2">
+              <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>
+            </div>
+
+            <div class="col-lg-2">
+              <%= link_to 'Atras',home_index_url,:class => "btn btn-sm btn-success" %>
+            </div>
+          </div>
+        </div>
+
+
+        <div id="texto" class="tab-pane fade in">
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}) do |f| %>
+              <%= devise_error_messages! %>
+
+              <br>
+
+              <div class="form-group row"><label class="col-lg-2 control-label">Correo</label>
+                <div class="col-lg-10"><%= f.text_field :email, :class => "form-control" %>
+                </div>
+              </div>
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                  <p>
+                    <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
+                  </p>
+              <% end %>
+
+
+              <div class="form-group row"><label class="col-lg-2 control-label">Contraseña</label>
+
+                <div class="col-lg-10"><%= f.password_field :password, :class => "form-control", autocomplete: "off" %>
+                </div>
+
+              </div>
+
+              <div class="form-group row"><label class="col-lg-2 control-label">Confirme contraseña</label>
+                <div class="col-lg-10"><%= f.password_field :password_confirmation, :class => "form-control", autocomplete: "off" %>
+
+                </div>
+              </div>
+
+              <div class="form-group row"><label class="col-lg-2 control-label">Última contraseña</label>
+                <div class="col-lg-10"><%= f.password_field :current_password, :class => "form-control", autocomplete: "off" %>
+
+                </div>
+              </div>
+
+
+              <div class="form-group row">
+                <div class="col-lg-offset-3 col-lg-2">
+                  <%= f.submit t('.update'), :class => "btn btn-sm  btn-primary" %>
+                </div>
+
+
+              </div>
+
+
+              </div> <!--div del tab pane -->
+
+
+          <% end %>
+
+          </div> <!--div del tab  content -->
+
+    </div>
   </div>
+</div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <p>
-      <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
-    </p>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password %>
-  </div>
-
-  <div><%= f.submit t('.update') %></div>
-<% end %>
-
-<h3><%= t('.cancel_my_account') %></h3>
-
-<p><%= t('.unhappy') %> <%= link_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %>.</p>
-
-<%= link_to t('devise.shared.links.back'), :back %>

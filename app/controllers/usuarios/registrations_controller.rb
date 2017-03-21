@@ -15,9 +15,19 @@ end
    def create
      @persona = Persona.new(persona_params)
      @persona.save
-     super
+    
+    respond_to do |format|
+      format.html {
+        super
+      }
+      format.json {
+        @user = Usuario.create(sign_up_params)
+        @user.save ? (render :json => {:data => @user }) : 
+                     (render :json => {:messages => @user.errors.full_messages})
+      }
      #ExampleMailer.sample_mail(Usuario.last).deliver_now
    end
+ end
 
   # GET /resource/edit
   # def edit
@@ -84,6 +94,6 @@ private
   #end
 
   def persona_params
-      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id, :edad)
+      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id)
     end
 end

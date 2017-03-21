@@ -21,9 +21,9 @@
                   <% end %>
 
               <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#datos">Descripcion</a></li>
+                <li class="active"><a data-toggle="tab" href="#datos">Descripción</a></li>
                 <li><a data-toggle="tab" href="#perfil-persona">Perfil de Pacientes</a></li>
-                <li><a data-toggle="tab" href="#perfil-medico">Perfil Medico</a></li>
+                <li><a data-toggle="tab" href="#perfil-medico">Antecedentes Médicos</a></li>
                 <li><a data-toggle="tab" href="#perfil-otros">Otros</a></li>
               </ul>
 
@@ -32,9 +32,9 @@
                 <div id="datos" class="tab-pane fade in active">
                   <br>
                   <div class="form-group">
-                      <label class="col-lg-2 control-label">Descripcion</label>
+                      <label class="col-lg-2 control-label">Descripción</label>
 
-                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
+                      <div class="col-lg-10"><%= f.text_field :descripcion, :required =>true,:class => "form-control" %>
                        </div>
                     </div>
 
@@ -119,11 +119,11 @@
                 <div id="perfil-medico" class="tab-pane fade">
                   <br>
                   <ul class="nav nav-tabs">
-                    <li><a data-toggle="tab" href="#cirugias">Cirugias</a></li>
+                    <li><a data-toggle="tab" href="#cirugias">Cirugías</a></li>
                     <li><a data-toggle="tab" href="#discapacidades">Discapacidades</a></li>
-                    <li><a data-toggle="tab" href="#grupo_sanguineos">Grupos Sanguineos</a></li>
+                    <li><a data-toggle="tab" href="#grupo_sanguineos">Grupos Sanguíneos</a></li>
                     <li><a data-toggle="tab" href="#lesiones">Lesiones</a></li>
-                    <li><a data-toggle="tab" href="#patologias">Patologias</a></li>
+                    <li><a data-toggle="tab" href="#patologias">Patologías</a></li>
                     <li><a data-toggle="tab" href="#vacunas">Vacunas</a></li>
                   </ul>
 
@@ -197,7 +197,7 @@
                   <br>
                   <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#adicciones">Adicciones</a></li>
-                    <li><a data-toggle="tab" href="#habitos">Habitos</a></li>
+                    <li><a data-toggle="tab" href="#habitos">Hábitos</a></li>
                   </ul>
 
                   <div class="tab-content">
@@ -236,7 +236,7 @@
                         <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
                         </div>
                       <div class="col-lg-2">
-                      <%= link_to 'Atras',perfiles_path, :class => "btn btn-sm btn-success" %>                          
+                      <%= link_to 'Atrás',perfiles_path, :class => "btn btn-sm btn-success" %>                          
                       </div>
                   </div>
           <% end %>

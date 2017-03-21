@@ -8,11 +8,11 @@ class Evento < ApplicationRecord
   has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
 
+
   after_save :save_tipo_servicios
 
   extend FriendlyId
   friendly_id :descripcion, use: :slugged
-
 
   attr_reader :tipoServicioEvento
 
@@ -31,6 +31,12 @@ class Evento < ApplicationRecord
   def foto_url
         url+foto.url(:medium)
     end
+
+
+  def foto_small
+        url+foto.url(:small)
+    end
+
 
     def postearFb(difusion)
 

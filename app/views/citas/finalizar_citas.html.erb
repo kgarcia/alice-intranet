@@ -10,7 +10,10 @@
           <% if @persona.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(@persona.errors.count, "error") %> prohibited this parametro from being
-                  saved:</h2>
+                  saved:</h2> <div class="field form-group row">
+                <label class="col-lg-2 control-label">Sexo</label>
+                <div class="col-lg-10"><%= u.collection_select(:sexo_id, @sexos, :id, :descripcion,{}, :class => "form-control" )%></div>
+              </div>
 
                 <ul>
                   <% @persona.errors.full_messages.each do |message| %>
@@ -21,8 +24,8 @@
           <% end %>
 
           <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#basico">Datos Basicos</a></li>
-            <li><a data-toggle="tab" href="#medicos">Datos Medicos</a></li>
+            <li class="active"><a data-toggle="tab" href="#basico">Datos Básicos</a></li>
+            <li><a data-toggle="tab" href="#medicos">Datos Médicos</a></li>
             <li><a data-toggle="tab" href="#diagnostico">Diagnóstico</a></li>
           </ul>
           <br>
@@ -46,10 +49,15 @@
                   </div>
               </div>
 
-              <div class="form-group row"><label class="col-lg-2 control-label">Fecha de Nacimiento</label>
-                  <div class="col-lg-10"><%= u.datetime_select :fecha_nacimiento, :class => "form-control" %>
+             <div class="form-group row fecha-n-persona">
+                    <label class="col-lg-2 control-label">Fecha de Nacimiento</label>
+                    <div class="input-group date col-lg-10">
+                        <span class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </span>
+                      <%= u.text_field :fecha_nacimiento, :class => "form-control" %>
+                    </div>
                   </div>
-              </div>
         
               <div class="field form-group row">
                 <label class="col-lg-2 control-label">Sexo</label>
@@ -71,7 +79,7 @@
                 <div class="col-lg-10"><%= collection_select(@persona,:estado_civil_id, @estado_civiles, :id, :descripcion,{}, :class => "form-control" )%></div>
               </div>
               <div class="field form-group row">
-                <label class="col-lg-2 control-label">Grupo Sanguineo</label>
+                <label class="col-lg-2 control-label">Grupo Sanguíneo</label>
                 <div class="col-lg-10"><%= collection_select(@persona,:grupo_sanguineo_id, @grupo_sanguineos, :id, :descripcion,{}, :class => "form-control" )%></div>
               </div>
             <% end %>
@@ -80,10 +88,10 @@
             <div id="medicos" class="tab-pane fade in">
               <br>
                   <ul class="nav nav-tabs">
-                    <li><a data-toggle="tab" href="#cirugias">Cirugias</a></li>
+                    <li><a data-toggle="tab" href="#cirugias">Cirugías</a></li>
                     <li><a data-toggle="tab" href="#discapacidades">Discapacidades</a></li>
                     <li><a data-toggle="tab" href="#lesiones">Lesiones</a></li>
-                    <li><a data-toggle="tab" href="#patologias">Patologias</a></li>
+                    <li><a data-toggle="tab" href="#patologias">Patologías</a></li>
                     <li><a data-toggle="tab" href="#vacunas">Vacunas</a></li>
                   </ul>
 
@@ -142,23 +150,32 @@
 
                   </div>
             </div>
+            
 
             <div id="diagnostico" class="tab-pane fade in">
               <div class="form-group">
-                  <label class="col-lg-2 control-label">Diagnostico</label>
+                  <label class="col-lg-2 control-label">Diagnóstico</label>
 
-                  <div class="col-lg-10"><%= text_area_tag @cita, :diagnostico, :class => "tinymce form-control" %>
+                  <div class="col-lg-10"><%= text_area :cita, :diagnostico, :class => "tinymce form-control" %>
                    </div>
 
-                  <%= tinymce %>
+
+                  <%= tinymce :language => "es_MX"  %>
+
+                  <br><br>
                 </div>
+                
             </div>
+
+            
+
 
           </div>
 
           
 
           <div class="form-group row">
+          <br>
               <div class="col-lg-offset-3 col-lg-2">
                   <%= submit_tag 'Guardar', :class => "btn btn-sm btn-primary"  %>
               </div>

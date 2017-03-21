@@ -1,3 +1,11 @@
+
+<%= csrf_meta_tag %>
+<br>
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h2 class="parametros-titulo"><%= "Noticias" %></h2>
+  </div>
+</div>
 <div class="ibox-content">
 <%= link_to 'Registrar', new_noticia_path, :class => "btn btn-primary btn-sm" %>
  <br><br> 
@@ -7,18 +15,20 @@
         <th data-breakpoints="xs" data-sorted="true">Tipo de noticia</th>
         <th>Título</th>
         <th>Descripción</th>
-        <th colspan="1"></th>
+        <th colspan="2"></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
     <tbody>
-        <% @noticias.each do |noticia| %>
+        <% @parametros.each do |noticia| %>
           <tr>
             <td><%= noticia.tipo_noticia.descripcion %></td>
             <td><%= noticia.titulo %></td>
             <td><%= noticia.descripcion %></td>
-            <td><%= link_to 'Editar', edit_polymorphic_url(noticia), :class => "btn btn-warning btn-sm" %></td>
-            <td><%= link_to 'Editar', edit_noticia_path(noticia) %></td>
-            <td><%= link_to 'Eliminar', noticia, method: :delete, data: { confirm: '¿Está seguro que desea eliminar el registro?' } %></td>
+
+           
+            <td><%= link_to 'Editar', edit_noticia_path(noticia), :class => "btn btn-warning btn-sm" %></td>
+            <td><%= link_to 'Eliminar', noticia, method: :delete, data: { confirm: '¿Está seguro que desea eliminar el registro?' }, :class => "btn btn-danger btn-sm"%></td
           </tr>
         <% end %>
       </tbody>

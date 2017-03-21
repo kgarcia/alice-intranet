@@ -4,19 +4,36 @@ class CitasController < ApplicationController
   # GET /citas
   # GET /citas.json
   def index
-    @lista = Cita.where({:persona_id => current_usuario.persona_id, :estatus => 1})
+    if params[:persona].nil?
+      @lista = Cita.where({:persona_id => current_usuario.persona_id, :estatus => 1})
+    else
+      @lista = Cita.where({:persona_id => params[:persona], :estatus => 1})
+    end
+      respond_to do |format|
+      format.html
+      format.json { render json: @lista }
+    end
   end
 
   # GET /citas/1
   # GET /citas/1.json
   def show 
-    @parametro = Cita.find(params[:id])
+    if Cita.exists?(id: params[:id])
+        @parametro = Cita.find(params[:id])
+    else
+      @parametro = Cita.new
+    end
+    
     puts '##########################################'
     puts @parametro.as_json
     puts '##########################################'
     respond_to do |format|
-      format.html
-      format.json { render json: @parametro.to_json }
+      if !@parametro.id.nil?
+        format.html
+        format.json { render json: @parametro.to_json }
+      else
+        format.json { render json: @cita.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -72,7 +89,7 @@ class CitasController < ApplicationController
   end
 
   def historial
-    @histo = Cita.where({:persona_id => current_usuario.persona_id, :estatus => [4,5]})
+    @histo = Cita.where({:persona_id => current_usuario.persona_id, :estatus => [3,4,5]})
   end
 
   def cancelarCita
@@ -88,6 +105,7 @@ class CitasController < ApplicationController
 
   def confirmarCancelacion
     @cita = Cita.find(params[:cita_id])
+    @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: @cita.estatus, estatus_nuevo: 5, cita:@cita)
     @cita.estatus = 5
     @eventualidad = Eventualidad.new(eventualidad_params)
     @eventualidad.tipo_eventualidad_id = 1
@@ -96,7 +114,23 @@ class CitasController < ApplicationController
     @eventualidad.save
     @cita.eventualidad_id = @eventualidad.id
     @cita.save
+    @historialCita.save
     redirect_to citas_url
+  end
+
+   def cancelar_movil
+    @cita = Cita.find(params[:id])
+    @cita.estatus = 5
+    @eventualidad = Eventualidad.new(:descripcion => 'Cancelada por Movil', :tipo_eventualidad_id => 3, :motivo_id => 4, :fecha_inicio => DateTime.now, :fecha_fin => DateTime.now)
+    @eventualidad.tipo_eventualidad_id = 1
+    @eventualidad.fecha_inicio = Date.today()
+    @eventualidad.fecha_fin = Date.today()
+    @eventualidad.save
+    @cita.eventualidad_id = @eventualidad.id
+    @cita.save
+    respond_to do |format|
+      format.json {render @cita}
+    end
   end
 
   def chequear
@@ -117,6 +151,8 @@ class CitasController < ApplicationController
     @persona.update(persona_params)
     @cita.estatus = 2
     @cita.save
+    @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: 1, estatus_nuevo: 2, cita:@cita)
+    @historialCita.save
     redirect_to "/chequear_cita"
   end
 
@@ -137,32 +173,40 @@ class CitasController < ApplicationController
     @patologias = Patologia.all
     @sexos = Sexo.all
     @vacunas = Vacuna.all
-
+    
     render "finalizar_citas"
   end
 
   def guardarFinalizarCita
+   
     @cita = Cita.find(params[:cita_id])
     @persona = @cita.persona
     @persona.update(persona_params)
     @cita.estatus = 3
+    @cita.update(cita_params)
     @cita.save
+    @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: 2, estatus_nuevo: 3, cita:@cita)
+    @historialCita.save
     redirect_to "/finalizar_cita"
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cita
-      @cita = Cita.find(params[:id])
+      if Cita.exists?(id: params[:id])
+        @cita = Cita.find(params[:id])
+      else
+        @cita = Cita.new
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cita_params
-      params.require(:cita).permit(:turno_id, :persona_id, :usuario_id, :fecha, :tipo_pago_id, :tipo_cita_id, :eventualidad_id, :estatus)
+      params.require(:cita).permit(:turno_id, :persona_id, :usuario_id, :fecha, :tipo_pago_id, :tipo_cita_id, :eventualidad_id, :estatus, :diagnostico)
     end
 
     def persona_params
-      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id, :grupo_sanguineo_id, :estado_civil_id)
+      params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento, :sexo_id, :grupo_sanguineo_id, :estado_civil_id,:altura,:peso)
     end
   def eventualidad_params
     params.require(:eventualidad).permit(:descripcion, :estatus, :tipo_eventualidad_id, :motivo_id, :fecha_inicio, :fecha_fin)

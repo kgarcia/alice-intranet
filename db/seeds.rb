@@ -19,11 +19,11 @@
 	Estado.find_or_create_by(descripcion: 'Anzoátegui',estatus: 1, :pais => Pais.find(1))
 	Estado.find_or_create_by(descripcion: 'Apure',estatus: 1, :pais => Pais.find(1))
 	Estado.find_or_create_by(descripcion: 'Zulia',estatus: 1, :pais => Pais.find(1))
-	Estado.find_or_create_by(descripcion: 'Tachira',estatus: 1, :pais => Pais.find(1))
-	Estado.find_or_create_by(descripcion: 'Merida',estatus: 1, :pais => Pais.find(1))
+	Estado.find_or_create_by(descripcion: 'Táchira',estatus: 1, :pais => Pais.find(1))
+	Estado.find_or_create_by(descripcion: 'Mérida',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Trujillo',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Lara',estatus: 1, :pais => Pais.find(1))
-    Estado.find_or_create_by(descripcion: 'Falcon',estatus: 1, :pais => Pais.find(1))
+    Estado.find_or_create_by(descripcion: 'Falcón',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Yaracuy',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Cojedes',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Portuguesa',estatus: 1, :pais => Pais.find(1))
@@ -33,7 +33,7 @@
     Estado.find_or_create_by(descripcion: 'Distrito Capital',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Miranda',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Vargas',estatus: 1, :pais => Pais.find(1))
-    Estado.find_or_create_by(descripcion: 'Guarico',estatus: 1, :pais => Pais.find(1))
+    Estado.find_or_create_by(descripcion: 'Guárico',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Monagas',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Sucre',estatus: 1, :pais => Pais.find(1))
     Estado.find_or_create_by(descripcion: 'Nueva Esparta',estatus: 1, :pais => Pais.find(1))
@@ -53,7 +53,7 @@
     Ciudad.find_or_create_by(descripcion: 'San Juan de los Morros',estatus: 1, :estado => Estado.find(19))
     Ciudad.find_or_create_by(descripcion: 'Merida',estatus: 1, :estado => Estado.find(6))
     Ciudad.find_or_create_by(descripcion: 'Los Teques',estatus: 1, :estado => Estado.find(17))
-    Ciudad.find_or_create_by(descripcion: 'Maturin',estatus: 1, :estado => Estado.find(20))
+    Ciudad.find_or_create_by(descripcion: 'Maturín',estatus: 1, :estado => Estado.find(20))
     Ciudad.find_or_create_by(descripcion: 'La Asuncion',estatus: 1, :estado => Estado.find(22))
     Ciudad.find_or_create_by(descripcion: 'Guanare',estatus: 1, :estado => Estado.find(12))
     Ciudad.find_or_create_by(descripcion: 'Cumana',estatus: 1, :estado => Estado.find(21))
@@ -89,24 +89,24 @@
 
     TipoEspecialidad.find_or_create_by(descripcion: 'Cardiología', estatus: 1)
     TipoEspecialidad.find_or_create_by(descripcion: 'Dermatología', estatus: 1)
-    TipoEspecialidad.find_or_create_by(descripcion: 'Urologia',estatus: 1)
+    TipoEspecialidad.find_or_create_by(descripcion: 'Urología',estatus: 1)
     TipoEspecialidad.find_or_create_by(descripcion: 'Ginecología', estatus: 1)
 
-    Especialidad.find_or_create_by(descripcion: ' Cardiología General', estatus: 1, :tipo_especialidad=> TipoEspecialidad.find(1))
-    Especialidad.find_or_create_by(descripcion: ' Ecorcardíografía', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(1))
-    Especialidad.find_or_create_by(descripcion: ' Dermatología General', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(2))
-    Especialidad.find_or_create_by(descripcion: ' Cosmetica', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(2))
-    Especialidad.find_or_create_by(descripcion: ' Urología General', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(3))
-    Especialidad.find_or_create_by(descripcion: ' Urología pediátrica', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(3))
-    Especialidad.find_or_create_by(descripcion: ' Ginecología General', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(4))
-    Especialidad.find_or_create_by(descripcion: ' Medicina meterno-fetal', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(4))
+    Especialidad.find_or_create_by(descripcion: 'Cardiología General', estatus: 1, :tipo_especialidad=> TipoEspecialidad.find(1))
+    Especialidad.find_or_create_by(descripcion: 'Ecorcardíografía', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(1))
+    Especialidad.find_or_create_by(descripcion: 'Dermatología General', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(2))
+    Especialidad.find_or_create_by(descripcion: 'Cosmética', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(2))
+    Especialidad.find_or_create_by(descripcion: 'Urología General', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(3))
+    Especialidad.find_or_create_by(descripcion: 'Urología pediátrica', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(3))
+    Especialidad.find_or_create_by(descripcion: 'Ginecología General', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(4))
+    Especialidad.find_or_create_by(descripcion: 'Medicina meterno-fetal', estatus: 1, :tipo_especialidad => TipoEspecialidad.find(4))
 
     TipoAtencion.find_or_create_by(:descripcion => 'Especializada', :estatus => 1)
     TipoAtencion.find_or_create_by(:descripcion => 'General', :estatus => 1)
 
     Categoria.find_or_create_by(descripcion: 'Laboratorio',estatus: 1)
 	Categoria.find_or_create_by(descripcion: 'Imagenología',estatus: 1)
-	Categoria.find_or_create_by(descripcion: 'Atencion Primaria en Salud',estatus: 1)
+	Categoria.find_or_create_by(descripcion: 'Atención Primaria en Salud',estatus: 1)
 
 	TipoServicio.find_or_create_by(descripcion: 'Consulta de Ginecología', texto: 'Ofrece a sus pacientes un cuidado integral que incluye un amplio rango de opciones de consulta y tratamientos que comprenden desde la revisión preventiva habitual hasta las más avanzadas', foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(3), :especialidad => Especialidad.find(7), :tipo_atencion => TipoAtencion.find(1))
     TipoServicio.find_or_create_by(descripcion: 'Consulta de Dermatología', texto: 'Cuenta con una amplia experiencia en el diagnóstico y tratamiento de las enfemedades dermatológicas', foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(3), :especialidad => Especialidad.find(3), :tipo_atencion => TipoAtencion.find(1))
@@ -114,7 +114,7 @@
     TipoServicio.find_or_create_by(descripcion: 'Consulta de Cardiología', texto:'Ofrece a sus pacientes un cuidado integral que incluye un amplio rango de opciones de consulta y tratamientos que comprenden desde la revisión preventiva habitual hasta las más avanzadas', foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(3), :especialidad => Especialidad.find(1), :tipo_atencion => TipoAtencion.find(1))
     TipoServicio.find_or_create_by(descripcion: 'Tomografía', texto: nil, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(2), :especialidad => Especialidad.find(1), :tipo_atencion => TipoAtencion.find(2))
     TipoServicio.find_or_create_by(descripcion: 'Ecografía', texto: nil, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(2), :especialidad => Especialidad.find(2), :tipo_atencion => TipoAtencion.find(2))
-    TipoServicio.find_or_create_by(descripcion: 'Examenes', texto: nil, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(1), :especialidad => Especialidad.find(3), :tipo_atencion => TipoAtencion.find(2))
+    TipoServicio.find_or_create_by(descripcion: 'Exámenes', texto: nil, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(1), :especialidad => Especialidad.find(3), :tipo_atencion => TipoAtencion.find(2))
     
     TipoEvento.find_or_create_by(descripcion: 'Jornada',estatus: 1)
     TipoEvento.find_or_create_by(descripcion: 'Congreso',estatus: 1)
@@ -144,16 +144,16 @@
 
     Dia.find_or_create_by(:descripcion => 'Lunes', :estatus => 1)
     Dia.find_or_create_by(:descripcion => 'Martes', :estatus => 1)
-    Dia.find_or_create_by(:descripcion => 'Miercoles', :estatus => 1)
+    Dia.find_or_create_by(:descripcion => 'Miércoles', :estatus => 1)
     Dia.find_or_create_by(:descripcion => 'Jueves', :estatus => 1)
     Dia.find_or_create_by(:descripcion => 'Viernes', :estatus => 1)
-    Dia.find_or_create_by(:descripcion => 'Sabado', :estatus => 1)
+    Dia.find_or_create_by(:descripcion => 'Sábado', :estatus => 1)
     Dia.find_or_create_by(:descripcion => 'Domingo', :estatus => 1)
 
     TipoTurno.find_or_create_by(:descripcion => "Mañana")
     TipoTurno.find_or_create_by(:descripcion => "Tarde")
 
-    TipoEventualidad.find_or_create_by(:descripcion => 'Clinica', :estatus => 1)
+    TipoEventualidad.find_or_create_by(:descripcion => 'Clínica', :estatus => 1)
     TipoEventualidad.find_or_create_by(:descripcion => 'Responsable', :estatus => 1)
     TipoEventualidad.find_or_create_by(:descripcion => 'Individual', :estatus => 1)
 
@@ -166,7 +166,7 @@
     Motivo.find_or_create_by(:descripcion => 'Enfermedad', :estatus => 1, :tipo_motivo => TipoMotivo.find(2))
     Motivo.find_or_create_by(:descripcion => 'Compromiso Familiar', :estatus => 1, :tipo_motivo => TipoMotivo.find(3))
 
-    TipoCriterio.find_or_create_by(descripcion: 'Atención Medica',estatus: 1)
+    TipoCriterio.find_or_create_by(descripcion: 'Atención Médica',estatus: 1)
     TipoCriterio.find_or_create_by(descripcion: 'Servicio',estatus: 1)
 
     Criterio.find_or_create_by(descripcion: 'Puntualidad',estatus: 1, :tipo_criterio => TipoCriterio.find(1))
@@ -175,21 +175,21 @@
     Criterio.find_or_create_by(descripcion: 'Calidad',estatus: 1, :tipo_criterio => TipoCriterio.find(2))
 
     TipoPago.find_or_create_by(:descripcion => 'Efectivo', :estatus => 1)
-    TipoPago.find_or_create_by(:descripcion => 'Debito', :estatus => 1)
-    TipoPago.find_or_create_by(:descripcion => 'Credito', :estatus => 1)
+    TipoPago.find_or_create_by(:descripcion => 'Débito', :estatus => 1)
+    TipoPago.find_or_create_by(:descripcion => 'Crédito', :estatus => 1)
     TipoPago.find_or_create_by(:descripcion => 'Seguro', :estatus => 1)
 
-    TipoAdiccion.find_or_create_by(descripcion: 'Quimica',estatus: 1)
+    TipoAdiccion.find_or_create_by(descripcion: 'Química',estatus: 1)
     TipoAdiccion.find_or_create_by(descripcion: 'Conductuales',estatus: 1)
 
 	Adiccion.find_or_create_by(descripcion: 'Tabaco',estatus: 1, tipo_adiccion: TipoAdiccion.find(1))
 	Adiccion.find_or_create_by(descripcion: 'Alcohol',estatus: 1, tipo_adiccion: TipoAdiccion.find(1))
-	Adiccion.find_or_create_by(descripcion: 'Cafe',estatus: 1, tipo_adiccion: TipoAdiccion.find(1))
+	Adiccion.find_or_create_by(descripcion: 'Café',estatus: 1, tipo_adiccion: TipoAdiccion.find(1))
 	Adiccion.find_or_create_by(descripcion: 'Drogas',estatus: 1, tipo_adiccion: TipoAdiccion.find(1))
 	Adiccion.find_or_create_by(descripcion: 'Lodupatía',estatus: 1, tipo_adiccion: TipoAdiccion.find(2))
 	Adiccion.find_or_create_by(descripcion: 'Ciberadicción',estatus: 1, tipo_adiccion: TipoAdiccion.find(2))
 
-	TipoCirugia.find_or_create_by(descripcion: 'Plastica',estatus: 1)
+	TipoCirugia.find_or_create_by(descripcion: 'Plástica',estatus: 1)
 	TipoCirugia.find_or_create_by(descripcion: 'Cardiovascular',estatus: 1)
 	TipoCirugia.find_or_create_by(descripcion: 'Pediátrica',estatus: 1)
 
@@ -221,21 +221,21 @@
     GrupoSanguineo.find_or_create_by(:descripcion => 'O', :estatus => 1)
 
     TipoHabito.find_or_create_by(descripcion: 'Fisicos',estatus: 1)
-	TipoHabito.find_or_create_by(descripcion: 'Alimentacion',estatus: 1)
+	TipoHabito.find_or_create_by(descripcion: 'Alimentación',estatus: 1)
 
 	Habito.find_or_create_by(descripcion: 'Trotar',estatus: 1,:tipo_habito => TipoHabito.find(1))
 	Habito.find_or_create_by(descripcion: 'Caminar',estatus: 1,:tipo_habito => TipoHabito.find(1))
-	Habito.find_or_create_by(descripcion: 'Actividad Fisica',estatus: 1,:tipo_habito => TipoHabito.find(1))
+	Habito.find_or_create_by(descripcion: 'Actividad Física',estatus: 1,:tipo_habito => TipoHabito.find(1))
 	Habito.find_or_create_by(descripcion: 'Balanceada',estatus: 1,:tipo_habito => TipoHabito.find(2))
 	Habito.find_or_create_by(descripcion: 'Consumo de Carnes Rojas',estatus: 1,:tipo_habito => TipoHabito.find(2))
-	Habito.find_or_create_by(descripcion: 'Consumo de Comida Rapida',estatus: 1,:tipo_habito => TipoHabito.find(2))
+	Habito.find_or_create_by(descripcion: 'Consumo de Comida Rápida',estatus: 1,:tipo_habito => TipoHabito.find(2))
 
     
     TipoLesion.find_or_create_by(descripcion: 'Articulares',estatus: 1)
 	TipoLesion.find_or_create_by(descripcion: 'Musculares',estatus: 1)
 
 	Lesion.find_or_create_by(descripcion: 'Contusión',estatus: 1,:tipo_lesion => TipoLesion.find(1))
-	Lesion.find_or_create_by(descripcion: 'Esquince',estatus: 1,:tipo_lesion => TipoLesion.find(1))
+	Lesion.find_or_create_by(descripcion: 'Esguince',estatus: 1,:tipo_lesion => TipoLesion.find(1))
     Lesion.find_or_create_by(descripcion: 'Contractura',estatus: 1,:tipo_lesion => TipoLesion.find(2))
     Lesion.find_or_create_by(descripcion: 'Desgarro',estatus: 1,:tipo_lesion => TipoLesion.find(2))
 
@@ -261,7 +261,7 @@
 	TipoPatologia.find_or_create_by(descripcion: 'Cardiovasculares',estatus: 1)
 	TipoPatologia.find_or_create_by(descripcion: 'infantiles',estatus: 1)
 
-    Patologia.find_or_create_by(:descripcion => 'Calculo', :estatus => 1, :tipo_patologia => TipoPatologia.find(1))
+    Patologia.find_or_create_by(:descripcion => 'Cálculo', :estatus => 1, :tipo_patologia => TipoPatologia.find(1))
     Patologia.find_or_create_by(:descripcion => 'Asma', :estatus => 1, :tipo_patologia => TipoPatologia.find(2))
     Patologia.find_or_create_by(:descripcion => 'Bronquitis', :estatus => 1, :tipo_patologia => TipoPatologia.find(2))
     Patologia.find_or_create_by(:descripcion => 'Neumonía', :estatus => 1, :tipo_patologia => TipoPatologia.find(2))
@@ -272,13 +272,13 @@
     Patologia.find_or_create_by(:descripcion => 'Cardiopatía', :estatus => 1, :tipo_patologia => TipoPatologia.find(4))
    
     Profesion.find_or_create_by(:descripcion => 'Medicina', :estatus => 1)
-    Profesion.find_or_create_by(:descripcion => 'Ingenieria', :estatus => 1)
+    Profesion.find_or_create_by(:descripcion => 'Ingeniería', :estatus => 1)
     Profesion.find_or_create_by(:descripcion => 'Arquitectura', :estatus => 1)
-    Profesion.find_or_create_by(:descripcion => 'Educacion', :estatus => 1)
+    Profesion.find_or_create_by(:descripcion => 'Educación', :estatus => 1)
     Profesion.find_or_create_by(:descripcion => 'Humanidades', :estatus => 1)
-    Profesion.find_or_create_by(:descripcion => 'Economia', :estatus => 1)
-    Profesion.find_or_create_by(:descripcion => 'Contaduria', :estatus => 1)
-    Profesion.find_or_create_by(:descripcion => 'Administracion', :estatus => 1)
+    Profesion.find_or_create_by(:descripcion => 'Economía', :estatus => 1)
+    Profesion.find_or_create_by(:descripcion => 'Contaduría', :estatus => 1)
+    Profesion.find_or_create_by(:descripcion => 'Administración', :estatus => 1)
 
     RangoEdad.find_or_create_by(:descripcion => 'Niño', :edad_inicial => 0, :edad_final => 8,:estatus => 1)
     RangoEdad.find_or_create_by(:descripcion => 'Adolescente', :edad_inicial => 9, :edad_final => 19,:estatus => 1)
@@ -294,7 +294,7 @@
 
     Vacuna.find_or_create_by(descripcion: 'Fiebre Amarilla',estatus: 1)
 	Vacuna.find_or_create_by(descripcion: 'Dengue',estatus: 1)
-	Vacuna.find_or_create_by(descripcion: 'Sarampion',estatus: 1)
+	Vacuna.find_or_create_by(descripcion: 'Sarampión',estatus: 1)
 	Vacuna.find_or_create_by(descripcion: 'Colera',estatus: 1)
 	Vacuna.find_or_create_by(descripcion: 'Hepatitis A',estatus: 1)
 	Vacuna.find_or_create_by(descripcion: 'Rubeola',estatus: 1)
@@ -329,15 +329,15 @@
     EspecialidadEspecialista.find_or_create_by(:especialidad => Especialidad.find(4), :especialista => Especialista.find(4))
 
 
-    Servicio.find_or_create_by(descripcion: 'Consulta cardiologica ritmo alterado', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(4), :especialista => Especialista.find(1), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 25000)
+    Servicio.find_or_create_by(descripcion: 'Consulta cardiológica ritmo alterado', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(4), :especialista => Especialista.find(1), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 25000)
     Servicio.find_or_create_by(descripcion: 'Consulta general', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(1), :especialista => Especialista.find(3), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 13614)
     Servicio.find_or_create_by(descripcion: 'Tomografía  axial', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(5), :especialista => Especialista.find(1), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 25000)
     Servicio.find_or_create_by(descripcion: 'Ecografía Abdominal', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(6), :especialista => Especialista.find(3), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 13614)
     Servicio.find_or_create_by(descripcion: 'Examen de orina', :ubicacion => Ubicacion.find(2), :tipo_servicio => TipoServicio.find(7), :especialista => Especialista.find(3), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 45989)
     Servicio.find_or_create_by(descripcion: 'Hematología Completa', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(7), :especialista => Especialista.find(3), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 50555.55)
 
-    Eventualidad.find_or_create_by(:descripcion => 'Cierre de la clinica', :estatus => 1, :tipo_eventualidad_id => 1, :motivo => Motivo.find(1), fecha_inicio: '01/03/2017', fecha_fin: '01/03/2017')
-    Eventualidad.find_or_create_by(:descripcion => 'Cancelacion de cita', :estatus => 1, :tipo_eventualidad_id => 3, :motivo=> Motivo.find(2), fecha_inicio: '01/03/2017', fecha_fin: '01/03/2017')
+    Eventualidad.find_or_create_by(:descripcion => 'Cierre de la clínica', :estatus => 1, :tipo_eventualidad_id => 1, :motivo => Motivo.find(1), fecha_inicio: '01/03/2017', fecha_fin: '01/03/2017')
+    Eventualidad.find_or_create_by(:descripcion => 'Cancelación de cita', :estatus => 1, :tipo_eventualidad_id => 3, :motivo=> Motivo.find(2), fecha_inicio: '01/03/2017', fecha_fin: '01/03/2017')
 
     Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(4), :usuario_id => nil, :fecha => '2/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
     Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(5), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1), :eventualidad_id => nil, estatus: 1)
@@ -350,16 +350,10 @@
     Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(12), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(4), :eventualidad_id => nil, estatus: 1)
 
 
-    TipoCalificacion.find_or_create_by(:descripcion => 'Numerica', :estatus => 1)
+    TipoCalificacion.find_or_create_by(:descripcion => 'Numérica', :estatus => 1)
     TipoCalificacion.find_or_create_by(:descripcion => 'Texto', :estatus => 1)
     TipoCalificacion.find_or_create_by(:descripcion => 'Lista', :estatus => 1)
 
-
-	TipoPregunta.find_or_create_by(descripcion: 'Sobre el Sistema Alice',estatus: 1)
-	TipoPregunta.find_or_create_by(descripcion: 'Sobre U. Q. La Trinidad',estatus: 1)
-
-	Pregunta.find_or_create_by(descripcion: 'Que significa Alice?',estatus: 1, respuesta: "Real, verdadero y sincero. Asi como las cualidades de los profesionales de la medicina que trabajan con nosotros.", tipo_pregunta:TipoPregunta.find(1))
-	Pregunta.find_or_create_by(descripcion: 'Donde se encuentra ubicada la U. Q. La Trinidad?', respuesta: "Carrera 28 entre calles 9 y 10",estatus: 1, tipo_pregunta:TipoPregunta.find(2))
 
     Rol.find_or_create_by(descripcion: 'Dueño')
     Rol.find_or_create_by(descripcion: 'Especialista')
@@ -369,7 +363,7 @@
     
 	OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Configuración General',     :url_path => '#', :icono => 'fa-cogs'       ,      :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
     	OptionMenu.find_or_create_by(:id_padre => 1,   :nombre => 'Datos de Servicios',                :url_path => '#', :icono => 'fa-edit',           :controlador => '', :accion => '', num_hijos: 15, :estatus => 'A')
-		    OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Paises',                   :url_path => '/paises', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+		    OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Países',                   :url_path => '/paises', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 		    OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Estados',                   :url_path => '/estados', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 		    OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Ciudades',                   :url_path => '/ciudades', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 		    OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Sectores',                   :url_path => '/sectores', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
@@ -436,31 +430,40 @@
     	OptionMenu.find_or_create_by(:id_padre => 62,   :nombre => 'Atender Cita',    :url_path => '/finalizar_cita', :icono => 'fa-id-card-o', :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
     	OptionMenu.find_or_create_by(:id_padre => 62,   :nombre => 'Evaluar Cita',    :url_path => '/evaluaciones', :icono => 'fa-star-half-full', :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
-    OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Reportes Estadísticos',   :url_path => '#', :icono => 'fa-bar-chart',        :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
-	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => '1',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => '2',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => '3',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 4, :estatus => 'A')
+    OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Reportes Estadísticos',   :url_path => '#', :icono => 'fa-bar-chart',        :controlador => '', :accion => '', num_hijos: 12, :estatus => 'A')
+	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Citas por Estatus',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Tiempo Promedio de Solicitud',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	    OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Tiempo Promedio de Recepción',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Tiempo Promedio de Atención',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Tiempo Promedio de Evaluación',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Motivos de Cancelación',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Calificaciones por Especialidades',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Calificaciones por Servicio',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Calificaciones por Criterio',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Efectividad de Eventos',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Efectividad de Difusión',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 66, :nombre => 'Opiniones',                   :url_path => '#', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
 	OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Difusión y Escucha al Cliente',              :url_path => '#', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
-		OptionMenu.find_or_create_by(:id_padre => 70, :nombre => 'Difundir Servicios y Eventos',              :url_path => '/difusiones', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-		OptionMenu.find_or_create_by(:id_padre => 70, :nombre => 'Atender opiniones',              :url_path => '/opiniones', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+		OptionMenu.find_or_create_by(:id_padre => 79, :nombre => 'Difundir Servicios y Eventos',              :url_path => '/difusiones', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+		OptionMenu.find_or_create_by(:id_padre => 79, :nombre => 'Atender opiniones',              :url_path => '/opiniones', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
     OptionMenu.find_or_create_by(:id_padre => nil, :nombre => 'Administración',              :url_path => '#', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 4, :estatus => 'A')
-        OptionMenu.find_or_create_by(:id_padre => 73, :nombre => 'General',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-        OptionMenu.find_or_create_by(:id_padre => 73, :nombre => 'Base de Datos',                   :url_path => '', :icono => 'fa-circle-thin',             :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
-            OptionMenu.find_or_create_by(:id_padre => 75, :nombre => 'Respaldo',               :url_path => '/guardarback', :icono => 'cloud',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-            OptionMenu.find_or_create_by(:id_padre => 75, :nombre => 'Recuperacion',               :url_path => '/restauracion', :icono => 'window-restore',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-            OptionMenu.find_or_create_by(:id_padre => 75, :nombre => 'Historico',               :url_path => '/historico', :icono => '',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-    	    OptionMenu.find_or_create_by(:id_padre => 73, :nombre => 'Sitio Web',              :url_path => '#', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 6, :estatus => 'A')
-	  	    OptionMenu.find_or_create_by(:id_padre => 76,  :nombre => 'Organización',                       :url_path => '/informacion_generals', :icono => 'fa-at',               :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	        OptionMenu.find_or_create_by(:id_padre => 76,  :nombre => 'Tipos de Noticia',                  :url_path => '/tipo_noticias', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	        OptionMenu.find_or_create_by(:id_padre => 76,  :nombre => 'Noticias',                  :url_path => '/noticias', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	  	    OptionMenu.find_or_create_by(:id_padre => 76,  :nombre => 'Tipos de Pregunta',                  :url_path => '/tipo_preguntas', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	  	    OptionMenu.find_or_create_by(:id_padre => 76,  :nombre => 'Preguntas',                  :url_path => '/preguntas', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	        OptionMenu.find_or_create_by(:id_padre => 76, :nombre => 'Tipos de Opinión',                   :url_path => '/tipo_opiniones', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-		OptionMenu.find_or_create_by(:id_padre => 73, :nombre => 'Seguridad Funcional',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 2, :estatus => 'A')
-	        OptionMenu.find_or_create_by(:id_padre => 83, :nombre => 'Usuarios',               :url_path => '#', :icono => 'fa-user-plus',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-	        OptionMenu.find_or_create_by(:id_padre => 83, :nombre => 'Roles',                      :url_path => '/roles', :icono => 'fa-bookmark-o',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 82, :nombre => 'General',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 82, :nombre => 'Base de Datos',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+    	      OptionMenu.find_or_create_by(:id_padre => 84, :nombre => 'Respaldo',               :url_path => '/guardarback', :icono => 'cloud',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+            OptionMenu.find_or_create_by(:id_padre => 84, :nombre => 'Recuperacion',               :url_path => '/restauracion', :icono => 'window-restore',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+            OptionMenu.find_or_create_by(:id_padre => 84, :nombre => 'Historico',               :url_path => '/historico', :icono => '',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+        OptionMenu.find_or_create_by(:id_padre => 82, :nombre => 'Sitio Web',              :url_path => '#', :icono => 'fa-cog',              :controlador => '', :accion => '', num_hijos: 6, :estatus => 'A')
+	  	    OptionMenu.find_or_create_by(:id_padre => 88,  :nombre => 'Organización',                       :url_path => '/informacion_generals', :icono => 'fa-at',               :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	        OptionMenu.find_or_create_by(:id_padre => 88,  :nombre => 'Tipos de Noticia',                  :url_path => '/tipo_noticias', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	        OptionMenu.find_or_create_by(:id_padre => 88,  :nombre => 'Noticias',                  :url_path => '/noticias', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	  	    OptionMenu.find_or_create_by(:id_padre => 88,  :nombre => 'Tipos de Pregunta',                  :url_path => '/tipo_preguntas', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	  	    OptionMenu.find_or_create_by(:id_padre => 88,  :nombre => 'Preguntas',                  :url_path => '/preguntas', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	        OptionMenu.find_or_create_by(:id_padre => 88, :nombre => 'Tipos de Opinión',                   :url_path => '/tipo_opiniones', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+		OptionMenu.find_or_create_by(:id_padre => 82, :nombre => 'Seguridad Funcional',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 2, :estatus => 'A')
+	        OptionMenu.find_or_create_by(:id_padre => 95, :nombre => 'Usuarios',               :url_path => '/usuarios', :icono => 'fa-user-plus',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	        OptionMenu.find_or_create_by(:id_padre => 95, :nombre => 'Roles',                      :url_path => '/roles', :icono => 'fa-bookmark-o',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
 # DATOS POR DEFECTO - PARA UTILIZAR EN EL EJEMPLO, ETC...
 
@@ -497,13 +500,13 @@
     OptionRol.find_or_create_by(:option_menu => OptionMenu.find(65), :rol => Rol.find(4)) # Evaluar
 
     #Rol 5:Seguridad
-    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(73), :rol => Rol.find(5))
-    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(83), :rol => Rol.find(5)) # Seguridad Funcional
-    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(84), :rol => Rol.find(5)) # Usuarios
-    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(85), :rol => Rol.find(5)) # Roles
+    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(82), :rol => Rol.find(5))
+    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(92), :rol => Rol.find(5)) # Seguridad Funcional
+    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(93), :rol => Rol.find(5)) # Usuarios
+    OptionRol.find_or_create_by(:option_menu => OptionMenu.find(94), :rol => Rol.find(5)) # Roles
 
 
-    TipoEvaluacion.find_or_create_by(:descripcion => 'Medico', :estatus => 1)
+    TipoEvaluacion.find_or_create_by(:descripcion => 'Médico', :estatus => 1)
     TipoEvaluacion.find_or_create_by(:descripcion => 'Paciente', :estatus => 1)
 
     Evaluacion.find_or_create_by(:descripcion => 'Del (1 al 10, siendo el 1 poco el 10 mucho) indique que le ha parecido la:', :tipo_evaluacion => TipoEvaluacion.find(2))
@@ -519,7 +522,7 @@
 
     MedioDifusion.find_or_create_by(:descripcion => 'Email', :estatus => 1)
     MedioDifusion.find_or_create_by(:descripcion => 'Facebook', :estatus => 1)
-    MedioDifusion.find_or_create_by(:descripcion => 'App Movil', :estatus => 1)
+    MedioDifusion.find_or_create_by(:descripcion => 'App Móvil', :estatus => 1)
 
      CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(1),:tipo_servicio => TipoServicio.find(1), estatus: 1)
      CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(1), estatus: 1)
@@ -543,7 +546,31 @@
      CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(2),:tipo_servicio => TipoServicio.find(7), estatus: 1)
      CriterioTipoServicio.find_or_create_by(:criterio => Criterio.find(3),:tipo_servicio => TipoServicio.find(7), estatus: 1)
 
+TipoNoticia.find_or_create_by(:descripcion => 'Sobre Servicio', :estatus => 1)
+TipoNoticia.find_or_create_by(:descripcion => 'Informativa', :estatus => 1)
+TipoNoticia.find_or_create_by(:descripcion => 'Especiales', :estatus => 1)
 
+Noticia.find_or_create_by(:titulo => 'Beneficios del ejercicio físico', :descripcion => 'El ejercicio físico vigoroso aporta mayores beneficios para la salud cardiovascular que la práctica de ejercicio leve o moderado ', :tipo_noticia => TipoNoticia.find(2), :estatus => 1, :contenido => 'Los resultados de la investigación, realizada por especialistas de la Unidad Quirúrgica “La Trinidad“ y de la Universidad Controocidental “Lisandro Alvarado“ con una muestra de más de 10.000 personas, se han publicado en la revista científica American Journal of Preventive Medicine')
+Noticia.find_or_create_by(:titulo => 'Congreso Nacional de Periodismo Sanitario', :descripcion => 'La Unidad Quirúrgica “La Trinidad“, sede del próximo Congreso Nacional de Periodismo Sanitario', :tipo_noticia => TipoNoticia.find(2), :estatus => 1, :contenido => 'Del próximo 31 de marzo al 2 de abril, Barquisimeto acogerá el simposio que organiza anualmente la Asociación Nacional de Informadores de la Salud ')
+Noticia.find_or_create_by(:titulo => 'Nuevo anticuerpo para tratar el mieloma múltiple', :descripcion => 'Desarrollan un nuevo anticuerpo para tratar el mieloma múltiple con elevada eficacia demostrada en estudios pre-clínicos', :tipo_noticia => TipoNoticia.find(1), :estatus => 1, :contenido => 'Investigadores del Laboratorio “Alemán Giménez“ desarrollan un fármaco altamente especifico que estimula la acción antitumoral de las células T del sistema inmune en pacientes con mieloma múltiple')
+
+TipoPregunta.find_or_create_by(:descripcion => 'Sobre la Organización', :estatus => 1)
+TipoPregunta.find_or_create_by(:descripcion => 'Sobre el Sistema Alice', :estatus => 1)
+TipoPregunta.find_or_create_by(:descripcion => 'Sobre los Servicios', :estatus => 1)
+
+Pregunta.find_or_create_by(descripcion: '¿Qué significa Alice?',estatus: 1, respuesta: "Real, verdadero y sincero. Asi como las cualidades de los profesionales de la medicina que trabajan con nosotros.", :tipo_pregunta => TipoPregunta.find(2))
+Pregunta.find_or_create_by(descripcion: '¿Dónde se encuentra ubicada la Unidad Quirúrgica “La Trinidad“?', respuesta: "Carrera 28 entre calles 9 y 10",estatus: 1, :tipo_pregunta => TipoPregunta.find(1))
+Pregunta.find_or_create_by(descripcion: '¿Cuáles son los servicios que ofrece la Unidad Quirúrgica “La Trinidad“?', respuesta: "Consulta de Atención Primaria, Laboratorio e Imagenología",estatus: 1, :tipo_pregunta => TipoPregunta.find(3))
+Pregunta.find_or_create_by(descripcion: '¿Qué exámenes ofrece el Laboratorio Alemán Giménez?',estatus: 1, respuesta: "Hematología completa, Glicemia en ayunas, Orina, Urea, entre otros", :tipo_pregunta => TipoPregunta.find(2))
+Pregunta.find_or_create_by(descripcion: '¿Qué imágenes ofrece el Centro de Imágenes “La Trinidad“ (CEDILAT)?',estatus: 1, respuesta: "Resonancia magnética, Tomografía Axial Computarizada, Desintometría Ósea, Ecosonograma, Mamografía, Radiología, entre otros. ", :tipo_pregunta => TipoPregunta.find(2))
+
+
+
+
+
+
+
+     puts 'seed'
 
 
 
