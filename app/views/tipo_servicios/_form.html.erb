@@ -142,3 +142,101 @@
     <div class="col-sm-1"></div>
   </div>
 </div>
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    var form = $("#form-tipo-servicio").show();
+                    
+    <% if @tipo_servicio.new_record? %>
+      var accion = "Guardar";
+    <% else %>
+      var accion = "Editar";
+    <% end %>
+    form.steps({
+        headerTag: "h3",
+        bodyTag: "fieldset",
+        transitionEffect: "slideLeft",
+        labels: {
+            cancel: "Cancelar",
+            current: "Paso comun:",
+            pagination: "Paginacion",
+            finish: accion,
+            next: "Siguiente",
+            previous: "Anterior",
+            loading: "Cargando ..."
+        },
+        onStepChanging: function (event, currentIndex, newIndex)
+        {
+            // Allways allow previous action even if the current form is not valid!
+            if (currentIndex > newIndex)
+            {
+                return true;
+            }
+            // Forbid next action on "Warning" step if the user is to young
+            if (newIndex === 3 && Number($("#age-2").val()) < 18)
+            {
+                return false;
+            }
+            
+           // Needed in some cases if the user went back (clean up)
+            if (currentIndex < newIndex)
+            {
+                // To remove error styles
+            }
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onStepChanged: function (event, currentIndex, priorIndex)
+        {
+            if (currentIndex === 2 && priorIndex === 3)
+            {
+                form.steps("previous");
+            }
+        },
+        onFinishing: function (event, currentIndex)
+        {
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onFinished: function (event, currentIndex)
+        {
+            form.submit();
+        }
+    }).validate({
+        rules: {
+        '<%= @tipo_servicio.class.to_s.downcase %>[tipo_atencion_id]': {
+          required: true
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[categoria_id]': {
+          required: true
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[especialidad_id]': {
+          required: true
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[descripcion]': {
+          required: true,
+          solo_letras: true
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[foto]': {
+          required: true
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[texto]': {
+          required: true
+        },
+        'criterios[]': {
+          required: true
+        }
+      },
+      messages: {
+        '<%= @tipo_servicio.class.to_s.downcase %>[tipo_atencion_id]': {
+          required: "Por favor Seleccione una opción"
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[categoria_id]': {
+          required: "Por favor Seleccione una opción"
+        },
+        '<%= @tipo_servicio.class.to_s.downcase %>[especialidad_id]': {
+          required: "Por favor Seleccione una opción"
+        }
+      }
+    });
+  </script>
+<% end %>
