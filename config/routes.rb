@@ -59,6 +59,8 @@ Myapp::Application.routes.draw do
   resources :tipo_parentescos
   resources :tipo_difusiones
 
+  post 'usuarios/create', to: 'usuarios#create'
+
 
 get 'tipo_servicios/filtrar', to: 'tipo_servicios#filtrar'
   get 'perfil', to: 'usuarios#perfil'
