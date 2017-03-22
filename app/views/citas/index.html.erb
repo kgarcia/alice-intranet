@@ -29,7 +29,7 @@
           <td><%= cita.persona.nombre %> <%= cita.persona.apellido%></td>
           <td>
             <%= link_to 'Ver Detalles', cita, :class => "btn btn-success btn-sm" %>
-            <%= link_to 'Cancelar','cancelar_cita/'+cita.id.to_s , :method => :delete, data: { confirm: '¿Está seguro que desea eliminar la cita?' } , :class => "btn btn-danger btn-sm" %></td>
+            <%= link_to 'Cancelar','cancelar_cita/'+cita.id.to_s , data: { confirm: '¿Está seguro que desea eliminar la cita?' } , :class => "btn btn-danger btn-sm" %></td>
         </tr>
     <% end %>
     </tbody>

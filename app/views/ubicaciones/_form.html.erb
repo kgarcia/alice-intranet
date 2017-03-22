@@ -86,27 +86,27 @@
 
     $('#form-ubicacion').validate({
       rules: {
-        '<%= @parametro.class.to_s.downcase %>[ciudad_id]': {
+        '<%= @parametro.class.to_s.underscore %>[ciudad_id]': {
           required: true
         },
-        '<%= @parametro.class.to_s.downcase %>[sector_id]': {
+        '<%= @parametro.class.to_s.underscore %>[sector_id]': {
           required: true
         },
-        '<%= @parametro.class.to_s.downcase %>[tipo_ubicacion_id]': {
+        '<%= @parametro.class.to_s.underscore %>[tipo_ubicacion_id]': {
           required: true
         },
-        '<%= @parametro.class.to_s.downcase %>[descripcion]': {  
+        '<%= @parametro.class.to_s.underscore %>[descripcion]': {  
           required: true
         }
       },
       messages: {
-        '<%= @parametro.class.to_s.downcase %>[ciudad_id]': {
+        '<%= @parametro.class.to_s.underscore %>[ciudad_id]': {
           required: "Por favor Seleccione una opción"
         },
-        '<%= @parametro.class.to_s.downcase %>[sector_id]': {
+        '<%= @parametro.class.to_s.underscore %>[sector_id]': {
           required: "Por favor Seleccione una opción"
         },
-        '<%= @parametro.class.to_s.downcase %>[tipo_ubicacion_id]': {
+        '<%= @parametro.class.to_s.underscore %>[tipo_ubicacion_id]': {
           required: "Por favor Seleccione una opción"
         }
       }

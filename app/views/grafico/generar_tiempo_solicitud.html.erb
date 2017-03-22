@@ -1,315 +1,437 @@
-<div class="row">   
+<div class="row">
    <div class="col-lg-12">
       <div class="ibox float-e-margins">
           <div class="ibox-title">
               <h2 class="parametros-titulo"><%= "Reportes Estadisticos" %></h2>
           </div>
       </div>
-      <div class="ibox-content row">
+      <div class="ibox-content col-sm-12">
       	  <h2 class="parametros-titulo"><%= @titulo %></h2>
           <h4>Desde el <%= @fecha_inicio.strftime("%d/%m/%Y") %> hasta el <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
-		  <div id="container" width="500px" height="300px"></div>
-          <div class="row">
-            <%= link_to 'Atrás', "/grafico/tiempo_solicitud", :class => "btn btn-sm btn-success " %>
-          </div>
+		      <div id="container" width="500px" height="300px"></div>
       </div>
+      <script type="text/javascript">
 
+          <% if @tipo_entidad == 1.to_s %>
+              <% if @entidad == "" %>
+                  Highcharts.chart('container', {
+                      chart: {
+                          type: 'column'
+                      },
+                      title: {
+                          text: 'Tiempo promedio de Solicitud'
+                      },
+                      xAxis: {
+                          categories: [
+                              <% @especialidades.each do |especialidad| %>
+                                  '<%= especialidad.descripcion %>',
+                              <% end %>
+                          ],
+                          crosshair: true
+                      },
+                      yAxis: {
+                          min: 0,
+                          title: {
+                              text: 'Horas'
+                          }
+                      },
+                      tooltip: {
+                          headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                          pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                              '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                          footerFormat: '</table>',
+                          shared: true,
+                          useHTML: true
+                      },
+                      plotOptions: {
+                          column: {
+                              pointPadding: 0.2,
+                              borderWidth: 0
+                          }
+                      },
+                      series: [{
+                          name: 'Tiempo promedio de Solicitud',
+                          data: [
+                              <% @especialidades.each do |especialidad| %>
+                                  <%= especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
+                              <% end %>
+                          ]
 
+                      }]
+                  });
+              <% else %>
+                  Highcharts.chart('container', {
+                      chart: {
+                          type: 'column'
+                      },
+                      title: {
+                          text: 'Tiempo promedio de Solicitud'
+                      },
+                      xAxis: {
+                          categories: [
+                              '<%= @especialidad.descripcion %>',
+                          ],
+                          crosshair: true
+                      },
+                      yAxis: {
+                          min: 0,
+                          title: {
+                              text: 'Horas'
+                          }
+                      },
+                      tooltip: {
+                          headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                          pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                              '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                          footerFormat: '</table>',
+                          shared: true,
+                          useHTML: true
+                      },
+                      plotOptions: {
+                          column: {
+                              pointPadding: 0.2,
+                              borderWidth: 0
+                          }
+                      },
+                      series: [{
+                          name: 'Tiempo promedio de Solicitud de <%= @especialidad.descripcion %>',
+                          data: [
+                                  <%= @especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
+                          ]
 
+                      },{
+                          name: 'Tiempo promedio de Solicitud general',
+                          data: [
+                              <%= Especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
+                          ]
 
+                      }]
+                  });
+              <% end %>
+
+          <% elsif @tipo_entidad == 2.to_s %>
+              <% if @entidad == "" %>
+                  Highcharts.chart('container', {
+                      chart: {
+                          type: 'column'
+                      },
+                      title: {
+                          text: 'Tiempo promedio de Solicitud'
+                      },
+                      xAxis: {
+                          categories: [
+                              <% @tipoServicios.each do |tipoServicio| %>
+                                  '<%= tipoServicio.descripcion %>',
+                              <% end %>
+                          ],
+                          crosshair: true
+                      },
+                      yAxis: {
+                          min: 0,
+                          title: {
+                              text: 'Horas'
+                          }
+                      },
+                      tooltip: {
+                          headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                          pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                              '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                          footerFormat: '</table>',
+                          shared: true,
+                          useHTML: true
+                      },
+                      plotOptions: {
+                          column: {
+                              pointPadding: 0.2,
+                              borderWidth: 0
+                          }
+                      },
+                      series: [{
+                          name: 'Tiempo promedio de Solicitud',
+                          data: [
+                              <% @tipoServicios.each do |tipoServicio| %>
+                                  <%= tipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
+                              <% end %>
+                          ]
+
+                      }]
+                  });
+              <% else %>
+                  Highcharts.chart('container', {
+                      chart: {
+                          type: 'column'
+                      },
+                      title: {
+                          text: 'Tiempo promedio de Solicitud'
+                      },
+                      xAxis: {
+                          categories: [
+                              '<%= @tipoServicio.descripcion %>',
+                          ],
+                          crosshair: true
+                      },
+                      yAxis: {
+                          min: 0,
+                          title: {
+                              text: 'Horas'
+                          }
+                      },
+                      tooltip: {
+                          headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                          pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                              '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                          footerFormat: '</table>',
+                          shared: true,
+                          useHTML: true
+                      },
+                      plotOptions: {
+                          column: {
+                              pointPadding: 0.2,
+                              borderWidth: 0
+                          }
+                      },
+                      series: [{
+                          name: 'Tiempo promedio de Solicitud de <%= @tipoServicio.descripcion%>',
+                          data: [
+                                  <%= @tipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
+                          ]
+
+                      },{
+                          name: 'Tiempo promedio de Solicitud general',
+                          data: [
+                              <%= TipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
+                          ]
+
+                      }]
+                  });
+              <% end %>
+          <% else %>
+              <% if @entidad == "" %>
+                  Highcharts.chart('container', {
+                      chart: {
+                          type: 'column'
+                      },
+                      title: {
+                          text: 'Tiempo promedio de Solicitud'
+                      },
+                      xAxis: {
+                          categories: [
+                              <% @servicios.each do |servicio| %>
+                                  '<%= servicio.descripcion %>',
+                              <% end %>
+                          ],
+                          crosshair: true
+                      },
+                      yAxis: {
+                          min: 0,
+                          title: {
+                              text: 'Horas'
+                          }
+                      },
+                      tooltip: {
+                          headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                          pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                              '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                          footerFormat: '</table>',
+                          shared: true,
+                          useHTML: true
+                      },
+                      plotOptions: {
+                          column: {
+                              pointPadding: 0.2,
+                              borderWidth: 0
+                          }
+                      },
+                      series: [{
+                          name: 'Tiempo promedio de Solicitud',
+                          data: [
+                              <% @servicios.each do |servicio| %>
+                                  <%= servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
+                              <% end %>
+                          ]
+
+                      }]
+                  });
+              <% else %>
+                  Highcharts.chart('container', {
+                      chart: {
+                          type: 'column'
+                      },
+                      title: {
+                          text: 'Tiempo promedio de Solicitud'
+                      },
+                      xAxis: {
+                          categories: [
+                              '<%= @servicio.descripcion %>',
+                          ],
+                          crosshair: true
+                      },
+                      yAxis: {
+                          min: 0,
+                          title: {
+                              text: 'Horas'
+                          }
+                      },
+                      tooltip: {
+                          headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                          pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                              '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                          footerFormat: '</table>',
+                          shared: true,
+                          useHTML: true
+                      },
+                      plotOptions: {
+                          column: {
+                              pointPadding: 0.2,
+                              borderWidth: 0
+                          }
+                      },
+                      series: [{
+                          name: 'Tiempo promedio de Solicitud de <%= @servicio.descripcion %>',
+                          data: [
+                                  <%= @servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
+                          ]
+
+                      },{
+                          name: 'Tiempo promedio de Solicitud general',
+                          data: [
+                              <%= Servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
+                          ]
+
+                      }]
+                  });
+              <% end %>
+          <% end %>
+      </script>
+      <div class="col-sm-12 ibox-content" style="margin-top: 15px">
+        <h3>Tabla de resultados</h3>
+        <% if @tipo_entidad == 1.to_s %>
+            <% if @entidad == "" %>
+            <div class="col-sm-12">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <td><strong>Especialidad</strong></td>
+                        <td><strong>Tiempo promedio de solicitud</strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @especialidades.each do |especialidad| %>
+                          <tr>
+                              <td><strong><%= especialidad.descripcion %></strong></td>
+                              <td><%= especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %></td>
+                          </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <% else %>
+            <div class="col-sm-12 ">
+              <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <td><strong>Especialidad</strong></td>
+                      <td><strong>Tiempo promedio de solicitud de <%= @especialidad.descripcion %></strong></td>
+                      <td><strong>Tiempo promedio de solicitud general</strong></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @especialidades.each do |especialidad| %>
+                        <tr>
+                            <td><strong><%= especialidad.descripcion %></strong></td>
+                            <td><%= @especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %></td>
+                            <td><%= Especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %></td>
+                        </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+            </div>
+            <% end %>
+
+        <% elsif @tipo_entidad == 2.to_s %>
+            <% if @entidad == "" %>
+            <div class="col-sm-12 ">
+              <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <td><strong>Tipo Servicio</strong></td>
+                      <td><strong>Tiempo promedio de solicitud</strong></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @tipoServicios.each do |tipoServicio| %>
+                        <tr>
+                            <td><strong><%= tipoServicio.descripcion %></strong></td>
+                            <td><%= tipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %></td>
+                        </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+            </div>
+            <% else %>
+            <div class="col-sm-12 " style="margin-top: 15px">
+              <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <td><strong>Tipo Servicio</strong></td>
+                      <td><strong>Tiempo promedio de solicitud de <%= @tipoServicio.descripcion %></strong></td>
+                      <td><strong>Tiempo promedio de solicitud general</strong></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td><strong><%= @tipoServicio.descripcion %></strong></td>
+                          <td><%= @tipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= TipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %></td>
+                      </tr>
+                  </tbody>
+              </table>
+            </div>
+            <% end %>
+        <% else %>
+            <% if @entidad == "" %>
+            <div class="col-sm-12 " style="margin-top: 15px">
+              <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <td><strong>Servicio</strong></td>
+                      <td><strong>Tiempo promedio de solicitud</strong></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @servicios.each do |servicio| %>
+                        <tr>
+                            <td><strong><%= servicio.descripcion %></strong></td>
+                            <td><%= servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %></td>
+                        </tr>
+                      <% end %>
+                  </tbody>
+              </table>
+            </div>
+            <% else %>
+            <div class="col-sm-12 ">
+              <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <td><strong>Servicio</strong></td>
+                      <td><strong>Tiempo promedio de solicitud de <%= @servicio.descripcion %></strong></td>
+                      <td><strong>Tiempo promedio de solicitud general</strong></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                        <td><strong><%= @servicio.descripcion %></strong></td>
+                        <td><%= @servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %></td>
+                        <td><%= Servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %></td>
+                    </tr>
+                  </tbody>
+              </table>
+            </div>
+            <% end %>
+        <% end %>
+      <div class="col-sm-12 " style="margin-top: 15px; padding-bottom: 30px">
+        <%= link_to 'Atrás', "/grafico/tiempo_solicitud", :class => "btn btn-sm btn-success " %>
+      </div>
+    </div>
   </div>
 </div>
-
-<script type="text/javascript">
-	       
-    <% if @tipo_entidad == 1.to_s %>
-        <% if @entidad == "" %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Tiempo promedio de Solicitud'
-                },
-                xAxis: {
-                    categories: [
-                        <% @especialidades.each do |especialidad| %>
-                            '<%= especialidad.descripcion %>',
-                        <% end %>
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Horas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Tiempo promedio de Solicitud',
-                    data: [
-                        <% @especialidades.each do |especialidad| %>
-                            <%= especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }]
-            });
-        <% else %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Tiempo promedio de Solicitud'
-                },
-                xAxis: {
-                    categories: [
-                        '<%= @especialidad.descripcion %>',
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Horas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Tiempo promedio de Solicitud de <%= @especialidad.descripcion %>',
-                    data: [
-                            <%= @especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                },{
-                    name: 'Tiempo promedio de Solicitud general',
-                    data: [
-                        <%= Especialidad.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }]
-            });
-        <% end %>
-
-    <% elsif @tipo_entidad == 2.to_s %>
-        <% if @entidad == "" %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Tiempo promedio de Solicitud'
-                },
-                xAxis: {
-                    categories: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            '<%= tipoServicio.descripcion %>',
-                        <% end %>
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Horas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Tiempo promedio de Solicitud',
-                    data: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            <%= tipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }]
-            });
-        <% else %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Tiempo promedio de Solicitud'
-                },
-                xAxis: {
-                    categories: [
-                        '<%= @tipoServicio.descripcion %>',
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Horas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Tiempo promedio de Solicitud de <%= @tipoServicio.descripcion%>',
-                    data: [
-                            <%= @tipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                },{
-                    name: 'Tiempo promedio de Solicitud general',
-                    data: [
-                        <%= TipoServicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }]
-            });
-        <% end %>
-    <% else %>
-        <% if @entidad == "" %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Tiempo promedio de Solicitud'
-                },
-                xAxis: {
-                    categories: [
-                        <% @servicios.each do |servicio| %>
-                            '<%= servicio.descripcion %>',
-                        <% end %>
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Horas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Tiempo promedio de Solicitud',
-                    data: [
-                        <% @servicios.each do |servicio| %>
-                            <%= servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }]
-            });
-        <% else %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Tiempo promedio de Solicitud'
-                },
-                xAxis: {
-                    categories: [
-                        '<%= @servicio.descripcion %>',
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Horas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Tiempo promedio de Solicitud de <%= @servicio.descripcion %>',
-                    data: [
-                            <%= @servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                },{
-                    name: 'Tiempo promedio de Solicitud general',
-                    data: [
-                        <%= Servicio.contarTiempoSolicitud(@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }]
-            });
-        <% end %>
-    <% end %> 
-</script>

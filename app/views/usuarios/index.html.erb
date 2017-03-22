@@ -6,7 +6,7 @@
               </div>
           </div>
 <div class="ibox-content">
-<%= link_to 'Registrar', "/usuarios/sign_up", :class => "btn btn-primary btn-sm" %>
+<%= link_to 'Registrar', "/usuarios/registrar", :class => "btn btn-primary btn-sm" %>
  <br><br> 
 
  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
@@ -22,7 +22,10 @@
           <tr>
             <td><%= usuario.rol.descripcion %></td>
             <td><%= usuario.email%></td>
-        
+            <td>
+                    <%= link_to 'Editar', "/usuarios/editar/"+usuario.id.to_s, :class => "btn btn-warning btn-sm " %>
+                    <%= link_to 'Eliminar', "/usuarios/eliminar/"+usuario.id.to_s, :method => :delete, data: { confirm: '¿Estás seguro?' } , :class => "btn btn-danger btn-sm " %>
+                  </td>
           </tr>
       <% end %>
     </tbody>

@@ -88,8 +88,9 @@ class Calificacion < ApplicationRecord
     total = 0
     @especialidades = Especialidad.all
     @especialidades.each do |especialidad|
-      total = Calificacion.contarCalificacionesPorEspecialidad(tipo_turno, especialidad.id, calificacion, fecha_inicio, fecha_fin)
+      total = total + Calificacion.contarCalificacionesPorEspecialidad(tipo_turno, especialidad.id, calificacion, fecha_inicio, fecha_fin)
     end
+    puts "DEBUG... " + total.inspect
     return total
   end
 

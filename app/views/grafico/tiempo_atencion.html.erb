@@ -10,7 +10,7 @@
             <%= form_tag "/grafico/tiempo_atencion", method: "post", :html => {:class => 'form-horizontal' } do |f| %>
                     <br>
                     <div class="field form-group row">
-                      <label class="col-lg-2 control-label">Seleccione la entidad:</label>
+                      <label class="col-lg-2 control-label">Seleccione el tipo de entidad:</label>
                       <div class="col-lg-10">
                         <%= select_tag("tipo_entidad", options_for_select({ "Especialidad" => 1,"Tipo de Servicio" => 2,"Servicio" => 3 }, 1),{:class => "form-control"}) %>
                       </div>
@@ -29,7 +29,7 @@
                     <div class="field form-group row">
                       <label class="col-lg-2 control-label">Rango de Fechas:</label>
                       <div class="col-lg-10">
-                        <%= text_field_tag "fecha","" ,:class => "daterange form-control" %>
+                        <%= text_field_tag "fecha","" ,:class => "daterange form-control", :required => true %>
                       </div>
                       
                     </div>
