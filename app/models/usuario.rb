@@ -1,7 +1,7 @@
 class Usuario < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,:confirmable,
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :rol
   belongs_to :persona
@@ -12,6 +12,8 @@ class Usuario < ApplicationRecord
   before_create :set_default_rol
 
   before_save :save_persona
+  has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
+    validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
   # or 
   # before_validation :set_default_role 
 

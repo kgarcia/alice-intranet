@@ -1,6 +1,6 @@
 class UsuariosController < ApplicationController
 	def index
-    	@usuarios = Usuario.all
+    	@usuarios = Usuario.where(:estatus => 1)
   	end
 
     def solicitante
@@ -42,8 +42,85 @@ class UsuariosController < ApplicationController
 	    end
   	end
 
+    def registrar
+      @usuario = Usuario.new
+      @persona = Persona.new
+      @sexos = Sexo.where(:estatus => 1)
+      @roles = Rol.all
+      @servicios = Servicio.where(:estatus => 1)
+    end
+
+    def guardar
+      @persona = Persona.new(persona_params)
+      @persona.save
+      @usuario = Usuario.new(sign_up_params)
+      if @usuario.save
+        format.html { redirect_to "/usuarios", notice: 'El registro ha sido creado exitosamente.' }
+        format.json { render :editar, status: :created, location: @usuario }
+      else
+        format.html { render :registrar }
+        format.json { render json: @usuario.errors, status: :unprocessable_entity }
+      end
+    end
+
+    def editar
+      @usuario = Usuario.find(params[:id])
+      @persona = @usuario.persona
+      @sexos = Sexo.where(:estatus => 1)
+      @roles = Rol.all
+      @servicios = Servicio.where(:estatus => 1)
+    end
+
+    def modificar
+      @usuario = Usuario.find(params[:usuario_id])
+      @persona = @usuario.persona
+      @persona.update(persona_params)
+      respond_to do |format|
+        if @usuario.update(sign_up_params)
+          format.html { redirect_to "/usuarios", info: 'El registro ha sido actualizado exitosamente.' }
+          format.json { render :editar, status: :ok, location: @usuario }
+        else
+          format.html { render :editar }
+          format.json { render json: @usuario.errors, status: :unprocessable_entity }
+        end
+      end
+
+    end
+
+    def cambiar_clave
+      @usuario = current_usuario
+    end
+
+    def confirmar_clave
+      @usuario = current_usuario
+      respond_to do |format|
+        if @usuario.update(sign_up_params)
+          
+          format.html { redirect_to "/perfil", info: 'El perfil ha sido actualizado exitosamente.' }
+          format.json { render :perfil, status: :ok, location: @usuario }
+        else
+          format.html { render :perfil }
+          format.json { render json: @usuario.errors, status: :unprocessable_entity }
+        end
+      end
+
+    end
+
+  def eliminar
+    @usuario = Usuario.find(params[:id])
+    @usuario.estatus = 2
+    @usuario.save
+    respond_to do |format|
+      format.html { redirect_to "/usuarios", alert: 'El registro ha sido eliminado exitosamente.' }
+      format.json { head :no_content }
+    end
+  end
+
   	def persona_params
       params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento,:sexo_id)
+    end
+    def sign_up_params
+      params.require(:usuario).permit(:persona_id, :email, :password, :password_confirmation, :rol_id, :servicio_id)
     end
 
     

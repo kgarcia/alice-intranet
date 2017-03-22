@@ -554,6 +554,11 @@ TipoNoticia.find_or_create_by(:descripcion => 'Sobre Servicio', :estatus => 1)
 TipoNoticia.find_or_create_by(:descripcion => 'Informativa', :estatus => 1)
 TipoNoticia.find_or_create_by(:descripcion => 'Especiales', :estatus => 1)
 
+TipoNotificacion.find_or_create_by(:descripcion => 'Citas', :estatus => 1)
+TipoNotificacion.find_or_create_by(:descripcion => 'Servicio', :estatus => 1)
+TipoNotificacion.find_or_create_by(:descripcion => 'Evento', :estatus => 1)
+TipoNotificacion.find_or_create_by(:descripcion => 'Eventualidad', :estatus => 1)
+
 Noticia.find_or_create_by(:titulo => 'Beneficios del ejercicio físico', :descripcion => 'El ejercicio físico vigoroso aporta mayores beneficios para la salud cardiovascular que la práctica de ejercicio leve o moderado ', :tipo_noticia => TipoNoticia.find(2), :estatus => 1, :contenido => 'Los resultados de la investigación, realizada por especialistas de la Unidad Quirúrgica “La Trinidad“ y de la Universidad Controocidental “Lisandro Alvarado“ con una muestra de más de 10.000 personas, se han publicado en la revista científica American Journal of Preventive Medicine')
 Noticia.find_or_create_by(:titulo => 'Congreso Nacional de Periodismo Sanitario', :descripcion => 'La Unidad Quirúrgica “La Trinidad“, sede del próximo Congreso Nacional de Periodismo Sanitario', :tipo_noticia => TipoNoticia.find(2), :estatus => 1, :contenido => 'Del próximo 31 de marzo al 2 de abril, Barquisimeto acogerá el simposio que organiza anualmente la Asociación Nacional de Informadores de la Salud ')
 Noticia.find_or_create_by(:titulo => 'Nuevo anticuerpo para tratar el mieloma múltiple', :descripcion => 'Desarrollan un nuevo anticuerpo para tratar el mieloma múltiple con elevada eficacia demostrada en estudios pre-clínicos', :tipo_noticia => TipoNoticia.find(1), :estatus => 1, :contenido => 'Investigadores del Laboratorio “Alemán Giménez“ desarrollan un fármaco altamente especifico que estimula la acción antitumoral de las células T del sistema inmune en pacientes con mieloma múltiple')
