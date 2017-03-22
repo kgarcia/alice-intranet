@@ -78,7 +78,9 @@ class Turno < ApplicationRecord
    @horas_cita = Array.new 
          self.arreglo_horario_citas.each do |hora|
                @fecha = DateTime.new(@d.year, @d.month, @d.day, hora.hour, hora.min)  
+               puts @fecha
             if !Cita.where(turno_id: self.id ,:fecha => @fecha,:estatus => 1).exists?
+              puts 'push'
               @horas_cita.push(hora: @fecha)
             end
             
