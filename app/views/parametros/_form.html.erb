@@ -62,7 +62,7 @@
 
     $('#form-generic').validate({
       rules: {
-        '<%= @parametro.class.to_s.downcase %>[descripcion]': {  
+        '<%= @parametro.class.to_s.underscore %>[descripcion]': {  
             required: true,
             solo_letras: true
         }
