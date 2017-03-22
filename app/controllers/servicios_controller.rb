@@ -9,7 +9,7 @@ if params[:slug].nil?
       @servicios = Servicio.where(:estatus => 1)
     else
       @tipo_servicio_id = TipoServicio.where(slug: params["slug"]).take.id
-      @servicios = Servicio.where(tipo_servicio_id: @tipo_servicio_id, estatus: 1,especialista_id: params[:especialista])
+      @servicios = Servicio.where(tipo_servicio_id: @tipo_servicio_id, estatus: 1)
       puts '@@@@@!asdq'
       puts @servicios
     end
