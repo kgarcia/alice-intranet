@@ -1,11 +1,11 @@
-class CitasController < ApplicationController
+  class CitasController < ApplicationController
   before_action :set_cita, only: [:show, :edit, :update, :destroy]
 
   # GET /citas
   # GET /citas.json
   def index
     if params[:persona].nil?
-      @lista = Cita.where({:persona_id => current_usuario.persona_id, :estatus => 1})
+      @lista = Cita.where({:usuario_id => current_usuario.id, :estatus => 1})
     else
       @lista = Cita.where({:persona_id => params[:persona]})
     end
@@ -86,7 +86,7 @@ class CitasController < ApplicationController
   end
 
   def historial
-    @histo = Cita.where({:persona_id => current_usuario.persona_id, :estatus => [3,4,5]})
+    @histo = Cita.where({:usuario_id => current_usuario.id, :estatus => [3,4,5]})
   end
 
   def cancelarCita
@@ -131,7 +131,7 @@ class CitasController < ApplicationController
   end
 
   def chequear
-    @citas = Cita.where(:estatus => 1)
+    @citas = Cita.joins(turno: { horario: :servicio } ).where("horarios.servicio_id" => current_usuario.servicio_id ).where(:estatus => 1)
   end
 
   def chequearCita
@@ -154,7 +154,7 @@ class CitasController < ApplicationController
   end
 
   def finalizar
-    @citas = Cita.where(:estatus => 2)
+    @citas = Cita.joins(turno: { horario: :servicio } ).where("horarios.servicio_id" => current_usuario.servicio_id ).where(:estatus => 2)
   end
 
   def finalizarCita

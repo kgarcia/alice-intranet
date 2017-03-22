@@ -33,15 +33,13 @@ class CategoriasController < ApplicationController
 
   # GET /categorias/new
   def new
-    @parametro = Categoria.new
-    render "parametros/new"
+    @categoria = Categoria.new
   end
 
   # GET /categorias/1/edit
   def edit
-    @parametro = Categoria.friendly.find(params[:id])
+    @categoria = Categoria.friendly.find(params[:id])
 
-    render "parametros/edit"
   end
 
   # POST /categorias
@@ -93,6 +91,6 @@ class CategoriasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def categoria_params
-      params.require(:categoria).permit(:descripcion, :estatus)
+      params.require(:categoria).permit(:descripcion, :estatus, :foto)
     end
 end

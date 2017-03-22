@@ -5,7 +5,16 @@
                   <h2 class="parametros-titulo"><%= "Mi Perfil" %></h2>
               </div>
           </div>
+          
+    
     <div class="ibox-content">
+      <div class="row">
+        <div class="col-sm-3 col-sm-offset-9">
+          <%= link_to 'Cambiar clave', '/usuarios/cambiar_clave', :class => "btn btn-sm btn-warning " %> 
+          <br><br>
+        </div>
+          
+      </div>
       <%= form_for '/perfil', :html => {:class => 'form-horizontal'} do |f| %>
           <% if @usuario.errors.any? %>
               <div id="error_explanation">
@@ -21,41 +30,53 @@
           <% end %>
           <%= hidden_field_tag :usuario_id, @usuario.id %>
         
-            <%= render 'personas/datos_persona', persona: @persona %>
+              <%= fields_for @persona do |u| %>
+                  <div class="form-group row"><label class="col-lg-2 control-label">Cédula</label>
+
+                      <div class="col-lg-10"><%= u.text_field :cedula,:required =>true, :class => "form-control", :readonly => true %>
+                       </div>
+                    </div>
+                   <div class="form-group row"><label class="col-lg-2 control-label">Nombre</label>
+
+                      <div class="col-lg-10"><%= u.text_field :nombre,:required =>true, :class => "form-control" %>
+                      </div>
+                  </div>
+                  <div class="form-group row"><label class="col-lg-2 control-label">Apellido</label>
+                      <div class="col-lg-10"><%= u.text_field :apellido,:required =>true, :class => "form-control" %>
+                      </div>
+                  </div>
+
+                   <div class="form-group row"><label class="col-lg-2 control-label">Teléfono</label>
+                      <div class="col-lg-10"><%= u.text_field :telefono, :required => true, :input_html => { :maxlength => 14 }, :data => { "mask" => "999-999-9999"  }, :class => "form-control" %>
+                      </div>
+                  </div>
+
+                   <div class="form-group row"><label class="col-lg-2 control-label">Dirección</label>
+                      <div class="col-lg-10"><%= u.text_field :direccion, :class => "form-control" %>
+                      </div>
+                  </div>
+
+                  <div class="form-group row fecha-n-persona">
+                    <label class="col-lg-2 control-label">Fecha de Nacimiento</label>
+                    <div class="input-group date col-lg-10">
+                        <span class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </span>
+                      <%= u.datetime_select :fecha_nacimiento,:required =>true, :class => "form-control", "data-provide" => "date-picker" %>
+                    </div>
+                  </div>
+
+                  <div class="field form-group row">
+                    <label class="col-lg-2 control-label">Sexo</label>
+                    <div class="col-lg-10"><%= u.collection_select(:sexo_id, @sexos, :id, :descripcion,{}, :class => "form-control" )%></div>
+                  </div>
+        <% end %>
 
 
          
-                  
-      <% end %>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="row">   
-   <div class="col-lg-6 col-lg-offset-3">
-   <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Evento" %></h2>
-              </div>
-          </div>
-          <div class="ibox-content">
-            
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#datos">Datos Básicos</a></li>
-                    <li><a data-toggle="tab" href="#texto">Cuenta</a></li>
-                  </ul>
-
-                  <div class="tab-content">
-
-                  
-                    <div id="datos" class="tab-pane fade in active">
-
-                     <%= render 'personas/datos_persona', persona: @persona %>  
-                      <div class="form-group">
+          <div class="form-group">
                       <div class="col-lg-offset-3 col-lg-2">
-                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                           <%= submit_tag "Guardar", :class => "btn btn-sm btn-primary" %>
                       </div>
                         <div class="col-lg-2">
                         <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
@@ -63,55 +84,11 @@
                       <div class="col-lg-2">
                       <%= link_to 'Atras', '/citas', :class => "btn btn-sm btn-success" %>                          
                       </div>
-                  </div>
-
-                     </div>
-
-                  </div>
-
-                </div>
-
-            
-            </div>
-
-                    <div id="texto" class="tab-pane fade in">
-
-
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <p>
-      <%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %>
-    </p>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password %>
-  </div>
-
-  <div><%= f.submit t('.update') %></div>
-<% end %>
-
-           
-                  
+                  </div>        
+      <% end %>
+      
+    </div>
   </div>
 </div>
+
 

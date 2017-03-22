@@ -1,245 +1,487 @@
-<div class="row">   
-   <div class="col-lg-10 col-lg-offset-1">
-          <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Perfil" %></h2>
-              </div>
-          </div>
-          <div class="ibox-content">
-
-          <%= form_for @perfil, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
-                  <% if @perfil.errors.any? %>
-                    <div id="error_explanation">
-                      <h2><%= pluralize(@perfil.errors.count, "error") %> prohibited this parametro from being saved:</h2>
-
-                      <ul>
-                      <% @perfil.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                      <% end %>
-                      </ul>
-                    </div>
-                  <% end %>
-
-              <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#datos">Descripción</a></li>
-                <li><a data-toggle="tab" href="#perfil-persona">Perfil de Pacientes</a></li>
-                <li><a data-toggle="tab" href="#perfil-medico">Antecedentes Médicos</a></li>
-                <li><a data-toggle="tab" href="#perfil-otros">Otros</a></li>
-              </ul>
-
-              <div class="tab-content">
-
-                <div id="datos" class="tab-pane fade in active">
-                  <br>
-                  <div class="form-group">
-                      <label class="col-lg-2 control-label">Descripción</label>
-
-                      <div class="col-lg-10"><%= f.text_field :descripcion, :required =>true,:class => "form-control" %>
-                       </div>
-                    </div>
-
-                </div>
-
-                <div id="perfil-persona" class="tab-pane fade">
-                  <br>
-                  <ul class="nav nav-tabs">
-                    <li><a data-toggle="tab" href="#estado_civiles">Estado Civil</a></li>
-                    <li><a data-toggle="tab" href="#ocupaciones">Ocupaciones</a></li>
-                    <li><a data-toggle="tab" href="#profesiones">Profesiones</a></li>
-                    <li><a data-toggle="tab" href="#sexos">Sexo</a></li>
-                    <li><a data-toggle="tab" href="#edades">Edades</a></li>
-                    <li><a data-toggle="tab" href="#pesos">Pesos</a></li>
-                  </ul>
-
-                  <div class="tab-content">
-
-                    <div id="estado_civiles" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @estado_civiles.each do |estado_civil| %>
-                          <div class="col-sm-3">
-                              <%= check_box_tag('estado_civiles[]', estado_civil.id, @perfil.estado_civiles.include?(estado_civil)) %> <%= estado_civil.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                    <div id="ocupaciones" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @ocupaciones.each do |ocupacion| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('ocupaciones[]', ocupacion.id, @perfil.ocupaciones.include?(ocupacion)) %> <%= ocupacion.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                    <div id="profesiones" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @profesiones.each do |profesion| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('profesiones[]', profesion.id, @perfil.profesiones.include?(profesion)) %> <%= profesion.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                    <div id="sexos" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @sexos.each do |sexo| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('sexos[]', sexo.id, @perfil.sexos.include?(sexo)) %> <%= sexo.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                    <div id="edades" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @rangoEdades.each do |edad| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('rango_edades[]', edad.id, @perfil.rango_edades.include?(edad)) %> <%= edad.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                    <div id="pesos" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @rangoPesos.each do |peso| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('rango_pesos[]', peso.id, @perfil.rango_pesos.include?(peso)) %> <%= peso.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                  </div>
-                </div>
-
-                <div id="perfil-medico" class="tab-pane fade">
-                  <br>
-                  <ul class="nav nav-tabs">
-                    <li><a data-toggle="tab" href="#cirugias">Cirugías</a></li>
-                    <li><a data-toggle="tab" href="#discapacidades">Discapacidades</a></li>
-                    <li><a data-toggle="tab" href="#grupo_sanguineos">Grupos Sanguíneos</a></li>
-                    <li><a data-toggle="tab" href="#lesiones">Lesiones</a></li>
-                    <li><a data-toggle="tab" href="#patologias">Patologías</a></li>
-                    <li><a data-toggle="tab" href="#vacunas">Vacunas</a></li>
-                  </ul>
-
-                  <div class="tab-content">
-
-                    <div id="cirugias" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @cirugias.each do |cirugia| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('cirugias[]', cirugia.id, @perfil.cirugias.include?(cirugia)) %> <%= cirugia.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                    <div id="discapacidades" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @discapacidades.each do |discapacidad| %>
-                          <div class="col-sm-3 ">
-                            <%= check_box_tag('discapacidades[]', discapacidad.id, @perfil.discapacidades.include?(discapacidad)) %> <%= discapacidad.descripcion %>                        
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                    <div id="grupo_sanguineos" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @grupo_sanguineos.each do |grupo_sanguineo| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('grupo_sanguineos[]', grupo_sanguineo.id, @perfil.grupo_sanguineos.include?(grupo_sanguineo)) %> <%= grupo_sanguineo.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                    <div id="lesiones" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @lesiones.each do |lesion| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('lesiones[]', lesion.id, @perfil.lesiones.include?(lesion)) %> <%= lesion.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                    <div id="patologias" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @patologias.each do |patologia| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('patologias[]', patologia.id, @perfil.patologias.include?(patologia)) %> <%= patologia.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-
-                    <div id="vacunas" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @vacunas.each do |vacuna| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('vacunas[]', vacuna.id, @perfil.vacunas.include?(vacuna)) %> <%= vacuna.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                  </div>
-                </div>
-
-                <div id="perfil-otros" class="tab-pane fade">
-                  <br>
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#adicciones">Adicciones</a></li>
-                    <li><a data-toggle="tab" href="#habitos">Hábitos</a></li>
-                  </ul>
-
-                  <div class="tab-content">
-                    <div id="adicciones" class="tab-pane fade in active">
-                      <div class="container-fluid">
-                        <% @adicciones.each do |adiccion| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('adicciones[]', adiccion.id, @perfil.adicciones.include?(adiccion)) %> <%= adiccion.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                    <div id="habitos" class="tab-pane fade in">
-                      <div class="container-fluid">
-                        <% @habitos.each do |habito| %>
-                          <div class="col-sm-3">
-                            <%= check_box_tag('habitos[]', habito.id, @perfil.habitos.include?(habito)) %> <%= habito.descripcion %>
-                          </div>
-                        <% end %>
-                      </div>  
-                    </div>
-
-                  </div>
-                </div>
-
-
-              </div>
-
-          
-             <div class="form-group">
-                      <div class="col-lg-offset-3 col-lg-2">
-                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
-                      </div>
-                        <div class="col-lg-2">
-                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
-                        </div>
-                      <div class="col-lg-2">
-                      <%= link_to 'Atrás',perfiles_path, :class => "btn btn-sm btn-success" %>                          
-                      </div>
-                  </div>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong><%= @perfil.class.titulo %></strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li>
+          <a href="/<%= perfiles_path %>">Listado</a>
+        </li>
+        <li class="active">
+          <% if @perfil.new_record? %>
+            <strong class="text-blue">Registrar <%= @perfil.class.titulo %></strong>
+          <% else %>
+            <strong class="text-blue">Editar <%= @perfil.class.titulo %></strong>
           <% end %>
-          </div>
+        </li>
+    </ol>
   </div>
 </div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong><%= @perfil.class.titulo %></strong></h4>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+
+              <%= form_for @perfil, :html => {:class => '', :multipart => true , :id => 'form-perfil'}, :form_to_validate => @perfil.class, role: 'form' do |f| %>
+                          
+                  <h3>Descripción</h3>
+                  <fieldset class="step-content">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <label class="control-label">Descripción <label for="<%= @perfil.class.name.underscore %>_descripcion" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                          <%= f.text_field :descripcion, :required =>true,:class => "form-control" %>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <h3>Perfil de Pacientes</h3>
+                  <fieldset class="step-content">
+                    <div class="tabs-container">
+                      <ul class="pacientes nav nav-tabs">
+                        <li class="active" style="width: 16.667%;">
+                          <a aria-expanded="true" data-toggle="tab" href="#tab-estado-civil" class="text-center">Estado Civil</a>
+                        </li>
+                        <li style="width: 16.667%;">
+                          <a aria-expanded="false" data-toggle="tab" href="#tab-ocupaciones" class="text-center">Ocupaciones</a>
+                        </li>
+                        <li style="width: 16.667%;">
+                          <a aria-expanded="false" data-toggle="tab" href="#tab-profesiones" class="text-center">Profesiones</a>
+                        </li>
+                        <li style="width: 16.667%;">
+                          <a aria-expanded="false" data-toggle="tab" href="#tab-sexo" class="text-center">Sexo</a>
+                        </li>
+                        <li style="width: 16.667%;">
+                          <a aria-expanded="false" data-toggle="tab" href="#tab-edades" class="text-center">Edades</a>
+                        </li>
+                        <li style="width: 16.667%;">
+                          <a aria-expanded="false" data-toggle="tab" href="#tab-pesos" class="text-center">Pesos</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        <div id="tab-estado-civil" class="tab-pane active">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione un Estado Civil: <label for="estado_civiles[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @estado_civiles.each do |estado_civil| %>
+                                    <div class="col-sm-3">
+                                        <%= check_box_tag('estado_civiles[]', estado_civil.id, @perfil.estado_civiles.include?(estado_civil)) %> <%= estado_civil.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div id="tab-ocupaciones" class="tab-pane">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione una Ocupación: <label for="ocupaciones[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @ocupaciones.each do |ocupacion| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('ocupaciones[]', ocupacion.id, @perfil.ocupaciones.include?(ocupacion)) %> <%= ocupacion.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div> 
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+
+                        <div id="tab-profesiones" class="tab-pane">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione una Profesión: <label for="profesiones[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @profesiones.each do |profesion| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('profesiones[]', profesion.id, @perfil.profesiones.include?(profesion)) %> <%= profesion.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div> 
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div id="tab-sexo" class="tab-pane">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione un Sexo: <label for="sexos[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @sexos.each do |sexo| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('sexos[]', sexo.id, @perfil.sexos.include?(sexo)) %> <%= sexo.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div> 
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div id="tab-edades" class="tab-pane">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione una Opción: <label for="rango_edades[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @rangoEdades.each do |edad| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('rango_edades[]', edad.id, @perfil.rango_edades.include?(edad)) %> <%= edad.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div> 
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div id="tab-pesos" class="tab-pane">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione una Opción: <label for="rango_pesos[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @rangoPesos.each do |peso| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('rango_pesos[]', peso.id, @perfil.rango_pesos.include?(peso)) %> <%= peso.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <h3>Antecedentes Médicos</h3>
+                  <fieldset class="step-content">
+                    <div class="tabs-container">
+                      <ul class="antecedentes nav nav-tabs">
+                        <li style="width: 16.667%;" class="active">
+                          <a aria-expanded="true" class="text-center" data-toggle="tab" href="#tab-cirugias">Cirugías
+                          </a>
+                        </li>
+                        <li style="width: 16.667%;">
+                          <a aria-expanded="false" class="text-center" data-toggle="tab" href="#tab-discapacidades">Discapacidades
+                          </a>
+                        </li>
+                        <li style="width: 16.667%;">
+                          <a aria-expanded="false" class="text-center" data-toggle="tab" href="#tab-grupo-sanguineo">Grupos Sanguíneos
+                          </a>
+                        </li>
+                        <li style="width: 16.667%;">
+                          <a aria-expanded="false" class="text-center" data-toggle="tab" href="#tab-lesiones">Lesiones
+                          </a>
+                        </li>
+                        <li style="width: 16.667%;">
+                          <a aria-expanded="false" class="text-center" data-toggle="tab" href="#tab-patologias">Patologías
+                          </a>
+                        </li>
+                        <li style="width: 16.667%;">
+                          <a aria-expanded="false" class="text-center" data-toggle="tab" href="#tab-vacunas">Vacunas
+                          </a>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        <div id="tab-cirugias" class="tab-pane active">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione una Cirugía: <label for="cirugias[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @cirugias.each do |cirugia| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('cirugias[]', cirugia.id, @perfil.cirugias.include?(cirugia)) %> <%= cirugia.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div>    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-discapacidades" class="tab-pane">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione una Discapacidad: <label for="discapacidades[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @discapacidades.each do |discapacidad| %>
+                                    <div class="col-sm-3 ">
+                                      <%= check_box_tag('discapacidades[]', discapacidad.id, @perfil.discapacidades.include?(discapacidad)) %> <%= discapacidad.descripcion %>                        
+                                    </div>
+                                  <% end %>
+                                </div>    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-grupo-sanguineo" class="tab-pane">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione un Grupo Sanguíneo: <label for="grupo_sanguineos[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @grupo_sanguineos.each do |grupo_sanguineo| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('grupo_sanguineos[]', grupo_sanguineo.id, @perfil.grupo_sanguineos.include?(grupo_sanguineo)) %> <%= grupo_sanguineo.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div>    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-lesiones" class="tab-pane">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione una Lesión: <label for="lesiones[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @lesiones.each do |lesion| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('lesiones[]', lesion.id, @perfil.lesiones.include?(lesion)) %> <%= lesion.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div>    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-patologias" class="tab-pane">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione una Patologías: <label for="patologias[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @patologias.each do |patologia| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('patologias[]', patologia.id, @perfil.patologias.include?(patologia)) %> <%= patologia.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div>    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-vacunas" class="tab-pane">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione una Vacuna: <label for="vacunas[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @vacunas.each do |vacuna| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('vacunas[]', vacuna.id, @perfil.vacunas.include?(vacuna)) %> <%= vacuna.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div>    
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  </fieldset>
+                  <h3>Otros</h3>
+                  <fieldset class="step-content">
+                    <div class="tabs-container">
+                      <ul class="otros nav nav-tabs">
+                        <li style="width: 50%;" class="active">
+                          <a aria-expanded="true" class="text-center" data-toggle="tab" href="#tab-adicciones">Adicciones</a>
+                        </li>
+                        <li style="width: 50%;">
+                          <a aria-expanded="false" class="text-center" data-toggle="tab" href="#tab-habitos">Hábitos</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content">
+                        <div id="tab-adicciones" class="tab-pane active">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione una Adicción: <label for="adicciones[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @adicciones.each do |adiccion| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('adicciones[]', adiccion.id, @perfil.adicciones.include?(adiccion)) %> <%= adiccion.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div>      
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="tab-habitos" class="tab-pane">
+                          <div class="panel-body">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <label class="control-label">Seleccione un Hábito: <label for="habitos[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                                  </div>
+                                </div>
+                                <div class="container-fluid">
+                                  <% @habitos.each do |habito| %>
+                                    <div class="col-sm-3">
+                                      <%= check_box_tag('habitos[]', habito.id, @perfil.habitos.include?(habito)) %> <%= habito.descripcion %>
+                                    </div>
+                                  <% end %>
+                                </div>      
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+              <% end %>
+             <div class="form-group" style="position: relative; bottom: 35px;">
+              <% if @perfil.new_record? %>
+                <div class="col-lg-2">
+                  <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>
+                </div>
+              <% end %>
+                <div class="col-lg-2">
+                  <%= link_to 'Atrás',perfiles_path, :class => "btn btn-sm btn-success" %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    var form = $("#form-perfil").show();
+                    
+    <% if @perfil.new_record? %>
+      var accion = "Guardar";
+    <% else %>
+      var accion = "Editar";
+    <% end %>
+    form.steps({
+        headerTag: "h3",
+        bodyTag: "fieldset",
+        labels: {
+            cancel: "Cancelar",
+            current: "Paso comun:",
+            pagination: "Paginacion",
+            finish: accion,
+            next: "Siguiente",
+            previous: "Anterior",
+            loading: "Cargando ..."
+        },
+        onStepChanging: function (event, currentIndex, newIndex)
+        {
+            // Allways allow previous action even if the current form is not valid!
+            if (currentIndex > newIndex)
+            {
+                return true;
+            }
+           // Needed in some cases if the user went back (clean up)
+            if (currentIndex < newIndex)
+            {
+                // To remove error styles
+            }
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onStepChanged: function (event, currentIndex, priorIndex)
+        {
+
+            if (currentIndex === 2){
+              $('#form-perfil-p-2').css('display', block);
+            }
+            if (currentIndex === 2 && priorIndex === 3)
+            {
+                form.steps("previous");
+            }
+        },
+        onFinishing: function (event, currentIndex)
+        {
+            form.validate().settings.ignore = ":disabled,:hidden";
+            return form.valid();
+        },
+        onFinished: function (event, currentIndex)
+        {
+            form.submit();
+        }
+    }).validate({
+        rules: {
+        '<%= @perfil.class.to_s.downcase %>[descripcion]': {
+          required: true
+        }
+      }
+    });
+  </script>
+<% end %>

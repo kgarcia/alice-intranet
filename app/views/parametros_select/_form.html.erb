@@ -31,7 +31,7 @@
             <div class="col-sm-12">
               <%= form_for @parametro, :html => {:class => '', :id => 'form-generic'}, :form_to_validate => @parametro.class, role: 'form' do |f| %>
                 <div class="form-group">
-                  <label class="control-label"><%= @collection.first.class.titulo %> <label for="<%= @parametro.class.to_s.downcase %>_<%= @referencia %>" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                  <label class="control-label"><%= @collection.first.class.titulo %> <label for="<%= @parametro.class.to_s.underscore %>_<%= @referencia %>" class="control-label error" style="margin-bottom: 0px;"></label></label>
                   <%= f.collection_select(@referencia, @collection, :id, :descripcion, {:prompt => "Seleccione"}, {:class => "form-control"}) %>
                 </div>
                 <div class="form-group">
@@ -66,16 +66,16 @@
 
     $('#form-generic').validate({
       rules: {
-        '<%= @parametro.class.to_s.downcase %>[<%= @referencia %>]': {
+        '<%= @parametro.class.to_s.underscore %>[<%= @referencia %>]': {
           required: true
         },
-        '<%= @parametro.class.to_s.downcase %>[descripcion]': {  
+        '<%= @parametro.class.to_s.underscore %>[descripcion]': {  
           required: true,
           solo_letras: true
         }
       },
       messages: {
-        '<%= @parametro.class.to_s.downcase %>[<%= @referencia %>]': {
+        '<%= @parametro.class.to_s.underscore %>[<%= @referencia %>]': {
           required: "Por favor Seleccione una opción"
         }
       }

@@ -1,5 +1,19 @@
 Myapp::Application.routes.draw do
 
+  get '/usuarios/registrar', to: 'usuarios#registrar'
+
+  post '/usuarios/guardar', to: 'usuarios#guardar'
+
+  get '/usuarios/editar/:id', to: 'usuarios#editar'
+
+  post '/usuarios/modificar', to: 'usuarios#modificar'
+
+  get '/usuarios/cambiar_clave', to: 'usuarios#cambiar_clave'
+
+  post '/usuarios/cambiar_clave', to: 'usuarios#confirmar_clave'
+
+  delete '/usuarios/eliminar/:id', to: 'usuarios#eliminar'
+
   get 'grafico/tiempo_atencion'
 
   post 'grafico/tiempo_atencion', to: 'grafico#generar_tiempo_atencion'
@@ -26,7 +40,7 @@ Myapp::Application.routes.draw do
 
   get '/grafico/update_eventos', to: 'grafico#update_eventos'
 
-get '/grafico/update_servicios', to: 'grafico#update_servicios'
+  get '/grafico/update_servicios', to: 'grafico#update_servicios'
 
   get 'grafico/motivos_cancelacion'
 
@@ -155,7 +169,6 @@ get 'tipo_servicios/filtrar', to: 'tipo_servicios#filtrar'
     end
 
   end
-
   get 'login_movil', to: 'usuarios#login_movil'
 
   root to: 'usuarios/sessions#new'

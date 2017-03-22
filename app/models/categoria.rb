@@ -13,6 +13,8 @@ class Categoria < ApplicationRecord
 	has_many :dias, through: :turnos, dependent: :destroy
 	has_many :ubicacion, through: :servicios, dependent: :destroy
 
+	has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
+	  validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
 
 	extend FriendlyId
   	friendly_id :descripcion, use: :slugged

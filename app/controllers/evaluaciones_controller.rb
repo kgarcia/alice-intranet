@@ -4,7 +4,7 @@ class EvaluacionesController < ApplicationController
   # GET /evaluaciones
   # GET /evaluaciones.json
   def index
-    @parametros = Cita.where({:persona_id => current_usuario.persona_id , :estatus => 3}) #current_usuario.persona_id
+    @parametros = Cita.where({:usuario_id => current_usuario.id , :estatus => 3}) #current_usuario.persona_id
     
   end
 

@@ -19,6 +19,8 @@ class DeviseCreateUsuarios < ActiveRecord::Migration[5.0]
       t.datetime :last_sign_in_at
       t.inet   :current_sign_in_ip
       t.inet   :last_sign_in_ip
+      t.attachment :foto
+      t.integer :estatus, default: 1, null: false
 
       ## Datos propios
       t.references :persona, foreign_key: true, on_delete: :cascade

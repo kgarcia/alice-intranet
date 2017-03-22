@@ -19,7 +19,7 @@ class Servicio < ApplicationRecord
   extend FriendlyId
   friendly_id :descripcion, use: :slugged
 
-   
+
     after_save :save_horario_turnos
 
   def self.titulo
@@ -37,7 +37,7 @@ class Servicio < ApplicationRecord
 
 
  def as_json(options={})
-    super(:include => { :especialista => {include: [:persona, :especialidades]} ,:tipo_servicio => {include: :especialidad}, :horarios => {:include => :turnos} , :ubicacion => {}} 
+    super(:include => { :especialista => {include: [:persona, :especialidades]} ,:tipo_servicio => {include: :especialidad}, :horarios => {:include => :turnos} , :ubicacion => {}}
 
                )
   end
@@ -54,7 +54,7 @@ class Servicio < ApplicationRecord
       #page_token = @user_graph.get_page_access_token(page_id)
 
       #@page_token = "EAACEdEose0cBAAJAIpZBEZAFqwZAXttJ8bRyrOBC5kDWC1p2RZB3DsuUkhQjUgEOZBf9ZCAMHAlHE3QYRNdToS7r3Xj6SzONxe4OThMZBSZCAfLF5L8Ve3w6xXnsiu19Bf8mAVtDdwHkJeuoovHfok8mfYBBaKbd8MmHn3gi2gClfAPqX88anAB8qUgYFxCZByGQZD"
-   
+
       @page_graph = Koala::Facebook::API.new(@page_token)
 
       @page_graph.get_object('me') # I'm a page
@@ -67,7 +67,7 @@ class Servicio < ApplicationRecord
       #@page_graph.put_picture(Rails.public_path+'bardenova.jpg', ".jpg", {:caption => @tipo_servicio.descripcion}, "me")
       #@page_graph.put_connections("AliceLaTrinidad", 'feed', :message => message, :picture => picture_url, :link => link_url)
       #@tipo_servicio = self
-      
+
 
     end
 
@@ -79,7 +79,7 @@ class Servicio < ApplicationRecord
     def contarCitas(estatus_nuevo, fecha_inicio, fecha_fin)
       @citas = Cita.joins(:historial_citas, turno: { horario: :servicio }).where( "horarios.servicio_id" => self.id ).where('citas.fecha' => fecha_inicio..fecha_fin)
       if estatus_nuevo != nil
-         @citas = @citas.where("historial_citas.estatus_nuevo" =>  estatus_nuevo) 
+         @citas = @citas.where("historial_citas.estatus_nuevo" =>  estatus_nuevo)
       end
       return @citas.count
     end
@@ -91,7 +91,7 @@ class Servicio < ApplicationRecord
       citas.each do |cita|
         atencion = cita.historial_citas.where(:estatus_nuevo => 3).take
         if !atencion.nil?
-          citasAtendidas = citasAtendidas + 1 
+          citasAtendidas = citasAtendidas + 1
           recepcion = cita.historial_citas.where(:estatus_nuevo => 2).take
           tiempoAtencion = tiempoAtencion + TimeDifference.between(recepcion.fecha,atencion.fecha).in_hours
         end
@@ -110,7 +110,7 @@ class Servicio < ApplicationRecord
       citas.each do |cita|
         atencion = cita.historial_citas.where(:estatus_nuevo => 3).take
         if !atencion.nil?
-          citasAtendidas = citasAtendidas + 1 
+          citasAtendidas = citasAtendidas + 1
           recepcion = cita.historial_citas.where(:estatus_nuevo => 2).take
           tiempoAtencion = tiempoAtencion + TimeDifference.between(recepcion.fecha,atencion.fecha).in_hours
         end
@@ -129,7 +129,7 @@ class Servicio < ApplicationRecord
     citas.each do |cita|
       recepcion = cita.historial_citas.where(:estatus_nuevo => 2).take
       if !recepcion.nil?
-        citasRecibidas = citasRecibidas + 1 
+        citasRecibidas = citasRecibidas + 1
         tiempoRecepcion = tiempoRecepcion + TimeDifference.between(cita.fecha,recepcion.fecha).in_hours
       end
     end
@@ -138,7 +138,7 @@ class Servicio < ApplicationRecord
     else
       return (tiempoRecepcion / citasRecibidas)
     end
-    
+
   end
 
   def self.contarTiempoRecepcion(fecha_inicio, fecha_fin)
@@ -148,7 +148,7 @@ class Servicio < ApplicationRecord
     citas.each do |cita|
       recepcion = cita.historial_citas.where(:estatus_nuevo => 2).take
       if !recepcion.nil?
-        citasRecibidas = citasRecibidas + 1 
+        citasRecibidas = citasRecibidas + 1
         tiempoRecepcion = tiempoRecepcion + TimeDifference.between(cita.fecha,recepcion.fecha).in_hours
       end
     end
@@ -157,7 +157,7 @@ class Servicio < ApplicationRecord
     else
       return (tiempoRecepcion / citasRecibidas)
     end
-    
+
   end
 
   def contarTiempoSolicitud(fecha_inicio, fecha_fin)
@@ -165,7 +165,7 @@ class Servicio < ApplicationRecord
     tiempoSolicitud = 0
     citasSolicitadas = 0
     citas.each do |cita|
-        citasSolicitadas = citasSolicitadas + 1 
+        citasSolicitadas = citasSolicitadas + 1
         tiempoSolicitud = tiempoSolicitud + TimeDifference.between(cita.created_at,cita.fecha).in_hours
     end
     if citasSolicitadas == 0
@@ -173,7 +173,7 @@ class Servicio < ApplicationRecord
     else
       return (tiempoSolicitud / citasSolicitadas)
     end
-    
+
   end
 
   def self.contarTiempoSolicitud(fecha_inicio, fecha_fin)
@@ -181,7 +181,7 @@ class Servicio < ApplicationRecord
     tiempoSolicitud = 0
     citasSolicitadas = 0
     citas.each do |cita|
-        citasSolicitadas = citasSolicitadas + 1 
+        citasSolicitadas = citasSolicitadas + 1
         tiempoSolicitud = tiempoSolicitud + TimeDifference.between(cita.created_at,cita.fecha).in_hours
     end
     if citasSolicitadas == 0
@@ -189,7 +189,7 @@ class Servicio < ApplicationRecord
     else
       return (tiempoSolicitud / citasSolicitadas)
     end
-    
+
   end
 
   def contarTiempoEvaluacion(fecha_inicio, fecha_fin)
@@ -199,7 +199,7 @@ class Servicio < ApplicationRecord
     citas.each do |cita|
       evaluacion = cita.historial_citas.where(:estatus_nuevo => 4).take
       if !evaluacion.nil?
-        citasEvaluadas = citasEvaluadas + 1 
+        citasEvaluadas = citasEvaluadas + 1
         atencion = cita.historial_citas.where(:estatus_nuevo => 3).take
         tiempoEvaluacion = tiempoEvaluacion + TimeDifference.between(atencion.fecha,evaluacion.fecha).in_hours
       end
@@ -209,7 +209,7 @@ class Servicio < ApplicationRecord
     else
       return (tiempoEvaluacion / citasEvaluadas)
     end
-    
+
   end
 
   def self.contarTiempoEvaluacion(fecha_inicio, fecha_fin)
@@ -218,8 +218,9 @@ class Servicio < ApplicationRecord
     citasEvaluadas = 0
     citas.each do |cita|
       evaluacion = cita.historial_citas.where(:estatus_nuevo => 4).take
+      puts "HOLA*********" + evaluacion.inspect
       if !evaluacion.nil?
-        citasEvaluadas = citasEvaluadas + 1 
+        citasEvaluadas = citasEvaluadas + 1
         atencion = cita.historial_citas.where(:estatus_nuevo => 3).take
         tiempoEvaluacion = tiempoEvaluacion + TimeDifference.between(atencion.fecha,evaluacion.fecha).in_hours
       end
@@ -229,7 +230,7 @@ class Servicio < ApplicationRecord
     else
       return (tiempoEvaluacion / citasEvaluadas)
     end
-    
+
   end
 
   def contarCitasCanceladasDeTipoMotivo(tipo_motivo,fecha_inicio,fecha_fin)
@@ -256,7 +257,3 @@ def save_horario_turnos
 end
 
 end
-
-
-
-
