@@ -1,0 +1,165 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h2 class="parametros-titulo"><%= "Calificaciones por Servicio" %></h2>
+            </div>
+        </div>
+        <div class="ibox-content" style="padding-bottom: 15px">
+            <div class="container-fluid">
+                <div class="col-sm-12" style="padding-top: 15px">
+                    <div class="col-sm-4">
+                        <%= label_tag :id, "Tipo de servicio: " %>
+                        <h4>
+                            <%= @tipo_servicio.descripcion %>
+                        </h4>
+                    </div>
+                    <div class="col-sm-4">
+                      <%= label_tag :id, "Servicio: " %>
+                      <h4>
+                          <%= @servicio.descripcion %>
+                      </h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= label_tag :id, "Rango de fechas: " %>
+                        <h4>Desde el
+                            <%= @fecha_inicio.strftime("%d/%m/%Y") %>
+                            hasta el
+                            <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
+                    </div>
+                </div>
+                <div class="col-sm-12" style="padding-top: 15px">
+                    <script src="https://code.highcharts.com/highcharts.js"></script>
+                    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                    <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                </div>
+                <script>
+                    Highcharts.chart('container', {
+                        title: {
+                            text: ''
+                        },
+                        xAxis: {
+                            categories: [
+                                '<%= @servicio.descripcion %>'
+                              ]
+                        },
+                        labels: {
+                            items: [
+                                {
+                                    html: 'Total de calificaciones',
+                                    style: {
+                                        left: '50px',
+                                        top: '18px',
+                                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                                    }
+                                }
+                            ]
+                        },
+                        series: [
+                            {
+                                type: 'column',
+                                name: 'Muy mal',
+                                data: [
+                                    <%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 1, @fecha_inicio, @fecha_fin).round(2) %>
+                                  ]
+                            }, {
+                                type: 'column',
+                                name: 'Mal',
+                                data: [
+                                    <%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 2, @fecha_inicio, @fecha_fin).round(2) %>
+                                  ]
+                            }, {
+                                type: 'column',
+                                name: 'Regular',
+                                data: [
+                                    <%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 3, @fecha_inicio, @fecha_fin).round(2) %>
+                                  ]
+                            }, {
+                                type: 'column',
+                                name: 'Bueno',
+                                data: [
+                                    <%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 4, @fecha_inicio, @fecha_fin).round(2) %>
+                                  ]
+                            }, {
+                                type: 'column',
+                                name: 'Muy bueno',
+                                data: [
+                                    <%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 5, @fecha_inicio, @fecha_fin).round(2) %>
+                                    ]
+                            }, {
+                                type: 'pie',
+                                name: 'Total calificaciones',
+                                data: [
+                                    {
+                                        name: 'Muy mal',
+                                        y: <%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 1, @fecha_inicio, @fecha_fin) %>,
+                                        color: Highcharts.getOptions().colors[0]
+                                    }, {
+                                        name: 'Mal',
+                                        y: <%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 2, @fecha_inicio, @fecha_fin) %>,
+                                        color: Highcharts.getOptions().colors[1]
+                                    }, {
+                                        name: 'Regular',
+                                        y: <%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 3, @fecha_inicio, @fecha_fin) %>,
+                                        color: Highcharts.getOptions().colors[2]
+                                    }, {
+                                        name: 'Bueno',
+                                        y: <%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 4, @fecha_inicio, @fecha_fin) %>,
+                                        color: Highcharts.getOptions().colors[3]
+                                    }, {
+                                        name: 'Muy bueno',
+                                        y: <%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 5, @fecha_inicio, @fecha_fin) %>,
+                                        color: Highcharts.getOptions().colors[4]
+                                    }
+                                ],
+                                center: [
+                                    100, 80
+                                ],
+                                size: 100,
+                                showInLegend: false,
+                                dataLabels: {
+                                    enabled: false
+                                }
+                            }
+                        ]
+                    });
+                </script>
+                <div class="col-sm-12" style="margin-top: 15px">
+                  <h3>Tabla de resultados</h3>
+                </div>
+                <div class="col-sm-12" style="margin-top: 15px">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <td><strong>Categoria</strong></td>
+                            <td><strong>Muy mal</strong></td>
+                            <td><strong>Mal</strong></td>
+                            <td><strong>Regular</strong></td>
+                            <td><strong>Bueno</strong></td>
+                            <td><strong>Muy bueno</strong></td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Promedio de calificacines del servicio </strong></td>
+                                <td><%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 1, @fecha_inicio, @fecha_fin).round(2) %> %</td>
+                                <td><%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 2, @fecha_inicio, @fecha_fin).round(2) %> %</td>
+                                <td><%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 3, @fecha_inicio, @fecha_fin).round(2) %> %</td>
+                                <td><%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 4, @fecha_inicio, @fecha_fin).round(2) %> %</td>
+                                <td><%= Calificacion.promedioCalificacionesPorServicio(@servicio.id, 5, @fecha_inicio, @fecha_fin).round(2) %> %</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total de calificaciones del servicio</strong></td>
+                                <td><%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 1, @fecha_inicio, @fecha_fin) %></td>
+                                <td><%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 2, @fecha_inicio, @fecha_fin) %></td>
+                                <td><%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 3, @fecha_inicio, @fecha_fin) %>%</td>
+                                <td><%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 4, @fecha_inicio, @fecha_fin) %></td>
+                                <td><%= Calificacion.contarCalificacionesPorServicio(@servicio.id, 5, @fecha_inicio, @fecha_fin) %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

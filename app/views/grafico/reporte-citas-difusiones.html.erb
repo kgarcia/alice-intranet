@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h2 class="parametros-titulo"><%= "Citas por difusión" %></h2>
+            </div>
+        </div>
+        <%= form_tag({controller: "grafico", action: "calcular_citas_por_difusion"}, method: "post") do %>
+        <div class="ibox-content" style="padding-bottom: 15px">
+            <div class="container-fluid">
+                <div class="field form-group row">
+                    <label class="col-lg-2 control-label">Difusión:</label>
+                    <div class="col-lg-10">
+                        <%= collection_select( :id, :difusion, @difusiones, :id,
+                          :asunto, {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
+                        <%= hidden_field_tag :difusion, :difusion %>
+                        <script>
+                            $(function () {
+                                $(document).on('change', '#id_difusion', function () {
+                                    var select_value = $(this).val();
+                                    $('#difusion').val(select_value);
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <div class="field form-group row">
+                    <label class="col-lg-2 control-label">Rango de semanas:</label>
+                    <div class="col-lg-10">
+                      <%= number_field_tag( :semanas, nil, min: 1, max: 200, :class => "form-control") %>
+                      <%= hidden_field_tag :cantidad_semanas, :cantidad_semanas %>
+                      <script>
+                          $(function () {
+                              $(document).on('change', '#semanas', function () {
+                                  var select_value = $(this).val();
+                                  $('#cantidad_semanas').val(select_value);
+                              });
+                          });
+                      </script>
+                    </div>
+                </div>
+                <div class="col-sm-12" style="margin-top: 15px">
+                    <div class="col-lg-offset-3 col-lg-2">
+                         <%= submit_tag "Generar", method: "calcular_citas_por_difusion", :class => "btn btn-sm btn-primary" %>
+                    </div>
+                      <div class="col-lg-2">
+                      <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>
+                      </div>
+                    <div class="col-lg-2">
+                    <%= link_to 'Atras',"", :class => "btn btn-sm btn-success" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#fecha').daterangepicker({
+            "locale": {
+                "format": "DD-MM-YYYY"
+            }
+        });
+    });
+</script>

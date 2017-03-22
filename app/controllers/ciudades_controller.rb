@@ -4,6 +4,7 @@ class CiudadesController < ApplicationController
   # GET /ciudades
   # GET /ciudades.json
   def index
+    @tipo = Estado.titulo
     @parametros = Ciudad.where(:estatus => 1)
     respond_to do |format|
       format.html { render "parametros_select/index" }

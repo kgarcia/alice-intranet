@@ -1,27 +1,56 @@
-<%= form_for(categoria) do |f| %>
-  <% if categoria.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(categoria.errors.count, "error") %> prohibited this categoria from being saved:</h2>
+<div class="row">   
+   <div class="col-lg-6 col-lg-offset-3">
+   <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Categorias" %></h2>
+              </div>
+          </div>
+          <div class="ibox-content">
+             <%= form_for @categoria, :html => {:class => 'form-horizontal'} do |f| %>
+                  <% if @categoria.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@categoria.errors.count, "error") %> prohibited this parametro from being saved:</h2>
 
-      <ul>
-      <% categoria.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+                      <ul>
+                      <% @categoria.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
 
-  <div class="field">
-    <%= f.label :descripcion %>
-    <%= f.text_field :descripcion %>
+                    <div id="datos" class="tab-pane fade in active">
+<br>
+                    <div class="form-group">
+                      <label class="col-lg-2 control-label">Descripción</label>
+                      
+                        <div class="col-lg-10"><%= f.text_field :descripcion, :required => true,:class => "form-control" %>
+                         </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="col-lg-2 control-label">Foto</label>
+
+                        <div class="col-lg-10"><%= f.file_field :foto, :class => "form-control" %>
+                         </div>
+                      </div>
+                    </div>
+
+                 <div class="form-group">
+                 <br>
+                      <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-sm  btn-primary" %>
+                      </div>
+                        <div class="col-lg-2">
+                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                      <div class="col-lg-2">
+                      <%= link_to 'Atras',categorias_path, :class => "btn btn-sm btn-success" %>                          
+                      </div>
+                  </div>
+
+              <% end %>
+          </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :estatus %>
-    <%= f.number_field :estatus %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

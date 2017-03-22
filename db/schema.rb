@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170318142958) do
-
+ActiveRecord::Schema.define(version: 20170319044855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,10 +82,14 @@ ActiveRecord::Schema.define(version: 20170318142958) do
   end
 
   create_table "categorias", force: :cascade do |t|
-    t.string   "descripcion",             null: false
-    t.integer  "estatus",     default: 1, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "descripcion",                   null: false
+    t.integer  "estatus",           default: 1, null: false
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "slug"
     t.index ["slug"], name: "index_categorias_on_slug", unique: true, using: :btree
   end
@@ -798,8 +801,8 @@ ActiveRecord::Schema.define(version: 20170318142958) do
     t.string   "direccion"
     t.date     "fecha_nacimiento"
     t.float    "peso"
-    t.integer  "sexo_id",            null: false
     t.float    "altura"
+    t.integer  "sexo_id",            null: false
     t.integer  "grupo_sanguineo_id"
     t.integer  "estado_civil_id"
     t.datetime "created_at",         null: false
@@ -1198,6 +1201,11 @@ ActiveRecord::Schema.define(version: 20170318142958) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
+    t.integer  "estatus",                default: 1,  null: false
     t.integer  "persona_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

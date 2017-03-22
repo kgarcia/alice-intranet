@@ -4,14 +4,24 @@ class ServiciosController < ApplicationController
   # GET /servicios
   # GET /servicios.json
   def index
-
+    puts params.to_json
 if params[:slug].nil?
       @servicios = Servicio.where(:estatus => 1)
     else
       @tipo_servicio_id = TipoServicio.where(slug: params["slug"]).take.id
       @servicios = Servicio.where(tipo_servicio_id: @tipo_servicio_id, estatus: 1)
+      puts '@@@@@!asdq'
+      puts @servicios
     end
 
+    respond_to do |format|
+      format.html
+      format.json { render json: @servicios.to_json }
+    end
+  end
+
+  def filtrar
+    @servicios = Servicio.where(tipo_servicio_id: params[:tipo_servicio_id])
     respond_to do |format|
       format.html
       format.json { render json: @servicios.to_json }

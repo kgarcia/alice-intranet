@@ -26,7 +26,7 @@
                         <span class="input-group-addon">
                           <i class="fa fa-calendar"></i>
                         </span>
-                      <%= u.text_field :fecha_nacimiento,:required =>true, :class => "form-control" %>
+                      <%= u.text_field :fecha_nacimiento, 'data-provide' => "datepicker", :required =>true, :class => "form-control" %>
                     </div>
                   </div>
                   <div class="form-group">
@@ -36,3 +36,7 @@
                 <% end %>
 
 
+  
+  <script type="text/javascript">
+  $('.datepicker').datepicker();
+</script>

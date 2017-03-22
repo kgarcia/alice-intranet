@@ -1,471 +1,632 @@
-<div class="row">   
+<div class="row">
    <div class="col-lg-12">
       <div class="ibox float-e-margins">
           <div class="ibox-title">
               <h2 class="parametros-titulo"><%= "Reportes Estadisticos" %></h2>
           </div>
       </div>
-      <div class="ibox-content row">
+      <div class="ibox-content col-sm-12">
       	  <h2 class="parametros-titulo"><%= @titulo %></h2>
           <h4>Desde el <%= @fecha_inicio.strftime("%d/%m/%Y") %> hasta el <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
-		  <div id="container" width="500px" height="300px"></div>
-          <div class="row">
-            <%= link_to 'Atrás', "/grafico/tiempo_atencion", :class => "btn btn-sm btn-success " %>
-          </div>
+		      <div id="container" width="500px" height="300px"></div>
       </div>
+        <script type="text/javascript">
+            <% if @tipo_entidad == 1.to_s %>
+                <% if @entidad == "" %>
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Citas por Estatus'
+                        },
+                        xAxis: {
+                            categories: [
+                                <% @especialidades.each do |especialidad| %>
+                                    '<%= especialidad.descripcion %>',
+                                <% end %>
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Citas'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Solicitadas',
+                            data: [
+                                <% @especialidades.each do |especialidad| %>
+                                    <%= especialidad.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
 
+                        }, {
+                            name: 'Confirmadas',
+                            data: [
+                                <% @especialidades.each do |especialidad| %>
+                                    <%= especialidad.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
 
+                        }, {
+                            name: 'Atendidas',
+                            data: [
+                                <% @especialidades.each do |especialidad| %>
+                                    <%= especialidad.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
 
+                        }, {
+                            name: 'Evaluadas',
+                            data: [
+                                <% @especialidades.each do |especialidad| %>
+                                    <%= especialidad.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
 
+                        },{
+                            name: 'Canceladas',
+                            data: [
+                                <% @especialidades.each do |especialidad| %>
+                                    <%= especialidad.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
+
+                        }]
+                    });
+                <% else %>
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Citas por Estatus'
+                        },
+                        xAxis: {
+                            categories: [
+                                '<%= @especialidad.descripcion %>',
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Citas'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Solicitadas',
+                            data: [
+                                    <%= @especialidad.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        }, {
+                            name: 'Confirmadas',
+                            data: [
+
+                                    <%= @especialidad.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
+
+                            ]
+
+                        }, {
+                            name: 'Atendidas',
+                            data: [
+                                    <%= @especialidad.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        }, {
+                            name: 'Evaluadas',
+                            data: [
+                                    <%= @especialidad.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        },{
+                            name: 'Canceladas',
+                            data: [
+                                    <%= @especialidad.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        }]
+                    });
+                <% end %>
+
+            <% elsif @tipo_entidad == 2.to_s %>
+                <% if @entidad == "" %>
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Citas por Estatus'
+                        },
+                        xAxis: {
+                            categories: [
+                                <% @tipoServicios.each do |tipoServicio| %>
+                                    '<%= tipoServicio.descripcion %>',
+                                <% end %>
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Citas'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Solicitadas',
+                            data: [
+                                <% @tipoServicios.each do |tipoServicio| %>
+                                    <%= tipoServicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
+
+                        }, {
+                            name: 'Confirmadas',
+                            data: [
+                                <% @tipoServicios.each do |tipoServicio| %>
+                                    <%= tipoServicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
+
+                        }, {
+                            name: 'Atendidas',
+                            data: [
+                                <% @tipoServicios.each do |tipoServicio| %>
+                                    <%= tipoServicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
+
+                        }, {
+                            name: 'Evaluadas',
+                            data: [
+                                <% @tipoServicios.each do |tipoServicio| %>
+                                    <%= tipoServicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
+
+                        },{
+                            name: 'Canceladas',
+                            data: [
+                                <% @tipoServicios.each do |tipoServicio| %>
+                                    <%= tipoServicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
+
+                        }]
+                    });
+                <% else %>
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Citas por Estatus'
+                        },
+                        xAxis: {
+                            categories: [
+                                '<%= @tipoServicio.descripcion %>',
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Citas'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Solicitadas',
+                            data: [
+                                    <%= @tipoServicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        }, {
+                            name: 'Confirmadas',
+                            data: [
+
+                                    <%= @tipoServicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
+
+                            ]
+
+                        }, {
+                            name: 'Atendidas',
+                            data: [
+                                    <%= @tipoServicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        }, {
+                            name: 'Evaluadas',
+                            data: [
+                                    <%= @tipoServicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        },{
+                            name: 'Canceladas',
+                            data: [
+                                    <%= @tipoServicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        }]
+                    });
+                <% end %>
+            <% else %>
+                <% if @entidad == "" %>
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Citas por Estatus'
+                        },
+                        xAxis: {
+                            categories: [
+                                <% @servicios.each do |servicio| %>
+                                    '<%= servicio.descripcion %>',
+                                <% end %>
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Citas'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Solicitadas',
+                            data: [
+                                <% @servicios.each do |servicio| %>
+                                    <%= servicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
+
+                        }, {
+                            name: 'Confirmadas',
+                            data: [
+                                <% @servicios.each do |servicio| %>
+                                    <%= servicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
+
+                        }, {
+                            name: 'Atendidas',
+                            data: [
+                                <% @servicios.each do |servicio| %>
+                                    <%= servicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
+
+                        }, {
+                            name: 'Evaluadas',
+                            data: [
+                                <% @servicios.each do |servicio| %>
+                                    <%= servicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
+
+                        },{
+                            name: 'Canceladas',
+                            data: [
+                                <% @servicios.each do |servicio| %>
+                                    <%= servicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                                <% end %>
+                            ]
+
+                        }]
+                    });
+                <% else %>
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Citas por Estatus'
+                        },
+                        xAxis: {
+                            categories: [
+                                '<%= @servicio.descripcion %>',
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Citas'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Solicitadas',
+                            data: [
+                                    <%= @servicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        }, {
+                            name: 'Confirmadas',
+                            data: [
+
+                                    <%= @servicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
+
+                            ]
+
+                        }, {
+                            name: 'Atendidas',
+                            data: [
+                                    <%= @servicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        }, {
+                            name: 'Evaluadas',
+                            data: [
+                                    <%= @servicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        },{
+                            name: 'Canceladas',
+                            data: [
+                                    <%= @servicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
+                            ]
+
+                        }]
+                    });
+                <% end %>
+            <% end %>
+        </script>
+        <div class="col-sm-12 ibox-content" style="margin-top: 15px">
+          <h3>Tabla de resultados</h3>
+          <% if @tipo_entidad == 1.to_s %>
+              <% if @entidad == "" %>
+              <div class="col-sm-12">
+                  <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <td><strong>Especialidad</strong></td>
+                          <td><strong>Solicitadas</strong></td>
+                          <td><strong>Confirmadas</strong></td>
+                          <td><strong>Atendidas</strong></td>
+                          <td><strong>Evaluadas</strong></td>
+                          <td><strong>Canceladas</strong></td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @especialidades.each do |especialidad| %>
+                            <tr>
+                                <td><strong><%= especialidad.descripcion %></strong></td>
+                                <td><%= especialidad.contarCitas(1,@fecha_inicio,@fecha_fin) %></td>
+                                <td><%= especialidad.contarCitas(2,@fecha_inicio,@fecha_fin) %></td>
+                                <td><%= especialidad.contarCitas(3,@fecha_inicio,@fecha_fin) %></td>
+                                <td><%= especialidad.contarCitas(4,@fecha_inicio,@fecha_fin) %></td>
+                                <td><%= especialidad.contarCitas(5,@fecha_inicio,@fecha_fin) %></td>
+                            </tr>
+                          <% end %>
+                      </tbody>
+                  </table>
+              </div>
+              <% else %>
+              <div class="col-sm-12 ">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <td><strong>Especialidad</strong></td>
+                        <td><strong>Solicitadas</strong></td>
+                        <td><strong>Confirmadas</strong></td>
+                        <td><strong>Atendidas</strong></td>
+                        <td><strong>Evaluadas</strong></td>
+                        <td><strong>Canceladas</strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                          <td><strong><%= @especialidad.descripcion %></strong></td>
+                          <td><%= @especialidad.contarCitas(nil,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @especialidad.contarCitas(2,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @especialidad.contarCitas(3,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @especialidad.contarCitas(4,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @especialidad.contarCitas(5,@fecha_inicio,@fecha_fin) %></td>
+                      </tr>
+                    </tbody>
+                </table>
+              </div>
+              <% end %>
+
+          <% elsif @tipo_entidad == 2.to_s %>
+              <% if @entidad == "" %>
+              <div class="col-sm-12 ">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <td><strong>Tipo Servicio</strong></td>
+                        <td><strong>Solicitadas</strong></td>
+                        <td><strong>Confirmadas</strong></td>
+                        <td><strong>Atendidas</strong></td>
+                        <td><strong>Evaluadas</strong></td>
+                        <td><strong>Canceladas</strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @tipoServicios.each do |tipoServicio| %>
+                          <tr>
+                              <td><strong><%= tipoServicio.descripcion %></strong></td>
+                              <td><%= tipoServicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %></td>
+                              <td><%= tipoServicio.contarCitas(2,@fecha_inicio,@fecha_fin) %></td>
+                              <td><%= tipoServicio.contarCitas(3,@fecha_inicio,@fecha_fin) %></td>
+                              <td><%= tipoServicio.contarCitas(4,@fecha_inicio,@fecha_fin) %></td>
+                              <td><%= tipoServicio.contarCitas(5,@fecha_inicio,@fecha_fin) %></td>
+                          </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+              </div>
+              <% else %>
+              <div class="col-sm-12 " style="margin-top: 15px">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <td><strong>Tipo Servicio</strong></td>
+                        <td><strong>Solicitadas</strong></td>
+                        <td><strong>Confirmadas</strong></td>
+                        <td><strong>Atendidas</strong></td>
+                        <td><strong>Evaluadas</strong></td>
+                        <td><strong>Canceladas</strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                          <td><strong><%= @tipoServicio.descripcion %></strong></td>
+                          <td><%= @tipoServicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @tipoServicio.contarCitas(2,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @tipoServicio.contarCitas(3,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @tipoServicio.contarCitas(4,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @tipoServicio.contarCitas(5,@fecha_inicio,@fecha_fin) %></td>
+                      </tr>
+                    </tbody>
+                </table>
+              </div>
+              <% end %>
+          <% else %>
+              <% if @entidad == "" %>
+              <div class="col-sm-12 " style="margin-top: 15px">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <td><strong>Servicio</strong></td>
+                        <td><strong>Solicitadas</strong></td>
+                        <td><strong>Confirmadas</strong></td>
+                        <td><strong>Atendidas</strong></td>
+                        <td><strong>Evaluadas</strong></td>
+                        <td><strong>Canceladas</strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @servicios.each do |servicio| %>
+                          <tr>
+                              <td><strong><%= servicio.descripcion %></strong></td>
+                              <td><%= servicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %></td>
+                              <td><%= servicio.contarCitas(2,@fecha_inicio,@fecha_fin) %></td>
+                              <td><%= servicio.contarCitas(3,@fecha_inicio,@fecha_fin) %></td>
+                              <td><%= servicio.contarCitas(4,@fecha_inicio,@fecha_fin) %></td>
+                              <td><%= servicio.contarCitas(5,@fecha_inicio,@fecha_fin) %></td>
+                          </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+              </div>
+              <% else %>
+              <div class="col-sm-12 ">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <td><strong>Servicio</strong></td>
+                        <td><strong>Solicitadas</strong></td>
+                        <td><strong>Confirmadas</strong></td>
+                        <td><strong>Atendidas</strong></td>
+                        <td><strong>Evaluadas</strong></td>
+                        <td><strong>Canceladas</strong></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                          <td><strong><%= @servicio.descripcion %></strong></td>
+                          <td><%= @servicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @servicio.contarCitas(2,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @servicio.contarCitas(3,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @servicio.contarCitas(4,@fecha_inicio,@fecha_fin) %></td>
+                          <td><%= @servicio.contarCitas(5,@fecha_inicio,@fecha_fin) %></td>
+                      </tr>
+                    </tbody>
+                </table>
+              </div>
+              <% end %>
+          <% end %>
+        <div class="col-sm-12 " style="margin-top: 15px; padding-bottom: 30px">
+          <%= link_to 'Atrás', "/grafico/citas_solicitadas", :class => "btn btn-sm btn-success " %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<script type="text/javascript">
-	       
-    <% if @tipo_entidad == 1.to_s %>
-        <% if @entidad == "" %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Citas por Estatus'
-                },
-                xAxis: {
-                    categories: [
-                        <% @especialidades.each do |especialidad| %>
-                            '<%= especialidad.descripcion %>',
-                        <% end %>
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Citas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Solicitadas',
-                    data: [
-                        <% @especialidades.each do |especialidad| %>
-                            <%= especialidad.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-                        <% @especialidades.each do |especialidad| %>
-                            <%= especialidad.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                        <% @especialidades.each do |especialidad| %>
-                            <%= especialidad.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                        <% @especialidades.each do |especialidad| %>
-                            <%= especialidad.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                },{
-                    name: 'Canceladas',
-                    data: [
-                        <% @especialidades.each do |especialidad| %>
-                            <%= especialidad.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }]
-            });
-        <% else %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Citas por Estatus'
-                },
-                xAxis: {
-                    categories: [
-                        '<%= @especialidad.descripcion %>',
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Citas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Solicitadas',
-                    data: [
-                            <%= @especialidad.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-
-                            <%= @especialidad.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                            <%= @especialidad.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                            <%= @especialidad.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                },{
-                    name: 'Canceladas',
-                    data: [
-                            <%= @especialidad.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }]
-            });
-        <% end %>
-
-    <% elsif @tipo_entidad == 2.to_s %>
-        <% if @entidad == "" %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Citas por Estatus'
-                },
-                xAxis: {
-                    categories: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            '<%= tipoServicio.descripcion %>',
-                        <% end %>
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Citas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Solicitadas',
-                    data: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            <%= tipoServicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            <%= tipoServicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            <%= tipoServicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            <%= tipoServicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                },{
-                    name: 'Canceladas',
-                    data: [
-                        <% @tipoServicios.each do |tipoServicio| %>
-                            <%= tipoServicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }]
-            });
-        <% else %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Citas por Estatus'
-                },
-                xAxis: {
-                    categories: [
-                        '<%= @tipoServicio.descripcion %>',
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Citas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Solicitadas',
-                    data: [
-                            <%= @tipoServicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-
-                            <%= @tipoServicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                            <%= @tipoServicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                            <%= @tipoServicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                },{
-                    name: 'Canceladas',
-                    data: [
-                            <%= @tipoServicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }]
-            });
-        <% end %>
-    <% else %>
-        <% if @entidad == "" %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Citas por Estatus'
-                },
-                xAxis: {
-                    categories: [
-                        <% @servicios.each do |servicio| %>
-                            '<%= servicio.descripcion %>',
-                        <% end %>
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Citas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Solicitadas',
-                    data: [
-                        <% @servicios.each do |servicio| %>
-                            <%= servicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-                        <% @servicios.each do |servicio| %>
-                            <%= servicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                        <% @servicios.each do |servicio| %>
-                            <%= servicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                        <% @servicios.each do |servicio| %>
-                            <%= servicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                },{
-                    name: 'Canceladas',
-                    data: [
-                        <% @servicios.each do |servicio| %>
-                            <%= servicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
-                        <% end %>
-                    ]
-
-                }]
-            });
-        <% else %>
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Citas por Estatus'
-                },
-                xAxis: {
-                    categories: [
-                        '<%= @servicio.descripcion %>',
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Citas'
-                    }
-                },
-                tooltip: {
-                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                        '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-                    footerFormat: '</table>',
-                    shared: true,
-                    useHTML: true
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Solicitadas',
-                    data: [
-                            <%= @servicio.contarCitas(nil,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Confirmadas',
-                    data: [
-
-                            <%= @servicio.contarCitas(2,@fecha_inicio,@fecha_fin) %>,
-
-                    ]
-
-                }, {
-                    name: 'Atendidas',
-                    data: [
-                            <%= @servicio.contarCitas(3,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }, {
-                    name: 'Evaluadas',
-                    data: [
-                            <%= @servicio.contarCitas(4,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                },{
-                    name: 'Canceladas',
-                    data: [
-                            <%= @servicio.contarCitas(5,@fecha_inicio,@fecha_fin) %>,
-                    ]
-
-                }]
-            });
-        <% end %>
-    <% end %> 
-</script>

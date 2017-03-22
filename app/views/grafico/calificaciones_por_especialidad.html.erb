@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h2 class="parametros-titulo"><%= "Calificaciones por especialidades" %></h2>
+                <h2 class="parametros-titulo"><%= "Calificaciones por Especialidades" %></h2>
             </div>
         </div>
         <div class="ibox-content" style="padding-bottom: 15px">
@@ -125,6 +125,35 @@
                         ]
                     });
                 </script>
+                <div class="col-sm-12" style="margin-top: 15px">
+                  <h3>Tabla de resultados</h3>
+                </div>
+                <div class="col-sm-12" style="margin-top: 15px">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <td><strong>Especialidad</strong></td>
+                            <td><strong>Muy mal</strong></td>
+                            <td><strong>Mal</strong></td>
+                            <td><strong>Regular</strong></td>
+                            <td><strong>Bueno</strong></td>
+                            <td><strong>Muy bueno</strong></td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <% @especialidades.each do |especialidad| %>
+                              <tr>
+                                  <td><strong><%= especialidad.descripcion %></strong></td>
+                                  <td><%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 1, @fecha_inicio, @fecha_fin) %></td>
+                                  <td><%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 2, @fecha_inicio, @fecha_fin) %></td>
+                                  <td><%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 3, @fecha_inicio, @fecha_fin) %></td>
+                                  <td><%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 4, @fecha_inicio, @fecha_fin) %></td>
+                                  <td><%= Calificacion.contarCalificacionesPorEspecialidad(@tipo_turno.id, especialidad.id, 5, @fecha_inicio, @fecha_fin) %></td>
+                              </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

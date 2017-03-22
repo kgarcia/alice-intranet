@@ -4,7 +4,7 @@
     <div class="col-lg-12">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h2 class="parametros-titulo"><%= "Citas por evento" %></h2>
+                <h2 class="parametros-titulo"><%= "Citas por Evento" %></h2>
             </div>
         </div>
         <div class="ibox-content" style="padding-bottom: 15px">
@@ -93,6 +93,29 @@
                         ]
                     });
                 </script>
+                <div class="col-sm-12" style="margin-top: 15px">
+                  <h3>Tabla de resultados</h3>
+                </div>
+                <div class="col-sm-12" style="margin-top: 15px">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <td><strong>Categoría</strong></td>
+                            <td><strong>Total de citas</strong></td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Antes del Evento</strong></td>
+                                <td><%= Cita.contarCitasPorEventoYRangoMeses(@tipo_servicio.id, @fecha_inicio, @evento.fecha) %></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Despues del Evento</strong></td>
+                                <td><%= Cita.contarCitasPorEventoYRangoMeses(@tipo_servicio.id, @evento.fecha, @fecha_fin) %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
