@@ -31,6 +31,10 @@ class Servicio < ApplicationRecord
   end
 
 
+  def foto_url
+        url+foto.url(:medium)
+    end
+
 
  def as_json(options={})
     super(:include => { :especialista => {include: [:persona, :especialidades]} ,:tipo_servicio => {include: :especialidad}, :horarios => {:include => :turnos} , :ubicacion => {}} 
