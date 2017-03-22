@@ -1,3 +1,66 @@
 // Place all the styles related to the Perfiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*  STEPS WIZARD    */
+//= require steps/jquery.steps.css
+
+@import "base/variables";
+@import "base/skins";
+
+#form-perfil.wizard > .content > .body ul{
+	list-style: none !important;
+}
+
+#form-perfil.wizard > .content{
+	min-height: 350px;
+}
+
+#form-perfil.wizard > .actions{
+
+	.disabled a, 
+	.disabled a:hover, 
+	.disabled a:active{
+		min-width: 80px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 12px;
+		height: 30px;
+	}
+	a, 
+	a:hover, 
+	a:active{
+		min-width: 80px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 12px;
+		height: 30px;
+	}
+	a[href="#finish"]{
+		background-color: $navy;
+	}
+}
+#form-perfil.wizard > .steps{
+	.done a, 
+	.done a:hover, 
+	.done a:active{
+		font-weight: bold;
+	}
+	.current a, 
+	.current a:hover, 
+	.current a:active{
+		font-weight: bold;
+	}
+
+	.disabled a, 
+	.disabled a:hover, 
+	.disabled a:active{
+		font-weight: bold;
+	}
+}
+.nav.nav-tabs li{
+	background: #354C9E none repeat scroll 0% 0%;
+}
+.skin-1 .nav-tabs > li > a{
+	color: #FFFFFF;
+}
