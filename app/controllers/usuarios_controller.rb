@@ -1,6 +1,10 @@
 class UsuariosController < ApplicationController
 	def index
     	@usuarios = Usuario.all
+      respond_to do |format|
+        format.html
+        format.json {render json: @usuarios}
+      end
   	end
 
     def solicitante
@@ -115,6 +119,21 @@ class UsuariosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+   # POST /resource
+   def create
+     @persona = Persona.new(persona_params)
+     @persona.save
+    
+    respond_to do |format|
+      format.json {
+        @user = Usuario.create(sign_up_params)
+        @user.save ? (render :json => {:data => @user }) : 
+                     (render :json => {:messages => @user.errors.full_messages})
+      }
+     #ExampleMailer.sample_mail(Usuario.last).deliver_now
+   end
+ end
 
   	def persona_params
       params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento,:sexo_id)
