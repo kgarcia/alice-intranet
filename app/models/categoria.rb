@@ -23,8 +23,14 @@ class Categoria < ApplicationRecord
 		return "Categoría"
 	end
 
+
+  def foto_url
+        url+foto.url(:medium)
+    end
+
+
  def as_json(options={})
-    super(include: { tipo_servicios: { :include => {:criterios => {:include => :tipo_criterio}, :servicios => {:include => { :especialista => {include: [:persona,:especialidades]}, :horarios => {:include => :turnos}, :ubicacion => {}}}}}})
+    super(include: { tipo_servicios: { :include => {:criterios => {:include => :tipo_criterio}, :servicios => {:methods => :foto_url,:include => {  :especialista => {include: [:persona,:especialidades]}, :horarios => {:include => :turnos}, :ubicacion => {}}}}}})
   end
 end
 #:include => [:posts, :roles]
