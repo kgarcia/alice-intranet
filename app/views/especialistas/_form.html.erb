@@ -1,75 +1,157 @@
-<div class="row">
-  <div class="col-lg-6 col-lg-offset-3">
-  <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Especialista" %></h2>
-              </div>
-          </div>
-    <div class="ibox-content">
-      <%= form_for @especialista, :html => {:class => 'form-horizontal'} do |f| %>
-          <% if @especialista.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(@especialista.errors.count, "error") %> prohibited this parametro from being
-                  saved:</h2>
-
-                <ul>
-                  <% @especialista.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-          <% end %>
-
-          <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#datos">Datos básicos</a></li>
-            <li><a data-toggle="tab" href="#especialidades">Especialidades</a></li>
-          </ul>
-
-          <div class="tab-content">
-            <div id="datos" class="tab-pane fade in active">
-              <br>
-              <div class="field form-group">
-              <label class="col-lg-2 control-label">Universidad</label>
-              <div class="col-lg-10"><%= f.collection_select(:universidad_id, @universidades, :id, :descripcion, {}, :class => "form-control") %></div>
-            </div>
-
-            <div class="field form-group">
-              <label class="col-lg-2 control-label">Formación Académica</label>
-              <div class="col-lg-10"><%= f.collection_select(:formacion_academica_id, @formacion_academicas, :id, :descripcion, {}, :class => "form-control") %></div>
-            </div>
-
-        
-            <%= render 'personas/datos_persona', persona: @persona %>
-            </div>
-
-            <div id="especialidades" class="tab-pane fade in">
-              <br>
-              <div class="container-fluid">
-                <% @especialidades.each do |especialidad| %>
-                  <div class="col-sm-3">
-                      <%= check_box_tag('especialidades[]', especialidad.id, @especialista.especialidades.include?(especialidad)) %> <%= especialidad.descripcion %>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-          <br>
-                      <div class="col-lg-offset-3 col-lg-2">
-                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
-                      </div>
-                        <div class="col-lg-2">
-                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2 class="text-dark-blue"><strong><%= @especialista.class.titulo %></strong></h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+      </li>
+      <li>
+        <a href="/<%= @especialista.class.name.underscore.pluralize %>">Listado</a>
+      </li>
+      <li class="active">
+        <% if @especialista.new_record? %>
+          <strong class="text-blue">Registrar <%= @especialista.class.titulo %></strong>
+        <% else %>
+          <strong class="text-blue">Editar <%= @especialista.class.titulo %></strong>
+        <% end %>
+      </li>
+    </ol>
+  </div>
+</div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong><%= @especialista.class.titulo %></strong></h4>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+              <%= form_for @especialista, :html => {:class => '', :id => 'form-especialista'}, :form_to_validate => @especialista.class, role: 'form' do |f| %>
+                <div class="tabs-container">
+                  <ul class="nav nav-tabs">
+                    <li class="active">
+                      <a data-toggle="tab" href="#datos" class="text-center">Datos básicos</a>
+                    </li>
+                    <li>
+                      <a data-toggle="tab" href="#especialidades" class="text-center">Especialidades</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content">
+                    <div id="datos" class="tab-pane fade in active">
+                      <div class="panel-body">  
+                        <div class="form-group">
+                          <label class="control-label">Universidad <label for="<%= @especialista.class.name.underscore %>_universidad_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                          <%= f.collection_select(:universidad_id, @universidades, :id, :descripcion, {:prompt => "Seleccione"}, :class => "form-control") %>
                         </div>
-                      <div class="col-lg-2">
-                      <%= link_to 'Atrás',especialistas_path, :class => "btn btn-sm btn-success" %>                          
-                      </div>
-                  </div>
+
+                        <div class="form-group">
+                          <label class="control-label">Formación Académica <label for="<%= @especialista.class.name.underscore %>_formacion_academica_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                          <%= f.collection_select(:formacion_academica_id, @formacion_academicas, :id, :descripcion, {:prompt => "Seleccione"}, :class => "form-control") %>
+                        </div>
                   
-      <% end %>
+                        <%= render 'personas/datos_persona', persona: @persona %>
+                      </div>  
+                    </div>
+
+                    <div id="especialidades" class="tab-pane fade in">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <div class="row">
+                              <div class="col-sm-12">
+                                <label class="control-label">Seleccione una Especialidad: <label for="especialidades[]" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                              </div>
+                            </div>
+                            <div class="container-fluid">
+                              <% @especialidades.each do |especialidad| %>
+                                <div class="col-sm-3">
+                                    <%= check_box_tag('especialidades[]', especialidad.id, @especialista.especialidades.include?(especialidad)) %> <%= especialidad.descripcion %>
+                                </div>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                  <div class="col-lg-offset-3 col-lg-2">
+                    <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                  </div>
+                  <div class="col-lg-2">
+                    <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>
+                  </div>
+                  <div class="col-lg-2">
+                    <%= link_to 'Atrás',especialistas_path, :class => "btn btn-sm btn-success" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="col-sm-1"></div>
   </div>
 </div>
 
+<% content_for :javascript do %>
+  <script type="text/javascript">
 
+    $('#form-especialista').validate({
+      rules: {
+        '<%= @especialista.class.to_s.underscore %>[universidad_id]': {
+          required: true
+        },
+        '<%= @especialista.class.to_s.underscore %>[formacion_academica_id]': {
+          required: true
+        },
+        '<%= @persona.class.to_s.underscore %>[cedula]': {  
+          required: true
+        },
+        '<%= @persona.class.to_s.underscore %>[nombre]': {  
+          required: true,
+          solo_letras: true
+        },
+        '<%= @persona.class.to_s.underscore %>[apellido]': {  
+          required: true,
+          solo_letras: true
+        },
+        '<%= @persona.class.to_s.underscore %>[telefono]': {  
+          required: true
+        },
+        '<%= @persona.class.to_s.underscore %>[direccion]': {  
+          required: true
+        },
+        '<%= @persona.class.to_s.underscore %>[fecha_nacimiento]': {  
+          required: true
+        },
+        '<%= @persona.class.to_s.underscore %>[sexo_id]': {  
+          required: true
+        },
+        'especialidades[]':{
+          required: true
+        }
+      },
+      messages: {
+        '<%= @especialista.class.to_s.underscore %>[universidad_id]': {
+          required: "Por favor Seleccione una opción"
+        },
+        '<%= @especialista.class.to_s.underscore %>[formacion_academica_id]': {
+          required: "Por favor Seleccione una opción"
+        },,
+        '<%= @persona.class.to_s.underscore %>[sexo_id]': {  
+          required: "Por favor Seleccione una opción"
+        },
+        'especialidades[]':{
+          required: "Por favor Seleccione una opción"
+        }
+      }
+    });
+
+  </script>
+<% end %>

@@ -1,15 +1,5 @@
 <%= form_for(persona) do |f| %>
-  <% if persona.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(persona.errors.count, "error") %> prohibited this persona from being saved:</h2>
 
-      <ul>
-      <% persona.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 
                   <div class="form-group"><label class="col-lg-2 control-label">Cedula</label>
