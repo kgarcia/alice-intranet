@@ -1,6 +1,6 @@
 class UsuariosController < ApplicationController
 	def index
-    	@usuarios = Usuario.where(:estatus => 1)
+    	@usuarios = Usuario.all
   	end
 
     def solicitante
