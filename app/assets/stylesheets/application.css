@@ -61,3 +61,8 @@
         top: 0;
     }
 }
+.mi-cuenta.dropdown-menu > li > a:hover, 
+.mi-cuenta.dropdown-menu > li > a:focus{
+    background: #3A4459 none repeat scroll 0% 0%;
+    color: #FFF;    
+}

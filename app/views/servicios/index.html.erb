@@ -1,60 +1,68 @@
-<br>
-<%= csrf_meta_tag %>
-<div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Servicios" %></h2>
-              </div>
-          </div>
-<div class="ibox-content">
-<%= link_to 'Registrar', new_servicio_path, :class => "btn btn-primary btn-sm" %>
- <br><br> 
- <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
-    <thead>
-
-      <tr>
-        <th data-sorted="true">Tipo de Servicio</th>
-        <th>Descripción</th>
-        <th>Especialista</th>
-
-        <th colspan="1"></th>
-        <th colspan="1"></th>
-        <th colspan="1"></th>
-
-      </tr>
-    </thead>
-    <tbody>
-      <% @servicios.each do |servicio| %>
-          <tr>
-            <td><%= servicio.tipo_servicio.descripcion %></td>
-            <td><%= servicio.descripcion %></td>
-            <% if(!servicio.especialista.nil?) %>
-              <td><%= servicio.especialista.nombre %></td>
-            <%else %>
-            <td></td>
-            <% end %>
-
-            <td>
-              <%= link_to 'Horario', horario_path(Horario.find(servicio.id)), :class => "btn btn-primary btn-sm" %></td>
-            <td>
-              <%= link_to 'Editar', edit_servicio_path(servicio), :class => "btn btn-warning btn-sm" %></td>
-            <td>  <%= link_to 'Eliminar', servicio, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el servicio?' } , :class => "btn btn-danger btn-sm" %></td>
-          </tr>
-      <% end %>
-    </tbody>
-      <tfoot>
-      <tr>
-          <td colspan="5">
-              <ul class="pagination pull-right"></ul>
-          </td>
-      </tr>
-      </tfoot>
-  </table>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong><%= @servicios.new.class.titulo %></strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li class="active">
+            <strong class="text-blue">Listado</strong>
+        </li>
+    </ol>
+  </div>
 </div>
-<br>
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong>Listado: <%= @servicios.new.class.titulo %></strong></h4>
+        </div>
+        <div class="ibox-content">
+          <%= link_to "Registrar", new_polymorphic_url(@servicios.new), :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: 10px;'%> 
+          <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+              <thead>
 
+                <tr>
+                  <th data-sorted="true">Tipo de Servicio</th>
+                  <th>Descripción</th>
+                  <th>Especialista</th>
 
-<script type="text/javascript">
-$(document).ready(function(){
-$('.table').footable();
-});
-</script>
+                  <th colspan="1"></th>
+                  <th colspan="1"></th>
+                  <th colspan="1"></th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% @servicios.each do |servicio| %>
+                    <tr>
+                      <td><%= servicio.tipo_servicio.descripcion %></td>
+                      <td><%= servicio.descripcion %></td>
+                      <% if(!servicio.especialista.nil?) %>
+                        <td><%= servicio.especialista.nombre %></td>
+                      <%else %>
+                      <td></td>
+                      <% end %>
+
+                      <td>
+                        <%= link_to 'Horario', horario_path(Horario.find(servicio.id)), :class => "btn btn-primary btn-sm" %></td>
+                      <td>
+                        <%= link_to 'Editar', edit_servicio_path(servicio), :class => "btn btn-warning btn-sm" %></td>
+                      <td>  <%= link_to 'Eliminar', servicio, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el servicio?' } , :class => "btn btn-danger btn-sm" %></td>
+                    </tr>
+                <% end %>
+              </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <ul class="pagination pull-right"></ul>
+                    </td>
+                </tr>
+                </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

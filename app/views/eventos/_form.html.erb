@@ -1,109 +1,168 @@
-<div class="row">   
-   <div class="col-lg-6 col-lg-offset-3">
-   <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Evento" %></h2>
-              </div>
-          </div>
-          <div class="ibox-content">
-             <%= form_for @evento, :html => {:class => 'form-horizontal'} do |f| %>
-                  <% if @evento.errors.any? %>
-                    <div id="error_explanation">
-                      <h2><%= pluralize(@evento.errors.count, "error") %> prohibited this parametro from being saved:</h2>
-
-                      <ul>
-                      <% @evento.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                      <% end %>
-                      </ul>
-                    </div>
-                  <% end %>
-
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#datos">Difusión</a></li>
-                    <li><a data-toggle="tab" href="#texto">Texto</a></li>
-                  </ul>
-
-                  <div class="tab-content">
-                  <br>
-                    <div id="datos" class="tab-pane fade in active">
-                      <div class="field form-group">
-                      <label class="col-lg-2 control-label">Ubicación</label>
-
-                       <div class="col-lg-10">
-                        <%= f.collection_select(:ubicacion_id, @ubicaciones, :id, :descripcion, {prompt: "Seleccione la ubicacion"}, {:class => "form-control"}) %>
-                       </div>
-
-                    </div>
-
-                    <div class="form-group">
-                      <label class="col-lg-2 control-label">Fecha</label>
-                      <div class="col-lg-10"><%= f.datetime_select :fecha %>
-                      </div>
-                    </div>
-
-            
-                    <div class="field form-group">
-                      <label class="col-lg-2 control-label">Tipo de evento</label>
-
-                       <div class="col-lg-10">
-                        <%= f.collection_select(@referencia, @collection, :id, :descripcion, {prompt: "Seleccione", :selected => @evento.tipo}, {:class => "form-control"}) %>
-                       </div>
-
-                    </div>
-
-                    <div id="servicios" class="tab-pane fade in">
-                        <h3>Tipos de Servicio</h3>
-                        <div class="container-fluid">
-                          <% @tipoServicios.each do |tipoServicio| %>
-                            <div class="col-sm-6">
-                              <%= check_box_tag('tipoServicios[]', tipoServicio.id, @evento.tipo_servicios.include?(tipoServicio)) %> <%= tipoServicio.descripcion %>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2 class="text-dark-blue"><strong><%= @evento.class.titulo %></strong></h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+      </li>
+      <li>
+        <a href="/<%= @evento.class.name.underscore.pluralize %>">Listado</a>
+      </li>
+      <li class="active">
+        <% if @evento.new_record? %>
+          <strong class="text-blue">Registrar <%= @evento.class.titulo %></strong>
+        <% else %>
+          <strong class="text-blue">Editar <%= @evento.class.titulo %></strong>
+        <% end %>
+      </li>
+    </ol>
+  </div>
+</div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong><%= @evento.class.titulo %></strong></h4>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+              <%= form_for @evento, :html => {:class => '', :id => 'form-evento'}, :form_to_validate => @evento.class, role: 'form' do |f| %>
+                  <div class="tab-container">
+                    <ul class="nav nav-tabs">
+                      <li class="active"><a data-toggle="tab" href="#datos">Difusión</a></li>
+                      <li><a data-toggle="tab" href="#texto">Texto</a></li>
+                      <li><a data-toggle="tab" href="#servicios">Tipos de Servicios</a></li>
+                    </ul>
+  
+                    <div class="tab-content">
+                      <div id="datos" class="tab-pane fade in active">
+                        <div class="panel-body">
+                        
+                          <div class="form-group">
+                            <label class="control-label">Ubicación <label for="<%= @evento.class.to_s.underscore %>_ubicacion_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                            <%= f.collection_select(:ubicacion_id, @ubicaciones, :id, :descripcion, {prompt: "Seleccione la ubicacion"}, {:class => "form-control"}) %>
+                          </div>
+                          <div class="form-group fecha-evento">
+                            <label class="control-label">Fecha <label for="<%= @evento.class.name.underscore %>_fecha_nacimiento" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                            <div class="input-group date">
+                                <span class="input-group-addon">
+                                  <i class="fa fa-calendar"></i>
+                                </span>
+                              <%= f.text_field :fecha,:required =>true, :class => "form-control" %>
                             </div>
-                          <% end %>
-                        </div>  
-                      </div>
-<br>
-                    <div class="form-group">
-                      <label class="col-lg-2 control-label">Descripción</label>
-                      
-                        <div class="col-lg-10"><%= f.text_field :descripcion, :required => true,:class => "form-control" %>
-                         </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label class="col-lg-2 control-label">Foto</label>
-
-                        <div class="col-lg-10"><%= f.file_field :foto, :class => "form-control" %>
-                         </div>
-                      </div>
-                    </div>
-
-                    <div id="texto" class="tab-pane fade in">
-                      <br>
-                      <div class="form-group">
-                          <label class="col-lg-2 control-label">Texto</label>
-
-                          <div class="col-lg-10"><%= f.text_area :contenido, :class => "tinymce form-control" %></div>
-                          <%= tinymce :language => "es_MX" %>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label">Tipo de evento <label for="<%= @evento.class.to_s.underscore %>_<%= @referencia %>" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                            <%= f.collection_select(@referencia, @collection, :id, :descripcion, {prompt: "Seleccione", :selected => @evento.tipo}, {:class => "form-control"}) %>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label">Descripción <label for="<%= @evento.class.to_s.underscore %>_descripcion" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                            <%= f.text_field :descripcion, :required => true,:class => "form-control" %>
+                          </div>
+                          <div class="form-group">
+                            <label class="control-label">Foto <label for="<%= @evento.class.to_s.underscore %>_foto" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                            <%= f.file_field :foto, :class => "form-control" %>
+                          </div>
                         </div>
+                      </div>
+                      <div id="servicios" class="tab-pane fade in">
+                        <div class="panel-body">
+                          <h3>Tipos de Servicio <label for="tipoServicios[]" class="control-label error" style="margin-bottom: 0px;"></label></h3>
+                          <div class="container-fluid">
+                            <% @tipoServicios.each do |tipoServicio| %>
+                              <div class="col-sm-6">
+                                <%= check_box_tag('tipoServicios[]', tipoServicio.id, @evento.tipo_servicios.include?(tipoServicio)) %> <%= tipoServicio.descripcion %>
+                              </div>
+                            <% end %>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="texto" class="tab-pane fade in">
+                        <div class="panel-body">
+                          <div class="form-group">
+                            <label class="control-label">Texto <label for="<%= @evento.class.to_s.underscore %>_contenido" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                            <%= f.text_area :contenido, :class => "tinymce form-control" %>
+                            <%= tinymce :language => "es_MX" %>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-
-                 <div class="form-group">
-                 <br>
-                      <div class="col-lg-offset-3 col-lg-2">
+                 <div class="form-group" style="margin-top: 20px;">
+                    <div class="col-lg-offset-3 col-lg-2">
                            <%= f.submit "Guardar", :class => "btn btn-sm  btn-primary" %>
                       </div>
                         <div class="col-lg-2">
                         <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
                         </div>
                       <div class="col-lg-2">
-                      <%= link_to 'Atras',eventos_path, :class => "btn btn-sm btn-success" %>                          
+                      <%= link_to 'Atras',eventos_path, :class => "btn btn-sm btn-success" %>
                       </div>
                   </div>
-
               <% end %>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
   </div>
 </div>
+<% content_for :javascript do %>
+  <script type="text/javascript">
 
+    var fecha_evento = new Date();
+
+    $('.fecha-evento .input-group.date').datepicker({
+        keyboardNavigation: false,
+        forceParse: false,
+        autoclose: true,
+        format: "dd/mm/yyyy",
+        endDate: fecha_evento,
+        language: "es"
+    });
+
+    $('#form-evento').validate({
+      rules: {
+        '<%= @evento.class.to_s.underscore %>[<%= @referencia %>]': {
+          required: true
+        },
+        '<%= @evento.class.to_s.underscore %>[fecha]': {  
+          required: true
+        },
+        '<%= @evento.class.to_s.underscore %>[ubicacion_id]': {  
+          required: true
+        },
+        '<%= @evento.class.to_s.underscore %>[descripcion]': {  
+          required: true,
+          solo_letras: true
+        },
+        '<%= @evento.class.to_s.underscore %>[foto]': {  
+          required: true
+        },
+        '<%= @evento.class.to_s.underscore %>[contenido]': {  
+          required: true
+        },
+        'tipoServicios[]': {  
+          required: true
+        }
+      },
+      messages: {
+        '<%= @evento.class.to_s.underscore %>[<%= @referencia %>]': {
+          required: "Por favor Seleccione una opción"
+        },
+        '<%= @evento.class.to_s.underscore %>[ubicacion_id]': {
+          required: "Por favor Seleccione una opción"
+        },
+        'tipoServicios[]': {
+          required: "Por favor Seleccione una opción"
+        }
+      }
+    });
+
+  </script>
+<% end %>

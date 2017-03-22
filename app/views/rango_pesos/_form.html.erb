@@ -1,101 +1,95 @@
-<div class="row">   
-   <div class="col-lg-6 col-lg-offset-3">
-          <div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= rango_peso.class.titulo %></h2>
-              </div>
-          </div>
-          <div class="ibox-content">
-               <%= form_for @rango_peso, :html => {:class => 'form-horizontal', :id => 'form_peso'}, :form_to_validate => 'rango_peso'  do |f| %>
 
-                  <div class="form-group"><label class="col-lg-2 control-label">Descripcion</label>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2 class="text-dark-blue"><strong><%= @rango_peso.class.titulo %></strong></h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+      </li>
+      <li>
+        <a href="/<%= @rango_peso.class.name.underscore.pluralize %>">Listado</a>
+      </li>
+      <li class="active">
+        <% if @rango_peso.new_record? %>
+          <strong class="text-blue">Registrar <%= @rango_peso.class.titulo %></strong>
+        <% else %>
+          <strong class="text-blue">Editar <%= @rango_peso.class.titulo %></strong>
+        <% end %>
+      </li>
+    </ol>
+  </div>
+</div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong><%= @rango_peso.class.titulo %></strong></h4>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+              <%= form_for @rango_peso, :html => {:class => '', :id => 'form-rango-peso'}, :form_to_validate => @rango_peso.class, role: 'form' do |f| %>
 
-                      <div class="col-lg-10"><%= f.text_field :descripcion,:required=>true, :class => "form-control" %>
-                       </div>
-                   </div>
-
-                  <div class="form-group"><label class="col-lg-2 control-label">Peso Inicial</label>
-
-                      <div class="col-lg-10"><%= f.number_field :peso_inicial,:required=>true, :class => "form-control" %>
-                       </div>
+                  <div class="form-group">
+                    <label class="control-label">Descripcion <label for="<%= @rango_peso.class.name.underscore %>_descripcion" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= f.text_field :descripcion, :class => "form-control" %>
                   </div>
 
-                  <div class="form-group"><label class="col-lg-2 control-label">Peso Final</label>
+                  <div class="form-group">
+                    <label class="control-label">Peso Inicial (Kg) <label for="<%= @rango_peso.class.name.underscore %>_peso_inicial" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= f.number_field :peso_inicial, :class => "form-control" %>
+                  </div>
 
-                      <div class="col-lg-10"><%= f.number_field :peso_final, :required=>true,:class => "form-control" %>
-                       </div>
+                  <div class="form-group">
+                    <label class="control-label">Peso Final (Kg) <label for="<%= @rango_peso.class.name.underscore %>_peso_final" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= f.number_field :peso_final, :class => "form-control" %>
                   </div>                  
-
-                 
                     <div class="form-group">
                       <div class="col-lg-offset-3 col-lg-2">
                            <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
                       </div>
-                        <div class="col-lg-2">
-                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
-                        </div>
+                        <% if @rango_peso.new_record? %>
+                          <div class="col-lg-2">
+                            <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>
+                          </div>
+                        <% end %>
                       <div class="col-lg-2">
-                      <%= link_to 'Atras',rango_pesos_path, :class => "btn btn-sm btn-success" %>                          
+                        <%= link_to 'Atras',rango_pesos_path, :class => "btn btn-sm btn-success" %>
                       </div>
                   </div>
-
               <% end %>
+            </div>
           </div>
+        </div>
+      </div>
+    <div class="col-sm-2"></div>
   </div>
 </div>
+<% content_for :javascript do %>
+
 <script type="text/javascript">
-
-
-  var valor_negativo = function(e_inicio) {
-
-        var inicio = 0;
-        inicio = parseInt(e_inicio);
-        if( inicio <= 0)
-        {
-          return false;
-        }
-        else{
-          return true;
-        }
-    };
-
-  var rango_valido = function(e_inicio, e_fin) {
-
-        var inicio = 0;
-        var fin = 0;
-        fin = parseInt(e_fin);
-        inicio = parseInt(e_inicio);
-        if( inicio < fin)
-        {
-          return false;
-        }
-        else{
-          return true;
-        }
-    };
-
-$('#form_peso').validate({
-    rules: {
-      'rango_peso[peso_inicial]': { required: true,
-                              valor_negativo: true,
-                              rango_valido: true
-                            },
-      'rango_peso[peso_final]' :{  required: true,
-                            valor_negativo: true,
-                            rango_valido: true
-                          }
-    }
-  });
-  jQuery.validator.addMethod("valor_negativo", function(value, element) {
-
-        return valor_negativo(value);
-    }, "Peso no puede ser un valor negativo o cero ");
 
   jQuery.validator.addMethod("rango_valido", function(value, element) {
 
-        return rango_valido(value);
-    }, "Rango inválido ");
+      return rango_valido(value, $('input[name="rango_peso[peso_final]"]').val());
+  }, "Rango inválido ");
+
+  $('#form-rango-peso').validate({
+      rules: {
+        'rango_peso[peso_inicial]': { required: true,
+                                valor_negativo: true,
+                                rango_valido: true
+                              },
+        'rango_peso[peso_final]' :{  required: true,
+                                valor_negativo: true,
+                                rango_valido: true
+                            }
+      }
+  });
 
 
+</script>
 
-      </script>
+<% end %>

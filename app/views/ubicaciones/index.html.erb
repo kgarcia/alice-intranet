@@ -56,23 +56,3 @@
       </div>
     </div>
   </div>
-
-<% content_for :javascript do %>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.table').footable({
-      "paging": {
-        "enabled": true,
-        "size": 5
-      },
-      "filtering": {
-        "enabled": true
-      }
-    });
-  });
-
-</script>
-
-<% end %>
-

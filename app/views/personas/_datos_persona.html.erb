@@ -1,32 +1,27 @@
   
-  <%= fields_for @persona do |u| %>
-                  <div class="form-group row"><label class="col-lg-2 control-label">Cédula</label>
-
-                      <div class="col-lg-10"><%= u.text_field :cedula,:required =>true, :class => "form-control" %>
-                       </div>
-                    </div>
-                   <div class="form-group row"><label class="col-lg-2 control-label">Nombre</label>
-
-                      <div class="col-lg-10"><%= u.text_field :nombre,:required =>true, :class => "form-control" %>
-                      </div>
+                <%= fields_for @persona do |u| %>
+                  <div class="form-group">
+                    <label class="control-label">Cédula <label for="<%= @persona.class.name.underscore %>_cedula" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.text_field :cedula,:required =>true, :class => "form-control" %>
                   </div>
-                  <div class="form-group row"><label class="col-lg-2 control-label">Apellido</label>
-                      <div class="col-lg-10"><%= u.text_field :apellido,:required =>true, :class => "form-control" %>
-                      </div>
+                  <div class="form-group">
+                    <label class="control-label">Nombre <label for="<%= @persona.class.name.underscore %>_nombre" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.text_field :nombre,:required =>true, :class => "form-control" %>
                   </div>
-
-                   <div class="form-group row"><label class="col-lg-2 control-label">Teléfono</label>
-                      <div class="col-lg-10"><%= u.text_field :telefono, :required => true, :input_html => { :maxlength => 14 }, :data => { "mask" => "999-999-9999"  }, :class => "form-control" %>
-                      </div>
+                  <div class="form-group">
+                    <label class="control-label">Apellido <label for="<%= @persona.class.name.underscore %>_apellido" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.text_field :apellido,:required =>true, :class => "form-control" %>
                   </div>
-
-                   <div class="form-group row"><label class="col-lg-2 control-label">Dirección</label>
-                      <div class="col-lg-10"><%= u.text_field :direccion, :class => "form-control" %>
-                      </div>
+                  <div class="form-group">
+                    <label class="control-label">Teléfono <label for="<%= @persona.class.name.underscore %>_telefono" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.text_field :telefono, :required => true, :input_html => { :maxlength => 14 }, :data => { "mask" => "999-999-9999"  }, :class => "form-control" %>
                   </div>
-
-                  <div class="form-group row fecha-n-persona">
-                    <label class="col-lg-2 control-label">Fecha de Nacimiento</label>
+                  <div class="form-group">
+                    <label class="control-label">Dirección <label for="<%= @persona.class.name.underscore %>_direccion" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.text_field :direccion, :class => "form-control" %>
+                  </div>
+                  <div class="form-group fecha-n-persona">
+                    <label class="control-label">Fecha de Nacimiento <label for="<%= @persona.class.name.underscore %>_fecha_nacimiento" class="control-label error" style="margin-bottom: 0px;"></label></label>
                     <div class="input-group date col-lg-10">
                         <span class="input-group-addon">
                           <i class="fa fa-calendar"></i>
@@ -34,12 +29,11 @@
                       <%= u.text_field :fecha_nacimiento, 'data-provide' => "datepicker", :required =>true, :class => "form-control" %>
                     </div>
                   </div>
-
-                  <div class="field form-group row">
-                    <label class="col-lg-2 control-label">Sexo</label>
-                    <div class="col-lg-10"><%= u.collection_select(:sexo_id, @sexos, :id, :descripcion,{}, :class => "form-control" )%></div>
+                  <div class="form-group">
+                    <label class="control-label">Sexo <label for="<%= @persona.class.name.underscore %>_sexo_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.collection_select(:sexo_id, @sexos, :id, :descripcion,{}, :class => "form-control" )%>
                   </div>
-    <% end %>
+                <% end %>
 
 
   

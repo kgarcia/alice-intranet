@@ -1,82 +1,130 @@
-<br>
-<div class="row">   
-   <div class="col-lg-10 col-lg-offset-1">
-   <div class="ibox float-e-margins">
-          <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Servicio" %></h2>
-              </div>
-              </div>
-          <div class="ibox-content">
-             <%= form_for @servicio, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
-                  <% if @servicio.errors.any? %>
-                    <div id="error_explanation">
-                      <h2><%= pluralize(@servicio.errors.count, "error") %> prohibited this parametro from being saved:</h2>
-
-                      <ul>
-                      <% @servicio.errors.full_messages.each do |message| %>
-                        <li><%= message %></li>
-                      <% end %>
-                      </ul>
-                    </div>
-                  <% end %>
-
-                    <div class="field form-group">
-                      <label class="col-lg-2 control-label">Tipo de Servicio</label>
-                      <div class="col-lg-10">
-                        <%= f.collection_select(:tipo_servicio_id, @tipo_servicios, :id, :descripcion, {},{:class => "form-control"}) %>
-                      </div>
-                      
-                    </div>
-
-                    <div class="field form-group">
-                      <label class="col-lg-2 control-label">Especialista</label>
-                      <div class="col-lg-10">
-                        <%= f.collection_select(:especialista_id, @especialistas, :id, :nombre, {},{:class => "form-control"}) %>
-                      </div>
-                      
-                    </div>
-
-                    <div class="field form-group">
-                      <label class="col-lg-2 control-label">Ubicación</label>
-                      <div class="col-lg-10">
-                        <%= f.collection_select(:ubicacion_id, @ubicaciones, :id, :descripcion, {},{:class => "form-control"}) %>
-                      </div>
-                      
-                    </div>  
-
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2 class="text-dark-blue"><strong><%= @servicio.class.titulo %></strong></h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+      </li>
+      <li>
+        <a href="/<%= @servicio.class.name.underscore.pluralize %>">Listado</a>
+      </li>
+      <li class="active">
+        <% if @servicio.new_record? %>
+          <strong class="text-blue">Registrar <%= @servicio.class.titulo %></strong>
+        <% else %>
+          <strong class="text-blue">Editar <%= @servicio.class.titulo %></strong>
+        <% end %>
+      </li>
+    </ol>
+  </div>
+</div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong><%= @servicio.class.titulo %></strong></h4>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+              <%= form_for @servicio, :html => {:class => '', :id => 'form-servicio', :multipart => true}, :form_to_validate => @servicio.class, role: 'form' do |f| %>
+                <div class="row">
+                  <div class="col-sm-6">
                     <div class="form-group">
-                      <label class="col-lg-2 control-label">Descripción</label>
-
-                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control" %>
-                       </div>
+                      <label class="control-label">Tipo de Servicio <label for="<%= @servicio.class.to_s.underscore %>_tipo_servicio_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                      <%= f.collection_select(:tipo_servicio_id, @tipo_servicios, :id, :descripcion, {:prompt => "Seleccione"},{:class => "form-control"}) %>
                     </div>
-
-                    <div class="form-group"><label class="col-lg-2 control-label">Precio</label>
-
-                        <div class="col-lg-10"><%= f.number_field :precio, :class => "form-control" %>
-                        </div>
+                    <div class="form-group">
+                      <label class="control-label">Especialista <label for="<%= @servicio.class.to_s.underscore %>_especialista_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                      <%= f.collection_select(:especialista_id, @especialistas, :id, :nombre, {:prompt => "Seleccione"},{:class => "form-control"}) %>
                     </div>
-
-                   <div class="form-group">
-                      <label class="col-lg-2 control-label">Foto</label>
-
-                      <div class="col-lg-10"><%= f.file_field :foto, :class => "form-control" %>
-                       </div>
+                    <div class="form-group">
+                      <label class="control-label">Ubicación <label for="<%= @servicio.class.to_s.underscore %>_ubicacion_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                      <%= f.collection_select(:ubicacion_id, @ubicaciones, :id, :descripcion, {:prompt => "Seleccione"},{:class => "form-control"}) %>
                     </div>
-
-                
-
-          
-              <div class="form-group">
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="control-label">Descripción <label for="<%= @servicio.class.to_s.underscore %>_descripcion" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                      <%= f.text_field :descripcion, :class => "form-control" %>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">Precio <label for="<%= @servicio.class.to_s.underscore %>_precio" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                      <%= f.number_field :precio, :class => "form-control" %>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label">Foto <label for="<%= @servicio.class.to_s.underscore %>_foto" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                      <%= f.file_field :foto, :class => "form-control" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
                       <div class="col-lg-offset-3 col-lg-2">
                            <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
                       </div>
-                        
+                       
+                      <% if (@servicio.new_record?) %>
                       <div class="col-lg-2">
-                      <%= link_to 'Atras',servicios_path, :class => "btn btn-sm btn-success" %>                          
+                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning" %>
                       </div>
+                      <% end %> 
+                      <div class="col-lg-2">
+                        <%= link_to 'Atras',servicios_path, :class => "btn btn-sm btn-success" %>
+                      </div>
+                    </div>
                   </div>
-                  </div>
-          <% end %>
+                </div>
+              <% end %>
+            </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
   </div>
+</div>
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+
+    $('#form-servicio').validate({
+      rules: {
+        '<%= @servicio.class.to_s.underscore %>[tipo_servicio_id]': {
+          required: true
+        },
+        '<%= @servicio.class.to_s.underscore %>[especialista_id]': {
+          required: true
+        },
+        '<%= @servicio.class.to_s.underscore %>[ubicacion_id]': {
+          required: true
+        },
+        '<%= @servicio.class.to_s.underscore %>[descripcion]': {  
+          required: true,
+          solo_letras: true
+        },
+        '<%= @servicio.class.to_s.underscore %>[precio]': {  
+          required: true
+        },
+        '<%= @servicio.class.to_s.underscore %>[foto]': {  
+          required: true
+        }
+      },
+      messages: {
+        '<%= @servicio.class.to_s.underscore %>[tipo_servicio_id]': {
+          required: "Por favor Seleccione una opción"
+        },
+        '<%= @servicio.class.to_s.underscore %>[especialista_id]': {
+          required: "Por favor Seleccione una opción"
+        },
+        '<%= @servicio.class.to_s.underscore %>[ubicacion_id]': {
+          required: "Por favor Seleccione una opción"
+        }
+      }
+    });
+
+  </script>
+<% end %>
