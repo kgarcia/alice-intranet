@@ -7,7 +7,7 @@
     if params[:persona].nil?
       @lista = Cita.where({:usuario_id => current_usuario.id, :estatus => 1})
     else
-      @lista = Cita.where({:persona_id => params[:persona]})
+      @lista = Cita.where({:usuario_id => params[:persona]})
     end
       respond_to do |format|
       format.html
@@ -49,7 +49,7 @@
     @cita.estatus = 1
     respond_to do |format|
       if @cita.save
-        ExampleMailer.cita_registrada.deliver_now#('kevin93ps@gmail.com', @cita)
+        ExampleMailer.cita_registrada(@cita).deliver_now#('kevin93ps@gmail.com', @cita)
         Notificacion.create(descripcion:"Solicitud de cita.", mensaje: "Haz solicitado una cita para el servicio "+@cita.turno.horario.servicio.descripcion, url:"", usuario_id:@cita.usuario_id, tipo_notificacion_id: 1, entidad_id: @cita.id )
         format.html { redirect_to @cita, notice: 'Cita was successfully created.' }
         format.json { render :show, status: :created, location: @cita }
