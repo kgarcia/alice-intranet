@@ -1205,6 +1205,7 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.string   "foto_content_type"
     t.integer  "foto_file_size"
     t.datetime "foto_updated_at"
+    t.integer  "estatus",                default: 1,  null: false
     t.integer  "persona_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

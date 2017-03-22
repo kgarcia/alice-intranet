@@ -54,12 +54,14 @@ class UsuariosController < ApplicationController
       @persona = Persona.new(persona_params)
       @persona.save
       @usuario = Usuario.new(sign_up_params)
-      if @usuario.save
-        format.html { redirect_to "/usuarios", notice: 'El registro ha sido creado exitosamente.' }
-        format.json { render :editar, status: :created, location: @usuario }
-      else
-        format.html { render :registrar }
-        format.json { render json: @usuario.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @usuario.save
+          format.html { redirect_to "/usuarios", notice: 'El registro ha sido creado exitosamente.' }
+          format.json { render :editar, status: :created, location: @usuario }
+        else
+          format.html { render :registrar }
+          format.json { render json: @usuario.errors, status: :unprocessable_entity }
+        end
       end
     end
 

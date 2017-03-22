@@ -421,7 +421,7 @@
   		OptionMenu.find_or_create_by(:id_padre => 51,   :nombre => 'Catálogo de Eventos',     :url_path => '/eventos', :icono => 'fa-table',            :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
     OptionMenu.find_or_create_by(:id_padre => nil,   :nombre => 'Agenda',                  :url_path => '#', :icono => 'fa-calendar',         :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
-	    OptionMenu.find_or_create_by(:id_padre => 56,  :nombre => 'Mi Horario',               :url_path => '/horarios/1', :icono => 'fa-search',           :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	    OptionMenu.find_or_create_by(:id_padre => 56,  :nombre => 'Mi Horario',               :url_path => '/mi_horario', :icono => 'fa-search',           :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 	    OptionMenu.find_or_create_by(:id_padre => 56,  :nombre => 'Horarios',                :url_path => '/horarios', :icono => 'fa-clock-o',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 	    OptionMenu.find_or_create_by(:id_padre => 56,  :nombre => 'Eventualidades',          :url_path => '/eventualidades', :icono => 'fa-exclamation-circle',           :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
