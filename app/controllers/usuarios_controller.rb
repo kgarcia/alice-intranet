@@ -54,6 +54,7 @@ class UsuariosController < ApplicationController
       @persona = Persona.new(persona_params)
       @persona.save
       @usuario = Usuario.new(sign_up_params)
+       respond_to do |format|
       if @usuario.save
         format.html { redirect_to "/usuarios", notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :editar, status: :created, location: @usuario }
@@ -61,6 +62,7 @@ class UsuariosController < ApplicationController
         format.html { render :registrar }
         format.json { render json: @usuario.errors, status: :unprocessable_entity }
       end
+     end
     end
 
     def editar
@@ -96,7 +98,7 @@ class UsuariosController < ApplicationController
       respond_to do |format|
         if @usuario.update(sign_up_params)
           
-          format.html { redirect_to "/perfil", info: 'El perfil ha sido actualizado exitosamente.' }
+          format.html { redirect_to "/usuarios/sign_in", info: 'El perfil ha sido actualizado exitosamente.' }
           format.json { render :perfil, status: :ok, location: @usuario }
         else
           format.html { render :perfil }

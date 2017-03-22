@@ -1,5 +1,6 @@
 Myapp::Application.routes.draw do
 
+  get '/mi_horario', to: 'horarios#mi_horario'
   get '/usuarios/registrar', to: 'usuarios#registrar'
 
   post '/usuarios/guardar', to: 'usuarios#guardar'

@@ -43,7 +43,7 @@ class TipoCitasController < ApplicationController
     @tipo_cita.estatus = 1
     respond_to do |format|
       if @tipo_cita.save
-        format.html { redirect_to edit_tipo_cita_path(@tipo_cita), notice: 'Tipo cita was successfully created.' }
+        format.html { redirect_to tipo_citas_path, notice: 'El registro fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @tipo_cita }
       else
         format.html { render :new }
@@ -57,7 +57,7 @@ class TipoCitasController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_cita.update(tipo_cita_params)
-        format.html { redirect_to edit_tipo_cita_path(@tipo_cita), notice: 'Tipo cita was successfully updated.' }
+        format.html { redirect_to edit_tipo_cita_path(@tipo_cita), notice: 'El registro fue actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @tipo_cita }
       else
         format.html { render :edit }
@@ -72,7 +72,7 @@ class TipoCitasController < ApplicationController
     @tipo_cita.estatus = 2
     @tipo_cita.save
     respond_to do |format|
-      format.html { redirect_to tipo_citas_url, notice: 'Tipo cita was successfully destroyed.' }
+      format.html { redirect_to tipo_citas_url, notice: 'El registro fue elimando exitosamente.' }
       format.json { head :no_content }
     end
   end

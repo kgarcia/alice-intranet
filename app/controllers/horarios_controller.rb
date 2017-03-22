@@ -28,6 +28,14 @@ def disponibilidad
            
     end
 end
+  def mi_horario
+    if(current_usuario.servicio_id.nil?)
+      redirect_to '/', notice: 'No hay horarios asociados'
+      else
+        @horario = Horario.where(:servicio_id => current_usuario.servicio_id).take
+      redirect_to @horario
+    end
+  end
 
   def cerrar_turno
     @turno = Turno.find(params[:id])
