@@ -49,7 +49,7 @@ class DifusionesController < ApplicationController
             else
               @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
               @tipoServicios.each do |tipoServicio|
-                @tipoServicio.difundirGeneral(@difusion)
+                tipoServicio.difundirGeneral(@difusion)
               end
             end  
           end
@@ -71,7 +71,7 @@ class DifusionesController < ApplicationController
             else
               @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
               @tipoServicios.each do |tipoServicio|
-                @tipoServicio.notificarGeneral(@difusion)
+                tipoServicio.notificarGeneral(@difusion)
               end
             end  
           end
@@ -83,7 +83,7 @@ class DifusionesController < ApplicationController
             else
               @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
               @tipoServicios.each do |tipoServicio|
-                @tipoServicio.difundirSegmentado(@difusion)
+                tipoServicio.difundirSegmentado(@difusion)
               end
             end  
           end
@@ -105,7 +105,7 @@ class DifusionesController < ApplicationController
             else
               @tipoServicios = Evento.find(@difusion.entidad_id).tipo_servicios
               @tipoServicios.each do |tipoServicio|
-                @tipoServicio.notificarSegmentado(@difusion)
+                tipoServicio.notificarSegmentado(@difusion)
               end
             end  
           end
