@@ -19,7 +19,7 @@
                     </div>
                   <% end %>
                     <div class="field form-group"><label class="col-lg-2 control-label">Servicio</label>
-                    <div class="col-lg-10"><%= f.collection_select(@referenciaServ, @collectionServ, :id, :descripcion,{}, :class =>"form-control") %></div>
+                    <div class="col-lg-10"><%= f.collection_select(@referenciaServ, @collectionServ, :id, :descripcion,{}, :class =>"form-control",:disabled=>true) %></div>
                   </div>
                   
                       <div class="field form-group"><label class="col-lg-2 control-label">Tipo Horario</label>
