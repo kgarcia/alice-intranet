@@ -38,7 +38,7 @@
                       <div class="col-lg-9">
                       <!--<input type="radio" name="prueba" onclick="calificar(2);" />-->
                         <fieldset class="rating" >
-                          <%= calificaciones_form.radio_button(:descripcion, "5", :id =>  cal.criterio_id.to_s + '-5') %>
+                          <%= calificaciones_form.radio_button(:descripcion, "5", :id =>  cal.criterio_id.to_s + '-5', :required => true) %>
                           <%= calificaciones_form.label "5", {:id => cal.criterio_id, :title => "Muy bueno", :onclick => "calificar(this.id, '5')"} %>
 
                           <%= calificaciones_form.radio_button(:descripcion, "4", :id => cal.criterio_id.to_s + '-4') %>

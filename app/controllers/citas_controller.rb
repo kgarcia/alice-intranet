@@ -5,7 +5,7 @@
   # GET /citas.json
   def index
     if params[:persona].nil?
-      @lista = Cita.where({:persona_id => current_usuario.persona_id, :estatus => 1})
+      @lista = Cita.where({:usuario_id => current_usuario.id, :estatus => 1})
     else
       @lista = Cita.where({:persona_id => params[:persona]})
     end
@@ -86,7 +86,7 @@
   end
 
   def historial
-    @histo = Cita.where({:persona_id => current_usuario.persona_id, :estatus => [3,4,5]})
+    @histo = Cita.where({:usuario_id => current_usuario.id, :estatus => [3,4,5]})
   end
 
   def cancelarCita
