@@ -82,10 +82,14 @@ ActiveRecord::Schema.define(version: 20170319044855) do
   end
 
   create_table "categorias", force: :cascade do |t|
-    t.string   "descripcion",             null: false
-    t.integer  "estatus",     default: 1, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "descripcion",                   null: false
+    t.integer  "estatus",           default: 1, null: false
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "slug"
     t.index ["slug"], name: "index_categorias_on_slug", unique: true, using: :btree
   end
@@ -1197,6 +1201,10 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "foto_file_name"
+    t.string   "foto_content_type"
+    t.integer  "foto_file_size"
+    t.datetime "foto_updated_at"
     t.integer  "persona_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

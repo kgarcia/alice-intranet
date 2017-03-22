@@ -1,4 +1,4 @@
-class CitasController < ApplicationController
+  class CitasController < ApplicationController
   before_action :set_cita, only: [:show, :edit, :update, :destroy]
 
   # GET /citas
@@ -131,7 +131,7 @@ class CitasController < ApplicationController
   end
 
   def chequear
-    @citas = Cita.where(:estatus => 1)
+    @citas = Cita.joins(turno: { horario: :servicio } ).where("horarios.servicio_id" => current_usuario.servicio_id ).where(:estatus => 1)
   end
 
   def chequearCita
@@ -154,7 +154,7 @@ class CitasController < ApplicationController
   end
 
   def finalizar
-    @citas = Cita.where(:estatus => 2)
+    @citas = Cita.joins(turno: { horario: :servicio } ).where("horarios.servicio_id" => current_usuario.servicio_id ).where(:estatus => 2)
   end
 
   def finalizarCita
