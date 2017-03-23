@@ -45,11 +45,13 @@
   # POST /citas
   # POST /citas.json
   def create
+    @persona = Persona.where(:cedula => params["usuario[paciente_cedula]"]).take
     @cita = Cita.new(cita_params)
     @cita.estatus = 1
+    @cita.persona = @persona
     respond_to do |format|
       if @cita.save
-        ExampleMailer.cita_registrada(@cita).deliver_now#('kevin93ps@gmail.com', @cita)
+        ExampleMailer.cita_registrada(@cita).deliver_now
         Notificacion.create(descripcion:"Solicitud de cita.", mensaje: "Haz solicitado una cita para el servicio "+@cita.turno.horario.servicio.descripcion, url:"", usuario_id:@cita.usuario_id, tipo_notificacion_id: 1, entidad_id: @cita.id )
         format.html { redirect_to @cita, notice: 'Cita was successfully created.' }
         format.json { render :show, status: :created, location: @cita }

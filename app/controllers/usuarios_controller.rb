@@ -58,8 +58,9 @@ class UsuariosController < ApplicationController
       @persona = Persona.new(persona_params)
       @persona.save
       @usuario = Usuario.new(sign_up_params)
-       respond_to do |format|
+      respond_to do |format|
       if @usuario.save
+
         format.html { redirect_to "/usuarios", notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :editar, status: :created, location: @usuario }
       else
@@ -126,20 +127,27 @@ class UsuariosController < ApplicationController
    def create
      @persona = Persona.new(persona_params)
      @persona.save
-    
+     @user = Usuario.new(sign_up_params)
+     @password = ((0...8).map { (65 + rand(26)).chr }.join)
+     @user.password = @password
+     @user.persona = @persona
     respond_to do |format|
       format.json {
-        @user = Usuario.create(sign_up_params)
-        @user.save ? (render :json => {:data => @user }) : 
-                     (render :json => {:messages => @user.errors.full_messages})
+        if @user.save
+          ExampleMailer.usuario_creado(@usuario, @password).deliver_now
+          render :json => {:data => @user }
+        else
+          render :json => {:messages => @user.errors.full_messages}
+        end
       }
-     #ExampleMailer.sample_mail(Usuario.last).deliver_now
+     
    end
  end
 
   	def persona_params
       params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento,:sexo_id)
     end
+    
     def sign_up_params
       params.require(:usuario).permit(:persona_id, :email, :password, :password_confirmation, :rol_id, :servicio_id)
     end
