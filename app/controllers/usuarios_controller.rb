@@ -1,5 +1,5 @@
 class UsuariosController < ApplicationController
-	def index
+	  def index
     	@usuarios = Usuario.all
       respond_to do |format|
         format.html
