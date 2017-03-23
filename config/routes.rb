@@ -174,6 +174,7 @@ get 'tipo_servicios/filtrar', to: 'tipo_servicios#filtrar'
 
   end
   get 'login_movil', to: 'usuarios#login_movil'
+  get 'encontrar_usuario', to: 'usuarios#encontrar_por_email'
 
   root to: 'usuarios/sessions#new'
 

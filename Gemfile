@@ -117,4 +117,3 @@ gem 'toastr-rails'
 
 gem 'carrierwave', '~> 1.0'
 gem 'time_difference', '~> 0.5.0'
-gem 'devise-encryptable'

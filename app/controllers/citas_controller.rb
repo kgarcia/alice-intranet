@@ -45,10 +45,10 @@
   # POST /citas
   # POST /citas.json
   def create
-    @persona = Persona.where(:cedula => params["usuario[paciente_cedula]"]).take
+    @persona = Persona.where(:cedula => params[:paciente_cedula]).take
     @cita = Cita.new(cita_params)
     @cita.estatus = 1
-    @cita.persona = @persona
+    @cita.persona_id = @persona.id
     respond_to do |format|
       if @cita.save
         ExampleMailer.cita_registrada(@cita).deliver_now
@@ -202,7 +202,7 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cita_params
-      params.require(:cita).permit(:turno_id, :persona_id, :usuario_id, :fecha, :tipo_pago_id, :tipo_cita_id, :eventualidad_id, :estatus, :diagnostico, :paciente_cedula)
+      params.require(:cita).permit(:turno_id, :persona_id, :usuario_id, :fecha, :tipo_pago_id, :tipo_cita_id, :eventualidad_id, :estatus, :diagnostico)
     end
 
     def persona_params
