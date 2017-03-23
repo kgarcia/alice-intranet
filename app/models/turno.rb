@@ -139,7 +139,6 @@ class Turno < ApplicationRecord
               #puts 'push'
               @horas_cita.push(hora: @fecha)
             end
-            
           end
           return @horas_cita
     end
