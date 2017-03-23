@@ -52,7 +52,23 @@
                           <%= f.collection_select(:formacion_academica_id, @formacion_academicas, :id, :descripcion, {:prompt => "Seleccione"}, :class => "form-control") %>
                         </div>
                   
-                        <%= render 'personas/datos_persona', persona: @persona %>
+                          <div class="row form-group">
+                              <label class="col-lg-2">Persona</label>
+                              <div class="col-lg-10">
+
+
+                                <script type="text/javascript">
+                                $(document).ready(function() {
+                                  $(".cvv").select2();
+                                });
+                                </script> <br>
+
+                                <%= select("quer", nil, Persona.all.collect { |p| [ p.nombre, p.id ] }, { include_blank: false }, html_options = {:style => "width: 530px", :class => "cvv col-lg-10 form-control"}) %>
+                                
+
+
+                              </div>
+                          </div>
                       </div>  
                     </div>
 
