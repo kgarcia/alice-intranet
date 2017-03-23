@@ -30,17 +30,17 @@ default: &default
   host: localhost
   pool: 5
   username: postgres
-  password: 
+  password: 1234
 
 
 development:
   <<: *default
-  database: alice_development2
+  database: alice_development
 
 test:
   <<: *default
-  database: alice_test2
+  database: alice_test
 
 production:
   <<: *default
-  database: alice_production2
+  database: alice_production
