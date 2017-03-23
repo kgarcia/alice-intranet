@@ -22,9 +22,6 @@
 
                  <div class="m-t" >
                    <div class="row">
-                      <div class="col-md-6">
-                        <%= render 'personas/datos_persona' %>
-                      </div>
                      <div class="col-md-6">
                           <div class="row form-group">
                             <label class="col-lg-2 control-label">Correo</label>
@@ -32,7 +29,27 @@
                               <div class="col-lg-10">  <%= f.email_field :email, autofocus: true, placeholder: "usuario@correo.com", class: "form-control" %>
                               </div>
                             </div>           
-                         <br><br><br> 
+                         <br>
+
+                          <div class="row form-group">
+                              <label class="col-lg-2">Persona</label>
+                              <div class="col-lg-10">
+
+
+                                <script type="text/javascript">
+                                $(document).ready(function() {
+                                  $(".cvv").select2();
+                                });
+                                </script> <br>
+
+                                <%= select("quer", nil, Persona.all.collect { |p| [ p.nombre, p.id ] }, { include_blank: false }, html_options = {:style => "width: 426px", :class => "cvv col-lg-10 form-control"}) %>
+                                
+
+
+                              </div>
+                          </div>
+
+                         <br><br> 
             
                           <div class="row form-group">
                               <label class="col-lg-2">Rol</label>

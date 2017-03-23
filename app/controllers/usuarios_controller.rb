@@ -70,14 +70,25 @@ class UsuariosController < ApplicationController
     end
 
     def guardar
-      @persona = Persona.new(persona_params)
-      @persona.save
+      #@persona = Persona.new(persona_params)
+      #@persona.save
+
+
+
       @usuario = Usuario.new(sign_up_params)
       @password = ((0...8).map { (65 + rand(26)).chr }.join)
       @usuario.password = @password
       @usuario.password_confirmation = @password
+      @usuario.persona = Persona.find(params['quer'][0])
+      @roles = Rol.all
+      @servicios = Servicio.where(:estatus => 1)
+
+      #if !Usuario.where("persona = ?", Persona.find(params['quer'][0]))
+
       respond_to do |format|
+
       if @usuario.save
+
         ExampleMailer.usuario_creado(@usuario, @password).deliver_now
         format.html { redirect_to "/usuarios", notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :editar, status: :created, location: @usuario }
@@ -85,7 +96,14 @@ class UsuariosController < ApplicationController
         format.html { render :registrar }
         format.json { render json: @usuario.errors, status: :unprocessable_entity }
       end
+
      end
+
+   #else
+    #format.html { redirect_to :registrar, info: 'Ya tiene un usuario registrado' and return}
+
+   #end
+
     end
 
     def editar
