@@ -2,7 +2,7 @@ $(document).ready(function(){
     $('.table').footable({
         "paging": {
             "enabled": true,
-            "size": 5,
+            "size": 7,
             "countFormat": "{CP} de {TP}"
         },
         "filtering": {

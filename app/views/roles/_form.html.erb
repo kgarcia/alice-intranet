@@ -1,53 +1,271 @@
-<div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Rol" %></h2>
-              </div>
-          </div>
-<div class="ibox-content">
-<%= form_for @rol, :html => {:class => 'form-horizontal'} do |f| %>          
-  <% if rol.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(rol.errors.count, "error") %> prohibited this rol from being saved:</h2>
-
-      <ul>
-      <% rol.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-                 <div class="form-group">
-                    <label class="col-lg-2 control-label">Descripción</label>
-                    <div class="col-lg-3"><%= f.text_field :descripcion, :class => "form-control" %>
-                    </div>
-                    </div> 
-
-<%= f.label :Opciones_Disponibles %>
-
-  <div class="container-fluid">
-    <% @options.each do |opcion| %>
-      <div class="col-sm-3">
-          <%= check_box_tag('option_menus[]', opcion.id, @rol.option_menu.include?(opcion)) %> <%= opcion.nombre %>
-      </div>
-    <% end %>
-  </div> 
-
-
-   <div class="form-group">
-      <div class="col-lg-offset-3 col-lg-2">
-           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
-      </div>
-      <% if (@rol.new_record?) %>
-        <div class="col-lg-2">
-          <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2 class="text-dark-blue"><strong><%= @rol.class.titulo %></strong></h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+      </li>
+      <li>
+        <a href="/<%= @rol.class.name.underscore.pluralize %>">Listado</a>
+      </li>
+      <li class="active">
+        <% if @rol.new_record? %>
+          <strong class="text-blue">Registrar <%= @rol.class.titulo %></strong>
+        <% else %>
+          <strong class="text-blue">Editar <%= @rol.class.titulo %></strong>
+        <% end %>
+      </li>
+    </ol>
+  </div>
+</div>
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong><%= @rol.class.titulo %></strong></h4>
         </div>
-      <% end %>
-      <div class="col-lg-2">
-      <%= link_to 'Atras',roles_path, :class => "btn btn-sm btn-success" %>                          
-      </div>
-  </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
+              <%= form_for @rol, :html => {:class => '', :id => 'form-rol'}, :form_to_validate => @rol.class, role: 'form' do |f| %>
+                <div class="row">
+                  <div class="col-sm-12">  
+                    <div class="form-group">
+                      <label class="control-label">Descripción</label>
+                      <%= f.text_field :descripcion, :class => "form-control" %>
+                    </div> 
+                  </div>
+                </div>
+
+                <%= f.label :Opciones_Disponibles %>
+
+                <div class="tab-container">
+                  <ul class="nav nav-tabs">
+                    <% @padres.each do |padre| %>
+                      <% if padre.id_padre == nil %>
+                        <% if padre.id == 1 %>
+                          <li class="active" style="width: 25%;">
+                            <a aria-expanded="true" data-toggle="tab" href="#<%= padre.id %>" class="text-center"><%= padre.nombre %></a>
+                          </li>
+                        <% else %>
+                          <li style="width: 25%;">
+                            <a aria-expanded="false" data-toggle="tab" href="#<%= padre.id %>" class="text-center"><%= padre.nombre %></a>
+                          </li>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </ul>
+                  <div class="tab-content">
+                  <% @padres.each do |padre| %>
+                    <% if padre.id_padre == nil %>
+                      <% if padre.id == 1 %>
+                      <div id="<%= padre.id %>" class="tab-pane active">
+                      <% else %>
+                      <div id="<%= padre.id %>" class="tab-pane">
+                      <% end %>
+                        <div class="panel-body">
+                        <div  class="row">
+                          <div class="col-sm-12" style="padding: 10px;">
+                            <div class="checkbox-awesome checkbox-primary" style="border-bottom: 1px solid; margin-left: 10px; padding-left: 0px;">
+                              <% @checkp = @rol.option_menu.include?(padre) %>
+                              <% if @checkp == true %>
+                                <input id="padre-<%= padre.id %>" name="option_menus[]" type="checkbox" class="padre-<%= padre.id.to_s %>" value="<%= padre.id %>" checked="<%= @checkp %>" ></input>
+                              <% else %>
+                                <input id="padre-<%= padre.id %>" name="option_menus[]" type="checkbox" class="padre-<%= padre.id.to_s %>" value="<%= padre.id %>" ></input>
+                              <% end %>
+                              <label for="padre-<%= padre.id %>" ><%= padre.nombre %></label>
+                            </div>
+                          </div>
+                          <% if @check_padres.include? (padre.id) %>
+                            <div class="col-sm-12">
+                              <div class="row" style="padding-left: 20px;">
+                                <% @hijos.each do |phijo| %>
+                                  <% if phijo.id_padre == padre.id %>  
+                                    <% if @check_padres.include? (phijo.id) %>
+                                      <div class="col-sm-12" style="padding: 10px;">
+                                        <div class="checkbox-awesome checkbox-success" style="border-bottom: 1px solid; margin-left: 10px; padding-left: 0px;">
+                                          <% @checkph = @rol.option_menu.include?(phijo) %>
+                                          <% if @checkph == true %>
+
+                                          <input id="phijo-<%= phijo.id %>" name="option_menus[]" type="checkbox" class="hijo-<%= padre.id %> phijo-<%= phijo.id %>" value="<%= phijo.id %>" checked="<%= @checkph %>" ></input>
+                                          <% else %>
+
+                                          <input id="phijo-<%= phijo.id %>" name="option_menus[]" type="checkbox" class="hijo-<%= padre.id %> phijo-<%= phijo.id %>" value="<%= phijo.id %>"></input>
+                                          <% end %> 
+                                        <label for="phijo-<%= phijo.id %>"><%= phijo.nombre %></label>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-12">
+                                        <div class="row" style="padding-left: 20px;">
+                                          <% @hijos.each do |nieto| %>
+                                            <% if nieto.id_padre == phijo.id %>
+                                              <div class="col-sm-3">
+                                                <div class="checkbox-awesome checkbox-info">
+                                                  <% @checkn = @rol.option_menu.include?(nieto) %>
+                                                  <% if @checkn == true %>
+                                                    <input id="nieto-<%= nieto.id %>" name="option_menus[]" type="checkbox" class="nieto-<%= phijo.id %>" value="<%= nieto.id %>" checked="<%= @checkn %>" ></input>
+                                                  <% else %>
+                                                    <input id="nieto-<%= nieto.id %>" name="option_menus[]" type="checkbox" class="nieto-<%= phijo.id %>" value="<%= nieto.id %>"></input>
+                                                  <% end %>
+                                                  
+                                                 
+                                                <label for="nieto-<%= nieto.id %>"><%= nieto.nombre %></label>
+                                                </div>
+                                              </div>
+                                            <% end %>
+                                          <% end %>
+                                        </div>
+                                      </div>
+                                    <% else %>
+                                      <div class="col-sm-12" style="padding: 0px 9px;">
+                                        <div class="checkbox-awesome checkbox-success" style="padding: 0px 0px 0px 11px;">
+                                          <% @checkh = @rol.option_menu.include?(phijo) %>
+                                          <% if @checkn == true %>
+                                            <input id="hijo-<%= padre.id %>" name="option_menus[]" type="checkbox" class="hijo-<%= padre.id %>" value="<%= phijo.id %>" checked="<%= @checkn %>" ></input>
+                                          <% else %>
+                                            <input id="hijo-<%= padre.id %>" name="option_menus[]" type="checkbox" class="hijo-<%= padre.id %>" value="<%= phijo.id %>"></input>
+                                          <% end %>
+                                           
+                                        <label for="option_menus_"><%= phijo.nombre %></label>
+                                        </div>
+                                      </div>
+                                    <% end %>
+                                  <% end %>
+                                <% end %>
+                              </div>
+                            </div>
+                          <% end %>
+                        </div>
+                        </div>
+                      </div>
+                      <% end %>
+                    <% end %>
+                    </div> 
+                  </div>
+
+                <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                      </div>
+                      <% if (@rol.new_record?) %>
+                        <div class="col-lg-2">
+                          <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>
+                        </div>
+                      <% end %>
+                      <div class="col-lg-2">
+                      <%= link_to 'Atras',roles_path, :class => "btn btn-sm btn-success" %>                          
+                      </div>
+                </div>
   
-<% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+<% content_for :javascript do %>
+<script type="text/javascript">
+  <% @padres.each do |padre| %>
+    <% if padre.id_padre == nil %>
+      $(".hijo-<%= padre.id %>").change(function() {
+        if(this.checked) {
+            $('.padre-<%= padre.id %>').prop('checked', true);
+        }
+        else{
+
+              var check = $(".hijo-<%= padre.id %>");
+              
+              var num = 0;
+              
+              for(var i=0; i < check.length; i++) {
+              
+                if(check[i].checked == false){
+                  num = num + 1;
+                }
+              }
+              if (num == check.length){
+                $('.padre-<%= padre.id %>').prop('checked', false);
+              }
+        }
+      });
+      <% @hijos.each do |phijo| %>
+        <% if phijo.id_padre == padre.id %>
+
+          $(".padre-<%= padre.id %>").change(function() {
+            if(this.checked) {
+                $('.hijo-<%= padre.id %>').prop('checked', true);
+                $('.nieto-<%= phijo.id %>').prop('checked', true);
+            }
+            else{
+              $('.hijo-<%= padre.id %>').prop('checked', false); 
+              $('.nieto-<%= phijo.id %>').prop('checked', false); 
+            }
+          });
+
+          $(".nieto-<%= phijo.id %>").change(function() {
+            if(this.checked) {
+              $('.phijo-<%= phijo.id %>').prop('checked', true);
+              $('.padre-<%= padre.id %>').prop('checked', true);
+            }
+            else{
+              var check = $(".nieto-<%= phijo.id %>");
+              
+              var num = 0;
+              
+              for(var i=0; i < check.length; i++) {
+              
+                if(check[i].checked == false){
+                  num = num + 1;
+                }
+              }
+              if (num == check.length){
+                $('.phijo-<%= phijo.id %>').prop('checked', false);
+
+                var check1 = $(".hijo-<%= padre.id %>");
+              
+                var num1 = 0;
+                
+                for(var i=0; i < check1.length; i++) {
+                
+                  if(check1[i].checked == true){
+                    num1 = num1 + 1;
+                  }
+                }
+                if (num1 == 0){
+                  $('.padre-<%= padre.id %>').prop('checked', false);
+                }
+              }
+            }
+          });
+
+          $(".phijo-<%= phijo.id %>").change(function() {
+            if(this.checked) {
+                $('.nieto-<%= phijo.id %>').prop('checked', true);
+            }
+            else{
+              $('.nieto-<%= phijo.id %>').prop('checked', false); 
+              var check = $(".hijo-<%= padre.id %>");
+              
+              var num = 0;
+              
+              for(var i=0; i < check.length; i++) {
+              
+                if(check[i].checked == true){
+                  num = num + 1;
+                }
+              }
+              if (num == 0){
+                $('.padre-<%= padre.id %>').prop('checked', false);
+              }
+            }
+          });
+
+        <% end %>
+      <% end %> 
+    <% end %>
+  <% end %>
+</script>
+<% end %>
