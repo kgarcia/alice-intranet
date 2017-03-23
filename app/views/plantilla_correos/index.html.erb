@@ -1,31 +1,45 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Plantilla Correos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Descripcion</th>
-      <th>Texto</th>
-      <th>Estatus</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @plantilla_correos.each do |plantilla_correo| %>
+<%= csrf_meta_tag %>
+<br>
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h2 class="parametros-titulo"><%= "Plantilla de Correos" %></h2>
+  </div>
+</div>
+<div class="ibox-content">
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
       <tr>
-        <td><%= plantilla_correo.descripcion %></td>
-        <td><%= plantilla_correo.texto %></td>
-        <td><%= plantilla_correo.estatus %></td>
-        <td><%= link_to 'Show', plantilla_correo %></td>
-        <td><%= link_to 'Edit', edit_plantilla_correo_path(plantilla_correo) %></td>
-        <td><%= link_to 'Destroy', plantilla_correo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th data-breakpoints="xs" data-sorted="true">Descripcion</th>
+        <th colspan="2"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+        <% @plantilla_correos.each do |plantilla| %>
+          <tr>
+            <td><%= plantilla.descripcion %></td>
+            <td><%= link_to 'Editar', edit_plantilla_correo_path(plantilla), :class => "btn btn-warning btn-sm" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <ul class="pagination pull-right"></ul>
+                        </td>
+                    </tr>
+                    </tfoot>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New Plantilla Correo', new_plantilla_correo_path %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+
+</script>
+
+

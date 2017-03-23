@@ -583,7 +583,6 @@ PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para cancelacion de ci
 PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para difusion de servicios.", texto:" ", estatus:1)
 PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para difusion de eventos.", texto:" ", estatus:1)
 PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para creacion de usuario.", texto:" ", estatus:1)
-PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para cambio de clave.", texto:" ", estatus:1)
 
 puts 'seed'
 

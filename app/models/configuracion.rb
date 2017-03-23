@@ -4,7 +4,7 @@ class Configuracion < ApplicationRecord
 		return "Configuracion del Sistema"
 	end
 
-	def self.envia_correo
+	def self.envia_email
 		if Configuracion.find(1).envia_email == 1
 			return true
 		else

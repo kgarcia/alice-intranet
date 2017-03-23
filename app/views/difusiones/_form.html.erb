@@ -58,9 +58,9 @@
                   <div class="field form-group">
                     <label class="col-lg-2 control-label">Medio de Difusión</label>
                     <div class="container-fluid col-lg-10">
-                      <% if Configuracion.envia_correo %>
+                      <% if Configuracion.envia_email %>
                         <div class="col-sm-3">
-                            <%= check_box_tag('medios[]', 1, (Configuracion.envia_correo)) %> <%= MedioDifusion.find(1).descripcion %>
+                            <%= check_box_tag('medios[]', 1, (Configuracion.envia_email)) %> <%= MedioDifusion.find(1).descripcion %>
                         </div>
                       <% end %>
                       

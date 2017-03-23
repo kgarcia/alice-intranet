@@ -42,7 +42,7 @@ class PlantillaCorreosController < ApplicationController
   def update
     respond_to do |format|
       if @plantilla_correo.update(plantilla_correo_params)
-        format.html { redirect_to @plantilla_correo, notice: 'Plantilla correo was successfully updated.' }
+        format.html { redirect_to plantilla_correos_url, notice: 'Plantilla correo was successfully updated.' }
         format.json { render :show, status: :ok, location: @plantilla_correo }
       else
         format.html { render :edit }
