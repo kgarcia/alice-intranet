@@ -7,6 +7,8 @@
       </div>
       <div class="ibox-content col-sm-12">
       	  <h2 class="parametros-titulo"><%= @titulo %></h2>
+          <h4>Especialidad: <%= @especialidad.descripcion %></h4>
+          <h4>Especialista: <%= @especialista.persona.nombre + ' ' + @especialista.persona.apellido %></h4>
           <h4 style="margin-top: 15px;">Desde el <%= @fecha_inicio.strftime("%d/%m/%Y") %> hasta el <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
 		      <div id="container" width="500px" height="300px" style="margin-top: 30px"></div>
       </div>
@@ -19,7 +21,7 @@
               plotBorderWidth: 1
           },
           title: {
-              text: 'Turnos de la semana'
+              text: ''
           },
           xAxis: {
               categories: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
@@ -51,13 +53,13 @@
           series: [{
               name: '',
               borderWidth: 1,
-              data: [[0, 0, <%= Cita.contarCitasPorTurno(0, @especialidad.id, 1, @fecha_inicio, @fecha_fin) %>], [0, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 1, @fecha_inicio, @fecha_fin) %>],
-                     [1, 0, <%= Cita.contarCitasPorTurno(0, @especialidad.id, 2, @fecha_inicio, @fecha_fin) %>], [1, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 2, @fecha_inicio, @fecha_fin) %>],
-                     [2, 0, <%= Cita.contarCitasPorTurno(0, @especialidad.id, 3, @fecha_inicio, @fecha_fin) %>], [2, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 3, @fecha_inicio, @fecha_fin) %>],
-                     [3, 0, <%= Cita.contarCitasPorTurno(0, @especialidad.id, 4, @fecha_inicio, @fecha_fin) %>], [3, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 4, @fecha_inicio, @fecha_fin) %>],
-                     [4, 0, <%= Cita.contarCitasPorTurno(0, @especialidad.id, 5, @fecha_inicio, @fecha_fin) %>], [4, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 5, @fecha_inicio, @fecha_fin) %>],
-                     [5, 0, <%= Cita.contarCitasPorTurno(0, @especialidad.id, 6, @fecha_inicio, @fecha_fin) %>], [5, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 6, @fecha_inicio, @fecha_fin) %>],
-                     [6, 0, <%= Cita.contarCitasPorTurno(0, @especialidad.id, 7, @fecha_inicio, @fecha_fin) %>], [6, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 7, @fecha_inicio, @fecha_fin) %>]],
+              data: [[0, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 1, @fecha_inicio, @fecha_fin) %>], [0, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 1, @fecha_inicio, @fecha_fin) %>],
+                     [1, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 2, @fecha_inicio, @fecha_fin) %>], [1, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 2, @fecha_inicio, @fecha_fin) %>],
+                     [2, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 3, @fecha_inicio, @fecha_fin) %>], [2, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 3, @fecha_inicio, @fecha_fin) %>],
+                     [3, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 4, @fecha_inicio, @fecha_fin) %>], [3, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 4, @fecha_inicio, @fecha_fin) %>],
+                     [4, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 5, @fecha_inicio, @fecha_fin) %>], [4, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 5, @fecha_inicio, @fecha_fin) %>],
+                     [5, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 6, @fecha_inicio, @fecha_fin) %>], [5, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 6, @fecha_inicio, @fecha_fin) %>],
+                     [6, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 7, @fecha_inicio, @fecha_fin) %>], [6, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 7, @fecha_inicio, @fecha_fin) %>]],
               dataLabels: {
                   enabled: true,
                   color: '#000000'
@@ -83,24 +85,24 @@
           <tbody>
             <tr>
               <td><strong>Mañana</strong></td>
-              <td><%= Cita.contarCitasPorTurno(1, @especialidad.id, 1, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(1, @especialidad.id, 2, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(1, @especialidad.id, 3, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(1, @especialidad.id, 4, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(1, @especialidad.id, 5, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(1, @especialidad.id, 6, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(1, @especialidad.id, 7, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 1, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 2, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 3, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 4, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 5, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 6, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 7, @fecha_inicio, @fecha_fin) %></td>
             </tr>
 
             <tr>
               <td><strong>Tarde</strong></td>
-              <td><%= Cita.contarCitasPorTurno(0, @especialidad.id, 1, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(0, @especialidad.id, 2, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(0, @especialidad.id, 3, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(0, @especialidad.id, 4, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(0, @especialidad.id, 5, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(0, @especialidad.id, 6, @fecha_inicio, @fecha_fin) %></td>
-              <td><%= Cita.contarCitasPorTurno(0, @especialidad.id, 7, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 1, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 2, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 3, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 4, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 5, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 6, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 7, @fecha_inicio, @fecha_fin) %></td>
             </tr>
           </tbody>
       </table>

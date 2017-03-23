@@ -76,16 +76,16 @@ class Cita < ApplicationRecord
     return @citas.count
   end
 
-  def self.contarCitasPorTurno(tipo_turno, especialidad, dia, fecha_inicio, fecha_fin)
-    @citas = Cita.joins( :turno => [:tipo_turno, horario: { servicio: { tipo_servicio: :especialidad } } ] )
+  def self.contarCitasPorTurno(tipo_turno, servicio, dia, fecha_inicio, fecha_fin)
+    @citas = Cita.joins( :turno => [:tipo_turno, horario: :servicio ] )
     if fecha_inicio != nil and fecha_fin != nil
       @citas = @citas.where('citas.fecha' => fecha_inicio..fecha_fin)
     end
     if tipo_turno != nil
       @citas = @citas.where('tipo_turnos.id' => tipo_turno)
     end
-    if especialidad != nil
-      @citas = @citas.where('especialidades.id' => especialidad)
+    if servicio != nil
+      @citas = @citas.where('horarios.servicio_id' => servicio)
     end
     if dia != nil
       @citas = @citas.where('turnos.dia_id' => dia)

@@ -15,7 +15,13 @@
                       <div class="col-lg-10">
                         <%= select_tag("especialidad", options_from_collection_for_select(@especialidades, :id, :descripcion), {:class => "form-control", :prompt => "Seleccione"}) %>
                       </div>
+                    </div>
 
+                    <div class="field form-group row">
+                        <label class="col-lg-2 control-label">Servicio:</label>
+                        <div class="col-lg-10">
+                            <%= select_tag("servicio", options_from_collection_for_select(@servicios, :id, :descripcion), {:class => "form-control", :prompt => 'Seleccione'}) %>
+                        </div>
                     </div>
 
                     <div class="field form-group row">
