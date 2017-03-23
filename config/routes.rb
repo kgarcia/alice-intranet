@@ -26,13 +26,13 @@ Myapp::Application.routes.draw do
 
   post 'grafico/tiempo_recepcion', to: 'grafico#generar_tiempo_recepcion'
 
-  get 'grafico/tiempo_solicitud'
+  get 'grafico/citas_por_turno'
 
-  post 'grafico/tiempo_solicitud', to: 'grafico#generar_tiempo_solicitud'
+  post 'grafico/citas_por_turno', to: 'grafico#generar_citas_por_turno'
 
-  get 'grafico/tiempo_evaluacion'
+  get 'grafico/satisfaccion_pacientes'
 
-  post 'grafico/tiempo_evaluacion', to: 'grafico#generar_tiempo_evaluacion'
+  post 'grafico/satisfaccion_pacientes', to: 'grafico#generar_satisfaccion_pacientes'
 
   get 'grafico/citas_solicitadas'
 
@@ -45,6 +45,8 @@ Myapp::Application.routes.draw do
   get '/grafico/update_eventos', to: 'grafico#update_eventos'
 
   get '/grafico/update_servicios', to: 'grafico#update_servicios'
+
+  get '/grafico/update_servicios_por_especialidad', to: 'grafico#update_servicios_por_especialidad'
 
   get 'grafico/motivos_cancelacion'
 
@@ -78,6 +80,8 @@ get 'tipo_servicios/filtrar', to: 'tipo_servicios#filtrar'
   match 'grafico/citas_por_evento', to: "grafico#calcular_citas_por_evento", via: "post"
   match 'grafico/citas_por_difusion', to: "grafico#calcular_citas_por_difusion", via: "post"
   match 'grafico/calificaciones_por_servicio', to: "grafico#calcular_calificaciones_por_servicio", via: "post"
+  match 'grafico/citas_por_turno', to: "grafico#generar_citas_por_turno", via: "post"
+  match 'grafico/satisfaccion_pacientes', to: "grafico#generar_satisfaccion_pacientes", via: "post"
 
   get 'grafico/generar'
 

@@ -1,0 +1,114 @@
+<div class="row">
+   <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+          <div class="ibox-title">
+              <h2 class="parametros-titulo"><%= "Reporte Estadístico" %></h2>
+          </div>
+      </div>
+      <div class="ibox-content col-sm-12">
+      	  <h2 class="parametros-titulo"><%= @titulo %></h2>
+          <h4>Especialidad: <%= @especialidad.descripcion %></h4>
+          <h4>Especialista: <%= @especialista.persona.nombre + ' ' + @especialista.persona.apellido %></h4>
+          <h4 style="margin-top: 15px;">Desde el <%= @fecha_inicio.strftime("%d/%m/%Y") %> hasta el <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
+		      <div id="container" width="500px" height="300px" style="margin-top: 30px"></div>
+      </div>
+      <script type="text/javascript">
+      	Highcharts.chart('container', {
+          chart: {
+              type: 'heatmap',
+              marginTop: 40,
+              marginBottom: 80,
+              plotBorderWidth: 1
+          },
+          title: {
+              text: ''
+          },
+          xAxis: {
+              categories: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo']
+          },
+          yAxis: {
+              categories: ['Tarde','Mañana'],
+              title: null
+          },
+          colorAxis: {
+              min: 0,
+              minColor: '#FFFFFF',
+              maxColor: Highcharts.getOptions().colors[0]
+          },
+          legend: {
+              align: 'right',
+              layout: 'vertical',
+              margin: 0,
+              verticalAlign: 'top',
+              y: 25,
+              symbolHeight: 280
+          },
+
+          tooltip: {
+              formatter: function () {
+                  return '<b>' + this.point.value + '</b> Citas el <b>'+ this.series.xAxis.categories[this.point.x] + '</b> en el turno <b>' + this.series.yAxis.categories[this.point.y] + '</b>';
+              }
+          },
+
+          series: [{
+              name: '',
+              borderWidth: 1,
+              data: [[0, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 1, @fecha_inicio, @fecha_fin) %>], [0, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 1, @fecha_inicio, @fecha_fin) %>],
+                     [1, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 2, @fecha_inicio, @fecha_fin) %>], [1, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 2, @fecha_inicio, @fecha_fin) %>],
+                     [2, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 3, @fecha_inicio, @fecha_fin) %>], [2, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 3, @fecha_inicio, @fecha_fin) %>],
+                     [3, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 4, @fecha_inicio, @fecha_fin) %>], [3, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 4, @fecha_inicio, @fecha_fin) %>],
+                     [4, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 5, @fecha_inicio, @fecha_fin) %>], [4, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 5, @fecha_inicio, @fecha_fin) %>],
+                     [5, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 6, @fecha_inicio, @fecha_fin) %>], [5, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 6, @fecha_inicio, @fecha_fin) %>],
+                     [6, 0, <%= Cita.contarCitasPorTurno(0, @servicio.id, 7, @fecha_inicio, @fecha_fin) %>], [6, 1, <%= Cita.contarCitasPorTurno(1, @especialidad.id, 7, @fecha_inicio, @fecha_fin) %>]],
+              dataLabels: {
+                  enabled: true,
+                  color: '#000000'
+              }
+          }]
+
+      });
+      </script>
+    <div class="col-sm-12 ibox-content" style="margin-top: 15px">
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <td><strong>Turno</strong></td>
+              <td><strong>Lunes</strong></td>
+              <td><strong>Martes</strong></td>
+              <td><strong>Miercoles</strong></td>
+              <td><strong>Jueves</strong></td>
+              <td><strong>Viernes</strong></td>
+              <td><strong>Sabado</strong></td>
+              <td><strong>Domingo</strong></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mañana</strong></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 1, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 2, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 3, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 4, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 5, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 6, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(1, @servicio.id, 7, @fecha_inicio, @fecha_fin) %></td>
+            </tr>
+
+            <tr>
+              <td><strong>Tarde</strong></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 1, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 2, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 3, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 4, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 5, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 6, @fecha_inicio, @fecha_fin) %></td>
+              <td><%= Cita.contarCitasPorTurno(0, @servicio.id, 7, @fecha_inicio, @fecha_fin) %></td>
+            </tr>
+          </tbody>
+      </table>
+      <div class="col-sm-12 " style="margin-top: 15px; padding-bottom: 30px">
+        <%= link_to 'Atrás', "/grafico/citas_por_turno", :class => "btn btn-sm btn-success " %>
+      </div>
+    </div>
+  </div>
+</div>

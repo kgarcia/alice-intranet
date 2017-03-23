@@ -39,3 +39,16 @@ $ ->
         console.log("AJAX Error: #{textStatus}")
       success: (data, textStatus, jqXHR) ->
         console.log("Dynamic country select OK!")
+
+$ ->
+    $(document).on 'change', '#especialidad', (evt) ->
+        $.ajax '/grafico/update_servicios_por_especialidad',
+            type: 'GET'
+            dataType: 'script'
+            data: {
+                especialidad_id: $("#especialidad option:selected").val()
+            }
+            error: (jqXHR, textStatus, errorThrown) ->                
+                console.log("AJAX Error: #{textStatus}")
+            success: (data, textStatus, jqXHR) ->
+                console.log("Dynamic country select OK!")
