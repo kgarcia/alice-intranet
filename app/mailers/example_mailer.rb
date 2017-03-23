@@ -12,16 +12,21 @@ class ExampleMailer < ApplicationMailer
     mail(to: @email, subject: "Cita Registrada")
   end
 
-  def cita_cancelada#(email, cita)
+  def cita_cancelada(cita)
       #@email = email
-      #@cita = cita
-      mail(to: "kevin93ps@gmail.com", subject: "Cita Cancelada")
+      @cita = cita
+      mail(to: cita.usuario.email, subject: "Cita Cancelada")
   end
 
   def difusion(difusion,email)
     @difusion = difusion
     @email = email
     mail(to: @email, subject: @difusion.asunto)
+  end
+
+  def usuario_creado(usuario)
+    @usuario = usuario
+    mail(to: @usuario.email, subject: 'Alice - Usuario Creado')
   end
 
 end

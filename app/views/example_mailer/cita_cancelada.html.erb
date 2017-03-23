@@ -4,10 +4,9 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Hola <%# @email %></h1>
+<h1>Saludos <%= @cita.usuario.email %></h1>
 <p>
-  Codigo de Cita: 54862
-  Su cita para <b>Consulta de Cardiología</b> con el <b>Doctor Miguel Jimenez</b> ha sido registrada exitosamente para el dia <%=Eventualidad.last.created_at %>
+  Su cita #<%= @cita.id %> para <b><%= @cita.turno.horario.servicio.descripcion %></b> el dia <%= @cita.fecha %> ha sido cancelada debido a <%= @cita.eventualidad.descripcion %>.
 </p>
 </body>
 </html>

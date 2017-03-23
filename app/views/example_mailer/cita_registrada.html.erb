@@ -7,7 +7,7 @@
     <h1>Hola <%# @email %></h1>
     <p>
     	Codigo de Cita: <%= @cita.id %>
-		Su cita ha sido registrada exitosamente para el dia <%= @cita.fecha.to_date.strftime("%d/%m/%Y %H:%M:%S%p") %>
+		Su cita ha sido registrada exitosamente para el dia <%= @cita.fecha.to_datetime.strftime("%d/%m/%Y %H:%M:%S%p") %>
     </p>
   </body>
 </html>

@@ -11,7 +11,6 @@ class Usuario < ApplicationRecord
 
   before_create :set_default_rol
 
-  before_save :save_persona
   has_attached_file :foto, styles: { medium: "300x300>", thumb: "100x100>" }
     validates_attachment_content_type :foto, content_type: /\Aimage\/.*\z/
   # or 
@@ -33,10 +32,5 @@ class Usuario < ApplicationRecord
   def self.titulo
     return "Usuario"
   end
-
-  private
-   def save_persona
-    self.persona = Persona.last
-   end
 
 end
