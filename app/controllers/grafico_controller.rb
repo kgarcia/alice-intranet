@@ -265,6 +265,34 @@ class GraficoController < ApplicationController
     render "grafico/calificaciones_por_criterio"
   end
 
+  def citas_por_caracteristicas
+    @especialidades = Especialidad.all
+    @servicios = []
+    render "grafico/citas_por_caracteristicas"
+  end
+
+  def generar_citas_caracteristicas
+    @rango = params['fecha'].split(' - ')
+    @fecha_inicio =  @rango[0].to_date.beginning_of_day()
+    @fecha_fin =  @rango[1].to_date.end_of_day()
+    @especialidad = Especialidad.find(params[:especialidad])
+    @servicio = Servicio.find(params[:servicio].to_i)
+    @especialista = @servicio.especialista
+    @titulo = "Gestión de Citas por Características"
+    @caracteristica = params[:caracteristica].to_i
+    case @caracteristica
+      when 1
+        @estadosCiviles = EstadoCivil.where(:estatus => 1)
+      when 2
+        @sexos = Sexo.where(:estatus => 1)
+      when 3
+        @habitos = Habito.where(:estatus => 1)
+      when 4
+        @profesiones = Profesion.where(:estatus => 1)
+    end
+
+  end
+
   def update_entidades
 
     case params[:tipo_entidad].to_i

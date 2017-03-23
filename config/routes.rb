@@ -84,6 +84,7 @@ get 'tipo_servicios/filtrar', to: 'tipo_servicios#filtrar'
   match 'grafico/calificaciones_por_servicio', to: "grafico#calcular_calificaciones_por_servicio", via: "post"
   match 'grafico/citas_por_turno', to: "grafico#generar_citas_por_turno", via: "post"
   match 'grafico/satisfaccion_pacientes', to: "grafico#generar_satisfaccion_pacientes", via: "post"
+  match 'grafico/citas_por_caracteristicas', to: "grafico#generar_citas_caracteristicas", via: "post"
 
   get 'grafico/generar'
 
@@ -99,6 +100,7 @@ get 'tipo_servicios/filtrar', to: 'tipo_servicios#filtrar'
   get 'grafico/citas_por_evento'
   get 'grafico/citas_por_difusion'
   get 'grafico/calificaciones_por_servicio'
+  get 'grafico/citas_por_caracteristicas'
 
   get 'agenda_servicio/', to: 'agenda_servicio#lista'
 
