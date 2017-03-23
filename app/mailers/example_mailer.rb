@@ -24,8 +24,9 @@ class ExampleMailer < ApplicationMailer
     mail(to: @email, subject: @difusion.asunto)
   end
 
-  def usuario_creado(usuario)
+  def usuario_creado(usuario,password)
     @usuario = usuario
+    @password = password
     mail(to: @usuario.email, subject: 'Alice - Usuario Creado')
   end
 

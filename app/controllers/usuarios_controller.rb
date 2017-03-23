@@ -32,6 +32,21 @@ class UsuariosController < ApplicationController
         end
     end
 
+    def encontrar_por_email
+      if Usuario.exists?(email: params[:email])
+        @usuario = Usuario.find_by_email(params[:email])
+      else
+        @usuario = nil
+      end
+       respond_to do |format|
+          if !@usuario.nil?
+              format.json {render json: @usuario}
+          else
+              format.json {render json: @usuario.errors, status: :unprocessable_entity }
+          end
+        end
+    end
+
   	def actualizarPerfil
   		@usuario = Usuario.find(params[:usuario_id])
   		@persona = @usuario.persona
@@ -130,12 +145,17 @@ class UsuariosController < ApplicationController
      @user = Usuario.new(sign_up_params)
      @password = ((0...8).map { (65 + rand(26)).chr }.join)
      @user.password = @password
-     @user.persona = @persona
+     @user.password_confirmation = @password
+     @user.persona_id = @persona.id
+     puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+     puts @user.inspect
+
+     puts @user.password
     respond_to do |format|
       format.json {
         if @user.save
-          ExampleMailer.usuario_creado(@usuario, @password).deliver_now
-          render :json => {:data => @user }
+          ExampleMailer.usuario_creado(@user, @password).deliver_now
+          render :json => {:data => @user, status: :created }
         else
           render :json => {:messages => @user.errors.full_messages}
         end
@@ -147,7 +167,7 @@ class UsuariosController < ApplicationController
   	def persona_params
       params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento,:sexo_id)
     end
-    
+
     def sign_up_params
       params.require(:usuario).permit(:persona_id, :email, :password, :password_confirmation, :rol_id, :servicio_id)
     end

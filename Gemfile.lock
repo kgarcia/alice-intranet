@@ -92,8 +92,6 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
-    devise-encryptable (0.2.0)
-      devise (>= 2.1.0)
     devise-i18n (1.1.2)
     dumper (1.6.1)
       multi_json (>= 1.0)
@@ -269,7 +267,6 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   descriptive_statistics (~> 2.4.0)
   devise
-  devise-encryptable
   devise-i18n
   dumper (~> 1.6)
   font-awesome-rails (= 4.7.0.1)
