@@ -77,4 +77,5 @@ ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'perfil', 'perfiles'
 	inflect.irregular 'suscriptor', 'suscriptores'
 	inflect.irregular 'referencia', 'referencias'
+	inflect.irregular 'configuracion', 'configuraciones'
 end

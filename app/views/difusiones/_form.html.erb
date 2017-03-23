@@ -58,11 +58,20 @@
                   <div class="field form-group">
                     <label class="col-lg-2 control-label">Medio de Difusión</label>
                     <div class="container-fluid col-lg-10">
-                    <% @medios.each do |medio| %>
+                      <% if Configuracion.envia_correo %>
+                        <div class="col-sm-3">
+                            <%= check_box_tag('medios[]', 1, (Configuracion.envia_correo)) %> <%= MedioDifusion.find(1).descripcion %>
+                        </div>
+                      <% end %>
+                      
                       <div class="col-sm-3">
-                          <%= check_box_tag('medios[]', medio.id, @difusion.medio_difusiones.include?(medio)) %> <%= medio.descripcion %>
+                          <%= check_box_tag('medios[]', 2, (true)) %> <%= MedioDifusion.find(2).descripcion %>
                       </div>
-                    <% end %>
+                      <% if Configuracion.envia_notificaciones %>
+                        <div class="col-sm-3">
+                            <%= check_box_tag('medios[]', 3, (Configuracion.envia_notificaciones)) %> <%= MedioDifusion.find(3).descripcion %>
+                        </div>
+                      <% end %>
                   </div>
                     
                   </div>

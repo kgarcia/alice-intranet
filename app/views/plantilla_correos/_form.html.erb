@@ -1,0 +1,32 @@
+<%= form_for(plantilla_correo) do |f| %>
+  <% if plantilla_correo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plantilla_correo.errors.count, "error") %> prohibited this plantilla_correo from being saved:</h2>
+
+      <ul>
+      <% plantilla_correo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %>
+    <%= f.text_field :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :texto %>
+    <%= f.text_area :texto %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estatus %>
+    <%= f.number_field :estatus %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

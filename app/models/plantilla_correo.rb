@@ -1,0 +1,2 @@
+class PlantillaCorreo < ApplicationRecord
+end

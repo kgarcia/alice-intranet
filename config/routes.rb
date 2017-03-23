@@ -1,5 +1,7 @@
 Myapp::Application.routes.draw do
 
+  resources :plantilla_correos
+  resources :configuraciones
   resources :referencias
   get '/mi_horario', to: 'horarios#mi_horario'
   get '/usuarios/registrar', to: 'usuarios#registrar'
