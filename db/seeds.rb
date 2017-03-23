@@ -576,7 +576,13 @@ Pregunta.find_or_create_by(descripcion: '¿Qué imágenes ofrece el Centro de Im
 
 InformacionGeneral.find_or_create_by(:nombre =>"Unidad Quirúrgica La Trinidad", :rif => "J-30530509-9", :direccion => "Carrera 28 entre calles 9 y 10", :tlf => '0251-2525284',:estatus => 1)
 
+Configuracion.find_or_create_by(envia_email: 1, envia_notificaciones: 1)
 
-
+PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para creacion de citas.", texto:" ", estatus:1)
+PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para cancelacion de citas.", texto:" ", estatus:1)
+PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para difusion de servicios.", texto:" ", estatus:1)
+PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para difusion de eventos.", texto:" ", estatus:1)
+PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para creacion de usuario.", texto:" ", estatus:1)
 
      puts 'seed'
+

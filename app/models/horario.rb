@@ -18,8 +18,10 @@ class Horario < ApplicationRecord
 
 
   def disponibilidad_semana_completa(fecha1)
-        @fecha1 = fecha1.to_datetime
-        @fecha_nueva = @fecha1.at_beginning_of_week
+        
+        @fecha_nueva = fecha1.to_datetime
+        puts '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+        puts  @fecha_nueva
         @disponibilidad_mañana =  Array.new
         @disponibilidad_tarde =  Array.new
         @disponibilidad_semanas = Array.new
@@ -37,7 +39,7 @@ class Horario < ApplicationRecord
             @disponibilidad_semanas.push(@disponibilidad_mañana)
             @disponibilidad_semanas.push(@disponibilidad_tarde)
           
-          puts @disponibilidad_semanas
+          #puts @disponibilidad_semanas
   end
 
   def disponibles_mañana    
@@ -116,9 +118,7 @@ class Horario < ApplicationRecord
 
  def disponibilidad_cantidad_tiempo(fecha1) #este es
  
-        @fecha1 = fecha1.to_datetime
-
-        @fecha_nueva = @fecha1.at_beginning_of_week.to_datetime
+        @fecha_nueva = fecha1.to_datetime
         
         @disponibilidad_total = Array.new
         @disponibilidad_mañana =  Array.new

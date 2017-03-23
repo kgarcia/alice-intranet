@@ -1,0 +1,45 @@
+
+<%= csrf_meta_tag %>
+<br>
+<div class="ibox float-e-margins">
+  <div class="ibox-title">
+    <h2 class="parametros-titulo"><%= "Plantilla de Correos" %></h2>
+  </div>
+</div>
+<div class="ibox-content">
+ <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+    <thead>
+      <tr>
+        <th data-breakpoints="xs" data-sorted="true">Descripcion</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @plantilla_correos.each do |plantilla| %>
+          <tr>
+            <td><%= plantilla.descripcion %></td>
+            <td><%= link_to 'Editar', edit_plantilla_correo_path(plantilla), :class => "btn btn-warning btn-sm" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            <ul class="pagination pull-right"></ul>
+                        </td>
+                    </tr>
+                    </tfoot>
+  </table>
+</div>
+<br>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('.table').footable();
+});
+
+
+</script>
+
+

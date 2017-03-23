@@ -66,8 +66,7 @@ jQuery.validator.addMethod("solo_letras", function(value, element) {
 }, "Este campo solo puede contener letras");
 
 $(function () {
-	$('.datetimepicker').datetimepicker();
-	
+
 	toastr.options = {
 	  "closeButton": true,
 	  "debug": false,
@@ -85,16 +84,11 @@ $(function () {
 	  "hideMethod": "fadeOut"
 	}
 	
-    var fecha_inicio = new Date();
-
-    fecha_inicio = new Date((fecha_inicio.getFullYear()- 18), 11, 31);
-
     $('.fecha-n-persona .input-group.date').datepicker({
         keyboardNavigation: false,
         forceParse: false,
         autoclose: true,
         format: "dd/mm/yyyy",
-        endDate: fecha_inicio,
         language: "es"
     });
 });

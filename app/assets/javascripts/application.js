@@ -24,6 +24,7 @@
 //= require footable/footable.min.js
 
 //= require datapicker/bootstrap-datepicker.js
+//= require datapicker/bootstrap-datepicker.es.js
 //= require moment
 //= require moment/es
 //= require bootstrap-datetimepicker

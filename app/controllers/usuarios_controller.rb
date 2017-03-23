@@ -1,5 +1,5 @@
 class UsuariosController < ApplicationController
-	def index
+	  def index
     	@usuarios = Usuario.all
       respond_to do |format|
         format.html
@@ -25,6 +25,21 @@ class UsuariosController < ApplicationController
       @usuario = Usuario.find_by_email(params[:email])
        respond_to do |format|
           if @usuario.valid_password?(params[:password])
+              format.json {render json: @usuario}
+          else
+              format.json {render json: @usuario.errors, status: :unprocessable_entity }
+          end
+        end
+    end
+
+    def encontrar_por_email
+      if Usuario.exists?(email: params[:email])
+        @usuario = Usuario.find_by_email(params[:email])
+      else
+        @usuario = nil
+      end
+       respond_to do |format|
+          if !@usuario.nil?
               format.json {render json: @usuario}
           else
               format.json {render json: @usuario.errors, status: :unprocessable_entity }
@@ -58,8 +73,12 @@ class UsuariosController < ApplicationController
       @persona = Persona.new(persona_params)
       @persona.save
       @usuario = Usuario.new(sign_up_params)
-       respond_to do |format|
+      @password = ((0...8).map { (65 + rand(26)).chr }.join)
+      @usuario.password = @password
+      @usuario.password_confirmation = @password
+      respond_to do |format|
       if @usuario.save
+        ExampleMailer.usuario_creado(@usuario, @password).deliver_now
         format.html { redirect_to "/usuarios", notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :editar, status: :created, location: @usuario }
       else
@@ -126,20 +145,28 @@ class UsuariosController < ApplicationController
    def create
      @persona = Persona.new(persona_params)
      @persona.save
-    
+     @user = Usuario.new(sign_up_params)
+     @password = ((0...8).map { (65 + rand(26)).chr }.join)
+     @user.password = @password
+     @user.password_confirmation = @password
+     @user.persona_id = @persona.id
     respond_to do |format|
       format.json {
-        @user = Usuario.create(sign_up_params)
-        @user.save ? (render :json => {:data => @user }) : 
-                     (render :json => {:messages => @user.errors.full_messages})
+        if @user.save
+          ExampleMailer.usuario_creado(@user, @password).deliver_now
+          render :json => {:data => @user, status: :created }
+        else
+          render :json => {:messages => @user.errors.full_messages}
+        end
       }
-     #ExampleMailer.sample_mail(Usuario.last).deliver_now
+     
    end
  end
 
   	def persona_params
       params.require(:persona).permit(:cedula, :nombre, :apellido, :telefono, :direccion, :fecha_nacimiento,:sexo_id)
     end
+
     def sign_up_params
       params.require(:usuario).permit(:persona_id, :email, :password, :password_confirmation, :rol_id, :servicio_id)
     end

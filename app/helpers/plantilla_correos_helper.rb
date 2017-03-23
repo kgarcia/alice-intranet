@@ -1,0 +1,2 @@
+module PlantillaCorreosHelper
+end

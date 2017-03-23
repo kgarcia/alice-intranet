@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  envia_email: 1
+  envia_notificaciones: 1
+
+two:
+  envia_email: 1
+  envia_notificaciones: 1

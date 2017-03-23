@@ -40,7 +40,7 @@ class Persona < ApplicationRecord
   end
 
   def edad
-    if self.fecha_nacimiento == nill
+    if self.fecha_nacimiento.nil?
       return 0
     else
     dob = self.fecha_nacimiento.to_date

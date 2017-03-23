@@ -45,15 +45,21 @@
                             <label class="control-label">Ubicación <label for="<%= @evento.class.to_s.underscore %>_ubicacion_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
                             <%= f.collection_select(:ubicacion_id, @ubicaciones, :id, :descripcion, {prompt: "Seleccione la ubicacion"}, {:class => "form-control"}) %>
                           </div>
+
                           <div class="form-group fecha-evento">
-                            <label class="control-label">Fecha <label for="<%= @evento.class.name.underscore %>_fecha_nacimiento" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                            <label class="control-label">Fecha <label for="<%= @evento.class.name.underscore %>_fecha" class="control-label error" style="margin-bottom: 0px;"></label></label>
                             <div class="input-group date">
                                 <span class="input-group-addon">
                                   <i class="fa fa-calendar"></i>
                                 </span>
-                              <%= f.text_field :fecha,:required =>true, :class => "form-control" %>
+                                <% if @evento.new_record? %>
+                                  <%= f.text_field :fecha,:required =>true, :class => "form-control", :value => "" %>
+                                <% else %>
+                                  <%= f.text_field :fecha,:required =>true, :class => "form-control", :value => @evento.fecha.strftime("%d/%m/%Y") %>
+                                <% end %>
                             </div>
                           </div>
+                          
                           <div class="form-group">
                             <label class="control-label">Tipo de evento <label for="<%= @evento.class.to_s.underscore %>_<%= @referencia %>" class="control-label error" style="margin-bottom: 0px;"></label></label>
                             <%= f.collection_select(@referencia, @collection, :id, :descripcion, {prompt: "Seleccione", :selected => @evento.tipo}, {:class => "form-control"}) %>
@@ -122,7 +128,7 @@
         forceParse: false,
         autoclose: true,
         format: "dd/mm/yyyy",
-        endDate: fecha_evento,
+        startDate: fecha_evento,
         language: "es"
     });
 
