@@ -55,6 +55,55 @@ class GraficoController < ApplicationController
 
   end
 
+  def tiempo_atencion
+    @especialidades = Especialidad.where(:estatus => 1)
+  end
+
+  def generar_tiempo_atencion
+    @rango = params['fecha'].split(' - ')
+    @fecha_inicio =  @rango[0].to_date.beginning_of_day()
+    @fecha_fin =  @rango[1].to_date.end_of_day()
+    @tipo_entidad = params[:tipo_entidad]
+    @entidad = params[:entidad]
+
+    case @tipo_entidad
+      when 1.to_s
+        if @entidad == ""
+          @titulo = "Tiempo promedio de espera por atencion por Especialidad"
+          @especialidades2 = Especialidad.contarCitas
+          @especialidades = Especialidad.all
+          @estadisticas =  @especialidades2.descriptive_statistics
+        else
+          @especialidad = Especialidad.find(@entidad.to_i)
+          @titulo = "Tiempo promedio de espera por atencion por Especialidad: "+@especialidad.descripcion
+
+        end
+
+      when 2.to_s
+        if @entidad == ""
+          @titulo = "Tiempo promedio de espera por atencion por Tipo de Servicio"
+          @tipoServicios2 = TipoServicio.contarCitas
+          @tipoServicios = TipoServicio.all
+          @estadisticas =  @tipoServicios2.descriptive_statistics
+        else
+          @tipoServicio = TipoServicio.find(@entidad.to_i)
+          @titulo = "Tiempo promedio de espera por atencion por Tipo de Servicio: "+@tipoServicio.descripcion
+
+        end
+      when 3.to_s
+        if @entidad == ""
+          @titulo = "Tiempo promedio de espera por atencion por Servicio"
+          @servicios2 = Servicio.contarCitas
+          @servicios = Servicio.all
+          @estadisticas =  @servicios2.descriptive_statistics
+        else
+          @servicio = Servicio.find(@entidad.to_i)
+          @titulo = "Tiempo promedio de espera por atencion por Servicio: "+@servicio.descripcion
+
+        end
+    end
+  end
+
   def satisfaccion_pacientes
     @especialidades = Especialidad.where(:estatus => 1)
     @servicios = []
