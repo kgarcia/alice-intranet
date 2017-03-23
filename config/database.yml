@@ -36,12 +36,12 @@ default: &default
 
 development:
   <<: *default
-  database: alice_development
+  database: alice_developmentdos
 
 test:
   <<: *default
-  database: alice_test
+  database: alice_testdos
 
 production:
   <<: *default
-  database: alice_production
+  database: alice_productiondos

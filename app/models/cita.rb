@@ -93,4 +93,48 @@ class Cita < ApplicationRecord
     return @citas.count
   end
 
+  def self.contarCitasPorEstadoCivilYServicio(servicio, estadoCivil, fecha_inicio, fecha_fin)
+    @citas = Cita.joins( [ :persona, :turno => { horario: :servicio } ] ).where('citas.fecha' => fecha_inicio..fecha_fin)
+    if servicio != nil
+      @citas = @citas.where("horarios.servicio_id" => servicio)
+    end
+    if estadoCivil != nil
+      @citas = @citas.where("personas.estado_civil_id" => servicio)
+    end
+    return @citas.count
+  end
+
+  def self.contarCitasPorSexoYServicio(servicio, sexo, fecha_inicio, fecha_fin)
+    @citas = Cita.joins( [ :persona, :turno => { horario: :servicio  } ] ).where('citas.fecha' => fecha_inicio..fecha_fin)
+    if servicio != nil
+      @citas = @citas.where("horarios.servicio_id" => servicio)
+    end
+    if sexo != nil
+      @citas = @citas.where("personas.sexo_id" => sexo)
+    end
+    return @citas.count
+  end
+
+  def self.contarCitasPorHabitoYServicio(servicio, habito, fecha_inicio, fecha_fin)
+    @citas = Cita.joins( [ :persona => :habitos, :turno => { horario: :servicio  } ] ).where('citas.fecha' => fecha_inicio..fecha_fin)
+    if servicio != nil
+      @citas = @citas.where("horarios.servicio_id" => servicio)
+    end
+    if habito != nil
+      @citas = @citas.where("habitos.id" => habito)
+    end
+    return @citas.count
+  end
+
+  def self.contarCitasPorProfesionYServicio(servicio, profesion, fecha_inicio, fecha_fin)
+    @citas = Cita.joins( [ :persona => :profesiones, :turno => { horario: :servicio  } ] ).where('citas.fecha' => fecha_inicio..fecha_fin)
+    if servicio != nil
+      @citas = @citas.where("horarios.servicio_id" => servicio)
+    end
+    if profesion != nil
+      @citas = @citas.where("profesiones.id" => profesion)
+    end
+    return @citas.count
+  end
+
 end

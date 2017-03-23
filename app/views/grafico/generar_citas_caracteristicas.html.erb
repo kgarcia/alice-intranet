@@ -1,0 +1,139 @@
+<div class="row">
+   <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+          <div class="ibox-title">
+              <h2 class="parametros-titulo"><%= "Reporte Estadístico" %></h2>
+          </div>
+      </div>
+      <div class="ibox-content col-sm-12">
+      	  <h2 class="parametros-titulo"><%= @titulo %></h2>
+          <h4>Servicio: <%= @servicio.descripcion %></h4>
+          <h4>Especialista: <%= @especialista.persona.nombre + ' ' + @especialista.persona.apellido %></h4>
+          <h4>Desde el <%= @fecha_inicio.strftime("%d/%m/%Y") %> hasta el <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
+		      <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+      </div>
+
+      <script type="text/javascript">
+      Highcharts.chart('container', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: ''
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: [
+                '<%= @servicio.descripcion %>',
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Cantidad de pacientes'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} </b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [
+          <% if @caracteristica == 1 %>
+            <% @estadosCiviles.each do |estadoCivil| %>
+              {
+                name: '<%= estadoCivil.descripcion %>',
+                data: [
+                    <%= Cita.contarCitasPorEstadoCivilYServicio(@servicio.id, estadoCivil.id, @fecha_inicio, @fecha_fin) %>,
+                ]
+              },
+            <% end %>
+          <% elsif @caracteristica == 2 %>
+            <% @sexos.each do |sexo| %>
+              {
+                name: '<%= sexo.descripcion %>',
+                data: [
+                    <%= Cita.contarCitasPorSexoYServicio(@servicio.id, sexo.id, @fecha_inicio, @fecha_fin) %>,
+                ]
+              },
+            <% end %>
+          <% elsif @caracteristica == 3 %>
+            <% @habitos.each do |habito| %>
+              {
+                name: '<%= habito.descripcion %>',
+                data: [
+                    <%= Cita.contarCitasPorHabitoYServicio(@servicio.id, habito.id, @fecha_inicio, @fecha_fin) %>,
+                ]
+              },
+            <% end %>
+          <% elsif @caracteristica == 4 %>
+            <% @profesiones.each do |profesion| %>
+              {
+                name: '<%= profesion.descripcion %>',
+                data: [
+                    <%= Cita.contarCitasPorProfesionYServicio(@servicio.id, profesion.id, @fecha_inicio, @fecha_fin) %>,
+                ]
+              },
+            <% end %>
+          <% end %>
+      ]
+        });
+      </script>
+      <div class="col-sm-12 ibox-content" style="margin-top: 15px">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <td><strong>Característica</strong></td>
+                <td><strong>Cantidad de Pacientes</strong></td>
+              </tr>
+            </thead>
+            <tbody>
+              <% if @caracteristica == 1 %>
+                <% @estadosCiviles.each do |estadoCivil| %>
+                  <tr >
+                      <td><strong><%= estadoCivil.descripcion %></strong></td>
+                      <td><%= Cita.contarCitasPorEstadoCivilYServicio(@servicio.id, estadoCivil.id, @fecha_inicio, @fecha_fin) %></td>
+                  </tr>
+                <% end %>
+              <% elsif @caracteristica == 2 %>
+                <% @sexos.each do |sexo| %>
+                  <tr >
+                      <td><strong><%= sexo.descripcion %></strong></td>
+                      <td><%= Cita.contarCitasPorSexoYServicio(@servicio.id, sexo.id, @fecha_inicio, @fecha_fin) %></td>
+                  </tr>
+                <% end %>
+              <% elsif @caracteristica == 3 %>
+                <% @habitos.each do |habito| %>
+                  <tr >
+                      <td><strong><%= habito.descripcion %></strong></td>
+                      <td><%= Cita.contarCitasPorHabitoYServicio(@servicio.id, habito.id, @fecha_inicio, @fecha_fin) %></td>
+                  </tr>
+                <% end %>
+              <% elsif @caracteristica == 4 %>
+                <% @profesiones.each do |profesion| %>
+                  <tr >
+                      <td><strong><%= profesion.descripcion %></strong></td>
+                      <td><%= Cita.contarCitasPorProfesionYServicio(@servicio.id, profesion.id, @fecha_inicio, @fecha_fin) %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+        </table>
+      <div class="col-sm-12 " style="margin-top: 15px; padding-bottom: 30px">
+        <%= link_to 'Atrás', "/grafico/citas_por_caracteristicas", :class => "btn btn-sm btn-success " %>
+      </div>
+    </div>
+  </div>
+</div>

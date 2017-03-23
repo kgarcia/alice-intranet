@@ -39,20 +39,25 @@ class EspecialistasController < ApplicationController
   # POST /especialistas.json
   def create
     @especialista = Especialista.new(especialista_params)
-    @persona = Persona.new(persona_params)
+    #@persona = Persona.new(persona_params)
+    @especialista.persona = Persona.find(params['quer'][0])
+    @universidades = Universidad.where(:estatus => 1)
+    @formacion_academicas = FormacionAcademica.where(:estatus => 1)
+    @especialidades = Especialidad.where(:estatus => 1)
     
     @especialista.especialidadEspecialistas = params[:especialidades]
 
     respond_to do |format|
-      if @persona.save
-        @especialista.persona_id = @persona.id
-        @especialista.save
+
+      if @especialista.save
         format.html { redirect_to especialistas_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @especialista }
       else
         format.html { render :new }
         format.json { render json: @especialista.errors, status: :unprocessable_entity }
       end
+
+
     end
   end
 
