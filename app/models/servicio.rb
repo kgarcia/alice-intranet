@@ -256,4 +256,12 @@ def save_horario_turnos
        end
 end
 
+def self.servicios_por_especialidad(especialidad)
+  @servicios = Servicio.joins( tipo_servicio: :especialidad )
+  if especialidad != nil
+    @servicios = @servicios.where("especialidades.id" => especialidad)
+  end
+  return @servicios
+end
+
 end

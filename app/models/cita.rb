@@ -17,9 +17,9 @@ class Cita < ApplicationRecord
 	end
 
   def as_json(options={})
-    super(include: { turno: 
-                       { include:  {horario: 
-                                      { include:  {servicio: 
+    super(include: { turno:
+                       { include:  {horario:
+                                      { include:  {servicio:
                                                        { include:  [:ubicacion,:tipo_servicio]
                                                        }
                                                    }
@@ -72,6 +72,23 @@ class Cita < ApplicationRecord
       @citas = Cita.joins( turno: { horario: :servicio } ).where("horarios.servicio_id" => @difusion.entidad_id)
     else
       @citas = Cita.joins( turno: { horario: { servicio: { tipo_servicio: :eventos } } } ).where("eventos.id" => @difusion.entidad_id)
+    end
+    return @citas.count
+  end
+
+  def self.contarCitasPorTurno(tipo_turno, especialidad, dia, fecha_inicio, fecha_fin)
+    @citas = Cita.joins( :turno => [:tipo_turno, horario: { servicio: { tipo_servicio: :especialidad } } ] )
+    if fecha_inicio != nil and fecha_fin != nil
+      @citas = @citas.where('citas.fecha' => fecha_inicio..fecha_fin)
+    end
+    if tipo_turno != nil
+      @citas = @citas.where('tipo_turnos.id' => tipo_turno)
+    end
+    if especialidad != nil
+      @citas = @citas.where('especialidades.id' => especialidad)
+    end
+    if dia != nil
+      @citas = @citas.where('turnos.dia_id' => dia)
     end
     return @citas.count
   end

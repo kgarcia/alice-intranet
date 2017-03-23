@@ -138,4 +138,30 @@ class Calificacion < ApplicationRecord
     return promedio
   end
 
+  def self.contarCalificacionesPorServicioCriterioValor(criterio, calificacion, fecha_inicio, fecha_fin)
+    @calificaciones = Calificacion.joins(evaluacion: { cita: { turno: { horario: { servicio: { tipo_servicio: :criterios } } } } } ).where('citas.fecha' => fecha_inicio..fecha_fin)
+    if criterio != nil
+      @calificaciones = @calificaciones.where("criterios.id" => criterio)
+    end
+    cont = 0
+    if calificacion != nil
+      @calificaciones.each do |cal|
+        if cal.descripcion == calificacion.to_s and cal.criterio.id == criterio
+          cont = cont + 1
+        end
+      end
+    end
+    return cont
+  end
+
+  def self.calificacionesPositivas(criterio, fecha_inicio, fecha_fin)
+    total = Calificacion.contarCalificacionesPorServicioCriterioValor(criterio,  4, fecha_inicio, fecha_fin) + Calificacion.contarCalificacionesPorServicioCriterioValor(criterio,  5, fecha_inicio, fecha_fin)
+    return total
+  end
+
+  def self.calificacionesNegativas(criterio, fecha_inicio, fecha_fin)
+    total = Calificacion.contarCalificacionesPorServicioCriterioValor(criterio, 1, fecha_inicio, fecha_fin) + Calificacion.contarCalificacionesPorServicioCriterioValor(criterio, 2, fecha_inicio, fecha_fin)
+    return total
+  end
+
 end

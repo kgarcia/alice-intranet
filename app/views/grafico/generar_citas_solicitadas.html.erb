@@ -2,13 +2,13 @@
    <div class="col-lg-12">
       <div class="ibox float-e-margins">
           <div class="ibox-title">
-              <h2 class="parametros-titulo"><%= "Reportes Estadisticos" %></h2>
+              <h2 class="parametros-titulo"><%= "Reporte Estadístico" %></h2>
           </div>
       </div>
-      <div class="ibox-content col-sm-12">
+      <div class="ibox-content col-sm-12" >
       	  <h2 class="parametros-titulo"><%= @titulo %></h2>
           <h4>Desde el <%= @fecha_inicio.strftime("%d/%m/%Y") %> hasta el <%= @fecha_fin.strftime("%d/%m/%Y") %></h4>
-		      <div id="container" width="500px" height="300px"></div>
+		      <div id="container" width="500px" height="300px" style="margin-top: 30px"></div>
       </div>
         <script type="text/javascript">
             <% if @tipo_entidad == 1.to_s %>
@@ -18,7 +18,7 @@
                             type: 'column'
                         },
                         title: {
-                            text: 'Citas por Estatus'
+                            text: ''
                         },
                         xAxis: {
                             categories: [
@@ -31,8 +31,9 @@
                         yAxis: {
                             min: 0,
                             title: {
-                                text: 'Citas'
-                            }
+                                text: 'Cantidad de citas'
+                            },
+                            allowDecimals: false
                         },
                         tooltip: {
                             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -96,7 +97,7 @@
                             type: 'column'
                         },
                         title: {
-                            text: 'Citas por Estatus'
+                            text: ''
                         },
                         xAxis: {
                             categories: [
@@ -107,8 +108,9 @@
                         yAxis: {
                             min: 0,
                             title: {
-                                text: 'Citas'
-                            }
+                                text: 'Cantidad de citas'
+                            },
+                            allowDecimals: false
                         },
                         tooltip: {
                             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -167,7 +169,7 @@
                             type: 'column'
                         },
                         title: {
-                            text: 'Citas por Estatus'
+                            text: ''
                         },
                         xAxis: {
                             categories: [
@@ -180,8 +182,9 @@
                         yAxis: {
                             min: 0,
                             title: {
-                                text: 'Citas'
-                            }
+                                text: 'Cantidad de citas'
+                            },
+                            allowDecimals: false
                         },
                         tooltip: {
                             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -245,7 +248,7 @@
                             type: 'column'
                         },
                         title: {
-                            text: 'Citas por Estatus'
+                            text: ''
                         },
                         xAxis: {
                             categories: [
@@ -256,8 +259,9 @@
                         yAxis: {
                             min: 0,
                             title: {
-                                text: 'Citas'
-                            }
+                                text: 'Cantidad de citas'
+                            },
+                            allowDecimals: false
                         },
                         tooltip: {
                             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -315,7 +319,7 @@
                             type: 'column'
                         },
                         title: {
-                            text: 'Citas por Estatus'
+                            text: ''
                         },
                         xAxis: {
                             categories: [
@@ -328,8 +332,9 @@
                         yAxis: {
                             min: 0,
                             title: {
-                                text: 'Citas'
-                            }
+                                text: 'Cantidad de citas'
+                            },
+                            allowDecimals: false
                         },
                         tooltip: {
                             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -393,7 +398,7 @@
                             type: 'column'
                         },
                         title: {
-                            text: 'Citas por Estatus'
+                            text: ''
                         },
                         xAxis: {
                             categories: [
@@ -404,8 +409,9 @@
                         yAxis: {
                             min: 0,
                             title: {
-                                text: 'Citas'
-                            }
+                                text: 'Cantidad de citas'
+                            },
+                            allowDecimals: false
                         },
                         tooltip: {
                             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -459,7 +465,6 @@
             <% end %>
         </script>
         <div class="col-sm-12 ibox-content" style="margin-top: 15px">
-          <h3>Tabla de resultados</h3>
           <% if @tipo_entidad == 1.to_s %>
               <% if @entidad == "" %>
               <div class="col-sm-12">
