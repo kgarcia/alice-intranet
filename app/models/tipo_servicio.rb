@@ -29,36 +29,44 @@ class TipoServicio < ApplicationRecord
     end
 
     def difundirSegmentado(difusion)
-      self.destinatariosSegmentados.each do |destinatario|
-         ExampleMailer.difusion(difusion,destinatario[1]).deliver_later
+      if Configuracion.envia_email
+        self.destinatariosSegmentados.each do |destinatario|
+           ExampleMailer.difusion(difusion,destinatario[1]).deliver_later
+        end
       end
     end
 
     def difundirGeneral(difusion)
-      self.destinatariosGeneral.each do |destinatario|
-         ExampleMailer.difusion(difusion,destinatario[1]).deliver_later
+      if Configuracion.envia_email
+        self.destinatariosGeneral.each do |destinatario|
+           ExampleMailer.difusion(difusion,destinatario[1]).deliver_later
+        end
       end
     end
 
     def notificarSegmentado(difusion)
-      self.destinatariosSegmentados.each do |destinatario|
-        if Persona.find(destinatario[0]).usuario != nil
-         if difusion.tipo_entidad_id == 1
-            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 2, entidad_id: difusion.entidad_id )
-          else
-            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 3, entidad_id: difusion.entidad_id )
+      if Configuracion.envia_notificaciones
+        self.destinatariosSegmentados.each do |destinatario|
+          if Persona.find(destinatario[0]).usuario != nil
+           if difusion.tipo_entidad_id == 1
+              Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 2, entidad_id: difusion.entidad_id )
+            else
+              Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 3, entidad_id: difusion.entidad_id )
+            end
           end
         end
       end
     end
 
     def notificarGeneral(difusion)
-      self.destinatariosGeneral.each do |destinatario|
-        if Persona.find(destinatario[0]).usuario != nil
-           if difusion.tipo_entidad_id == 1
-            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 2, entidad_id: difusion.entidad_id )
-          else
-            Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 3, entidad_id: difusion.entidad_id )
+      if Configuracion.envia_notificaciones
+        self.destinatariosGeneral.each do |destinatario|
+          if Persona.find(destinatario[0]).usuario != nil
+             if difusion.tipo_entidad_id == 1
+              Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 2, entidad_id: difusion.entidad_id )
+            else
+              Notificacion.create(descripcion:"Servicio", mensaje: difusion.asunto, url:difusion.entidad_id, usuario_id:(Persona.find(destinatario[0])).usuario.id, tipo_notificacion_id: 3, entidad_id: difusion.entidad_id )
+            end
           end
         end
       end

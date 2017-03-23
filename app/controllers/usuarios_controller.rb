@@ -73,9 +73,12 @@ class UsuariosController < ApplicationController
       @persona = Persona.new(persona_params)
       @persona.save
       @usuario = Usuario.new(sign_up_params)
+      @password = ((0...8).map { (65 + rand(26)).chr }.join)
+      @usuario.password = @password
+      @usuario.password_confirmation = @password
       respond_to do |format|
       if @usuario.save
-
+        ExampleMailer.usuario_creado(@usuario, @password).deliver_now
         format.html { redirect_to "/usuarios", notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :editar, status: :created, location: @usuario }
       else
@@ -147,10 +150,6 @@ class UsuariosController < ApplicationController
      @user.password = @password
      @user.password_confirmation = @password
      @user.persona_id = @persona.id
-     puts "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-     puts @user.inspect
-
-     puts @user.password
     respond_to do |format|
       format.json {
         if @user.save

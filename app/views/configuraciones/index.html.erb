@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Configuraciones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Envia email</th>
+      <th>Envia notificaciones</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @configuraciones.each do |configuracion| %>
+      <tr>
+        <td><%= configuracion.envia_email %></td>
+        <td><%= configuracion.envia_notificaciones %></td>
+        <td><%= link_to 'Show', configuracion %></td>
+        <td><%= link_to 'Edit', edit_configuracion_path(configuracion) %></td>
+        <td><%= link_to 'Destroy', configuracion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Configuracion', new_configuracion_path %>

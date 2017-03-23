@@ -33,6 +33,7 @@ default: &default
   password: 1234
 
 
+
 development:
   <<: *default
   database: alice_development
