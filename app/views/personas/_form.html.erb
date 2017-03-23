@@ -1,50 +1,106 @@
-<%= form_for(persona) do |f| %>
+         
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2 class="text-dark-blue"><strong><%= @persona.class.titulo %></strong></h2>
+    <ol class="breadcrumb">
+      <li>
+        <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+      </li>
+      <li>
+        <a href="/<%= @persona.class.name.underscore.pluralize %>">Listado</a>
+      </li>
+      <li class="active">
+        <% if @persona.new_record? %>
+          <strong class="text-blue">Registrar <%= @persona.class.titulo %></strong>
+        <% else %>
+          <strong class="text-blue">Editar <%= @persona.class.titulo %></strong>
+        <% end %>
+      </li>
+    </ol>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content">
+  <div class="row">   
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong><%= @persona.class.titulo %></strong></h4>
+        </div>
+
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-sm-12">
 
 
 
-                  <div class="form-group"><label class="col-lg-2 control-label">Cedula</label>
-
-                      <div class="col-lg-10"><%= f.text_field :cedula, :class => "form-control" %>
-                       </div>
-                    </div>
-                   <div class="form-group"><label class="col-lg-2 control-label">Nombre</label>
-
-                      <div class="col-lg-10"><%= f.text_field :nombre, :class => "form-control" %>
-                      </div>
-                  </div>
-                  <div class="form-group"><label class="col-lg-2 control-label">Apellido</label>
-
-                      <div class="col-lg-10"><%= f.text_field :apellido, :class => "form-control" %>
-                      </div>
-                  </div>
-                   <div class="form-group"><label class="col-lg-2 control-label">Telefono</label>
-
-                      <div class="col-lg-10"><%= f.text_field :telefono, :class => "form-control" %>
-                      </div>
-                  </div>
-                   <div class="form-group"><label class="col-lg-2 control-label">Direccion</label>
-
-                      <div class="col-lg-10"><%= f.text_field :direccion, :class => "form-control" %>
-                      </div>
-                  </div>
-                   <div class="form-group"><label class="col-lg-2 control-label">Fecha de Nacimiento</label>
-
-                      <div class="col-lg-10"><%= f.text_field :fecha_nacimiento, :class => "form-control" %>
-                      </div>
-                  </div>
-                  <div class="field form-group">
-                    <label class="col-lg-2 control-label">Sexo</label>
+ <%= form_for @persona, :html => {:class => '', :id => 'form-persona'}, :form_to_validate => @persona.class, role: 'form' do |u| %>
 
 
-
-
-
-
-
-                   </div>
                   <div class="form-group">
-                      <div class="col-lg-offset-2 col-lg-10">
-                          <%= f.submit 'Guardar', :class => "btn btn-sm btn-white" %>
+                    <label class="control-label">Cédula <label for="<%= @persona.class.name.underscore %>_cedula" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.text_field :cedula, :required =>true, :class => "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Nombre <label for="<%= @persona.class.name.underscore %>_nombre" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.text_field :nombre,:required =>true, :class => "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Apellido <label for="<%= @persona.class.name.underscore %>_apellido" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.text_field :apellido,:required =>true, :class => "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Teléfono <label for="<%= @persona.class.name.underscore %>_telefono" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.text_field :telefono, :required => true, :input_html => { :maxlength => 14 }, :data => { "mask" => "999-999-9999"  }, :class => "form-control" %>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">Dirección <label for="<%= @persona.class.name.underscore %>_direccion" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.text_field :direccion, :class => "form-control" %>
+                  </div>
+
+
+
+                  <div class="form-group fecha-n-persona">
+                    <label class="control-label">Fecha de Nacimiento <label for="<%= @persona.class.name.underscore %>_fecha_nacimiento" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <div class="input-group date">
+                        <span class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </span>
+                      <%= u.text_field :fecha_nacimiento, :required =>true, :class => "form-control", :value => "" %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="control-label">Sexo <label for="<%= @persona.class.name.underscore %>_sexo_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                    <%= u.collection_select(:sexo_id, @sexos, :id, :descripcion,{}, :class => "form-control" )%>
+                  </div>
+
+ <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                           <%= u.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                      </div>
+                        <div class="col-lg-2">
+                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                      <div class="col-lg-2">
+                      <%= link_to 'Atrás',personas_path, :class => "btn btn-sm btn-success" %>                          
                       </div>
                   </div>
-<% end %>
+
+                <% end %>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+  
+  <script type="text/javascript">
+  $('.datepicker').datepicker();
+</script>
