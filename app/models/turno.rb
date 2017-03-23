@@ -37,18 +37,74 @@ class Turno < ApplicationRecord
     end
   end
 
-  def arreglo_horario_citas #debe entrar parametro de servicio de web
+  def arreglo_horario_citas(fecha) #debe entrar parametro de servicio de web
     if ((self.hora_inicio < self.hora_fin)  and
         Horario.find(self.horario_id).tipo_horario_id ==2 ) #aca es el calculo de horarios para cita (tiempo promedio) por turno
-        @turnos_cita = Array.new 
+        
+        @turnos_cita = Array.new
+        
         @horario = Horario.find(self.horario_id)
-          for i in 1..self.numero_pacientes_por_turno do
-            if(i==1) 
-            @turnos_cita.push(self.hora_inicio)
+          puts '$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$'
+          
+          @hora =Time.now.to_formatted_s(:time).to_s
+          @hora = @hora.to_s.gsub(':','').to_i
+          
+          @prueba = fecha.to_formatted_s(:number).to_s
+          @prueba = @prueba.gsub('000000','').to_i
+          @bloque = 0
+          puts @hora
 
-            else
-              @turnos_cita.push(@turnos_cita.last + @horario.tiempo_cita.to_int*60)
-              puts @turnos_cita.last 
+          @fecha = Date.today.to_formatted_s(:number).to_i
+          puts @fecha
+          puts @prueba
+          puts '----------------------------------------'
+          
+              
+          puts '----------------------------------------'
+          @hora_acum = 0
+
+
+          if @fecha == @prueba
+            for i in 1..self.numero_pacientes_por_turno do
+              
+              if(i==1) 
+
+                @bloque = self.hora_inicio
+                @bloque = @bloque.to_formatted_s(:time)
+                @bloque = @bloque.gsub(':','').to_i
+
+                if @bloque > @hora
+                  @turnos_cita.push(self.hora_inicio)
+                end
+              else
+
+                @hora_acum = @hora_acum + @horario.tiempo_cita.to_int*60
+                @bloque = self.hora_inicio + @hora_acum
+
+                #@bloque = @turnos_cita.last + (@horario.tiempo_cita.to_int*60)
+                @bloque = @bloque.to_formatted_s(:time)
+                @bloque = @bloque.gsub(':','').to_i
+                
+                if @bloque > @hora
+                  #@turnos_cita.push(@turnos_cita.last  + @horario.tiempo_cita.to_int*60)
+                  @turnos_cita.push(self.hora_inicio + @hora_acum)
+                end
+                
+                puts @turnos_cita.last 
+              
+              end
+            end
+          elsif @fecha < @prueba
+            for i in 1..self.numero_pacientes_por_turno do
+              
+              if(i==1) 
+                @turnos_cita.push(self.hora_inicio)
+              else
+
+                @turnos_cita.push(@turnos_cita.last  + @horario.tiempo_cita.to_int*60)
+                puts @turnos_cita.last 
+              
+              end
             end
           end
 
@@ -64,7 +120,7 @@ class Turno < ApplicationRecord
             
           else
               @turnos_cita.push(@turnos_cita.last + (self.cantidad_horas/self.cantidad_pacientes)*60)
-              puts @turnos_cita.last 
+              #puts @turnos_cita.last 
           end
         end
 
@@ -78,9 +134,9 @@ class Turno < ApplicationRecord
    @horas_cita = Array.new 
          self.arreglo_horario_citas.each do |hora|
                @fecha = DateTime.new(@d.year, @d.month, @d.day, hora.hour, hora.min)  
-               puts @fecha
+               #puts @fecha
             if !Cita.where(turno_id: self.id ,:fecha => @fecha,:estatus => 1).exists?
-              puts 'push'
+              #puts 'push'
               @horas_cita.push(hora: @fecha)
             end
             
@@ -99,10 +155,10 @@ class Turno < ApplicationRecord
  def disponibilidad_horas_eventualidad(fecha)  #metodo que se usa
    @d = fecha
    @horas_cita = Array.new 
-   puts self.arreglo_horario_citas
-         self.arreglo_horario_citas.each do |hora|
+   #puts self.arreglo_horario_citas
+         self.arreglo_horario_citas(@d).each do |hora|
               @fecha = DateTime.new(@d.year, @d.month, @d.day, hora.hour, hora.min)
-              if ((!Cita.where(turno_id: self.id ,:fecha => @fecha,:estatus => 1).exists?)) 
+              if (( !Cita.where(turno_id: self.id ,:fecha => @fecha,:estatus => 1).exists?)) 
                 if ( !(Eventualidad.where('fecha_inicio <=?', @fecha).where('fecha_fin >=?',@fecha).where('tipo_eventualidad_id =?',3)).exists?)
                   @horas_cita.push(hora: @fecha) 
                 end
