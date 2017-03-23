@@ -4,10 +4,14 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hola <%# @email %></h1>
+    <h1>Saludos <%= @cita.usuario.email %></h1>
     <p>
-    	Codigo de Cita: <%= @cita.id %>
-		Su cita ha sido registrada exitosamente para el dia <%= @cita.fecha.to_datetime.strftime("%d/%m/%Y %H:%M:%S%p") %>
+    <%= @texto %>
     </p>
+    <p> Cita: <strong><%= @cita.id %></strong></p>
+    <br>
+    <p>Fecha: <strong><%= @cita.fecha.to_datetime.strftime("%d/%m/%Y %H:%M:%S%p") %></strong></p>
+    <br>
+    <p>Servicio: <strong><%= @cita.turno.horario.servicio.descripcion %></strong></p>
   </body>
 </html>

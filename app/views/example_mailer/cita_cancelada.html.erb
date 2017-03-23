@@ -8,5 +8,8 @@
 <p>
   Su cita #<%= @cita.id %> para <b><%= @cita.turno.horario.servicio.descripcion %></b> el dia <%= @cita.fecha %> ha sido cancelada debido a <%= @cita.eventualidad.descripcion %>.
 </p>
+<p>
+	<%= @texto %>
+</p>
 </body>
 </html>
