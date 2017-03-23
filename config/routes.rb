@@ -46,6 +46,8 @@ Myapp::Application.routes.draw do
 
   get '/grafico/update_servicios', to: 'grafico#update_servicios'
 
+  get '/servicios/update_especialistas', to: 'servicios#update_especialistas'
+
   get '/grafico/update_servicios_por_especialidad', to: 'grafico#update_servicios_por_especialidad'
 
   get 'grafico/motivos_cancelacion'

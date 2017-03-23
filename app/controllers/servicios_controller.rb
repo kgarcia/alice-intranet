@@ -94,6 +94,20 @@ if params[:slug].nil?
     end
   end
 
+  def update_especialistas
+    if (TipoServicio.find(params[:tipo_servicio_id].to_i).tipo_atencion_id == 1)
+      @tieneEspecialista = true  
+    else
+      @tieneEspecialista = false
+    end
+    @especialistas = Especialista.joins( especialidades: :tipo_servicios).where("especialistas.estatus" => 1).where("tipo_servicios.id" => TipoServicio.find(params[:tipo_servicio_id].to_i).id) 
+    
+    respond_to do |format|
+      format.js
+      render 'servicios/update_especialistas'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_servicio
