@@ -23,6 +23,19 @@ class UsuariosController < ApplicationController
 
     def login_movil
       @usuario = Usuario.find_by_email(params[:email])
+      puts @usuario
+       respond_to do |format|
+          if @usuario.valid_password?(params[:password])
+              format.json {render json: @usuario}
+          else
+              format.json {render json: @usuario.errors, status: :unprocessable_entity }
+          end
+        end
+    end
+
+    def login_web
+      @usuario = Usuario.find_by_email(params[:email])
+      puts @usuario
        respond_to do |format|
           if @usuario.valid_password?(params[:password])
               format.json {render json: @usuario}
