@@ -30,7 +30,7 @@ class Categoria < ApplicationRecord
 
 
  def as_json(options={})
-    super(include: { tipo_servicios: { :include => {:criterios => {:include => :tipo_criterio}, :servicios => {:methods => :foto_url,:include => {  :especialista => {include: [:persona,:especialidades]}, :horarios => {:include => :turnos}, :ubicacion => {}}}}}})
+    super(include: { tipo_servicios: { :include => {:criterios => {:include => :tipo_criterio}, :servicios => {:methods => :foto_url,:include => {  :especialista => {include: [:persona,:especialidades]},  :horarios => {:include => :turnos,:methods => :turnos_ordenados} , :ubicacion => {}}}}}})
   end
 end
 #:include => [:posts, :roles]
