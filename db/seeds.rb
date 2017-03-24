@@ -299,59 +299,9 @@
 	Vacuna.find_or_create_by(descripcion: 'Rubeola',estatus: 1)
 
 
-    Persona.find_or_create_by(:cedula => '20473293', :nombre => 'Richard', :apellido => 'Gere', :telefono => '+584245126060', :direccion => 'Urb. Bararida Residencias Venezuela II Etapa', :fecha_nacimiento => '16/05/1991', :sexo => Sexo.find(1))
-    Persona.find_or_create_by(:cedula => '20473294', :nombre => 'Demon', :apellido => 'Sars', :telefono => '+584249047270', :direccion => 'Urb. Colinas de Perija', :fecha_nacimiento => '16/02/1964', :sexo => Sexo.find(1))
-    Persona.find_or_create_by(:cedula => '20473295', :nombre => 'Antonio', :apellido => 'Trap', :telefono => '+584248749267', :direccion => 'Urb. Altavista', :fecha_nacimiento => '27/09/1982', :sexo => Sexo.find(1))
-    Persona.find_or_create_by(:cedula => '20473296', :nombre => 'Geremy Swarch', :apellido => 'Strauss', :telefono => '+584248888218', :direccion => 'Calle 33 entre carreras 15 y 16 casa V-22', :fecha_nacimiento => '14/12/1991', :sexo => Sexo.find(1))
-    Persona.find_or_create_by(:cedula => '20473297', :nombre => 'Lina Vrin', :apellido => 'Faraushan', :telefono => '+584249837262', :direccion => 'Fraccionamiento Villas Mediterraneas', :fecha_nacimiento => '28/06/1980', :sexo => Sexo.find(1))
-    Persona.find_or_create_by(:cedula => '20473298', :nombre => 'Girly', :apellido => 'Six', :telefono => '+584245938273', :direccion => 'Urb. Midtown Manhattan', :fecha_nacimiento => '16/05/1991', :sexo => Sexo.find(2))
-    Persona.find_or_create_by(:cedula => '20473299', :nombre => 'Riana', :apellido => 'Mic', :telefono => '+584245927273', :direccion => 'Urb. Concordia', :fecha_nacimiento => '23/05/1980', :sexo => Sexo.find(2))
-    Persona.find_or_create_by(:cedula => '204732910', :nombre => 'Marck', :apellido => 'Stuar', :telefono => '+5842459382313', :direccion => 'Urb. Rosaleda', :fecha_nacimiento => '16/05/1991', :sexo => Sexo.find(1))
-    Persona.find_or_create_by(:cedula => '204732911', :nombre => 'Nina', :apellido => 'Marroni', :telefono => '+584245931111', :direccion => 'Centro', :fecha_nacimiento => '16/05/1921', :sexo => Sexo.find(2))
-    Persona.find_or_create_by(:cedula => '204732912', :nombre => 'Torstar', :apellido => 'Garg', :telefono => '+584245938523', :direccion => 'Urb. Av 20 con calle 18', :fecha_nacimiento => '13/05/1954', :sexo => Sexo.find(1))
-    Persona.find_or_create_by(:cedula => '204732913', :nombre => 'Lily', :apellido => 'Mendina', :telefono => '+584245938192', :direccion => 'Urb. Montalban', :fecha_nacimiento => '20/08/1989', :sexo => Sexo.find(2))
-    Persona.find_or_create_by(:cedula => '204732914', :nombre => 'Tomas', :apellido => 'Garber', :telefono => '+584242635479', :direccion => 'Urb. Hato Arriba', :fecha_nacimiento => '31/12/2000', :sexo => Sexo.find(1))
-    # Personas
-    # Juan Pérez (Solicitante y Paciente)
-    Persona.find_or_create_by(:cedula => '10787657', :nombre => 'Juan', :apellido => 'Pérez' , :telefono => '+584120583093', :direccion => 'Urb. Nueva Segovia', :fecha_nacimiento => '12/06/1970', :sexo => Sexo.find(1))
-    Persona.find_or_create_by(:cedula => '5677678', :nombre => 'Carlos', :apellido => 'Berríos' , :telefono => '+582514567890', :direccion => 'Cabudare Centro', :fecha_nacimiento => '03/01/1955', :sexo => Sexo.find(1))
-    Persona.find_or_create_by(:cedula => '18090153', :nombre => 'Patricia', :apellido => 'Solano' , :telefono => '+584140908876', :direccion => 'Urb. Obelisco', :fecha_nacimiento => '10/08/1988', :sexo => Sexo.find(2))
-
-    Especialista.find_or_create_by(:persona => Persona.find(1), estatus: 1)
-    Especialista.find_or_create_by(:persona => Persona.find(2), estatus: 1)
-    Especialista.find_or_create_by(:persona => Persona.find(3), estatus: 1)
-    Especialista.find_or_create_by(:persona => Persona.find(14), estatus: 1)
-
-    EspecialidadEspecialista.find_or_create_by(:especialidad => Especialidad.find(1), :especialista => Especialista.find(1))
-    EspecialidadEspecialista.find_or_create_by(:especialidad => Especialidad.find(2), :especialista => Especialista.find(2))
-    EspecialidadEspecialista.find_or_create_by(:especialidad => Especialidad.find(3), :especialista => Especialista.find(3))
-    EspecialidadEspecialista.find_or_create_by(:especialidad => Especialidad.find(4), :especialista => Especialista.find(4))
-
-
-    Servicio.find_or_create_by(descripcion: 'Consulta cardiológica ritmo alterado', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(4), :especialista => Especialista.find(1), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 25000)
-    Servicio.find_or_create_by(descripcion: 'Consulta general', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(1), :especialista => Especialista.find(3), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 13614)
-    Servicio.find_or_create_by(descripcion: 'Tomografía  axial', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(5), :especialista => Especialista.find(1), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 25000)
-    Servicio.find_or_create_by(descripcion: 'Ecografía Abdominal', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(6), :especialista => Especialista.find(3), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 13614)
-    Servicio.find_or_create_by(descripcion: 'Examen de orina', :ubicacion => Ubicacion.find(2), :tipo_servicio => TipoServicio.find(7), :especialista => Especialista.find(3), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 45989)
-    Servicio.find_or_create_by(descripcion: 'Hematología Completa', :ubicacion => Ubicacion.find(3), :tipo_servicio => TipoServicio.find(7), :especialista => Especialista.find(3), :estatus => 1, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, precio: 50555.55)
-
-    Eventualidad.find_or_create_by(:descripcion => 'Cierre de la clínica', :estatus => 1, :tipo_eventualidad_id => 1, :motivo => Motivo.find(1), fecha_inicio: '01/03/2017', fecha_fin: '01/03/2017')
-    Eventualidad.find_or_create_by(:descripcion => 'Cancelación de cita', :estatus => 1, :tipo_eventualidad_id => 3, :motivo=> Motivo.find(2), fecha_inicio: '01/03/2017', fecha_fin: '01/03/2017')
-
     TipoCita.find_or_create_by(:descripcion => 'Chequeo', :estatus => 1)
     TipoCita.find_or_create_by(:descripcion => 'Entrega de Exámenes', :estatus => 1)
     TipoCita.find_or_create_by(:descripcion => 'Control', :estatus => 1)
-
-    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(4), :usuario_id => nil, :fecha => '2/09/2016', :tipo_pago_id => TipoPago.find(1).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(1))
-    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(5), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(2))
-    Cita.find_or_create_by(:turno => Turno.find(1), :persona => Persona.find(6), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(2).id, :eventualidad_id => Eventualidad.find(2).id, estatus: 1, :tipo_cita => TipoCita.find(3))
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(7), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(1))
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(8), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(3).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(2))
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(9), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(3))
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(10), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(2).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(1))
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(11), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(1).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(2))
-    Cita.find_or_create_by(:turno => Turno.find(4), :persona => Persona.find(12), :usuario_id => nil, :fecha => '12/09/2016', :tipo_pago_id => TipoPago.find(4).id, :eventualidad_id => nil, estatus: 1, :tipo_cita => TipoCita.find(3))
-
 
     TipoCalificacion.find_or_create_by(:descripcion => 'Numérica', :estatus => 1)
     TipoCalificacion.find_or_create_by(:descripcion => 'Texto', :estatus => 1)
@@ -464,9 +414,10 @@
 	  	    OptionMenu.find_or_create_by(:id_padre => 85, :nombre => 'Preguntas',                  :url_path => '/preguntas', :icono => 'newspaper',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 	        OptionMenu.find_or_create_by(:id_padre => 85, :nombre => 'Tipos de Opinión',                   :url_path => '/tipo_opiniones', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 		OptionMenu.find_or_create_by(    :id_padre => 79, :nombre => 'Seguridad Funcional',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 2, :estatus => 'A')
-	        OptionMenu.find_or_create_by(:id_padre => 92, :nombre => 'Usuarios',               :url_path => '/usuarios', :icono => 'fa-user-plus',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+	        OptionMenu.find_or_create_by(:id_padre => 92, :nombre => 'Personas',                      :url_path => '/personas', :icono => 'fa-user',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+            OptionMenu.find_or_create_by(:id_padre => 92, :nombre => 'Usuarios',               :url_path => '/usuarios', :icono => 'fa-user-plus',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 	        OptionMenu.find_or_create_by(:id_padre => 92, :nombre => 'Roles',                      :url_path => '/roles', :icono => 'fa-bookmark-o',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
-
+            
 
 # DATOS POR DEFECTO - PARA UTILIZAR EN EL EJEMPLO, ETC...
 
