@@ -26,22 +26,6 @@
                         </script>
                     </div>
                 </div>
-                <!--<div class="field form-group row">
-                    <label class="col-lg-2 control-label">Criterio:</label>
-                    <div class="col-lg-10">
-                        <%= collection_select(:id, :criterio, Criterio.all, :id, :descripcion,
-                          {:prompt => "Seleccione"}, {:class => 'form-control'}) %>
-                        <%= hidden_field_tag :criterio_id, :criterio_id %>
-                        <script>
-                            $(function () {
-                                $(document).on('change', '#id_criterio', function () {
-                                    var select_value = $(this).val();
-                                    $('#criterio_id').val(select_value);
-                                });
-                            });
-                        </script>
-                    </div>
-                </div>-->
                 <div class="field form-group row">
                     <label class="col-lg-2 control-label">Rango de Fechas:</label>
                     <div class="col-lg-10">
@@ -49,14 +33,14 @@
                     </div>
                 </div>
                 <div class="col-sm-12" style="margin-top: 15px">
-                    <div class="col-lg-offset-3 col-lg-2">
+                    <div class="col-lg-offset-4 col-lg-2">
                          <%= submit_tag "Generar", :class => "btn btn-sm btn-primary" %>
                     </div>
                       <div class="col-lg-2">
                       <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>
                       </div>
                     <div class="col-lg-2">
-                    <%= link_to 'Atras',"", :class => "btn btn-sm btn-success" %>
+
                     </div>
                 </div>
             </div>

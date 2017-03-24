@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h2 class="parametros-titulo"><%= "Satisfacción de Pacientes" %></h2>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <%= form_tag "/grafico/satisfaccion_pacientes", method: "post", :html => {:class => 'form-horizontal' } do |f| %>
+            <br>
+            <div class="field form-group row">
+                <label class="col-lg-2 control-label">Especialidad:</label>
+                <div class="col-lg-10">
+                    <%= select_tag("especialidad", options_from_collection_for_select(@especialidades, :id, :descripcion), {:class => "form-control", :prompt => 'Seleccione'}) %>
+                </div>
+            </div>
+
+            <div class="field form-group row">
+                <label class="col-lg-2 control-label">Servicio:</label>
+                <div class="col-lg-10">
+                    <%= select_tag("servicio", options_from_collection_for_select(@servicios, :id, :descripcion), {:class => "form-control", :prompt => 'Seleccione'}) %>
+                </div>
+            </div>
+
+            <div class="field form-group row">
+                <label class="col-lg-2 control-label">Rango de Fechas:</label>
+                <div class="col-lg-10">
+                    <%= text_field_tag "fecha","" ,:class => "daterange form-control", :required => true %>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-lg-offset-4 col-lg-2">
+                    <%= submit_tag "Generar", :class => "btn btn-sm btn-primary" %>
+                </div>
+                <div class="col-lg-2">
+                    <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#fecha').daterangepicker({
+            "locale": {
+                "format": "DD-MM-YYYY"
+            }
+        });
+    });
+</script>

@@ -1,0 +1,53 @@
+<div class="row">   
+   <div class="col-lg-6 col-lg-offset-3">
+   <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h2 class="parametros-titulo"><%= "Plantilla de Correo" %></h2>
+              </div>
+          </div>
+          <div class="ibox-content">
+          <%= form_for @plantilla_correo, :html => {:class => 'form-horizontal'} do |f| %>
+            <% if plantilla_correo.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(plantilla_correo.errors.count, "error") %> prohibited this plantilla_correo from being saved:</h2>
+
+                <ul>
+                <% plantilla_correo.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+                  <div class="form-group">
+                  <label class="col-lg-2 control-label">Nombre</label>
+
+                      <div class="col-lg-10"><%= f.text_field :descripcion, :class => "form-control", :readonly => true%>
+                       </div>
+                    </div>
+
+                   
+                  <div class="form-group">
+                    <label class="col-lg-2 control-label">Texto</label>
+
+                    <div class="col-lg-10"><%= f.text_area :texto, :class => "tinymce form-control" %>
+                     </div>
+
+                    <%= tinymce :language => "es_MX" %>
+                  </div>
+
+                 <div class="form-group">
+                      <div class="col-lg-offset-3 col-lg-2">
+                           <%= f.submit "Guardar", :class => "btn btn-sm btn-primary" %>
+                      </div>
+                        <div class="col-lg-2">
+                        <%= link_to 'Limpiar', '', type: :reset, :class => "btn btn-sm btn-warning " %>                          
+                        </div>
+                      <div class="col-lg-2">
+                      <%= link_to 'Atras',plantilla_correos_path, :class => "btn btn-sm btn-success" %>                          
+                      </div>
+                  </div>
+  <% end %>
+    </div>
+  </div>
+</div>

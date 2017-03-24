@@ -52,17 +52,20 @@ class EvaluacionesController < ApplicationController
   # POST /evaluaciones
   # POST /evaluaciones.json
   def create
+    puts '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2'
+    puts params.to_json
     @evaluacion = Evaluacion.new(evaluacion_params)
     @evaluacion.descripcion = "Evaluacion de la cita #" + @evaluacion.cita_id.to_s
 
     puts params.to_json
     if !params[:cita].nil?
       @cita = Cita.find_by_id(params[:cita])
-    else 
+    end 
       if !params[:cita_id].nil?
-        @cita = Cita.find_by_id(params[:cita_id])
+        @cita = Cita.find(params[:cita_id])
         @criterios = params[:calificaciones]
-        
+        puts '#####################################'
+        puts @cita.to_json
         @criterios.each do |criterio|
           @calificacion = Calificacion.new      
           @calificacion.evaluacion_id = @evaluacion.id
@@ -73,10 +76,10 @@ class EvaluacionesController < ApplicationController
           
           @evaluacion.calificaciones.push(@calificacion)        
         end   
-      end
+      
     end
 
-    @cita = Cita.find_by_id(params[:cita])
+    #@cita = Cita.find_by_id(params[:cita])
     @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: 3, estatus_nuevo: 4, cita:@cita)
     @cita.estatus = 4
     @cita.save

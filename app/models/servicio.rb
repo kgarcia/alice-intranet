@@ -37,7 +37,9 @@ class Servicio < ApplicationRecord
 
 
  def as_json(options={})
-    super(:include => { :especialista => {include: [:persona, :especialidades]} ,:tipo_servicio => {include: :especialidad}, :horarios => {:include => :turnos} , :ubicacion => {}}
+
+    super(:include => { :especialista => {include: [:persona, :especialidades]} ,:tipo_servicio => {include: :especialidad}, :horarios => {:include => :turnos,:methods => :turnos_ordenados} , :ubicacion => {}}
+
 
                )
   end
@@ -254,6 +256,14 @@ def save_horario_turnos
           Turno.create(horario_id: @horarioNuevo.id,cantidad_pacientes: 0,hora_inicio: "13:00:00" , hora_fin: "13:00:00",estatus: 1,dia_id: i, tipo_turno_id: 2)
 
        end
+end
+
+def self.servicios_por_especialidad(especialidad)
+  @servicios = Servicio.joins( tipo_servicio: :especialidad )
+  if especialidad != nil
+    @servicios = @servicios.where("especialidades.id" => especialidad)
+  end
+  return @servicios
 end
 
 end

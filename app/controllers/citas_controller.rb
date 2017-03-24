@@ -7,7 +7,7 @@
     if params[:persona].nil?
       @lista = Cita.where({:usuario_id => current_usuario.id, :estatus => 1})
     else
-      @lista = Cita.where({:persona_id => params[:persona]})
+      @lista = Cita.where({:usuario_id => params[:persona]})
     end
       respond_to do |format|
       format.html
@@ -45,12 +45,18 @@
   # POST /citas
   # POST /citas.json
   def create
+    @persona = Persona.where(:cedula => params[:paciente_cedula]).take
     @cita = Cita.new(cita_params)
     @cita.estatus = 1
+    @cita.persona_id = @persona.id
     respond_to do |format|
       if @cita.save
-        ExampleMailer.cita_registrada.deliver_now#('kevin93ps@gmail.com', @cita)
-        Notificacion.create(descripcion:"Solicitud de cita.", mensaje: "Haz solicitado una cita para el servicio "+@cita.turno.horario.servicio.descripcion, url:"", usuario_id:@cita.usuario_id, tipo_notificacion_id: 1, entidad_id: @cita.id )
+        if Configuracion.envia_email
+          ExampleMailer.cita_registrada(@cita).deliver_now
+        end
+        if Configuracion.envia_notificaciones
+          Notificacion.create(descripcion:"Solicitud de cita.", mensaje: "Haz solicitado una cita para el servicio "+@cita.turno.horario.servicio.descripcion, url:"", usuario_id:@cita.usuario_id, tipo_notificacion_id: 1, entidad_id: @cita.id )
+        end
         format.html { redirect_to @cita, notice: 'Cita was successfully created.' }
         format.json { render :show, status: :created, location: @cita }
       else
@@ -184,7 +190,9 @@
     @cita.save
     @historialCita = HistorialCita.new(fecha: DateTime.now, estatus_anterior: 2, estatus_nuevo: 3, cita:@cita)
     @historialCita.save
-    Notificacion.create(descripcion:"Evaluacion de cita.", mensaje: "Por favor, envianos tu evaluacion sobre tu cita sobre el servicio "+@cita.turno.horario.servicio.descripcion, url:"", usuario_id:@cita.usuario_id, tipo_notificacion_id: 1, entidad_id: @cita.id )
+    if Configuracion.envia_notificaciones
+      Notificacion.create(descripcion:"Evaluacion de cita.", mensaje: "Por favor, envianos tu evaluacion sobre tu cita sobre el servicio "+@cita.turno.horario.servicio.descripcion, url:"", usuario_id:@cita.usuario_id, tipo_notificacion_id: 1, entidad_id: @cita.id )
+    end
     redirect_to "/finalizar_cita"
   end
 

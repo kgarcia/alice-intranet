@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319044855) do
+ActiveRecord::Schema.define(version: 20170323075226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,13 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.index ["estado_id"], name: "index_ciudades_on_estado_id", using: :btree
+  end
+
+  create_table "configuraciones", force: :cascade do |t|
+    t.integer  "envia_email"
+    t.integer  "envia_notificaciones"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "criterio_tipo_servicios", force: :cascade do |t|
@@ -807,9 +814,19 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.integer  "estado_civil_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "referencia_id"
     t.index ["estado_civil_id"], name: "index_personas_on_estado_civil_id", using: :btree
     t.index ["grupo_sanguineo_id"], name: "index_personas_on_grupo_sanguineo_id", using: :btree
+    t.index ["referencia_id"], name: "index_personas_on_referencia_id", using: :btree
     t.index ["sexo_id"], name: "index_personas_on_sexo_id", using: :btree
+  end
+
+  create_table "plantilla_correos", force: :cascade do |t|
+    t.string   "descripcion"
+    t.text     "texto"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "preguntas", force: :cascade do |t|
@@ -872,6 +889,13 @@ ActiveRecord::Schema.define(version: 20170319044855) do
     t.integer  "estatus",      default: 1, null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "referencias", force: :cascade do |t|
+    t.string   "descripcion"
+    t.integer  "estatus"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "roles", force: :cascade do |t|
@@ -1324,6 +1348,7 @@ ActiveRecord::Schema.define(version: 20170319044855) do
   add_foreign_key "persona_vacunas", "vacunas"
   add_foreign_key "personas", "estado_civiles"
   add_foreign_key "personas", "grupo_sanguineos"
+  add_foreign_key "personas", "referencias"
   add_foreign_key "personas", "sexos"
   add_foreign_key "preguntas", "tipo_preguntas"
   add_foreign_key "profesion_perfiles", "perfiles"

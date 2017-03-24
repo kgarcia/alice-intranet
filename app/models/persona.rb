@@ -40,9 +40,13 @@ class Persona < ApplicationRecord
   end
 
   def edad
+    if self.fecha_nacimiento.nil?
+      return 0
+    else
     dob = self.fecha_nacimiento.to_date
     now = Time.now.utc.to_date
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
   end
 
   def email

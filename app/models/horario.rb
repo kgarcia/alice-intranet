@@ -16,6 +16,10 @@ class Horario < ApplicationRecord
   	return turno.cantidad_horas/horario.tiempo_cita
   end
 
+  def turnos_ordenados
+    self.turnos.order(:id)
+  end
+
 
   def disponibilidad_semana_completa(fecha1)
         

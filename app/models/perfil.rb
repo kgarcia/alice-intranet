@@ -18,7 +18,7 @@ class Perfil < ApplicationRecord
   has_many :ocupaciones, through: :ocupacion_perfiles, dependent: :destroy
   has_many :patologia_perfiles, dependent: :destroy
   has_many :patologias, through: :patologia_perfiles, dependent: :destroy
-  has_many :profesion_perfiles, dependent: :destroy
+  has_many :profesion_perfiles, dependent: :destroy  
   has_many :profesiones, through: :profesion_perfiles, dependent: :destroy
   has_many :sexo_perfiles, dependent: :destroy
   has_many :sexos, through: :sexo_perfiles, dependent: :destroy
@@ -52,7 +52,7 @@ class Perfil < ApplicationRecord
     def criterioPerfil=(value)
       @criteriosPerfil = value
     end
-  
+
     def discapacidadesPerfil=(value)
       @discapacidadesPerfil = value
     end
@@ -64,7 +64,7 @@ class Perfil < ApplicationRecord
     def grupoSanguineosPerfil=(value)
       @grupoSanguineosPerfil = value
     end
-    
+
     def habitosPerfil=(value)
       @habitosPerfil = value
     end
@@ -87,11 +87,11 @@ class Perfil < ApplicationRecord
 
     def sexosPerfil=(value)
       @sexosPerfil = value
-    end 
+    end
 
     def vacunasPerfil=(value)
       @vacunasPerfil = value
-    end 
+    end
 
     def rangoEdadesPerfil=(value)
       @rangoEdadesPerfil = value
@@ -99,12 +99,12 @@ class Perfil < ApplicationRecord
 
     def rangoPesosPerfil=(value)
       @rangoPesosPerfil = value
-    end  
+    end
 
    private
    def save_adicciones
     AdiccionPerfil.where(:perfil_id => self.id).destroy_all
-    if !@adiccionesPerfil.nil?  
+    if !@adiccionesPerfil.nil?
 	      @adiccionesPerfil.each do |adiccion_id|
 		      AdiccionPerfil.create(adiccion_id: adiccion_id, perfil_id: self.id )
         end

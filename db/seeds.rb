@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #   Tipo Horario linea 390 falta agregar con los cambios que tiene marcos
 
-   
+
     TipoEntidad.find_or_create_by(:descripcion => "Servicio")
     TipoEntidad.find_or_create_by(:descripcion => "Evento")
 
@@ -81,7 +81,7 @@
     Ubicacion.find_or_create_by(:descripcion => 'Av Venezuela entre 12 y 13', :estatus => 1, :sector => Sector.find(3), :ciudad => Ciudad.find(1), :tipo_ubicacion => TipoUbicacion.find(3))
     Ubicacion.find_or_create_by(:descripcion => 'Av Venezuela entre 12 y 13', :estatus => 1, :sector => Sector.find(3), :ciudad => Ciudad.find(1), :tipo_ubicacion => TipoUbicacion.find(3))
 
-   
+
 
     TipoHorario.find_or_create_by(:descripcion => 'Cantidad de pacientes', :estatus => 1)
     TipoHorario.find_or_create_by(:descripcion => 'Tiempo promedio', :estatus => 1)
@@ -114,7 +114,7 @@
     TipoServicio.find_or_create_by(descripcion: 'Tomografía', texto: nil, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(2), :especialidad => Especialidad.find(1), :tipo_atencion => TipoAtencion.find(2))
     TipoServicio.find_or_create_by(descripcion: 'Ecografía', texto: nil, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(2), :especialidad => Especialidad.find(2), :tipo_atencion => TipoAtencion.find(2))
     TipoServicio.find_or_create_by(descripcion: 'Exámenes', texto: nil, foto_file_name: nil, foto_content_type: nil, foto_file_size: nil, foto_updated_at: nil, estatus: 1, :categoria => Categoria.find(1), :especialidad => Especialidad.find(3), :tipo_atencion => TipoAtencion.find(2))
-    
+
     TipoEvento.find_or_create_by(descripcion: 'Jornada',estatus: 1)
     TipoEvento.find_or_create_by(descripcion: 'Congreso',estatus: 1)
     TipoEvento.find_or_create_by(descripcion: 'Conferencia',estatus: 1)
@@ -126,9 +126,9 @@
     FormacionAcademica.find_or_create_by(:descripcion => 'Doctorado', :estatus => 1,:nivel_formacion => NivelFormacion.find(3))
     FormacionAcademica.find_or_create_by(:descripcion => 'Postgrado', :estatus => 1,:nivel_formacion => NivelFormacion.find(2))
     FormacionAcademica.find_or_create_by(:descripcion => 'Pregrado', :estatus => 1,:nivel_formacion => NivelFormacion.find(1))
-    
-    
-    
+
+
+
 
     Universidad.find_or_create_by(:descripcion => 'Universidad Centroccidental Lisandro Alvarado - UCLA', :estatus => 1)
     Universidad.find_or_create_by(:descripcion => 'Universidad Central de Venezuela - UCV', :estatus => 1)
@@ -201,7 +201,7 @@
 	TipoDiscapacidad.find_or_create_by(descripcion: 'Física',estatus: 1)
 	TipoDiscapacidad.find_or_create_by(descripcion: 'Sensorial',estatus: 1)
 	TipoDiscapacidad.find_or_create_by(descripcion: 'Intelectual',estatus: 1)
-	
+
 
     Discapacidad.find_or_create_by(descripcion: 'Parálisis Celebral',estatus: 1, :tipo_discapacidad => TipoDiscapacidad.find(1))
     Discapacidad.find_or_create_by(descripcion: 'Auditiva',estatus: 1, :tipo_discapacidad => TipoDiscapacidad.find(2))
@@ -229,7 +229,7 @@
 	Habito.find_or_create_by(descripcion: 'Consumo de Carnes Rojas',estatus: 1,:tipo_habito => TipoHabito.find(2))
 	Habito.find_or_create_by(descripcion: 'Consumo de Comida Rápida',estatus: 1,:tipo_habito => TipoHabito.find(2))
 
-    
+
     TipoLesion.find_or_create_by(descripcion: 'Articulares',estatus: 1)
 	TipoLesion.find_or_create_by(descripcion: 'Musculares',estatus: 1)
 
@@ -269,7 +269,7 @@
     Patologia.find_or_create_by(:descripcion => 'Esquizofrenia', :estatus => 1, :tipo_patologia => TipoPatologia.find(3))
     Patologia.find_or_create_by(:descripcion => 'Infarto de miocardio', :estatus => 1, :tipo_patologia => TipoPatologia.find(4))
     Patologia.find_or_create_by(:descripcion => 'Cardiopatía', :estatus => 1, :tipo_patologia => TipoPatologia.find(4))
-   
+
     Profesion.find_or_create_by(:descripcion => 'Medicina', :estatus => 1)
     Profesion.find_or_create_by(:descripcion => 'Ingeniería', :estatus => 1)
     Profesion.find_or_create_by(:descripcion => 'Arquitectura', :estatus => 1)
@@ -298,7 +298,7 @@
 	Vacuna.find_or_create_by(descripcion: 'Hepatitis A',estatus: 1)
 	Vacuna.find_or_create_by(descripcion: 'Rubeola',estatus: 1)
 
-   
+
     Persona.find_or_create_by(:cedula => '20473293', :nombre => 'Richard', :apellido => 'Gere', :telefono => '+584245126060', :direccion => 'Urb. Bararida Residencias Venezuela II Etapa', :fecha_nacimiento => '16/05/1991', :sexo => Sexo.find(1))
     Persona.find_or_create_by(:cedula => '20473294', :nombre => 'Demon', :apellido => 'Sars', :telefono => '+584249047270', :direccion => 'Urb. Colinas de Perija', :fecha_nacimiento => '16/02/1964', :sexo => Sexo.find(1))
     Persona.find_or_create_by(:cedula => '20473295', :nombre => 'Antonio', :apellido => 'Trap', :telefono => '+584248749267', :direccion => 'Urb. Altavista', :fecha_nacimiento => '27/09/1982', :sexo => Sexo.find(1))
@@ -316,7 +316,7 @@
     Persona.find_or_create_by(:cedula => '10787657', :nombre => 'Juan', :apellido => 'Pérez' , :telefono => '+584120583093', :direccion => 'Urb. Nueva Segovia', :fecha_nacimiento => '12/06/1970', :sexo => Sexo.find(1))
     Persona.find_or_create_by(:cedula => '5677678', :nombre => 'Carlos', :apellido => 'Berríos' , :telefono => '+582514567890', :direccion => 'Cabudare Centro', :fecha_nacimiento => '03/01/1955', :sexo => Sexo.find(1))
     Persona.find_or_create_by(:cedula => '18090153', :nombre => 'Patricia', :apellido => 'Solano' , :telefono => '+584140908876', :direccion => 'Urb. Obelisco', :fecha_nacimiento => '10/08/1988', :sexo => Sexo.find(2))
-    
+
     Especialista.find_or_create_by(:persona => Persona.find(1), estatus: 1)
     Especialista.find_or_create_by(:persona => Persona.find(2), estatus: 1)
     Especialista.find_or_create_by(:persona => Persona.find(3), estatus: 1)
@@ -366,6 +366,7 @@
     
 	OptionMenu.find_or_create_by(        :id_padre => nil, :nombre => 'Configuración General',     :url_path => '#', :icono => 'fa-cogs'       ,      :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
     	OptionMenu.find_or_create_by(    :id_padre => 1,   :nombre => 'Datos de Servicios',                :url_path => '#', :icono => 'fa-edit',           :controlador => '', :accion => '', num_hijos: 15, :estatus => 'A')
+
 		    OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Países',                   :url_path => '/paises', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 		    OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Estados',                   :url_path => '/estados', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 		    OptionMenu.find_or_create_by(:id_padre => 2, :nombre => 'Ciudades',                   :url_path => '/ciudades', :icono => '',             :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
@@ -419,6 +420,7 @@
 		OptionMenu.find_or_create_by(    :id_padre => 51,   :nombre => 'Catálogo de Servicios',   :url_path => '#', :icono => 'fa-table',           :controlador => '', :accion => '', num_hijos: 2, :estatus => 'A')
 	        OptionMenu.find_or_create_by(:id_padre => 52,   :nombre => 'Servicios',             :url_path => '/servicios', :icono => 'fa-flask',            :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 	        OptionMenu.find_or_create_by(:id_padre => 52,   :nombre => 'Especialistas',         :url_path => '/especialistas', :icono => 'fa-user-md',          :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+
   		OptionMenu.find_or_create_by(    :id_padre => 51,   :nombre => 'Catálogo de Eventos',     :url_path => '/eventos', :icono => 'fa-table',            :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 
     OptionMenu.find_or_create_by(        :id_padre => nil,   :nombre => 'Agenda',                  :url_path => '#', :icono => 'fa-calendar',         :controlador => '', :accion => '', num_hijos: 3, :estatus => 'A')
@@ -464,6 +466,7 @@
 		OptionMenu.find_or_create_by(    :id_padre => 79, :nombre => 'Seguridad Funcional',                   :url_path => '#', :icono => 'fa-users',             :controlador => '', :accion => '', num_hijos: 2, :estatus => 'A')
 	        OptionMenu.find_or_create_by(:id_padre => 92, :nombre => 'Usuarios',               :url_path => '/usuarios', :icono => 'fa-user-plus',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
 	        OptionMenu.find_or_create_by(:id_padre => 92, :nombre => 'Roles',                      :url_path => '/roles', :icono => 'fa-bookmark-o',        :controlador => '', :accion => '', num_hijos: 0, :estatus => 'A')
+
 
 # DATOS POR DEFECTO - PARA UTILIZAR EN EL EJEMPLO, ETC...
 
@@ -512,7 +515,7 @@
     Evaluacion.find_or_create_by(:descripcion => 'Del (1 al 10, siendo el 1 poco el 10 mucho) indique que le ha parecido la:', :tipo_evaluacion => TipoEvaluacion.find(2))
     Evaluacion.find_or_create_by(:descripcion => 'Seleccione como se sintio con respecto a la:', :tipo_evaluacion => TipoEvaluacion.find(2))
 
-       
+
     TipoBusqueda.find_or_create_by(:descripcion => 'Servicios', :estatus => 1)
     TipoBusqueda.find_or_create_by(:descripcion => 'Especialistas', :estatus => 1)
 
@@ -572,16 +575,13 @@ Pregunta.find_or_create_by(descripcion: '¿Qué imágenes ofrece el Centro de Im
 
 InformacionGeneral.find_or_create_by(:nombre =>"Unidad Quirúrgica La Trinidad", :rif => "J-30530509-9", :direccion => "Carrera 28 entre calles 9 y 10", :tlf => '0251-2525284',:estatus => 1)
 
+Configuracion.find_or_create_by(envia_email: 1, envia_notificaciones: 1)
 
-
+PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para creacion de citas.", texto:" ", estatus:1)
+PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para cancelacion de citas.", texto:" ", estatus:1)
+PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para difusion de servicios.", texto:" ", estatus:1)
+PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para difusion de eventos.", texto:" ", estatus:1)
+PlantillaCorreo.find_or_create_by(descripcion: "Plantilla para creacion de usuario.", texto:" ", estatus:1)
 
      puts 'seed'
-
-
-
-
-
-
-
-
 

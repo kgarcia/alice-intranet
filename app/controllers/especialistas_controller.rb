@@ -17,11 +17,10 @@ class EspecialistasController < ApplicationController
   # GET /especialistas/new
   def new
     @especialista = Especialista.new
-    @persona = Persona.new
     @especialidades = Especialidad.where(:estatus => 1)
     @universidades = Universidad.where(:estatus => 1)
     @formacion_academicas = FormacionAcademica.where(:estatus => 1)
-    @sexos = Sexo.where(:estatus => 1)
+    @personas = Persona.joins("LEFT OUTER JOIN especialistas ON especialistas.persona_id = personas.id").where("especialistas.persona_id IS null")
 
   end
 
@@ -32,27 +31,30 @@ class EspecialistasController < ApplicationController
     @especialidades = Especialidad.where(:estatus => 1)
     @universidades = Universidad.where(:estatus => 1)
     @formacion_academicas = FormacionAcademica.where(:estatus => 1)
-    @sexos = Sexo.where(:estatus => 1)
+    @personas = Persona.joins("LEFT OUTER JOIN especialistas ON especialistas.persona_id = personas.id").where("especialistas.persona_id IS null or especialistas.persona_id = "+@especialista.persona.id.to_s)
   end
 
   # POST /especialistas
   # POST /especialistas.json
   def create
     @especialista = Especialista.new(especialista_params)
-    @persona = Persona.new(persona_params)
+    @universidades = Universidad.where(:estatus => 1)
+    @formacion_academicas = FormacionAcademica.where(:estatus => 1)
+    @especialidades = Especialidad.where(:estatus => 1)
     
     @especialista.especialidadEspecialistas = params[:especialidades]
 
     respond_to do |format|
-      if @persona.save
-        @especialista.persona_id = @persona.id
-        @especialista.save
+
+      if @especialista.save
         format.html { redirect_to especialistas_path, notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :show, status: :created, location: @especialista }
       else
         format.html { render :new }
         format.json { render json: @especialista.errors, status: :unprocessable_entity }
       end
+
+
     end
   end
 
@@ -62,8 +64,6 @@ class EspecialistasController < ApplicationController
     @especialista.especialidadEspecialistas = params[:especialidades]
     respond_to do |format|
       if @especialista.update(especialista_params)
-        @persona = @especialista.persona
-        @persona.update(persona_params)
         format.html { redirect_to especialistas_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @especialista }
       else

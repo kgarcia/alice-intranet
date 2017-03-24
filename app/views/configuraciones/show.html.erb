@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Envia email:</strong>
+  <%= @configuracion.envia_email %>
+</p>
+
+<p>
+  <strong>Envia notificaciones:</strong>
+  <%= @configuracion.envia_notificaciones %>
+</p>
+
+<%= link_to 'Edit', edit_configuracion_path(@configuracion) %> |
+<%= link_to 'Back', configuraciones_path %>

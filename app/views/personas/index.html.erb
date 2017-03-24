@@ -1,23 +1,35 @@
-<%= csrf_meta_tag %>
-<br>
-<div class="ibox float-e-margins">
-  <div class="ibox-title">
-    <h2 class="parametros-titulo"><%= @personas.new.class.titulo %></h2>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong><%= @personas.new.class.titulo %></strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li class="active">
+            <strong class="text-blue">Listado</strong>
+        </li>
+    </ol>
   </div>
 </div>
-<div class="ibox-content">
-  <%= link_to "Registrar", new_polymorphic_url(@personas.new), :class => "btn btn-primary btn-sm"%>
-  <br><br>
-  <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h4 class="text-dark-blue"><strong>Listado: <%= @personas.new.class.titulo %></strong></h4>
+        </div>
+        <div class="ibox-content">
+          <%= link_to "Registrar", new_persona_path, :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: 10px;'%>
+          <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
     <thead>
     <tr>
-      <th data-breakpoints="xs" data-sorted="true">Cedula</th>
+      <th data-breakpoints="xs" data-sorted="true">Cédula</th>
       <th>Nombre y Apellido</th>
       <th>Teléfono</th>
       <th>Dirección</th>
       <th>Fecha nacimiento</th>
       <th>Sexo</th>
-      <th colspan="2"></th>
       <th colspan="2"></th>
       <th colspan="2"></th>
     </tr>
@@ -30,34 +42,17 @@
           <td><%= persona.nombre %> <%= persona.apellido %></td>
           <td><%= persona.telefono %></td>
           <td><%= persona.direccion %></td>
-          <td><%= persona.fecha_nacimiento %></td>
+          <td><%= persona.fecha_nacimiento.strftime("%d/%m/%Y") %></td>
           <td><%= persona.sexo.descripcion %></td>
-          <td><%= link_to 'Registrar Cuenta', new_persona_path, :persona_id => persona.id  %></td>
-          <td><%= link_to 'Editar', edit_persona_path(persona) %></td>
-          <td><%= link_to 'Eliminar', persona, method: :delete, data: { confirm: '¿Está seguro que desea eliminar esta persona?' } %></td>
+          <td><%= link_to 'Editar', edit_persona_path(persona), :class => "btn btn-warning btn-sm " %></td>
         </tr>
     <% end %>
+
     </tbody>
-    <tfoot>
-    <tr>
-      <td colspan="5">
-        <ul class="pagination pull-right"></ul>
-      </td>
-    </tr>
-    </tfoot>
-  </table>
+    </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<br>
-
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.table').footable();
-  });
-
-</script>
-
-
-
-
-
+  
