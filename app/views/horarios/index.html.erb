@@ -1,52 +1,51 @@
-
-
-<%= csrf_meta_tag %>
-<p id="notice"><%= notice %></p>
-<div class="ibox float-e-margins">
-              <div class="ibox-title">
-                  <h2 class="parametros-titulo"><%= "Horario" %></h2>
-              </div>
-          </div>
-
-<div class="ibox-content">
-<%= link_to link_to 'Registrar', new_horario_path , :class => "btn btn-primary btn-sm" %>
- <br><br> 
- <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
-    <thead>
-      <tr>
-        <th>Tipo Horario</th>
-        <th>Servicio</th>
-        
-        <th colspan="1"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @horarios.each do |horario| %>
-          <tr>
-        <td><%= horario.tipo_horario.descripcion %></td>
-        <td><%= horario.servicio.descripcion%></td>
-            <td>
-             <%= link_to 'Editar', edit_polymorphic_url(horario), :class => "btn btn-warning btn-sm" %>
-             <%= link_to 'Eliminar', horario, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el horario?' } , :class => "btn btn-danger btn-sm" %></td>
-          </tr>
-      <% end %>
-    </tbody>
-      <tfoot>
-                    <tr>
-                        <td colspan="5">
-                            <ul class="pagination pull-right"></ul>
-                        </td>
-                    </tr>
-                    </tfoot>
-  </table>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2 class="text-dark-blue"><strong><%= @horarios.new.class.titulo %></strong></h2>
+      <ol class="breadcrumb">
+        <li>
+          <a href="<%= url_for :controller => 'home', :action => 'index' %>">Inicio</a>
+        </li>
+        <li class="active">
+            <strong class="text-blue">Listado</strong>
+        </li>
+    </ol>
+  </div>
 </div>
-<br>
-
-
-<script type="text/javascript">
-$(document).ready(function(){
-$('.table').footable();
-});
-
-</script>
+<div class="wrapper wrapper-content">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+              <h4 class="text-dark-blue">
+                <strong>Listado: <%= @horarios.new.class.titulo %></strong>
+              </h4>
+          </div>
+          <div class="ibox-content">
+            <%= link_to "Registrar", new_polymorphic_url(@horarios.new), :class => "btn btn-primary btn-sm", style: 'position: absolute; z-index: 9999; margin-top: 10px;'%>
+             <table class="footable table table-stripped" data-sorting="true" data-filtering="true">
+                <thead>
+                  <tr>
+                    <th>Tipo Horario</th>
+                    <th>Servicio</th>
+                    
+                    <th colspan="1"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @horarios.each do |horario| %>
+                      <tr>
+                    <td><%= horario.tipo_horario.descripcion %></td>
+                    <td><%= horario.servicio.descripcion%></td>
+                        <td>
+                         <%= link_to 'Editar', edit_polymorphic_url(horario), :class => "btn btn-warning btn-sm" %>
+                         <%= link_to 'Eliminar', horario, :method => :delete, data: { confirm: '¿Está seguro que desea eliminar el horario?' } , :class => "btn btn-danger btn-sm" %></td>
+                      </tr>
+                  <% end %>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 

@@ -15,12 +15,24 @@ class RolesController < ApplicationController
   # GET /roles/new
   def new
     @rol = Rol.new
-    @options = OptionMenu.all
+
+    @padres = OptionMenu.where("num_hijos > 0")
+    @id_padres = OptionMenu.select("id").where("num_hijos > 0")
+    @hijos = OptionMenu.where("id_padre IS NOT NULL")
+
+    @check_padres = @id_padres.map { |e| e.id}
+
   end
 
   # GET /roles/1/edit
   def edit
-    @options = OptionMenu.all
+
+    @padres = OptionMenu.where("num_hijos > 0")
+    @id_padres = OptionMenu.select("id").where("num_hijos > 0")
+    @hijos = OptionMenu.where("id_padre IS NOT NULL")
+
+    @check_padres = @id_padres.map { |e| e.id}
+
   end
 
   # POST /roles
@@ -31,7 +43,7 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @rol.save
-        format.html { redirect_to @rol, notice: 'El registro se ha creado exitosamente.' }
+        format.html { redirect_to roles_path, notice: 'El registro se ha creado exitosamente.' }
         format.json { render :show, status: :created, location: @rol }
       else
         format.html { render :new }
@@ -43,10 +55,12 @@ class RolesController < ApplicationController
   # PATCH/PUT /roles/1
   # PATCH/PUT /roles/1.json
   def update
+    
     @rol.option_menus = params[:option_menus]
+    
     respond_to do |format|
       if @rol.update(rol_params)
-        format.html { redirect_to @rol, notice: 'El registro se ha actualizado exitosamente.' }
+        format.html { redirect_to roles_path, info: 'El registro se ha actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @rol }
       else
         format.html { render :edit }
@@ -59,7 +73,7 @@ class RolesController < ApplicationController
   # DELETE /roles/1.json
   def destroy
     respond_to do |format|
-      format.html { redirect_to roles_url, notice: 'El registro se ha eliminado exitosamente.' }
+      format.html { redirect_to roles_url, alert: 'El registro se ha eliminado exitosamente.' }
       format.json { head :no_content }
     end
   end
