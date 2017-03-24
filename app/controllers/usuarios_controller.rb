@@ -63,8 +63,9 @@ class UsuariosController < ApplicationController
 
     def registrar
       @usuario = Usuario.new
-      @persona = Persona.new
-      @sexos = Sexo.where(:estatus => 1)
+      @personas = Persona.joins("LEFT OUTER JOIN usuarios ON usuarios.persona_id = personas.id").where("usuarios.persona_id IS null")
+      
+
       @roles = Rol.all
       @servicios = Servicio.where(:estatus => 1)
     end
@@ -79,7 +80,6 @@ class UsuariosController < ApplicationController
       @password = ((0...8).map { (65 + rand(26)).chr }.join)
       @usuario.password = @password
       @usuario.password_confirmation = @password
-      @usuario.persona = Persona.find(params['quer'][0])
       @roles = Rol.all
       @servicios = Servicio.where(:estatus => 1)
 
@@ -108,16 +108,13 @@ class UsuariosController < ApplicationController
 
     def editar
       @usuario = Usuario.find(params[:id])
-      @persona = @usuario.persona
-      @sexos = Sexo.where(:estatus => 1)
       @roles = Rol.all
       @servicios = Servicio.where(:estatus => 1)
+      @personas = Persona.joins("LEFT OUTER JOIN usuarios ON usuarios.persona_id = personas.id").where("usuarios.persona_id IS null or usuarios.persona_id = "+@usuario.persona.id.to_s)
     end
 
     def modificar
-      @usuario = Usuario.find(params[:usuario_id])
-      @persona = @usuario.persona
-      @persona.update(persona_params)
+      @usuario = Usuario.find(params[:id])
       respond_to do |format|
         if @usuario.update(sign_up_params)
           format.html { redirect_to "/usuarios", info: 'El registro ha sido actualizado exitosamente.' }

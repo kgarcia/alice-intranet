@@ -17,11 +17,10 @@ class EspecialistasController < ApplicationController
   # GET /especialistas/new
   def new
     @especialista = Especialista.new
-    @persona = Persona.new
     @especialidades = Especialidad.where(:estatus => 1)
     @universidades = Universidad.where(:estatus => 1)
     @formacion_academicas = FormacionAcademica.where(:estatus => 1)
-    @sexos = Sexo.where(:estatus => 1)
+    @personas = Persona.joins("LEFT OUTER JOIN especialistas ON especialistas.persona_id = personas.id").where("especialistas.persona_id IS null")
 
   end
 
@@ -32,15 +31,13 @@ class EspecialistasController < ApplicationController
     @especialidades = Especialidad.where(:estatus => 1)
     @universidades = Universidad.where(:estatus => 1)
     @formacion_academicas = FormacionAcademica.where(:estatus => 1)
-    @sexos = Sexo.where(:estatus => 1)
+    @personas = Persona.joins("LEFT OUTER JOIN especialistas ON especialistas.persona_id = personas.id").where("especialistas.persona_id IS null or especialistas.persona_id = "+@especialista.persona.id.to_s)
   end
 
   # POST /especialistas
   # POST /especialistas.json
   def create
     @especialista = Especialista.new(especialista_params)
-    #@persona = Persona.new(persona_params)
-    @especialista.persona = Persona.find(params['quer'][0])
     @universidades = Universidad.where(:estatus => 1)
     @formacion_academicas = FormacionAcademica.where(:estatus => 1)
     @especialidades = Especialidad.where(:estatus => 1)
@@ -67,8 +64,6 @@ class EspecialistasController < ApplicationController
     @especialista.especialidadEspecialistas = params[:especialidades]
     respond_to do |format|
       if @especialista.update(especialista_params)
-        @persona = @especialista.persona
-        @persona.update(persona_params)
         format.html { redirect_to especialistas_path, info: 'El registro ha sido actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @especialista }
       else
