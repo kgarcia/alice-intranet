@@ -11,7 +11,6 @@ class Cita < ApplicationRecord
   has_many :ubicacion, through: :servicio
   has_many :historial_citas
 
-
   def self.titulo
 		return "Cita"
 	end

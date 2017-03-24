@@ -28,7 +28,8 @@
         format.html
         format.json { render json: @parametro.to_json }
       else
-        format.json { render json: @cita.errors, status: :unprocessable_entity }
+        #format.json { render json: @parametro.errors, status: :unprocessable_entity }
+        format.json { render :json => { :error => @parametro.errors.full_messages }, :status => 422 }
       end
     end
   end
@@ -45,10 +46,11 @@
   # POST /citas
   # POST /citas.json
   def create
-    @persona = Persona.where(:cedula => params[:paciente_cedula]).take
+    @persona = Persona.where(cedula: params[:paciente_cedula]).take
     @cita = Cita.new(cita_params)
     @cita.estatus = 1
     @cita.persona_id = @persona.id
+    puts @cita.to_json
     respond_to do |format|
       if @cita.save
         if Configuracion.envia_email

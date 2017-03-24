@@ -171,24 +171,34 @@ class UsuariosController < ApplicationController
 
    # POST /resource
    def create
-     @persona = Persona.new(persona_params)
-     @persona.save
-     @user = Usuario.new(sign_up_params)
-     @password = ((0...8).map { (65 + rand(26)).chr }.join)
-     @user.password = @password
-     @user.password_confirmation = @password
-     @user.persona_id = @persona.id
-    respond_to do |format|
-      format.json {
-        if @user.save
-          ExampleMailer.usuario_creado(@user, @password).deliver_now
-          render :json => {:data => @user, status: :created }
-        else
-          render :json => {:messages => @user.errors.full_messages}
-        end
-      }
-     
-   end
+    if !Usuario.exists?(email: sign_up_params[:email])#.exists?
+       @persona = Persona.new(persona_params)
+       @persona.save
+       @user = Usuario.new(sign_up_params)
+       @password = ((0...8).map { (65 + rand(26)).chr }.join)
+       @user.password = @password
+       @user.password_confirmation = @password
+       @user.persona_id = @persona.id
+      respond_to do |format|
+        format.json {
+          if @user.save
+            ExampleMailer.usuario_creado(@user, @password).deliver_now
+            render :json => {:data => @user, status: :created }
+          else
+            render :json => {:messages => @user.errors.full_messages}
+          end
+        }
+       
+      end
+    else
+      @user = Usuario.find_by_email(sign_up_params[:email])
+      respond_to do |format|
+        format.json {
+            render :json => {:data => @user, status: :created }
+         }
+       
+      end
+    end
  end
 
   	def persona_params
