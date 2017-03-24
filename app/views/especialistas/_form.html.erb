@@ -51,9 +51,18 @@
                           <label class="control-label">Formación Académica <label for="<%= @especialista.class.name.underscore %>_formacion_academica_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
                           <%= f.collection_select(:formacion_academica_id, @formacion_academicas, :id, :descripcion, {:prompt => "Seleccione"}, :class => "form-control") %>
                         </div>
+
+                        <div class="form-group">
+                          <label class="control-label">Persona <label for="<%= @especialista.class.name.underscore %>_persona_id" class="control-label error" style="margin-bottom: 0px;"></label></label>
+                          <%= f.collection_select(:persona_id, @personas, :id, :nombre_identificacion,{:prompt => "Seleccione la persona asociada al usuario"}, {:class => "form-control", :required => true} )%>
+                        </div>
                   
-                        <%= render 'personas/datos_persona', persona: @persona %>
-                      </div>  
+                          <script type="text/javascript">
+                                $(document).ready(function() {
+                                  $("#especialista_persona_id").select2();
+                                });
+                                </script> 
+                          </div>  
                     </div>
 
                     <div id="especialidades" class="tab-pane fade in">

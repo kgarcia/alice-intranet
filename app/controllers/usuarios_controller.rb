@@ -23,6 +23,19 @@ class UsuariosController < ApplicationController
 
     def login_movil
       @usuario = Usuario.find_by_email(params[:email])
+      puts @usuario
+       respond_to do |format|
+          if @usuario.valid_password?(params[:password])
+              format.json {render json: @usuario}
+          else
+              format.json {render json: @usuario.errors, status: :unprocessable_entity }
+          end
+        end
+    end
+
+    def login_web
+      @usuario = Usuario.find_by_email(params[:email])
+      puts @usuario
        respond_to do |format|
           if @usuario.valid_password?(params[:password])
               format.json {render json: @usuario}
@@ -63,21 +76,32 @@ class UsuariosController < ApplicationController
 
     def registrar
       @usuario = Usuario.new
-      @persona = Persona.new
-      @sexos = Sexo.where(:estatus => 1)
+      @personas = Persona.joins("LEFT OUTER JOIN usuarios ON usuarios.persona_id = personas.id").where("usuarios.persona_id IS null")
+      
+
       @roles = Rol.all
       @servicios = Servicio.where(:estatus => 1)
     end
 
     def guardar
-      @persona = Persona.new(persona_params)
-      @persona.save
+      #@persona = Persona.new(persona_params)
+      #@persona.save
+
+
+
       @usuario = Usuario.new(sign_up_params)
       @password = ((0...8).map { (65 + rand(26)).chr }.join)
       @usuario.password = @password
       @usuario.password_confirmation = @password
+      @roles = Rol.all
+      @servicios = Servicio.where(:estatus => 1)
+
+      #if !Usuario.where("persona = ?", Persona.find(params['quer'][0]))
+
       respond_to do |format|
+
       if @usuario.save
+
         ExampleMailer.usuario_creado(@usuario, @password).deliver_now
         format.html { redirect_to "/usuarios", notice: 'El registro ha sido creado exitosamente.' }
         format.json { render :editar, status: :created, location: @usuario }
@@ -85,21 +109,25 @@ class UsuariosController < ApplicationController
         format.html { render :registrar }
         format.json { render json: @usuario.errors, status: :unprocessable_entity }
       end
+
      end
+
+   #else
+    #format.html { redirect_to :registrar, info: 'Ya tiene un usuario registrado' and return}
+
+   #end
+
     end
 
     def editar
       @usuario = Usuario.find(params[:id])
-      @persona = @usuario.persona
-      @sexos = Sexo.where(:estatus => 1)
       @roles = Rol.all
       @servicios = Servicio.where(:estatus => 1)
+      @personas = Persona.joins("LEFT OUTER JOIN usuarios ON usuarios.persona_id = personas.id").where("usuarios.persona_id IS null or usuarios.persona_id = "+@usuario.persona.id.to_s)
     end
 
     def modificar
-      @usuario = Usuario.find(params[:usuario_id])
-      @persona = @usuario.persona
-      @persona.update(persona_params)
+      @usuario = Usuario.find(params[:id])
       respond_to do |format|
         if @usuario.update(sign_up_params)
           format.html { redirect_to "/usuarios", info: 'El registro ha sido actualizado exitosamente.' }

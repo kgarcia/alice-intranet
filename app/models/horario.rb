@@ -20,6 +20,7 @@ class Horario < ApplicationRecord
     self.turnos.order(:id)
   end
 
+
   def disponibilidad_semana_completa(fecha1)
         
         @fecha_nueva = fecha1.to_datetime
